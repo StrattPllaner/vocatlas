@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#F6EFE2">
+<title>Vocatlas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=DM+Serif+Display&family=Nunito:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--crema:#F6EFE2;--card:#FFFBF2;--tinta:#14323F;--terra:#E8603C;--mostaza:#F2B544;--azul:#8FC9E8;--niebla:#DDE5EA}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;height:100%;background:var(--crema);color:var(--tinta);font-family:Nunito,system-ui,sans-serif;font-weight:700;overflow:hidden}
+h1,h2,h3{font-family:'Bowlby One',Georgia,serif;font-weight:400;margin:0;line-height:1.12;letter-spacing:.3px}
+p{margin:0 0 10px;line-height:1.45}
+.topo{background-color:var(--crema);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cg fill='none' stroke='%2314323F' stroke-opacity='.08' stroke-width='1.5'%3E%3Cpath d='M20 120c20-60 90-80 140-50s60 100 10 130-120 10-150-80z'/%3E%3Cpath d='M55 120c15-35 60-45 90-28s35 60 5 78-75 5-95-50z'/%3E%3C/g%3E%3C/svg%3E")}
+.poster{background-color:var(--terra);background-image:linear-gradient(160deg,rgba(232,96,60,0) 0%,rgba(232,96,60,0) 10%,#E8603C 58%),radial-gradient(circle at 2px 2px,rgba(20,50,63,.32) 1.7px,transparent 2px);background-size:auto,10px 10px}
+.screen{position:fixed;inset:0;display:none;flex-direction:column}
+.screen.on{display:flex}
+#test{z-index:30}
+.btn{background:var(--terra);color:var(--card);border:3px solid var(--tinta);border-radius:14px;padding:11px 18px;font:400 15px 'Bowlby One',Nunito,sans-serif;letter-spacing:.5px;box-shadow:0 5px 0 var(--tinta);cursor:pointer}
+.btn:active{transform:translateY(4px);box-shadow:0 1px 0 var(--tinta)}
+.btn[disabled]{background:#C5D1D7;color:#6B8794;box-shadow:0 5px 0 rgba(20,50,63,.4);border-color:rgba(20,50,63,.5);cursor:default}
+.btn.ghost{background:var(--card);color:var(--tinta)}
+.btn.ghost[disabled]{opacity:.6}
+.btn.wide{width:100%}
+.btn.small{padding:9px 13px;font-size:13px}
+.poster .btn{background:var(--tinta);color:var(--card)}
+.poster .btn.ghost{background:var(--card);color:var(--tinta)}
+.sub{font-size:13px;font-weight:800;opacity:.72}
+.x{background:none;border:0;font:400 22px 'Bowlby One',sans-serif;color:var(--tinta);cursor:pointer;margin-left:auto}
+.poster .x,.poster .sub{color:var(--card)}
+
+/* cuestionario */
+#quiz>*{width:100%;max-width:780px;margin-left:auto;margin-right:auto}
+.qhead{padding:20px 18px 8px}
+.kick{font:400 14px 'DM Serif Display',Georgia,serif;letter-spacing:4px;color:var(--card);text-align:center}
+.lockup{display:flex;align-items:center;justify-content:center;gap:12px;margin:4px 0 6px}
+#logoq{flex:none}
+.wordmark{font:400 clamp(38px,10vw,64px) 'Bowlby One',Georgia,serif;color:var(--card);letter-spacing:1px;text-shadow:3px 3px 0 var(--tinta),-2px -2px 0 var(--tinta),2px -2px 0 var(--tinta),-2px 2px 0 var(--tinta),0 6px 0 var(--tinta)}
+.qhead h1{font:400 26px 'DM Serif Display',Georgia,serif;color:var(--tinta);text-align:center;margin:8px 0 6px;background:var(--card);border:3px solid var(--tinta);border-radius:999px;padding:6px 16px;box-shadow:0 4px 0 var(--tinta)}
+.qhead p{color:var(--card);font-weight:800;text-align:center;text-shadow:0 2px 0 rgba(20,50,63,.55)}
+.chips{flex:1;overflow:auto;padding:8px 18px 18px;display:flex;flex-wrap:wrap;gap:12px;align-content:flex-start;justify-content:center}
+.chip{border:3px solid var(--tinta);background:var(--card);border-radius:999px;padding:9px 16px;font:800 16px Nunito,sans-serif;color:var(--tinta);cursor:pointer;box-shadow:0 4px 0 var(--tinta)}
+.chip.on{background:var(--tinta);color:var(--card);transform:translateY(3px);box-shadow:0 1px 0 var(--tinta)}
+.chip.custom{border-style:dashed}
+.qfoot{padding:12px 18px calc(12px + env(safe-area-inset-bottom));background:var(--tinta);border-top:4px solid var(--card)}
+.addrow{display:flex;gap:8px;margin-bottom:8px}
+.addrow input{flex:1;min-width:0;border:3px solid var(--card);border-radius:14px;padding:9px 12px;font:800 16px Nunito,sans-serif;background:var(--card);color:var(--tinta)}
+.qcount{font-size:13px;font-weight:800;color:var(--card);opacity:.85;margin-bottom:8px}
+.qfoot .btn{background:var(--terra);border-color:var(--card);box-shadow:0 5px 0 #B8431F}
+.qfoot .btn[disabled]{background:#3d5a66;color:#a9bcc4;border-color:#6b8794;box-shadow:0 5px 0 #0f2630}
+.credit{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:12px;font:400 11px 'DM Serif Display',Georgia,serif;letter-spacing:1.5px;color:var(--card);opacity:.8}
+
+/* app */
+.top{display:flex;align-items:center;gap:10px;padding:8px 16px;background:var(--crema);border-bottom:4px solid var(--tinta)}
+.top .brand{font:400 22px 'Bowlby One',Georgia,serif;letter-spacing:.5px;text-shadow:2px 2px 0 var(--terra)}
+.top .clar{margin-left:auto;display:flex;align-items:center;gap:8px;text-align:right}
+.top .clar b{font-size:11px;letter-spacing:.6px;display:block}
+.top .clar span{font:400 18px 'Bowlby One',sans-serif}
+.top .ringw{width:44px;height:44px}
+main{flex:1;position:relative;min-height:0}
+.view{position:absolute;inset:0;overflow:auto;display:none;padding:18px 16px 24px}
+.view.on{display:block}
+.view:not(#v-map)>*{max-width:720px;margin-left:auto;margin-right:auto}
+#v-map{padding:0;overflow:hidden}
+#mapbox{position:absolute;inset:0;touch-action:none;overflow:hidden;cursor:grab;background:#14323F}
+#map{width:100%;height:100%;display:block}
+.terr{cursor:pointer}
+.terr polygon{transition:fill .7s ease}
+.lbl{pointer-events:none;user-select:none;-webkit-user-select:none}
+.bob{animation:bob 3.2s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(7px)}}
+.zoom{position:absolute;right:12px;top:12px;display:flex;flex-direction:column;gap:8px}
+.zoom button{width:46px;height:46px;border-radius:14px;border:3px solid var(--tinta);background:var(--card);font:400 22px 'Bowlby One',sans-serif;color:var(--tinta);box-shadow:0 4px 0 #B8431F}
+.hint{position:absolute;left:12px;bottom:12px;right:72px;max-width:430px;background:var(--card);border:3px solid var(--tinta);border-radius:14px;padding:8px 12px;font-size:13px;font-weight:800;transition:opacity .4s;box-shadow:0 4px 0 var(--terra)}
+nav{display:flex;gap:4px;background:var(--tinta);border-top:3px solid var(--card);border-radius:26px 26px 0 0;padding:8px 8px calc(8px + env(safe-area-inset-bottom))}
+nav button{flex:1;background:none;border:3px solid transparent;color:#cfe0e6;font:800 12px Nunito,sans-serif;display:flex;flex-direction:column;align-items:center;gap:3px;padding:6px 0;border-radius:18px;cursor:pointer}
+nav button.on{background:var(--terra);color:var(--card);border-color:var(--card)}
+nav svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+
+/* tarjeta */
+.sheet{position:absolute;left:50%;width:calc(100% - 24px);max-width:520px;bottom:calc(84px + env(safe-area-inset-bottom));background:var(--card);border:3px solid var(--tinta);border-radius:22px;padding:16px;box-shadow:0 7px 0 var(--terra),0 7px 0 3px var(--tinta);transform:translate(-50%,170%);transition:transform .3s ease;z-index:10}
+.sheet.on{transform:translate(-50%,0)}
+.ch{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.ch h3{font-size:21px}
+.dot{width:26px;height:26px;border-radius:50%;border:3px solid var(--tinta);flex:none}
+.mini{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 12px}
+.mini span{background:var(--niebla);border:2px solid var(--tinta);border-radius:999px;padding:3px 10px;font-size:12px;font-weight:800}
+.row{display:flex;gap:10px;flex-wrap:wrap}
+
+/* prueba */
+#test>*{width:100%;max-width:720px;margin-left:auto;margin-right:auto}
+.thead{display:flex;align-items:center;padding:14px 16px}
+.tbody{flex:1;overflow:auto;padding:6px 18px 30px}
+.tbody h2{font:400 27px/1.15 'DM Serif Display',Georgia,serif;margin:10px 0 18px;color:var(--card);text-shadow:2px 3px 0 var(--tinta)}
+.tbody h3{font-size:18px;color:var(--card);text-shadow:2px 2px 0 var(--tinta);margin:18px 0 8px}
+.mascot{width:96px;height:96px;filter:drop-shadow(3px 4px 0 var(--tinta))}
+.opt{display:block;width:100%;text-align:left;background:var(--card);border:3px solid var(--tinta);border-radius:18px;padding:13px 16px;margin-bottom:12px;font:800 16px Nunito,sans-serif;color:var(--tinta);box-shadow:0 5px 0 var(--tinta);cursor:pointer}
+.opt.pick{background:var(--mostaza);transform:translateY(3px);box-shadow:0 2px 0 var(--tinta)}
+.reveal{background:var(--card);border:3px solid var(--tinta);border-radius:18px;padding:14px 16px;margin:16px 0;box-shadow:0 5px 0 var(--tinta);color:var(--tinta)}
+.reacts{display:flex;flex-direction:column;gap:12px;margin-top:10px}
+
+/* listas */
+.item{display:flex;align-items:center;gap:12px;background:var(--card);border:3px solid var(--tinta);border-radius:18px;padding:11px 14px;margin-bottom:12px;box-shadow:0 4px 0 var(--tinta)}
+.item b{display:block}
+.item .btn{margin-left:auto}
+.view h2{font-size:25px;margin-bottom:12px;text-shadow:2px 2px 0 var(--terra)}
+.view h3{font-size:17px;margin:18px 0 8px}
+#toast{position:fixed;left:50%;top:70px;transform:translate(-50%,-120px);background:var(--tinta);color:var(--card);border:3px solid var(--crema);padding:10px 18px;border-radius:999px;font-weight:800;z-index:50;transition:transform .35s ease;max-width:90%}
+#toast.on{transform:translate(-50%,0)}
+
+/* papel y película antigua */
+#film{position:fixed;inset:0;pointer-events:none;z-index:90;overflow:hidden;mix-blend-mode:multiply;background:radial-gradient(ellipse at center,rgba(0,0,0,0) 55%,rgba(20,50,63,.38) 100%)}
+#film::after{content:"";position:absolute;inset:-60px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .25 0 0 0 0 .16 0 0 0 0 .08 0 0 0 .6 -.12'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");opacity:.6;animation:grain .9s steps(1,end) infinite}
+@keyframes grain{0%{transform:translate(0,0)}25%{transform:translate(-18px,12px)}50%{transform:translate(10px,-20px)}75%{transform:translate(-8px,-6px)}}
+@media (prefers-reduced-motion:reduce){#film::after,.bob{animation:none}}
+@media print{.top,nav,.noprint,.zoom,#film{display:none!important}.view{position:static;overflow:visible}html,body{overflow:visible;height:auto}}
+</style>
+</head>
+<body>
+
+<div id="quiz" class="screen poster on">
+  <div class="qhead">
+    <div class="kick">EL ATLAS DE TU FUTURO</div>
+    <div class="lockup"><div id="logoq"></div><div class="wordmark">VOCATLAS</div></div>
+    <h1>¿Qué te late?</h1>
+    <p>Elige todo lo que te llame la atención. Con eso armamos tu mapa: mientras más coincida una carrera con tus gustos, más grande se ve su territorio.</p>
+  </div>
+  <div id="chips" class="chips"></div>
+  <div class="qfoot">
+    <div class="addrow">
+      <input id="custom" placeholder="¿Falta algo? Escríbelo aquí" maxlength="30">
+      <button id="addc" class="btn small">Agregar</button>
+    </div>
+    <div class="qcount" id="qcount"></div>
+    <button id="go" class="btn wide" disabled>Armar mi mapa</button>
+    <div class="credit"><span id="emblem"></span><span>© MMXXVI · VOCATLAS ATLAS CO. · HECHO EN MÉXICO</span></div>
+  </div>
+</div>
+
+<div id="app" class="screen">
+  <header class="top">
+    <div id="logot" style="width:38px;height:38px"></div>
+    <div class="brand">Vocatlas</div>
+    <div class="clar">
+      <div><b>CLARIDAD VOCACIONAL</b><span id="pct">0%</span></div>
+      <div class="ringw"><svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="18" fill="none" stroke="#DDE5EA" stroke-width="6"/><circle id="ring" cx="22" cy="22" r="18" fill="none" stroke="#F2B544" stroke-width="6" stroke-linecap="round" stroke-dasharray="113.1" stroke-dashoffset="113.1" transform="rotate(-90 22 22)"/></svg></div>
+    </div>
+  </header>
+  <main>
+    <section id="v-map" class="view on">
+      <div id="mapbox">
+        <svg id="map" xmlns="http://www.w3.org/2000/svg"><g id="world"></g></svg>
+        <div class="zoom"><button id="zin" aria-label="Acercar">+</button><button id="zout" aria-label="Alejar">−</button></div>
+        <div class="hint" id="hint">Arrastra para navegar, pellizca para acercar y toca una bandera.</div>
+      </div>
+    </section>
+    <section id="v-probar" class="view topo"></section>
+    <section id="v-brujula" class="view topo"></section>
+    <section id="v-yo" class="view topo"></section>
+    <div id="card" class="sheet"></div>
+  </main>
+  <nav>
+    <button data-v="map" class="on"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></svg>Mapa</button>
+    <button data-v="probar"><svg viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5c.7.7 1 1.5 1 2.5h6c0-1 .3-1.8 1-2.5A6 6 0 0 0 12 3z"/></svg>Probar</button>
+    <button data-v="brujula"><svg viewBox="0 0 24 24"><path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2zM9 4v14M15 6v14"/></svg>Mi brújula</button>
+    <button data-v="yo"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/></svg>Yo</button>
+  </nav>
+</div>
+
+<div id="test" class="screen poster"></div>
+<div id="film"></div>
+<div id="toast"></div>
+
+<script>
+(function(){
+"use strict";
+var KEY="vocatlas_v1", NS="http://www.w3.org/2000/svg";
+var $=function(s){return document.querySelector(s)};
+var norm=function(s){return String(s).toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"")};
+var esc=function(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})};
+function hash(s){var h=2166136261;for(var i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619)}return h>>>0}
+function rng(a){return function(){a|=0;a=a+0x6D2B79F5|0;var t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+function rgb(h){return [1,3,5].map(function(i){return parseInt(h.substr(i,2),16)})}
+function mix(a,b,t){var x=rgb(a),y=rgb(b);return "#"+x.map(function(v,i){return Math.round(v+(y[i]-v)*t).toString(16).padStart(2,"0")}).join("")}
+function lum(h){var c=rgb(h);return (0.299*c[0]+0.587*c[1]+0.114*c[2])/255}
+
+/* ---------- datos ---------- */
+var TOPICS=("cuerpo:Cuerpo humano|salud:Salud y medicina|deportes:Deportes|animales:Animales y mascotas|ambiente:Naturaleza y medio ambiente|espacio:Espacio y astronomía|mate:Matemáticas|fisica:Física|code:Programación e IA|robots:Robots y electrónica|videojuegos:Videojuegos|construccion:Construcción y casas|moda:Moda|diseno:Diseño|dibujo:Dibujo y arte|cine:Cine y series|escribir:Escribir y leer|leyes:Justicia y leyes|negocios:Negocios y dinero|marketing:Redes y publicidad|ayudar:Ayudar a las personas|mente:Psicología y mente").split("|").map(function(s){var i=s.indexOf(":");return {id:s.slice(0,i),label:s.slice(i+1)}});
+var LAB={};TOPICS.forEach(function(t){LAB[t.id]=t.label});
+
+var K=1.6;
+var AREAS={salud:{n:"Salud"},ing:{n:"Ingenierías"},tec:{n:"Tecnología y ciencias"},neg:{n:"Negocios y sociedad"},arte:{n:"Arte y comunicación"}};
+var LANDOF={salud:"salud",ing:"ing",arte:"arte",tec:"cont",neg:"cont"};
+/* siluetas en coordenadas de la imagen de referencia; K las agranda */
+var LANDS={
+ salud:[[300,222],[360,200],[430,204],[485,225],[500,265],[480,310],[455,350],[445,395],[410,370],[350,365],[285,350],[255,320],[262,275]],
+ ing:[[430,372],[480,352],[545,355],[580,375],[640,395],[640,440],[620,490],[590,520],[540,540],[510,555],[480,530],[430,500],[405,455],[400,410]],
+ arte:[[690,455],[740,425],[800,430],[850,460],[862,510],[840,545],[790,570],[735,590],[680,600],[655,565],[660,500]],
+ cont:[[522,190],[556,156],[632,146],[722,152],[800,149],[860,166],[905,158],[965,168],[1012,176],[1036,214],[1030,262],[1008,292],[1058,314],[1108,352],[1150,402],[1152,470],[1126,522],[1086,560],[1040,592],[982,616],[932,616],[894,590],[884,548],[872,500],[842,470],[818,430],[816,380],[832,332],[806,316],[760,322],[716,312],[668,336],[640,346],[598,314],[556,278],[526,236]]
+};
+var SITE={medicina:[395,250],nutricion:[450,305],psicologia:[318,282],veterinaria:[375,335],civil:[460,395],mecatronica:[565,415],aeroespacial:[450,465],ambiental:[555,490],arquitectura:[715,475],moda:[810,475],comunicacion:[700,550],cine:[790,540],computacion:[585,220],datos:[700,215],biotec:[800,235],fisica:[950,225],derecho:[910,360],negocios:[1040,390],finanzas:[930,490],educacion:[1030,500]};
+var ISLETS=[[368,178,32,18],[458,178,18,18],[255,388,20,18],[298,420,28,24],[540,545,25,15]];
+var BRIDGES=[[430,345,452,402],[650,350,612,388],[626,488,700,517],[858,516,906,522]];
+var ALABELS=[["SALUD",378,140],["INGENIERÍAS",520,592],["ARTE Y COMUNICACIÓN",760,640],["TECNOLOGÍA Y CIENCIAS",700,122],["NEGOCIOS Y SOCIEDAD",1015,652]];
+var WW=Math.round(1408*K), WH=Math.round(768*K);
+
+var C=[
+ {id:"medicina",name:"Medicina",area:"salud",color:"#3F9C7A",tags:"cuerpo salud bio ayudar quimica",desc:"Diagnosticas y tratas personas. Muchos años de estudio y prácticas en hospital.",
+  q:"Llega a urgencias alguien con dolor fuerte en el pecho. ¿Qué haces primero?",o:["Preguntarle desde cuándo le duele y qué sintió","Pedir un electrocardiograma de inmediato","Revisar si respira y tiene pulso"],
+  r:"Las tres sirven y se hacen casi a la vez. Eso se llama triaje: decidir en segundos qué es más urgente con información incompleta. Si esa presión te emociona, Medicina puede ser lo tuyo."},
+ {id:"nutricion",name:"Nutrición",area:"salud",color:"#8CC7A1",tags:"nutricion cocina cuerpo deportes salud ayudar",desc:"Diseñas planes de alimentación para personas, deportistas o pacientes.",
+  q:"Una atleta quiere rendir más pero casi no desayuna. ¿Qué haces?",o:["Preguntar cómo es un día normal suyo","Armarle un menú completo","Pedirle análisis de laboratorio"],
+  r:"Primero se escucha y se investiga, y luego se diseña el plan, porque un menú perfecto que nadie sigue no sirve. Es mucho trato con personas y cambio de hábitos."},
+ {id:"psicologia",name:"Psicología",area:"salud",color:"#4BAAA3",tags:"mente ayudar escribir salud ensenar",desc:"Estudias la conducta y las emociones, con terapia, investigación o trabajo en empresas y escuelas.",
+  q:"Un amigo dice que ya nada le emociona. ¿Qué le respondes?",o:["¿Desde cuándo te sientes así?","Aquí estoy, cuéntame más","Vamos a hacer algo para distraerte"],
+  r:"Quien estudia Psicología aprende a preguntar y a escuchar sin dar consejos rápidos. Una buena parte de la carrera es investigación y observación, no solo conversar."},
+ {id:"veterinaria",name:"Veterinaria",area:"salud",color:"#A5CF8E",tags:"animales bio salud agro naturaleza",desc:"Cuidas la salud de mascotas, ganado y fauna silvestre.",
+  q:"Un perro cojea pero no deja que nadie le toque la pata. ¿Cómo empiezas?",o:["Ganarme su confianza con calma","Pedir una radiografía","Preguntar al dueño cuándo empezó"],
+  r:"Tus pacientes no hablan, así que observas, le preguntas al dueño y te apoyas en estudios. Hay clínica, campo, laboratorio y fauna silvestre."},
+
+ {id:"civil",name:"Ing. Civil",area:"ing",color:"#E8603C",tags:"construccion mate fisica lider ambiente",desc:"Diseñas y supervisas puentes, edificios, carreteras y sistemas de agua.",
+  q:"Un puente peatonal debe cruzar un río de 40 metros. ¿Qué decides primero?",o:["Dónde apoyarlo según el suelo","Cuánto peso aguantará","Cuánto costará"],
+  r:"Un ingeniero civil balancea seguridad, suelo, presupuesto y tiempo, y casi siempre hay que ceder algo. Hay oficina, pero también mucho trabajo en obra."},
+ {id:"mecatronica",name:"Mecatrónica",area:"ing",color:"#F2894F",tags:"robots code fisica autos mate videojuegos",desc:"Mezclas mecánica, electrónica y programación para crear robots y máquinas inteligentes.",
+  q:"Tu robot aspiradora choca siempre con la pared izquierda. ¿Qué revisas?",o:["El sensor de ese lado","El código que decide el giro","Las ruedas y el motor"],
+  r:"Depurar un sistema es ir descartando causas entre mecánica, electrónica y código. Mecatrónica junta las tres."},
+ {id:"aeroespacial",name:"Aeroespacial",area:"ing",color:"#D8574A",tags:"aviones espacio fisica mate robots",desc:"Diseñas aviones, drones, cohetes y satélites.",
+  q:"Un dron se queda sin batería antes de llegar. ¿Qué mejoras primero?",o:["Hacerlo más ligero","Una forma que corte mejor el aire","Una batería más grande"],
+  r:"Cada opción tiene un precio: más batería pesa más, menos peso resta resistencia. En esta ingeniería casi todo es un compromiso que se mide con física y simulación."},
+ {id:"ambiental",name:"Ing. Ambiental",area:"ing",color:"#EBA45A",tags:"ambiente energia naturaleza mar agro quimica",desc:"Resuelves problemas de agua, residuos y energía limpia.",
+  q:"Un pueblo quiere luz sin contaminar. ¿Por dónde empiezas?",o:["Medir cuánto sol y viento hay","Preguntar cuánta energía usan","Calcular cuánto costaría"],
+  r:"Primero se mide y luego se diseña. La carrera mezcla ingeniería con ciencias de la tierra y mucho trabajo con comunidades y normas."},
+
+ {id:"computacion",name:"Computación",area:"tec",color:"#3F7DA6",tags:"code ia videojuegos juegos seguridad mate robots",desc:"Programas software, apps, videojuegos y sistemas de inteligencia artificial.",
+  q:"Una app se cierra cada vez que tocas un botón. ¿Qué haces?",o:["Leer el mensaje de error","Repetir el fallo paso a paso","Revisar lo último que cambié"],
+  r:"Encontrar errores es la mitad del trabajo de programar. Si disfrutaste cazar el problema vas bien, y si te frustró, ten presente que eso pasa a diario."},
+ {id:"datos",name:"Ciencia de datos",area:"tec",color:"#5BA3D0",tags:"datos mate ia code negocios dinero juegos",desc:"Encuentras patrones en datos para ayudar a tomar decisiones.",
+  q:"Las ventas de una tienda bajaron en marzo. ¿Qué miras primero?",o:["Las ventas por producto","Las ventas por día","Qué cambió ese mes: precios, promos, competencia"],
+  r:"Los datos no hablan solos: tú decides qué preguntas hacerles. Esta carrera junta estadística, programación y mucha curiosidad por el porqué."},
+ {id:"biotec",name:"Biotecnología",area:"tec",color:"#2D6A8A",tags:"bio quimica salud cuerpo agro ambiente",desc:"Usas organismos vivos para crear medicinas, alimentos y materiales.",
+  q:"Quieres que una bacteria produzca insulina. ¿Qué resuelves primero?",o:["Qué gen necesita","Cómo meterlo en la bacteria","Cómo comprobar que funciona"],
+  r:"Se trabaja por ciclos de hipótesis, experimento y revisión, y a veces los resultados no salen. Mucho laboratorio y paciencia."},
+ {id:"fisica",name:"Física",area:"tec",color:"#6FA8DC",tags:"fisica mate espacio energia juegos",desc:"Estudias cómo funciona el universo, desde partículas hasta galaxias.",
+  q:"¿Por qué una cuchara metálica enfría más rápido el café? Elige tu idea.",o:["Conduce el calor hacia el aire","Revolver mueve el café","Es el vapor"],
+  r:"Los físicos proponen una explicación y buscan cómo ponerla a prueba. Hay mucha matemática, y a veces la respuesta es que fueron varias cosas a la vez."},
+
+ {id:"derecho",name:"Derecho",area:"neg",color:"#A8793A",tags:"leyes politica escribir lider idiomas historia",desc:"Defiendes derechos, redactas contratos y trabajas con las leyes.",
+  q:"Alguien alquiló un departamento y el dueño lo quiere sacar sin avisar. ¿Qué buscas?",o:["El contrato","La ley de arrendamiento","Hablar con las dos partes"],
+  r:"Un abogado arma el caso con evidencia, ley y negociación. Hay mucha lectura y redacción, y la mayoría de los casos se resuelven sin juicio."},
+ {id:"negocios",name:"Negocios",area:"neg",color:"#F2B544",tags:"negocios lider dinero marketing viajes eventos",desc:"Creas y diriges empresas, desde un emprendimiento hasta una compañía grande.",
+  q:"Vas a vender galletas en tu escuela. ¿Qué haces antes de hornear?",o:["Preguntar a 20 compañeros qué quieren","Calcular cuánto me cuesta cada galleta","Hacer una muestra y regalarla"],
+  r:"Son las tres patas de emprender: validar, calcular y probar. Aquí se estudia tanto cómo fallar barato como cómo crecer."},
+ {id:"finanzas",name:"Finanzas",area:"neg",color:"#D98E3B",tags:"dinero mate datos negocios politica juegos",desc:"Manejas inversiones, riesgos y presupuestos de personas y empresas.",
+  q:"Tienes 1,000 pesos para dejar crecer un año. ¿Qué te importa más?",o:["Que no pierda nada","Que gane lo más posible","Poder sacarlo cuando quiera"],
+  r:"Riesgo, rendimiento y liquidez: siempre sacrificas uno por otro. Finanzas es aprender a medir ese intercambio, con muchas matemáticas y datos."},
+ {id:"educacion",name:"Educación",area:"neg",color:"#EAD06B",tags:"ensenar ayudar mente escribir idiomas lider",desc:"Enseñas y diseñas cómo aprenden niños, jóvenes o adultos.",
+  q:"Un grupo no entiende las fracciones. ¿Cómo las enseñas?",o:["Con una pizza dividida de verdad","Con un juego por equipos","Preguntando qué parte les confunde"],
+  r:"Enseñar es diagnosticar primero y explicar después. Esta carrera combina psicología, tu materia y mucha paciencia."},
+
+ {id:"arquitectura",name:"Arquitectura",area:"arte",color:"#B88AA8",tags:"construccion diseno dibujo mate ambiente",desc:"Diseñas espacios donde vive y trabaja la gente, desde casas hasta ciudades.",
+  q:"Una familia quiere una casa luminosa en un terreno angosto. ¿Qué piensas primero?",o:["Por dónde entra el sol","Cómo se mueven las personas adentro","Cómo se ve desde la calle"],
+  r:"Un arquitecto resuelve a la vez uso, luz, estructura, presupuesto y estética. No todo es dibujar bonito: hay planos técnicos, trámites y obra."},
+ {id:"moda",name:"Moda",area:"arte",color:"#D98C9C",tags:"moda diseno dibujo belleza marketing",desc:"Diseñas ropa y accesorios, de la idea al producto terminado.",
+  q:"Diseñas una chamarra para la lluvia. ¿Qué eliges primero?",o:["La tela","El corte y la forma","A quién se la vendo"],
+  r:"Diseñar ropa mezcla creatividad con materiales, costos y tendencias. Dibujar es solo una parte: hay patronaje, producción y trato con proveedores."},
+ {id:"comunicacion",name:"Comunicación",area:"arte",color:"#9E86BF",tags:"marketing foto escribir cine idiomas diseno",desc:"Cuentas historias y construyes mensajes para medios, marcas y redes.",
+  q:"Lanzas un jugo nuevo para estudiantes. ¿Qué cuentas primero?",o:["Que es natural","Que te da energía para tus clases","Que cuesta menos que un refresco"],
+  r:"Elegir qué decir y a quién es el trabajo central. Se mezcla creatividad con datos de cómo reacciona la gente."},
+ {id:"cine",name:"Cine",area:"arte",color:"#7C5C8E",tags:"cine foto musica teatro escribir dibujo videojuegos",desc:"Creas películas, series y videos: guion, cámara, sonido y edición.",
+  q:"Tienes una escena de dos personas que se despiden. ¿Cómo la cuentas?",o:["Un primer plano de sus caras","Un plano general desde lejos","Solo sus manos soltándose"],
+  r:"Esa decisión se llama puesta en cámara. El cine es trabajo en equipo, con horarios largos y mucha colaboración."}
+];
+var byId={};
+C.forEach(function(c){byId[c.id]=c;var q=SITE[c.id];c.cx=q[0]*K;c.cy=q[1]*K});
+var R={yes:"Me encendió",mid:"Más o menos",no:"No es lo mío"};
+
+/* ---------- estado ---------- */
+var S={interests:[],custom:[],res:{}};
+try{var raw=localStorage.getItem(KEY);if(raw){var p=JSON.parse(raw);S.interests=p.interests||[];S.custom=p.custom||[];S.res=p.res||{}}}catch(e){}
+S.interests=S.interests.filter(function(id){return LAB[id]});
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
+
+var AFF={};
+function computeAff(){
+ var sel=new Set(S.interests),max=0;AFF={};
+ C.forEach(function(c){
+  var tags=c.tags.split(" ");
+  var m=tags.filter(function(t){return sel.has(t)}).map(function(t){return LAB[t]});
+  var hay=norm(c.name+" "+c.desc+" "+tags.map(function(t){return LAB[t]||t}).join(" ")+" "+AREAS[c.area].n);
+  S.custom.forEach(function(w){
+   var hit=norm(w).split(/\s+/).some(function(q){return q.length>2&&hay.indexOf(q)>-1});
+   if(hit)m.push(w);
+  });
+  AFF[c.id]={score:m.length,matches:m};
+  if(m.length>max)max=m.length;
+ });
+ C.forEach(function(c){var a=AFF[c.id];a.aff=max?Math.max(.12,a.score/max):.35;a.r=55+70*a.aff});
+}
+
+/* ---------- logo y mascota ---------- */
+function logo(){return '<svg viewBox="0 0 64 64" width="100%" height="100%"><path d="M10 30C8 14 28 5 42 9s17 19 10 33-26 18-38 8c-4-3-4-12-4-20z" fill="#E8603C" stroke="#14323F" stroke-width="3.5" stroke-linejoin="round"/><path d="M19 24L31 48" stroke="#F6EFE2" stroke-width="5" stroke-linecap="round" stroke-dasharray="1 9"/><path d="M31 48L44 28" stroke="#F6EFE2" stroke-width="5" stroke-linecap="round"/><path d="M44 8a7 7 0 0 1 7 7c0 6-7 12-7 12s-7-6-7-12a7 7 0 0 1 7-7z" fill="#FFFBF2" stroke="#14323F" stroke-width="2.5"/><circle cx="44" cy="15" r="2.6" fill="#14323F"/></svg>'}
+var MASCOT='<svg viewBox="0 0 80 90"><defs><pattern id="mdots" width="5" height="5" patternUnits="userSpaceOnUse"><circle cx="2.5" cy="2.5" r="1.2" fill="#14323F"/></pattern></defs><path d="M30 62q-2 12-6 16M50 62q2 12 6 16" stroke="#14323F" stroke-width="5" fill="none" stroke-linecap="round"/><ellipse cx="21" cy="80" rx="9" ry="5" fill="#FFFBF2" stroke="#14323F" stroke-width="3"/><ellipse cx="59" cy="80" rx="9" ry="5" fill="#FFFBF2" stroke="#14323F" stroke-width="3"/><path d="M13 42q-10 4-9 18M67 42q10 4 9 18" stroke="#14323F" stroke-width="5" fill="none" stroke-linecap="round"/><circle cx="4" cy="62" r="7" fill="#FFFBF2" stroke="#14323F" stroke-width="3"/><circle cx="76" cy="62" r="7" fill="#FFFBF2" stroke="#14323F" stroke-width="3"/><circle cx="40" cy="42" r="28" fill="#FFFBF2" stroke="#14323F" stroke-width="4"/><path d="M58 20.5A28 28 0 0 1 58 63.5A18 24 0 0 0 58 20.5Z" fill="url(#mdots)"/><circle cx="40" cy="42" r="19" fill="#E8603C" stroke="#14323F" stroke-width="2.5"/><path d="M40 20l4 10-4 3-4-3z" fill="#FFFBF2" stroke="#14323F" stroke-width="2.5" stroke-linejoin="round"/><ellipse cx="33" cy="43" rx="4.6" ry="6" fill="#FFFBF2" stroke="#14323F" stroke-width="2.5"/><ellipse cx="47" cy="43" rx="4.6" ry="6" fill="#FFFBF2" stroke="#14323F" stroke-width="2.5"/><circle cx="34.2" cy="45" r="2.6" fill="#14323F"/><circle cx="48.2" cy="45" r="2.6" fill="#14323F"/><path d="M32 53q8 8 16 0z" fill="#14323F"/><path d="M36.5 56.5q3.5 2.5 7 0q-3.5-1.8-7 0z" fill="#F6EFE2"/></svg>';
+$("#logoq").innerHTML='<div style="width:62px;height:62px">'+logo()+'</div>';
+$("#emblem").innerHTML='<div style="width:26px;height:26px">'+logo()+'</div>';
+$("#logot").innerHTML=logo();
+
+/* ---------- cuestionario ---------- */
+var sel=new Set(),customs=[];
+function renderQuiz(){
+ sel=new Set(S.interests);customs=S.custom.slice();drawChips();
+}
+function drawChips(){
+ var box=$("#chips");box.innerHTML="";
+ TOPICS.forEach(function(t){
+  var b=document.createElement("button");b.className="chip"+(sel.has(t.id)?" on":"");b.textContent=t.label;
+  b.onclick=function(){if(sel.has(t.id))sel.delete(t.id);else sel.add(t.id);drawChips()};
+  box.appendChild(b);
+ });
+ customs.forEach(function(w,i){
+  var b=document.createElement("button");b.className="chip custom on";b.textContent=w+" ✕";
+  b.onclick=function(){customs.splice(i,1);drawChips()};
+  box.appendChild(b);
+ });
+ var n=sel.size+customs.length;
+ $("#qcount").textContent=n?("Elegiste "+n+(n<3?". Elige al menos 3.":" temas.")):"Elige al menos 3 temas.";
+ $("#go").disabled=n<3;
+}
+function addCustom(){
+ var v=$("#custom").value.trim();
+ if(v.length<2)return;
+ if(customs.indexOf(v)<0)customs.push(v);
+ $("#custom").value="";drawChips();
+}
+$("#addc").onclick=addCustom;
+$("#custom").addEventListener("keydown",function(e){if(e.key==="Enter")addCustom()});
+$("#go").onclick=function(){S.interests=Array.from(sel);S.custom=customs.slice();save();enterApp()};
+
+/* ---------- mapa ---------- */
+function sv(tag,attrs,parent){var e=document.createElementNS(NS,tag);for(var k in attrs)e.setAttribute(k,attrs[k]);if(parent)parent.appendChild(e);return e}
+function sc(p){return [p[0]*K,p[1]*K]}
+function smooth(pts){
+ var n=pts.length,d="M"+pts[0][0].toFixed(1)+" "+pts[0][1].toFixed(1);
+ for(var j=0;j<n;j++){
+  var p0=pts[(j-1+n)%n],p1=pts[j],p2=pts[(j+1)%n],p3=pts[(j+2)%n];
+  d+="C"+(p1[0]+(p2[0]-p0[0])/6).toFixed(1)+" "+(p1[1]+(p2[1]-p0[1])/6).toFixed(1)+","+(p2[0]-(p3[0]-p1[0])/6).toFixed(1)+" "+(p2[1]-(p3[1]-p1[1])/6).toFixed(1)+","+p2[0].toFixed(1)+" "+p2[1].toFixed(1);
+ }
+ return d+"Z";
+}
+function isletPts(it){
+ var rd=rng(hash(it[0]+","+it[1])),pts=[];
+ for(var i=0;i<8;i++){var a=i/8*Math.PI*2,r=.8+.35*rd();pts.push([(it[0]+Math.cos(a)*it[2]*r)*K,(it[1]+Math.sin(a)*it[3]*r)*K])}
+ return pts;
+}
+function clipHalf(poly,a,b,c){
+ var out=[],n=poly.length;
+ for(var i=0;i<n;i++){
+  var P=poly[i],Q=poly[(i+1)%n],fp=a*P[0]+b*P[1]-c,fq=a*Q[0]+b*Q[1]-c;
+  if(fp<=0)out.push(P);
+  if((fp<0&&fq>0)||(fp>0&&fq<0)){var t=fp/(fp-fq);out.push([P[0]+t*(Q[0]-P[0]),P[1]+t*(Q[1]-P[1])])}
+ }
+ return out;
+}
+function cellPoly(i,sites,ws,bb){
+ var poly=[[bb[0],bb[1]],[bb[2],bb[1]],[bb[2],bb[3]],[bb[0],bb[3]]],pi=sites[i];
+ for(var j=0;j<sites.length;j++){
+  if(j===i)continue;
+  var pj=sites[j];
+  poly=clipHalf(poly,2*(pj[0]-pi[0]),2*(pj[1]-pi[1]),pj[0]*pj[0]+pj[1]*pj[1]-pi[0]*pi[0]-pi[1]*pi[1]+ws[i]-ws[j]);
+  if(!poly.length)break;
+ }
+ return poly;
+}
+function route(sites){
+ var left=sites.slice(),cur=left.shift(),out=[cur];
+ while(left.length){
+  var bi=0,bd=1e18;
+  for(var i=0;i<left.length;i++){var d=Math.hypot(left[i][0]-cur[0],left[i][1]-cur[1]);if(d<bd){bd=d;bi=i}}
+  cur=left.splice(bi,1)[0];out.push(cur);
+ }
+ return out;
+}
+function splitName(name){
+ var w=name.split(" ");if(name.length<=11||w.length===1)return [name];
+ var best=1,diff=999;
+ for(var k=1;k<w.length;k++){var d=Math.abs(w.slice(0,k).join(" ").length-w.slice(k).join(" ").length);if(d<diff){diff=d;best=k}}
+ return [w.slice(0,best).join(" "),w.slice(best).join(" ")];
+}
+var INK="#14323F",PAPER="#F6EFE2",CARD="#FFFBF2",ORA="#E8603C",SEA="#14323F",LAND="#F6EFE2";
+var refs={};
+function deco(parent,x,y,html,cls,k){
+ var g=sv("g",{transform:"translate("+(x*K).toFixed(1)+" "+(y*K).toFixed(1)+") scale("+(k||1)+")"},parent);
+ var i=sv("g",cls?{"class":cls}:{},g);i.innerHTML=html;return g;
+}
+var D_BOAT='<path d="M-42 0L42 0L28 22L-28 22Z" fill="'+ORA+'" stroke="'+INK+'" stroke-width="4" stroke-linejoin="round"/><path d="M-35 7L35 7" stroke="'+PAPER+'" stroke-width="4" stroke-linecap="round"/><path d="M0 0L0 -74" stroke="'+PAPER+'" stroke-width="4" stroke-linecap="round"/><path d="M5 -70L5 -8L46 -8Z" fill="'+PAPER+'" stroke="'+INK+'" stroke-width="3.5" stroke-linejoin="round"/><path d="M-5 -62L-5 -8L-32 -8Z" fill="#8FC9E8" stroke="'+INK+'" stroke-width="3.5" stroke-linejoin="round"/><path d="M-54 30q13-11 26 0t26 0t26 0t26 0" fill="none" stroke="'+PAPER+'" stroke-opacity=".75" stroke-width="3.5" stroke-linecap="round"/>';
+var D_ROSE='<circle r="52" fill="'+CARD+'" stroke="'+INK+'" stroke-width="4"/><path d="M0 -66L11 -11L66 0L11 11L0 66L-11 11L-66 0L-11 -11Z" fill="'+ORA+'" stroke="'+INK+'" stroke-width="4" stroke-linejoin="round"/><circle r="9" fill="#F2B544" stroke="'+INK+'" stroke-width="3"/><text y="-76" text-anchor="middle" font-family="Bowlby One, sans-serif" font-size="22" fill="'+PAPER+'" stroke="'+INK+'" stroke-width="5" paint-order="stroke">N</text>';
+var D_GULL='<path d="M-16 4q8-12 16 0q8-12 16 0" fill="none" stroke="'+PAPER+'" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>';
+var D_SPARK='<path d="M0-13L3-3L13 0L3 3L0 13L-3 3L-13 0L-3-3Z" fill="'+PAPER+'" fill-opacity=".85"/>';
+function buildMap(){
+ var w=$("#world");w.innerHTML="";refs={};
+ var defs=sv("defs",{},w);
+ var pw=sv("pattern",{id:"wv",width:90,height:44,patternUnits:"userSpaceOnUse"},defs);
+ sv("path",{d:"M6 28q13-14 26 0t26 0t26 0",fill:"none",stroke:PAPER,"stroke-opacity":".16","stroke-width":3.5,"stroke-linecap":"round"},pw);
+ var ht=sv("pattern",{id:"dots",width:9,height:9,patternUnits:"userSpaceOnUse",patternTransform:"rotate(30)"},defs);
+ sv("circle",{cx:4.5,cy:4.5,r:1.9,fill:INK},ht);
+ sv("rect",{x:0,y:0,width:WW,height:WH,fill:SEA},w);
+ sv("rect",{x:0,y:0,width:WW,height:WH,fill:"url(#wv)"},w);
+ var haloL=sv("g",{},w),shL=sv("g",{},w),brL=sv("g",{},w),landL=sv("g",{},w),olL=sv("g",{},w),decL=sv("g",{"class":"lbl"},w),lblL=sv("g",{"class":"lbl"},w);
+ function halo(d){
+  sv("path",{d:d,fill:PAPER,stroke:PAPER,"stroke-width":64,"stroke-linejoin":"round","stroke-opacity":".07"},haloL);
+  sv("path",{d:d,fill:PAPER,stroke:PAPER,"stroke-width":38,"stroke-linejoin":"round","stroke-opacity":".12"},haloL);
+ }
+ ISLETS.forEach(function(it){
+  var d=smooth(isletPts(it));halo(d);
+  sv("path",{d:d,transform:"translate(0 12)",fill:ORA,stroke:INK,"stroke-width":4,"stroke-linejoin":"round"},shL);
+  sv("path",{d:d,fill:LAND,stroke:PAPER,"stroke-width":10,"stroke-linejoin":"round"},olL);
+  sv("path",{d:d,fill:"none",stroke:INK,"stroke-width":4.5,"stroke-linejoin":"round"},olL);
+ });
+ BRIDGES.forEach(function(b){
+  var a={x1:b[0]*K,y1:b[1]*K,x2:b[2]*K,y2:b[3]*K,"stroke-linecap":"round"};
+  var t=sv("line",a,brL);t.setAttribute("stroke",PAPER);t.setAttribute("stroke-width",8);t.setAttribute("stroke-dasharray","10 8");
+ });
+ Object.keys(LANDS).forEach(function(k){
+  var pts=LANDS[k].map(sc),d=smooth(pts);
+  halo(d);
+  sv("path",{d:d,transform:"translate(0 15)",fill:ORA,stroke:INK,"stroke-width":4.5,"stroke-linejoin":"round"},shL);
+  sv("path",{d:d,transform:"translate(0 15)",fill:"url(#dots)","fill-opacity":".35"},shL);
+  var cp=sv("clipPath",{id:"clip-"+k},defs);sv("path",{d:d},cp);
+  var g=sv("g",{"clip-path":"url(#clip-"+k+")"},landL);
+  var cs=C.filter(function(c){return LANDOF[c.area]===k});
+  var sites=cs.map(function(c){return [c.cx,c.cy]});
+  var dmin=1e9;
+  for(var a=0;a<sites.length;a++)for(var b=a+1;b<sites.length;b++)dmin=Math.min(dmin,Math.hypot(sites[a][0]-sites[b][0],sites[a][1]-sites[b][1]));
+  var ws=cs.map(function(c){return dmin*dmin*.6*AFF[c.id].aff});
+  var xs=pts.map(function(q){return q[0]}),ys=pts.map(function(q){return q[1]});
+  var bb=[Math.min.apply(null,xs)-60,Math.min.apply(null,ys)-60,Math.max.apply(null,xs)+60,Math.max.apply(null,ys)+60];
+  cs.forEach(function(c,i){
+   var poly=cellPoly(i,sites,ws,bb),pstr=poly.map(function(q){return q[0].toFixed(1)+","+q[1].toFixed(1)}).join(" ");
+   var tg=sv("g",{"class":"terr","data-id":c.id},g);
+   var pg=sv("polygon",{points:pstr,stroke:INK,"stroke-opacity":".65","stroke-width":3.5,"stroke-linejoin":"round"},tg);
+   var hh=sv("polygon",{points:pstr,fill:"url(#dots)","pointer-events":"none"},tg);
+   refs[c.id]={p:pg,h:hh};
+  });
+  sv("polyline",{points:route(sites).map(function(q){return q[0].toFixed(1)+","+q[1].toFixed(1)}).join(" "),fill:"none",stroke:INK,"stroke-opacity":".55","stroke-width":4,"stroke-dasharray":"2 12","stroke-linecap":"round","pointer-events":"none"},g);
+  sv("path",{d:d,fill:"none",stroke:PAPER,"stroke-width":10,"stroke-linejoin":"round","pointer-events":"none"},olL);
+  sv("path",{d:d,fill:"none",stroke:INK,"stroke-width":4.5,"stroke-linejoin":"round","pointer-events":"none"},olL);
+ });
+ /* decoración del mar */
+ deco(decL,1245,262,D_BOAT,"bob",1.15);
+ deco(decL,235,520,D_BOAT,"bob",.9);
+ deco(decL,1255,655,D_ROSE,"",1.1);
+ [[320,100],[560,72],[1120,205],[165,350],[905,98],[1170,560]].forEach(function(q){deco(decL,q[0],q[1],D_GULL,"",1.1)});
+ [[160,230,1],[1245,470,.8],[700,705,1.1],[1180,120,1],[330,560,.8],[60,640,.9]].forEach(function(q){deco(decL,q[0],q[1],D_SPARK,"",q[2])});
+ ALABELS.forEach(function(a){
+  var base={"text-anchor":"middle","font-family":"Bowlby One, sans-serif","font-size":26,"letter-spacing":2,"stroke-linejoin":"round","paint-order":"stroke"};
+  var at={};for(var q in base)at[q]=base[q];
+  at.x=a[1]*K+3;at.y=a[2]*K+4;at.fill=ORA;at.stroke=ORA;at["stroke-width"]=7;
+  var sh=sv("text",at,lblL);sh.textContent=a[0];
+  var bt={};for(var q2 in base)bt[q2]=base[q2];
+  bt.x=a[1]*K;bt.y=a[2]*K;bt.fill=PAPER;bt.stroke=INK;bt["stroke-width"]=7;
+  var t=sv("text",bt,lblL);t.textContent=a[0];
+ });
+ /* banderas de cada carrera */
+ C.forEach(function(c){
+  var a=AFF[c.id],ls=splitName(c.name),fs=15+3*a.aff,x=c.cx,y=c.cy;
+  var bw=Math.max.apply(null,ls.map(function(l){return l.length}))*fs*.58+24,bh=ls.length*fs*1.15+10;
+  sv("rect",{x:x-bw/2+3,y:y+26+4,width:bw,height:bh,rx:9,ry:9,fill:INK},lblL);
+  sv("rect",{x:x-bw/2,y:y+26,width:bw,height:bh,rx:9,ry:9,fill:CARD,stroke:INK,"stroke-width":3.5},lblL);
+  var t=sv("text",{"text-anchor":"middle","font-family":"Nunito, sans-serif","font-weight":800,"font-size":fs,fill:INK},lblL);
+  ls.forEach(function(line,i){var sp=sv("tspan",{x:x,y:y+26+5+fs*.95+i*fs*1.15},t);sp.textContent=line});
+  var ng=sv("g",{transform:"translate("+x.toFixed(1)+" "+y.toFixed(1)+")"},lblL);
+  sv("circle",{r:20,cx:3,cy:4,fill:INK},ng);
+  var nc=sv("circle",{r:20,fill:PAPER,stroke:INK,"stroke-width":4},ng);
+  var fg=sv("g",{},ng);
+  sv("path",{d:"M-5 11V-12",stroke:INK,"stroke-width":3.5,"stroke-linecap":"round",fill:"none"},fg);
+  sv("path",{d:"M-4 -12L13 -7L-4 -1Z",fill:ORA,stroke:INK,"stroke-width":2.5,"stroke-linejoin":"round"},fg);
+  var m=sv("text",{y:9,"text-anchor":"middle","font-size":24,"font-family":"Bowlby One, sans-serif","stroke-width":1.2,stroke:INK},ng);
+  refs[c.id].nc=nc;refs[c.id].fg=fg;refs[c.id].m=m;
+ });
+}
+function fillFor(c){
+ var d=S.res[c.id];
+ if(!d)return mix(c.color,"#DDE5EA",.82);
+ return d==="no"?mix(c.color,"#DDE5EA",.5):c.color;
+}
+function refreshMap(){
+ C.forEach(function(c){
+  var r=refs[c.id];if(!r)return;
+  var d=S.res[c.id];
+  r.p.style.fill=fillFor(c);
+  r.h.style.opacity=d?".16":".5";
+  r.fg.style.display=d?"none":"";
+  r.m.textContent=d==="yes"?"★":d==="mid"?"●":d==="no"?"✕":"";
+  r.m.style.fill=d==="yes"?"#F2B544":d==="no"?"#E8603C":INK;
+  r.nc.style.fill=d==="yes"?"#FFF0B8":PAPER;
+ });
+}
+
+var view={s:.5,tx:0,ty:0},box=$("#mapbox");
+function apply(){
+ var vw=box.clientWidth,vh=box.clientHeight;
+ view.tx=Math.min(vw*.5,Math.max(vw*.5-WW*view.s,view.tx));
+ view.ty=Math.min(vh*.5,Math.max(vh*.5-WH*view.s,view.ty));
+ $("#world").setAttribute("transform","translate("+view.tx.toFixed(1)+" "+view.ty.toFixed(1)+") scale("+view.s.toFixed(3)+")");
+}
+function zoomAt(cx,cy,k){
+ var r=box.getBoundingClientRect(),px=cx-r.left,py=cy-r.top;
+ var ns=Math.min(1.6,Math.max(.28,view.s*k)),f=ns/view.s;
+ view.tx=px-(px-view.tx)*f;view.ty=py-(py-view.ty)*f;view.s=ns;apply();
+}
+function centerOn(cx,cy,s){view.s=s;view.tx=box.clientWidth/2-cx*s;view.ty=box.clientHeight/2-cy*s;apply()}
+function centerStart(){
+ var vw=box.clientWidth,vh=box.clientHeight,fit=Math.min(vw/1650,vh/900);
+ if(fit>=.55){centerOn(1152,600,Math.min(fit,1.2));return}
+ var best=C[0];C.forEach(function(c){if(AFF[c.id].score>AFF[best.id].score)best=c});
+ centerOn(best.cx,best.cy,.6);
+}
+var ptrs=new Map(),down=null,lastD=0;
+function pts(){return Array.from(ptrs.values())}
+function dist(){var q=pts();return Math.hypot(q[0].x-q[1].x,q[0].y-q[1].y)}
+function hideHint(){$("#hint").style.opacity=0}
+box.addEventListener("pointerdown",function(e){
+ if(e.target.closest(".zoom"))return;
+ box.setPointerCapture(e.pointerId);
+ ptrs.set(e.pointerId,{x:e.clientX,y:e.clientY});
+ if(ptrs.size===1)down={t:e.target,x:e.clientX,y:e.clientY,moved:false};
+ if(ptrs.size===2){lastD=dist();if(down)down.moved=true}
+});
+box.addEventListener("pointermove",function(e){
+ var p=ptrs.get(e.pointerId);if(!p)return;
+ var dx=e.clientX-p.x,dy=e.clientY-p.y;p.x=e.clientX;p.y=e.clientY;
+ if(ptrs.size===1){
+  if(down&&Math.hypot(e.clientX-down.x,e.clientY-down.y)>6){down.moved=true;hideHint()}
+  if(down&&down.moved){view.tx+=dx;view.ty+=dy;apply()}
+ }else if(ptrs.size===2){
+  var d=dist(),q=pts();
+  if(lastD)zoomAt((q[0].x+q[1].x)/2,(q[0].y+q[1].y)/2,d/lastD);
+  lastD=d;hideHint();
+ }
+});
+function endPtr(e){
+ if(!ptrs.has(e.pointerId))return;
+ ptrs.delete(e.pointerId);if(ptrs.size<2)lastD=0;
+ if(ptrs.size===0&&down){
+  if(!down.moved&&e.type==="pointerup"){
+   var g=down.t.closest?down.t.closest(".terr"):null;
+   if(g){openCard(g.getAttribute("data-id"));hideHint()}else closeCard();
+  }
+  down=null;
+ }
+}
+box.addEventListener("pointerup",endPtr);
+box.addEventListener("pointercancel",endPtr);
+box.addEventListener("wheel",function(e){e.preventDefault();zoomAt(e.clientX,e.clientY,e.deltaY<0?1.12:1/1.12);hideHint()},{passive:false});
+$("#zin").onclick=function(){var r=box.getBoundingClientRect();zoomAt(r.left+r.width/2,r.top+r.height/2,1.25)};
+$("#zout").onclick=function(){var r=box.getBoundingClientRect();zoomAt(r.left+r.width/2,r.top+r.height/2,.8)};
+window.addEventListener("resize",function(){if($("#app").classList.contains("on"))apply()});
+
+/* ---------- tarjeta de carrera ---------- */
+function closeCard(){$("#card").classList.remove("on")}
+function openCard(id){
+ var c=byId[id],a=AFF[id],d=S.res[id],card=$("#card");
+ var matches=a.matches.length?'<div class="sub">Coincide con lo que elegiste:</div><div class="mini">'+a.matches.map(function(m){return "<span>"+esc(m)+"</span>"}).join("")+"</div>":'<div class="sub" style="margin-bottom:12px">No coincide directo con tus temas, pero puede sorprenderte.</div>';
+ card.innerHTML='<div class="ch"><div class="dot" style="background:'+c.color+'"></div><div><h3>'+esc(c.name)+'</h3><div class="sub">'+AREAS[c.area].n+'</div></div><button class="x" id="cx">✕</button></div><p>'+esc(c.desc)+'</p>'+matches+'<div class="row"><button class="btn" id="cgo">'+(d?"Repetir reto":"Pruébalo")+'</button><button class="btn ghost" disabled>Testimonios · pronto</button></div>'+(d?'<div class="sub" style="margin-top:10px">Tu reacción: '+R[d]+'</div>':"");
+ card.classList.add("on");
+ $("#cx").onclick=closeCard;
+ $("#cgo").onclick=function(){openTest(id)};
+}
+
+/* ---------- mini reto ---------- */
+function openTest(id){
+ var c=byId[id],t=$("#test");closeCard();
+ t.innerHTML='<div class="thead"><div class="sub">'+esc(c.name)+' · mini reto</div><button class="x" id="tx">✕</button></div><div class="tbody"><div class="mascot">'+MASCOT+'</div><h2>'+esc(c.q)+'</h2><div id="opts">'+c.o.map(function(o,i){return '<button class="opt" data-i="'+i+'">'+esc(o)+"</button>"}).join("")+'</div><div id="rev"></div></div>';
+ t.classList.add("on");
+ $("#tx").onclick=function(){t.classList.remove("on")};
+ var opts=t.querySelectorAll(".opt");
+ Array.prototype.forEach.call(opts,function(b){
+  b.onclick=function(){
+   Array.prototype.forEach.call(opts,function(o){o.disabled=true});
+   b.classList.add("pick");
+   $("#rev").innerHTML='<div class="reveal"><b>Y en la vida real...</b><p style="margin-top:6px">'+esc(c.r)+'</p></div><h3>¿Cómo te sentiste?</h3><div class="reacts"><button class="btn" data-k="yes">Me encendió</button><button class="btn ghost" data-k="mid">Más o menos</button><button class="btn ghost" data-k="no">No es lo mío</button></div>';
+   $("#rev").scrollIntoView({behavior:"smooth",block:"start"});
+   Array.prototype.forEach.call($("#rev").querySelectorAll("[data-k]"),function(r){
+    r.onclick=function(){
+     S.res[id]=r.getAttribute("data-k");save();
+     t.classList.remove("on");refreshMap();updateHud();
+     toast(S.res[id]==="yes"?"¡Anotado! "+c.name+" se colorea en tu mapa":"Listo, "+c.name+" se colorea en tu mapa");
+    };
+   });
+  };
+ });
+}
+var toastT;
+function toast(msg){var t=$("#toast");t.textContent=msg;t.classList.add("on");clearTimeout(toastT);toastT=setTimeout(function(){t.classList.remove("on")},2600)}
+
+/* ---------- barra superior ---------- */
+function updateHud(){
+ var done=Object.keys(S.res).length,pct=Math.round(done/C.length*100);
+ $("#pct").textContent=pct+"%";
+ $("#ring").setAttribute("stroke-dashoffset",(113.1*(1-pct/100)).toFixed(1));
+}
+
+/* ---------- vistas ---------- */
+function showView(v){
+ closeCard();
+ Array.prototype.forEach.call(document.querySelectorAll(".view"),function(s){s.classList.toggle("on",s.id==="v-"+v)});
+ Array.prototype.forEach.call(document.querySelectorAll("nav button"),function(b){b.classList.toggle("on",b.getAttribute("data-v")===v)});
+ if(v==="map")apply();
+ if(v==="probar")renderProbar();
+ if(v==="brujula")renderBrujula();
+ if(v==="yo")renderYo();
+}
+Array.prototype.forEach.call(document.querySelectorAll("nav button"),function(b){b.onclick=function(){showView(b.getAttribute("data-v"))}});
+
+function renderProbar(){
+ var list=C.slice().sort(function(a,b){
+  var da=S.res[a.id]?1:0,db=S.res[b.id]?1:0;
+  if(da!==db)return da-db;
+  return AFF[b.id].score-AFF[a.id].score;
+ });
+ var v=$("#v-probar");
+ v.innerHTML='<h2>Probar</h2><p>Primero las que más coinciden con tus temas. Cada reto dura uno o dos minutos.</p>'+list.map(function(c){
+  var d=S.res[c.id],n=AFF[c.id].score;
+  return '<div class="item"><div class="dot" style="background:'+c.color+'"></div><div><b>'+esc(c.name)+'</b><span class="sub">'+(d?R[d]:(n?n+(n===1?" coincidencia":" coincidencias"):"Sin coincidencias directas"))+'</span></div><button class="btn small" data-id="'+c.id+'">'+(d?"Repetir":"Probar")+'</button></div>';
+ }).join("");
+ Array.prototype.forEach.call(v.querySelectorAll("button[data-id]"),function(b){b.onclick=function(){openTest(b.getAttribute("data-id"))}});
+}
+function renderBrujula(){
+ var v=$("#v-brujula"),done=Object.keys(S.res).length;
+ function names(k){return C.filter(function(c){return S.res[c.id]===k})}
+ var yes=names("yes").sort(function(a,b){return AFF[b.id].score-AFF[a.id].score});
+ var html='<h2>Tu brújula</h2>';
+ if(!done){
+  html+='<p>Todavía no pruebas ninguna carrera. Toca un territorio del mapa y elige Pruébalo.</p>';
+ }else{
+  html+='<h3>Tus mejores opciones hasta ahora</h3>';
+  html+=yes.length?yes.slice(0,3).map(function(c){
+   var m=AFF[c.id].matches;
+   return '<div class="item"><div class="dot" style="background:'+c.color+'"></div><div><b>'+esc(c.name)+'</b><span class="sub">'+(m.length?"Coincide con: "+esc(m.join(", ")):"Te encendió en el reto")+'</span></div></div>';
+  }).join(""):'<p>Todavía ninguna te encendió. Sigue probando.</p>';
+  var mid=names("mid"),no=names("no");
+  if(mid.length)html+='<h3>Más o menos</h3><p>'+mid.map(function(c){return esc(c.name)}).join(", ")+'</p>';
+  if(no.length)html+='<h3>No son lo tuyo</h3><p>'+no.map(function(c){return esc(c.name)}).join(", ")+'</p>';
+  html+='<p class="sub">Te faltan '+(C.length-done)+' carreras por probar.</p>';
+  html+='<button class="btn noprint" id="print" style="margin-top:8px">Guardar como PDF</button>';
+ }
+ v.innerHTML=html;
+ var pr=$("#print");if(pr)pr.onclick=function(){try{window.print()}catch(e){}};
+}
+function renderYo(){
+ var v=$("#v-yo"),done=Object.keys(S.res).length;
+ v.innerHTML='<h2>Yo</h2><div class="item"><div><b>'+(S.interests.length+S.custom.length)+' temas elegidos</b><span class="sub">'+(S.custom.length?"Incluye "+S.custom.length+" que agregaste tú":"De la lista inicial")+'</span></div></div><div class="item"><div><b>'+done+' de '+C.length+' carreras probadas</b><span class="sub">Claridad vocacional: '+Math.round(done/C.length*100)+'%</span></div></div><div class="row" style="margin-top:14px"><button class="btn" id="chg">Cambiar mis temas</button><button class="btn ghost" id="rst">Empezar de cero</button></div>';
+ $("#chg").onclick=function(){$("#app").classList.remove("on");$("#quiz").classList.add("on");renderQuiz()};
+ $("#rst").onclick=function(){
+  var b=this;
+  if(!b.getAttribute("data-arm")){
+   b.setAttribute("data-arm","1");b.textContent="Toca otra vez para borrar todo";
+   setTimeout(function(){b.removeAttribute("data-arm");b.textContent="Empezar de cero"},3500);
+   return;
+  }
+  S={interests:[],custom:[],res:{}};save();
+  $("#app").classList.remove("on");$("#quiz").classList.add("on");renderQuiz();
+ };
+}
+
+/* ---------- arranque ---------- */
+function enterApp(){
+ $("#quiz").classList.remove("on");$("#app").classList.add("on");
+ computeAff();buildMap();refreshMap();updateHud();showView("map");
+ requestAnimationFrame(centerStart);
+}
+if(S.interests.length+S.custom.length>=3)enterApp();else renderQuiz();
+})();
+</script>
+</body>
+</html>
