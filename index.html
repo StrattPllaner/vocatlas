@@ -518,6 +518,38 @@ nav button:active svg{transform:scale(.84)}
 .stat .big{font-size:46px;font-weight:760;letter-spacing:-.045em;line-height:1;margin-bottom:8px}
 .stat b{display:block;font-size:15px;font-weight:650;margin-bottom:2px}
 .actions{display:flex;flex-direction:column;gap:10px}
+.ycard{padding:18px;border-radius:24px;background:var(--surface);border:1px solid var(--line);margin-bottom:12px}
+.ycard h3{font-size:17px;margin:0 0 4px;letter-spacing:-.015em}
+.ycard p{margin:0;font-size:15px;color:var(--ink-2)}
+.ycard .eyebrow{margin-bottom:6px}
+.meta-bar{height:8px;border-radius:99px;background:var(--sunken);margin-top:12px;overflow:hidden}
+.meta-bar i{display:block;height:100%;width:100%;border-radius:inherit;background:var(--accent);transform-origin:left;transition:transform var(--t-long) var(--soft)}
+.edo{position:relative;margin-top:12px}
+.edo-btn{width:100%;justify-content:space-between;font-weight:600}
+.edo-btn span{overflow:hidden;text-overflow:ellipsis}
+.edo-btn .ph{color:var(--ink-3);font-weight:500}
+.edo-box{display:none;margin-top:10px}
+.edo.open .edo-box{display:block}
+.edo.open .edo-btn{display:none}
+.edo .field{width:100%;flex:none}
+.edo-list{list-style:none;margin:8px 0 0;padding:4px;max-height:288px;overflow-y:auto;border-radius:20px;border:1px solid var(--line-2);background:var(--surface);-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
+.edo-list li{display:flex;align-items:center;gap:10px;min-height:48px;padding:0 14px;border-radius:14px;cursor:pointer;font-size:16px;font-weight:550}
+.edo-list li[aria-selected=true]{background:var(--sunken)}
+.edo-list li.cur{font-weight:700}
+.edo-list li .tag{margin-left:auto;background:none;padding:0;font-size:12px;font-weight:700;letter-spacing:.04em;color:var(--ink-3)}
+.edo-list li.none{color:var(--ink-2);border-bottom:1px solid var(--line);border-radius:14px 14px 0 0}
+.edo-list .nores{min-height:48px;display:flex;align-items:center;padding:0 14px;color:var(--ink-3);font-size:15px}
+.edo-cancel{margin-top:8px}
+.soonbox{display:flex;gap:14px;align-items:flex-start}
+.soonbox .ic{width:44px;height:44px;border-radius:14px;background:var(--sunken);display:grid;place-items:center;flex:none;color:var(--ink-2)}
+.soonbox .ic svg{width:22px;height:22px}
+.priv{font-size:14.5px}
+.priv summary{min-height:48px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;font-weight:650;font-size:16px;list-style:none}
+.priv summary::-webkit-details-marker{display:none}
+.priv summary:after{content:"+";font-size:22px;font-weight:500;color:var(--ink-3);transition:transform var(--t-med) var(--soft)}
+.priv[open] summary:after{transform:rotate(45deg)}
+.priv ul{margin:6px 0 4px;padding-left:18px;color:var(--ink-2)}
+.priv li{margin:4px 0}
 
 #toast{position:fixed;left:50%;top:calc(var(--sat) + 68px);width:max-content;display:flex;align-items:center;gap:10px;padding:10px 18px 10px 10px;border-radius:999px;font-weight:600;font-size:15px;z-index:50;max-width:calc(100% - 32px);opacity:0;transform:translate(-50%,-16px);pointer-events:none;transition:transform var(--t-med) var(--soft),opacity var(--t-med) var(--soft)}
 #toast.on{opacity:1;transform:translate(-50%,0);transition:transform var(--t-long) var(--spring),opacity var(--t-fast) var(--soft)}
@@ -1029,9 +1061,9 @@ function poiSVG(c){return (POI[c.id]||poiTpl)(c)}
 
 
 /* ---------- estado ---------- */
-function blankState(){return {interests:[],custom:[],res:{},rate:{},seen:{},st:{},at:null}}
+function blankState(){return {interests:[],custom:[],res:{},rate:{},seen:{},st:{},at:null,edo:null}}
 var S=blankState();
-try{var raw=localStorage.getItem(KEY);if(raw){var p=JSON.parse(raw);S.interests=p.interests||[];S.custom=p.custom||[];S.res=p.res||{};S.rate=p.rate||{};S.seen=p.seen||{};S.st=p.st||{};S.at=p.at||null}}catch(e){}
+try{var raw=localStorage.getItem(KEY);if(raw){var p=JSON.parse(raw);S.interests=p.interests||[];S.custom=p.custom||[];S.res=p.res||{};S.rate=p.rate||{};S.seen=p.seen||{};S.st=p.st||{};S.at=p.at||null;S.edo=p.edo||null}}catch(e){}
 S.interests=S.interests.filter(function(id){return LAB[id]});
 function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
 
@@ -2236,12 +2268,75 @@ function renderAtlas(){
  var pr=$("#print");if(pr)pr.onclick=function(){try{window.print()}catch(e){}};
  var gm=$("#gomap");if(gm)gm.onclick=function(){showView("map")};
 }
+/* Entidades federativas de México (clave ISO 3166-2:MX) con su nombre habitual.
+   Los alias sirven para buscar; Ciudad de México y Estado de México nunca comparten alias. */
+var EDOS=[
+ ["AGU","Aguascalientes"],["BCN","Baja California"],["BCS","Baja California Sur",["bcs"]],["CAM","Campeche"],
+ ["CHP","Chiapas"],["CHH","Chihuahua"],["CMX","Ciudad de México",["cdmx","df","distrito federal"],"CDMX"],["COA","Coahuila",["coahuila de zaragoza"]],
+ ["COL","Colima"],["DUR","Durango"],["MEX","Estado de México",["edomex","edo de mexico","edo mex"],"Edomex"],["GUA","Guanajuato"],
+ ["GRO","Guerrero"],["HID","Hidalgo"],["JAL","Jalisco"],["MIC","Michoacán",["michoacan de ocampo"]],
+ ["MOR","Morelos"],["NAY","Nayarit"],["NLE","Nuevo León"],["OAX","Oaxaca"],
+ ["PUE","Puebla"],["QUE","Querétaro"],["ROO","Quintana Roo"],["SLP","San Luis Potosí",["slp"]],
+ ["SIN","Sinaloa"],["SON","Sonora"],["TAB","Tabasco"],["TAM","Tamaulipas"],
+ ["TLA","Tlaxcala"],["VER","Veracruz",["veracruz de ignacio de la llave"]],["YUC","Yucatán"],["ZAC","Zacatecas"]
+].map(function(e){return {id:e[0],n:e[1],tag:e[3]||"",k:[e[1]].concat(e[2]||[]).map(norm)}});
+var EDO_NONE="no";
+function norm(t){return String(t).normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase().replace(/[^a-z0-9ñ ]+/g," ").replace(/\s+/g," ").trim()}
+function edoById(id){for(var i=0;i<EDOS.length;i++)if(EDOS[i].id===id)return EDOS[i];return null}
+function edoName(){var e=edoById(S.edo);return e?e.n:""}
+/* cada palabra escrita debe ser el inicio de alguna palabra del nombre o de un alias */
+function edoSearch(q){
+ var w=norm(q).split(" ").filter(function(x){return x&&x!=="de"&&x!=="del"&&x!=="la"});
+ if(!w.length)return EDOS.slice();
+ var out=[];
+ EDOS.forEach(function(e){
+  var best=-1;
+  e.k.forEach(function(key){
+   var kw=key.split(" "),ok=w.every(function(x){return kw.some(function(y){return y.indexOf(x)===0})});
+   if(ok){var sc=(key===w.join(" ")?3:0)+(kw[0].indexOf(w[0])===0?2:0)+(key===e.k[0]?1:0);if(sc>best)best=sc}
+  });
+  if(best>=0)out.push({e:e,s:best});
+ });
+ out.sort(function(a,b){return b.s-a.s||a.e.n.localeCompare(b.e.n,"es")});
+ return out.map(function(o){return o.e});
+}
+/* Oferta educativa por estado: vacía a propósito hasta tener datos con fuente.
+   Forma prevista: OFERTA[claveEstado] = {unis:[{nombre, carreras:[id], fuente}], becas:[{nombre, fuente}]} */
+var OFERTA={};
+function ofertaEn(edo){var o=edo&&OFERTA[edo];return {unis:(o&&o.unis)||[],becas:(o&&o.becas)||[]}}
+/* meta siguiente a partir del avance real */
+function nextGoal(done){
+ var n=C.length,steps=[1,Math.ceil(n/4),Math.ceil(n/2),n];
+ for(var i=0;i<steps.length;i++)if(done<steps[i])return {to:steps[i],pct:Math.round(steps[i]/n*100)};
+ return null;
+}
 function renderYo(){
- var v=$("#v-yo"),done=Object.keys(S.res).length,nt=S.interests.length+S.custom.length;
- v.innerHTML='<div class="vwrap"><div class="vhead st"><div class="eyebrow">Tu perfil</div><h2>Yo</h2></div>'+
+ var v=$("#v-yo"),done=Object.keys(S.res).length,nt=S.interests.length+S.custom.length,en=edoName(),g=nextGoal(done),top=topCareer();
+ var meta;
+ if(!g)meta='<h3>Probaste todas las carreras</h3><p>'+(en?'Tu norte es '+esc(top.name)+'. Cuando haya opciones en '+esc(en)+', las verás abajo.':'Tu norte es '+esc(top.name)+'. Revisa tu Atlas para comparar.')+'</p>';
+ else if(!done)meta='<h3>Prueba tu primera carrera</h3><p>Toca un edificio en el mapa y haz su mini reto.</p>';
+ else meta='<h3>Prueba '+(g.to-done)+' carrera'+(g.to-done===1?'':'s')+' más</h3><p>Así llegas a '+g.pct+' % de claridad'+(en&&g.to===C.length?' y sabrás qué buscar en '+esc(en):'')+'.</p>';
+ var prevTo=g?([0,1,Math.ceil(C.length/4),Math.ceil(C.length/2)].filter(function(x){return x<g.to}).pop()):0;
+ var pr=g?Math.max(0,Math.min(1,(done-prevTo)/(g.to-prevTo))):1;
+ var where;
+ if(S.edo&&S.edo!==EDO_NONE){
+  var of=ofertaEn(S.edo);
+  where=(of.unis.length||of.becas.length)?'':'<h3>Pronto habrá opciones en '+esc(en)+'</h3><p>Estamos reuniendo universidades y becas de tu estado con fuentes oficiales. Aquí aparecerán en cuanto estén listas.</p>';
+ }else if(S.edo===EDO_NONE)where='<h3>Pronto habrá opciones</h3><p>Estamos reuniendo universidades y becas con fuentes oficiales. Si quieres verlas de tu estado, elígelo arriba.</p>';
+ else where='<h3>Pronto habrá opciones en tu estado</h3><p>Elige tu estado arriba y aquí verás universidades y becas en cuanto estén listas.</p>';
+ v.innerHTML='<div class="vwrap"><div class="vhead st"><div class="eyebrow">Tu perfil</div><h2>Yo</h2><p>'+(en?'Hola, estás explorando desde '+esc(en)+'.':'Hola, este es tu avance.')+'</p></div>'+
   '<div class="stats"><div class="stat dark st"'+stag(1)+'><div class="big num">'+tab(nt)+'</div><b>temas elegidos</b><span class="sub">'+(S.custom.length?"Incluye "+S.custom.length+" que agregaste tú":"De la lista inicial")+'</span></div>'+
   '<div class="stat st"'+stag(2)+'><div class="big num">'+tab(done)+'</div><b>de '+C.length+' carreras probadas</b><span class="sub">Claridad vocacional: '+Math.round(done/C.length*100)+'%</span></div></div>'+
-  '<div class="actions st"'+stag(3)+'><button class="btn primary wide" id="chg">Cambiar mis temas</button><button class="btn quiet wide" id="rst">Empezar de cero</button></div></div>';
+  '<div class="ycard st"'+stag(3)+'><div class="eyebrow">Tu siguiente meta</div>'+meta+'<div class="meta-bar"><i style="transform:scaleX('+pr.toFixed(3)+')"></i></div></div>'+
+  '<div class="ycard st"'+stag(4)+'><div class="eyebrow">Dónde vives</div><h3>Tu estado</h3><p>Opcional. Solo el estado, sin ciudad ni ubicación.</p>'+
+   '<div class="edo" id="edo"><button class="btn edo-btn" id="edoBtn" aria-haspopup="listbox"><span>'+(en?esc(en):S.edo===EDO_NONE?'Prefiero no decirlo':'<span class="ph">Elige tu estado</span>')+'</span><span aria-hidden="true">'+(S.edo?'Cambiar':'')+'</span></button>'+
+   '<div class="edo-box"><input id="edoQ" class="field" type="text" inputmode="search" enterkeyhint="done" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Escribe tu estado" role="combobox" aria-expanded="true" aria-controls="edoL" aria-autocomplete="list" aria-label="Busca tu estado">'+
+   '<ul class="edo-list" id="edoL" role="listbox" aria-label="Estados de México"></ul><button class="btn quiet wide edo-cancel" id="edoX">Cancelar</button></div></div></div>'+
+  '<h3 class="sec st"'+stag(5)+'>Dónde estudiar</h3>'+
+  '<div class="ycard st"'+stag(6)+'><div class="soonbox"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 9.5L12 5l9 4.5-9 4.5z"/><path d="M7 11.5V16c0 1.4 2.2 3 5 3s5-1.6 5-3v-4.5"/></svg></div><div>'+where+'</div></div></div>'+
+  '<div class="ycard st"'+stag(7)+'><details class="priv"><summary>Aviso de privacidad</summary><p>Todo lo que haces en Vocatlas se guarda solo en este dispositivo. No tenemos cuentas ni servidores que reciban tus datos.</p><ul><li>Lo que se guarda: tus temas, tus calificaciones, tus reacciones en los retos, tu avance en el mapa y, si lo eliges, tu estado.</li><li>Tu estado sirve para personalizar tus metas y, más adelante, mostrarte universidades y becas de ahí. No pedimos tu ubicación, ciudad ni colonia.</li><li>Puedes cambiar tu estado o elegir “Prefiero no decirlo” cuando quieras. “Empezar de cero” borra todo.</li></ul></details></div>'+
+  '<div class="actions st"'+stag(8)+'><button class="btn primary wide" id="chg">Cambiar mis temas</button><button class="btn quiet wide" id="rst">Empezar de cero</button></div></div>';
+ bindEdo();
  $("#chg").onclick=function(){appToQuiz()};
  $("#rst").onclick=function(){
   var b=this;
@@ -2253,6 +2348,32 @@ function renderYo(){
   S=blankState();save();hudP=0;
   appToQuiz();
  };
+}
+function bindEdo(){
+ var w=$("#edo"),q=$("#edoQ"),L=$("#edoL"),act=0,items=[];
+ function draw(){
+  items=edoSearch(q.value);
+  var h='';
+  if(!norm(q.value))h+='<li role="option" id="eo-none" data-id="'+EDO_NONE+'" class="none'+(S.edo===EDO_NONE?' cur':'')+'">Prefiero no decirlo</li>';
+  items.forEach(function(e){h+='<li role="option" id="eo-'+e.id+'" data-id="'+e.id+'"'+(S.edo===e.id?' class="cur"':'')+'>'+esc(e.n)+(e.tag?'<span class="tag">'+e.tag+'</span>':'')+'</li>'});
+  if(!items.length)h+='<li class="nores" role="presentation">No encontramos ese estado. Revisa cómo lo escribiste.</li>';
+  L.innerHTML=h;act=0;mark();
+ }
+ function opts(){return L.querySelectorAll("li[role=option]")}
+ function mark(){var o=opts();each(o,function(x,i){x.setAttribute("aria-selected",i===act?"true":"false")});if(o[act]){q.setAttribute("aria-activedescendant",o[act].id)}else q.removeAttribute("aria-activedescendant")}
+ function pick(id){S.edo=id;save();renderYo();var b=$("#edoBtn");if(b)b.focus();toast(id===EDO_NONE?"Listo, no lo guardamos":"Guardado: "+edoById(id).n)}
+ function close(){w.classList.remove("open");$("#edoBtn").focus()}
+ $("#edoBtn").onclick=function(){w.classList.add("open");q.value="";draw();q.focus();setTimeout(function(){try{w.scrollIntoView({block:"start",behavior:RM()?"auto":"smooth"})}catch(e){}},RM()?0:250)};
+ $("#edoX").onclick=close;
+ q.addEventListener("input",draw);
+ q.addEventListener("keydown",function(e){
+  var o=opts();
+  if(e.key==="ArrowDown"){e.preventDefault();act=Math.min(o.length-1,act+1);mark();o[act]&&o[act].scrollIntoView({block:"nearest"})}
+  else if(e.key==="ArrowUp"){e.preventDefault();act=Math.max(0,act-1);mark();o[act]&&o[act].scrollIntoView({block:"nearest"})}
+  else if(e.key==="Enter"){e.preventDefault();if(o[act])pick(o[act].getAttribute("data-id"))}
+  else if(e.key==="Escape"){e.preventDefault();close()}
+ });
+ L.addEventListener("click",function(e){var li=e.target.closest("li[role=option]");if(li)pick(li.getAttribute("data-id"))});
 }
 function appToQuiz(){
  var a=$("#app");stopWalk();
