@@ -558,6 +558,8 @@ html.ret #boot.show{opacity:1;pointer-events:auto}
 .fl-slot{position:relative;flex:none;height:188px;margin:0 0 22px;overflow:hidden}
 .fl-slot:empty{display:none}
 #flow[data-step=inicio] .fl-slot{height:clamp(280px,52vh,470px);margin:0 0 6px}
+#flow[data-step=metas] .fl-slot{height:clamp(230px,33vh,300px);margin:0 calc(12px + var(--sar)) 18px calc(12px + var(--sal));border-radius:28px}
+@media (min-width:900px){#flow[data-step=metas] .fl-right{padding:calc(14px + var(--sat)) calc(14px + var(--sar)) calc(14px + var(--sab)) 14px}#flow[data-step=metas] .fl-right .scene{border-radius:32px}}
 .fl-in,.fl-foot-in{width:100%;max-width:560px;margin:0 auto}
 .fl-in{padding:0 calc(20px + var(--sar)) 28px calc(20px + var(--sal))}
 .fl-foot{flex:none;padding:12px calc(20px + var(--sar)) calc(14px + var(--sab)) calc(20px + var(--sal));background:var(--bg);box-shadow:0 -1px 0 var(--line)}
@@ -705,6 +707,46 @@ html.ret #boot.show{opacity:1;pointer-events:auto}
 .fl-foot .btn.primary[aria-disabled=true]:active{transform:none}
 .btn.shake{animation:shake var(--t-med) var(--soft)}
 .qtop .iconbtn{margin-right:2px}
+/* escena ilustrada del paso de metas (versión anterior) */
+:root{--sky:#D6EBF5;--sea:#A9D6EC;--sea-2:#8FC9E8;--wave:rgba(255,255,255,.75);--sand:#F1E2C4;--sand-2:#E6D2AE;--grass:#7FB59A;--grass-2:#6AA386;--isle-far:#BFDCCB;--cloud:#FFFFFF;--sun:#F2B544;--sail:#FFFBF2;--hull:#14323F}
+@media (prefers-color-scheme:dark){:root{--sky:#0F2C38;--sea:#123D4C;--sea-2:#0D3140;--wave:rgba(143,201,232,.32);--sand:#2C4E5B;--sand-2:#244350;--grass:#3E7A62;--grass-2:#356B55;--isle-far:#1B4650;--cloud:rgba(246,239,226,.10);--sun:#F6EFE2;--sail:#DDE5EA;--hull:#0A1A21}}
+.scene{position:relative;width:100%;height:100%;overflow:hidden;background:var(--sky);container-type:size;--S:max(100cqw,100cqh);--k:.3}
+#flow[data-step=inicio] .scene{--k:.37}
+@media (min-width:900px){.scene{--k:.36}}
+.sc-bg{position:absolute;inset:0;width:100%;height:100%;display:block}
+.sc-sky{fill:var(--sky)}.sc-sun{fill:var(--sun)}.sc-far{fill:var(--isle-far)}.sc-sea{fill:var(--sea)}.sc-sea2{fill:var(--sea-2)}
+.sc-sand{fill:var(--sand)}.sc-sand2{fill:var(--sand-2)}.sc-grass{fill:var(--grass)}.sc-grass2{fill:var(--grass-2)}.sc-cloud{fill:var(--cloud)}
+.sc-foam{fill:var(--wave)}.sc-wv{fill:none;stroke:var(--wave);stroke-width:5;stroke-linecap:round}
+.sc-sail{fill:var(--sail)}.sc-hull{fill:var(--hull)}.sc-flag{fill:var(--mostaza)}.sc-pole{stroke:var(--hull);stroke-width:5;stroke-linecap:round}
+.sc-star,.sc-moon{display:none}
+@media (prefers-color-scheme:dark){.sc-star{display:inline;fill:#F6EFE2;opacity:.7}.sc-moon{display:inline;fill:var(--sky)}}
+.sc-c1{animation:cloudDrift 22s ease-in-out infinite alternate}
+.sc-c2{animation:cloudDrift 28s ease-in-out infinite alternate-reverse}
+.sc-waves{animation:scWave 4.5s ease-in-out infinite alternate}
+.sc-boat{transform-box:fill-box;transform-origin:center bottom;animation:bobBoat 3.6s ease-in-out infinite}
+@keyframes scWave{from{transform:translateX(-14px)}to{transform:translateX(14px)}}
+.sc-actor{position:absolute;left:0;right:0;bottom:0;pointer-events:none}
+.sc-rb{position:absolute;left:50%;width:150px;height:150px;bottom:16%;width:calc(var(--k) * var(--S));height:calc(var(--k) * var(--S));bottom:calc(var(--S) * .18 - var(--k) * var(--S) * .085);transform:translateX(-50%);pointer-events:auto}
+.sc-rb .rb{width:100%;height:100%}
+.sc-say{position:absolute;left:50%;bottom:calc(var(--S) * .18 + var(--k) * var(--S) * .95);transform:translateX(-50%);width:max-content;max-width:min(84%,340px);padding:11px 16px;border-radius:20px;background:var(--surface);color:var(--ink);box-shadow:var(--sh-2);font-size:16px;font-weight:650;line-height:1.3;text-align:center}
+.sc-say::after{content:"";position:absolute;left:50%;bottom:-7px;width:16px;height:16px;margin-left:-8px;background:inherit;border-radius:3px;transform:rotate(45deg)}
+.sc-say:empty{display:none}
+.sc-say.pop{animation:sayPop var(--t-long) var(--spring) both}
+.rc .ri{width:40px;height:40px;flex:none;border-radius:12px;background:var(--sunken);color:var(--ink);display:grid;place-items:center}
+.rc.on .ri{background:rgba(255,255,255,.14);color:inherit}
+.rc .ri svg{width:22px;height:22px}
+.privnote{display:flex;gap:12px;align-items:flex-start;padding:14px 16px;border-radius:18px;background:var(--sunken);font-size:14.5px;color:var(--ink-2);line-height:1.45}
+.privnote svg{width:22px;height:22px;flex:none;color:var(--ink);margin-top:1px}
+.privnote p{margin:0;color:inherit}
+.sug{position:relative;padding:20px 20px 18px;border-radius:24px;background:var(--select);color:var(--on-select);margin-bottom:26px;overflow:hidden}
+.sug .eyebrow{color:inherit;opacity:.7;margin-bottom:8px}
+.sug h3{font-size:24px;letter-spacing:-.03em;margin-bottom:6px;padding-right:56px}
+.sug p{color:inherit;opacity:.82;margin:0;font-size:15.5px}
+.sug .cmp{position:absolute;right:16px;top:16px;width:44px;height:44px;color:var(--mostaza)}
+.sug .cmp .nd{transform-box:view-box;transform-origin:22px 22px;animation:needle 3.2s var(--soft) infinite alternate}
+@keyframes needle{0%{transform:rotate(-24deg)}60%{transform:rotate(14deg)}100%{transform:rotate(4deg)}}
+.goalsum{display:flex;gap:10px;align-items:center;font-size:15px;font-weight:650;color:var(--ink)}
+.goalsum svg{width:20px;height:20px;flex:none}
 .ycard{padding:18px;border-radius:24px;background:var(--surface);border:1px solid var(--line);margin-bottom:12px}
 .ycard h3{font-size:17px;margin:0 0 4px;letter-spacing:-.015em}
 .ycard p{margin:0;font-size:15px;color:var(--ink-2)}
@@ -795,7 +837,8 @@ html.ret #boot.show{opacity:1;pointer-events:auto}
 
 /* movimiento reducido: todo pasa a desvanecimientos */
 @media (prefers-reduced-motion:reduce){
- .ch-needle,.ch-stop,.ch-route{animation:none!important}
+ .ch-needle,.ch-stop,.ch-route,.sc-c1,.sc-c2,.sc-waves,.sc-boat,.sug .cmp .nd{animation:none!important}
+ .sc-say.pop{animation:fadeIn var(--t-med) linear both!important}
  .ch-w,.ch-rbw,.ch-sayw,.bt-fill,.bt-fill>svg,.bt-rb,.tl-track i,.tl-d{transition:none!important}
  .fl-in.in>*,.fl-foot-in.in>*{animation:fadeIn var(--t-med) linear both!important}
  .fl-in.out,.fl-foot-in.out{transform:none}
@@ -2695,6 +2738,27 @@ function chartSVG(){
 }
 var CHV={inicio:{w:{z:1,fx:.67,fy:.6},n:{z:1,fx:.5,fy:.66}},perfil:{w:{z:1.75,fx:.3,fy:.64},n:{z:1.6,fx:.3,fy:.86}},metas:{w:{z:.96,fx:.5,fy:.55},n:{z:.92,fx:.5,fy:.62}}};
 var FL={step:null,mode:"new",fromFlow:false},CHT=null,SCRB=null,WIDE=window.matchMedia?window.matchMedia("(min-width: 900px)"):null,sayT=0,PP=null;
+var SCN=null,SCNRB=null;
+function sceneHTMLOld(){
+ var cl='<rect y="34" width="170" height="40" rx="20"/><circle cx="62" cy="38" r="32"/><circle cx="108" cy="30" r="38"/>';
+ return '<div class="scene" aria-hidden="true"><svg class="sc-bg" viewBox="0 0 800 800" preserveAspectRatio="xMidYMax slice">'+
+ '<rect class="sc-sky" width="800" height="800"/>'+
+ '<g class="sc-star"><circle cx="120" cy="120" r="3"/><circle cx="260" cy="70" r="2"/><circle cx="420" cy="150" r="2.5"/><circle cx="720" cy="80" r="2"/><circle cx="540" cy="300" r="2"/><circle cx="80" cy="330" r="2.5"/><circle cx="330" cy="270" r="2"/><circle cx="760" cy="380" r="2"/></g>'+
+ '<circle class="sc-sun" cx="610" cy="200" r="62"/><circle class="sc-moon" cx="636" cy="180" r="52"/>'+
+ '<g class="sc-c1"><g class="sc-cloud" transform="translate(80 160)">'+cl+'</g></g>'+
+ '<g class="sc-c2"><g class="sc-cloud" transform="translate(480 330) scale(.7)">'+cl+'</g></g>'+
+ '<path class="sc-far" d="M30 506Q110 440 190 476Q240 450 310 506Z"/><path class="sc-far" d="M500 506Q580 432 660 468Q722 456 780 506Z"/>'+
+ '<rect class="sc-sea" y="500" width="800" height="300"/><rect class="sc-sea2" y="660" width="800" height="140"/>'+
+ '<g class="sc-waves"><path class="sc-wv" d="M60 560q14-10 28 0t28 0"/><path class="sc-wv" d="M640 584q14-10 28 0t28 0"/><path class="sc-wv" d="M320 546q14-10 28 0t28 0"/><path class="sc-wv" d="M70 712q14-10 28 0t28 0"/><path class="sc-wv" d="M664 728q14-10 28 0t28 0"/></g>'+
+ '<g class="sc-boat"><path class="sc-pole" d="M150 520V584"/><path class="sc-sail" d="M155 524L198 580H155Z"/><path class="sc-sail" d="M145 536L118 580H145Z" opacity=".8"/><path class="sc-hull" d="M106 588H206L191 608H121Z"/></g>'+
+ '<ellipse class="sc-foam" cx="400" cy="716" rx="292" ry="40"/>'+
+ '<path class="sc-sand2" d="M130 700Q400 612 670 700Q560 752 400 754Q240 752 130 700Z"/>'+
+ '<path class="sc-sand" d="M140 690Q400 602 660 690Q560 736 400 738Q240 736 140 690Z"/>'+
+ '<path class="sc-grass" d="M196 670Q400 590 604 670Q500 648 400 648Q300 648 196 670Z"/>'+
+ '<circle class="sc-grass2" cx="232" cy="668" r="16"/><circle class="sc-grass" cx="254" cy="662" r="20"/><circle class="sc-grass2" cx="562" cy="666" r="14"/>'+
+ '<path class="sc-pole" d="M596 664V590"/><path class="sc-flag" d="M598 592L640 605L598 619Z"/>'+
+ '</svg><div class="sc-say" id="scSay"></div><div class="sc-rb">'+rumboEl()+'</div></div>';
+}
 function isWide(){return !!(WIDE&&WIDE.matches)}
 function ensureFlow(){
  if(CHT)return;
@@ -2707,7 +2771,17 @@ function ensureFlow(){
  if(window.ResizeObserver)new ResizeObserver(function(){chartView(true)}).observe(CHT);else window.addEventListener("resize",function(){chartView(true)});
  $("#flBack").onclick=flowBack;
 }
-function placeChart(){if(!CHT)return;var t=isWide()?$("#flRight"):$("#flSlot");if(CHT.parentNode!==t){t.appendChild(CHT);chartView(true)}}
+function placeChart(){
+ if(!CHT)return;var t=isWide()?$("#flRight"):$("#flSlot");
+ if(FL.step==="metas"){
+  if(!SCN){var d=document.createElement("div");d.innerHTML=sceneHTMLOld();SCN=d.firstChild;SCNRB=SCN.querySelector(".rb");wireRumbo(SCNRB)}
+  if(CHT.parentNode)CHT.parentNode.removeChild(CHT);
+  if(SCN.parentNode!==t)t.appendChild(SCN);
+  return;
+ }
+ if(SCN&&SCN.parentNode)SCN.parentNode.removeChild(SCN);
+ if(CHT.parentNode!==t){t.appendChild(CHT);chartView(true)}
+}
 /* encuadre: el puerto (donde está Rumbo) cae en (fx,fy) de la carta con zoom z */
 function chartView(instant){
  if(!CHT||!FL.step)return;
@@ -2724,7 +2798,7 @@ function chartView(instant){
  sw.style.transform=side?"translate("+(X+size*.36).toFixed(1)+"px,"+(Y-size*.6).toFixed(1)+"px)":"translate("+X.toFixed(1)+"px,"+(Y-size*.92).toFixed(1)+"px)";
  if(instant){void CHT.offsetWidth;CHT.classList.remove("nt")}
 }
-function say(t,m,act){var b=$("#chSay");if(!b)return;b.textContent=t||"";if(!RM())restart(b,"pop");mood(SCRB,m||"idle",act)}
+function say(t,m,act){var sc=FL.step==="metas"&&SCN,b=sc?$("#scSay"):$("#chSay");if(!b)return;b.textContent=t||"";if(!RM())restart(b,"pop");mood(sc?SCNRB:SCRB,m||"idle",act)}
 function drawRoute(m){
  var g=$("#chRoute");if(!g)return;
  if(!m){g.innerHTML="";return}
@@ -2757,7 +2831,7 @@ function placePP(){
 function dropPP(){if(PP&&PP.parentNode)PP.parentNode.removeChild(PP);PP=null}
 function radioCard(name,val,label,on,o){
  o=o||{};
- return '<label class="rc'+(on?' on':'')+(o.cls?' '+o.cls:'')+'"><input type="radio" name="'+name+'" value="'+val+'"'+(on?' checked':'')+'>'+(o.viz?'':'<span class="mk"></span>')+'<span class="tx">'+label+(o.sub?'<small>'+o.sub+'</small>':'')+'</span>'+(o.viz||'')+'</label>';
+ return '<label class="rc'+(on?' on':'')+(o.cls?' '+o.cls:'')+'"><input type="radio" name="'+name+'" value="'+val+'"'+(on?' checked':'')+'>'+(o.icon?'<span class="ri">'+o.icon+'</span>':o.viz?'':'<span class="mk"></span>')+'<span class="tx">'+label+(o.sub?'<small>'+o.sub+'</small>':'')+'</span>'+(o.viz||'')+'</label>';
 }
 function bindRadios(root,name,cb){
  var ins=root.querySelectorAll('input[name="'+name+'"]');
@@ -2792,7 +2866,7 @@ function goStep(step,dir,fresh){
   each(st.children,function(li,i){li.className=i<idx?"done":i===idx?"cur":"";if(i===idx)li.setAttribute("aria-current","step");else li.removeAttribute("aria-current")});
   $("#flBack").hidden=step==="inicio";
   placeChart();$("#flMain").scrollTop=0;
-  drawRoute(step==="metas"?S.meta:null);
+  drawRoute(null);
   chartView(!!fresh);
   if(v.bind)v.bind();
   clearTimeout(sayT);sayT=setTimeout(function(){say(v.say,v.mood,v.act)},fresh?T.med:T.long);
@@ -2913,31 +2987,32 @@ var STEPS={
   var g=S.grado&&GR[S.grado]?S.grado:"otro",G=GR[g],ed=FL.mode==="edit";
   var M=(S.meta&&S.meta.g===g)?S.meta:{g:g,tipo:G.m.tipo,n:G.m.n,ritmo:G.m.ritmo,plazo:G.m.plazo};
   S.meta=M;save();
+  var cmp='<svg class="cmp" viewBox="0 0 44 44" fill="none" aria-hidden="true"><circle cx="22" cy="22" r="19" stroke="currentColor" stroke-width="2.5" opacity=".5"/><g class="nd"><path d="M22 7l5 15h-10z" fill="currentColor"/><path d="M22 37l-5-15h10z" fill="currentColor" opacity=".45"/></g><circle cx="22" cy="22" r="2.5" fill="currentColor"/></svg>';
   function sub(){
    if(M.tipo==="top3")return '<fieldset class="fld" style="margin:0"><legend class="lbl">¿Para cuándo?</legend><div class="seg">'+PLAZOS.map(function(p){return radioCard("plazo",p[0],p[1],M.plazo===p[0])}).join("")+'</div></fieldset>';
-   return '<fieldset class="fld" style="margin:0"><legend class="lbl">¿Cuántas carreras?</legend><div class="seg num">'+NCARR.map(function(n){return radioCard("ncar",n,String(n),M.n===n)}).join("")+'</div></fieldset>';
+   return '<fieldset class="fld" style="margin:0"><legend class="lbl">¿Cuántas carreras?</legend><div class="seg">'+NCARR.map(function(n){return radioCard("ncar",n,n+" carreras",M.n===n)}).join("")+'</div></fieldset>';
   }
   function sum(){
-   var en=edoName(),t=M.tipo==="top3"?"tu top 3"+(M.plazo!=="libre"?", "+plazoName(M.plazo).toLowerCase():""):M.n+" paradas";
-   return '<p class="goalsum">Tu ruta: '+t+', '+ritmoName(M.ritmo).toLowerCase()+'.</p>'+(M.tipo==="top3"&&en?'<p class="help" style="margin-top:6px">Cuando lo tengas, en Yo verás opciones para estudiar en '+esc(en)+' en cuanto estén listas.</p>':'');
+   var en=edoName(),t=M.tipo==="top3"?"Tener tu top 3"+(M.plazo!=="libre"?" "+plazoName(M.plazo).toLowerCase():""):"Probar "+M.n+" carreras";
+   return GIC[M.tipo]+'<p><b style="color:var(--ink)">Tu meta: '+t+', '+ritmoName(M.ritmo).toLowerCase()+'.</b>'+(M.tipo==="top3"&&en?' Cuando la tengas, en Yo verás opciones para estudiar en '+esc(en)+' en cuanto estén listas.':'')+'</p>';
   }
   return {
-   body:'<h2 class="fl-h fl-focus" tabindex="-1">Traza tu ruta</h2><p class="fl-p">'+(S.nick?esc(S.nick)+', te':'Te')+' propongo una '+G.por+'. Muévela a tu gusto.</p>'+
-    '<div class="note"><b>'+G.t+'</b>'+G.w+'</div>'+
-    '<fieldset class="fld"><legend class="lbl">¿Qué quieres lograr?</legend><div class="rstack">'+radioCard("tipo","n","Probar varias carreras",M.tipo==="n",{sub:"Tú eliges cuántas"})+radioCard("tipo","top3","Tener mi top 3",M.tipo==="top3",{sub:"Las 3 que más te laten, para compararlas"})+'</div><div class="sub-q" id="mSub">'+sub()+'</div></fieldset>'+
-    '<fieldset class="fld"><legend class="lbl">¿A qué ritmo?</legend><div class="rstack">'+RITMOS.map(function(r){return radioCard("ritmo",r[0],r[1],M.ritmo===r[0],{sub:r[2],viz:rhythmViz({calma:20,constante:12,fondo:7}[r[0]])})}).join("")+'</div></fieldset>'+
-    '<div id="mSum" aria-live="polite">'+sum()+'</div>',
-   foot:'<button class="btn primary wide" id="mGo">'+(ed?'Guardar cambios':'Guardar mi ruta')+IC.arrow+'</button>',
-   say:"Así se vería tu ruta.",mood:"think",act:"look",
+   body:'<h2 class="fl-h fl-focus" tabindex="-1">'+(S.nick?'Tu meta, '+esc(S.nick):'Tu meta')+'</h2><p class="fl-p">Te propongo esto '+G.por+'. Ajústalo como quieras.</p>'+
+    '<div class="sug">'+cmp+'<div class="eyebrow">Meta sugerida</div><h3>'+G.t+'</h3><p>'+G.w+'</p></div>'+
+    '<fieldset class="fld"><legend class="lbl">¿A qué ritmo quieres ir?</legend><div class="rstack">'+RITMOS.map(function(r){return radioCard("ritmo",r[0],r[1],M.ritmo===r[0],{icon:RIC[r[0]],sub:r[2]})}).join("")+'</div></fieldset>'+
+    '<fieldset class="fld"><legend class="lbl">¿Qué quieres lograr?</legend><div class="rstack">'+radioCard("tipo","n","Probar cierto número de carreras",M.tipo==="n",{icon:GIC.n,sub:"Tú eliges cuántas"})+radioCard("tipo","top3","Tener mi top 3",M.tipo==="top3",{icon:GIC.top3,sub:"Las 3 que más te laten, para compararlas"})+'</div><div class="sub-q" id="mSub">'+sub()+'</div></fieldset>'+
+    '<div class="privnote goal" id="mSum" aria-live="polite">'+sum()+'</div>',
+   foot:'<button class="btn primary wide" id="mGo">'+(ed?'Guardar cambios':'Guardar mi meta')+IC.arrow+'</button>',
+   say:"Te armé una propuesta. ¿Qué dices?",mood:"think",act:"look",
    bind:function(){
     var body=$("#flBody");
-    function upd(){S.meta=M;save();$("#mSum").innerHTML=sum();drawRoute(M)}
+    function upd(){S.meta=M;save();$("#mSum").innerHTML=sum()}
     function bindSub(){
      bindRadios($("#mSub"),"plazo",function(v){M.plazo=v;upd()});
-     bindRadios($("#mSub"),"ncar",function(v){M.n=+v;upd();say(M.n+" paradas. ¡Va!","happy")});
+     bindRadios($("#mSub"),"ncar",function(v){M.n=+v;upd()});
     }
     bindRadios(body,"ritmo",function(v){M.ritmo=v;upd();say(RMSG[v],"happy","tilt")});
-    bindRadios(body,"tipo",function(v){M.tipo=v;$("#mSub").innerHTML=sub();bindSub();upd();say(v==="top3"?"Un top 3 claro vale oro.":"Cada parada suma.","happy")});
+    bindRadios(body,"tipo",function(v){M.tipo=v;$("#mSub").innerHTML=sub();bindSub();upd();say(v==="top3"?"Un top 3 claro vale oro.":"Cada carrera que pruebes suma.","happy")});
     bindSub();
     $("#mGo").onclick=function(){
      S.meta=M;save();
