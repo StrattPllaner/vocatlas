@@ -393,14 +393,14 @@ nav button:active svg{transform:scale(.84)}
 .rb-sh{fill:var(--rb-sh);transform-box:fill-box;transform-origin:center}
 .rb-f{transform-box:view-box;transform-origin:50px 60px;transition:transform var(--t-med) var(--spring)}
 .rb.left .rb-f{transform:scaleX(-1)}
-.rb-b{transform-box:view-box;transform-origin:50px 90px}
-.rb-head{transform-box:view-box;transform-origin:51px 81px}
-.rb-n{transform-box:view-box;transform-origin:47.8px 22px}
+.rb-b{transform-box:view-box;transform-origin:50px 91.5px}
+.rb-head{transform-box:view-box;transform-origin:51px 80px}
+.rb-n{transform-box:view-box;transform-origin:47.7px 22px}
 .rb-face{transform-box:view-box;transform-origin:51px 56px;transition:transform var(--t-med) var(--soft)}
 .rb-eyes{transform-box:fill-box;transform-origin:center;transition:transform 70ms linear}
 .rb.blink .rb-eyes{transform:scaleY(.12)}
-.rb-legL{transform-box:view-box;transform-origin:38px 78px}
-.rb-legR{transform-box:view-box;transform-origin:61px 78px}
+.rb-legL{transform-box:view-box;transform-origin:37.3px 76.5px}
+.rb-legR{transform-box:view-box;transform-origin:57.8px 76.5px}
 .rb [data-p]{opacity:0;transition:opacity var(--t-fast) var(--soft)}
 .rb[data-mood=idle] [data-p~=idle],.rb[data-mood=happy] [data-p~=happy],.rb[data-mood=think] [data-p~=think],.rb[data-mood=meh] [data-p~=meh],.rb[data-mood=no] [data-p~=no]{opacity:1}
 /* reposo: respira y la flecha se mece como aguja de brújula */
@@ -1063,54 +1063,59 @@ var IC={
  no:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M7 7l10 10M17 7L7 17"/></svg>'
 };
 function logo(){return '<svg viewBox="44 62 388 388" width="100%" height="100%" aria-hidden="true" style="color:var(--ink)"><g fill="currentColor" stroke="currentColor" stroke-width="6" stroke-linejoin="round"><path d="M80 108L110 98L256 334L222 352Z"/><path d="M396 108L366 98L220 334L254 352Z"/></g><path d="M80 78L110 98L80 108Z" fill="#8E929C" stroke="currentColor" stroke-width="6" stroke-linejoin="round"/><path d="M396 78L366 98L396 108Z" fill="#26408A" stroke="currentColor" stroke-width="6" stroke-linejoin="round"/><circle cx="238" cy="378" r="41" fill="var(--bg,#F7F5EA)" stroke="currentColor" stroke-width="24"/><circle cx="238" cy="378" r="11" fill="currentColor"/></svg>'}
-/* Rumbo en capas: sombra, piernas, capucha de aviador (detrás), flecha, cuerpo-globo, cara, correa y gafas (delante) */
+/* Rumbo en capas, calcado de la ilustración (coordenadas en px del original, escaladas por M):
+   sombra, piernas, capucha (detrás), flecha, globo, cara, correa que cruza la frente (delante) y gafas */
 var rbN=0;
 function rumboSVG(){
- var INK="#1B2340",W="#FFFFFF",OL="#3A2A22",CAP="#B8763F",CAPL="#CF9257",CAPD="#93592C",LEG="#3E66A3",LEGD="#32568C",LAND="#8FA9B6",SEA="#F5E2C2",GLD="#F2AE40",RIM="#ECD2A3",LENS="#A7C2CC",id="rbc"+(++rbN);
- var C='cx="51" cy="59"';
+ var INK="#111C3C",W="#FFFFFF",OL="#412D19",GOL="#1E1A1C",SHELL="#90512D",STRAP="#C8823C",STRAPL="#DA9A58",LEG="#3B6296",LEGD="#2F5079",LAND="#789198",SEA="#F7DCBC",GLD="#F1A43E",RIM="#F4D2A7",LENS="#9EB4B3",LSH="#3B4766",CHK="#EFA187",id="rbc"+(++rbN);
+ var M='<g transform="matrix(.195 0 0 .195 .275 -5.41)">',E='</g>',C='cx="263" cy="322"';
  return '<svg viewBox="0 0 100 100" aria-hidden="true">'+
- '<defs><clipPath id="'+id+'"><circle '+C+' r="22.5"/></clipPath></defs>'+
- '<ellipse class="rb-sh" cx="49.5" cy="91.2" rx="23" ry="3.2"/>'+
+ '<defs><clipPath id="'+id+'"><circle '+C+' r="118"/></clipPath></defs>'+
+ '<ellipse class="rb-sh" cx="49.4" cy="91.5" rx="24.4" ry="3.1"/>'+
  '<g class="rb-f"><g class="rb-b">'+
-  '<g class="rb-legL"><path d="M32.5 76h11v11.2q0 3.2-3.4 3.2h-6.6q-4.2 0-4.2-3.6 0-3 2.2-5.2z" fill="'+LEG+'"/><path d="M29.3 86.6q0 3.8 4.2 3.8h6.6q3.4 0 3.4-3.2v-.6q-7 1.6-14.2 0z" fill="'+LEGD+'"/></g>'+
-  '<g class="rb-legR"><path d="M55.5 76h11l1 5.6q2.2 2.2 2.2 5.2 0 3.6-4.2 3.6h-6.6q-3.4 0-3.4-3.2z" fill="'+LEG+'"/><path d="M69.7 86.6q0 3.8-4.2 3.8h-6.6q-3.4 0-3.4-3.2v-.6q7 1.6 14.2 0z" fill="'+LEGD+'"/></g>'+
-  '<g class="rb-head">'+
-   /* capucha detrás del globo, asoma arriba y por los lados como orejeras */
-   '<path d="M29.5 63C26 65 22 63 21.4 58.6C20.4 51 20.4 43.6 22.6 38C24.2 34.2 26.8 31.6 30.2 30.4C37 26.4 44 25.6 50.5 25.6C57 25.6 64 26.2 69.6 29.6C73.6 32.2 76.4 36.4 77.4 42C78.4 47.6 78 52.6 77 55.8C76 58.6 73 59 71.8 56.2L51 50Z" fill="'+CAP+'" stroke="'+OL+'" stroke-width="1.4" stroke-linejoin="round"/>'+
-   '<path d="M23.8 51C23.6 45 24.6 40 27.4 35.6" fill="none" stroke="'+CAPL+'" stroke-width="1.6" stroke-linecap="round"/>'+
-   '<path d="M75.6 51C76 46.4 75.4 42 73.4 38" fill="none" stroke="'+CAPD+'" stroke-width="1.4" stroke-linecap="round" stroke-opacity=".7"/>'+
-   '<g class="rb-n"><rect x="46.6" y="12" width="2.4" height="12" rx="1.2" fill="#F6DCA6" stroke="'+OL+'" stroke-width=".7"/><path d="M47.8 2L53.8 14.2Q47.8 12.6 41.8 14.2Z" fill="'+GLD+'" stroke="'+OL+'" stroke-width=".7" stroke-linejoin="round"/><path d="M47.8 2L53.8 14.2Q50.8 13.3 47.8 13.1Z" fill="#E09A2C"/></g>'+
+  '<g class="rb-legL">'+M+'<path d="M176 410H222V482Q222 498 206 498H170Q150 498 152 482Q154 466 170 452Z" fill="'+LEG+'"/><path d="M152 484Q154 498 170 498H206Q222 498 222 484Z" fill="'+LEGD+'"/>'+E+'</g>'+
+  '<g class="rb-legR">'+M+'<path d="M268 410H318Q322 452 334 466Q342 482 332 494Q326 498 312 498H282Q268 498 268 484Z" fill="'+LEG+'"/><path d="M268 484Q268 498 282 498H312Q326 498 332 494Q338 490 338 484Z" fill="'+LEGD+'"/>'+E+'</g>'+
+  '<g class="rb-head">'+M+
+   /* capucha detrás: hombros, orejera izquierda colgante y lado derecho */
+   '<path d="M132 392Q112 382 108 350Q104 300 108 252Q113 222 130 200Q160 165 205 148Q245 138 285 142Q330 152 362 190Q388 226 395 262Q400 294 390 314Q378 322 370 308Q300 262 263 300Q170 330 158 382Q150 398 132 392Z" fill="'+SHELL+'" stroke="'+OL+'" stroke-width="7" stroke-linejoin="round"/>'+
+   '<path d="M156 205Q176 162 245 144Q324 148 356 198Z" fill="'+OL+'"/>'+
+   '<path d="M112 240Q116 214 132 196L158 176L166 196Q148 214 140 244Z" fill="'+STRAP+'" stroke="'+OL+'" stroke-width="5" stroke-linejoin="round"/>'+
+   E+
+   '<g class="rb-n">'+M+'<rect x="236" y="92" width="14" height="54" rx="7" fill="#F2C88A"/><path d="M243 36Q248 36 251 42L279 88Q284 98 272 98H214Q202 98 207 88L235 42Q238 36 243 36Z" fill="'+GLD+'"/>'+E+'</g>'+
+   M+
    /* globo */
-   '<circle '+C+' r="22.5" fill="'+SEA+'"/>'+
+   '<circle '+C+' r="120" fill="'+SEA+'"/>'+
    '<g clip-path="url(#'+id+')">'+
-    '<g fill="none" stroke="'+LAND+'" stroke-opacity=".3" stroke-width=".6"><ellipse '+C+' rx="10" ry="22.5"/><path d="M28.5 59h45M30 48q21 3.6 42 0M30 70q21-3.6 42 0"/></g>'+
+    '<g fill="none" stroke="'+LAND+'" stroke-opacity=".14" stroke-width="3"><ellipse '+C+' rx="56" ry="120"/><path d="M143 322H383M150 270Q263 290 376 270M150 374Q263 354 376 374"/></g>'+
     '<g fill="'+LAND+'">'+
-     '<path d="M28 46h8c1.8.4 2.2 2.6.8 3.6 1.6 1 1.4 3.4-.4 4-.6 1.8-2.8 2.4-4.2 1.4-1.2 1.6-1.2 3.6-.6 5H27z"/>'+
-     '<path d="M27 69c1.4-2 4.4-2.2 5.8-.4 1.2-2 4.4-2.4 6-.6 1.8-1.6 4.8-1.2 5.8 1 2-.6 4.2.8 4.2 3 2 .8 2.6 3.2 1.2 4.8l-1 8.2H26z"/>'+
-     '<path d="M57 83c-.8-2 .6-4 2.6-4.2-.4-2.2 1.4-4.2 3.6-4 .4-2.2 2.8-3.4 5-2.4.8-1.8 3.4-2.2 5-.8L76 83z"/>'+
-     '<path d="M75 39c-2 .2-3.6 1.6-3.6 3.6-1.8.4-3 2.2-2.4 4-1.4 1.2-1.2 3.4.4 4.2-.4 2 1.2 3.6 3.2 3.4 1 1.2 2.6 1.2 3.4 0z"/>'+
+     '<path d="M130 200H262Q274 220 262 232Q248 236 246 250Q244 266 226 266Q212 268 214 282Q212 300 192 298Q178 296 172 306Q166 318 150 318H130Z"/>'+
+     '<path d="M256 200H300Q292 220 278 226Q268 236 258 230Z"/>'+
+     '<path d="M130 352Q150 344 166 352Q180 344 196 354Q214 352 226 366Q244 374 240 392Q236 404 242 418Q244 434 228 446L130 460Z"/>'+
+     '<path d="M296 460L300 410Q296 394 312 388Q318 376 334 380Q344 368 360 370Q372 364 392 368L400 460Z"/>'+
     '</g>'+
-    '<path d="M71 50A22 22 0 0 1 40 79.5A24 24 0 0 0 75 51Z" fill="'+INK+'" fill-opacity=".08"/>'+
    '</g>'+
-   '<circle '+C+' r="22.5" fill="none" stroke="'+OL+'" stroke-width="1.4"/>'+
-   '<circle cx="37.3" cy="59.5" r="3.9" fill="#F2A493"/><circle cx="65" cy="59.5" r="3.9" fill="#F2A493"/>'+
-   '<g class="rb-face">'+
-    '<g data-p="idle meh"><g class="rb-eyes"><ellipse cx="42.6" cy="51.8" rx="2.8" ry="3.3" fill="'+INK+'"/><ellipse cx="59.4" cy="51.8" rx="2.8" ry="3.3" fill="'+INK+'"/><circle cx="43.6" cy="50.5" r="1" fill="'+W+'"/><circle cx="60.4" cy="50.5" r="1" fill="'+W+'"/></g></g>'+
-    '<g data-p="happy" fill="none" stroke="'+INK+'" stroke-width="2.3" stroke-linecap="round"><path d="M39.6 52.6q3-4 6 0"/><path d="M56.4 52.6q3-4 6 0"/></g>'+
-    '<g data-p="think"><g class="rb-eyes"><ellipse cx="43.8" cy="50.4" rx="2.7" ry="3.2" fill="'+INK+'"/><ellipse cx="60.6" cy="50.4" rx="2.7" ry="3.2" fill="'+INK+'"/><circle cx="44.7" cy="49.2" r=".95" fill="'+W+'"/><circle cx="61.5" cy="49.2" r=".95" fill="'+W+'"/></g></g>'+
-    '<g data-p="no" stroke="'+INK+'" stroke-width="2.3" stroke-linecap="round"><path d="M39.6 52.2h6"/><path d="M56.4 52.2h6"/></g>'+
-    '<path data-p="idle" d="M45.6 59.4q5.4 4.8 10.8 0" fill="none" stroke="'+INK+'" stroke-width="2" stroke-linecap="round"/>'+
-    '<path data-p="happy" d="M45.2 58.8q5.8 7.6 11.6 0z" fill="'+INK+'" stroke="'+INK+'" stroke-width="1.4" stroke-linejoin="round"/>'+
-    '<circle data-p="think" cx="54" cy="61" r="1.9" fill="'+INK+'"/>'+
-    '<path data-p="meh" d="M46.6 60.6h8.8" stroke="'+INK+'" stroke-width="2" stroke-linecap="round"/>'+
-    '<path data-p="no" d="M46.4 63q4.6-3.6 9.2 0" fill="none" stroke="'+INK+'" stroke-width="2" stroke-linecap="round"/>'+
-   '</g>'+
-   /* correa delante: sale de la capucha y se curva hacia afuera */
-   '<path d="M41.6 37.4C34 38.4 25 40.2 19 42.6C14.4 44.4 13.8 49.4 17.6 50.4C21 51.2 24 48.8 29.4 48C33.6 47.4 38.2 46.6 42.6 45C45.4 43.4 44.6 37.6 41.6 37.4Z" fill="'+CAP+'" stroke="'+OL+'" stroke-width="1.3" stroke-linejoin="round"/>'+
-   '<path d="M18.4 45C24 42.4 32 40.8 40.4 40" fill="none" stroke="'+CAPL+'" stroke-width="1.5" stroke-linecap="round"/>'+
-   /* gafas grandes sobre la frente de la capucha */
-   '<g transform="rotate(10 60 27.4)"><ellipse cx="60" cy="27.4" rx="10.4" ry="7" fill="'+RIM+'" stroke="'+OL+'" stroke-width="1.3"/><ellipse cx="60.4" cy="28" rx="7" ry="4.3" fill="'+LENS+'" stroke="'+OL+'" stroke-width="1.1"/><path d="M55.6 27.2q1.6-1.8 4.4-2" fill="none" stroke="#fff" stroke-width="1" stroke-linecap="round" stroke-opacity=".8"/></g>'+
-   '<g transform="rotate(-12 39.6 29.4)"><ellipse cx="39.6" cy="29.4" rx="10.8" ry="7.1" fill="'+RIM+'" stroke="'+OL+'" stroke-width="1.3"/><ellipse cx="40" cy="30" rx="7.2" ry="4.4" fill="'+LENS+'" stroke="'+OL+'" stroke-width="1.1"/><path d="M35.4 29.2q1.6-1.8 4.4-2" fill="none" stroke="#fff" stroke-width="1" stroke-linecap="round" stroke-opacity=".8"/></g>'+
+   '<circle '+C+' r="120" fill="none" stroke="'+GOL+'" stroke-width="7"/>'+
+   '<circle cx="188" cy="333" r="20" fill="'+CHK+'"/><circle cx="334" cy="333" r="20" fill="'+CHK+'"/>'+
+   E+
+   '<g class="rb-face">'+M+
+    '<g data-p="idle meh"><g class="rb-eyes"><ellipse cx="220" cy="295" rx="17" ry="19" fill="'+INK+'"/><ellipse cx="303" cy="295" rx="17" ry="19" fill="'+INK+'"/><circle cx="225" cy="287" r="5.5" fill="'+W+'"/><circle cx="308" cy="287" r="5.5" fill="'+W+'"/></g></g>'+
+    '<g data-p="happy" fill="none" stroke="'+INK+'" stroke-width="11" stroke-linecap="round"><path d="M204 300Q220 278 236 300"/><path d="M287 300Q303 278 319 300"/></g>'+
+    '<g data-p="think"><g class="rb-eyes"><ellipse cx="227" cy="287" rx="16" ry="18" fill="'+INK+'"/><ellipse cx="310" cy="287" rx="16" ry="18" fill="'+INK+'"/><circle cx="232" cy="280" r="5" fill="'+W+'"/><circle cx="315" cy="280" r="5" fill="'+W+'"/></g></g>'+
+    '<g data-p="no" stroke="'+INK+'" stroke-width="11" stroke-linecap="round"><path d="M205 296H235"/><path d="M288 296H318"/></g>'+
+    '<path data-p="idle" d="M232 330Q262 362 292 330" fill="none" stroke="'+INK+'" stroke-width="11" stroke-linecap="round"/>'+
+    '<path data-p="happy" d="M230 326Q262 372 294 326Z" fill="'+INK+'" stroke="'+INK+'" stroke-width="7" stroke-linejoin="round"/>'+
+    '<circle data-p="think" cx="270" cy="342" r="10" fill="'+INK+'"/>'+
+    '<path data-p="meh" d="M240 340H284" stroke="'+INK+'" stroke-width="11" stroke-linecap="round"/>'+
+    '<path data-p="no" d="M238 352Q262 332 286 352" fill="none" stroke="'+INK+'" stroke-width="11" stroke-linecap="round"/>'+
+   E+'</g>'+
+   M+
+   /* correa: cruza la frente, baja por la derecha y sale a la izquierda como lengüeta */
+   '<path d="M70 268Q66 252 86 248Q120 244 152 238Q190 214 238 200Q290 188 335 208Q368 226 384 254Q394 272 392 290Q388 300 380 290Q374 268 358 246Q336 220 300 214Q262 210 222 226Q186 240 162 258Q150 268 140 276Q110 284 84 282Q72 280 70 268Z" fill="'+STRAP+'" stroke="'+OL+'" stroke-width="7" stroke-linejoin="round"/>'+
+   '<path d="M90 258Q126 254 158 247Q198 222 240 210Q290 200 328 216Q356 232 372 256" fill="none" stroke="'+STRAPL+'" stroke-width="5" stroke-linecap="round" stroke-opacity=".75"/>'+
+   /* gafas */
+   '<g transform="rotate(12 306 163)"><ellipse cx="306" cy="163" rx="46" ry="31" fill="'+RIM+'" stroke="'+OL+'" stroke-width="7"/><ellipse cx="306" cy="167" rx="30" ry="17" fill="'+LENS+'" stroke="'+OL+'" stroke-width="5"/><path d="M277 166Q281 151 306 150Q331 151 335 165Q324 158 306 158Q288 158 277 166Z" fill="'+LSH+'"/></g>'+
+   '<g transform="rotate(-8 208 167)"><ellipse cx="208" cy="167" rx="52" ry="33" fill="'+RIM+'" stroke="'+OL+'" stroke-width="7"/><ellipse cx="205" cy="172" rx="33" ry="18" fill="'+LENS+'" stroke="'+OL+'" stroke-width="5"/><path d="M173 171Q178 155 205 154Q232 155 237 169Q225 162 205 162Q185 162 173 171Z" fill="'+LSH+'"/></g>'+
+   E+
   '</g>'+
  '</g></g></svg>';
 }
