@@ -566,9 +566,8 @@ html.ret #boot.show{opacity:1;pointer-events:auto}
 .sp-rb{width:min(300px,64vw,38vh);height:min(300px,64vw,38vh);margin:0 auto 34px}
 .sp-rb{position:relative}
 .sp-rb .rb{width:100%;height:100%;transition:opacity var(--t-med) var(--soft)}
-.sp-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:.01;transform:scale(1.6);transition:opacity var(--t-med) var(--soft);pointer-events:none}
+.sp-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transform:scale(1.18);transition:opacity var(--t-med) var(--soft);pointer-events:none}
 .sp-rb.vid-on .sp-vid{opacity:1}
-.sp-vid::-webkit-media-controls,.sp-vid::-webkit-media-controls-panel,.sp-vid::-webkit-media-controls-overlay-play-button,.sp-vid::-webkit-media-controls-start-playback-button,.sp-vid::-webkit-media-controls-enclosure{display:none!important;-webkit-appearance:none;opacity:0!important}
 .sp-rb.vid-on .rb{opacity:0}
 .splash .lead{margin:0 auto}
 .splash .resume{text-align:left}
@@ -2679,19 +2678,11 @@ var PRIV_FULL='<p>Todo lo que haces en Vocatlas se guarda solo en este dispositi
 function gradoName(id){for(var i=0;i<GRADOS.length;i++)if(GRADOS[i][0]===id)return GRADOS[i][1];return ""}
 function ritmoName(id){for(var i=0;i<RITMOS.length;i++)if(RITMOS[i][0]===id)return RITMOS[i][1];return ""}
 function plazoName(id){for(var i=0;i<PLAZOS.length;i++)if(PLAZOS[i][0]===id)return PLAZOS[i][1];return ""}
-/* Rumbo bailando: HEVC con transparencia para Safari, WebM VP9 para Chrome/Firefox; si no se puede, queda el Rumbo animado en SVG */
+/* Rumbo bailando: WebP animado con transparencia (no depende de la reproducción automática de video); mientras carga queda el Rumbo en SVG */
 function danceVideo(){
- var box=$("#spRb"),v=box&&box.querySelector("video");if(!v||RM())return;
- var apple=/Apple/.test(navigator.vendor||"")&&!!v.canPlayType('video/mp4; codecs="hvc1"');
- /* Safari solo reproduce solo si el video ya está silenciado como propiedad, no basta el atributo puesto por innerHTML */
- v.muted=true;v.defaultMuted=true;v.playsInline=true;v.setAttribute("muted","");v.setAttribute("playsinline","");v.setAttribute("webkit-playsinline","");v.autoplay=true;v.loop=true;
- v.src=apple?"media/rumbo-baile.mov":"media/rumbo-baile.webm";
- v.controls=false;v.disableRemotePlayback=true;
- v.addEventListener("playing",function(){v.classList.add("ok");box.classList.add("vid-on")},{once:true});
- function go(){var p=v.play();if(p&&p.catch)p.catch(function(){})}
- v.addEventListener("loadeddata",go,{once:true});go();
- /* si el navegador lo bloqueó (por ejemplo, ahorro de batería), arranca con el primer toque */
- document.addEventListener("pointerdown",function(){if(v.paused)go()},{once:true});
+ var box=$("#spRb"),im=box&&box.querySelector("img");if(!im||RM())return;
+ im.onload=function(){box.classList.add("vid-on")};
+ im.src="media/rumbo-baile.webp";
 }
 function hasMap(){return S.interests.length+S.custom.length>=3}
 function nickOk(v){return /[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]/.test(v||"")}
@@ -2845,7 +2836,7 @@ var STEPS={
    res='<div class="resume"><b>'+(S.nick?'Qué bueno verte, '+esc(S.nick)+'.':'Qué bueno verte de nuevo.')+'</b><span>Llevas '+done+' de '+C.length+' carreras probadas'+(done?'. Por ahora te late más '+esc(top.name):'')+'.</span><div class="rbar"><i style="transform:scaleX('+(done/C.length).toFixed(3)+')"></i></div></div>';
   }else if(mid)res='<div class="resume"><b>'+(S.nick?'Hola otra vez, '+esc(S.nick)+'.':'Hola otra vez.')+'</b><span>Te quedaste en '+STEPLAB[S.flow]+'. Lo que llevabas sigue aquí.</span></div>';
   return {
-   body:'<div class="fhero splash"><div class="sp-rb" id="spRb"><video class="sp-vid" muted loop playsinline preload="auto" aria-hidden="true" disablepictureinpicture></video>'+rumboEl("dance")+'</div><h1 class="fl-focus" tabindex="-1">Antes de escoger carrera, pruébala.</h1><p class="lead">Un mapa con '+C.length+' carreras. Visitas cada una, haces su reto y vas viendo cuál te late.</p>'+res+'</div>',
+   body:'<div class="fhero splash"><div class="sp-rb" id="spRb"><img class="sp-vid" alt="" aria-hidden="true" width="320" height="320" decoding="async">'+rumboEl("dance")+'</div><h1 class="fl-focus" tabindex="-1">Antes de escoger carrera, pruébala.</h1><p class="lead">Un mapa con '+C.length+' carreras. Visitas cada una, haces su reto y vas viendo cuál te late.</p>'+res+'</div>',
    foot:'<button class="btn primary wide" id="iGo">'+(has?'Continuar mi mapa':mid?'Seguir donde me quedé':'Empezar')+IC.arrow+'</button><p class="trust">'+LOCK+'Sin registro. Todo se guarda en tu dispositivo.</p>',
    say:"",mood:"happy",
    bind:function(){danceVideo();$("#iGo").onclick=function(){if(has)flowToApp();else if(mid){if(S.flow==="temas")flowToQuiz();else goStep(S.flow,1)}else goStep("perfil",1)}}
