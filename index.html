@@ -566,8 +566,9 @@ html.ret #boot.show{opacity:1;pointer-events:auto}
 .sp-rb{width:min(300px,64vw,38vh);height:min(300px,64vw,38vh);margin:0 auto 34px}
 .sp-rb{position:relative}
 .sp-rb .rb{width:100%;height:100%;transition:opacity var(--t-med) var(--soft)}
-.sp-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transform:scale(1.6);transition:opacity var(--t-med) var(--soft);pointer-events:none}
+.sp-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:.01;transform:scale(1.6);transition:opacity var(--t-med) var(--soft);pointer-events:none}
 .sp-rb.vid-on .sp-vid{opacity:1}
+.sp-vid::-webkit-media-controls,.sp-vid::-webkit-media-controls-panel,.sp-vid::-webkit-media-controls-overlay-play-button,.sp-vid::-webkit-media-controls-start-playback-button,.sp-vid::-webkit-media-controls-enclosure{display:none!important;-webkit-appearance:none;opacity:0!important}
 .sp-rb.vid-on .rb{opacity:0}
 .splash .lead{margin:0 auto}
 .splash .resume{text-align:left}
@@ -2685,7 +2686,8 @@ function danceVideo(){
  /* Safari solo reproduce solo si el video ya está silenciado como propiedad, no basta el atributo puesto por innerHTML */
  v.muted=true;v.defaultMuted=true;v.playsInline=true;v.setAttribute("muted","");v.setAttribute("playsinline","");v.setAttribute("webkit-playsinline","");v.autoplay=true;v.loop=true;
  v.src=apple?"media/rumbo-baile.mov":"media/rumbo-baile.webm";
- v.addEventListener("playing",function(){box.classList.add("vid-on")},{once:true});
+ v.controls=false;v.disableRemotePlayback=true;
+ v.addEventListener("playing",function(){v.classList.add("ok");box.classList.add("vid-on")},{once:true});
  function go(){var p=v.play();if(p&&p.catch)p.catch(function(){})}
  v.addEventListener("loadeddata",go,{once:true});go();
  /* si el navegador lo bloqueó (por ejemplo, ahorro de batería), arranca con el primer toque */
