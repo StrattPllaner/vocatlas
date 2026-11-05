@@ -2682,9 +2682,14 @@ function plazoName(id){for(var i=0;i<PLAZOS.length;i++)if(PLAZOS[i][0]===id)retu
 function danceVideo(){
  var box=$("#spRb"),v=box&&box.querySelector("video");if(!v||RM())return;
  var apple=/Apple/.test(navigator.vendor||"")&&!!v.canPlayType('video/mp4; codecs="hvc1"');
+ /* Safari solo reproduce solo si el video ya está silenciado como propiedad, no basta el atributo puesto por innerHTML */
+ v.muted=true;v.defaultMuted=true;v.playsInline=true;v.setAttribute("muted","");v.setAttribute("playsinline","");v.setAttribute("webkit-playsinline","");v.autoplay=true;v.loop=true;
  v.src=apple?"media/rumbo-baile.mov":"media/rumbo-baile.webm";
  v.addEventListener("playing",function(){box.classList.add("vid-on")},{once:true});
- var p=v.play();if(p&&p.catch)p.catch(function(){});
+ function go(){var p=v.play();if(p&&p.catch)p.catch(function(){})}
+ v.addEventListener("loadeddata",go,{once:true});go();
+ /* si el navegador lo bloqueó (por ejemplo, ahorro de batería), arranca con el primer toque */
+ document.addEventListener("pointerdown",function(){if(v.paused)go()},{once:true});
 }
 function hasMap(){return S.interests.length+S.custom.length>=3}
 function nickOk(v){return /[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]/.test(v||"")}
