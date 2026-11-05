@@ -566,7 +566,7 @@ html.ret #boot.show{opacity:1;pointer-events:auto}
 .sp-rb{width:min(300px,64vw,38vh);height:min(300px,64vw,38vh);margin:0 auto 34px}
 .sp-rb{position:relative}
 .sp-rb .rb{width:100%;height:100%;transition:opacity var(--t-med) var(--soft)}
-.sp-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transform:scale(1.18);transition:opacity var(--t-med) var(--soft);pointer-events:none}
+.sp-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transform:scale(1.1);transition:opacity var(--t-med) var(--soft);pointer-events:none}
 .sp-rb.vid-on .sp-vid{opacity:1}
 .sp-rb.vid-on .rb{opacity:0}
 .splash .lead{margin:0 auto}
@@ -2836,7 +2836,7 @@ var STEPS={
    res='<div class="resume"><b>'+(S.nick?'Qué bueno verte, '+esc(S.nick)+'.':'Qué bueno verte de nuevo.')+'</b><span>Llevas '+done+' de '+C.length+' carreras probadas'+(done?'. Por ahora te late más '+esc(top.name):'')+'.</span><div class="rbar"><i style="transform:scaleX('+(done/C.length).toFixed(3)+')"></i></div></div>';
   }else if(mid)res='<div class="resume"><b>'+(S.nick?'Hola otra vez, '+esc(S.nick)+'.':'Hola otra vez.')+'</b><span>Te quedaste en '+STEPLAB[S.flow]+'. Lo que llevabas sigue aquí.</span></div>';
   return {
-   body:'<div class="fhero splash"><div class="sp-rb" id="spRb"><img class="sp-vid" alt="" aria-hidden="true" width="320" height="320" decoding="async">'+rumboEl("dance")+'</div><h1 class="fl-focus" tabindex="-1">Antes de escoger carrera, pruébala.</h1><p class="lead">Un mapa con '+C.length+' carreras. Visitas cada una, haces su reto y vas viendo cuál te late.</p>'+res+'</div>',
+   body:'<div class="fhero splash"><div class="sp-rb" id="spRb"><img class="sp-vid" alt="" aria-hidden="true" width="532" height="532" decoding="async">'+rumboEl("dance")+'</div><h1 class="fl-focus" tabindex="-1">Antes de escoger carrera, pruébala.</h1><p class="lead">Un mapa con '+C.length+' carreras. Visitas cada una, haces su reto y vas viendo cuál te late.</p>'+res+'</div>',
    foot:'<button class="btn primary wide" id="iGo">'+(has?'Continuar mi mapa':mid?'Seguir donde me quedé':'Empezar')+IC.arrow+'</button><p class="trust">'+LOCK+'Sin registro. Todo se guarda en tu dispositivo.</p>',
    say:"",mood:"happy",
    bind:function(){danceVideo();$("#iGo").onclick=function(){if(has)flowToApp();else if(mid){if(S.flow==="temas")flowToQuiz();else goStep(S.flow,1)}else goStep("perfil",1)}}
