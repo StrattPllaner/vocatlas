@@ -563,8 +563,12 @@ html.ret #boot.show{opacity:1;pointer-events:auto}
 #flow[data-step=inicio] .fl-in,#flow[data-step=inicio] .fl-foot-in{max-width:480px}
 #flow[data-step=inicio] .fl-foot{box-shadow:none}
 .splash{text-align:center}
-.sp-rb{width:min(300px,64vw,38vh);height:min(300px,64vw,38vh);margin:0 auto 10px}
-.sp-rb .rb{width:100%;height:100%}
+.sp-rb{width:min(300px,64vw,38vh);height:min(300px,64vw,38vh);margin:0 auto 34px}
+.sp-rb{position:relative}
+.sp-rb .rb{width:100%;height:100%;transition:opacity var(--t-med) var(--soft)}
+.sp-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transform:scale(1.6);transition:opacity var(--t-med) var(--soft);pointer-events:none}
+.sp-rb.vid-on .sp-vid{opacity:1}
+.sp-rb.vid-on .rb{opacity:0}
 .splash .lead{margin:0 auto}
 .splash .resume{text-align:left}
 .rb.dance .rb-b{animation:rbDance 1.1s ease-in-out infinite}
@@ -2674,6 +2678,14 @@ var PRIV_FULL='<p>Todo lo que haces en Vocatlas se guarda solo en este dispositi
 function gradoName(id){for(var i=0;i<GRADOS.length;i++)if(GRADOS[i][0]===id)return GRADOS[i][1];return ""}
 function ritmoName(id){for(var i=0;i<RITMOS.length;i++)if(RITMOS[i][0]===id)return RITMOS[i][1];return ""}
 function plazoName(id){for(var i=0;i<PLAZOS.length;i++)if(PLAZOS[i][0]===id)return PLAZOS[i][1];return ""}
+/* Rumbo bailando: HEVC con transparencia para Safari, WebM VP9 para Chrome/Firefox; si no se puede, queda el Rumbo animado en SVG */
+function danceVideo(){
+ var box=$("#spRb"),v=box&&box.querySelector("video");if(!v||RM())return;
+ var apple=/Apple/.test(navigator.vendor||"")&&!!v.canPlayType('video/mp4; codecs="hvc1"');
+ v.src=apple?"media/rumbo-baile.mov":"media/rumbo-baile.webm";
+ v.addEventListener("playing",function(){box.classList.add("vid-on")},{once:true});
+ var p=v.play();if(p&&p.catch)p.catch(function(){});
+}
 function hasMap(){return S.interests.length+S.custom.length>=3}
 function nickOk(v){return /[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]/.test(v||"")}
 var STEPLAB={perfil:"tu pasaporte",metas:"tu ruta",temas:"tus intereses"};
@@ -2826,10 +2838,10 @@ var STEPS={
    res='<div class="resume"><b>'+(S.nick?'Qué bueno verte, '+esc(S.nick)+'.':'Qué bueno verte de nuevo.')+'</b><span>Llevas '+done+' de '+C.length+' carreras probadas'+(done?'. Por ahora te late más '+esc(top.name):'')+'.</span><div class="rbar"><i style="transform:scaleX('+(done/C.length).toFixed(3)+')"></i></div></div>';
   }else if(mid)res='<div class="resume"><b>'+(S.nick?'Hola otra vez, '+esc(S.nick)+'.':'Hola otra vez.')+'</b><span>Te quedaste en '+STEPLAB[S.flow]+'. Lo que llevabas sigue aquí.</span></div>';
   return {
-   body:'<div class="fhero splash"><div class="sp-rb" id="spRb">'+rumboEl("dance")+'</div><h1 class="fl-focus" tabindex="-1">Antes de escoger carrera, pruébala.</h1><p class="lead">Un mapa con '+C.length+' carreras. Visitas cada una, haces su reto y vas viendo cuál te late.</p>'+res+'</div>',
+   body:'<div class="fhero splash"><div class="sp-rb" id="spRb"><video class="sp-vid" muted loop playsinline preload="auto" aria-hidden="true" disablepictureinpicture></video>'+rumboEl("dance")+'</div><h1 class="fl-focus" tabindex="-1">Antes de escoger carrera, pruébala.</h1><p class="lead">Un mapa con '+C.length+' carreras. Visitas cada una, haces su reto y vas viendo cuál te late.</p>'+res+'</div>',
    foot:'<button class="btn primary wide" id="iGo">'+(has?'Continuar mi mapa':mid?'Seguir donde me quedé':'Empezar')+IC.arrow+'</button><p class="trust">'+LOCK+'Sin registro. Todo se guarda en tu dispositivo.</p>',
    say:"",mood:"happy",
-   bind:function(){$("#iGo").onclick=function(){if(has)flowToApp();else if(mid){if(S.flow==="temas")flowToQuiz();else goStep(S.flow,1)}else goStep("perfil",1)}}
+   bind:function(){danceVideo();$("#iGo").onclick=function(){if(has)flowToApp();else if(mid){if(S.flow==="temas")flowToQuiz();else goStep(S.flow,1)}else goStep("perfil",1)}}
   };
  },
  perfil:function(){
