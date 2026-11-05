@@ -520,6 +520,29 @@ nav button:active svg{transform:scale(.84)}
 .stat b{display:block;font-size:15px;font-weight:650;margin-bottom:2px}
 .actions{display:flex;flex-direction:column;gap:10px}
 
+/* inicio: deslizar sobre Rumbo para entrar a su mundo */
+.sp-rb{touch-action:none;cursor:grab;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+.sp-rb:active{cursor:grabbing}
+.sp-rb:focus-visible{outline:2px solid var(--accent);outline-offset:6px;border-radius:50%}
+.sp-rb img{-webkit-user-drag:none;pointer-events:none}
+.sw-hint{display:flex;flex-direction:column;align-items:center;height:44px;margin-bottom:-6px;color:var(--ink-2);transition:opacity var(--t-fast) var(--soft)}
+.sw-hint svg{width:28px;height:22px;margin-top:-8px;fill:none;stroke:currentColor;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round;animation:swUp 1.6s var(--soft) infinite}
+.sw-hint svg:first-child{animation-delay:.2s}
+@keyframes swUp{0%{opacity:0;transform:translateY(10px)}40%{opacity:1}100%{opacity:0;transform:translateY(-10px)}}
+.sp-h{font-size:clamp(26px,5.4vw,36px);font-weight:850;line-height:1.1;margin:4px 0 10px;outline:none}
+.splash .lead{font-size:16.5px;max-width:24em}
+.dive.sp-rb{position:fixed;margin:0;z-index:90;pointer-events:none;will-change:transform,opacity;transition:opacity var(--t-long) var(--soft)}
+.dive .sp-vid,.dive .rb{position:absolute;inset:0;width:100%;height:100%}
+.dive.go{transition:transform 640ms cubic-bezier(.6,0,.85,.2),opacity var(--t-long) var(--soft)}
+.dive-tint{position:fixed;inset:0;z-index:89;background:#A9CFE0;opacity:0;pointer-events:none}
+@media (prefers-color-scheme:dark){.dive-tint{background:#123846}}
+.dive-tint.go{animation:diveTint 640ms cubic-bezier(.6,0,.85,.2) forwards}
+.dive-tint.out{animation:tintOut var(--t-long) var(--soft) forwards}
+@keyframes tintOut{from{opacity:1}to{opacity:0}}
+@keyframes diveTint{0%,45%{opacity:0}100%{opacity:1}}
+#app.dived #mapbox{animation:diveMap 900ms var(--soft) both}
+@keyframes diveMap{from{transform:scale(1.35)}to{transform:none}}
+
 /* ================= flujo de entrada: carta náutica ================= */
 :root{--chart-sea:#DCE9EC;--chart-grid:rgba(20,50,63,.075);--chart-land:#FBF6EC;--chart-edge:rgba(20,50,63,.30);--chart-contour:rgba(20,50,63,.13);--chart-lbl:rgba(20,50,63,.66);--chart-sea-lbl:rgba(20,70,95,.46);--route:#14323F;--paper:#FFFBF2}
 @media (prefers-color-scheme:dark){:root{--chart-sea:#0F2A35;--chart-grid:rgba(143,201,232,.07);--chart-land:#18394A;--chart-edge:rgba(246,239,226,.24);--chart-contour:rgba(246,239,226,.09);--chart-lbl:rgba(246,239,226,.7);--chart-sea-lbl:rgba(143,201,232,.48);--route:#F6EFE2;--paper:#14323F}}
@@ -830,7 +853,7 @@ html.ret #boot.show{opacity:1;pointer-events:auto}
 
 /* movimiento reducido: todo pasa a desvanecimientos */
 @media (prefers-reduced-motion:reduce){
- .rb.dance .rb-b,.rb.dance .rb-legL,.rb.dance .rb-legR,.rb.dance .rb-n,.rb.dance .rb-sh,.ch-needle, .sc-say.pop{animation:fadeIn var(--t-med) linear both!important}
+ .sw-hint svg,#app.dived #mapbox,.rb.dance .rb-b,.rb.dance .rb-legL,.rb.dance .rb-legR,.rb.dance .rb-n,.rb.dance .rb-sh,.ch-needle, .sc-say.pop{animation:fadeIn var(--t-med) linear both!important}
  .bt-fill,.bt-fill>svg,.bt-rb,.tl-track i,.tl-d{transition:none!important}
  .fl-in.in>*,.fl-foot-in.in>*{animation:fadeIn var(--t-med) linear both!important}
  .fl-in.out,.fl-foot-in.out{transform:none}
@@ -2684,6 +2707,34 @@ function danceVideo(){
  im.onload=function(){box.classList.add("vid-on")};
  im.src="media/rumbo-baile.webp";
 }
+/* entrar al mundo: Rumbo se agranda desde el centro de su globo hasta llenar la pantalla con mar y se revela el destino */
+var diving=false;
+function diveInto(box,then){
+ if(diving)return;diving=true;
+ function done(){diving=false}
+ if(RM()){var fl=$("#flow");fl.classList.add("leaving");setTimeout(function(){fl.classList.remove("leaving");then();done()},T.med);return}
+ var r=box.getBoundingClientRect(),W=innerWidth,H=innerHeight,cs=getComputedStyle(box).transform;
+ var ov=document.createElement("div");ov.className="dive "+box.className;ov.setAttribute("aria-hidden","true");
+ ov.style.cssText="left:"+r.left+"px;top:"+r.top+"px;width:"+box.offsetWidth+"px;height:"+box.offsetHeight+"px";
+ ov.innerHTML=box.innerHTML;
+ var tint=document.createElement("div");tint.className="dive-tint";
+ document.body.appendChild(tint);document.body.appendChild(ov);
+ /* el rectángulo medido ya incluye el arrastre: el clon arranca sin transformación propia */
+ ov.style.left=(r.left+(r.width-box.offsetWidth)/2)+"px";ov.style.top=(r.top+(r.height-box.offsetHeight)/2)+"px";
+ var sc0=r.width/box.offsetWidth;ov.style.transform="scale("+sc0.toFixed(3)+")";
+ box.style.visibility="hidden";
+ var gx=box.offsetWidth*.5,gy=box.offsetHeight*.56,S=2.4*Math.hypot(W,H)/(box.offsetWidth*.36);
+ ov.style.transformOrigin=gx+"px "+gy+"px";
+ void ov.offsetWidth;
+ ov.classList.add("go");tint.classList.add("go");
+ ov.style.transform="scale("+S.toFixed(2)+")";
+ setTimeout(function(){
+  then();
+  box.style.visibility="";
+  tint.classList.add("out");ov.style.opacity="0";
+  setTimeout(function(){ov.remove();tint.remove();done()},T.long);
+ },640);
+}
 function hasMap(){return S.interests.length+S.custom.length>=3}
 function nickOk(v){return /[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]/.test(v||"")}
 var STEPLAB={perfil:"tu pasaporte",metas:"tu ruta",temas:"tus intereses"};
@@ -2830,16 +2881,45 @@ function rhythmViz(g){var h='<svg class="viz" viewBox="0 0 64 22" aria-hidden="t
 
 var STEPS={
  inicio:function(){
-  var has=hasMap(),mid=!has&&S.flow&&STEPLAB[S.flow],done=Object.keys(S.res).length,res="";
+  var has=hasMap(),mid=!has&&S.flow&&STEPLAB[S.flow],done=Object.keys(S.res).length,res="",wide=matchMedia("(hover:hover) and (pointer:fine)").matches;
   if(has){
    computeAff();var top=topCareer();
    res='<div class="resume"><b>'+(S.nick?'Qué bueno verte, '+esc(S.nick)+'.':'Qué bueno verte de nuevo.')+'</b><span>Llevas '+done+' de '+C.length+' carreras probadas'+(done?'. Por ahora te late más '+esc(top.name):'')+'.</span><div class="rbar"><i style="transform:scaleX('+(done/C.length).toFixed(3)+')"></i></div></div>';
   }else if(mid)res='<div class="resume"><b>'+(S.nick?'Hola otra vez, '+esc(S.nick)+'.':'Hola otra vez.')+'</b><span>Te quedaste en '+STEPLAB[S.flow]+'. Lo que llevabas sigue aquí.</span></div>';
+  function go(){if(has)return "map";if(mid)return S.flow;return "perfil"}
   return {
-   body:'<div class="fhero splash"><div class="sp-rb" id="spRb"><img class="sp-vid" alt="" aria-hidden="true" width="532" height="532" decoding="async">'+rumboEl("dance")+'</div><h1 class="fl-focus" tabindex="-1">Antes de escoger carrera, pruébala.</h1><p class="lead">Un mapa con '+C.length+' carreras. Visitas cada una, haces su reto y vas viendo cuál te late.</p>'+res+'</div>',
-   foot:'<button class="btn primary wide" id="iGo">'+(has?'Continuar mi mapa':mid?'Seguir donde me quedé':'Empezar')+IC.arrow+'</button><p class="trust">'+LOCK+'Sin registro. Todo se guarda en tu dispositivo.</p>',
+   body:'<div class="fhero splash"><div class="sw-hint" id="swHint" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 15l6-6 6 6"/></svg><svg viewBox="0 0 24 24"><path d="M6 15l6-6 6 6"/></svg></div>'+
+    '<div class="sp-rb" id="spRb" role="button" tabindex="0" aria-label="'+(has?'Entrar a mi mapa':'Entrar a Vocatlas')+'"><img class="sp-vid" alt="" aria-hidden="true" width="532" height="532" decoding="async">'+rumboEl("dance")+'</div>'+
+    '<h1 class="sp-h fl-focus" tabindex="-1">'+(wide?'Arrastra a Rumbo hacia arriba':'Desliza hacia arriba sobre Rumbo')+'</h1><p class="lead">'+(has?'Su cabeza es un mundo. Entra y sigue explorando tu mapa.':'Su cabeza es un mundo con '+C.length+' carreras por probar. Entra y empieza a explorar.')+'</p>'+res+'</div>',
+   foot:'<button class="btn quiet wide" id="iGo">'+(has?'Entrar a mi mapa':mid?'Seguir donde me quedé':'Entrar sin deslizar')+'</button><p class="trust">'+LOCK+'Sin registro. Todo se guarda en tu dispositivo.</p>',
    say:"",mood:"happy",
-   bind:function(){danceVideo();$("#iGo").onclick=function(){if(has)flowToApp();else if(mid){if(S.flow==="temas")flowToQuiz();else goStep(S.flow,1)}else goStep("perfil",1)}}
+   bind:function(){
+    danceVideo();
+    var box=$("#spRb"),hint=$("#swHint"),y0=0,t0=0,dy=0,drag=false,lastY=0,lastT=0,vy=0;
+    function dest(){var g=go();if(g==="map")return function(){enterApp(true)};if(g==="temas")return function(){$("#flow").classList.remove("on");FL.fromFlow=true;S.flow="temas";save();$("#quiz").classList.add("on");$(".qscroll").scrollTop=0;renderQuiz()};return function(){goStep(g,1,true)}}
+    function enter(){diveInto(box,dest())}
+    $("#iGo").onclick=enter;
+    box.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "||e.key==="ArrowUp"){e.preventDefault();enter()}});
+    box.addEventListener("pointerdown",function(e){
+     if(e.button>0)return;drag=true;y0=lastY=e.clientY;t0=lastT=e.timeStamp;dy=0;vy=0;
+     try{box.setPointerCapture(e.pointerId)}catch(_){}
+     box.style.transition="none";
+    });
+    box.addEventListener("pointermove",function(e){
+     if(!drag)return;
+     var d=e.clientY-y0;dy=d<0?d:d*.25;
+     var dt=e.timeStamp-lastT;if(dt>0)vy=(e.clientY-lastY)/dt;lastY=e.clientY;lastT=e.timeStamp;
+     var k=Math.min(1,Math.max(0,-dy/140));
+     box.style.transform="translateY("+(dy*.55).toFixed(1)+"px) scale("+(1+k*.22).toFixed(3)+")";
+     hint.style.opacity=(1-k).toFixed(2);
+    });
+    function end(){
+     if(!drag)return;drag=false;
+     if(dy<-90||(dy<-30&&vy<-.6)){enter();return}
+     box.style.transition="transform var(--t-med) var(--spring)";box.style.transform="";hint.style.opacity="";
+    }
+    box.addEventListener("pointerup",end);box.addEventListener("pointercancel",end);
+   }
   };
  },
  perfil:function(){
@@ -3011,11 +3091,12 @@ function fontsReady(cb){
  }catch(e){}
  go();
 }
-function enterApp(){
+function enterApp(fromDive){
  var a=$("#app"),mw=$("#mapwrap"),sk=$("#mapskel"),pre=!!MAPSIG&&MAPSIG===mapSig();
  MAPSIG=null;FL.fromFlow=false;
  if(S.flow){S.flow=null;save()}
  $("#quiz").classList.remove("on");$("#flow").classList.remove("on","leaving");
+ if(fromDive&&!RM())restart(a,"dived");
  a.classList.remove("leaving");a.classList.add("on");
  if(!RM())restart(a,"enter");
  computeAff();updateHud(false);
