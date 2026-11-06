@@ -599,13 +599,14 @@ nav button:active svg{transform:scale(.84)}
 #sky canvas{position:absolute;left:0;width:200%;display:block;animation:skyDrift var(--d) linear infinite}
 #sky .c1{top:3%;opacity:.75;--d:160s}
 #sky .c2{bottom:-6%;--d:95s}
-.sky-word{position:absolute;inset:0;font-size:min(22vw,13vh,136px);font-weight:1000;line-height:1;color:#FFFFFF;pointer-events:none;-webkit-user-select:none;user-select:none}
-.sky-word span{position:absolute;left:var(--x);top:var(--y);transform:translate(-50%,-50%) rotate(var(--r)) scale(var(--s,1));animation:lFloat var(--d) ease-in-out var(--dl) infinite alternate}
-.sky-word .near{--s:1.1;z-index:3;text-shadow:1px 1px 0 #DCEAF4,2px 2px 0 #CFE1EE,3px 3px 0 #C2D8E8,4px 4px 0 #B4CEE1,5px 5px 0 #A6C4DA,6px 6px 0 #98BAD3,7px 7px 0 #8BAFCB,8px 8px 0 #7FA5C3,12px 26px 24px rgba(20,60,110,.3)}
-.sky-word .mid{--s:.76;z-index:2;opacity:.85;filter:blur(.5px);text-shadow:1px 1px 0 #D6E6F2,2px 2px 0 #C6DBEB,3px 3px 0 #B6D0E4,4px 4px 0 #A6C5DC,8px 16px 16px rgba(20,60,110,.2)}
-.sky-word .far{--s:.52;z-index:1;opacity:.62;filter:blur(1.4px);color:#E4F0F9;text-shadow:1px 1px 0 #C9DDEE,2px 2px 0 #B9D2E7,6px 10px 10px rgba(20,60,110,.12)}
+.sky-word{position:absolute;inset:0;font-size:min(22vw,13vh,136px);font-weight:1000;line-height:1;color:#FFFFFF;pointer-events:none;-webkit-user-select:none;user-select:none;perspective:700px;perspective-origin:50% 45%;transform-style:preserve-3d}
+/* cada letra gira en 3D mirando hacia el centro y su volumen se alarga hacia el punto de fuga */
+.sky-word span{position:absolute;left:var(--x);top:var(--y);transform:translate(-50%,-50%) translateZ(var(--z)) rotateY(var(--ry)) rotateX(var(--rx)) rotate(var(--r));text-shadow:var(--tl);animation:lFloat var(--d) ease-in-out var(--dl) infinite alternate}
+.sky-word .near{z-index:3}
+.sky-word .mid{z-index:2;opacity:.88;filter:blur(.4px)}
+.sky-word .far{z-index:1;opacity:.6;filter:blur(1.3px);color:#E4F0F9}
 @keyframes lFloat{from{translate:0 -6px}to{translate:0 7px}}
-@media (prefers-color-scheme:dark){.sky-word{color:#F6EFE2}.sky-word .near{text-shadow:1px 1px 0 #C9C3B8,2px 2px 0 #A9A79F,3px 3px 0 #8D9294,4px 4px 0 #727E86,5px 5px 0 #5B6C78,6px 6px 0 #485C6B,7px 7px 0 #394E5F,8px 8px 0 #2C4254,12px 26px 26px rgba(0,0,0,.5)}.sky-word .mid{text-shadow:1px 1px 0 #A9A79F,2px 2px 0 #7D8789,3px 3px 0 #56677A,4px 4px 0 #3A4E60,8px 16px 18px rgba(0,0,0,.4)}.sky-word .far{color:#9FB0BE;text-shadow:1px 1px 0 #5E7184,2px 2px 0 #3E5263}}
+@media (prefers-color-scheme:dark){.sky-word{color:#F6EFE2}.sky-word span{text-shadow:var(--td)}.sky-word .far{color:#9FB0BE}}
 #flow[data-step=inicio] .fl-top .wm,#flow[data-step=inicio] .fl-top .logo{opacity:.85}
 .sp-skip{margin:0 auto;min-height:48px;font-size:15px;color:var(--ink-3)}
 .splash .lead{font-size:16.5px;max-width:24em}
@@ -618,10 +619,6 @@ nav button:active svg{transform:scale(.84)}
 #sky canvas{position:absolute;left:0;width:200%;display:block;animation:skyDrift var(--d) linear infinite}
 #sky .c1{top:3%;opacity:.75;--d:160s}
 #sky .c2{bottom:-6%;--d:95s}
-.sky-word{position:absolute;left:0;right:0;top:calc(22px + var(--sat));display:flex;justify-content:center;gap:.02em;font-size:min(12.6vw,10vh,104px);font-weight:1000;line-height:1;letter-spacing:0;color:#FFFFFF;z-index:0;pointer-events:none;-webkit-user-select:none;user-select:none}
-.sky-word span{display:block;transform:translateY(var(--y)) rotate(var(--r));
- text-shadow:1px 1px 0 #DCEAF4,2px 2px 0 #CFE1EE,3px 3px 0 #C2D8E8,4px 4px 0 #B4CEE1,5px 5px 0 #A6C4DA,6px 6px 0 #98BAD3,7px 7px 0 #8BAFCB,8px 8px 0 #7FA5C3,10px 22px 22px rgba(20,60,110,.28)}
-@media (prefers-color-scheme:dark){.sky-word{color:#F6EFE2}.sky-word span{text-shadow:1px 1px 0 #C9C3B8,2px 2px 0 #A9A79F,3px 3px 0 #8D9294,4px 4px 0 #727E86,5px 5px 0 #5B6C78,6px 6px 0 #485C6B,7px 7px 0 #394E5F,8px 8px 0 #2C4254,10px 22px 26px rgba(0,0,0,.5)}}
 #flow[data-step=inicio] .fl-top .wm,#flow[data-step=inicio] .fl-top .logo{visibility:hidden}
 @keyframes skyDrift{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 #sky .st{display:none}
@@ -2850,10 +2847,19 @@ function skyClouds(){
  /* el nombre en letras con volumen, suspendidas en el cielo y quietas */
  var wd=document.createElement("div");wd.className="sky-word";
  /* letra, x, y, escala, giro, opacidad: las chicas y tenues quedan lejos, las grandes cerca */
- /* repartidas por el cielo, cada una a su distancia: lejos = chica, tenue y borrosa; cerca = grande y nítida */
- var L=[["V",13,13,"near",-12],["O",35,6,"far",10],["C",82,14,"mid",14],["A",90,35,"far",-16],
-  ["T",10,40,"mid",-18],["L",86,55,"near",9],["A",12,67,"far",13],["S",87,77,"mid",-10]];
- wd.innerHTML=L.map(function(q,i){return '<span class="'+q[3]+'" style="--x:'+q[1]+'%;--y:'+q[2]+'%;--r:'+q[4]+'deg;--d:'+(5.5+(i%4)*.9)+'s;--dl:-'+(i*1.3).toFixed(1)+'s">'+q[0]+"</span>"}).join("");
+ /* repartidas por el cielo, cada una a su distancia (z) y girada hacia el centro; el volumen apunta al punto de fuga */
+ var L=[["V",15,14,"near",-10],["O",36,8,"far",8],["C",80,15,"mid",10],["A",90,34,"far",-12],
+  ["T",12,40,"mid",-14],["L",84,55,"near",7],["A",11,68,"far",10],["S",84,76,"mid",-8]];
+ var Z={near:60,mid:-130,far:-340},N={near:12,mid:8,far:5};
+ function mix(a,b,t){var o="#";for(var k=1;k<7;k+=2){var v=Math.round(parseInt(a.substr(k,2),16)*(1-t)+parseInt(b.substr(k,2),16)*t);o+=(v<16?"0":"")+v.toString(16)}return o}
+ function ext(dx,dy,n,c0,c1,sh){var o=[];for(var k=1;k<=n;k++)o.push((dx*k).toFixed(2)+"px "+(dy*k).toFixed(2)+"px 0 "+mix(c0,c1,k/n));o.push((dx*n*1.6).toFixed(1)+"px "+(dy*n*1.6+14).toFixed(1)+"px 20px "+sh);return o.join(",")}
+ wd.innerHTML=L.map(function(q,i){
+  var vx=50-q[1],vy=45-q[2],h=Math.hypot(vx,vy)||1,dx=vx/h,dy=vy/h,n=N[q[3]];
+  var ry=Math.max(-34,Math.min(34,vx*.75)),rx=Math.max(-26,Math.min(26,-vy*.7));
+  /* la perspectiva acerca o aleja cada letra del centro; se compensa para que quede donde se pensó */
+  var f=700/(700-Z[q[3]]),px=50+(q[1]-50)/f,py=45+(q[2]-45)/f;
+  return '<span class="'+q[3]+'" style="--x:'+px.toFixed(1)+'%;--y:'+py.toFixed(1)+'%;--z:'+Z[q[3]]+'px;--ry:'+ry.toFixed(1)+'deg;--rx:'+rx.toFixed(1)+'deg;--r:'+q[4]+'deg;--d:'+(5.5+(i%4)*.9)+'s;--dl:-'+(i*1.3).toFixed(1)+'s;'+
+   '--tl:'+ext(dx,dy,n,"#E2EEF7","#7FA5C3","rgba(20,60,110,.26)")+';--td:'+ext(dx,dy,n,"#CFC9BE","#24394A","rgba(0,0,0,.5)")+'">'+q[0]+"</span>"}).join("");
  sky.appendChild(wd);
  function layer(cls,W,H,P,seed,cov,soft,top){
   var cv=document.createElement("canvas");cv.className=cls;cv.width=W*2;cv.height=H;cv.style.aspectRatio=(W*2)+" / "+H;cv.style.height="auto";
@@ -2863,7 +2869,7 @@ function skyClouds(){
    var a=hsh(x0,yi,o),b=hsh(x1,yi,o),c=hsh(x0,yi+1,o),e=hsh(x1,yi+1,o);return a+(b-a)*u+(c-a)*v+(a-b-c+e)*u*v}
   function fbm(x,y){var t=0,amp=.5,f=1;for(var o=0;o<6;o++){t+=amp*vn(x*f,y*f,P*f,o);amp*=.5;f*=2}return t}
   for(var j=0;j<H;j++){
-   var yy=j/H,mask=top?Math.sin(Math.PI*Math.min(1,yy*1.1))*.9+.1:Math.min(1,.35+yy*1.1);
+   var yy=j/H,mask=top?Math.pow(Math.sin(Math.PI*yy),1.3):Math.min(1,yy*1.8)*Math.min(1,(1-yy)*8+.6);mask=Math.min(mask,Math.min(1,yy*8),Math.min(1,(1-yy)*8));
    for(var i=0;i<W;i++){
     var x=i/W*P,y=j/W*P,n=fbm(x,y)*mask,n2=fbm(x,y-.035*P)*mask;
     var a=Math.max(0,Math.min(1,(n-cov)/soft));a=a*a*(3-2*a);
