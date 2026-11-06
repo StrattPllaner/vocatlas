@@ -599,11 +599,13 @@ nav button:active svg{transform:scale(.84)}
 #sky canvas{position:absolute;left:0;width:200%;display:block;animation:skyDrift var(--d) linear infinite}
 #sky .c1{top:3%;opacity:.75;--d:160s}
 #sky .c2{bottom:-6%;--d:95s}
-.sky-word{position:absolute;inset:0;font-size:min(19vw,13vh,136px);font-weight:1000;line-height:1;color:#FFFFFF;pointer-events:none;-webkit-user-select:none;user-select:none}
-.sky-word span{position:absolute;left:calc(50% + var(--cx)*min(44vw,440px));top:calc(48% + var(--cy)*min(38vh,330px));opacity:var(--o);transform:translate(-50%,-50%) rotate(var(--r)) scale(var(--s));transform-origin:center;
- text-shadow:1px 1px 0 #DCEAF4,2px 2px 0 #CFE1EE,3px 3px 0 #C2D8E8,4px 4px 0 #B4CEE1,5px 5px 0 #A6C4DA,6px 6px 0 #98BAD3,7px 7px 0 #8BAFCB,8px 8px 0 #7FA5C3,10px 22px 22px rgba(20,60,110,.28)}
-.sky-word span.far{filter:blur(1.1px)}
-@media (prefers-color-scheme:dark){.sky-word{color:#F6EFE2}.sky-word span{text-shadow:1px 1px 0 #C9C3B8,2px 2px 0 #A9A79F,3px 3px 0 #8D9294,4px 4px 0 #727E86,5px 5px 0 #5B6C78,6px 6px 0 #485C6B,7px 7px 0 #394E5F,8px 8px 0 #2C4254,10px 22px 26px rgba(0,0,0,.5)}}
+.sky-word{position:absolute;inset:0;font-size:min(22vw,13vh,136px);font-weight:1000;line-height:1;color:#FFFFFF;pointer-events:none;-webkit-user-select:none;user-select:none}
+.sky-word span{position:absolute;left:var(--x);top:var(--y);transform:translate(-50%,-50%) rotate(var(--r)) scale(var(--s,1));animation:lFloat var(--d) ease-in-out var(--dl) infinite alternate}
+.sky-word .near{--s:1.1;z-index:3;text-shadow:1px 1px 0 #DCEAF4,2px 2px 0 #CFE1EE,3px 3px 0 #C2D8E8,4px 4px 0 #B4CEE1,5px 5px 0 #A6C4DA,6px 6px 0 #98BAD3,7px 7px 0 #8BAFCB,8px 8px 0 #7FA5C3,12px 26px 24px rgba(20,60,110,.3)}
+.sky-word .mid{--s:.76;z-index:2;opacity:.85;filter:blur(.5px);text-shadow:1px 1px 0 #D6E6F2,2px 2px 0 #C6DBEB,3px 3px 0 #B6D0E4,4px 4px 0 #A6C5DC,8px 16px 16px rgba(20,60,110,.2)}
+.sky-word .far{--s:.52;z-index:1;opacity:.62;filter:blur(1.4px);color:#E4F0F9;text-shadow:1px 1px 0 #C9DDEE,2px 2px 0 #B9D2E7,6px 10px 10px rgba(20,60,110,.12)}
+@keyframes lFloat{from{translate:0 -6px}to{translate:0 7px}}
+@media (prefers-color-scheme:dark){.sky-word{color:#F6EFE2}.sky-word .near{text-shadow:1px 1px 0 #C9C3B8,2px 2px 0 #A9A79F,3px 3px 0 #8D9294,4px 4px 0 #727E86,5px 5px 0 #5B6C78,6px 6px 0 #485C6B,7px 7px 0 #394E5F,8px 8px 0 #2C4254,12px 26px 26px rgba(0,0,0,.5)}.sky-word .mid{text-shadow:1px 1px 0 #A9A79F,2px 2px 0 #7D8789,3px 3px 0 #56677A,4px 4px 0 #3A4E60,8px 16px 18px rgba(0,0,0,.4)}.sky-word .far{color:#9FB0BE;text-shadow:1px 1px 0 #5E7184,2px 2px 0 #3E5263}}
 #flow[data-step=inicio] .fl-top .wm,#flow[data-step=inicio] .fl-top .logo{opacity:.85}
 .sp-skip{margin:0 auto;min-height:48px;font-size:15px;color:var(--ink-3)}
 .splash .lead{font-size:16.5px;max-width:24em}
@@ -955,7 +957,7 @@ html.ret #boot.show{opacity:1;pointer-events:auto}
 
 /* movimiento reducido: todo pasa a desvanecimientos */
 @media (prefers-reduced-motion:reduce){
- #plaza::before,.pi-foam,.gl-legL,.gl-legR,.sw-hint svg,.gl-box,#sky canvas,#sky .st,.sp-up,#app.dived #mapbox,.rb.dance .rb-b,.rb.dance .rb-legL,.rb.dance .rb-legR,.rb.dance .rb-n,.rb.dance .rb-sh,.sc-c1,.sc-c2,.sc-waves,.sc-boat,.sug .cmp .nd{animation:none!important}
+ #plaza::before,.sky-word span,.pi-foam,.gl-legL,.gl-legR,.sw-hint svg,.gl-box,#sky canvas,#sky .st,.sp-up,#app.dived #mapbox,.rb.dance .rb-b,.rb.dance .rb-legL,.rb.dance .rb-legR,.rb.dance .rb-n,.rb.dance .rb-sh,.sc-c1,.sc-c2,.sc-waves,.sc-boat,.sug .cmp .nd{animation:none!important}
  .sc-say.pop{animation:fadeIn var(--t-med) linear both!important}
  .bt-fill,.bt-fill>svg,.bt-rb,.tl-track i,.tl-d{transition:none!important}
  .fl-in.in>*,.fl-foot-in.in>*{animation:fadeIn var(--t-med) linear both!important}
@@ -2848,11 +2850,10 @@ function skyClouds(){
  /* el nombre en letras con volumen, suspendidas en el cielo y quietas */
  var wd=document.createElement("div");wd.className="sky-word";
  /* letra, x, y, escala, giro, opacidad: las chicas y tenues quedan lejos, las grandes cerca */
- /* van en arco sobre la cabeza; la escala dice qué tan cerca está cada una */
- var D=[1.25,.5,.85,.42,1.05,.55,.9,.62],ROT=[-14,10,-6,16,-10,8,14,-12];
- wd.innerHTML="VOCATLAS".split("").map(function(ch,i){
-  var a=(192+i*(156/7))*Math.PI/180,cx=Math.cos(a).toFixed(3),cy=Math.sin(a).toFixed(3),d=D[i];
-  return '<span class="'+(d<.7?"far":"near")+'" style="--cx:'+cx+';--cy:'+cy+';--s:'+d+';--r:'+ROT[i]+'deg;--o:'+(d<.7?.55+d*.3:1)+';z-index:'+Math.round(d*10)+'">'+ch+"</span>"}).join("");
+ /* repartidas por el cielo, cada una a su distancia: lejos = chica, tenue y borrosa; cerca = grande y nítida */
+ var L=[["V",13,13,"near",-12],["O",35,6,"far",10],["C",82,14,"mid",14],["A",90,35,"far",-16],
+  ["T",10,40,"mid",-18],["L",86,55,"near",9],["A",12,67,"far",13],["S",87,77,"mid",-10]];
+ wd.innerHTML=L.map(function(q,i){return '<span class="'+q[3]+'" style="--x:'+q[1]+'%;--y:'+q[2]+'%;--r:'+q[4]+'deg;--d:'+(5.5+(i%4)*.9)+'s;--dl:-'+(i*1.3).toFixed(1)+'s">'+q[0]+"</span>"}).join("");
  sky.appendChild(wd);
  function layer(cls,W,H,P,seed,cov,soft,top){
   var cv=document.createElement("canvas");cv.className=cls;cv.width=W*2;cv.height=H;cv.style.aspectRatio=(W*2)+" / "+H;cv.style.height="auto";
