@@ -526,6 +526,7 @@ nav button:active svg{transform:scale(.84)}
 .gl-box:focus-visible{outline:2px solid var(--accent);outline-offset:6px;border-radius:50%}
 .gl-svg{display:block;width:100%;height:auto;overflow:visible;transform-origin:53.75% 64%}
 .gl-cap{transform-box:view-box}
+.gl-svg.gl-pop{transition:transform 300ms var(--spring);transform:scale(1.16)}
 .gl-svg.gl-zoom{transition:transform 640ms cubic-bezier(.6,0,.85,.2);transform:scale(9)}
 .gl-sh{fill:var(--rb-sh)}
 @keyframes glFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
@@ -2781,7 +2782,12 @@ function globeEnter(then){
  var fl=$("#flow"),svg=$(".gl-svg");
  if(RM()){fl.classList.add("leaving");setTimeout(function(){fl.classList.remove("leaving");glBusy=false;then()},T.med);return}
  fl.classList.add("gl-going");
- glAnim(120,Math.max(380,(120-GL.a)*7),easeOutCubic,function(){
+ /* tres vueltas muy rápidas, frenón seco con un rebotito, se infla un poco y entra a la isla */
+ var target=120+1080,lin=function(k){return k};
+ glAnim(target+10,Math.max(520,(target+10-GL.a)*.68),lin,function(){
+ glAnim(target,170,easeOutCubic,function(){
+  svg.classList.add("gl-pop");
+  setTimeout(function(){
   var tint=document.createElement("div");tint.className="dive-tint";document.body.appendChild(tint);
   svg.classList.add("gl-zoom");tint.classList.add("go");
   setTimeout(function(){
@@ -2789,6 +2795,8 @@ function globeEnter(then){
    tint.classList.add("out");
    setTimeout(function(){tint.remove();glBusy=false},T.long);
   },640);
+  },300);
+ });
  });
 }
 function bindGlobe(then){
