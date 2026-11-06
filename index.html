@@ -567,13 +567,14 @@ nav button:active svg{transform:scale(.84)}
 .gl-legL,.gl-legR{transform-box:view-box;animation:glDangle 3.4s ease-in-out infinite}
 .gl-legL{transform-origin:130.7px 399px}.gl-legR{transform-origin:232.5px 399px;animation-delay:-1.7s}
 @keyframes glDangle{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}
-#flow.gl-going .gl-legs{opacity:0;transition:opacity 200ms var(--soft)}
+.gl-fly{position:fixed;z-index:90;pointer-events:none}
+.gl-fly .gl-cap,.gl-fly .gl-legs{transition:opacity 260ms var(--soft)}
+.gl-fly .gl-zoom .gl-cap,.gl-fly .gl-zoom .gl-legs{opacity:0}
 .gl-cap{transform-box:view-box}
 .gl-svg.gl-pop{transition:transform 300ms var(--spring);transform:scale(1.16)}
-.gl-svg.gl-zoom{transition:transform 640ms cubic-bezier(.6,0,.85,.2);transform:scale(9)}
+.gl-svg.gl-zoom{transition:transform 560ms cubic-bezier(.55,0,.8,.25),opacity 380ms 180ms var(--soft);transform:scale(3.6);opacity:0}
 .gl-sh{fill:var(--rb-sh)}
 @keyframes glFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
-#flow.gl-going .fl-main{overflow:visible}
 #flow.gl-going .fl-top,#flow.gl-going .fl-foot,#flow.gl-going .sp-h,#flow.gl-going .sp-sub,#flow.gl-going .splash::before,#flow.gl-going .sw-hint{opacity:0;transition:opacity var(--t-med) var(--soft)}
 .sw-hint{display:flex;flex-direction:column;align-items:center;height:44px;margin-bottom:-4px;color:var(--ink-2);transition:opacity var(--t-fast) var(--soft)}
 .sw-hint svg{width:28px;height:22px;margin-top:-8px;fill:none;stroke:currentColor;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round;animation:swUp 1.6s var(--soft) infinite}
@@ -586,7 +587,6 @@ nav button:active svg{transform:scale(.84)}
 #flow[data-step=inicio] .fl-foot{padding-top:4px}
 #flow[data-step=inicio] .splash{padding-top:min(5vh,44px)}
 #flow[data-step=inicio] .fl-main{overflow-x:hidden}
-#flow.gl-going[data-step=inicio] .fl-main{overflow:visible}
 #flow[data-step=inicio] .fl-top .wm,#flow[data-step=inicio] .fl-top .logo{opacity:.85}
 .sp-skip{margin:0 auto;min-height:48px;font-size:15px;color:var(--ink-3)}
 .splash .lead{font-size:16.5px;max-width:24em}
@@ -600,9 +600,9 @@ nav button:active svg{transform:scale(.84)}
 #sky .c1{top:3%;opacity:.75;--d:160s}
 #sky .c2{bottom:-6%;--d:95s}
 .sky-word{position:absolute;inset:0;font-size:min(19vw,13vh,136px);font-weight:1000;line-height:1;color:#FFFFFF;pointer-events:none;-webkit-user-select:none;user-select:none}
-.sky-word span{position:absolute;left:var(--x);top:var(--y);opacity:var(--o);transform:rotate(var(--r)) scale(var(--s));transform-origin:center;
+.sky-word span{position:absolute;left:calc(50% + var(--cx)*min(44vw,440px));top:calc(48% + var(--cy)*min(38vh,330px));opacity:var(--o);transform:translate(-50%,-50%) rotate(var(--r)) scale(var(--s));transform-origin:center;
  text-shadow:1px 1px 0 #DCEAF4,2px 2px 0 #CFE1EE,3px 3px 0 #C2D8E8,4px 4px 0 #B4CEE1,5px 5px 0 #A6C4DA,6px 6px 0 #98BAD3,7px 7px 0 #8BAFCB,8px 8px 0 #7FA5C3,10px 22px 22px rgba(20,60,110,.28)}
-.sky-word span.far{filter:blur(.7px)}
+.sky-word span.far{filter:blur(1.1px)}
 @media (prefers-color-scheme:dark){.sky-word{color:#F6EFE2}.sky-word span{text-shadow:1px 1px 0 #C9C3B8,2px 2px 0 #A9A79F,3px 3px 0 #8D9294,4px 4px 0 #727E86,5px 5px 0 #5B6C78,6px 6px 0 #485C6B,7px 7px 0 #394E5F,8px 8px 0 #2C4254,10px 22px 26px rgba(0,0,0,.5)}}
 #flow[data-step=inicio] .fl-top .wm,#flow[data-step=inicio] .fl-top .logo{opacity:.85}
 .sp-skip{margin:0 auto;min-height:48px;font-size:15px;color:var(--ink-3)}
@@ -640,9 +640,9 @@ nav button:active svg{transform:scale(.84)}
 .splash::before{display:none}
 .dive-tint{position:fixed;inset:0;z-index:89;background:#A9CFE0;opacity:0;pointer-events:none}
 @media (prefers-color-scheme:dark){.dive-tint{background:#123846}}
-.dive-tint.go{animation:diveTint 640ms cubic-bezier(.6,0,.85,.2) forwards}
+.dive-tint.go{animation:diveTint 560ms var(--soft) forwards}
 .dive-tint.out{animation:tintOut var(--t-long) var(--soft) forwards}
-@keyframes diveTint{0%,45%{opacity:0}100%{opacity:1}}
+@keyframes diveTint{0%,30%{opacity:0}100%{opacity:1}}
 @keyframes tintOut{from{opacity:1}to{opacity:0}}
 #app.dived #mapbox{animation:diveMap 900ms var(--soft) both}
 @keyframes diveMap{from{transform:scale(1.35)}to{transform:none}}
@@ -2848,9 +2848,11 @@ function skyClouds(){
  /* el nombre en letras con volumen, suspendidas en el cielo y quietas */
  var wd=document.createElement("div");wd.className="sky-word";
  /* letra, x, y, escala, giro, opacidad: las chicas y tenues quedan lejos, las grandes cerca */
- var L=[["V","3%","3%",1.05,-14,1],["O","31%","10%",.58,12,.65],["C","64%","2%",.92,16,.95],["A","84%","15%",.62,-18,.65],
-  ["T","2%","36%",.72,-22,.75],["L","86%","44%",.88,10,.95],["A","4%","79%",.82,14,.9],["S","85%","78%",.7,-12,.75]];
- wd.innerHTML=L.map(function(q){return '<span class="'+(q[3]<.7?"far":"")+'" style="--x:'+q[1]+';--y:'+q[2]+';--s:'+q[3]+';--r:'+q[4]+'deg;--o:'+q[5]+'">'+q[0]+"</span>"}).join("");
+ /* van en arco sobre la cabeza; la escala dice qué tan cerca está cada una */
+ var D=[1.25,.5,.85,.42,1.05,.55,.9,.62],ROT=[-14,10,-6,16,-10,8,14,-12];
+ wd.innerHTML="VOCATLAS".split("").map(function(ch,i){
+  var a=(192+i*(156/7))*Math.PI/180,cx=Math.cos(a).toFixed(3),cy=Math.sin(a).toFixed(3),d=D[i];
+  return '<span class="'+(d<.7?"far":"near")+'" style="--cx:'+cx+';--cy:'+cy+';--s:'+d+';--r:'+ROT[i]+'deg;--o:'+(d<.7?.55+d*.3:1)+';z-index:'+Math.round(d*10)+'">'+ch+"</span>"}).join("");
  sky.appendChild(wd);
  function layer(cls,W,H,P,seed,cov,soft,top){
   var cv=document.createElement("canvas");cv.className=cls;cv.width=W*2;cv.height=H;cv.style.aspectRatio=(W*2)+" / "+H;cv.style.height="auto";
@@ -2926,8 +2928,7 @@ function glDraw(){
  h+=glFace(GL.ex||"idle",INK);
  $("#glSurf").innerHTML=h;
  /* el gorro, las gafas y la flecha se deslizan hacia atrás al girar */
- var k=Math.max(0,GL.a),op=Math.max(0,1-k/42).toFixed(3),tr="translate(0px,"+(-k*2.4).toFixed(1)+"px)";
- var b=$("#glHood"),fr=$("#glCapF");b.style.transform=tr;b.style.opacity=op;fr.style.transform=tr;fr.style.opacity=op;
+
 }
 /* expresiones de la cara del globo, en coordenadas del dibujo original */
 function glArc(x0,y0,x1,y1,x2,y2){return glQ([x0,y0],[x1,y1],[x2,y2],10).map(function(p){return glLL(p[0],p[1])})}
@@ -2961,24 +2962,27 @@ var easeOutCubic=function(k){return 1-Math.pow(1-k,3)},easeOutBack=function(k){v
 var glBusy=false;
 function globeEnter(then){
  if(glBusy)return;glBusy=true;
- var fl=$("#flow"),svg=$(".gl-svg");
+ var fl=$("#flow"),box=$("#glBox"),svg=$(".gl-svg");
  if(RM()){fl.classList.add("leaving");setTimeout(function(){fl.classList.remove("leaving");glBusy=false;then()},T.med);return}
+ /* el globo pasa a una capa fija encima de todo: así nada lo recorta ni cambia el fondo mientras gira y entra */
+ var r=box.getBoundingClientRect(),fly=document.createElement("div");
+ fly.className="gl-fly";fly.style.cssText="left:"+r.left+"px;top:"+r.top+"px;width:"+r.width+"px;height:"+r.height+"px";
+ box.style.height=r.height+"px";fly.appendChild(svg);document.body.appendChild(fly);
  fl.classList.add("gl-going");GL.ex="happy";
  /* tres vueltas muy rápidas, frenón seco con un rebotito, se infla un poco y entra a la isla */
  var target=120+1080,lin=function(k){return k};
  glAnim(target+10,Math.max(520,(target+10-GL.a)*.68),lin,function(){
  glAnim(target,170,easeOutCubic,function(){
-  GL.ex="wow";glDraw();
   svg.classList.add("gl-pop");
   setTimeout(function(){
   var tint=document.createElement("div");tint.className="dive-tint";document.body.appendChild(tint);
   svg.classList.add("gl-zoom");tint.classList.add("go");
   setTimeout(function(){
-   fl.classList.remove("gl-going");then();
+   fl.classList.remove("gl-going");box.style.height="";then();fly.remove();
    tint.classList.add("out");
    setTimeout(function(){tint.remove();glBusy=false},T.long);
-  },640);
-  },300);
+  },560);
+  },260);
  });
  });
 }
@@ -3178,7 +3182,7 @@ var STEPS={
   return {
    body:'<div class="splash"><span id="swHint" hidden></span>'+
     '<div class="gl-box" id="glBox" role="button" tabindex="0" aria-label="'+(has?'Girar el mundo y entrar a mi mapa':'Girar el mundo y entrar')+'">'+globeSVG()+'</div>'+
-    '<h1 class="sp-h fl-focus" tabindex="-1"><svg class="sp-up" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg>Gira el mundo hacia arriba</h1>'+(has?'<p class="sp-sub">'+(S.nick?esc(S.nick)+', llevas ':'Llevas ')+done+' de '+C.length+' carreras probadas</p>':'')+'</div>',
+    '<h1 class="sp-h fl-focus" tabindex="-1"><svg class="sp-up" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg>Gira el mundo hacia arriba</h1></div>',
    foot:'<button class="btn quiet sp-skip" id="iGo">'+(has?'Entrar a mi mapa':mid?'Seguir donde me quedé':'Entrar sin girar')+'</button>',
    say:"",mood:"happy",
    bind:function(){var d=dest();try{skyClouds()}catch(e){}bindGlobe(d);$("#iGo").onclick=function(){globeEnter(d)}}
