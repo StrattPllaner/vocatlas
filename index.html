@@ -547,21 +547,25 @@ nav button:active svg{transform:scale(.84)}
 .sp-skip{margin:0 auto;min-height:48px;font-size:15px;color:var(--ink-3)}
 .splash .lead{font-size:16.5px;max-width:24em}
 
-/* cielo del inicio */
-#flow[data-step=inicio]{background:linear-gradient(180deg,#7FC0E3 0%,#A9D6EE 45%,#DCEFF7 80%,#F3F8F6 100%)}
+/* cielo del inicio: degradado atmosférico y nubes de ruido fractal pintadas una vez en canvas */
+#flow[data-step=inicio]{background:radial-gradient(60% 45% at 82% 6%,rgba(255,248,226,.85),rgba(255,248,226,0) 70%),linear-gradient(180deg,#2F78BE 0%,#4F95D2 28%,#86BCE4 58%,#C7E2F2 82%,#E9F3F6 100%)}
 #flow[data-step=inicio] .fl-left,#flow[data-step=inicio] .fl-foot{background:transparent}
 #sky{position:absolute;inset:0;overflow:hidden;pointer-events:none;display:none}
 #flow[data-step=inicio] #sky{display:block}
-#sky .cl{position:absolute;left:0;width:var(--w);fill:#fff;opacity:var(--o,.9);animation:skyDrift var(--d) linear infinite;animation-delay:var(--dl)}
+#sky canvas{position:absolute;left:0;width:200%;display:block;animation:skyDrift var(--d) linear infinite}
+#sky .c1{top:3%;opacity:.75;--d:160s}
+#sky .c2{bottom:-6%;--d:95s}
+@keyframes skyDrift{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 #sky .st{display:none}
-@keyframes skyDrift{from{transform:translateX(-40vw)}to{transform:translateX(110vw)}}
 @media (prefers-color-scheme:dark){
- #flow[data-step=inicio]{background:linear-gradient(180deg,#071622 0%,#0C2433 55%,#133446 100%)}
- #sky .cl{fill:#DDE5EA;--o:.07!important;opacity:.07}
- #sky .st{display:block;position:absolute;width:3px;height:3px;border-radius:50%;background:#F6EFE2;animation:twinkle var(--d) ease-in-out infinite alternate}
+ #flow[data-step=inicio]{background:radial-gradient(50% 35% at 80% 8%,rgba(143,201,232,.16),rgba(143,201,232,0) 70%),linear-gradient(180deg,#040D16 0%,#0A1C2B 50%,#13324A 100%)}
+ #sky canvas{opacity:.16;filter:none}
+ #sky .c1{opacity:.12}
+ #sky .st{display:block;position:absolute;width:2px;height:2px;border-radius:50%;background:#F6EFE2;animation:twinkle var(--d) ease-in-out infinite alternate}
+ #sky .st:nth-child(3n){width:3px;height:3px}
 }
-@keyframes twinkle{from{opacity:.15}to{opacity:.85}}
-#flow[data-step=inicio] .sp-h{color:#14323F}
+@keyframes twinkle{from{opacity:.15}to{opacity:.9}}
+#flow[data-step=inicio] .sp-h{color:#14323F;text-shadow:0 1px 12px rgba(255,255,255,.7)}
 #flow[data-step=inicio] .sp-sub,#flow[data-step=inicio] .sp-skip{color:rgba(20,50,63,.68)}
 #flow[data-step=inicio] .fl-top .wm{color:#14323F}
 @media (prefers-color-scheme:dark){#flow[data-step=inicio] .sp-h,#flow[data-step=inicio] .fl-top .wm{color:#F6EFE2}#flow[data-step=inicio] .sp-sub,#flow[data-step=inicio] .sp-skip{color:rgba(246,239,226,.66)}}
@@ -881,7 +885,7 @@ html.ret #boot.show{opacity:1;pointer-events:auto}
 
 /* movimiento reducido: todo pasa a desvanecimientos */
 @media (prefers-reduced-motion:reduce){
- .sw-hint svg,.gl-box,#sky .cl,#sky .st,.sp-up,#app.dived #mapbox,.rb.dance .rb-b,.rb.dance .rb-legL,.rb.dance .rb-legR,.rb.dance .rb-n,.rb.dance .rb-sh,.ch-needle, .sc-say.pop{animation:fadeIn var(--t-med) linear both!important}
+ .sw-hint svg,.gl-box,#sky canvas,#sky .st,.sp-up,#app.dived #mapbox,.rb.dance .rb-b,.rb.dance .rb-legL,.rb.dance .rb-legR,.rb.dance .rb-n,.rb.dance .rb-sh,.ch-needle, .sc-say.pop{animation:fadeIn var(--t-med) linear both!important}
  .bt-fill,.bt-fill>svg,.bt-rb,.tl-track i,.tl-d{transition:none!important}
  .fl-in.in>*,.fl-foot-in.in>*{animation:fadeIn var(--t-med) linear both!important}
  .fl-in.out,.fl-foot-in.out{transform:none}
@@ -951,7 +955,7 @@ html.ret #boot.show{opacity:1;pointer-events:auto}
 </div>
 
 <div id="flow" class="screen" data-step="">
-  <div id="sky" aria-hidden="true"><svg class="cl" viewBox="0 0 200 80" style="top:8%;--w:170px;--d:70s;--dl:-10s;--o:.95"><path d="M28 70a24 24 0 0 1 6-47 34 34 0 0 1 62-10 28 28 0 0 1 48 10 26 26 0 0 1 26 47z"/></svg><svg class="cl" viewBox="0 0 200 80" style="top:22%;--w:120px;--d:90s;--dl:-55s;--o:.8"><path d="M28 70a24 24 0 0 1 6-47 34 34 0 0 1 62-10 28 28 0 0 1 48 10 26 26 0 0 1 26 47z"/></svg><svg class="cl" viewBox="0 0 200 80" style="top:58%;--w:220px;--d:80s;--dl:-30s;--o:.9"><path d="M28 70a24 24 0 0 1 6-47 34 34 0 0 1 62-10 28 28 0 0 1 48 10 26 26 0 0 1 26 47z"/></svg><svg class="cl" viewBox="0 0 200 80" style="top:74%;--w:140px;--d:100s;--dl:-70s;--o:.75"><path d="M28 70a24 24 0 0 1 6-47 34 34 0 0 1 62-10 28 28 0 0 1 48 10 26 26 0 0 1 26 47z"/></svg><svg class="cl" viewBox="0 0 200 80" style="top:40%;--w:100px;--d:110s;--dl:-85s;--o:.6"><path d="M28 70a24 24 0 0 1 6-47 34 34 0 0 1 62-10 28 28 0 0 1 48 10 26 26 0 0 1 26 47z"/></svg><i class="st" style="left:8%;top:10%;--d:2.2s"></i><i class="st" style="left:22%;top:30%;--d:3.1s"></i><i class="st" style="left:70%;top:8%;--d:2.6s"></i><i class="st" style="left:86%;top:22%;--d:3.4s"></i><i class="st" style="left:40%;top:16%;--d:2.9s"></i><i class="st" style="left:60%;top:36%;--d:2.4s"></i><i class="st" style="left:14%;top:60%;--d:3.6s"></i><i class="st" style="left:90%;top:56%;--d:2.8s"></i><i class="st" style="left:32%;top:78%;--d:3.2s"></i><i class="st" style="left:76%;top:80%;--d:2.5s"></i></div>
+  <div id="sky" aria-hidden="true"><i class="st" style="left:5%;top:7%;--d:2.2s"></i><i class="st" style="left:12%;top:22%;--d:3.1s"></i><i class="st" style="left:19%;top:4%;--d:2.7s"></i><i class="st" style="left:27%;top:31%;--d:3.4s"></i><i class="st" style="left:33%;top:12%;--d:2.4s"></i><i class="st" style="left:41%;top:26%;--d:3.8s"></i><i class="st" style="left:48%;top:6%;--d:2.9s"></i><i class="st" style="left:55%;top:19%;--d:2.3s"></i><i class="st" style="left:63%;top:9%;--d:3.3s"></i><i class="st" style="left:69%;top:28%;--d:2.6s"></i><i class="st" style="left:76%;top:15%;--d:3.5s"></i><i class="st" style="left:84%;top:4%;--d:2.8s"></i><i class="st" style="left:91%;top:24%;--d:3.0s"></i><i class="st" style="left:96%;top:11%;--d:2.5s"></i><i class="st" style="left:8%;top:44%;--d:3.6s"></i><i class="st" style="left:23%;top:52%;--d:2.4s"></i><i class="st" style="left:88%;top:46%;--d:3.2s"></i><i class="st" style="left:72%;top:60%;--d:2.7s"></i><i class="st" style="left:15%;top:70%;--d:3.1s"></i><i class="st" style="left:93%;top:72%;--d:2.6s"></i></div>
   <div class="fl-left">
     <header class="fl-top">
       <button class="iconbtn fl-back" id="flBack" aria-label="Regresar" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
@@ -2730,6 +2734,33 @@ var PRIV_FULL='<p>Todo lo que haces en Vocatlas se guarda solo en este dispositi
 function gradoName(id){for(var i=0;i<GRADOS.length;i++)if(GRADOS[i][0]===id)return GRADOS[i][1];return ""}
 function ritmoName(id){for(var i=0;i<RITMOS.length;i++)if(RITMOS[i][0]===id)return RITMOS[i][1];return ""}
 function plazoName(id){for(var i=0;i<PLAZOS.length;i++)if(PLAZOS[i][0]===id)return PLAZOS[i][1];return ""}
+/* nubes: ruido de valor fractal, periódico en x para que el mosaico se repita sin costura */
+var skyDone=false;
+function skyClouds(){
+ if(skyDone)return;skyDone=true;
+ var sky=$("#sky");if(!sky)return;
+ function layer(cls,W,H,P,seed,cov,soft,top){
+  var cv=document.createElement("canvas");cv.className=cls;cv.width=W*2;cv.height=H;cv.style.aspectRatio=(W*2)+" / "+H;cv.style.height="auto";
+  var g=cv.getContext("2d"),img=g.createImageData(W*2,H),d=img.data;
+  function hsh(x,y,o){var h=(x*374761393+y*668265263+seed*1442695+o*97)|0;h=(h^(h>>>13))*1274126177|0;return ((h^(h>>>16))>>>0)/4294967295}
+  function vn(x,y,per,o){var xi=Math.floor(x),yi=Math.floor(y),xf=x-xi,yf=y-yi,u=xf*xf*(3-2*xf),v=yf*yf*(3-2*yf),x0=((xi%per)+per)%per,x1=(x0+1)%per;
+   var a=hsh(x0,yi,o),b=hsh(x1,yi,o),c=hsh(x0,yi+1,o),e=hsh(x1,yi+1,o);return a+(b-a)*u+(c-a)*v+(a-b-c+e)*u*v}
+  function fbm(x,y){var t=0,amp=.5,f=1;for(var o=0;o<6;o++){t+=amp*vn(x*f,y*f,P*f,o);amp*=.5;f*=2}return t}
+  for(var j=0;j<H;j++){
+   var yy=j/H,mask=top?Math.sin(Math.PI*Math.min(1,yy*1.1))*.9+.1:Math.min(1,.35+yy*1.1);
+   for(var i=0;i<W;i++){
+    var x=i/W*P,y=j/W*P,n=fbm(x,y)*mask,n2=fbm(x,y-.035*P)*mask;
+    var a=Math.max(0,Math.min(1,(n-cov)/soft));a=a*a*(3-2*a);
+    var lit=Math.max(0,Math.min(1,.82+(n2-n)*9)),r=Math.round(196+59*lit),gg=Math.round(208+47*lit),bb=Math.round(222+33*lit);
+    for(var k=0;k<2;k++){var q=((j*W*2)+i+k*W)*4;d[q]=r;d[q+1]=gg;d[q+2]=bb;d[q+3]=Math.round(a*255)}
+   }
+  }
+  g.putImageData(img,0,0);sky.insertBefore(cv,sky.firstChild);
+ }
+ var lo=matchMedia("(max-width: 600px)").matches;
+ layer("c1",lo?300:420,lo?110:150,6,11,.5,.22,true);
+ layer("c2",lo?260:420,lo?210:200,4,23,.43,.2,false);
+}
 /* ---------- inicio: la cabeza de Rumbo es un globo que giras hacia arriba para entrar ---------- */
 /* proyección ortográfica: cada rasgo vive en (latitud, longitud) y el giro es alrededor del eje horizontal */
 var GL={a:0,blink:1,R:130,cx:200,cy:320,K:130/120,feats:null,raf:0};
@@ -3011,7 +3042,7 @@ var STEPS={
     '<h1 class="sp-h fl-focus" tabindex="-1"><svg class="sp-up" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg>Gira el mundo hacia arriba</h1>'+(has?'<p class="sp-sub">'+(S.nick?esc(S.nick)+', llevas ':'Llevas ')+done+' de '+C.length+' carreras probadas</p>':'')+'</div>',
    foot:'<button class="btn quiet sp-skip" id="iGo">'+(has?'Entrar a mi mapa':mid?'Seguir donde me quedé':'Entrar sin girar')+'</button>',
    say:"",mood:"happy",
-   bind:function(){var d=dest();bindGlobe(d);$("#iGo").onclick=function(){globeEnter(d)}}
+   bind:function(){var d=dest();try{skyClouds()}catch(e){}bindGlobe(d);$("#iGo").onclick=function(){globeEnter(d)}}
   };
  },
  perfil:function(){
