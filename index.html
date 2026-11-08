@@ -575,7 +575,10 @@ nav button:active svg{transform:scale(.84)}
 .gl-svg.gl-zoom{transition:transform 560ms cubic-bezier(.55,0,.8,.25),opacity 380ms 180ms var(--soft);transform:scale(3.6);opacity:0}
 .gl-sh{fill:var(--rb-sh)}
 @keyframes glFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
-#flow.gl-going .fl-top,#flow.gl-going .fl-foot,#flow.gl-going .sp-h,#flow.gl-going .sp-sub,#flow.gl-going .splash::before,#flow.gl-going .sw-hint{opacity:0;transition:opacity var(--t-med) var(--soft)}
+/* al entrar se apagan solo los colores del texto: desvanecer las barras completas hacía que Safari pintara franjas en el cielo */
+#flow.gl-going .fl-top{visibility:hidden}
+#flow.gl-going .sp-h,#flow.gl-going .sp-sub,#flow.gl-going .sp-skip,#flow.gl-going .sw-hint{color:transparent!important;text-shadow:none!important;transition:color var(--t-med) var(--soft)}
+#flow.gl-going .sw-hint svg{animation:none}
 .sw-hint{display:flex;flex-direction:column;align-items:center;height:44px;margin-bottom:-4px;color:var(--ink-2);transition:opacity var(--t-fast) var(--soft)}
 .sw-hint svg{width:28px;height:22px;margin-top:-8px;fill:none;stroke:currentColor;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round;animation:swUp 1.6s var(--soft) infinite}
 .sw-hint svg:first-child{animation-delay:.2s}
@@ -607,18 +610,6 @@ nav button:active svg{transform:scale(.84)}
 .sky-word .far{z-index:1;opacity:.6;filter:blur(1.3px);color:#E4F0F9}
 @keyframes lFloat{from{translate:0 -6px}to{translate:0 7px}}
 @media (prefers-color-scheme:dark){.sky-word{color:#F6EFE2}.sky-word span{text-shadow:var(--td)}.sky-word .far{color:#9FB0BE}}
-#flow[data-step=inicio] .fl-top .wm,#flow[data-step=inicio] .fl-top .logo{opacity:.85}
-.sp-skip{margin:0 auto;min-height:48px;font-size:15px;color:var(--ink-3)}
-.splash .lead{font-size:16.5px;max-width:24em}
-
-/* cielo del inicio: degradado atmosférico y nubes de ruido fractal pintadas una vez en canvas */
-#flow[data-step=inicio]{background:radial-gradient(60% 45% at 82% 6%,rgba(255,248,226,.85),rgba(255,248,226,0) 70%),linear-gradient(180deg,#2F78BE 0%,#4F95D2 28%,#86BCE4 58%,#C7E2F2 82%,#E9F3F6 100%)}
-#flow[data-step=inicio] .fl-left,#flow[data-step=inicio] .fl-foot{background:transparent}
-#sky{position:absolute;inset:0;overflow:hidden;pointer-events:none;display:none}
-#flow[data-step=inicio] #sky{display:block}
-#sky canvas{position:absolute;left:0;width:200%;display:block;animation:skyDrift var(--d) linear infinite}
-#sky .c1{top:3%;opacity:.75;--d:160s}
-#sky .c2{bottom:-6%;--d:95s}
 #flow[data-step=inicio] .fl-top .wm,#flow[data-step=inicio] .fl-top .logo{visibility:hidden}
 @keyframes skyDrift{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 #sky .st{display:none}
