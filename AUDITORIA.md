@@ -1,7 +1,7 @@
 # Vocatlas · Auditoría de errores y plan de rediseño
 
 Fecha: 8 de noviembre de 2026. Versión auditada: `caded4b` (la publicada en strattpllaner.github.io/vocatlas).
-Estado: **para aprobación**. No se corrigió nada todavía.
+Estado: plan aprobado. Fase 1 aplicada (ver sección 6).
 
 ## 1. Cómo se probó
 
@@ -188,3 +188,22 @@ Los defectos del mapa (C1, C2, C3, C5 e I1 a I7) no se parchan aquí: el mapa nu
     - usar un paquete de ilustraciones con licencia comercial adaptado a esta paleta;
     - o encargar los edificios a un ilustrador con esta misma ficha técnica.
 - **Rumbo.** Puedo hacerlo fluido en código. Si en la fase 3 no se siente de animación profesional, la interfaz ya queda lista para cambiarlo por Rive.
+
+## 6. Fase 1 aplicada (8 de noviembre de 2026)
+
+| # | Resultado | Cómo se verificó |
+|---|---|---|
+| C4 | Corregido. El pie del cuestionario cabe en 320 px: la cuadrícula ya no toma el ancho natural del campo de texto. | Ningún elemento fuera de pantalla en iPhone SE. |
+| C6 | Corregido. Se agregaron `manifest.webmanifest`, `sw.js` e `icons/`: la página se pide primero a la red y, sin red, sale de la copia guardada. Ya no hay 404 del favicon. | Sin conexión, la recarga carga en Chrome. En WebKit no se puede probar porque Playwright no maneja service workers ahí: **falta probarlo en iPhone real**. El icono es provisional; el definitivo llega en la fase 3. |
+| I7 | Corregido. En celular, el control de caminar bajó al pie y ya no tapa "Cuánto se gana". Con menos de 380 px, el botón de regreso queda solo con icono, para que el nombre de la carrera no se corte. | Captura de iPhone SE. |
+| I8 | Corregido. El globo ya no redibuja si no está en pantalla. | 0 excepciones en las corridas de iPhone SE, iPhone 15, Pixel 7 y computadora en oscuro. |
+| I9 | **Falso positivo**: no había fuga. Esos 3 escuchadores se registran una sola vez, y mi contador no veía los que se liberan junto con los nodos borrados. Se volvió a medir con los contadores de Chrome después de forzar la limpieza de memoria. | En 8 ciclos de plaza y pestañas, los escuchadores se mantienen en 156 y los nodos en 3,320. La memoria pasa de 2.63 a 2.73 MB. |
+| I10 | Corregido. Ahora se llega a los letreros del mapa con Tab, Enter lleva a Rumbo y la cámara sigue al foco. El texto secundario sube a 4.9 : 1 en claro y 5.5 : 1 en oscuro. | axe: 0 problemas en 10 pantallas. |
+| I11 | Corregido. Se juntan los espacios repetidos y no se aceptan duplicados por mayúsculas o acentos (la ñ se respeta). Si escriben un tema que ya está en la lista, se marca ese mismo. Las palabras largas se parten dentro del chip. Los datos ya guardados se limpian al cargar. | "música" y "Música" quedan como uno solo; "Química␣␣␣orgánica" se guarda como "Química orgánica". |
+| I12 | Corregido. El control "Cuánto te late" mide 48 px. | Medición. |
+| M1 | Corregido, con una excepción: la barra de carga sigue hecha a mano porque es el camino donde camina Rumbo y una barra nativa no puede contenerlo. | html-validate: queda 1 aviso (esa barra). |
+| M2 | Corregido. Si el navegador no deja guardar, avisa una vez. | Prueba con localStorage bloqueado. |
+| M3 | Corregido. Se agregó el manejo de `visualViewport`: el pie del cuestionario sube sobre el teclado y el campo activo se mantiene a la vista. `100vh` pasó a `100dvh`. | **Falta probarlo en el teléfono real**: la emulación no abre teclado. |
+| M4 | Retirado. `sceneHTMLOld` sí se usa; no era código muerto. | — |
+
+C1, C2, C3, C5 e I1 a I6 se resuelven con el mapa nuevo de la fase 2.
