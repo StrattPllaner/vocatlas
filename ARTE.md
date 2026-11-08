@@ -1,0 +1,117 @@
+# Vocatlas · Auditoría de ilustración y plan (segunda pasada)
+
+Fecha: 8 de noviembre de 2026. Se revisan todas las piezas de `#art` contra las reglas de construcción y los criterios de aceptación de tu documento.
+
+**Criterios:**
+
+| Clave | Qué se revisa |
+|---|---|
+| S | La silueta se reconoce rellena en negro. |
+| P | Sin partes pegadas, flotando ni costuras. |
+| I | Isométrico 2:1 con la luz del lado correcto. |
+| T | Toca el suelo o el agua con sombra o espuma. |
+| 64 | Se distingue a 64 px sobre el mar nocturno. |
+| Pr | Proporción coherente con el resto. |
+| M | Mismo mundo que Medicina. |
+| C | No satura el celular. |
+
+## 1. Auditoría
+
+### Edificios
+
+| Pieza | Pasa | Qué falla |
+|---|---|---|
+| Medicina (estructura) | Sí, con ajustes | Es el estándar. Los arbustos son esferas pegadas (P) y las flores son puntos sueltos. Falta la versión simplificada a 64 px: a ese tamaño las ventanas se vuelven ruido (64). |
+| Computación (estructura) | No | Hoy es un monitor sobre una base y no un edificio donde se trabaja (la ficha pide una fachada-pantalla). Los arbustos son esferas pegadas (P). La pantalla oscura se pierde de noche (64). |
+| Derecho (estructura) | No | La estatua no se lee: es un trapecio con una bolita y líneas sueltas (S, P). La escalinata tiene 3 escalones sin caras claras ni de sombra definidas (pides de 5 a 7). La cabeza queda tapada por la balanza. |
+| Reserva: salud, industria, vidrio, ciudad, barrio | No | Son cajas de prueba de menor calidad que Medicina (M). En el mapa de 120 carreras se repiten iguales (C). Falta la versión emblema. |
+
+### Vegetación y objetos de tierra
+
+| Pieza | Pasa | Qué falla |
+|---|---|---|
+| Árbol redondo | No | Dos esferas encimadas sobre una caja-tronco: bolitas sobre palitos (S, P). El tronco no se ensancha ni entra a la copa. |
+| Pino | No | Triángulos sueltos sin dentado; los niveles se ven pegados (P). Pasa a 64. |
+| Palmera | Parcial | Las hojas son lóbulos y no plumas; el tronco no se ensancha abajo. Los cocos sirven. |
+| Arbusto | No | Dos esferas encimadas (S, P), más alto de lo debido para un arbusto (Pr). |
+| Flores | No | Círculos sobre palitos (S, P), sin hojas y de frente (I). |
+| Roca | Parcial | Las facetas sirven, pero no se hunde en el suelo y la sombra flota (T). |
+| Banca | No | Una caja con una raya: no se lee como banca (S). No tiene patas, tablones ni respaldo. |
+| Farol | No | Poste plano de frente (I). La linterna es un círculo y no tiene base ancha. |
+| Señal | No | Tablas planas de frente sin grosor (I). |
+| Caja | Sí | Le faltan las juntas de tablas: es mejora, no falla. |
+| Cono | No | Triángulo plano de frente (I). |
+
+### Agua y cielo
+
+| Pieza | Pasa | Qué falla |
+|---|---|---|
+| Muelle | Parcial | Tablones y pilotes en isométrico, pero sin espuma en los pilotes ni sombra sobre el agua (T). Muy corto. |
+| Faro | Parcial | La torre de cilindros apilados muestra costuras entre franjas (P). No tiene balcón con barandal ni roca: está sobre una isla de pasto. |
+| Velero | No | Casco plano de frente y velas de perfil (I). Sin cubierta ni estela (T). |
+| Transbordador | Parcial | Isométrico, pero el casco es una caja sin proa y no tiene estela ni ventanas (T). |
+| Ballena | No | Óvalo más líneas más chorro sueltos (S, P). De perfil (I). Sin agua alrededor (T). |
+| Delfín | No | La silueta no se reconoce (S); es de perfil (I) y sin salpicadura (T). |
+| Gaviota | Parcial | Se entiende, pero es blanca sobre agua clara y se pierde de día. |
+| Nube | No | Tres esferas encimadas (P). Sin base plana. |
+| Rosa de los vientos | Parcial | La rosa pasa, pero el disco no tiene grosor ni toca el agua (T). |
+
+### Mapa generado en celular
+
+| Revisión | Pasa | Qué falla |
+|---|---|---|
+| Densidad | No | La decoración usa unas 14 piezas por carrera: en celular satura y compite con las carreras (C). |
+| Niveles de detalle | Parcial | El zoom medio todavía no usa la versión simplificada ni el nombre corto. |
+| Toque | Parcial | Todavía no hay un área de toque mínima de 48 px que no se encime con la de otra carrera. |
+
+## 2. Método nuevo
+
+1. **Silueta primero.** Cada pieza parte de un solo trazo cerrado. Las copas, arbustos y nubes son una sola forma de masas fusionadas, generada por función, con el borde ondulado. Los animales son un solo contorno dibujado a mano.
+2. **Tonos por planos.** La sombra y la luz se pintan dentro de la silueta, recortadas por ella, así que nada se sale ni deja costura.
+3. **Isométrico estricto.** Lo que tiene perfil propio (velas, aletas, delfines, cola de ballena) se dibuja en su plano vertical y se inclina al eje isométrico.
+4. **Siempre toca algo.** Sombra de contacto más sombra proyectada abajo a la derecha. En el agua, espuma y anillos en la línea de flotación.
+5. **Tres niveles de detalle por pieza:** completo, 96 px y 64 px, con la misma silueta.
+6. **Rendimiento.** Cada pieza se define una sola vez como símbolo y el mapa la reutiliza, para que el celular no cargue miles de nodos repetidos.
+7. **Presupuesto en celular.** Máximo 3 adornos por isla y 2 objetos de mar a la vista. Entre 6 y 8 carreras en la vista inicial. Nombres cortos a zoom medio. Áreas de toque de 48 px o más, sin traslape.
+
+## 3. Orden
+
+1. Esta auditoría.
+2. El entorno completo, con antes y después, silueta en negro y versión a 96 px.
+3. Estructura y emblema de 7 carreras (Medicina, Derecho, Computación, Cine, Arquitectura, Veterinaria y Ciencia de datos), con la sección de comparación, la elección guardada en el dispositivo, la fila a 64 px y las dos escenas de prueba. **Aquí me detengo para que elijas.**
+4. Las 13 carreras restantes y los objetos de reserva, siguiendo tus elecciones.
+
+## 4. Resultado de las etapas 2 y 3 (8 de noviembre de 2026)
+
+Revisión de cada pieza nueva contra los criterios, tras dos rondas o más.
+
+### Entorno
+
+| Pieza | Resultado | Notas |
+|---|---|---|
+| Árbol redondo, pino, palmera, arbusto | Pasa | Una sola silueta de masas fusionadas. El tronco del árbol se abre en raíces y entra a la copa. |
+| Flores, roca, banca, farol, señal, caja, cono | Pasa | La banca ahora tiene tres tablones, respaldo inclinado y laterales de metal. El cono, el farol y la señal ya están en isométrico. |
+| Muelle, faro, velero, transbordador | Pasa | Espuma en la línea de flotación, estela y sombra sobre el agua. El faro tiene balcón con barandal, linterna y su roca. |
+| Nube y rosa de los vientos | Pasa | Nube con base plana en sombra. Rosa sobre un disco flotante con grosor y ondas. |
+| Ballena | Pasa, con reserva | Lomo y cabeza que asoman en su plano isométrico, chorro en abanico y cola a lo lejos. Tomó tres intentos. A 64 px se lee como lomo de ballena, no como la ballena entera. |
+| Delfines | En el límite | Cuerpo arqueado, hocico, aletas y salpicaduras. A 64 px todavía pueden confundirse con peces. Es el que menos me convence. |
+
+### Carreras (estructura y emblema)
+
+| Carrera | Estructura | Emblema |
+|---|---|---|
+| Medicina | Pasa | Pasa. Las olivas del estetoscopio se pierden a 64 px. |
+| Derecho | Pasa: seis escalones y estatua de una pieza | Pasa |
+| Computación | Pasa: fachada-pantalla luminosa | Pasa |
+| Cine | Pasa | Pasa: cámara agrandada 1.5 veces en la segunda ronda |
+| Arquitectura | Pasa | Pasa |
+| Veterinaria | Pasa | Pasa: perro de una sola silueta |
+| Ciencia de datos | Pasa | Pasa |
+
+### En celular
+
+- Con el presupuesto del celular hay 3 adornos por isla y 2 objetos de mar.
+- La vista inicial muestra entre 6 y 8 carreras.
+- A zoom medio se ven las carreras simplificadas con su nombre corto; de cerca, todo el detalle y los nombres completos.
+- Cada carrera tiene un área de toque de 48 px o más.
+- **Compromiso:** para que quepan de 6 a 8 carreras, la vista inicial queda en escala 0.7. Así los edificios miden de 90 a 100 px de alto, menos que los 110 px que pedía el brief anterior.

@@ -1,38 +1,75 @@
-/* ================= página interna #art: ilustraciones a tres tamaños y el mapa generado ================= */
+/* ================= página interna #art =================
+   Comparación estructura contra emblema por carrera (con elección guardada), fila a 64 px sobre la noche,
+   escenas de prueba, entorno antes y después con silueta, y el mapa generado. */
 function renderArt(){
  var old=document.getElementById("art");if(old)old.remove();
  document.documentElement.classList.add("art-on");
- var I=ISO,E=ENV,h="";
- function tile(svg,vb,px,lab){return '<figure class="ia-t"><svg viewBox="'+vb+'" style="height:'+px+'px" aria-hidden="true">'+svg+'</svg><figcaption>'+lab+'</figcaption></figure>'}
- function row(name,svg,vb,sizes,note){var r='<div class="ia-row"><h3>'+name+(note?' <em>'+note+'</em>':'')+'</h3><div class="ia-sz">';sizes.forEach(function(px){r+=tile(svg,vb,px,px+" px")});return r+'</div></div>'}
- h+='<header class="ia-h"><h1>Ilustración del mapa</h1><p>Fase 2, muestra para aprobar el estilo: vista isométrica 2 : 1, luz desde arriba a la izquierda, tres tonos por color y un destello en los bordes de arriba. Cada pieza aparece a tres tamaños; el de 96 px comprueba que la silueta se reconoce reducida.</p></header>';
- h+='<section><h2>Edificios</h2><p class="ia-n">Tres de veinte, terminados para que juzgues el nivel antes de dibujar los otros diecisiete.</p>';
- [["medicina","Medicina","hospital de tres cuerpos, cruz en el techo, arco de entrada, helipuerto y ambulancia"],["computacion","Computación","edificio monitor con llaves de código, servidores con luces y cables"],["derecho","Derecho","juzgado con columnas, escalinata y estatua de la justicia"]].forEach(function(b){h+=row(b[1],BLD[b[0]](),"-72 -100 144 150",[96,170,320],b[2])});
+ var E=ENV,h="",VB="-72 -110 144 160",NAMES={medicina:"Medicina",derecho:"Derecho",computacion:"Computación",cine:"Cine",arquitectura:"Arquitectura",veterinaria:"Veterinaria",datos:"Ciencia de datos"};
+ var DESC={
+  medicina:["Hospital de tres cuerpos con cruz, helipuerto y ambulancia","Botiquín gigante con un estetoscopio enrollado"],
+  derecho:["Juzgado con columnas, escalinata y la estatua de la justicia","Balanza gigante, mazo de juez y libro de leyes"],
+  computacion:["Oficinas con fachada-pantalla de código y servidores","Computadora de escritorio con teclado y torre con luces"],
+  cine:["Cine con marquesina iluminada, alfombra y reflectores","Cámara clásica en trípode con rollos, claqueta y reflector"],
+  arquitectura:["Estudio con ventanal y maqueta en la entrada","Maqueta a medio construir sobre un plano, compás y regla"],
+  veterinaria:["Clínica con letrero de huella, casita y perro esperando","Perro gigante sentado con collar, estetoscopio y plato"],
+  datos:["Torre de oficinas con cartelera de gráfica en el techo","Gráfica de barras gigante con tendencia y lupa"]};
+ function svg(inner,px,cls){return '<svg class="'+(cls||"")+'" viewBox="'+VB+'" style="height:'+px+'px" aria-hidden="true">'+inner+'</svg>'}
+ h+='<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>'+E.DEFS+'</defs></svg>';
+ h+='<header class="ia-h"><h1>Ilustración del mapa</h1><p>Elige para cada carrera la versión que más te guste: la <b>estructura</b> (el lugar donde se ejerce) o el <b>emblema</b> (su objeto a escala gigante). Tu elección se guarda en este dispositivo y el mapa de abajo la usa. Mientras no elijas, se usa la estructura.</p></header>';
+ /* ---------- comparación por carrera ---------- */
+ h+='<section><h2>Estructura o emblema</h2><div class="ia-cards">';
+ ART.ids.forEach(function(id){var cur=ART.pick(id);
+  h+='<article class="ia-card" data-id="'+id+'"><h3>'+NAMES[id]+'</h3><div class="ia-vs">';
+  [["s","Estructura"],["e","Emblema"]].forEach(function(v,i){
+   h+='<div class="ia-opt'+(cur===v[0]?' on':'')+'" data-v="'+v[0]+'"><div class="ia-big">'+svg(ART.get(id,2,v[0]),230)+'</div><p class="ia-d">'+DESC[id][i]+'</p>'+
+    '<div class="ia-small is-night"><div>'+svg(ART.get(id,1,v[0]),96)+'<span>96 px</span></div><div>'+svg(ART.get(id,0,v[0]),64)+'<span>64 px</span></div><div class="ia-sil">'+svg(ART.get(id,2,v[0],{noPlat:true}),64)+'<span>silueta</span></div></div>'+
+    '<button type="button" class="ia-pick" aria-pressed="'+(cur===v[0])+'">'+(cur===v[0]?'Elegida: ':'Elegir ')+v[1].toLowerCase()+'</button></div>'});
+  h+='</div></article>'});
+ h+='</div></section>';
+ /* ---------- todas a 64 px ---------- */
+ h+='<section><h2>Todas juntas a 64 px, de noche</h2><p class="ia-n">Para comprobar que se distinguen entre sí a como se verán muchas veces en el celular.</p>';
+ [["s","Estructuras"],["e","Emblemas"]].forEach(function(v){h+='<h3>'+v[1]+'</h3><div class="ia-row64 is-night">'+ART.ids.map(function(id){return '<div>'+svg(ART.get(id,0,v[0]),64)+'<span>'+NAMES[id]+'</span></div>'}).join("")+'</div>'});
  h+='</section>';
- h+='<section><h2>Edificios de reserva por bioma</h2><p class="ia-n">Los usa el mapa para cualquier carrera que todavía no tenga ilustración propia, con el color de la carrera.</p><div class="ia-grid">';
- [["jardin","Salud · jardín","#3F9C7A"],["industria","Ingenierías · industria","#E8603C"],["vidrio","Tecnología · vidrio","#3F7DA6"],["ciudad","Negocios · ciudad","#F2B544"],["barrio","Arte · barrio","#B88AA8"]].forEach(function(b){h+=tile(E.generic(b[0],b[2],7),"-58 -80 116 112",130,b[1])});
+ /* ---------- escenas de prueba ---------- */
+ h+='<section><h2>La misma isla con cada estilo</h2><p class="ia-n">Las siete carreras con árboles, pinos, palmeras, arbustos, banca, farol, ballena y delfines. Arriba a 600 × 400; abajo, como se ve en un celular de 390 × 844 con el presupuesto de decoración del celular.</p><div class="ia-scenes">'+
+  '<figure><div class="ia-scene" id="scS"></div><figcaption>Solo estructuras</figcaption></figure><figure><div class="ia-scene" id="scE"></div><figcaption>Solo emblemas</figcaption></figure></div>'+
+  '<div class="ia-phones"><figure><div class="ia-phone"><div class="ia-phone-in" id="phS"></div></div><figcaption>Celular · estructuras</figcaption></figure><figure><div class="ia-phone"><div class="ia-phone-in" id="phE"></div></div><figcaption>Celular · emblemas</figcaption></figure></div></section>';
+ /* ---------- entorno antes y después ---------- */
+ var ENVL=[["Árbol redondo","treeRound","-20 -42 44 46",function(){return ENV0.treeRound(1.6)}],["Pino","treePine","-16 -42 34 46",function(){return ENV0.treePine(1.6)}],["Palmera","palm","-20 -44 46 48",function(){return ENV0.palm(1.5)}],["Arbusto","bush","-14 -16 32 20",function(){return ENV0.bush(1.8)}],["Flores","flowers","-9 -11 18 13",function(){return ENV0.flowers()}],["Roca","rock","-11 -10 24 13",function(){return ENV0.rock(2)}],["Banca","bench","-11 -12 28 22",function(){return ENV0.bench()}],["Farol","lamp","-6 -28 14 32",function(){return ENV0.lamp()}],["Señal","signpost","-12 -26 26 30",function(){return ENV0.signpost()}],["Caja","crate","-6 -10 14 14",function(){return ENV0.crate()}],["Cono","cone","-5 -10 11 13",function(){return ENV0.cone()}],["Muelle","pier","-6 -30 60 48",function(){return ENV0.pier(40)}],["Faro","lighthouse","-36 -56 80 70",function(){return ENV0.lighthouse()}],["Velero","sailboat","-26 -36 56 50",function(){return ENV0.sailboat()}],["Transbordador","ferry","-30 -26 66 46",function(){return ENV0.ferry()}],["Ballena","whale","-46 -34 76 48",function(){return ENV0.whale()}],["Delfines","dolphins","-24 -30 56 42",function(){return ENV0.dolphin()}],["Nube","cloud","-26 -22 52 26",function(){return ENV0.cloud(1.4)}],["Rosa de los vientos","compass","-36 -22 72 44",function(){return ENV0.compass()}]];
+ h+='<section><h2>Entorno: antes y después</h2><p class="ia-n">Cada pieza nueva parte de una sola silueta; la sombra y la luz se pintan dentro de ella. A la derecha, su silueta en negro y su versión a 96 px de noche.</p><div class="ia-env-list">';
+ ENVL.forEach(function(p){var nw=E[p[1]]({});var vb=p[2],sv=function(x,px,c){return '<svg class="'+(c||"")+'" viewBox="'+vb+'" style="height:'+px+'px" aria-hidden="true">'+x+'</svg>'};
+  h+='<div class="ia-envrow"><h3>'+p[0]+'</h3><div class="ia-envc"><div class="old">'+sv(p[3](),110)+'<span>Antes</span></div><div>'+sv(nw,110)+'<span>Ahora</span></div><div class="ia-sil">'+sv(nw,110)+'<span>Silueta</span></div><div class="is-night">'+sv(E[p[1]]({d:1}),96)+'<span>96 px</span></div></div></div>'});
  h+='</div></section>';
- h+='<section><h2>Entorno</h2><div class="ia-grid">';
- var P=[["Árbol redondo",E.treeRound(1.6),"-26 -46 52 52"],["Pino",E.treePine(1.6),"-22 -50 44 56"],["Palmera",E.palm(1.5),"-22 -52 50 58"],["Arbusto",E.bush(1.8),"-14 -22 32 28"],["Roca",E.rock(2),"-12 -16 26 20"],["Flores",E.flowers(),"-7 -7 14 12"],["Farol",E.lamp(),"-6 -22 12 26"],["Señal",E.signpost(),"-12 -20 26 24"],["Banca",E.bench(),"-8 -6 18 12"],["Caja",E.crate(),"-6 -10 14 14"],["Cono",E.cone(),"-4 -8 8 10"],["Faro",E.lighthouse(),"-24 -50 120 74"],["Muelle",E.pier(40),"-12 -12 60 40"],["Velero",E.sailboat(),"-14 -26 30 34"],["Transbordador",E.ferry(),"-28 -24 56 36"],["Ballena",'<g style="opacity:1">'+E.whale().replace('class="iso-whale"','')+'</g>',"-22 -18 46 26"],["Delfines",E.dolphin().replace('class="iso-dolphin"','')+'<g transform="translate(16 6)">'+E.dolphin().replace('class="iso-dolphin"','')+'</g>',"-12 -12 40 24"],["Gaviota",E.gull(),"-7 -4 14 6"],["Nube",E.cloud(1.4).replace('class="iso-cloud"',''),"-16 -34 66 50"],["Rosa de los vientos",E.compass(),"-46 -54 92 100"]];
- var SEA={"Faro":1,"Muelle":1,"Velero":1,"Transbordador":1,"Ballena":1,"Delfines":1,"Gaviota":1,"Nube":1,"Rosa de los vientos":1};
- P.forEach(function(p){var v=p[2].split(" ").map(Number),wide=v[2]>v[3];h+='<div class="ia-env'+(SEA[p[0]]?' sea':'')+'"><div class="ia-sz">'+[32,56,96].map(function(px){return '<svg viewBox="'+p[2]+'" style="'+(wide?'width':'height')+':'+px+'px" aria-hidden="true">'+p[1]+'</svg>'}).join("")+'</div><span>'+p[0]+'</span></div>'});
- h+='</div></section>';
- h+='<section><h2>Letreros de carrera</h2><p class="ia-n">Cuelgan de un alfiler con el color de la carrera. Se colocan solos sin pisarse: debajo del edificio y, si no cabe, a un lado o arriba.</p><div class="ia-signs">';
- [["Medicina","#3F9C7A"],["Ciencia de datos","#5BA3D0"],["Arquitectura","#B88AA8"]].forEach(function(s){h+='<span class="gm-pin ia-pin" style="--c:'+s[1]+'"><i class="pn"></i><span class="br"><b>'+s[0]+'</b></span></span>'});
- h+='</div></section>';
- h+='<section><h2>Mapa generado desde el catálogo</h2><p class="ia-n">Cada área es una isla de tamaño proporcional a sus carreras; las subáreas forman regiones; los caminos salen de un árbol de expansión mínima más atajos; los puentes unen las islas más cercanas o con más temas en común. Lejos: islas y áreas. Medio: subáreas con contador. Cerca: edificios y letreros.</p>'+
+ /* ---------- mapa generado ---------- */
+ h+='<section><h2>Mapa generado desde el catálogo</h2><p class="ia-n">Usa tus elecciones. Lejos: islas y áreas. Medio: carreras simplificadas con nombre corto. Cerca: todo el detalle y nombres completos.</p>'+
   '<div class="ia-ctl"><div class="ia-seg" role="group" aria-label="Cantidad de carreras"><button type="button" data-n="20" aria-pressed="true">20 carreras</button><button type="button" data-n="50">50</button><button type="button" data-n="120">120</button></div><div class="ia-seg" role="group" aria-label="Zoom"><button type="button" data-z="fit">Lejos</button><button type="button" data-z=".45">Medio</button><button type="button" data-z=".9">Cerca</button></div><button type="button" class="ia-night" aria-pressed="false">Noche</button></div>'+
   '<div class="ia-map" id="iaMap"></div><p class="ia-n" id="iaStat"></p></section>';
  var el=document.createElement("div");el.id="art";el.className="ia";el.innerHTML=h;document.body.appendChild(el);
- var M=null,N=20;
- function build(n){N=n;var t0=performance.now(),W=MAPGEN.build(ISOFIX.catalog(n),ISOFIX.AREAS),t1=performance.now();M=ISOMAP.mount(document.getElementById("iaMap"),W,{wheelZoom:false});
+ /* escenas */
+ var SC=ISOFIX.catalog(20).filter(function(c){return ART.has(c.id)}).map(function(c){return {id:c.id,name:c.name,short:c.short,area:"escena",sub:"Prueba",color:c.color,tags:c.tags}});
+ var SA=[{id:"escena",name:"Isla de prueba",biome:"jardin"}],SW=MAPGEN.build(SC,SA);
+ var DEC=["treeRound","treePine","palm","bush","bench","lamp"];
+ function scenes(){
+  ISOMAP.mount(document.getElementById("scS"),SW,{style:"s",lod:"near",decor:DEC,sea:["whale","dolphins"],budget:{isle:6,sea:2},mobile:false,wheelZoom:false}).fit(.96);
+  ISOMAP.mount(document.getElementById("scE"),SW,{style:"e",lod:"near",decor:DEC,sea:["whale","dolphins"],budget:{isle:6,sea:2},mobile:false,wheelZoom:false}).fit(.96);
+  ISOMAP.mount(document.getElementById("phS"),SW,{style:"s",decor:DEC,sea:["whale","dolphins"],mobile:true,start:"medicina",wheelZoom:false});
+  ISOMAP.mount(document.getElementById("phE"),SW,{style:"e",decor:DEC,sea:["whale","dolphins"],mobile:true,start:"medicina",wheelZoom:false});
+ }
+ var M=null;
+ function build(n){var t0=performance.now(),W=MAPGEN.build(ISOFIX.catalog(n),ISOFIX.AREAS),t1=performance.now();M=ISOMAP.mount(document.getElementById("iaMap"),W,{wheelZoom:false});
   document.getElementById("iaStat").textContent="Generado en "+Math.round(t1-t0)+" ms y dibujado en "+Math.round(performance.now()-t1)+" ms: "+W.nodes.length+" carreras, "+W.islands.length+" islas, "+W.edges.length+" tramos de camino y "+W.bridges.length+" puentes.";
   each(el.querySelectorAll("[data-n]"),function(b){b.setAttribute("aria-pressed",+b.getAttribute("data-n")===n?"true":"false")});
   M.el.classList.toggle("is-night",el.querySelector(".ia-night").getAttribute("aria-pressed")==="true");
+  window.__art.N=n;
  }
- build(20);
+ window.__art={get M(){return M},build:build,N:20};
+ scenes();build(20);
+ /* elegir estilo: se guarda y el mapa se vuelve a dibujar */
+ each(el.querySelectorAll(".ia-card"),function(card){var id=card.getAttribute("data-id");
+  each(card.querySelectorAll(".ia-pick"),function(b){b.onclick=function(){var v=b.closest(".ia-opt").getAttribute("data-v");ART.pick(id,v);
+   each(card.querySelectorAll(".ia-opt"),function(o){var on=o.getAttribute("data-v")===v,bt=o.querySelector(".ia-pick");o.classList.toggle("on",on);bt.setAttribute("aria-pressed",on?"true":"false");bt.textContent=(on?"Elegida: ":"Elegir ")+(o.getAttribute("data-v")==="s"?"estructura":"emblema")});
+   build(window.__art.N)}})});
  each(el.querySelectorAll("[data-n]"),function(b){b.onclick=function(){build(+b.getAttribute("data-n"))}});
  each(el.querySelectorAll("[data-z]"),function(b){b.onclick=function(){var z=b.getAttribute("data-z");if(z==="fit")M.fit();else M.focus(M.world.byId.medicina?"medicina":M.world.nodes[0].id,+z)}});
  el.querySelector(".ia-night").onclick=function(){var on=this.getAttribute("aria-pressed")!=="true";this.setAttribute("aria-pressed",on?"true":"false");M.el.classList.toggle("is-night",on)};
- window.__art={get M(){return M},build:build};
 }

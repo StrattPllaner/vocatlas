@@ -107,5 +107,27 @@ var ISO=(function(){
   s+=poly([P(x0+nx,y0+ny,z),P(x1+nx,y1+ny,z),P(x1-nx,y1-ny,z),P(x0-nx,y0-ny,z)],col,{st:shade(col,.12),sw:1});
   for(var t=4;t<L-2;t+=5){var a=t/L;s+=line([P(x0+dx*a+nx,y0+dy*a+ny,z),P(x0+dx*a-nx,y0+dy*a-ny,z)],shade(col,.14),.7,{op:.7})}
   return s}
- return {walk:walk,P:P,pts:pts,poly:poly,line:line,path:path,box:box,faceL:faceL,faceR:faceR,faceTop:faceTop,quad:quad,win:win,cyl:cyl,cylD:cylD,ell:ell,ball:ball,dome:dome,gable:gable,shadowEll:shadowEll,shadowBox:shadowBox,platform:platform,T:T,shade:shade,tint:tint,mix:mix,f1:f1};
+
+ /* ---------- método de silueta: una forma continua, tonos recortados dentro de ella ---------- */
+ var UID=0;function uid(p){return (p||"i")+(++UID).toString(36)}
+ /* curva cerrada suave por los puntos (Catmull-Rom → Bézier) */
+ function smooth(q,closedP){var n=q.length;if(n<3)return "";var d="M"+f1(q[0][0])+" "+f1(q[0][1]),m=closedP===false?n-1:n;
+  for(var i=0;i<m;i++){var p0=q[closedP===false?Math.max(0,i-1):(i-1+n)%n],p1=q[i],p2=q[(i+1)%n],p3=q[closedP===false?Math.min(n-1,i+2):(i+2)%n];
+   d+="C"+f1(p1[0]+(p2[0]-p0[0])/6)+" "+f1(p1[1]+(p2[1]-p0[1])/6)+" "+f1(p2[0]-(p3[0]-p1[0])/6)+" "+f1(p2[1]-(p3[1]-p1[1])/6)+" "+f1(p2[0])+" "+f1(p2[1])}
+  return d+(closedP===false?"":"Z")}
+ /* masas fusionadas: borde ondulado con n bultos; flat recorta la base en línea recta */
+ function blobPts(cx,cy,rx,ry,n,ph,amp,flat,N){N=N||84;var o=[];for(var i=0;i<N;i++){var a=i/N*Math.PI*2,b=Math.pow(Math.abs(Math.sin(n*a/2+ph)),.55),r=1-amp+amp*b,x=cx+Math.cos(a)*rx*r,y=cy+Math.sin(a)*ry*r;if(flat!=null)y=Math.min(y,cy+ry*flat);o.push([x,y])}return o}
+ function blob(cx,cy,rx,ry,n,ph,amp,flat){return smooth(blobPts(cx,cy,rx,ry,n,ph,amp,flat))}
+ function clipDef(id,d){return '<clipPath id="'+id+'"><path d="'+d+'"/></clipPath>'}
+ /* plano vertical isométrico a lo largo del eje x (u hacia la derecha-abajo, v hacia arriba) */
+ function planeX(x,y,z){var o=P(x,y,z);return 'matrix(1 .5 0 1 '+f1(o[0])+' '+f1(o[1])+')'}
+ function planeY(x,y,z){var o=P(x,y,z);return 'matrix(-1 .5 0 1 '+f1(o[0])+' '+f1(o[1])+')'}
+ /* plano del suelo (para dibujos planos acostados en el piso o el agua) */
+ function planeG(x,y,z){var o=P(x,y,z);return 'matrix(1 .5 -1 .5 '+f1(o[0])+' '+f1(o[1])+')'}
+ /* sombras: contacto oscuro y chico en la base, proyectada suave hacia abajo a la derecha */
+ function contact(rx,o){o=o||{};return '<ellipse cx="'+f1(o.x||0)+'" cy="'+f1(o.y||0)+'" rx="'+f1(rx)+'" ry="'+f1(rx*.42)+'" fill="#13213F" opacity="'+(o.op||.32)+'"/>'}
+ function cast(rx,len,o){o=o||{};var x=o.x||0,y=o.y||0;return '<path d="M'+f1(x-rx)+' '+f1(y)+'Q'+f1(x-rx*.4)+' '+f1(y+rx*.5)+' '+f1(x+len*.5)+' '+f1(y+rx*.62+len*.18)+'Q'+f1(x+len+rx*.4)+' '+f1(y+len*.3)+' '+f1(x+len*.9)+' '+f1(y+len*.08)+'Q'+f1(x+rx*.3)+' '+f1(y-rx*.36)+' '+f1(x-rx)+' '+f1(y)+'Z" fill="#13213F" opacity="'+(o.op||.13)+'"/>'}
+ /* recorte por silueta: base en un tono, planos de sombra y luz dentro */
+ function shaded(d,base,inner){var id=uid("k");return clipDef(id,d)+'<path d="'+d+'" fill="'+base+'"/><g clip-path="url(#'+id+')">'+inner+'</g>'}
+ return {uid:uid,smooth:smooth,blobPts:blobPts,blob:blob,clipDef:clipDef,planeX:planeX,planeY:planeY,planeG:planeG,contact:contact,cast:cast,shaded:shaded,walk:walk,P:P,pts:pts,poly:poly,line:line,path:path,box:box,faceL:faceL,faceR:faceR,faceTop:faceTop,quad:quad,win:win,cyl:cyl,cylD:cylD,ell:ell,ball:ball,dome:dome,gable:gable,shadowEll:shadowEll,shadowBox:shadowBox,platform:platform,T:T,shade:shade,tint:tint,mix:mix,f1:f1};
 })();

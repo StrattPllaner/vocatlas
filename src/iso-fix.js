@@ -1,6 +1,7 @@
 /* catálogos de prueba del generador: las 20 carreras reales y versiones de 50 y 120 con nombres reales de carreras */
 var ISOFIX=(function(){
  var AREAS=[{id:"salud",name:"Salud",biome:"jardin"},{id:"ing",name:"Ingenierías",biome:"industria"},{id:"tec",name:"Tecnología y ciencias",biome:"vidrio"},{id:"neg",name:"Negocios y sociedad",biome:"ciudad"},{id:"arte",name:"Arte y comunicación",biome:"barrio"}];
+ var SHORT={datos:"Datos",biotec:"Biotec",aeroespacial:"Aeroespacial",ambiental:"Ambiental",civil:"Civil",comunicacion:"Comunicación",arquitectura:"Arquitectura",veterinaria:"Veterinaria",computacion:"Computación",mecatronica:"Mecatrónica"};
  var REAL=[
   ["medicina","Medicina","salud","Clínica","#3F9C7A","cuerpo salud bio ayudar quimica"],["veterinaria","Veterinaria","salud","Clínica","#A5CF8E","animales bio salud agro naturaleza"],
   ["nutricion","Nutrición","salud","Bienestar","#8CC7A1","nutricion cocina cuerpo deportes salud ayudar"],["psicologia","Psicología","salud","Bienestar","#4BAAA3","mente ayudar escribir salud ensenar"],
@@ -12,7 +13,7 @@ var ISOFIX=(function(){
   ["negocios","Negocios","neg","Empresa","#F2B544","negocios lider dinero marketing viajes eventos"],["finanzas","Finanzas","neg","Empresa","#D98E3B","dinero mate datos negocios politica juegos"],
   ["arquitectura","Arquitectura","arte","Diseño","#B88AA8","construccion diseno dibujo mate ambiente"],["moda","Moda","arte","Diseño","#D98C9C","moda diseno dibujo belleza marketing"],
   ["comunicacion","Comunicación","arte","Medios","#9E86BF","marketing foto escribir cine idiomas diseno"],["cine","Cine","arte","Medios","#7C5C8E","cine foto musica teatro escribir dibujo videojuegos"]
- ].map(function(a){return {id:a[0],name:a[1],area:a[2],sub:a[3],color:a[4],tags:a[5].split(" ")}});
+ ].map(function(a){return {id:a[0],name:a[1],area:a[2],sub:a[3],color:a[4],tags:a[5].split(" "),short:SHORT[a[0]]}});
  /* nombres reales para las pruebas de escala; subárea y temas se reparten de forma fija */
  var MORE={
   salud:{subs:["Clínica","Bienestar","Cuidados"],tags:"cuerpo salud bio ayudar quimica mente deportes",n:["Enfermería","Odontología","Fisioterapia","Optometría","Químico farmacéutico","Biomedicina","Terapia ocupacional","Salud pública","Gerontología","Imagenología","Paramédico","Audiología","Terapia física","Partería","Podología","Trabajo social clínico","Toxicología","Genética médica","Medicina del deporte","Laboratorio clínico"]},
