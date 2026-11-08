@@ -69,7 +69,7 @@ button,input{font-family:inherit;color:inherit;-webkit-appearance:none;appearanc
 button{touch-action:manipulation;user-select:none;-webkit-user-select:none}
 :focus{outline:none}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px}
-.eyebrow{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
+.eyebrow{font-size:13.5px;font-weight:650;color:var(--ink-3)}
 .num{display:inline-flex;font-variant-numeric:tabular-nums}
 .num i{font-style:normal;display:inline-block;width:.6em;text-align:center}
 .screen{position:fixed;inset:0;display:none;flex-direction:column;background:var(--bg)}
@@ -142,7 +142,7 @@ button{touch-action:manipulation;user-select:none;-webkit-user-select:none}
 .top{display:flex;align-items:center;gap:10px;padding:calc(8px + var(--sat)) calc(16px + var(--sar)) 8px calc(16px + var(--sal));background:var(--bg);border-bottom:1px solid var(--line);position:relative;z-index:5}
 .clar{margin-left:auto;display:flex;align-items:center;gap:10px}
 .clar .lab{text-align:right;line-height:1.05}
-.clar .lab .eyebrow{font-size:10.5px}
+.clar .lab .eyebrow{font-size:12px}
 .clar .lab b{display:block;font-size:21px;font-weight:720;letter-spacing:-.01em}
 .ring{width:40px;height:40px;display:block}
 .ring-track{fill:none;stroke:var(--sunken);stroke-width:5}
@@ -517,7 +517,6 @@ nav button:active svg{transform:scale(.84)}
 .vhead p{margin:0;font-size:16px}
 .st{animation:fadeUp var(--t-med) var(--spring) both}
 .hero{position:relative;overflow:hidden;background:var(--surface);border-radius:28px;padding:22px;box-shadow:var(--sh-2);margin-bottom:28px}
-.hero::before{content:"";position:absolute;width:240px;height:240px;right:-80px;top:-110px;border-radius:50%;background:var(--c);opacity:.16}
 .hero-top{position:relative;display:flex;align-items:center;gap:12px;margin-bottom:10px}
 .hero h3{font-size:28px;margin-top:4px}
 .hero p{position:relative}
@@ -553,9 +552,7 @@ nav button:active svg{transform:scale(.84)}
 .empty p{max-width:24em;margin:0 auto 22px}
 .stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:22px}
 .stat{padding:18px;border-radius:24px;background:var(--surface);border:1px solid var(--line)}
-.stat.dark{background:var(--select);color:var(--on-select);border-color:transparent}
-.stat.dark .sub{color:inherit;opacity:.72}
-.stat .big{font-size:46px;font-weight:760;letter-spacing:-.01em;line-height:1;margin-bottom:8px}
+.stat .big{font-size:38px;font-weight:760;letter-spacing:-.01em;line-height:1;margin-bottom:8px}
 .stat b{display:block;font-size:15px;font-weight:650;margin-bottom:2px}
 .actions{display:flex;flex-direction:column;gap:10px}
 
@@ -728,7 +725,7 @@ html.ret #boot.show{opacity:1;pointer-events:auto}
 @keyframes sayPopS{from{opacity:0;transform:translateY(-50%) translateX(-6px) scale(.92)}to{opacity:1;transform:translateY(-50%)}}
 /* pasaporte */
 .pp{position:relative;padding:16px 18px 18px;border-radius:14px;background:var(--paper);border:1px solid var(--line-2);box-shadow:var(--sh-1);margin-bottom:26px;overflow:hidden}
-.pp-h{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding-bottom:10px;margin-bottom:12px;border-bottom:1px solid var(--line-2);font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
+.pp-h{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding-bottom:10px;margin-bottom:12px;border-bottom:1px solid var(--line-2);font-size:13.5px;font-weight:650;color:var(--ink-3)}
 .pp dl{display:grid;grid-template-columns:1fr 1fr;gap:12px 16px;margin:0}
 .pp dt{font-size:12.5px;font-weight:600;color:var(--ink-3);margin-bottom:2px}
 .pp dd{margin:0;font-size:17px;font-weight:700;letter-spacing:-.01em;color:var(--ink);min-height:23px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
@@ -842,11 +839,11 @@ html.ret #boot.show{opacity:1;pointer-events:auto}
 .privnote{display:flex;gap:12px;align-items:flex-start;padding:14px 16px;border-radius:18px;background:var(--sunken);font-size:14.5px;color:var(--ink-2);line-height:1.45}
 .privnote svg{width:22px;height:22px;flex:none;color:var(--ink);margin-top:1px}
 .privnote p{margin:0;color:inherit}
-.sug{position:relative;padding:20px 20px 18px;border-radius:24px;background:var(--select);color:var(--on-select);margin-bottom:26px;overflow:hidden}
-.sug .eyebrow{color:inherit;opacity:.7;margin-bottom:8px}
+.sug{position:relative;padding:20px 20px 18px;border-radius:24px;background:var(--surface);border:1px solid var(--line);margin-bottom:26px;overflow:hidden}
+.sug .eyebrow{margin-bottom:6px}
 .sug h3{font-size:24px;letter-spacing:-.01em;margin-bottom:6px;padding-right:56px}
-.sug p{color:inherit;opacity:.82;margin:0;font-size:15.5px}
-.sug .cmp{position:absolute;right:16px;top:16px;width:44px;height:44px;color:var(--mostaza)}
+.sug p{color:var(--ink-2);margin:0;font-size:15.5px}
+.sug .cmp{position:absolute;right:16px;top:16px;width:44px;height:44px;color:var(--ink-3)}
 .sug .cmp .nd{transform-box:view-box;transform-origin:22px 22px;animation:needle 3.2s var(--soft) infinite alternate}
 @keyframes needle{0%{transform:rotate(-24deg)}60%{transform:rotate(14deg)}100%{transform:rotate(4deg)}}
 .goalsum{display:flex;gap:10px;align-items:center;font-size:15px;font-weight:650;color:var(--ink)}
@@ -2646,7 +2643,7 @@ function pointNeedle(animate){
 }
 function renderAtlas(){
  var v=$("#v-atlas"),any=C.some(function(c){return hasData(c.id)});
- var h='<div class="vwrap"><div class="vhead st"><div class="eyebrow">Tu compás vocacional</div><h2>Atlas</h2><p>La aguja apunta a la carrera que más te va gustando. Se mueve con lo que calificas y con tus reacciones en los retos.</p></div>';
+ var h='<div class="vwrap"><div class="vhead st"><h2>Atlas</h2><p>La aguja apunta a la carrera que más te va gustando. Se mueve con lo que calificas y con tus reacciones en los retos.</p></div>';
  h+='<div class="cmp-card st"'+stag(1)+'>'+compassSVG()+'<div class="north" id="north"></div><div class="formula"><span>Tu calificación · 50 %</span><span>Reacción en el reto · 35 %</span><span>Tus temas · 15 %</span></div></div>';
  if(!any)h+='<div class="st"'+stag(2)+' style="margin-top:16px"><p>Por ahora tu compás solo usa tus temas. Prueba retos y califica carreras para afinarlo.</p><button class="btn primary wide noprint" id="gomap">Ir al mapa'+IC.arrow+"</button></div>";
  h+='<h3 class="sec st"'+stag(3)+'>Por área</h3><div class="areas">';
@@ -2741,7 +2738,7 @@ function renderYo(){
  }else if(S.edo===EDO_NONE)where='<h3>Pronto habrá opciones</h3><p>Estamos reuniendo universidades y becas con fuentes oficiales. Si quieres verlas de tu estado, elígelo arriba.</p>';
  else where='<h3>Pronto habrá opciones en tu estado</h3><p>Elige tu estado arriba y aquí verás universidades y becas en cuanto estén listas.</p>';
  var who=[S.grado?gradoName(S.grado):"",typeof S.edad==="number"?S.edad+" años":""].filter(Boolean).join(" · ");
- v.innerHTML='<div class="vwrap"><div class="vhead st"><div class="eyebrow">Tu perfil</div><h2>'+(S.nick?esc(S.nick):'Yo')+'</h2><p>'+(en?'Hola, estás explorando desde '+esc(en)+'.':'Hola, este es tu avance.')+'</p></div>'+
+ v.innerHTML='<div class="vwrap"><div class="vhead st"><h2>'+(S.nick?esc(S.nick):'Yo')+'</h2><p>'+(en?'Hola, estás explorando desde '+esc(en)+'.':'Hola, este es tu avance.')+'</p></div>'+
   '<div class="stats"><div class="stat dark st"'+stag(1)+'><div class="big num">'+tab(nt)+'</div><b>temas elegidos</b><span class="sub">'+(S.custom.length?"Incluye "+S.custom.length+" que agregaste tú":"De la lista inicial")+'</span></div>'+
   '<div class="stat st"'+stag(2)+'><div class="big num">'+tab(done)+'</div><b>de '+C.length+' carreras probadas</b><span class="sub">Claridad vocacional: '+Math.round(done/C.length*100)+'%</span></div></div>'+
   '<div class="ycard st"'+stag(3)+'><div class="eyebrow">Tu siguiente meta</div>'+meta+'<div class="meta-bar"><i style="transform:scaleX('+pr.toFixed(3)+')"></i></div></div>'+
@@ -3034,13 +3031,13 @@ function prebuildMap(){computeAff();RB.at=(S.at&&byId[S.at])?S.at:bestStart();RB
 var FL={step:null,mode:"new",fromFlow:false},CHT=null,SCRB=null,WIDE=window.matchMedia?window.matchMedia("(min-width: 900px)"):null,sayT=0,PP=null;
 var SCN=null,SCNRB=null;
 function sceneHTMLOld(){
- var cl='<rect y="34" width="170" height="40" rx="20"/><circle cx="62" cy="38" r="32"/><circle cx="108" cy="30" r="38"/>';
+ var cl='<path d="M0 60Q0 41 20 39Q23 15 52 17Q67-4 95 7Q119-1 129 23Q151 23 153 42Q166 46 164 60Z"/>';
  return '<div class="scene" aria-hidden="true"><svg class="sc-bg" viewBox="0 0 800 800" preserveAspectRatio="xMidYMax slice">'+
  '<rect class="sc-sky" width="800" height="800"/>'+
  '<g class="sc-star"><circle cx="120" cy="120" r="3"/><circle cx="260" cy="70" r="2"/><circle cx="420" cy="150" r="2.5"/><circle cx="720" cy="80" r="2"/><circle cx="540" cy="300" r="2"/><circle cx="80" cy="330" r="2.5"/><circle cx="330" cy="270" r="2"/><circle cx="760" cy="380" r="2"/></g>'+
  '<circle class="sc-sun" cx="610" cy="200" r="62"/><circle class="sc-moon" cx="636" cy="180" r="52"/>'+
- '<g class="sc-c1"><g class="sc-cloud" transform="translate(80 160)">'+cl+'</g></g>'+
- '<g class="sc-c2"><g class="sc-cloud" transform="translate(480 330) scale(.7)">'+cl+'</g></g>'+
+ '<g class="sc-c1"><g class="sc-cloud" transform="translate(70 236)">'+cl+'</g></g>'+
+ '<g class="sc-c2"><g class="sc-cloud" transform="translate(470 350) scale(.62)">'+cl+'</g></g>'+
  '<path class="sc-far" d="M30 506Q110 440 190 476Q240 450 310 506Z"/><path class="sc-far" d="M500 506Q580 432 660 468Q722 456 780 506Z"/>'+
  '<rect class="sc-sea" y="500" width="800" height="300"/><rect class="sc-sea2" y="660" width="800" height="140"/>'+
  '<g class="sc-waves"><path class="sc-wv" d="M60 560q14-10 28 0t28 0"/><path class="sc-wv" d="M640 584q14-10 28 0t28 0"/><path class="sc-wv" d="M320 546q14-10 28 0t28 0"/><path class="sc-wv" d="M70 712q14-10 28 0t28 0"/><path class="sc-wv" d="M664 728q14-10 28 0t28 0"/></g>'+
