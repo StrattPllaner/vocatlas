@@ -1233,7 +1233,7 @@ html.ret #boot.show{opacity:1;pointer-events:auto}
 .rb.cheer .rb-sh{animation:shadowJump 900ms var(--e-out) infinite}
 
 /* ---------- catálogo #kit ---------- */
-html.kit-on body{overflow:auto;height:auto;background:var(--c-bg)}
+html.kit-on,html.kit-on body{overflow:auto;height:auto;background:var(--c-bg)}
 html.kit-on body>*:not(#kit):not(.ui-scrim):not(.ui-modal):not(.ui-sheet):not(.ui-toast):not(.ui-fb){display:none!important}
 #kit{font-family:var(--ff);color:var(--c-ink);background:var(--c-bg);min-height:100vh;min-height:100dvh;padding-bottom:var(--sp-16)}
 #kit *{box-sizing:border-box}
@@ -1333,7 +1333,7 @@ html.kit-on body>*:not(#kit):not(.ui-scrim):not(.ui-modal):not(.ui-sheet):not(.u
 .gm.is-night .m-land,.gm.is-night .m-objs,.gm.is-night .m-roads{filter:brightness(.72) saturate(.85)}
 .gm.is-night .iso-lamp{filter:drop-shadow(0 0 3px #FFE08A)}
 /* ================= página interna #art ================= */
-html.art-on body{overflow:auto;height:auto;background:#ECE8E1}
+html.art-on,html.art-on body{overflow:auto;height:auto;background:#ECE8E1}
 html.art-on body>*:not(#art){display:none!important}
 .ia{font-family:"Nunito",system-ui,sans-serif;color:#14323F;max-width:1180px;margin:0 auto;padding:24px 16px 80px}
 .ia-h h1{font-size:32px;font-weight:800;margin:8px 0 6px}.ia-h p,.ia-n{font-size:16px;line-height:1.5;color:rgba(20,50,63,.8);max-width:720px;margin:0 0 14px}
@@ -4506,7 +4506,8 @@ var ISOMAP=(function(I,E,G){
    else if(pts.size===2){moved=true;var v=Array.from(pts.values()),d=Math.hypot(v[0][0]-v[1][0],v[0][1]-v[1][1]),cx=(v[0][0]+v[1][0])/2,cy=(v[0][1]+v[1][1])/2;zoomAt(cx,cy,d/(pd||d));pd=d}});
   function up(e){pts.delete(e.pointerId);if(!moved&&e.type==="pointerup"){var t=e.target.closest&&(e.target.closest(".gm-pin")||e.target.closest(".m-b"));if(t&&opt.onTap)opt.onTap(t.getAttribute("data-id"))}}
   gm.addEventListener("pointerup",up);gm.addEventListener("pointercancel",up);
-  gm.addEventListener("wheel",function(e){e.preventDefault();zoomAt(e.clientX,e.clientY,Math.exp(-e.deltaY*.0022))},{passive:false});
+  /* en una página que se desplaza, la rueda sola baja la página; pellizcar (ctrl + rueda) acerca */
+  gm.addEventListener("wheel",function(e){if(opt.wheelZoom===false&&!e.ctrlKey)return;e.preventDefault();zoomAt(e.clientX,e.clientY,Math.exp(-e.deltaY*(e.ctrlKey?.01:.0022)))},{passive:false});
   function zoomAt(cx,cy,k){var b=gm.getBoundingClientRect(),px=cx-b.left,py=cy-b.top,ns=clampS(view.s*k),f=ns/view.s;view.tx=px-(px-view.tx)*f;view.ty=py-(py-view.ty)*f;view.s=ns;apply()}
   window.addEventListener("resize",function(){measure();apply()});
   measureB();measure();fit();
@@ -4576,7 +4577,7 @@ function renderArt(){
   '<div class="ia-map" id="iaMap"></div><p class="ia-n" id="iaStat"></p></section>';
  var el=document.createElement("div");el.id="art";el.className="ia";el.innerHTML=h;document.body.appendChild(el);
  var M=null,N=20;
- function build(n){N=n;var t0=performance.now(),W=MAPGEN.build(ISOFIX.catalog(n),ISOFIX.AREAS),t1=performance.now();M=ISOMAP.mount(document.getElementById("iaMap"),W,{});
+ function build(n){N=n;var t0=performance.now(),W=MAPGEN.build(ISOFIX.catalog(n),ISOFIX.AREAS),t1=performance.now();M=ISOMAP.mount(document.getElementById("iaMap"),W,{wheelZoom:false});
   document.getElementById("iaStat").textContent="Generado en "+Math.round(t1-t0)+" ms y dibujado en "+Math.round(performance.now()-t1)+" ms: "+W.nodes.length+" carreras, "+W.islands.length+" islas, "+W.edges.length+" tramos de camino y "+W.bridges.length+" puentes.";
   each(el.querySelectorAll("[data-n]"),function(b){b.setAttribute("aria-pressed",+b.getAttribute("data-n")===n?"true":"false")});
   M.el.classList.toggle("is-night",el.querySelector(".ia-night").getAttribute("aria-pressed")==="true");

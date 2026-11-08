@@ -177,7 +177,8 @@ var ISOMAP=(function(I,E,G){
    else if(pts.size===2){moved=true;var v=Array.from(pts.values()),d=Math.hypot(v[0][0]-v[1][0],v[0][1]-v[1][1]),cx=(v[0][0]+v[1][0])/2,cy=(v[0][1]+v[1][1])/2;zoomAt(cx,cy,d/(pd||d));pd=d}});
   function up(e){pts.delete(e.pointerId);if(!moved&&e.type==="pointerup"){var t=e.target.closest&&(e.target.closest(".gm-pin")||e.target.closest(".m-b"));if(t&&opt.onTap)opt.onTap(t.getAttribute("data-id"))}}
   gm.addEventListener("pointerup",up);gm.addEventListener("pointercancel",up);
-  gm.addEventListener("wheel",function(e){e.preventDefault();zoomAt(e.clientX,e.clientY,Math.exp(-e.deltaY*.0022))},{passive:false});
+  /* en una página que se desplaza, la rueda sola baja la página; pellizcar (ctrl + rueda) acerca */
+  gm.addEventListener("wheel",function(e){if(opt.wheelZoom===false&&!e.ctrlKey)return;e.preventDefault();zoomAt(e.clientX,e.clientY,Math.exp(-e.deltaY*(e.ctrlKey?.01:.0022)))},{passive:false});
   function zoomAt(cx,cy,k){var b=gm.getBoundingClientRect(),px=cx-b.left,py=cy-b.top,ns=clampS(view.s*k),f=ns/view.s;view.tx=px-(px-view.tx)*f;view.ty=py-(py-view.ty)*f;view.s=ns;apply()}
   window.addEventListener("resize",function(){measure();apply()});
   measureB();measure();fit();

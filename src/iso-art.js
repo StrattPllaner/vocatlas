@@ -25,7 +25,7 @@ function renderArt(){
   '<div class="ia-map" id="iaMap"></div><p class="ia-n" id="iaStat"></p></section>';
  var el=document.createElement("div");el.id="art";el.className="ia";el.innerHTML=h;document.body.appendChild(el);
  var M=null,N=20;
- function build(n){N=n;var t0=performance.now(),W=MAPGEN.build(ISOFIX.catalog(n),ISOFIX.AREAS),t1=performance.now();M=ISOMAP.mount(document.getElementById("iaMap"),W,{});
+ function build(n){N=n;var t0=performance.now(),W=MAPGEN.build(ISOFIX.catalog(n),ISOFIX.AREAS),t1=performance.now();M=ISOMAP.mount(document.getElementById("iaMap"),W,{wheelZoom:false});
   document.getElementById("iaStat").textContent="Generado en "+Math.round(t1-t0)+" ms y dibujado en "+Math.round(performance.now()-t1)+" ms: "+W.nodes.length+" carreras, "+W.islands.length+" islas, "+W.edges.length+" tramos de camino y "+W.bridges.length+" puentes.";
   each(el.querySelectorAll("[data-n]"),function(b){b.setAttribute("aria-pressed",+b.getAttribute("data-n")===n?"true":"false")});
   M.el.classList.toggle("is-night",el.querySelector(".ia-night").getAttribute("aria-pressed")==="true");
