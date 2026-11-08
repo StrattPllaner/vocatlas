@@ -3380,6 +3380,17 @@ function enterApp(fromDive){
 /* el agua somera se pinta en canvas: si cambia el modo claro/oscuro, se vuelve a armar el mapa */
 var DMQ=window.matchMedia?window.matchMedia("(prefers-color-scheme: dark)"):null;
 if(DMQ&&DMQ.addEventListener)DMQ.addEventListener("change",function(){if($("#app").classList.contains("on")&&!RB.plan){buildMap();refreshMap();commit();apply()}});
+/* si hay una versión nueva publicada, recarga al volver a la pestaña (los datos viven en localStorage) */
+(function(){
+ if(!window.fetch||location.protocol.indexOf("http")!==0)return;
+ var base=null,last=0;
+ function sig(){return fetch(location.pathname+"?u="+Date.now(),{cache:"no-store"}).then(function(r){return r.ok?r.text():null}).then(function(t){if(!t)return null;var h=0;for(var i=0;i<t.length;i++)h=(h*31+t.charCodeAt(i))|0;return h+":"+t.length}).catch(function(){return null})}
+ function check(){var now=Date.now();if(now-last<60000)return;last=now;sig().then(function(v){if(!v)return;if(base===null)base=v;else if(v!==base)location.reload()})}
+ setTimeout(check,4000);
+ document.addEventListener("visibilitychange",function(){if(!document.hidden)check()});
+ window.addEventListener("focus",check);
+ setInterval(function(){if(!document.hidden)check()},300000);
+})();
 boot();
 })();
 </script>
