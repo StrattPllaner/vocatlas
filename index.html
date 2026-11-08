@@ -1228,6 +1228,7 @@ html.ret #boot.show{opacity:1;pointer-events:auto}
 /* ---------- Rumbo: estados nuevos ---------- */
 .rb-lid{transform-box:fill-box;transform-origin:center top;transform:scaleY(0);transition:transform 70ms linear}.rb.blink .rb-lid{transform:scaleY(1)}
 .rb-hat{transform-box:view-box;transform-origin:51px 40px}
+.rb-hood{transform-box:view-box;transform-origin:51px 40px}.rb.a-jump .rb-hood{animation:rbHatLag var(--t-long) var(--soft);animation-delay:30ms}.rb.walk .rb-hood{animation:rbHatBob .52s ease-in-out infinite;animation-delay:-.12s}
 .rb-sh2{transform-box:view-box;transform-origin:49px 91.5px}.rb.a-jump .rb-sh2{animation:shadowJump var(--t-long) var(--soft)}.rb.cheer .rb-sh2{animation:shadowJump 900ms var(--e-out) infinite}.rb.walk .rb-sh2{opacity:.6}
 .rb.a-jump .rb-hat{animation:rbHatLag var(--t-long) var(--soft)}
 @keyframes rbHatLag{0%{transform:translateY(0)}22%{transform:translateY(.9px)}48%{transform:translateY(-.7px)}70%{transform:translateY(.3px)}100%{transform:translateY(0)}}
@@ -1871,7 +1872,8 @@ function rumboSVGOld(){
    Construcción: esfera con luz arriba a la izquierda y continentes proyectados sobre su curva; el gorro envuelve la cabeza,
    sus solapas cuelgan de los lados y proyectan sombra; las gafas descansan en el gorro con su correa; la flecha nace de un anillo.
    Coordenadas del dibujo original (520), escaladas por M. Las clases (rb-b, rb-head, rb-n, rb-face, rb-eyes…) mueven las animaciones. */
-function rumboSVG(){
+/* pasada anterior (gorro y solapas por delante), solo para comparar en #art */
+function rumboSVGv2(){
  var INK="#111C3C",W="#FFFFFF",id="rbc"+(++rbN),gs=id+"s",gc=id+"k",gh=id+"h";
  var LEG="#3B6296",LEGL="#5C84B8",LEGD="#2B4B73",SOLE="#22395A";
  var CAP="#9C5B33",CAPL="#BD7C4E",CAPS="#7A4424",CAPD="#5E331A",LIN="#EBCFA6",STRAP="#C8823C",STRAPL="#E3A866",BR="#D9A15A",BRD="#A8743A",LENS="#9EC3C8",LAND="#7E9AA5";
@@ -1947,6 +1949,85 @@ function rumboSVG(){
     '<g transform="rotate(-8 208 172)"><ellipse cx="211" cy="176" rx="50" ry="32" fill="'+BRD+'"/><ellipse cx="208" cy="172" rx="50" ry="32" fill="'+BR+'"/><ellipse cx="208" cy="174" rx="36" ry="21" fill="#5E7E86"/><ellipse cx="208" cy="172" rx="34" ry="19" fill="'+LENS+'"/><path d="M182 168Q190 156 210 156" stroke="#FFFFFF" stroke-width="5" fill="none" stroke-linecap="round" opacity=".85"/><path d="M220 186Q232 182 238 172" stroke="#FFFFFF" stroke-width="2.6" fill="none" stroke-linecap="round" opacity=".5"/></g>'+
     '<g transform="rotate(10 310 168)"><ellipse cx="313" cy="172" rx="44" ry="30" fill="'+BRD+'"/><ellipse cx="310" cy="168" rx="44" ry="30" fill="'+BR+'"/><ellipse cx="310" cy="170" rx="31" ry="19" fill="#5E7E86"/><ellipse cx="310" cy="168" rx="29" ry="17" fill="'+LENS+'"/><path d="M288 164Q296 153 312 153" stroke="#FFFFFF" stroke-width="5" fill="none" stroke-linecap="round" opacity=".85"/></g>'+
     '<path d="M250 170Q260 162 270 168" stroke="'+BRD+'" stroke-width="9" fill="none" stroke-linecap="round"/><path d="M250 168Q260 160 270 166" stroke="'+BR+'" stroke-width="5" fill="none" stroke-linecap="round"/>'+
+    /* anillo de la flecha sobre el gorro */
+    '<ellipse cx="243" cy="142" rx="17" ry="7" fill="'+BRD+'"/><ellipse cx="243" cy="138" rx="17" ry="7" fill="'+BR+'"/><path d="M230 136Q243 132 256 136" stroke="#F4D49A" stroke-width="2.4" fill="none" stroke-linecap="round"/>'+
+   E+'</g>'+
+  '</g>'+
+ '</g></g></svg>';
+}
+function rumboSVG(){
+ var INK="#111C3C",W="#FFFFFF",id="rbc"+(++rbN),gs=id+"s",gc=id+"k",gh=id+"h";
+ var LEG="#3B6296",LEGL="#5C84B8",LEGD="#2B4B73",SOLE="#22395A";
+ var CAP="#9C5B33",CAPL="#BD7C4E",CAPS="#7A4424",CAPD="#5E331A",LIN="#EBCFA6",STRAP="#C8823C",STRAPL="#E3A866",BR="#D9A15A",BRD="#A8743A",LENS="#9EC3C8",LAND="#7290A0";
+ var M='<g transform="matrix(.195 0 0 .195 .275 -5.41)">',E='</g>',C='cx="263" cy="322"';
+ /* continentes en coordenadas planas del disco; se proyectan sobre la esfera (más apretados cerca del borde) */
+ function sph(pts){return pts.map(function(q){var r=Math.hypot(q[0],q[1])||1e-6,t=Math.min(1,r)*Math.PI/2,k=Math.sin(t)/r;return [263+q[0]*k*120,322+q[1]*k*120]})}
+ function sm(q){var n=q.length,d="M"+q[0][0].toFixed(1)+" "+q[0][1].toFixed(1);for(var i=0;i<n;i++){var p0=q[(i-1+n)%n],p1=q[i],p2=q[(i+1)%n],p3=q[(i+2)%n];d+="C"+(p1[0]+(p2[0]-p0[0])/6).toFixed(1)+" "+(p1[1]+(p2[1]-p0[1])/6).toFixed(1)+" "+(p2[0]-(p3[0]-p1[0])/6).toFixed(1)+" "+(p2[1]-(p3[1]-p1[1])/6).toFixed(1)+" "+p2[0].toFixed(1)+" "+p2[1].toFixed(1)}return d+"Z"}
+ var LANDS=[[[-1.02,-.36],[-.78,-.74],[-.4,-.95],[-.04,-.9],[-.08,-.64],[-.26,-.52],[-.34,-.28],[-.58,-.12],[-.86,-.06]],[[.2,-.9],[.46,-.84],[.42,-.66],[.24,-.7]],[[-1.02,.24],[-.74,.2],[-.52,.32],[-.32,.46],[-.27,.72],[-.46,.98],[-.92,.74]],[[.34,.98],[.32,.62],[.5,.5],[.72,.4],[1.02,.42],[1.02,.82]]];
+ var land=LANDS.map(function(L){return '<path d="'+sm(sph(L.map(function(q){return [q[0]*.9,q[1]*.9]})))+'"/>'}).join("");
+ var flapL="M148 246C140 276 140 308 152 326C162 340 180 334 182 318C184 296 182 270 178 246Z",flapR="M378 246C386 276 386 308 374 326C364 340 346 334 344 318C342 296 344 270 348 246Z";
+var hood="M132 392Q112 382 108 350Q104 300 108 252Q113 222 130 200Q160 165 205 148Q245 138 285 142Q330 152 362 190Q388 226 395 262Q400 294 390 314Q378 322 368 306Q340 272 300 270L190 300Q166 330 160 380Q154 398 132 392Z";
+ var cap="M146 250C142 184 194 136 263 132C332 136 384 184 380 250C350 222 310 208 263 208C216 208 176 222 146 250Z";
+ var band="M70 268Q66 252 86 248Q120 244 152 238Q190 214 238 200Q290 188 335 208Q368 226 384 254Q394 272 392 290Q388 300 380 290Q374 268 358 246Q336 220 300 214Q262 210 222 226Q186 240 162 258Q150 268 140 276Q110 284 84 282Q72 280 70 268Z";
+ var legL="M180 366H222V482Q222 498 206 498H170Q150 498 152 482Q154 466 170 452Z";
+ var legR="M268 366H312L318 410Q322 452 334 466Q342 482 332 494Q326 498 312 498H282Q268 498 268 484Z";
+ function leg(d,cls,lit){return '<g class="'+cls+'">'+M+'<clipPath id="'+id+cls+'"><path d="'+d+'"/></clipPath><path d="'+d+'" fill="'+LEG+'"/><g clip-path="url(#'+id+cls+')"><path d="M'+(lit?"140 360L192 360L186 500L130 500":"290 360L360 360L360 500L300 500")+'Z" fill="'+(lit?LEGL:LEGD)+'" opacity=".7"/><rect x="140" y="360" width="220" height="80" fill="'+LEGD+'" opacity=".4"/><rect x="140" y="486" width="220" height="14" fill="'+SOLE+'"/></g>'+E+'</g>'}
+ return '<svg viewBox="0 0 100 100" aria-hidden="true">'+
+ '<defs><clipPath id="'+id+'"><circle '+C+' r="120"/></clipPath>'+
+  '<radialGradient id="'+gs+'" cx="38%" cy="32%" r="72%"><stop offset="0" stop-color="#FFF6E6"/><stop offset=".42" stop-color="#F7DCBC"/><stop offset=".82" stop-color="#E7BE94"/><stop offset="1" stop-color="#D2A57A"/></radialGradient>'+
+  '<radialGradient id="'+gh+'" cx="34%" cy="28%" r="70%"><stop offset="0" stop-color="#FFFFFF" stop-opacity=".24"/><stop offset=".5" stop-color="#FFFFFF" stop-opacity="0"/><stop offset=".78" stop-color="#5B3A1E" stop-opacity="0"/><stop offset="1" stop-color="#5B3A1E" stop-opacity=".22"/></radialGradient>'+
+  '<radialGradient id="'+gc+'"><stop offset="0" stop-color="#EE8270" stop-opacity="1"/><stop offset=".6" stop-color="#EE8270" stop-opacity=".45"/><stop offset="1" stop-color="#F08C78" stop-opacity="0"/></radialGradient>'+
+ '</defs>'+
+ '<ellipse class="rb-sh" cx="49.4" cy="91.5" rx="22.4" ry="2.9"/>'+
+ /* sombras de contacto bajo cada pie */
+ '<g class="rb-sh2">'+M+'<ellipse cx="188" cy="499" rx="40" ry="6" fill="#13213F" opacity=".22"/><ellipse cx="300" cy="499" rx="40" ry="6" fill="#13213F" opacity=".22"/>'+E+'</g>'+
+ '<g class="rb-f"><g class="rb-b">'+
+  leg(legL,"rb-legL",true)+leg(legR,"rb-legR",false)+
+  '<g class="rb-head">'+
+   /* flecha: nace dentro del gorro; el anillo la sujeta (va con el gorro) */
+   '<g class="rb-n">'+M+'<rect x="236" y="92" width="14" height="60" rx="5" fill="#E8B36A"/><rect x="243" y="92" width="7" height="60" fill="#C98A3A"/><path d="M243 36Q248 36 251 42L279 88Q284 98 272 98H214Q202 98 207 88L235 42Q238 36 243 36Z" fill="#F1A43E"/><path d="M243 36Q248 36 251 42L279 88Q284 98 272 98H243Z" fill="#D9862A"/><path d="M226 84L243 50" stroke="#FFD9A0" stroke-width="5" stroke-linecap="round"/>'+E+'</g>'+
+   /* capucha de piel detrás del globo: asoma arriba y a los lados, con forro en las orejeras */
+   '<g class="rb-hood">'+M+'<clipPath id="'+id+'hd"><path d="'+hood+'"/></clipPath><path d="'+hood+'" fill="'+CAP+'"/><g clip-path="url(#'+id+'hd)"><path d="M100 100L250 100L180 420L100 420Z" fill="'+CAPL+'" opacity=".8"/><path d="M330 100L430 100L430 420L340 420Z" fill="'+CAPD+'" opacity=".7"/></g><path d="M114 352C118 378 128 390 138 390C148 390 154 382 156 370" stroke="'+LIN+'" stroke-width="9" fill="none" stroke-linecap="round"/><path d="M388 268C394 286 394 300 388 310" stroke="#CDAF86" stroke-width="7" fill="none" stroke-linecap="round"/>'+E+'</g>'+
+   M+
+   /* globo: esfera con degradado, continentes que siguen la curva y luz/sombra encima */
+   '<circle '+C+' r="120" fill="url(#'+gs+')"/>'+
+   '<g clip-path="url(#'+id+')">'+
+    '<g fill="none" stroke="'+LAND+'" stroke-opacity=".16" stroke-width="3"><ellipse '+C+' rx="62" ry="120"/><path d="'+sm(sph([[-1,0],[-.5,.06],[0,.08],[.5,.06],[1,0],[.5,-.02],[0,-.02],[-.5,-.02]]))+'"/></g>'+
+    '<g fill="'+LAND+'">'+land+'</g>'+
+    '<circle '+C+' r="120" fill="url(#'+gh+')"/>'+
+    /* sombra del gorro sobre la frente y de las solapas sobre los lados */
+    '<path d="'+band+'" fill="#3A2412" opacity=".14" transform="translate(3 10)"/>'+
+   '</g>'+
+   '<circle '+C+' r="118" fill="none" stroke="#B9875A" stroke-width="5" opacity=".55"/>'+
+   '<path d="M152 270A120 120 0 0 1 210 214" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" opacity=".55"/>'+
+   /* mejillas: degradado suave, no círculos pegados */
+   '<ellipse cx="192" cy="334" rx="34" ry="26" fill="url(#'+gc+')"/><ellipse cx="332" cy="334" rx="34" ry="26" fill="url(#'+gc+')"/>'+
+   E+
+   '<g class="rb-face">'+M+
+    '<g data-p="idle meh talk sad"><g class="rb-gaze"><g class="rb-eyes"><g class="rb-eL"><ellipse cx="220" cy="295" rx="17" ry="19" fill="'+INK+'"/><circle cx="225" cy="287" r="5.5" fill="'+W+'"/><circle cx="214" cy="303" r="2.4" fill="'+W+'" opacity=".6"/></g><g class="rb-eR"><ellipse cx="303" cy="295" rx="17" ry="19" fill="'+INK+'"/><circle cx="308" cy="287" r="5.5" fill="'+W+'"/><circle cx="297" cy="303" r="2.4" fill="'+W+'" opacity=".6"/></g></g></g>'+
+     /* párpados: bajan al parpadear */
+     '<path class="rb-lid" d="M201 280Q220 268 239 280L239 296Q220 284 201 296Z" fill="#F2D2AC"/><path class="rb-lid" d="M284 280Q303 268 322 280L322 296Q303 284 284 296Z" fill="#F2D2AC"/></g>'+
+    '<g data-p="happy" fill="none" stroke="'+INK+'" stroke-width="11" stroke-linecap="round"><path d="M204 300Q220 278 236 300"/><path d="M287 300Q303 278 319 300"/></g>'+
+    '<g data-p="think"><g class="rb-eyes"><ellipse cx="227" cy="287" rx="16" ry="18" fill="'+INK+'"/><ellipse cx="310" cy="287" rx="16" ry="18" fill="'+INK+'"/><circle cx="232" cy="280" r="5" fill="'+W+'"/><circle cx="315" cy="280" r="5" fill="'+W+'"/></g></g>'+
+    '<g data-p="no" stroke="'+INK+'" stroke-width="11" stroke-linecap="round"><path d="M205 296H235"/><path d="M288 296H318"/></g>'+
+    '<path data-p="idle" d="M232 330Q262 362 292 330" fill="none" stroke="'+INK+'" stroke-width="11" stroke-linecap="round"/>'+
+    '<path data-p="happy" d="M230 326Q262 372 294 326Z" fill="'+INK+'" stroke="'+INK+'" stroke-width="7" stroke-linejoin="round"/><path data-p="happy" d="M246 352Q262 362 278 352Q270 346 262 346Q254 346 246 352Z" fill="#E86A6A"/>'+
+    '<circle data-p="think" cx="270" cy="342" r="10" fill="'+INK+'"/>'+
+    '<ellipse data-p="talk" class="rb-mouth" cx="262" cy="340" rx="17" ry="14" fill="'+INK+'"/>'+
+    '<path data-p="meh" d="M240 340H284" stroke="'+INK+'" stroke-width="11" stroke-linecap="round"/>'+
+    '<path data-p="no sad" d="M238 352Q262 332 286 352" fill="none" stroke="'+INK+'" stroke-width="11" stroke-linecap="round"/>'+
+   E+'</g>'+
+   /* gorro, solapas, gafas y anillo de la flecha: se mueven juntos con un ligero retraso */
+   '<g class="rb-hat">'+M+
+    '<clipPath id="'+id+'c"><path d="'+cap+'"/></clipPath>'+
+    '<path d="'+cap+'" fill="'+CAP+'"/>'+
+    '<g clip-path="url(#'+id+'c)"><ellipse cx="216" cy="176" rx="90" ry="40" transform="rotate(-20 216 176)" fill="'+CAPL+'"/><ellipse cx="362" cy="224" rx="60" ry="50" fill="'+CAPS+'"/><path d="M262 142Q272 176 266 212" stroke="'+CAPD+'" stroke-width="5" fill="none"/><path d="M268 146Q278 176 272 212" stroke="'+CAPL+'" stroke-width="2.6" fill="none" stroke-dasharray="7 7" opacity=".9"/></g>'+
+    /* borde del gorro con grosor */
+    '<path d="'+band+'" fill="'+CAPS+'"/><path d="M140 266C174 238 216 228 263 228C310 228 352 238 386 266" stroke="'+CAPL+'" stroke-width="3" fill="none" opacity=".9"/>'+
+    /* gafas: marco con grosor, cristal con reflejo */
+    '<g transform="rotate(-8 208 168) translate(0 -4) scale(1.06) translate(-12 -10)"><ellipse cx="211" cy="176" rx="50" ry="32" fill="'+BRD+'"/><ellipse cx="208" cy="172" rx="50" ry="32" fill="'+BR+'"/><ellipse cx="208" cy="174" rx="36" ry="21" fill="#5E7E86"/><ellipse cx="208" cy="172" rx="34" ry="19" fill="'+LENS+'"/><path d="M182 168Q190 156 210 156" stroke="#FFFFFF" stroke-width="5" fill="none" stroke-linecap="round" opacity=".85"/><path d="M220 186Q232 182 238 172" stroke="#FFFFFF" stroke-width="2.6" fill="none" stroke-linecap="round" opacity=".5"/></g>'+
+    '<g transform="rotate(12 306 163) translate(0 -6) scale(1.06) translate(-18 -10)"><ellipse cx="313" cy="172" rx="44" ry="30" fill="'+BRD+'"/><ellipse cx="310" cy="168" rx="44" ry="30" fill="'+BR+'"/><ellipse cx="310" cy="170" rx="31" ry="19" fill="#5E7E86"/><ellipse cx="310" cy="168" rx="29" ry="17" fill="'+LENS+'"/><path d="M288 164Q296 153 312 153" stroke="#FFFFFF" stroke-width="5" fill="none" stroke-linecap="round" opacity=".85"/></g>'+
+    '<path d="M250 166Q260 158 270 164" stroke="'+BRD+'" stroke-width="9" fill="none" stroke-linecap="round"/><path d="M250 164Q260 156 270 162" stroke="'+BR+'" stroke-width="5" fill="none" stroke-linecap="round"/>'+
     /* anillo de la flecha sobre el gorro */
     '<ellipse cx="243" cy="142" rx="17" ry="7" fill="'+BRD+'"/><ellipse cx="243" cy="138" rx="17" ry="7" fill="'+BR+'"/><path d="M230 136Q243 132 256 136" stroke="#F4D49A" stroke-width="2.4" fill="none" stroke-linecap="round"/>'+
    E+'</g>'+
@@ -5429,7 +5510,7 @@ function renderArt(){
  /* ---------- Rumbo ---------- */
  function rbBox(px,html,cls){return '<div class="ia-rb '+(cls||"")+'" style="width:'+px+'px;height:'+px+'px">'+html+'</div>'}
  h+='<section><h2>Rumbo</h2><p class="ia-n">Mismo personaje, nueva construcción: esfera con volumen, continentes que siguen la curva, gorro que envuelve la cabeza con solapas y sombra, gafas con marco y reflejo, flecha que nace de un anillo y piernas que tocan el suelo.</p>'+
-  '<div class="ia-rbrow"><figure>'+rbBox(200,'<div class="rb float" data-mood="idle">'+rumboSVGOld()+'</div>')+'<figcaption>Antes</figcaption></figure><figure>'+rbBox(200,rumboEl())+'<figcaption>Ahora</figcaption></figure><figure>'+rbBox(200,'<div class="rb" data-mood="idle">'+rumboSVG()+'</div>','ia-sil')+'<figcaption>Silueta</figcaption></figure></div>'+
+  '<div class="ia-rbrow"><figure>'+rbBox(200,'<div class="rb float" data-mood="idle">'+rumboSVGOld()+'</div>')+'<figcaption>Original</figcaption></figure><figure>'+rbBox(200,'<div class="rb float" data-mood="idle">'+rumboSVGv2()+'</div>')+'<figcaption>Intento anterior</figcaption></figure><figure>'+rbBox(200,rumboEl())+'<figcaption>Ahora</figcaption></figure><figure>'+rbBox(200,'<div class="rb" data-mood="idle">'+rumboSVG()+'</div>','ia-sil')+'<figcaption>Silueta</figcaption></figure></div>'+
   '<h3>Tamaños</h3><div class="ia-rbrow ia-rbsizes">'+[48,96,200].map(function(px){return '<figure>'+rbBox(px,rumboEl())+'<figcaption>'+px+' px</figcaption></figure>'}).join("")+'<figure class="is-night" style="padding:10px;border-radius:14px">'+rbBox(96,rumboEl())+'<figcaption>96 px, noche</figcaption></figure></div>'+
   '<h3>Expresiones</h3><div class="ia-rbrow ia-rbmoods">'+[["idle","Tranquilo"],["happy","Contento"],["think","Pensando"],["meh","Más o menos"],["no","No le gustó"],["sad","Triste"],["talk","Hablando"]].map(function(m){return '<figure>'+rbBox(120,rumboEl().replace('data-mood="idle"','data-mood="'+m[0]+'"'))+'<figcaption>'+m[1]+'</figcaption></figure>'}).join("")+'</div>'+
   '<h3>En movimiento</h3><div class="ia-rbrow">'+[["walk","Caminando"],["cheer","Celebrando"]].map(function(m){return '<figure>'+rbBox(140,rumboEl(m[0]))+'<figcaption>'+m[1]+'</figcaption></figure>'}).join("")+'<figure>'+rbBox(140,rumboEl())+'<figcaption><button type="button" class="ia-pick ia-jump">Saltar</button></figcaption></figure></div></section>';
