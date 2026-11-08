@@ -198,14 +198,15 @@ nav button:active svg{transform:scale(.84)}
 .step{fill:var(--step);animation:stepFade 1.8s var(--soft) forwards}
 .terr{cursor:pointer}
 .t-base{opacity:0;transition:opacity var(--t-med) var(--soft)}
-.terr.done .t-base{opacity:.5}
-.terr.done.no .t-base{opacity:.22}
-.terr.sel:not(.done) .t-base{opacity:.28}
+.terr.done .t-base{opacity:.16}
+.terr.done.no .t-base{opacity:.07}
+.terr.sel:not(.done) .t-base{opacity:.14}
 .terr.instant .t-base{transition:none}
 .t-wave{transform:scale(0);transform-box:fill-box;transform-origin:center;pointer-events:none}
 .t-wave.go{transform:none;transition:transform var(--t-long) var(--spring)}
 .t-wave.no{opacity:.42}
-.t-sep{fill:none;stroke:rgba(255,255,255,.4);stroke-width:1.6;stroke-linejoin:round;vector-effect:non-scaling-stroke;pointer-events:none}
+/* sin rayas rectas entre carreras: cada zona se nota por su color al probarla y por el contorno al elegirla */
+.t-sep{display:none}
 .t-sel{fill:none;stroke:var(--ink);stroke-width:5;stroke-linejoin:round;opacity:0;pointer-events:none;transition:opacity var(--t-fast) var(--soft)}
 .terr.sel .t-sel{opacity:.9}
 .ripple{fill:none;stroke:var(--land-hi);stroke-width:10;opacity:0;transform-box:fill-box;transform-origin:center;animation:ripple var(--t-long) var(--soft) both;pointer-events:none}
