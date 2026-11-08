@@ -586,7 +586,8 @@ nav button:active svg{transform:scale(.84)}
 .splash::before{content:"";position:absolute;left:50%;top:52%;width:min(640px,120vw,80vh);aspect-ratio:1;border-radius:50%;background:radial-gradient(closest-side,var(--sunken),transparent);transform:translate(-50%,-50%);z-index:-1;pointer-events:none}
 #flow[data-step=inicio] .fl-foot{padding-top:4px}
 #flow[data-step=inicio] .splash{padding-top:min(5vh,44px)}
-#flow[data-step=inicio] .fl-main{overflow-x:hidden}
+/* sin zona desplazable en el inicio: Safari la pintaba como franja aparte al deslizar */
+#flow[data-step=inicio] .fl-main{overflow:hidden;overflow:clip}
 #flow[data-step=inicio] .fl-top .wm,#flow[data-step=inicio] .fl-top .logo{opacity:.85}
 .sp-skip{margin:0 auto;min-height:48px;font-size:15px;color:var(--ink-3)}
 .splash .lead{font-size:16.5px;max-width:24em}
@@ -594,7 +595,7 @@ nav button:active svg{transform:scale(.84)}
 /* cielo del inicio: degradado atmosférico y nubes de ruido fractal pintadas una vez en canvas */
 #flow[data-step=inicio]{background:radial-gradient(60% 45% at 82% 6%,rgba(255,248,226,.85),rgba(255,248,226,0) 70%),linear-gradient(180deg,#2F78BE 0%,#4F95D2 28%,#86BCE4 58%,#C7E2F2 82%,#E9F3F6 100%)}
 #flow[data-step=inicio] .fl-left,#flow[data-step=inicio] .fl-foot{background:transparent}
-#sky{position:absolute;inset:0;overflow:hidden;pointer-events:none;display:none}
+#sky{position:absolute;inset:0;overflow:hidden;pointer-events:none;display:none;isolation:isolate}
 #flow[data-step=inicio] #sky{display:block}
 #sky canvas{position:absolute;left:0;width:200%;display:block;animation:skyDrift var(--d) linear infinite}
 #sky .c1{top:3%;opacity:.75;--d:160s}
@@ -603,8 +604,8 @@ nav button:active svg{transform:scale(.84)}
 /* cada letra gira en 3D mirando hacia el centro y su volumen se alarga hacia el punto de fuga */
 .sky-word span{position:absolute;left:var(--x);top:var(--y);transform:translate(-50%,-50%) translateZ(var(--z)) rotateY(var(--ry)) rotateX(var(--rx)) rotate(var(--r));text-shadow:var(--tl);animation:lFloat var(--d) ease-in-out var(--dl) infinite alternate}
 .sky-word .near{z-index:3}
-.sky-word .mid{z-index:2;opacity:.88;filter:blur(.4px)}
-.sky-word .far{z-index:1;opacity:.6;filter:blur(1.3px);color:#E4F0F9}
+.sky-word .mid{z-index:2;opacity:.85}
+.sky-word .far{z-index:1;opacity:.5;color:#E4F0F9}
 @keyframes lFloat{from{translate:0 -6px}to{translate:0 7px}}
 @media (prefers-color-scheme:dark){.sky-word{color:#F6EFE2}.sky-word span{text-shadow:var(--td)}.sky-word .far{color:#9FB0BE}}
 #flow[data-step=inicio] .fl-top .wm,#flow[data-step=inicio] .fl-top .logo{visibility:hidden}
