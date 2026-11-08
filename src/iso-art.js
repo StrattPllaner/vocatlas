@@ -26,6 +26,19 @@ function renderArt(){
     '<button type="button" class="ia-pick" aria-pressed="'+(cur===v[0])+'">'+(cur===v[0]?'Elegida: ':'Elegir ')+v[1].toLowerCase()+'</button></div>'});
   h+='</div></article>'});
  h+='</div></section>';
+ /* ---------- Rumbo ---------- */
+ function rbBox(px,html,cls){return '<div class="ia-rb '+(cls||"")+'" style="width:'+px+'px;height:'+px+'px">'+html+'</div>'}
+ h+='<section><h2>Rumbo</h2><p class="ia-n">Mismo personaje, nueva construcción: esfera con volumen, continentes que siguen la curva, gorro que envuelve la cabeza con solapas y sombra, gafas con marco y reflejo, flecha que nace de un anillo y piernas que tocan el suelo.</p>'+
+  '<div class="ia-rbrow"><figure>'+rbBox(200,'<div class="rb float" data-mood="idle">'+rumboSVGOld()+'</div>')+'<figcaption>Antes</figcaption></figure><figure>'+rbBox(200,rumboEl())+'<figcaption>Ahora</figcaption></figure><figure>'+rbBox(200,'<div class="rb" data-mood="idle">'+rumboSVG()+'</div>','ia-sil')+'<figcaption>Silueta</figcaption></figure></div>'+
+  '<h3>Tamaños</h3><div class="ia-rbrow ia-rbsizes">'+[48,96,200].map(function(px){return '<figure>'+rbBox(px,rumboEl())+'<figcaption>'+px+' px</figcaption></figure>'}).join("")+'<figure class="is-night" style="padding:10px;border-radius:14px">'+rbBox(96,rumboEl())+'<figcaption>96 px, noche</figcaption></figure></div>'+
+  '<h3>Expresiones</h3><div class="ia-rbrow ia-rbmoods">'+[["idle","Tranquilo"],["happy","Contento"],["think","Pensando"],["meh","Más o menos"],["no","No le gustó"],["sad","Triste"],["talk","Hablando"]].map(function(m){return '<figure>'+rbBox(120,rumboEl().replace('data-mood="idle"','data-mood="'+m[0]+'"'))+'<figcaption>'+m[1]+'</figcaption></figure>'}).join("")+'</div>'+
+  '<h3>En movimiento</h3><div class="ia-rbrow">'+[["walk","Caminando"],["cheer","Celebrando"]].map(function(m){return '<figure>'+rbBox(140,rumboEl(m[0]))+'<figcaption>'+m[1]+'</figcaption></figure>'}).join("")+'<figure>'+rbBox(140,rumboEl())+'<figcaption><button type="button" class="ia-pick ia-jump">Saltar</button></figcaption></figure></div></section>';
+ /* ---------- pantallas de inicio y carga ---------- */
+ h+='<section><h2>Pantallas de inicio y de carga</h2><p class="ia-n">Antes y después, en celular, iPad y computadora. La isla es isométrica con grosor, arena y espuma; las montañas tienen lado iluminado y lado en sombra; el globo de diálogo apunta a la boca de Rumbo.</p>';
+ [["inicio","Inicio"],["carga","Carga"]].forEach(function(sc){h+='<h3>'+sc[1]+'</h3><div class="ia-shots">';
+  [["celular","Celular"],["ipad","iPad"],["computadora","Computadora"],["celular-oscuro","Celular, modo oscuro"]].forEach(function(d){h+='<figure><div class="ia-ba"><img src="media/arte/antes-'+sc[0]+'-'+d[0]+'.webp" alt="Antes: '+sc[1]+' en '+d[1]+'"><img src="media/arte/despues-'+sc[0]+'-'+d[0]+'.webp" alt="Después: '+sc[1]+' en '+d[1]+'"></div><figcaption>'+d[1]+' · antes | después</figcaption></figure>'});
+  h+='</div>'});
+ h+='</section>';
  /* ---------- todas a 64 px ---------- */
  h+='<section><h2>Todas juntas a 64 px, de noche</h2><p class="ia-n">Para comprobar que se distinguen entre sí a como se verán muchas veces en el celular.</p>';
  [["s","Estructuras"],["e","Emblemas"]].forEach(function(v){h+='<h3>'+v[1]+'</h3><div class="ia-row64 is-night">'+ART.ids.map(function(id){return '<div>'+svg(ART.get(id,0,v[0]),64)+'<span>'+NAMES[id]+'</span></div>'}).join("")+'</div>'});
@@ -64,6 +77,7 @@ function renderArt(){
  }
  window.__art={get M(){return M},build:build,N:20};
  scenes();build(20);
+ var jb=el.querySelector(".ia-jump");if(jb)jb.onclick=function(){var r=jb.closest("figure").querySelector(".rb");mood(r,"happy","jump")};
  /* elegir estilo: se guarda y el mapa se vuelve a dibujar */
  each(el.querySelectorAll(".ia-card"),function(card){var id=card.getAttribute("data-id");
   each(card.querySelectorAll(".ia-pick"),function(b){b.onclick=function(){var v=b.closest(".ia-opt").getAttribute("data-v");ART.pick(id,v);

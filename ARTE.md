@@ -115,3 +115,61 @@ Revisión de cada pieza nueva contra los criterios, tras dos rondas o más.
 - A zoom medio se ven las carreras simplificadas con su nombre corto; de cerca, todo el detalle y los nombres completos.
 - Cada carrera tiene un área de toque de 48 px o más.
 - **Compromiso:** para que quepan de 6 a 8 carreras, la vista inicial queda en escala 0.7. Así los edificios miden de 90 a 100 px de alto, menos que los 110 px que pedía el brief anterior.
+
+## 5. Tercera pasada: acabado, Rumbo y pantallas (8 de noviembre de 2026)
+
+### Reglas nuevas aplicadas a todo
+
+- **Orden por profundidad automático.** Cada carrera declara sus partes con su huella en el suelo. Un ensamblador las dibuja de atrás hacia adelante, así que ninguna atraviesa a otra.
+- **Script de traslapes.** `node qa/traslapes.js` revisa cada pieza y señala:
+  - partes que ocupan el mismo lugar;
+  - partes a menos de 1.5 unidades sin tocarse;
+  - partes fuera de la plataforma.
+  - Resultado: 0 hallazgos en las 14 piezas.
+- **Brillos y bordes dentro de su forma.** Los destellos de las aristas van por dentro de la tapa y terminan en seco. Las cumbreras terminan donde termina el techo. Los aleros tienen grosor visible. Lo que puede salirse, como cristales, rayas de la claqueta o el reflejo de la lupa, se recorta con su silueta.
+- **Detalles con volumen.** Bayas con sombra y brillo, medio cubiertas por el follaje. Luces de los servidores con su hueco y su brillo. Focos de la marquesina con su base.
+
+### Correcciones por pieza
+
+| Pieza | Qué cambió |
+|---|---|
+| Medicina, estructura | Se conserva. Flores dentro de la plataforma y destellos recortados. |
+| Medicina, emblema | El estetoscopio está acostado sobre la tapa, junto al borde derecho. Baja por el frente y la campana queda en el piso con su sombra. Nada flota. |
+| Derecho, emblema | Libro y mazo más grandes, separados de la balanza. El arbusto se movió. |
+| Derecho, estructura | Estatua nueva de una sola pieza: brazo en alto con la balanza colgando, venda, espada y pedestal de dos escalones. Escalinata de seis escalones con canto iluminado. Techo con alero de grosor visible. |
+| Computación, emblema | La torre queda a la derecha, con aire, sin encimarse con el monitor. |
+| Cine, emblema | Claqueta con grosor y rayas recortadas dentro de la barra. Reflector en su pie de tres patas, con el haz hacia afuera. |
+| Arquitectura, emblema | El compás está de pie atrás a la derecha y no toca la casa. |
+| Veterinaria, emblema | Perro con hocico más largo, dos patas delanteras rectas separadas, oreja caída proporcional y cola. |
+| Ciencia de datos, emblema | La tendencia sale de la primera barra y sube con flecha. La lupa queda adelante, en el piso, sin atravesar las barras. |
+| Ballena | Asoma tranquila con lomo y cabeza, más ancha y con chorro desde arriba de la cabeza. Se quitó la cola lejana, que a tamaño chico parecía un pájaro. |
+| Delfines | Tres, separados, cada uno en su propio arco. La cola del que sale y el hocico del que entra tocan el agua justo en su anillo. |
+| Escenas de prueba | Encuadran la isla, no el mar. Se recalculan si el contenedor cambia de tamaño o cargó oculto. |
+
+### Rumbo
+
+Mismo diseño, construcción nueva:
+- Esfera con degradado y continentes proyectados sobre su curva, sin contorno negro.
+- Gorro que envuelve la parte de arriba, con borde de grosor y costura.
+- Solapas que cuelgan y proyectan sombra.
+- Gafas con marco de dos tonos y reflejo, y correa que rodea el gorro.
+- Anillo donde nace la flecha.
+- Piernas con luz, sombra y suela.
+- Sombras de contacto que se encogen al saltar.
+- Párpados para parpadear y mejillas con degradado.
+- El gorro sigue al cuerpo con un ligero retraso al saltar, caminar y respirar.
+
+### Pantallas
+
+- **Inicio:**
+  - La escena se rehízo con piezas isométricas del sistema: isla con grosor, arena y espuma; palmera, árbol, arbusto y flores; bandera isométrica y velero.
+  - Las montañas tienen lado iluminado y lado en sombra, y son más claras hacia atrás.
+  - Nubes con volumen, sol o luna con estrellas.
+  - El globo de diálogo va a un lado de Rumbo y apunta a su boca.
+- **Carga:** bandera isométrica con base y sombra, y Rumbo nuevo.
+
+### Lo que no quedó al nivel
+
+- **Delfines:** mejoraron, pero a 64 px todavía pueden leerse como peces.
+- **Rumbo:** su construcción ya sigue las reglas, pero los continentes se ven poco, porque las solapas y el gorro tapan los lados del globo.
+- **Pantalla de inicio en iPad horizontal:** la escena es ancha y baja, así que la isla se recorta abajo. Rumbo y el globo de diálogo sí se ven completos.

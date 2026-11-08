@@ -147,7 +147,9 @@ var ISOMAP=(function(I,E,G){
   function each(l,f){for(var i=0;i<l.length;i++)f(l[i],i)}
   function clampS(s){return Math.max(.14,Math.min(1.8,s))}
   function W0(){return gm.clientWidth}function H0(){return gm.clientHeight}
-  function fit(pad){var w=W0()-ins.l-ins.r,h=H0()-ins.t-ins.b,bw=r.box[2]-r.box[0],bh=r.box[3]-r.box[1];view.s=clampS(Math.min(w/bw,h/bh)*(pad||.92));view.tx=ins.l+w/2-(r.box[0]+bw/2)*view.s;view.ty=ins.t+h/2-(r.box[1]+bh/2)*view.s;apply()}
+  var IB=(function(){var b=[1e9,1e9,-1e9,-1e9];W.islands.forEach(function(L){L.coast.forEach(function(p){var q=pj(p,0);b[0]=Math.min(b[0],q[0]);b[1]=Math.min(b[1],q[1]-90);b[2]=Math.max(b[2],q[0]);b[3]=Math.max(b[3],q[1]+30)})});return b})();
+  var lastFit=null;
+  function fit(pad){lastFit=pad||.92;var w=W0()-ins.l-ins.r,h=H0()-ins.t-ins.b,bw=IB[2]-IB[0],bh=IB[3]-IB[1];if(w<10||h<10)return;view.s=clampS(Math.min(w/bw,h/bh)*(pad||.92));view.tx=ins.l+w/2-(IB[0]+bw/2)*view.s;view.ty=ins.t+h/2-(IB[1]+bh/2)*view.s;apply()}
   function focus(id,s){var n=W.byId[id];if(!n)return;var p=pj([n.x,n.y],Z_TOP);view.s=clampS(s||view.s);view.tx=ins.l+(W0()-ins.l-ins.r)/2-p[0]*view.s;view.ty=ins.t+(H0()-ins.t-ins.b)*.55-(p[1]-40)*view.s;apply()}
   var raf=0;function apply(){if(!raf)raf=requestAnimationFrame(draw)}
   function draw(){raf=0;
@@ -193,7 +195,11 @@ var ISOMAP=(function(I,E,G){
   /* en una página que se desplaza, la rueda sola baja la página; pellizcar (ctrl + rueda) acerca */
   gm.addEventListener("wheel",function(e){if(opt.wheelZoom===false&&!e.ctrlKey)return;e.preventDefault();zoomAt(e.clientX,e.clientY,Math.exp(-e.deltaY*(e.ctrlKey?.01:.0022)))},{passive:false});
   function zoomAt(cx,cy,k){var b=gm.getBoundingClientRect(),px=cx-b.left,py=cy-b.top,ns=clampS(view.s*k),f=ns/view.s;view.tx=px-(px-view.tx)*f;view.ty=py-(py-view.ty)*f;view.s=ns;apply()}
-  window.addEventListener("resize",function(){measure();apply()});
+  /* si el contenedor cambia de tamaño (o estaba oculto al cargar), se vuelve a encuadrar */
+  var lastStart=opt.start||null,sz=[0,0];
+  function refit(){var w=W0(),h=H0();if(w<10||h<10||(w===sz[0]&&h===sz[1]))return;var first=!sz[0];sz=[w,h];measure();if(lastStart&&(first||!userMoved))startView(lastStart);else if(lastFit&&(first||!userMoved))fit(lastFit);else apply()}
+  var userMoved=false;gm.addEventListener("pointerdown",function(){userMoved=true});gm.addEventListener("wheel",function(){userMoved=true});
+  if(window.ResizeObserver)new ResizeObserver(refit).observe(gm);else window.addEventListener("resize",refit);
   /* vista inicial en celular: la escala que deja ver entre 6 y 8 carreras alrededor de una */
   function startView(id){var n=W.byId[id]||W.nodes[0],near=W.nodes.slice().sort(function(a,b){return Math.hypot(a.x-n.x,a.y-n.y)-Math.hypot(b.x-n.x,b.y-n.y)}).slice(0,7);
    var cx=0,cy=0;near.forEach(function(m){var p=pj([m.x,m.y],Z_TOP);cx+=p[0];cy+=p[1]});cx/=near.length;cy/=near.length;

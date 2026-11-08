@@ -15,7 +15,7 @@ var ISO=(function(){
  var TC={};
  function T(c){if(TC[c])return TC[c];return TC[c]={b:c,s:shade(c,.24),d:shade(c,.42),l:tint(c,.3),h:tint(c,.62),e:shade(c,.34)}}
  function poly(a,fill,o){o=o||{};return '<polygon points="'+pts(a)+'" fill="'+fill+'"'+(o.st===false?'':' stroke="'+(o.st||fill)+'" stroke-width="'+(o.sw||1)+'" stroke-linejoin="round"')+(o.op!=null?' opacity="'+o.op+'"':'')+(o.cls?' class="'+o.cls+'"':'')+'/>'}
- function line(a,col,w,o){o=o||{};return '<polyline points="'+pts(a)+'" fill="none" stroke="'+col+'" stroke-width="'+w+'" stroke-linecap="round" stroke-linejoin="round"'+(o.op!=null?' opacity="'+o.op+'"':'')+(o.dash?' stroke-dasharray="'+o.dash+'"':'')+(o.cls?' class="'+o.cls+'"':'')+'/>'}
+ function line(a,col,w,o){o=o||{};return '<polyline points="'+pts(a)+'" fill="none" stroke="'+col+'" stroke-width="'+w+'" stroke-linecap="'+(o.cap||"round")+'" stroke-linejoin="'+(o.join||"round")+'"'+(o.op!=null?' opacity="'+o.op+'"':'')+(o.dash?' stroke-dasharray="'+o.dash+'"':'')+(o.cls?' class="'+o.cls+'"':'')+'/>'}
  function path(d,fill,o){o=o||{};return '<path d="'+d+'" fill="'+fill+'"'+(o.st?' stroke="'+o.st+'" stroke-width="'+(o.sw||1)+'" stroke-linejoin="round" stroke-linecap="round"':'')+(o.op!=null?' opacity="'+o.op+'"':'')+(o.cls?' class="'+o.cls+'"':'')+'/>'}
  /* caja: x,y esquina trasera; w a lo largo de x, d a lo largo de y, h alto */
  function box(x,y,z,w,d,h,c,o){
@@ -24,7 +24,8 @@ var ISO=(function(){
   s+=poly([D,C,F,E],o.left||t.b,{st:o.left||t.b});
   s+=poly([C,B,G,F],o.right||t.s,{st:o.right||t.s});
   if(!o.noTop)s+=poly([A,B,C,D],o.top||t.l,{st:o.top||t.l});
-  if(!o.noGlint)s+=line([D,C,B],t.h,1.3,{op:.9});
+  /* destello sobre las aristas de arriba, recortado: va por dentro de la tapa */
+  if(!o.noGlint){var gi=.45;s+=line([P(x+gi,y+d-gi,top),P(x+w-gi,y+d-gi,top),P(x+w-gi,y+gi,top)],t.h,.9,{op:.9,cap:"butt",join:"miter"})}
   return s;
  }
  /* mapeo a puntos de una cara: L = cara frontal izquierda (y = y+d), R = cara frontal derecha (x = x+w) */
@@ -73,18 +74,22 @@ var ISO=(function(){
  }
  /* techo a dos aguas sobre una caja (cumbrera a lo largo de x) */
  function gable(x,y,z,w,d,rh,c,o){
-  o=o||{};var t=T(c),ov=o.ov||2,s="";
+  o=o||{};var t=T(c),ov=o.ov||2,th=o.th||1.6,s="";
   var a=P(x-ov,y-ov,z),b=P(x+w+ov,y-ov,z),cc=P(x+w+ov,y+d+ov,z),dd=P(x-ov,y+d+ov,z),r1=P(x-ov,y+d/2,z+rh),r2=P(x+w+ov,y+d/2,z+rh);
-  s+=poly([dd,cc,r2,r1],t.b);
+  /* hastial derecho (muro bajo el techo) */
+  s+=poly([P(x+w,y,z),P(x+w,y+d,z),P(x+w,y+d/2,z+rh)],o.wall||t.s);
+  /* faldón trasero y delantero */
   s+=poly([r1,r2,b,a],t.l);
-  /* hastial derecho */
-  var g1=P(x+w,y,z),g2=P(x+w,y+d,z),g3=P(x+w,y+d/2,z+rh);
-  s+=poly([g1,g2,g3],o.wall||t.s);
-  s+=poly([cc,P(x+w+ov,y-ov,z),r2],t.s,{op:.0});
-  s+=line([r1,r2],t.h,1.4,{op:.9});
-  s+=line([dd,cc],t.d,1,{op:.5});
+  s+=poly([dd,cc,r2,r1],t.b);
+  /* alero con grosor: canto del faldón delantero y canto del extremo derecho */
+  s+=poly([dd,cc,[cc[0],cc[1]+th],[dd[0],dd[1]+th]],t.d,{st:false});
+  s+=poly([cc,r2,[r2[0],r2[1]+th],[cc[0],cc[1]+th]],t.s,{st:false});
+  s+=poly([r2,b,[b[0],b[1]+th],[r2[0],r2[1]+th]],I_shade(t.l),{st:false});
+  /* cumbrera: brillo que termina justo en los extremos del techo */
+  s+=line([[r1[0]+.6,r1[1]+.3],[r2[0]-.6,r2[1]+.3]],t.h,1.1,{op:.9,cap:"butt"});
   return s;
  }
+ function I_shade(c){return shade(c,.18)}
  /* sombra proyectada al suelo hacia abajo a la derecha (la luz viene de arriba a la izquierda) */
  function shadowEll(x,y,z,r,k){k=k==null?.35:k;var a=cylD(x+k*r,y-k*r*.2,z,r);return '<ellipse cx="'+f1(a.cx)+'" cy="'+f1(a.cy+2)+'" rx="'+f1(a.rx)+'" ry="'+f1(a.ry)+'" fill="#1D2C55" opacity=".13"/>'}
  function shadowBox(x,y,z,w,d,h){

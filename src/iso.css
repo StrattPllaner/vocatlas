@@ -84,9 +84,12 @@ html.art-on body>*:not(#art){display:none!important}
 .ia-scenes figure,.ia-phones figure{margin:0}.ia figcaption{font-size:14px;font-weight:700;margin-top:6px}
 .ia-scene{width:min(600px,100%);height:400px;border-radius:16px;overflow:hidden;position:relative}
 .ia-phones{display:flex;gap:16px;flex-wrap:wrap;margin-top:16px}
-.ia-phone{width:234px;height:506px;border-radius:28px;overflow:hidden;border:6px solid #14323F;position:relative;background:#14323F}
+.ia-phone{box-sizing:content-box;width:234px;height:506px;border-radius:28px;overflow:hidden;border:6px solid #14323F;position:relative;background:#14323F}
 .ia-phone-in{position:absolute;left:0;top:0;width:390px;height:844px;transform:scale(.6);transform-origin:0 0}
 .ia-env-list{display:grid;gap:12px}
+.ia-rbrow{display:flex;flex-wrap:wrap;gap:16px;align-items:flex-end;margin-bottom:12px}.ia-rbrow figure{margin:0;display:flex;flex-direction:column;align-items:center;gap:6px}
+.ia-rb{position:relative}.ia-rb .rb{width:100%;height:100%}.ia-rb.ia-sil svg{filter:brightness(0)}.ia-rb.ia-sil .rb-sh{display:none}
+.ia-shots{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:14px;margin-bottom:14px}.ia-shots figure{margin:0}.ia-ba{display:grid;grid-template-columns:1fr 1fr;gap:6px;align-items:start}.ia-ba img{width:100%;height:auto;border-radius:10px;display:block;background:#DDD}
 .ia-envrow{background:#F6F2EA;border-radius:16px;padding:12px}
 .ia-envc{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
 @media (min-width:760px){.ia-envc{grid-template-columns:repeat(4,1fr)}}

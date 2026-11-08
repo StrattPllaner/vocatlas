@@ -74,7 +74,11 @@ var ENV=(function(I){
   var inner='<path d="'+blob(-2.6*k,cy-2.4*k,rx*.84,ry*.74,5,ph+.4,.2)+'" fill="'+t.b+'"/><path d="'+blob(-5.2*k,cy-4*k,rx*.42,ry*.38,3,ph+.8,.22)+'" fill="'+t.l+'"/>';
   if(d>0)inner+='<path d="M'+f1(-2*k)+' '+f1(cy+2*k)+'q'+f1(3*k)+' '+f1(1.6*k)+' '+f1(6.4*k)+' '+f1(.2*k)+'" stroke="'+t.s+'" stroke-width="'+f1(.9*k)+'" fill="none" stroke-linecap="round"/>';
   s+=shaded(D,t.s,inner);
-  if(d>0)[[-5,-7.6],[1.6,-9.4],[6.4,-5.6]].forEach(function(q){s+='<circle cx="'+f1(q[0]*k)+'" cy="'+f1(q[1]*k)+'" r="'+f1(1.15*k)+'" fill="'+(o.berry||"#E8445A")+'"/><circle cx="'+f1(q[0]*k-.35*k)+'" cy="'+f1(q[1]*k-.4*k)+'" r="'+f1(.38*k)+'" fill="#FFFFFF" opacity=".8"/>'});
+  if(d>0)[[-5,-7.4],[1.6,-9.2],[6.2,-5.6]].forEach(function(q,i){var x=q[0]*k,y=q[1]*k,r=1.25*k,B=T(o.berry||"#E8445A");
+   s+='<ellipse cx="'+f1(x+.5*k)+'" cy="'+f1(y+.9*k)+'" rx="'+f1(r)+'" ry="'+f1(r*.6)+'" fill="'+t.d+'" opacity=".45"/>';
+   s+='<circle cx="'+f1(x)+'" cy="'+f1(y)+'" r="'+f1(r)+'" fill="'+B.b+'"/><path d="M'+f1(x+r)+' '+f1(y)+'A'+f1(r)+' '+f1(r)+' 0 0 1 '+f1(x-r*.5)+' '+f1(y+r*.85)+'Q'+f1(x+r*.4)+' '+f1(y+r*.4)+' '+f1(x+r)+' '+f1(y)+'Z" fill="'+B.s+'"/><circle cx="'+f1(x-r*.35)+'" cy="'+f1(y-r*.38)+'" r="'+f1(r*.3)+'" fill="#FFFFFF" opacity=".85"/>';
+   /* hojita del follaje encima de la baya: queda integrada */
+   s+='<path d="M'+f1(x-1.8*k)+' '+f1(y+1.2*k)+'Q'+f1(x)+' '+f1(y+.2*k)+' '+f1(x+1.9*k)+' '+f1(y+1.3*k)+'Q'+f1(x)+' '+f1(y+2.2*k)+' '+f1(x-1.8*k)+' '+f1(y+1.2*k)+'Z" fill="'+(i===2?t.s:t.b)+'"/>'});
   return s}
 
  /* ---------- flores: matas con hojas, tallos y flores en isométrico ---------- */
@@ -275,14 +279,14 @@ var ENV=(function(I){
   if(d>1)inner+='<path d="M-6 -7.2C2 -8.6 10 -8.2 15 -6.4" stroke="'+B.h+'" stroke-width=".8" fill="none" stroke-linecap="round"/>';
   var body=shaded(FIN,B.s,'')+shaded(BODY,B.b,inner);
   if(d>0)body+='<ellipse cx="15.6" cy="-3.6" rx=".8" ry=".7" fill="#13213F"/><path d="M22.6 -.8Q18 -1.6 13.4 -1.2" stroke="'+B.d+'" stroke-width=".5" fill="none" stroke-linecap="round"/>';
-  s+='<g transform="'+I.planeX(0,0,0)+' scale(.78 1.45)">'+body+
+  s+='<g transform="'+I.planeX(0,0,0)+' scale(.86 1.35)">'+body+
    /* espuma solo en la línea de flotación de enfrente */
    '<path d="M-23 .4C-14 1.6 -2 1.8 8 1.4C14 1.2 19 1 24 .4" stroke="#FFFFFF" stroke-width="1.6" fill="none" stroke-linecap="round" opacity=".95"/>'+
    (d>0?'<path d="M-25 .2q1.4 -1.2 2.8 -.2M23.6 .2q1.6 -1.4 3 0" stroke="#FFFFFF" stroke-width="1.1" fill="none" stroke-linecap="round"/>':'')+
    /* chorro en abanico desde lo alto de la cabeza */
    '<g class="iso-spout" style="transform-origin:12px -8.6px"><path d="M12 -8.8q-4 -4 -9 -5M12 -8.8q-.6 -5 -1.4 -7.2M12 -8.8q2.4 -4.6 6.4 -5.8" stroke="#FFFFFF" stroke-width="1.5" fill="none" stroke-linecap="round"/>'+(d>0?'<ellipse cx="2.6" cy="-14.2" rx=".9" ry=".6" fill="#FFFFFF"/><ellipse cx="10.4" cy="-16.8" rx=".9" ry=".6" fill="#FFFFFF"/><ellipse cx="19" cy="-15.2" rx=".8" ry=".55" fill="#FFFFFF"/>':'')+'</g></g>';
   /* cola a lo lejos, unida por la estela */
-  if(d>0&&o.tail!==false){var tp=P(-34,-8,0),st=P(-22,0,0);
+  if(d>0&&o.tail===true){var tp=P(-34,-8,0),st=P(-22,0,0);
    s+='<path d="M'+f1(st[0])+' '+f1(st[1])+'L'+f1(tp[0])+' '+f1(tp[1])+'" stroke="#FFFFFF" stroke-width="1.3" stroke-dasharray="3 3" stroke-linecap="round" opacity=".6"/>';
    s+=ripple(4.4,{x:tp[0],y:tp[1],n:1})+'<g transform="'+I.planeY(-34,-8,0)+'">'+shaded("M0 0C-.6 -3 -1 -5 -1.6 -7C-4 -8.2 -7 -8.6 -8.4 -10.6C-5.4 -10.4 -2.6 -9.6 0 -8.4C2.6 -9.6 5.4 -10.4 8.4 -10.6C7 -8.6 4 -8.2 1.6 -7C1 -5 .6 -3 0 0Z",B.b,'<path d="M0 0L0 -9L10 -12L10 2Z" fill="'+B.s+'"/>')+'<path d="M-3 .3q3 1 6 0" stroke="#FFFFFF" stroke-width="1.2" fill="none" stroke-linecap="round"/></g>'}
   return s}
@@ -294,11 +298,17 @@ var ENV=(function(I){
   var body=shaded(DOLPH,B.b,inner)+(d>0?'<circle cx="19.2" cy="3" r=".65" fill="#13213F"/><path d="M20.2 6.2Q22.4 6.6 24 6.4" stroke="'+B.d+'" stroke-width=".45" fill="none"/>':'');
   return '<g transform="rotate('+rot+') scale('+(o.k||.62)+')">'+body+'</g>'}
  /* grupo de delfines a distintas alturas del salto, con salpicadura donde entran y salen */
- function dolphins(o){o=o||{};var d=o.d==null?2:o.d,s="";
-  function splash(x,y){var w=P(x,y,0),r="";r+=ripple(4,{x:w[0],y:w[1],n:2});r+='<path d="M'+f1(w[0]-3)+' '+f1(w[1])+'q-1 -3 -2.4 -4M'+f1(w[0])+' '+f1(w[1]-.6)+'q0 -3.4 .4 -5M'+f1(w[0]+3)+' '+f1(w[1])+'q1.4 -2.6 2.6 -3.4" stroke="#FFFFFF" stroke-width="1" fill="none" stroke-linecap="round"/>';if(d>0)r+='<circle cx="'+f1(w[0]-4.4)+'" cy="'+f1(w[1]-5)+'" r=".6" fill="#FFFFFF"/><circle cx="'+f1(w[0]+5)+'" cy="'+f1(w[1]-4.4)+'" r=".55" fill="#FFFFFF"/>';return r}
-  [[0,0,9,-14],[14,8,5,28],[-12,6,5,-38]].slice(0,d>0?3:2).forEach(function(q){var x=q[0],y=q[1],z=q[2];
-   s+=splash(x-6,y)+(z<4?splash(x+8,y):"");
-   s+='<g transform="'+I.planeX(x,y,z)+'">'+dolphin({d:d,rot:q[3]})+'</g>'});
+ function dolphins(o){o=o||{};var d=o.d==null?2:o.d,s="",K=.62;
+  function rings(x,y,r,n){var w=P(x,y,0);return ripple(r,{x:w[0],y:w[1],n:n})}
+  function splash(x,y){var w=P(x,y,0),r='';r+='<path d="M'+f1(w[0]-3)+' '+f1(w[1])+'q-1 -3 -2.4 -4M'+f1(w[0])+' '+f1(w[1]-.6)+'q0 -3.4 .4 -5M'+f1(w[0]+3)+' '+f1(w[1])+'q1.4 -2.6 2.6 -3.4" stroke="#FFFFFF" stroke-width="1" fill="none" stroke-linecap="round"/>';if(d>0)r+='<circle cx="'+f1(w[0]-4.4)+'" cy="'+f1(w[1]-5)+'" r=".6" fill="#FFFFFF"/><circle cx="'+f1(w[0]+5)+'" cy="'+f1(w[1]-4.4)+'" r=".55" fill="#FFFFFF"/>';return r}
+  /* cada delfín recorre un arco v=H(1-(u/R)^2) en el plano vertical a lo largo de x; se coloca de modo que su cola (al salir) o su hocico (al entrar) toque el agua justo en el anillo */
+  var DEF=[{x:-16,y:-10,R:13,H:9,ph:"sale"},{x:6,y:4,R:12,H:8,ph:"arriba"},{x:26,y:-4,R:13,H:9,ph:"entra"}].slice(0,d>0?3:2);
+  function rot(p,a){a=a*Math.PI/180;return [p[0]*Math.cos(a)-p[1]*Math.sin(a),p[0]*Math.sin(a)+p[1]*Math.cos(a)]}
+  DEF.forEach(function(q){var R=q.R,ang,U0,V0,tip;
+   if(q.ph==="sale"){ang=-38;tip=rot([-9*K,4*K],ang);U0=-R-tip[0];V0=-tip[1];s+=rings(q.x-R,q.y,4.4,2)+splash(q.x-R,q.y)}
+   else if(q.ph==="entra"){ang=36;tip=rot([24*K,6.2*K],ang);U0=R-tip[0];V0=-tip[1];s+=rings(q.x+R,q.y,4.4,2)+splash(q.x+R,q.y)}
+   else{ang=4;U0=-7*K;V0=-q.H-2}
+   s+='<g transform="'+I.planeX(q.x,q.y,0)+'"><g transform="translate('+f1(U0)+' '+f1(V0)+')">'+dolphin({d:d,rot:ang,k:K})+'</g></g>'});
   return s}
  function gull(o){o=o||{};return '<path class="iso-gull" d="M-6 0q3 -3.4 6 -.4q3 -3 6 .4" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round"/><path d="M-6 0q3 -3.4 6 -.4" fill="none" stroke="#2B3F5C" stroke-width=".5" opacity=".35"/>'}
 
