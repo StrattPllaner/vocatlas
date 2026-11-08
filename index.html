@@ -570,7 +570,7 @@ nav button:active svg{transform:scale(.84)}
 .gl-fly .gl-zoom .gl-cap,.gl-fly .gl-zoom .gl-legs{opacity:0}
 .gl-cap{transform-box:view-box}
 .gl-svg.gl-pop{transition:transform 300ms var(--spring);transform:scale(1.16)}
-.gl-svg.gl-zoom{transition:transform 560ms cubic-bezier(.55,0,.8,.25),opacity 380ms 180ms var(--soft);transform:scale(3.6);opacity:0}
+.gl-svg.gl-zoom{transition:transform 560ms cubic-bezier(.55,0,.8,.25);transform:scale(1.7)}
 .gl-sh{fill:var(--rb-sh)}
 @keyframes glFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
 /* al entrar se apagan solo los colores del texto: desvanecer las barras completas hacía que Safari pintara franjas en el cielo */
@@ -598,7 +598,7 @@ nav button:active svg{transform:scale(.84)}
 #flow[data-step=inicio] .fl-left,#flow[data-step=inicio] .fl-foot{background:transparent}
 #sky{position:absolute;inset:0;overflow:hidden;pointer-events:none;display:none;isolation:isolate}
 #flow[data-step=inicio] #sky{display:block}
-#sky canvas{position:absolute;left:0;width:200%;display:block;animation:skyDrift var(--d) linear infinite}
+#sky .cl{position:absolute;left:0;width:200%;display:block;animation:skyDrift var(--d) linear infinite}
 #sky .c1{top:3%;opacity:.75;--d:160s}
 #sky .c2{bottom:-6%;--d:95s}
 .sky-word{position:absolute;inset:0;font-size:min(22vw,13vh,136px);font-weight:1000;line-height:1;color:#FFFFFF;pointer-events:none;-webkit-user-select:none;user-select:none;perspective:700px;perspective-origin:50% 45%;transform-style:preserve-3d}
@@ -614,7 +614,7 @@ nav button:active svg{transform:scale(.84)}
 #sky .st{display:none}
 @media (prefers-color-scheme:dark){
  #flow[data-step=inicio]{background:radial-gradient(50% 35% at 80% 8%,rgba(143,201,232,.16),rgba(143,201,232,0) 70%),linear-gradient(180deg,#040D16 0%,#0A1C2B 50%,#13324A 100%)}
- #sky canvas{opacity:.16;filter:none}
+ #sky .cl{opacity:.16;filter:none}
  #sky .c1{opacity:.12}
  #sky .st{display:block;position:absolute;width:2px;height:2px;border-radius:50%;background:#F6EFE2;animation:twinkle var(--d) ease-in-out infinite alternate}
  #sky .st:nth-child(3n){width:3px;height:3px}
@@ -627,11 +627,12 @@ nav button:active svg{transform:scale(.84)}
 .sp-up{width:20px;height:20px;margin-right:6px;vertical-align:-3px;fill:none;stroke:currentColor;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round;animation:upNudge 1.4s var(--soft) infinite}
 @keyframes upNudge{0%,100%{transform:translateY(2px)}50%{transform:translateY(-3px)}}
 .splash::before{display:none}
-.dive-tint{position:fixed;inset:0;z-index:89;background:#A9CFE0;opacity:0;pointer-events:none}
+.dive-tint{position:fixed;inset:0;z-index:95;background:#A9CFE0;opacity:0;pointer-events:none}
 @media (prefers-color-scheme:dark){.dive-tint{background:#123846}}
 .dive-tint.go{animation:diveTint 560ms var(--soft) forwards}
 .dive-tint.out{animation:tintOut var(--t-long) var(--soft) forwards}
-@keyframes diveTint{0%,30%{opacity:0}100%{opacity:1}}
+/* el color del mar cubre el globo que crece: sin capas enormes semitransparentes, que Safari pintaba en franjas */
+@keyframes diveTint{0%,15%{opacity:0}100%{opacity:1}}
 @keyframes tintOut{from{opacity:1}to{opacity:0}}
 #app.dived #mapbox{animation:diveMap 900ms var(--soft) both}
 @keyframes diveMap{from{transform:scale(1.35)}to{transform:none}}
@@ -944,7 +945,7 @@ html.ret #boot.show{opacity:1;pointer-events:auto}
 
 /* movimiento reducido: todo pasa a desvanecimientos */
 @media (prefers-reduced-motion:reduce){
- #plaza::before,.sky-word span,.pi-foam,.gl-legL,.gl-legR,.sw-hint svg,.gl-box,#sky canvas,#sky .st,.sp-up,#app.dived #mapbox,.rb.dance .rb-b,.rb.dance .rb-legL,.rb.dance .rb-legR,.rb.dance .rb-n,.rb.dance .rb-sh,.sc-c1,.sc-c2,.sc-waves,.sc-boat,.sug .cmp .nd{animation:none!important}
+ #plaza::before,.sky-word span,.pi-foam,.gl-legL,.gl-legR,.sw-hint svg,.gl-box,#sky .cl,#sky .st,.sp-up,#app.dived #mapbox,.rb.dance .rb-b,.rb.dance .rb-legL,.rb.dance .rb-legR,.rb.dance .rb-n,.rb.dance .rb-sh,.sc-c1,.sc-c2,.sc-waves,.sc-boat,.sug .cmp .nd{animation:none!important}
  .sc-say.pop{animation:fadeIn var(--t-med) linear both!important}
  .bt-fill,.bt-fill>svg,.bt-rb,.tl-track i,.tl-d{transition:none!important}
  .fl-in.in>*,.fl-foot-in.in>*{animation:fadeIn var(--t-med) linear both!important}
@@ -2864,10 +2865,14 @@ function skyClouds(){
     var x=i/W*P,y=j/W*P,n=fbm(x,y)*mask,n2=fbm(x,y-.035*P)*mask;
     var a=Math.max(0,Math.min(1,(n-cov)/soft));a=a*a*(3-2*a);
     var lit=Math.max(0,Math.min(1,.82+(n2-n)*9)),r=Math.round(196+59*lit),gg=Math.round(208+47*lit),bb=Math.round(222+33*lit);
-    for(var k=0;k<2;k++){var q=((j*W*2)+i+k*W)*4;d[q]=r;d[q+1]=gg;d[q+2]=bb;d[q+3]=Math.round(a*255)}
+    /* donde no hay nube el pixel queda negro y transparente: Safari mostraba el blanco escondido como franjas */
+    var A=Math.round(a*255);if(!A)r=gg=bb=0;
+    for(var k=0;k<2;k++){var q=((j*W*2)+i+k*W)*4;d[q]=r;d[q+1]=gg;d[q+2]=bb;d[q+3]=A}
    }
   }
-  g.putImageData(img,0,0);sky.insertBefore(cv,sky.firstChild);
+  g.putImageData(img,0,0);
+  /* se usa como imagen normal, no como lienzo: Safari compone mejor una imagen */
+  var im=new Image();im.className="cl "+cls;im.alt="";im.style.aspectRatio=cv.style.aspectRatio;im.style.height="auto";im.src=cv.toDataURL("image/png");sky.insertBefore(im,sky.firstChild);
  }
  var lo=matchMedia("(max-width: 600px)").matches;
  layer("c1",lo?300:420,lo?110:150,6,11,.5,.22,true);
