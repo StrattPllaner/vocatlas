@@ -3458,7 +3458,7 @@ function renderYo(){
    return;
   }
   S=blankState();save();hudP=0;MAPSIG=null;
-  var a=$("#app");stopWalk();a.classList.remove("on");showFlow("inicio",-1,"new");
+  var a=$("#app");stopWalk();a.classList.remove("on");startApp(-1);
  };
 }
 function edoWidget(px,lab){
@@ -3854,6 +3854,13 @@ function bindRadios(root,name,cb){
   cb(inp.value);
  })});
 }
+/* sin pantalla de inicio: al terminar la carga se entra directo a donde toca */
+function startApp(dir){
+ var has=hasMap(),mid=!has&&S.flow&&STEPLAB[S.flow];
+ if(has){enterApp(false);return}
+ if(mid&&S.flow==="temas"){ensureFlow();$("#flow").classList.remove("on");$("#app").classList.remove("on");FL.fromFlow=true;$("#quiz").classList.add("on");$(".qscroll").scrollTop=0;renderQuiz();return}
+ showFlow(mid?S.flow:"perfil",dir||1,"new");
+}
 function showFlow(step,dir,mode){
  ensureFlow();FL.mode=mode||"new";
  var fl=$("#flow"),was=fl.classList.contains("on");
@@ -3877,7 +3884,7 @@ function goStep(step,dir,fresh){
   var idx={perfil:0,metas:1}[step],st=$("#flSteps");
   st.hidden=idx==null||FL.mode==="edit";
   each(st.children,function(li,i){li.className=i<idx?"done":i===idx?"cur":"";if(i===idx)li.setAttribute("aria-current","step");else li.removeAttribute("aria-current")});
-  $("#flBack").hidden=step==="inicio";
+  $("#flBack").hidden=step==="inicio"||(step==="perfil"&&FL.mode!=="edit");
   placeChart();$("#flMain").scrollTop=0;
   chartView();
   if(v.bind)v.bind();
@@ -3890,7 +3897,7 @@ function goStep(step,dir,fresh){
 }
 function flowBack(){
  if(FL.step==="metas")goStep("perfil",-1);
- else if(FL.step==="perfil"){if(FL.mode==="edit")flowToYo();else goStep("inicio",-1)}
+ else if(FL.step==="perfil"){if(FL.mode==="edit")flowToYo();}
 }
 function leaveFlow(then){
  var fl=$("#flow");
@@ -4075,7 +4082,7 @@ function boot(){
   var rb=bt.querySelector(".rb");if(rb&&shownAt){rb.classList.remove("walk");mood(rb,"happy","jump")}
   var wait=shownAt?Math.max(RM()?0:T.long,1000-(now()-shownAt)):0;
   setTimeout(function(){
-   showFlow("inicio",1,"new");
+   startApp(1);
    if(!shownAt){bt.style.display="none";return}
    bt.classList.add("out");setTimeout(function(){bt.style.display="none"},T.med+60);
   },wait);
