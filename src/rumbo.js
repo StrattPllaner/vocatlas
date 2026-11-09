@@ -511,12 +511,12 @@ var RUMBO=(function(){
     con un filtro (dilatar el alfa), así no aparecen costuras internas al doblar los dedos.
     Coordenadas locales: muñeca en (0,0), dedos hacia arriba; el pulgar queda del lado −x. */
  var HW="#FFFDF8",HS="#D6DCE8",HSD="#BCC5D6",HST="#C2CAD8";
- var HF=[{n:"t",x:-2.9,y:-3.7,a:-62,l1:3.4,l2:2.6},{n:"i",x:-2.05,y:-6.4,a:-13,l1:4.5,l2:3.3},{n:"m",x:0,y:-7,a:0,l1:4.9,l2:3.5},{n:"r",x:2.05,y:-6.5,a:13,l1:4.3,l2:3.1}];
+ var HF=[{n:"t",x:-2.7,y:-3.6,a:-62,l1:3,l2:2.2},{n:"i",x:-2,y:-6.2,a:-9,l1:4,l2:2.6},{n:"m",x:0,y:-7,a:0,l1:4.4,l2:2.8},{n:"r",x:2,y:-6.3,a:9,l1:3.8,l2:2.4}];
  /* cápsula con su extremo de abajo centrado en el pivote (0,0): el nudillo es una articulación de bola,
     la base de cada segmento coincide con el extremo redondo del anterior y nunca se abre un hueco */
- var HR=1.175;
+ var HR=1.4;
  function capsule(L){var r=HR;return 'M'+(-r)+' 0V'+(-L+r)+'A'+r+' '+r+' 0 0 1 '+r+' '+(-L+r)+'V0A'+r+' '+r+' 0 0 1 '+(-r)+' 0Z'}
- function seg(L){return '<path class="hk-seg" d="'+capsule(L)+'" fill="'+HW+'"/><path d="M.42 0V'+(-L+1.3)+'Q1.18 '+(-L+1.5)+' 1.18 '+(-L+2)+'V0Z" fill="'+HS+'" opacity=".9"/>'}
+ function seg(L){return '<path class="hk-seg" d="'+capsule(L)+'" fill="'+HW+'"/><path d="M.42 0V'+(-L+1.3)+'Q1.4 '+(-L+1.6)+' 1.4 '+(-L+2.2)+'V0Z" fill="'+HS+'" opacity=".9"/>'}
  function dbg(x,y){return '<circle class="hk-dbg" cx="'+x+'" cy="'+y+'" r=".45" fill="#E2434B"/>'}
  function handRig(id,side){var s='<filter id="'+id+'" x="-30%" y="-30%" width="160%" height="160%"><feMorphology in="SourceAlpha" operator="dilate" radius=".72" result="d"/><feFlood flood-color="#4B2A13"/><feComposite in2="d" operator="in" result="o"/><feMerge><feMergeNode in="o"/><feMergeNode in="SourceGraphic"/></feMerge></filter>';
   var f='';
@@ -643,7 +643,7 @@ var RUMBO=(function(){
   /* registra los Rumbo que aparecen después */
   setInterval(function(){for(var i=0;i<list.length;i++)if(!ST.get(list[i]))init(list[i]);go()},600);
   /* biblioteca de poses de mano: c curvatura de [pulgar, índice, medio, anular] (0 recto, 1 doblado), s apertura, t ángulo del pulgar, v vista (1 palma, −1 dorso) */
-  var HPOSE={relajada:{c:[.25,.18,.24,.3],s:1,t:-58,v:1},saludo:{c:[0,0,0,0],s:1.25,t:-74,v:1},"señalar":{c:[.7,0,1,1],s:.9,t:-20,v:-1},pulgar:{c:[0,1,1,1],s:.8,t:-92,v:1,r:82},
+  var HPOSE={relajada:{c:[0,0,0,.02],s:1.05,t:-70,v:-1},saludo:{c:[0,0,0,0],s:1.25,t:-74,v:1},"señalar":{c:[.7,0,1,1],s:.9,t:-20,v:-1},pulgar:{c:[0,1,1,1],s:.8,t:-92,v:1,r:82},
    "puño":{c:[.6,1,1,1],s:.8,t:-24,v:-1},paz:{c:[.7,0,0,1],s:1.7,t:-22,v:1},uno:{c:[.7,0,1,1],s:.9,t:-20,v:1},dos:{c:[.7,0,0,1],s:1.1,t:-20,v:1},tres:{c:[.7,0,0,0],s:1.1,t:-20,v:1},
    celebrando:{c:[0,0,0,0],s:1.55,t:-86,v:1},sosteniendo:{c:[.35,.55,.6,.65],s:.95,t:-36,v:1},aplaudiendo:{c:[.05,.04,.04,.06],s:.9,t:-50,v:1},pensando:{c:[.45,.35,.6,.7],s:.9,t:-40,v:-1}};
   var DUR={jump:.72,tilt:.6,shake:.45,look:1.1,wave:1.7,yes:1.05,oops:1.7,cheer:1.9,adjust:1.5,sway:2.4,yawn:1.9};
@@ -751,8 +751,8 @@ var RUMBO=(function(){
     st.hk.forEach(function(h,i){var nm=i?st.PR:st.PL,Q=HP[nm]||HP.relajada,vw=wr.getAttribute("data-hview");
      var view=vw==="dorso"?-1:vw==="palma"?1:Q.v;
      /* micro movimientos: de vez en cuando un dedo se dobla un poco y se estira */
-     h.mt-=dt;if(h.mt<=0){h.mi=Math.floor(Math.random()*4);h.mn=rnd(.25,.6);h.mt=rnd(2,4)}var mic=h.mn>0?(h.mn-=dt,.14*Math.sin(Math.PI*Math.max(0,h.mn)/.6)):0;
-     var dif=i?.07:0,sp2=Q.s*(i?.93:1);
+     h.mt-=dt;if(h.mt<=0){h.mi=Math.floor(Math.random()*4);h.mn=rnd(.25,.6);h.mt=rnd(2,4)}var mic=h.mn>0?(h.mn-=dt,.07*Math.sin(Math.PI*Math.max(0,h.mn)/.6)):0;
+     var dif=i?.02:0,sp2=Q.s*(i?.93:1);
      /* velocidad de la muñeca: los dedos se quedan atrás al cambiar de dirección */
      var rr=i?st.sp.hRr.x:st.sp.hLr.x,wvv=(rr-h.pr)/(dt||.016);h.pr=rr;var lg=spring(h.lag,cl(-wvv*.045,-26,26),dt,120,9,26);
      var hv=spring(h.hv,view,dt,140,14,1.2);setA(h.flip,"transform","scale("+f(Math.abs(hv)<.05?(hv<0?-.05:.05):hv)+" 1)",h.last,"fl");

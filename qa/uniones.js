@@ -55,8 +55,8 @@ window.__uniones=function(svg){
  svg.querySelectorAll(".hk-flip").forEach(function(fl,hi){var palm=fl.querySelector(".hk-palm");
   fl.querySelectorAll(".hk-p").forEach(function(pg){var s1=pg.querySelector(".hk-seg"),dg=pg.querySelector(".hk-d"),s2=dg&&dg.querySelector(".hk-seg");
    var nm=(hi?"mano der. ":"mano izq. ")+pg.getAttribute("class").split(" ")[0];
-   var b1=[[-1.05,0],[1.05,0],[0,1.05]].filter(function(pt){return !inside(palm,s1,pt)});if(b1.length)J.length,out.push({n:nm+" fuera de la palma",fuera:b1});
-   if(s2){var b2=[[-1.05,0],[1.05,0],[0,1.05]].filter(function(pt){return !inside(s1,s2,pt)});if(b2.length)out.push({n:nm+" punta separada",fuera:b2})}})});
+   var b1=[[-1.25,0],[1.25,0],[0,1.25]].filter(function(pt){return !inside(palm,s1,pt)});if(b1.length)J.length,out.push({n:nm+" fuera de la palma",fuera:b1});
+   if(s2){var b2=[[-1.25,0],[1.25,0],[0,1.25]].filter(function(pt){return !inside(s1,s2,pt)});if(b2.length)out.push({n:nm+" punta separada",fuera:b2})}})});
  J.forEach(function(j){if(!j[1])return;var bad=j[3].filter(function(pt){return !inAny(j[2],j[1],pt)});if(bad.length)out.push({n:j[0],fuera:bad})});
  /* la cabeza bajo el gorro: el borde de arriba del cuerpo debe quedar cubierto por el gorro (sin hueco entre gorro y cabeza) */
  if(core){var r=+core.getAttribute("r"),cx=+core.getAttribute("cx"),cy=+core.getAttribute("cy"),bad=[];
