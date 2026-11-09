@@ -4054,7 +4054,7 @@ var RUMBO=(function(){
  var CX=50,CY=55;
  var LANDS=[[[-.62,.44],[-.38,.48],[-.18,.62],[-.22,.8],[-.44,.86],[-.68,.72]],[[.2,.64],[.4,.52],[.64,.54],[.72,.72],[.5,.84],[.26,.82]],[[-.8,-.12],[-.62,-.22],[-.5,-.06],[-.6,.12],[-.78,.08]],[[.56,-.14],[.74,-.2],[.82,0],[.66,.08]]];
  function globe(id,r){var s='<clipPath id="'+id+'g"><circle cx="'+CX+'" cy="'+CY+'" r="'+r+'"/></clipPath>';
-  s+='<circle cx="'+CX+'" cy="'+CY+'" r="'+r+'" fill="#F7E0BD"/>';
+  s+='<circle class="rk-core" cx="'+CX+'" cy="'+CY+'" r="'+r+'" fill="#F7E0BD"/>';
   s+='<g clip-path="url(#'+id+'g)"><g fill="#7FA2B3">'+LANDS.map(function(L){return '<path d="'+sm(sph(L,CX,CY,r))+'"/>'}).join("")+'</g>'+
    /* un solo tono de sombra encima de mar y tierra */
    crescent(CX,CY,r,-3.4,-3.8,"#6E4A26",.16)+'</g>';
@@ -4062,7 +4062,7 @@ var RUMBO=(function(){
   return s}
  function compass(id,withGlobe){var s="",R=27;
   /* caja: aro grueso de latón con su sombra y un brillo */
-  s+='<circle cx="'+CX+'" cy="'+CY+'" r="'+R+'" fill="'+BR+'"/>'+crescent(CX,CY,R,-3.4,-3.8,BRS)+
+  s+='<circle class="rk-core" cx="'+CX+'" cy="'+CY+'" r="'+R+'" fill="'+BR+'"/>'+crescent(CX,CY,R,-3.4,-3.8,BRS)+
    '<path d="M'+(CX-R*.86).toFixed(1)+' '+(CY-R*.2).toFixed(1)+'A'+R+' '+R+' 0 0 1 '+(CX-R*.42).toFixed(1)+' '+(CY-R*.82).toFixed(1)+'" stroke="'+BRH+'" stroke-width="1.8" fill="none" stroke-linecap="round"/>';
   var r=withGlobe?23.4:21.6;
   if(withGlobe){s+=globe(id,r)}
@@ -4075,42 +4075,44 @@ var RUMBO=(function(){
   if(!withGlobe)[[.71,.71],[-.71,.71]].forEach(function(v){s+='<circle cx="'+(CX+v[0]*(r-2.4)).toFixed(1)+'" cy="'+(CY+v[1]*(r-2.4)).toFixed(1)+'" r="1" fill="'+mk+'"/>'});
   return s}
 
- /* ---------- cara: expresiones con data-p (se muestran según data-mood) ---------- */
- function face(skin){
-  var s='',E1=[41,55],E2=[59,55];
-  function eye(c,rx,ry){return '<ellipse cx="'+c[0]+'" cy="'+c[1]+'" rx="'+rx+'" ry="'+ry+'" fill="'+INK+'"/><circle cx="'+(c[0]+1.5)+'" cy="'+(c[1]-2)+'" r="'+(rx*.38).toFixed(2)+'" fill="#FFFFFF"/><circle cx="'+(c[0]-1.3)+'" cy="'+(c[1]+2.2)+'" r="'+(rx*.17).toFixed(2)+'" fill="#FFFFFF"/>'}
-  function arc(c,up){return '<path d="M'+(c[0]-4)+' '+(c[1]+(up?1.4:-.6))+'Q'+c[0]+' '+(c[1]+(up?-3.6:3.4))+' '+(c[0]+4)+' '+(c[1]+(up?1.4:-.6))+'" stroke="'+INK+'" stroke-width="2" fill="none" stroke-linecap="round"/>'}
-  function brow(c,ang,dy){return '<path d="M'+(c[0]-3.4)+' '+(c[1]-8.2+dy)+'L'+(c[0]+3.4)+' '+(c[1]-8.2+dy)+'" stroke="'+INK+'" stroke-width="1.7" stroke-linecap="round" transform="rotate('+ang+' '+c[0]+' '+(c[1]-8.2+dy)+')"/>'}
+ /* ---------- cara ----------
+    Ojos paramétricos: el motor mueve párpados, pupilas y cejas en cada cuadro (no se cambian dibujos).
+    Cada ojo: blanco ovalado un poco más alto que ancho; pupila grande con brillo grande arriba a la izquierda
+    y uno chico abajo a la derecha (se mueven con la pupila, siempre del mismo lado); todo recortado al blanco.
+    Párpado de arriba y de abajo del color de la cara, con su línea; el párpado de arriba lleva la pestaña.
+    Bocas y zetas siguen con data-p (fundido corto). */
+ var EYE=[[40.4,56],[59.6,56]],ERX=5.3,ERY=6.2;
+ function eyeM(id,i,skin){var c=EYE[i],cx=c[0],cy=c[1],cid=id+"e"+i;
+  return '<g class="rk-eye" data-i="'+i+'"><g class="rk-esq"><clipPath id="'+cid+'"><ellipse cx="'+cx+'" cy="'+cy+'" rx="'+ERX+'" ry="'+ERY+'"/></clipPath><g clip-path="url(#'+cid+')">'+
+   '<ellipse cx="'+cx+'" cy="'+cy+'" rx="'+(ERX-.25)+'" ry="'+(ERY-.25)+'" fill="#FFFFFF"/>'+
+   '<g class="rk-pup"><circle cx="'+cx+'" cy="'+cy+'" r="3.4" fill="'+INK+'"/><circle cx="'+(cx-1.25)+'" cy="'+(cy-1.35)+'" r="1.3" fill="#FFFFFF"/><circle cx="'+(cx+1.15)+'" cy="'+(cy+1.3)+'" r=".58" fill="#FFFFFF"/></g>'+
+   '<ellipse cx="'+cx+'" cy="'+cy+'" rx="'+ERX+'" ry="'+ERY+'" fill="none" stroke="'+INK+'" stroke-width="2"/></g>'+
+   /* párpados: recortados a un óvalo un poco mayor, así tapan también el borde y no queda ningún halo */
+   '<clipPath id="'+cid+'k"><ellipse cx="'+cx+'" cy="'+cy+'" rx="'+(ERX+1.5)+'" ry="'+(ERY+1.5)+'"/></clipPath><g clip-path="url(#'+cid+'k)">'+
+   '<path class="rk-lo" fill="'+skin+'"/><path class="rk-lol" fill="none" stroke="'+INK+'" stroke-width="1.1" stroke-linecap="round"/>'+
+   '<path class="rk-up" fill="'+skin+'"/><path class="rk-lash" fill="none" stroke="'+INK+'" stroke-width="1.5" stroke-linecap="round"/>'+
+   '</g></g></g>'}
+ function face(skin,id){
+  var s='';
   /* mejillas planas */
-  s+='<ellipse cx="33.8" cy="62" rx="4.2" ry="2.7" fill="'+CHK+'" opacity=".8"/><ellipse cx="66.2" cy="62" rx="4.2" ry="2.7" fill="'+CHK+'" opacity=".8"/>';
-  /* ojos normales con párpados (neutral, hablando, más o menos, triste con ánimo, triste) */
-  s+='<g data-p="idle talk meh sadhope sad think curious"><g class="rk-gaze"><g class="rk-eyes"><g class="rb-eL">'+eye(E1,4.5,5.6)+'</g><g class="rb-eR">'+eye(E2,4.5,5.6)+'</g></g></g>'+
-   '<path class="rk-lid" data-py="49" d="M35.8 49H46.2V60.8Q41 58.2 35.8 60.8Z" fill="'+skin+'" transform="scale(1 0)"/><path class="rk-lid" data-py="49" d="M53.8 49H64.2V60.8Q59 58.2 53.8 60.8Z" fill="'+skin+'" transform="scale(1 0)"/></g>';
-  /* contento: ojos abiertos un poco más grandes */
-  s+='<g data-p="happy wink"><g class="rk-gaze"><g class="rb-eL" data-p="happy">'+eye(E1,4.8,5.9)+'</g><g class="rb-eL" data-p="wink">'+eye(E1,4.8,5.9)+'</g><g class="rb-eR" data-p="happy">'+eye(E2,4.8,5.9)+'</g></g></g>';
-  s+='<g data-p="wink">'+arc(E2,true)+'</g>';
-  /* muy feliz y celebrando: ojos en arco */
-  s+='<g data-p="joy">'+arc(E1,true)+arc(E2,true)+'</g>';
-  /* sorprendido: ojos grandes y cejas arriba */
-  s+='<g data-p="wow">'+eye(E1,5.4,6.6)+eye(E2,5.4,6.6)+'</g>';br+='<g data-p="wow">'+brow(E1,-6,-1.6)+brow(E2,6,-1.6)+'</g>';
-  /* dormido: ojos cerrados y zetas */
-  s+='<g data-p="sleep">'+arc(E1,false)+arc(E2,false)+'<g class="rk-zz"><text x="66" y="40" font-size="7" font-weight="900" fill="'+INK+'" opacity=".55">z</text><text x="71" y="33" font-size="5" font-weight="900" fill="'+INK+'" opacity=".4">z</text></g></g>';
-  /* cejas por expresión */
-  var br='<g data-p="curious">'+brow(E1,0,0)+brow(E2,-10,-2.2)+'</g><g data-p="think">'+brow(E1,10,.4)+brow(E2,-4,-.6)+'</g><g data-p="sad sadhope">'+brow(E1,-14,1.4)+brow(E2,14,1.4)+'</g>';
+  s+=eyeM(id,0,skin)+eyeM(id,1,skin);
+  s+='<ellipse cx="34.2" cy="64.6" rx="3.4" ry="2.2" fill="'+CHK+'" opacity=".8"/><ellipse cx="65.8" cy="64.6" rx="3.4" ry="2.2" fill="'+CHK+'" opacity=".8"/>';
   /* bocas */
-  s+='<path data-p="idle" d="M45.4 62Q50 66.4 54.6 62" stroke="'+INK+'" stroke-width="1.9" fill="none" stroke-linecap="round"/>';
-  s+='<g data-p="happy wink"><path d="M44.6 61.2Q50 68.6 55.4 61.2Z" fill="'+INK+'" stroke="'+INK+'" stroke-width="1.2" stroke-linejoin="round"/><path d="M46.9 65.1Q50 67 53.1 65.1Q51.6 63.8 50 63.8Q48.4 63.8 46.9 65.1Z" fill="#E86A6A"/></g>';
-  s+='<g data-p="joy"><path d="M43.6 60.4Q50 71 56.4 60.4Z" fill="'+INK+'" stroke="'+INK+'" stroke-width="1.2" stroke-linejoin="round"/><path d="M46.4 66.2Q50 68.8 53.6 66.2Q51.8 64.4 50 64.4Q48.2 64.4 46.4 66.2Z" fill="#E86A6A"/></g>';
-  s+='<ellipse data-p="wow" cx="50" cy="64" rx="2.6" ry="3.2" fill="'+INK+'"/>';
-  s+='<ellipse data-p="curious" cx="52.4" cy="63.6" rx="1.7" ry="1.9" fill="'+INK+'"/>';
-  s+='<path data-p="think" d="M47 63.6Q50.4 62.6 53.4 64" stroke="'+INK+'" stroke-width="1.8" fill="none" stroke-linecap="round"/>';
-  s+='<path data-p="sadhope" d="M46.4 63.4Q50 65.4 53.6 63.4" stroke="'+INK+'" stroke-width="1.8" fill="none" stroke-linecap="round"/>';
-  s+='<path data-p="sad no" d="M46 64.6Q50 61.6 54 64.6" stroke="'+INK+'" stroke-width="1.9" fill="none" stroke-linecap="round"/>';
-  s+='<path data-p="meh" d="M46.4 63.4H53.6" stroke="'+INK+'" stroke-width="1.9" stroke-linecap="round"/>';
-  s+='<ellipse data-p="talk" class="rk-mouth" cx="50" cy="63.6" rx="3.2" ry="2.6" fill="'+INK+'"/>';
-  s+='<ellipse data-p="sleep" cx="50" cy="64" rx="1.6" ry="1.3" fill="'+INK+'" opacity=".8"/>';
-  /* "no le gustó": ojos de rayita */
-  s+='<g data-p="no"><path d="M37.4 55H44.6M55.4 55H62.6" stroke="'+INK+'" stroke-width="2" stroke-linecap="round"/></g>';
+  s+='<path data-p="idle" d="M45.6 66.2Q50 70.2 54.4 66.2" stroke="'+INK+'" stroke-width="1.9" fill="none" stroke-linecap="round"/>';
+  s+='<g data-p="happy wink"><path d="M44.8 65.4Q50 72.6 55.2 65.4Z" fill="'+INK+'" stroke="'+INK+'" stroke-width="1.2" stroke-linejoin="round"/><path d="M47 69.2Q50 71 53 69.2Q51.6 68 50 68Q48.4 68 47 69.2Z" fill="#E86A6A"/></g>';
+  s+='<g data-p="joy"><path d="M43.8 64.6Q50 75 56.2 64.6Z" fill="'+INK+'" stroke="'+INK+'" stroke-width="1.2" stroke-linejoin="round"/><path d="M46.4 70.4Q50 72.8 53.6 70.4Q51.8 68.6 50 68.6Q48.2 68.6 46.4 70.4Z" fill="#E86A6A"/></g>';
+  s+='<ellipse data-p="wow" cx="50" cy="68.4" rx="2.6" ry="3.2" fill="'+INK+'"/>';
+  s+='<ellipse data-p="curious" cx="52.2" cy="67.8" rx="1.7" ry="1.9" fill="'+INK+'"/>';
+  s+='<path data-p="think" d="M47 67.8Q50.4 66.8 53.4 68.2" stroke="'+INK+'" stroke-width="1.8" fill="none" stroke-linecap="round"/>';
+  s+='<path data-p="sadhope" d="M46.4 67.6Q50 69.6 53.6 67.6" stroke="'+INK+'" stroke-width="1.8" fill="none" stroke-linecap="round"/>';
+  s+='<path data-p="sad no" d="M46 68.8Q50 65.8 54 68.8" stroke="'+INK+'" stroke-width="1.9" fill="none" stroke-linecap="round"/>';
+  s+='<path data-p="meh" d="M46.4 67.6H53.6" stroke="'+INK+'" stroke-width="1.9" stroke-linecap="round"/>';
+  s+='<ellipse data-p="talk" class="rk-mouth" cx="50" cy="67.8" rx="3.2" ry="2.6" fill="'+INK+'"/>';
+  s+='<ellipse data-p="sleep" cx="50" cy="68.2" rx="1.6" ry="1.3" fill="'+INK+'" opacity=".8"/>';
+  s+='<g data-p="yawn"><ellipse cx="50" cy="68.6" rx="3" ry="3.9" fill="'+INK+'"/><ellipse cx="50" cy="71" rx="1.9" ry="1.1" fill="#E86A6A"/></g>';
+  s+='<g data-p="sleep"><g class="rk-zz"><text x="66" y="40" font-size="7" font-weight="900" fill="'+INK+'" opacity=".55">z</text><text x="71" y="33" font-size="5" font-weight="900" fill="'+INK+'" opacity=".4">z</text></g></g>';
+  /* cejas: gruesas, redondeadas y un poco arqueadas; el motor las mueve con cada emoción */
+  var br=[0,1].map(function(i){return '<g class="rk-brow" data-i="'+i+'"><path d="M-3.9 .9Q0 -1.4 3.9 .9" stroke="'+INK+'" stroke-width="2.6" fill="none" stroke-linecap="round"/></g>'}).join("");
   return [s,br]}
 
  /* ---------- gorro, solapas, gafas y anillo de la flecha ---------- */
@@ -4118,9 +4120,9 @@ var RUMBO=(function(){
  var CAPD="M22 51Q22 25.6 50 24Q78 25.6 78 51Q66 44 50 44Q34 44 22 51Z";
  function capParts(id){
   var s='<clipPath id="'+id+'c"><path d="'+CAPD+'"/></clipPath>';
-  s+='<path d="'+CAPD+'" fill="'+CAP+'"/><g clip-path="url(#'+id+'c)"><path d="M54 20L84 20L84 55L60 55Q64 40 54 20Z" fill="'+CAPS+'"/><path d="M28 42Q29 31 40 27.4" stroke="'+CAPH+'" stroke-width="2" fill="none" stroke-linecap="round"/></g>';
+  s+='<path class="rk-capj" d="'+CAPD+'" fill="'+CAP+'"/><g clip-path="url(#'+id+'c)"><path d="M54 20L84 20L84 55L60 55Q64 40 54 20Z" fill="'+CAPS+'"/><path d="M28 42Q29 31 40 27.4" stroke="'+CAPH+'" stroke-width="2" fill="none" stroke-linecap="round"/></g>';
   /* borde con grosor: baja un poco sobre la cabeza para que nunca aparezca un hueco */
-  s+='<path d="M22 51Q34 44 50 44Q66 44 78 51L78 53.6Q66 46.6 50 46.6Q34 46.6 22 53.6Z" fill="'+CAPS+'"/>';
+  s+='<path class="rk-capj" d="M22 51Q34 44 50 44Q66 44 78 51L78 53.6Q66 46.6 50 46.6Q34 46.6 22 53.6Z" fill="'+CAPS+'"/>';
   s+='<path d="M23.2 41.4Q50 31.6 76.8 41.4L76.4 44.4Q50 34.8 23.6 44.4Z" fill="'+STRAP+'"/>';
   s+='<ellipse cx="50" cy="25.6" rx="4.6" ry="1.7" fill="'+BRS+'"/><ellipse cx="50" cy="24.8" rx="4.6" ry="1.7" fill="'+BR+'"/>';
   return s}
@@ -4133,8 +4135,16 @@ var RUMBO=(function(){
  /* piernas: la parte alta entra por debajo del cuerpo */
  function legL(){var L="M41 70H47.4V88.6Q47.4 92 44 92H37.8Q35 92 35 90Q35 87.8 38 87.4L41 87Z";return '<path d="'+L+'" fill="'+LEG+'"/><path d="M44.4 70H47.4V88.6Q47.4 92 44 92H42Q44.4 91 44.4 88Z" fill="'+LEGS+'"/><path d="M35 90.4Q35 92 37.8 92H44Q47.4 92 47.4 89.6V90.4Z" fill="'+SOLE+'"/>'}
  function legR(){var R="M52.6 70H59V87L62 87.4Q65 87.8 65 90Q65 92 62.2 92H56Q52.6 92 52.6 88.6Z";return '<path d="'+R+'" fill="'+LEG+'"/><path d="M56 70H59V87L62 87.4Q63.6 87.6 64.4 88.4Q60 88.6 56 88.4Z" fill="'+LEGS+'"/><path d="M52.6 89.6Q52.6 92 56 92H62.2Q65 92 65 90.4Z" fill="'+SOLE+'"/>'}
- function armL(){return '<path d="M29 57.6Q22 59.6 20.8 66Q20.2 71.2 23.6 72.2Q26.8 72.8 28.4 67.4Z" fill="'+LEG+'"/><path d="M21.6 69.8Q22 72 23.6 72.2Q26.8 72.8 28.4 67.4Q25 70 21.6 69.8Z" fill="'+LEGS+'"/>'}
- function armR(){return '<path d="M71 57.6Q78 59.6 79.2 66Q79.8 71.2 76.4 72.2Q73.2 72.8 71.6 67.4Z" fill="'+LEG+'"/><path d="M78.4 69.8Q78 72 76.4 72.2Q73.2 72.8 71.6 67.4Q75 70 78.4 69.8Z" fill="'+LEGS+'"/>'}
+ /* brazos: hombro redondo centrado en el pivote (dentro del cuerpo), así la unión se ve igual en cualquier ángulo;
+    manga con su sombra del lado de afuera y puño un poco más oscuro */
+ var SHL=[27.8,62.4],SHR=[72.2,62.4];
+ function arm(sh,hx,hy,side){var x=sh[0],y=sh[1];
+  return '<path d="M'+x+' '+y+'L'+hx+' '+hy+'" stroke="'+LEG+'" stroke-width="6" stroke-linecap="round"/>'+
+   '<path d="M'+(x+side*1.6)+' '+(y+.4)+'L'+(hx+side*1.6)+' '+(hy+.2)+'" stroke="'+LEGS+'" stroke-width="2.4" stroke-linecap="round"/>'+
+   '<circle cx="'+hx+'" cy="'+hy+'" r="3" fill="'+LEGS+'"/><circle cx="'+(hx-side*.6)+'" cy="'+(hy-.7)+'" r="1.9" fill="'+LEG+'"/>'+
+   '<circle cx="'+x+'" cy="'+y+'" r="3" fill="'+LEG+'"/>'}
+ function armL(){return arm(SHL,21.4,71.6,-1)}
+ function armR(){return arm(SHR,78.6,71.6,1)}
 
  /* esqueleto: raíz › (sombra, piernas, cuerpo › (brazos, cuerpo, cara, gorro › (flecha, orejeras, casquete, gafas), cejas)).
     Cada grupo lleva data-px/data-py con su pivote; el motor escribe su transform completo en cada cuadro. */
@@ -4144,14 +4154,14 @@ var RUMBO=(function(){
   if(model==="A"){body=globe(id,27);skin="#F7E0BD"}
   else if(model==="B"){body=compass(id,false);skin="#FBF0DA"}
   else{body=compass(id,true);skin="#F7E0BD"}
-  var fc=face(skin);
+  var fc=face(skin,id);
   var hat=grp("rk-hat",50,46,grp("rk-arrow",50,26,arrow())+grp("rk-flapL",24,47,flapL())+grp("rk-flapR",76,47,flapR())+capParts(id)+grp("rk-gog",50,38,goggles()));
   return '<svg class="rbx rbx-'+model+'" viewBox="0 0 100 100" aria-hidden="true">'+
    grp("rk-root",50,92,
     '<g class="rk-shadow"><ellipse class="rk-sh" cx="50" cy="92" rx="21" ry="2.8" fill="var(--rb-sh,#13213F)" opacity=".2"/><ellipse cx="42" cy="92" rx="6.4" ry="1.3" fill="#13213F" opacity=".22"/><ellipse cx="58" cy="92" rx="6.4" ry="1.3" fill="#13213F" opacity=".22"/></g>'+
     grp("rk-legL",44,72,legL())+grp("rk-legR",56,72,legR())+
     grp("rk-body",50,82,
-     body+'<g class="rk-face">'+fc[0]+'</g>'+hat+'<g class="rk-brows">'+fc[1]+'</g>'+grp("rk-armL",27,60,armL())+grp("rk-armR",73,60,armR()))
+     body+'<g class="rk-face">'+fc[0]+'</g>'+hat+'<g class="rk-brows">'+fc[1]+'</g>'+grp("rk-armL",SHL[0],SHL[1],armL())+grp("rk-armR",SHR[0],SHR[1],armR()))
    )+'</svg>';
  }
 
@@ -4168,87 +4178,168 @@ var RUMBO=(function(){
   function T(el,o){if(!el)return;var px=+el.getAttribute("data-px")||0,py=+el.getAttribute("data-py")||0;
    el.setAttribute("transform","translate("+f((o.x||0)+px)+" "+f((o.y||0)+py)+") rotate("+f(o.r||0)+") scale("+f(o.sx==null?1:o.sx)+" "+f(o.sy==null?1:o.sy)+") translate("+(-px)+" "+(-py)+")")}
   function spring(sp,target,dt,k,c,lim){var a=-k*(sp.x-target)-c*sp.v;sp.v+=a*dt;sp.x+=sp.v*dt;if(sp.x>lim){sp.x=lim;sp.v*=-.2}if(sp.x<-lim){sp.x=-lim;sp.v*=-.2}return sp.x}
+  /* ---------- ojos: parámetros por expresión (ojo izquierdo, ojo derecho) ----------
+     u párpado de arriba (0 abierto, 1 cerrado) · b curva de su borde (+ cuelga, − arco) · t caída hacia afuera
+     l párpado de abajo (0 abajo, 1 arriba) · c curva de su borde (+ el centro sube) · s tamaño del ojo · p tamaño de pupila */
+  var D0={u:.1,b:.6,t:0,l:0,c:0,s:1,p:1};
+  function E(o){var r={};for(var k in D0)r[k]=o&&o[k]!=null?o[k]:D0[k];return r}
+  var ARC={u:.58,b:-3.4,l:.42,c:3.4},HAP={u:.04,l:.3,c:2.2};
+  var EP={idle:[E(),E()],talk:[E(),E()],happy:[E(HAP),E(HAP)],joy:[E(ARC),E(ARC)],wink:[E(HAP),E(ARC)],
+   curious:[E({u:.24,s:.97}),E({u:0,s:1.08})],think:[E({u:.22}),E({u:.22})],wow:[E({u:0,s:1.12,p:.66}),E({u:0,s:1.12,p:.66})],
+   sad:[E({u:.36,t:2.4}),E({u:.36,t:2.4})],sadhope:[E({u:.3,t:2}),E({u:.3,t:2})],
+   meh:[E({u:.42,b:0}),E({u:.42,b:0})],no:[E({u:.48,b:0,l:.22,c:-.4}),E({u:.48,b:0,l:.22,c:-.4})],
+   sleep:[E({u:.5,b:2.6,l:.5,c:-2.6}),E({u:.5,b:2.6,l:.5,c:-2.6})],yawn:[E({u:.46,l:.3,c:1}),E({u:.46,l:.3,c:1})]};
+  /* cejas: [subir(−)/bajar(+), giro] por ojo */
+  var BRW={idle:[[0,0],[0,0]],talk:[[-.4,0],[-.4,0]],happy:[[-.8,0],[-.8,0]],joy:[[-1.6,0],[-1.6,0]],wink:[[-1,0],[.6,7]],curious:[[.4,5],[-2.6,-8]],
+   think:[[-1.6,-8],[.6,4]],wow:[[-3,0],[-3,0]],sad:[[.8,-14],[.8,14]],sadhope:[[-.2,-10],[-.2,10]],meh:[[.8,0],[.8,0]],no:[[1.2,12],[1.2,-12]],sleep:[[1,0],[1,0]],yawn:[[-1.4,0],[-1.4,0]]};
+  var GZ={think:[-1.8,-2.2],curious:[1.6,-1],sadhope:[0,1.2],sad:[0,1.6],sleep:[0,1]};
+  /* dedo o cursor: los ojos lo siguen un rato después de cada movimiento */
+  var PTR={x:0,y:0,t:-1e9};
+  function onPtr(e){PTR.x=e.clientX;PTR.y=e.clientY;PTR.t=performance.now()}
+  window.addEventListener("pointermove",onPtr,{passive:true});window.addEventListener("pointerdown",onPtr,{passive:true});
   function init(svg){
    var q=function(c){return svg.querySelector("."+c)};
-   var st={t:0,g:{root:q("rk-root"),body:q("rk-body"),legL:q("rk-legL"),legR:q("rk-legR"),hat:q("rk-hat"),arrow:q("rk-arrow"),flapL:q("rk-flapL"),flapR:q("rk-flapR"),gog:q("rk-gog"),armL:q("rk-armL"),armR:q("rk-armR"),shadow:q("rk-shadow"),mouth:q("rk-mouth"),zz:q("rk-zz")},
-    gaze:Array.prototype.slice.call(svg.querySelectorAll(".rk-gaze")),lids:Array.prototype.slice.call(svg.querySelectorAll(".rk-lid")),
+   var st={t:0,g:{root:q("rk-root"),body:q("rk-body"),face:q("rk-face"),brows:q("rk-brows"),legL:q("rk-legL"),legR:q("rk-legR"),hat:q("rk-hat"),arrow:q("rk-arrow"),flapL:q("rk-flapL"),flapR:q("rk-flapR"),gog:q("rk-gog"),armL:q("rk-armL"),armR:q("rk-armR"),shadow:q("rk-shadow"),mouth:q("rk-mouth"),zz:q("rk-zz")},
+    eyes:Array.prototype.slice.call(svg.querySelectorAll(".rk-eye")).map(function(e,i){return {sq:e.querySelector(".rk-esq"),pup:e.querySelector(".rk-pup"),up:e.querySelector(".rk-up"),lash:e.querySelector(".rk-lash"),lo:e.querySelector(".rk-lo"),lol:e.querySelector(".rk-lol"),cx:EYE[i][0],cy:EYE[i][1],cur:E(),last:{}}}),
+    brw:Array.prototype.slice.call(svg.querySelectorAll(".rk-brow")).map(function(e){return {e:e,dy:0,a:0}}),
     dp:Array.prototype.slice.call(svg.querySelectorAll("[data-p]")).map(function(e){return {e:e,w:e.getAttribute("data-p").split(" "),o:-1}}),
-    w:{idle:1,walk:0,cheer:0},pose:{wave:0,point:0},act:null,blinkIn:rnd(1,4),blinkT:-1,twice:false,gz:[0,0],gzT:[0,0],gzIn:rnd(3,7),gzHold:0,
-    sp:{arrow:{x:0,v:0},flapL:{x:0,v:0},flapR:{x:0,v:0},gog:{x:0,v:0},hat:{x:0,v:0}},py:0,vy:0,flip:1};
+    w:{idle:1,walk:0,cheer:0},pose:{wave:0,point:0},act:null,ov:null,idleIn:rnd(10,15),lastIdle:"",
+    blinkIn:rnd(1,4),blinkT:-1,blinkD:.15,twice:false,mood:null,
+    gz:[0,0],gzT:[0,0],gzIn:rnd(2.5,5),gzHold:0,mic:[0,0],micIn:.5,rc:null,rcT:0,lk:null,lkT:0,
+    sp:{arrow:{x:0,v:0},flapL:{x:0,v:0},flapR:{x:0,v:0},gog:{x:0,v:0},hat:{x:0,v:0},hatR:{x:0,v:0},face:{x:0,v:0},faceX:{x:0,v:0},lean:{x:0,v:0},armL:{x:0,v:0},armR:{x:0,v:0}},
+    py:0,vy:0,px:0,vx:0,pr:0,vr:0};
    ST.set(svg,st);if(io)io.observe(svg);else VIS.set(svg,true);return st}
   function frame(now){
    raf=0;var dt=Math.min(.05,Math.max(0,(now-(last||now))/1000));last=now;
    if(document.hidden)return;
    var any=false,rm=RMq();
-   for(var i=0;i<list.length;i++){var svg=list[i],st=ST.get(svg)||init(svg);if(!VIS.get(svg))continue;any=true;step(svg,st,dt,rm)}
+   for(var i=0;i<list.length;i++){var svg=list[i],st=ST.get(svg)||init(svg);if(!VIS.get(svg))continue;any=true;step(svg,st,dt,rm,now)}
    if(any)raf=requestAnimationFrame(frame);
   }
   function go(){if(!raf&&!document.hidden){last=0;raf=requestAnimationFrame(frame)}}
   document.addEventListener("visibilitychange",go);
   /* registra los Rumbo que aparecen después */
   setInterval(function(){for(var i=0;i<list.length;i++)if(!ST.get(list[i]))init(list[i]);go()},600);
-  function act(st,k,dur){st.act={k:k,t:0,d:dur}}
-  function step(svg,st,dt,rm){
-   var wr=svg.parentNode,cls=wr&&wr.classList,mood=(wr&&wr.getAttribute("data-mood"))||"idle",g=st.g;st.t+=dt;var t=st.t;
+  var DUR={jump:.72,tilt:.6,shake:.45,look:1.1,wave:1.7,yes:1.05,oops:1.7,cheer:1.9,adjust:1.5,sway:2.4,yawn:1.9};
+  function act(st,k){st.act={k:k,t:0,d:DUR[k]}}
+  function ease(x){x=cl(x,0,1);return x*x*(3-2*x)}
+  /* envolvente: entra en a segundos, sale en b segundos antes del final */
+  function env(A,a,b){return Math.min(ease(A.t/a),ease((A.d-A.t)/b))}
+  function blink(st){if(st.blinkT<0){st.blinkT=0;st.blinkD=rnd(.12,.18);st.twice=Math.random()<.18}}
+  function setA(el,k,v,cache,key){if(cache[key]!==v){cache[key]=v;el.setAttribute(k,v)}}
+  /* salto con anticipación, estiramiento, aterrizaje y asentamiento */
+  function hop(p,H){H=H||16;var o={y:0,sy:1,up:0};if(p<.16){var k=ease(p/.16);o.y=1.6*k;o.sy=1-.075*k}else if(p<.72){var k2=(p-.16)/.56;o.y=-H*Math.sin(Math.PI*k2);o.sy=1+.06*Math.max(0,1-k2*2.6);o.up=1}else{var k3=(p-.72)/.28,sq=Math.sin(Math.PI*k3)*(1-k3*.4);o.sy=1-.07*sq;o.y=1.2*sq;o.up=1-ease(k3)}return o}
+  function step(svg,st,dt,rm,now){
+   var wr=svg.parentNode,cls=wr&&wr.classList,g=st.g;st.t+=dt;var t=st.t;
    if(!cls)return;
+   var dm=(wr.getAttribute("data-mood"))||"idle";
    /* acciones de un solo tiro que pide la app con clases a-* */
-   ["jump","tilt","shake","look"].forEach(function(k){if(cls.contains("a-"+k)){cls.remove("a-"+k);act(st,k,{jump:.72,tilt:.6,shake:.45,look:1.1}[k])}});
+   for(var k in DUR)if(cls.contains("a-"+k)){cls.remove("a-"+k);act(st,k)}
    var loop=cls.contains("walk")?"walk":(cls.contains("cheer")||cls.contains("dance"))?"cheer":"idle";
+   /* variaciones en reposo cada 10 a 15 s para que nunca se vea en bucle */
+   if(loop==="idle"&&!st.act&&!cls.contains("p-wave")&&!cls.contains("p-point")&&(dm==="idle"||dm==="happy")&&!rm){st.idleIn-=dt;if(st.idleIn<=0){var opts=["look","adjust","sway","yawn"].filter(function(o){return o!==st.lastIdle});st.lastIdle=opts[Math.floor(Math.random()*opts.length)];act(st,st.lastIdle);st.idleIn=rnd(10,15)}}
+   /* expresión efectiva: las coreografías pueden poner una por un momento */
+   var A=st.act,ovm=null;
+   if(A){var pa=A.t/A.d;ovm=A.k==="yes"||A.k==="cheer"?"joy":A.k==="wave"?"happy":A.k==="oops"?(pa<.45?"sad":"sadhope"):A.k==="yawn"?(pa>.12&&pa<.8?"yawn":null):A.k==="look"?"curious":null;if(ovm)st.ov={m:ovm,until:t+.35}}
+   var mood=st.ov&&t<st.ov.until?st.ov.m:dm;if(!EP[mood])mood=EP[dm]?dm:"idle";
+   if(st.mood!==mood){if(st.mood!==null&&mood!=="sleep"&&mood!=="joy")blink(st);st.mood=mood}
    /* mezcla suave entre estados (≈200 ms) */
    var a=1-Math.exp(-dt/.07);["idle","walk","cheer"].forEach(function(k){st.w[k]+=((k===loop?1:0)-st.w[k])*a});
    st.pose.wave+=((cls.contains("p-wave")?1:0)-st.pose.wave)*a;st.pose.point+=((cls.contains("p-point")?1:0)-st.pose.point)*a;
-   var W=st.w,B={x:0,y:0,r:0,sx:1,sy:1},lift=0,legL=0,legR=0,lyL=0,lyR=0,armL=0,armR=0,sway=0;
+   var W=st.w,B={x:0,y:0,r:0,sy:1},lift=0,legL=0,legR=0,lyL=0,lyR=0,aL=0,aR=0,sway=0,lean=0,gogY=0,look=null;
    if(!rm){
     /* reposo: respiración sutil y flecha que busca el norte */
-    var br=Math.sin(t*2*Math.PI/3.4),slp=mood==="sleep"?1.8:1;
-    var bw=cls.contains("float")?1:.25;B.sy+=W.idle*.016*br*slp*bw;B.sx-=W.idle*.008*br*slp*bw;sway+=W.idle*4*Math.sin(t*2*Math.PI/2.8);
-    /* caminar: piernas desde la cadera; el cuerpo sube con la pierna recta y baja al apoyar */
+    var br=Math.sin(t*2*Math.PI/3.4),slp=mood==="sleep"?1.8:1,bw=cls.contains("float")?1:.4;
+    B.sy+=W.idle*.016*br*slp*bw;B.y+=W.idle*-.25*br*bw;sway+=W.idle*4*Math.sin(t*2*Math.PI/2.8);
+    /* caminar: cada pie se levanta por turnos desde la cadera; el cuerpo sube con la pierna recta y baja al apoyar */
     var ph=t*2*Math.PI/.52,s1=Math.sin(ph),c2=Math.cos(2*ph);
-    /* de frente: cada pie se levanta por turnos, con un balanceo pequeño hacia el mismo lado */
-    legL+=W.walk*7*s1;legR+=W.walk*7*s1;lyL+=W.walk*-2.6*Math.max(0,s1);lyR+=W.walk*-2.6*Math.max(0,-s1);B.y+=W.walk*-2.2*(.5+.5*c2);B.r+=W.walk*3.5;B.sy+=W.walk*-.035*(.5-.5*c2);B.sx+=W.walk*.02*(.5-.5*c2);
-    armL+=W.walk*-16*s1;armR+=W.walk*16*s1;
-    /* celebrar: saltos con anticipación, estiramiento y aterrizaje */
-    function hop(p){var o={y:0,sx:1,sy:1,up:0};if(p<.14){var k=p/.14;o.y=1.4*k;o.sy=1-.07*k;o.sx=1+.05*k}else if(p<.74){var k2=(p-.14)/.6;o.y=-16*Math.sin(Math.PI*k2);o.sy=1+.06*Math.max(0,1-k2*3);o.sx=1-.03*Math.max(0,1-k2*3);o.up=1}else{var k3=(p-.74)/.26;var sq=Math.sin(Math.PI*k3);o.sy=1-.07*sq;o.sx=1+.05*sq;o.up=1-k3}return o}
-    if(W.cheer>.001){var hp=hop((t%.9)/.9);lift+=W.cheer*Math.min(0,hp.y);B.y+=W.cheer*Math.max(0,hp.y);B.sx+=W.cheer*(hp.sx-1);B.sy+=W.cheer*(hp.sy-1);armL+=W.cheer*hp.up*112;armR-=W.cheer*hp.up*112}
+    legL+=W.walk*7*s1;legR+=W.walk*7*s1;lyL+=W.walk*-2.6*Math.max(0,s1);lyR+=W.walk*-2.6*Math.max(0,-s1);B.y+=W.walk*-2.2*(.5+.5*c2);B.sy+=W.walk*-.035*(.5-.5*c2);
+    B.r+=W.walk*2.2*s1;aL+=W.walk*-16*s1;aR+=W.walk*16*s1;lean+=W.walk*3.5;
+    if(W.cheer>.001){var hp=hop((t%.9)/.9);lift+=W.cheer*Math.min(0,hp.y);B.y+=W.cheer*Math.max(0,hp.y);B.sy+=W.cheer*(hp.sy-1);aL+=W.cheer*hp.up*112;aR-=W.cheer*hp.up*112}
     /* poses */
-    armR+=st.pose.wave*(-96-16*(.5+.5*Math.sin(t*2*Math.PI/.9)))+st.pose.point*(-82);
-    /* acción en curso */
-    if(st.act){var A=st.act;A.t+=dt;var p=Math.min(1,A.t/A.d);
-     if(A.k==="jump"){var hj=hop(p);lift+=Math.min(0,hj.y);B.y+=Math.max(0,hj.y);B.sx+=hj.sx-1;B.sy+=hj.sy-1;armL+=hj.up*100;armR-=hj.up*100}
+    aR+=st.pose.wave*(-84-18*(.5+.5*Math.sin(t*2*Math.PI/.9)))+st.pose.point*(-82);lean+=st.pose.point*2;
+    /* coreografías */
+    if(A){A.t+=dt;var p=Math.min(1,A.t/A.d),e;
+     if(A.k==="jump"){var hj=hop(p);lift+=Math.min(0,hj.y);B.y+=Math.max(0,hj.y);B.sy+=hj.sy-1;aL+=hj.up*100;aR-=hj.up*100}
+     else if(A.k==="yes"){var hy2=hop(cl(p/.85,0,1),11);lift+=Math.min(0,hy2.y);B.y+=Math.max(0,hy2.y);B.sy+=hy2.sy-1;aL+=hy2.up*120;aR-=hy2.up*120}
+     else if(A.k==="cheer"){var q2=cl(p/.92,0,1),hc=hop((q2*2)%1,15);if(q2>=1)hc={y:0,sy:1,up:0};lift+=Math.min(0,hc.y);B.y+=Math.max(0,hc.y);B.sy+=hc.sy-1;e=env(A,.12,.35);aL+=e*135;aR-=e*135;B.r+=e*3*Math.sin(A.t*2*Math.PI/.45)}
+     else if(A.k==="wave"){e=env(A,.22,.35);aR+=e*(-86+(A.t>.3&&A.t<1.3?-22*Math.sin((A.t-.3)*2*Math.PI/.34):0));B.r+=-2.4*e;look=[1.2,-.4]}
+     else if(A.k==="oops"){var e1=ease(A.t/.32),e2=ease((A.t-.75)/.5);B.y+=1.8*e1*(1-e2);B.sy+=-.04*e1*(1-e2);B.r+=(-4*e1*(1-e2))+3*Math.sin(cl((A.t-.95)/.6,0,1)*Math.PI*2)*(1-ease((A.t-.95)/.6))*e2;aL+=-12*e1*(1-e2);aR+=12*e1*(1-e2);look=A.t<.9?[-.6,1.6]:null}
+     else if(A.k==="adjust"){e=env(A,.32,.4);aL+=e*146;gogY=A.t>.45&&A.t<.95?-1.2*Math.sin((A.t-.45)/.5*Math.PI):0;look=[0,-1.8]}
+     else if(A.k==="sway"){e=env(A,.4,.5);B.r+=3*Math.sin(A.t*2*Math.PI/1.2)*e}
+     else if(A.k==="yawn"){e=env(A,.4,.6);B.sy+=.045*e;aL+=40*e;aR-=40*e}
      else if(A.k==="tilt")B.r+=p<.3?-9*Math.sin(p/.3*Math.PI/2):p<.65?-9+15*((p-.3)/.35):6*(1-(p-.65)/.35);
      else if(A.k==="shake")B.x+=2.6*Math.sin(p*Math.PI*8)*(1-p);
-     else if(A.k==="look"){B.r+=(p>.22&&p<.58)?-6:p>.78?2*(1-p)/.22:0}
+     else if(A.k==="look"){B.r+=(p>.22&&p<.58)?-6:p>.78?2*(1-p)/.22:0;look=p<.22?[0,0]:p<.58?[-2,-.4]:p<.85?[2,-.4]:[0,0]}
      if(p>=1)st.act=null}
-    B.sx=cl(B.sx,.92,1.08);B.sy=cl(B.sy,.92,1.08);
+    B.sy=cl(B.sy,.92,1.08);
    }
-   /* secundarios con resortes: la flecha, las orejeras, las gafas y el gorro siguen al cuerpo con un leve retraso */
+   /* inclinación con resorte: al detenerse se pasa un poco y se asienta */
+   B.r+=rm?0:spring(st.sp.lean,lean,dt,70,7,8);
+   /* aplastar y estirar conservando el volumen */
+   B.sx=1/B.sy;
+   /* brazos con resorte (pequeño rebote al llegar) */
+   aL=rm?0:spring(st.sp.armL,aL,dt,170,14,150);aR=rm?0:spring(st.sp.armR,aR,dt,170,14,150);
+   /* velocidades del cuerpo para el escalonamiento: cara, luego gorro y gafas, al final orejeras y flecha */
    var yy=B.y+lift,vy=(yy-st.py)/(dt||.016);st.py=yy;st.vy+=(vy-st.vy)*.5;
-   var ar=spring(st.sp.arrow,sway+B.r*.6+cl(-st.vy*.12,-8,8)+(mood==="sad"?-10:0),dt,90,9,12);
-   var fl=spring(st.sp.flapL,cl(st.vy*.25,-15,15),dt,70,7,15),fr=spring(st.sp.flapR,cl(-st.vy*.25,-15,15),dt,70,7,15);
-   var gy=spring(st.sp.gog,cl(st.vy*.02,-1,1),dt,110,10,1.1),hy=spring(st.sp.hat,cl(st.vy*.025,-1.2,1.2),dt,120,12,1.2);
-   if(rm){ar=0;fl=0;fr=0;gy=0;hy=0}
-   /* raíz: mira hacia donde va */
+   var vx=(B.x-st.px)/(dt||.016);st.px=B.x;st.vx+=(vx-st.vx)*.5;var vr=(B.r-st.pr)/(dt||.016);st.pr=B.r;st.vr+=(vr-st.vr)*.5;
+   var fy=spring(st.sp.face,cl(st.vy*.012,-.8,.8),dt,190,17,.9),fx=spring(st.sp.faceX,cl(-st.vx*.012-st.vr*.01,-.8,.8),dt,190,17,.9);
+   var hy=spring(st.sp.hat,cl(st.vy*.025,-1.2,1.2),dt,120,12,1.2),hr=spring(st.sp.hatR,cl(-st.vr*.03,-4,4),dt,110,10,4);
+   var gy=spring(st.sp.gog,cl(st.vy*.03,-1.2,1.2)+gogY,dt,95,9,1.6);
+   var ar=spring(st.sp.arrow,sway+B.r*.6+cl(-st.vy*.12,-8,8)+(mood==="sad"?-10:0),dt,70,7,12);
+   var fl=spring(st.sp.flapL,cl(st.vy*.25+st.vr*.2,-15,15),dt,60,6,15),fr=spring(st.sp.flapR,cl(-st.vy*.25+st.vr*.2,-15,15),dt,60,6,15);
+   if(rm){ar=0;fl=0;fr=0;gy=0;hy=0;hr=0;fx=0;fy=0}
    var flip=cls.contains("left")?-1:1;
    /* el salto mueve todo el personaje; la sombra se queda en el suelo y se encoge */
    T(g.root,{sx:flip,y:lift});
    var hgt=Math.max(0,-lift);T(g.shadow,{y:-lift,sx:1-hgt/36,sy:1-hgt/36});
    T(g.body,B);T(g.legL,{r:legL,y:lyL+Math.max(0,B.y*.15)});T(g.legR,{r:legR,y:lyR+Math.max(0,B.y*.15)});
-   T(g.armL,{r:armL});T(g.armR,{r:armR});
-   T(g.hat,{y:hy});T(g.arrow,{r:ar});T(g.flapL,{r:fl});T(g.flapR,{r:fr});T(g.gog,{y:gy});
-   /* parpadeo: bajan los párpados; dobles de vez en cuando */
-   if(cls.contains("blink")&&st.blinkT<0)st.blinkIn=0;
-   var lid=0;if(mood==="sleep")lid=1;else{st.blinkIn-=dt;if(st.blinkIn<=0&&st.blinkT<0){st.blinkT=0;st.twice=Math.random()<.2}
-    if(st.blinkT>=0){st.blinkT+=dt;var bt=st.blinkT/.14;lid=bt<.5?bt*2:bt<1?2-bt*2:0;if(bt>=1){if(st.twice){st.twice=false;st.blinkT=-.0001;st.blinkIn=.09}else{st.blinkT=-1;st.blinkIn=rnd(2,6)}}}}
-   st.lids.forEach(function(l){l.setAttribute("transform","translate(0 49) scale(1 "+f(lid)+") translate(0 -49)")});
-   /* mirada: la app manda con g-l, g-r, g-u; si no, miradas ocasionales */
-   var tg=cls.contains("g-l")?[-2.2,.2]:cls.contains("g-r")?[2.2,.2]:cls.contains("g-u")?[.8,-1.6]:loop==="walk"?[1.6,0]:mood==="curious"?[1.6,-1.2]:mood==="think"?[-1.6,-1.6]:cls.contains("p-point")?[2.2,0]:null;
-   if(!tg){st.gzIn-=dt;if(st.gzIn<=0){st.gzT=[[-1.8,0],[1.8,0],[.8,-1],[0,0]][Math.floor(Math.random()*4)];st.gzHold=rnd(.8,1.6);st.gzIn=rnd(3,7)}if(st.gzHold>0){st.gzHold-=dt;if(st.gzHold<=0)st.gzT=[0,0]}tg=st.gzT}
-   var ga=1-Math.exp(-dt/.06);st.gz[0]+=(tg[0]-st.gz[0])*ga;st.gz[1]+=(tg[1]-st.gz[1])*ga;
-   st.gaze.forEach(function(e){e.setAttribute("transform","translate("+f(st.gz[0])+" "+f(st.gz[1])+")")});
-   /* expresiones con fundido corto */
-   var fa=1-Math.exp(-dt/.05);
+   T(g.armL,{r:aL});T(g.armR,{r:aR});
+   T(g.face,{x:fx,y:fy});T(g.brows,{x:fx,y:fy});
+   T(g.hat,{y:hy,r:hr});T(g.arrow,{r:ar});T(g.flapL,{r:fl});T(g.flapR,{r:fr});T(g.gog,{y:gy});
+   /* ---------- parpadeo: baja rápido (40 %) y sube más lento (60 %); a veces doble ---------- */
+   if(cls.contains("blink")||cls.contains("a-blink")){cls.remove("blink");cls.remove("a-blink");blink(st)}
+   var bl=0;if(mood!=="sleep"&&!rm){st.blinkIn-=dt;if(st.blinkIn<=0)blink(st);
+    if(st.blinkT>=0){st.blinkT+=dt;var bp=st.blinkT/st.blinkD;bl=bp<.4?1-Math.pow(1-bp/.4,2):bp<1?1-ease((bp-.4)/.6):0;
+     if(bp>=1){if(st.twice){st.twice=false;st.blinkT=-1;st.blinkIn=.08}else{st.blinkT=-1;st.blinkIn=rnd(2,6)}}}}
+   /* ---------- mirada ---------- */
+   var tg=null;
+   if(cls.contains("g-l"))tg=[-2.2,.2];else if(cls.contains("g-r"))tg=[2.2,.2];else if(cls.contains("g-u"))tg=[.8,-1.8];
+   else if(look)tg=look;
+   else if(now-PTR.t<2500){if(!st.rc||t-st.rcT>.3){st.rc=svg.getBoundingClientRect();st.rcT=t}var rc=st.rc;if(rc.width){var dx=PTR.x-(rc.left+rc.width/2),dy=PTR.y-(rc.top+rc.height*.56);tg=[2.1*cl(dx/180,-1,1)*flip,2*cl(dy/180,-1,1)]}}
+   if(!tg){var lsel=wr.getAttribute("data-look");if(lsel){if(!st.lk||t-st.lkT>.5){var le=document.querySelector(lsel);st.lk=le?le.getBoundingClientRect():null;st.lkT=t;st.rc=svg.getBoundingClientRect()}if(st.lk&&st.rc){var dx2=st.lk.left+st.lk.width/2-(st.rc.left+st.rc.width/2),dy2=st.lk.top+st.lk.height/2-(st.rc.top+st.rc.height*.56);tg=[2.1*cl(dx2/180,-1,1)*flip,2*cl(dy2/180,-1,1)]}}}
+   if(!tg)tg=loop==="walk"?[1.6,0]:cls.contains("p-point")?[2.2,0]:GZ[mood]||null;
+   if(!tg){st.gzIn-=dt;if(st.gzIn<=0){st.gzT=[[-1.9,0],[1.9,0],[.9,-1.2],[-.9,.8],[0,0]][Math.floor(Math.random()*5)];st.gzHold=rnd(.7,1.5);st.gzIn=rnd(2.5,6)}if(st.gzHold>0){st.gzHold-=dt;if(st.gzHold<=0)st.gzT=[0,0]}tg=st.gzT}
+   /* micro movimientos al sostener la mirada */
+   st.micIn-=dt;if(st.micIn<=0){st.mic=[rnd(-.28,.28),rnd(-.22,.22)];st.micIn=rnd(.35,.9)}
+   var tx=tg[0]+st.mic[0],ty=tg[1]+st.mic[1];
+   /* sacádico: si el punto cambia mucho, a veces parpadea antes */
+   if(Math.hypot(tg[0]-(st.lt||[0,0])[0],tg[1]-(st.lt||[0,0])[1])>1.4&&Math.random()<.45)blink(st);st.lt=tg;
+   var ga=rm?1:1-Math.exp(-dt/.028);st.gz[0]+=(tx-st.gz[0])*ga;st.gz[1]+=(ty-st.gz[1])*ga;
+   /* ---------- párpados, pupilas y cejas ---------- */
+   var ea=rm?1:1-Math.exp(-dt/.055),tgE=EP[mood],tgB=BRW[mood]||BRW.idle;
+   st.eyes.forEach(function(ey,i){var c=ey.cur,T0=tgE[i];for(var k in c)c[k]+=(T0[k]-c[k])*ea;
+    var cx=ey.cx,cy=ey.cy,rx=ERX,ry=ERY,closed=c.u+c.l>.95,b=closed?0:bl;
+    var l=c.l+(Math.max(c.l,.4)-c.l)*b,u=c.u+((1-l)-c.u)*b,bb=c.b+(1.4-c.b)*b,cc=c.c+(-1.4-c.c)*b;
+    var side=i===0?-1:1,x0=cx-rx-1.2,x1=cx+rx+1.2,yu=cy-ry+u*2*ry,yo=yu+c.t,yi=yu-c.t*.25;
+    var yuL=side<0?yo:yi,yuR=side<0?yi:yo,qu=2*(yu+bb)-(yuL+yuR)/2;
+    var yl=cy+ry-l*2*ry,ql=2*(yl-cc)-yl;
+    var up="M"+f(x0)+" "+f(cy-ry-1.5)+"H"+f(x1)+"V"+f(yuR)+"Q"+f(cx)+" "+f(qu)+" "+f(x0)+" "+f(yuL)+"Z";
+    var la0=cx-rx-.3,la1=cx+rx+.3,lash="M"+f(la0)+" "+f(yuL)+"Q"+f(cx)+" "+f(qu)+" "+f(la1)+" "+f(yuR);
+    var lo="M"+f(x0)+" "+f(cy+ry+1.5)+"H"+f(x1)+"V"+f(yl)+"Q"+f(cx)+" "+f(ql)+" "+f(x0)+" "+f(yl)+"Z";
+    var lol="M"+f(la0)+" "+f(yl)+"Q"+f(cx)+" "+f(ql)+" "+f(la1)+" "+f(yl);
+    var shut=cl((u+l-.7)/.3,0,1);
+    setA(ey.up,"d",up,ey.last,"u");setA(ey.lash,"d",lash,ey.last,"a");setA(ey.lo,"d",lo,ey.last,"o");setA(ey.lol,"d",lol,ey.last,"ol");
+    setA(ey.lash,"stroke-width",f(1.5+.6*shut),ey.last,"aw");setA(ey.lol,"stroke-opacity",f(cl(l*5,0,1)),ey.last,"lo");
+    var ssx=c.s*(1+.03*bl),ssy=c.s*(1-.08*bl);
+    setA(ey.sq,"transform","translate("+cx+" "+cy+") scale("+f(ssx)+" "+f(ssy)+") translate("+(-cx)+" "+(-cy)+")",ey.last,"s");
+    setA(ey.pup,"transform","translate("+f(st.gz[0]+cx)+" "+f(st.gz[1]+.8*bl+cy)+") scale("+f(c.p)+") translate("+(-cx)+" "+(-cy)+")",ey.last,"p")});
+   st.brw.forEach(function(bw2,i){var tb=tgB[i];bw2.dy+=(tb[0]-bw2.dy)*ea;bw2.a+=(tb[1]-bw2.a)*ea;var e2=EYE[i],lift2=bl*.5;
+    bw2.e.setAttribute("transform","translate("+f(e2[0]+st.gz[0]*.15)+" "+f(e2[1]-ERY-2.9+bw2.dy+lift2)+") rotate("+f(bw2.a)+")")});
+   /* bocas con fundido corto */
+   var fa=rm?1:1-Math.exp(-dt/.05);
    st.dp.forEach(function(d){var tgt=d.w.indexOf(mood)>-1?1:0;if(d.o<0)d.o=tgt;else d.o+=(tgt-d.o)*fa;var v=Math.round(d.o*100)/100;if(v!==d.last){d.e.style.opacity=v;d.last=v}});
-   if(g.mouth&&mood==="talk"){var m=.35+.65*(.5+.5*Math.sin(t*2*Math.PI*3.6));g.mouth.setAttribute("transform","translate(0 63.6) scale(1 "+f(m)+") translate(0 -63.6)")}
+   if(g.mouth&&mood==="talk"){var m=.35+.65*(.5+.5*Math.sin(t*2*Math.PI*3.6));g.mouth.setAttribute("transform","translate(0 67.8) scale(1 "+f(m)+") translate(0 -67.8)")}
    if(g.zz){var z=(t%2.4)/2.4;g.zz.setAttribute("transform","translate("+f(z*2)+" "+f(2-z*6)+")");g.zz.style.opacity=mood==="sleep"?f(Math.sin(Math.PI*z)):0}
   }
   return {go:go};
@@ -6207,10 +6298,10 @@ function renderRumbo(){
  document.documentElement.classList.add("art-on");
  var M=RUMBO.models,NM=RUMBO.NAMES,cur=RUMBO.pick(),h="";
  var DESC={v1:"El que se usa hoy: gorro detrás con correa en diagonal y volumen con degradado.",A:"El mismo Rumbo con cuerpo de globo, en estilo plano: formas grandes, un tono de sombra, ojos grandes.",B:"El cuerpo es una brújula: aro grueso de latón, carátula crema con marcas simples; la flecha hace de aguja.",C:"Globo terráqueo dentro de un aro de brújula con marcas cardinales."};
- var EXP=[["idle","Neutral"],["happy","Feliz"],["joy","Muy feliz"],["curious","Curioso"],["think","Pensando"],["wow","Sorprendido"],["wink","Guiño"],["sadhope","Triste con ánimo"],["sleep","Dormido"],["joy","Celebrando","cheer"]];
+ var EXP=[["idle","Neutral"],["happy","Feliz"],["joy","Muy feliz"],["curious","Curioso"],["think","Pensando"],["wow","Sorprendido"],["wink","Guiño"],["sad","Triste"],["sadhope","Triste con ánimo"],["sleep","Dormido"],["joy","Celebrando","cheer"]];
  var POS=[["","De pie","idle"],["p-wave","Saludando","happy"],["p-point","Señalando","curious"],["cheer","Saltando","happy"],["walk","Caminando","idle"]];
  function rb(m,px,mood,cls){return '<div class="ia-rb" style="width:'+px+'px;height:'+px+'px"><div class="rb float '+(cls||"")+'" data-mood="'+(mood||"idle")+'">'+RUMBO.svg(m)+'<div class="burst"></div></div></div>'}
- h+='<header class="ia-h"><h1>Rumbo</h1><p>Elige qué modelo usa la app. Tu elección se guarda en este dispositivo y cambia a Rumbo en todas las pantallas: carga, inicio, perfil, test, mapa, avisos y estados vacíos. Mientras no elijas, la app usa el modelo A.</p></header>';
+ h+='<header class="ia-h"><h1>Rumbo</h1><p>Elige qué modelo usa la app. Tu elección se guarda en este dispositivo y cambia a Rumbo en todas las pantallas: carga, inicio, perfil, test, mapa, avisos y estados vacíos. Mientras no elijas, la app usa el modelo B. Los ojos siguen tu dedo o tu cursor.</p></header>';
  h+='<section><h2>Elige el modelo</h2><div class="ia-rbpick" role="radiogroup" aria-label="Modelo de Rumbo">'+M.map(function(m){return '<button type="button" role="radio" class="ia-rbopt" data-m="'+m+'" aria-checked="'+(m===cur)+'">'+rb(m,120)+'<b>'+NM[m]+'</b><span>'+DESC[m]+'</span></button>'}).join("")+'</div></section>';
  M.forEach(function(m){
   h+='<section class="ia-rbmodel"><h2>'+NM[m]+'</h2>';
@@ -6218,25 +6309,22 @@ function renderRumbo(){
    '<figure><div class="ia-sil" style="padding:6px;border-radius:12px;background:#FFF">'+rb(m,128)+'</div><figcaption>Silueta</figcaption></figure><figure class="is-night" style="padding:10px;border-radius:14px">'+rb(m,96)+'<figcaption>96 px, noche</figcaption></figure></div>';
   h+='<h3>Expresiones</h3><div class="ia-rbrow">'+EXP.map(function(e){return '<figure>'+rb(m,110,e[0],e[2])+'<figcaption>'+e[1]+'</figcaption></figure>'}).join("")+'</div>';
   if(m!=="v1")h+='<h3>Poses</h3><div class="ia-rbrow">'+POS.map(function(p){return '<figure>'+rb(m,130,p[2],p[0])+'<figcaption>'+p[1]+'</figcaption></figure>'}).join("")+'</div>';
-  h+='<h3>Animaciones</h3><div class="ia-rbanim"><div class="ia-rbstage">'+rb(m,180)+'</div><div class="ia-rbbtns">'+[["blink","Parpadear"],["breathe","Respirar"],["walk","Caminar"],["jump","Saltar"],["tilt","Ladear"],["shake","Negar"],["wave","Saludar"],["point","Señalar"],["look","Mirar alrededor"],["talk","Hablar"]].map(function(b){return '<button type="button" class="ia-pick" data-a="'+b[0]+'">'+b[1]+'</button>'}).join("")+'</div></div>';
+  h+='<h3>Animaciones</h3><div class="ia-rbanim"><div class="ia-rbstage">'+rb(m,180)+'</div><div class="ia-rbbtns">'+[["blink","Parpadear"],["breathe","Respirar"],["wave","Saludar"],["yes","Acierto"],["oops","Error con ánimo"],["cheer","Celebración grande"],["walk","Caminar / detenerse"],["point","Señalar"],["look","Mirar alrededor"],["adjust","Acomodarse las gafas"],["sway","Balancearse"],["yawn","Bostezar"],["jump","Saltar"],["tilt","Ladear"],["shake","Negar"],["talk","Hablar"]].map(function(b){return '<button type="button" class="ia-pick" data-a="'+b[0]+'">'+b[1]+'</button>'}).join("")+'</div></div>';
   h+='</section>';
  });
  var el=document.createElement("div");el.id="art";el.className="ia";el.innerHTML=h;document.body.appendChild(el);
  each(el.querySelectorAll(".ia-rbopt"),function(b){b.onclick=function(){RUMBO.pick(b.getAttribute("data-m"));each(el.querySelectorAll(".ia-rbopt"),function(o){o.setAttribute("aria-checked",o===b?"true":"false")});toast("Listo: la app usará "+NM[b.getAttribute("data-m")])}});
  each(el.querySelectorAll(".ia-rbanim"),function(box){var r=box.querySelector(".rb");
   each(box.querySelectorAll("[data-a]"),function(b){b.onclick=function(){var a=b.getAttribute("data-a");
-   if(a==="blink"){r.classList.add("blink");setTimeout(function(){r.classList.remove("blink")},140)}
-   else if(a==="breathe"){r.classList.toggle("float")}
+   if(a==="breathe"){r.classList.toggle("float")}
    else if(a==="walk"){r.classList.toggle("walk")}
-   else if(a==="jump")mood(r,"joy","jump");
-   else if(a==="tilt")mood(r,"happy","tilt");
-   else if(a==="shake")mood(r,"no","shake");
-   else if(a==="look")mood(r,"curious","look");
-   else if(a==="wave"){r.classList.toggle("p-wave");mood(r,r.classList.contains("p-wave")?"happy":"idle")}
-   else if(a==="point"){r.classList.toggle("p-point");mood(r,r.classList.contains("p-point")?"curious":"idle")}
-   else if(a==="talk"){mood(r,r.getAttribute("data-mood")==="talk"?"idle":"talk")}
+   else if(a==="point"){r.classList.toggle("p-point");r.setAttribute("data-mood",r.classList.contains("p-point")?"curious":"idle")}
+   else if(a==="talk"){r.setAttribute("data-mood",r.getAttribute("data-mood")==="talk"?"idle":"talk")}
+   else if(a==="shake"){r.setAttribute("data-mood","no");r.classList.add("a-shake");setTimeout(function(){r.setAttribute("data-mood","idle")},1400)}
+   else r.classList.add("a-"+a);
   }})});
 }
+window.__RUMBO=RUMBO;window.__ART=ART;
 
 /*@iso-js-fin*/
 /* ================= sistema de diseño: iconos, sonidos y catálogo #kit ================= */

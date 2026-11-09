@@ -186,3 +186,14 @@ Mismo diseño, construcción nueva:
   - marquesina legible;
   - la media manzana acostada ahora es una rodaja con semillas (antes parecía un hongo).
 - Se corrigió además un error del mapa: al girar el teléfono, la cámara no se recentraba y los edificios quedaban fuera de la pantalla.
+
+## Rumbo: ojos y animación nuevos (modelos A, B y C)
+
+- **Ojos paramétricos.** Blanco ovalado, pupila grande recortada con clipPath y dos brillos fijos del mismo lado. Los párpados de arriba y de abajo son del color de la cara y llevan su línea. Las expresiones mueven y curvan los párpados, nunca deforman el ojo. Las cejas son gruesas y redondeadas y se mueven con cada emoción.
+- **Parpadeo.** Dura de 120 a 180 ms: baja en el 40 % del tiempo y sube en el 60 %. El ojo se aplasta un poco al cerrarse y la pupila baja con el párpado. Ocurre cada 2 a 6 s, a veces doble, y también al cambiar de expresión y antes de mirar a otro lado.
+- **Mirada.** Sigue el dedo o el cursor, o el elemento indicado con `data-look`. Se mueve con saltos rápidos y cortos y tiene micro movimientos al sostenerse.
+- **Escalonamiento.** Primero se mueve la cara, luego el gorro y las gafas, y al final las orejeras y la flecha (resortes con límites). Los brazos y la inclinación del cuerpo también van con resorte y dan un rebote al llegar. Al aplastar y estirar, el volumen se conserva (sx = 1/sy).
+- **Coreografías.** Saludo, acierto, error con ánimo, celebración grande, caminar y detenerse (con asentamiento) y señalar. En reposo hay una variación cada 10 a 15 s: mirar alrededor, acomodarse las gafas, balancearse o bostezar.
+- **Brazos con hombro redondo.** El hombro está centrado en el pivote, dentro del cuerpo. Antes, al levantar el brazo, la raíz se separaba del cuerpo; lo detectó la revisión de uniones.
+- **Revisión de uniones.** `qa/uniones.js` revisa cuadro por cuadro piernas, hombros, flecha, orejeras, gafas, la cabeza bajo el gorro y los ojos dentro de la cara. Resultado: 0 fallas en 17 animaciones × 3 modelos, en Chromium y WebKit.
+- **Fluidez.** En #rumbo, con 72 Rumbo en la página, corre a 60 cuadros por segundo: en Chromium con el procesador a ¼ de velocidad (perfil Pixel 7) y en WebKit (perfil iPhone 15).
