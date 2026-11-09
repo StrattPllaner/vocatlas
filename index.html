@@ -2299,6 +2299,8 @@ function buildMap(){
  var w=$("#world");w.innerHTML="";refs={};
  var layer=$("#mlayer");layer.innerHTML="";labels=[];lod="";layer.className="";
  var defs=sv("defs",{},w);
+ var iso=isoReady();
+ if(iso)isoWorld(w,defs);else{
  var lg=sv("linearGradient",{id:"landg",x1:0,y1:0,x2:0,y2:1},defs);
  sv("stop",{offset:"0","class":"lg0"},lg);sv("stop",{offset:"1","class":"lg1"},lg);
  /* oleaje: patrón continuo para que el mar nunca se corte */
@@ -2399,13 +2401,16 @@ function buildMap(){
   var g=sv("g",{"class":"poi",id:"poi-"+c.id,"data-id":c.id,transform:"translate("+c.cx.toFixed(1)+" "+(c.cy-3).toFixed(1)+")"},poiL);
   g.innerHTML=poiSVG(c);
  });
+ }
  buildFx();
 
  /* etiquetas HTML */
  function addLabel(cls,x,y,html){var e=document.createElement("div");e.className="ml "+cls;e.innerHTML=html;layer.appendChild(e);var l={el:e,x:x,y:y,hid:false};labels.push(l);return e}
+ if(iso){ISOW.seas.forEach(function(s){addLabel("sl",s[1],s[2],'<span class="t">'+esc(s[0])+"</span>")});ISOW.areas.forEach(function(a){addLabel("al",a[1],a[2],'<span class="t">'+esc(a[0])+"</span>")})}
+ else{
  SEAS.forEach(function(s){addLabel("sl",s[1]*K,s[2]*K,'<span class="t">'+esc(s[0])+"</span>")});
  DECO.forEach(function(d){var e=addLabel("deco "+d[0],d[1]*K,d[2]*K,"<i>"+DECO_SVG[d[0]]+"</i>");labels[labels.length-1].z=d[3]||1;if(d[4])e.firstChild.style.animationDelay=d[4]});
- ALABELS.forEach(function(a){addLabel("al",a[1]*K,a[2]*K,'<span class="t">'+esc(a[0])+"</span>")});
+ ALABELS.forEach(function(a){addLabel("al",a[1]*K,a[2]*K,'<span class="t">'+esc(a[0])+"</span>")});}
  C.forEach(function(c,i){
   var e=addLabel("mpin",c.cx,c.cy,'<span class="pl"><span class="pd"><svg class="i-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><svg class="i-mid" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.6" stroke-linecap="round"><path d="M6 12h12"/></svg><svg class="i-no" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"><path d="M7 7l10 10M17 7L7 17"/></svg></span>'+esc(c.name)+"<small></small></span>");
   e.setAttribute("data-id",c.id);e.setAttribute("role","button");e.setAttribute("tabindex","0");e.setAttribute("aria-label",c.name+(S.res[c.id]?", ya probada":"")+". Ir con Rumbo");
@@ -2424,6 +2429,73 @@ function nearWorld(x,y,s){
  for(var i=0;i<C.length;i++){var dx=x-C[i].cx,dy=y-C[i].cy;if(Math.abs(dx)<52+s&&dy>-92-s&&dy<18+s)return true}
  for(var j=0;j<EDGES.length;j++){var p=EDGES[j].pts;for(var k=0;k<p.length;k++)if(Math.hypot(p[k][0]-x,p[k][1]-y)<18+s)return true}
  return false;
+}
+/* ---------- mapa isométrico (el mismo mundo generado de #art) ----------
+   Se genera una vez al abrir el mapa: islas, caminos, puentes y edificios salen de MAPGEN/ISOMAP; aquí se traducen
+   al motor del mapa (nodos, aristas, puertas de cada edificio y territorios) para que Rumbo camine igual que antes. */
+var ISOW=null;
+function isoReady(){
+ if(ISOW)return true;
+ if(typeof MAPGEN==="undefined"||typeof ISOMAP==="undefined"||typeof ISOFIX==="undefined"||typeof ISO==="undefined")return false;
+ try{isoGeo();return true}catch(e){if(window.console)console.warn("mapa isométrico:",e);ISOW=null;return false}
+}
+function isoGeo(){
+ var W=MAPGEN.build(ISOFIX.catalog(20),ISOFIX.AREAS),P=ISO.P,ZT=8;
+ var mobile=Math.min(innerWidth,innerHeight)<700;
+ var R=ISOMAP.render(W,{app:true,detail:mobile?1:2,budget:mobile?{isle:5,sea:3}:null});
+ var sb=R.box,pad=240,OX=pad-sb[0],OY=pad-sb[1];
+ WW=Math.round(sb[2]-sb[0]+2*pad);WH=Math.round(sb[3]-sb[1]+2*pad);
+ function pj(p,z){var q=P(p[0],p[1],z||0);return [q[0]+OX,q[1]+OY]}
+ var door={};
+ W.nodes.forEach(function(n){var c=byId[n.id];if(!c)return;door[n.id]=[n.x+30,n.y+30];var q=pj(door[n.id],ZT);c.cx=q[0];c.cy=q[1];c.bx=pj([n.x,n.y],ZT);c.isle=n.isle.id});
+ Object.keys(NODES).forEach(function(k){delete NODES[k]});
+ C.forEach(function(c){NODES[c.id]=[c.cx,c.cy]});
+ EDGES.length=0;
+ W.bridges.forEach(function(b,i){var a="k"+i+"a",c="k"+i+"b";NODES[a]=pj(b.p0,2);NODES[c]=pj(b.p1,2);EDGES.push({a:a,b:c,pts:[NODES[a],NODES[c]],bridge:true});b.ka=a;b.kb=c});
+ W.edges.forEach(function(e){
+  var A=W.byId[e.a],isle=A.isle,end=null;
+  if(e.dock){var last=e.pts[e.pts.length-1];W.bridges.forEach(function(b){if(Math.hypot(b.p0[0]-last[0],b.p0[1]-last[1])<1)end=b.ka;else if(Math.hypot(b.p1[0]-last[0],b.p1[1]-last[1])<1)end=b.kb});if(!end)return}
+  var B=e.b?W.byId[e.b]:null;
+  var mid=e.pts.filter(function(p){return Math.hypot(p[0]-A.x,p[1]-A.y)>46&&(!B||Math.hypot(p[0]-B.x,p[1]-B.y)>46)});
+  if(end)mid=mid.slice(0,-1);
+  var pts=[door[e.a]].concat(mid);if(B)pts.push(door[e.b]);
+  var q=pts.map(function(p){return pj(p,W.inPoly(p[0],p[1],isle.plateau)?ZT:0)});
+  if(end)q.push(NODES[end]);
+  EDGES.push({a:e.a,b:B?e.b:end,pts:q,bridge:false});
+ });
+ Object.keys(ADJ).forEach(function(k){delete ADJ[k]});Object.keys(NODES).forEach(function(k){ADJ[k]=[]});
+ EDGES.forEach(function(E){var f=dirEdge(E.a,E.b,E.pts),r=dirEdge(E.b,E.a,E.pts.slice().reverse());f.rev=r;r.rev=f;ADJ[E.a].push(f);ADJ[E.b].push(r)});
+ /* nombres de área sobre cada isla y de mares junto a los puentes y al borde */
+ var areas=W.islands.map(function(L){var top=null;L.coast.forEach(function(p){var q=pj(p,0);if(!top||q[1]<top[1])top=q});var c=pj([L.x,L.y],0);return [L.area.name.toUpperCase(),c[0],top[1]-34]});
+ var SN=["Bahía de la Curiosidad","Estrecho de Prepa","Mar de las Preguntas","Canal de los Sueños"],seas=[["Mar de las Preguntas",pad*.9,WH-pad*.55]];
+ seas.push(["Océano de las Posibilidades",WW/2,pad*.5]);
+ ISOW={W:W,R:R,OX:OX,OY:OY,pj:pj,ZT:ZT,areas:areas,seas:seas};
+}
+function isoWorld(w,defs){
+ var R=ISOW.R.parts,OX=ISOW.OX,OY=ISOW.OY,tr="translate("+OX.toFixed(1)+" "+OY.toFixed(1)+")",night=(DMQ&&DMQ.matches)?" is-night":"";
+ var wp=sv("pattern",{id:"waves",width:300,height:300,patternUnits:"userSpaceOnUse"},defs),tx=seaTile();if(tx)sv("image",{href:tx,width:300,height:300},wp);
+ sv("rect",{x:-3*WW,y:-3*WH,width:7*WW,height:7*WH,fill:"url(#waves)"},w);
+ var g1=sv("g",{"class":"gm isow"+night,transform:tr,"pointer-events":"none"},w);
+ g1.innerHTML='<defs>'+R.defs+'</defs><g class="m-sea">'+R.sea+'</g><g class="m-land">'+R.land+'</g>';
+ /* territorios: celdas por carrera sobre la meseta de su isla, para pintar lo que ya probaste */
+ var tL=sv("g",{},w);
+ ISOW.W.islands.forEach(function(L){
+  var plat=L.plateau.map(function(p){return ISOW.pj(p,ISOW.ZT)}),d="M"+plat.map(function(q){return q[0].toFixed(1)+" "+q[1].toFixed(1)}).join("L")+"Z";
+  var cp=sv("clipPath",{id:"clip-"+L.id},defs);sv("path",{d:d},cp);
+  var inner=sv("g",{"clip-path":"url(#clip-"+L.id+")"},tL);
+  var cs=C.filter(function(c){return c.isle===L.id}),sites=cs.map(function(c){return c.bx});
+  var dmin=1e9;for(var a=0;a<sites.length;a++)for(var b=a+1;b<sites.length;b++)dmin=Math.min(dmin,Math.hypot(sites[a][0]-sites[b][0],sites[a][1]-sites[b][1]));if(dmin>1e8)dmin=200;
+  var ws=cs.map(function(c){return dmin*dmin*.6*AFF[c.id].aff});
+  var xs=plat.map(function(q){return q[0]}),ys=plat.map(function(q){return q[1]}),bb=[Math.min.apply(null,xs)-60,Math.min.apply(null,ys)-60,Math.max.apply(null,xs)+60,Math.max.apply(null,ys)+60];
+  cs.forEach(function(c,i){
+   var poly=cellPoly(i,sites,ws,bb),ps=ptsStr(poly),tg=sv("g",{"class":"terr","data-id":c.id},inner);
+   sv("polygon",{points:ps,fill:c.color,"class":"t-base"},tg);var sep=sv("polygon",{points:ps,"class":"t-sep"},tg);sv("polygon",{points:ps,"class":"t-sel"},tg);
+   var Rr=0;poly.forEach(function(q){Rr=Math.max(Rr,Math.hypot(q[0]-c.cx,q[1]-c.cy))});
+   refs[c.id]={g:tg,sep:sep,ps:ps,R:Rr,host:inner};
+  });
+ });
+ var g2=sv("g",{"class":"gm isow"+night,transform:tr},w);
+ g2.innerHTML='<g class="m-roads" pointer-events="none">'+R.roads+'</g><g pointer-events="none">'+R.seaObjs+'</g><g class="m-objs">'+R.objs+'</g><g class="m-top" pointer-events="none">'+R.top+'</g>';
 }
 /* capa de efectos: niebla sobre lo no visitado y huellitas; vive en su propio svg para no repintar el mapa */
 var fogs={},stepsL=null;
@@ -2533,10 +2605,11 @@ function placeRumbo(){
 var occKey="";
 function occlude(s,k){
  var hw=36*k/s,front=[];
- for(var i=0;i<C.length;i++){var c=C[i];if(c.cy>RB.y+3&&c.cy-96<RB.y&&Math.abs(c.cx-RB.x)<46+hw)front.push(c)}
- front.sort(function(a,b){return a.cy-b.cy});
+ if(ISOW){for(var i=0;i<C.length;i++){var c=C[i],b=c.bx;if(b[1]+14>RB.y&&b[1]-120<RB.y&&Math.abs(b[0]-RB.x)<64+hw)front.push(c)}front.sort(function(a,b){return a.bx[1]-b.bx[1]})}
+ else{for(var i=0;i<C.length;i++){var c=C[i];if(c.cy>RB.y+3&&c.cy-96<RB.y&&Math.abs(c.cx-RB.x)<46+hw)front.push(c)}front.sort(function(a,b){return a.cy-b.cy})}
  var key=front.map(function(c){return c.id}).join(",");if(key===occKey)return;occKey=key;
- $("#occw").innerHTML=front.map(function(c){return '<use href="#poi-'+c.id+'"/>'}).join("");
+ var uses=front.map(function(c){return '<use href="#poi-'+c.id+'"/>'}).join("");
+ $("#occw").innerHTML=ISOW?'<g transform="translate('+ISOW.OX.toFixed(1)+' '+ISOW.OY.toFixed(1)+')">'+uses+'</g>':uses;
 }
 var raf=0,zt=null;
 function stopAnim(){if(raf){cancelAnimationFrame(raf);raf=0}zt=null}
@@ -6596,6 +6669,10 @@ var ISOMAP=(function(I,E,G){
   W.nodes.forEach(function(n){
    var c=n.c,k=aff[c.id]!=null?aff[c.id]:.5,sc=(.92+.22*k).toFixed(3),p=pj([n.x,n.y],Z_TOP),v=opt.style||null,id=I.uid("b");
    var full,lite;
+   if(opt.app){/* app: una sola versión (estructura), con id de edificio para tocar y redibujar delante de Rumbo */
+    full=typeof ART!=="undefined"&&ART.has(c.id)?ART.get(c.id,opt.detail||2,"s"):E.generic(n.isle.area.biome,c.color,G.hs(c.id));
+    defs+='<g id="'+id+'f">'+full+'</g>';
+    objs.push({k:n.x+n.y,s:'<g class="poi m-b" id="poi-'+c.id+'" data-id="'+c.id+'" transform="translate('+f1(p[0])+' '+f1(p[1])+') scale('+sc+')"><use href="#'+id+'f"/></g>'});return}
    if(typeof ART!=="undefined"&&ART.has(c.id)){full=ART.get(c.id,2,v);lite=ART.get(c.id,0,v)}
    else{full=E.generic(n.isle.area.biome,c.color,G.hs(c.id));lite=full}
    defs+='<g id="'+id+'f">'+full+'</g><g id="'+id+'l">'+lite+'</g>';
@@ -6635,7 +6712,8 @@ var ISOMAP=(function(I,E,G){
   for(var gu=0;gu<(opt.budget?1:4);gu++){var sp3=seaSpot(300+gu,30),p3=pj(sp3,0);top+='<g transform="translate('+f1(p3[0])+' '+f1(p3[1]-70)+')">'+E.gull()+'</g>'}
   /* caja en pantalla */
   var sb=[1e9,1e9,-1e9,-1e9];W.islands.forEach(function(L){L.coast.forEach(function(p){var q=pj(p,0);sb[0]=Math.min(sb[0],q[0]);sb[1]=Math.min(sb[1],q[1]-120);sb[2]=Math.max(sb[2],q[0]);sb[3]=Math.max(sb[3],q[1]+20)})});
-  return {svg:'<defs>'+defs+'</defs><g class="m-sea">'+sea+gl+'</g><g class="m-land">'+land+'</g><g class="m-roads">'+roads+'</g>'+seaObjs+'<g class="m-objs">'+objs.map(function(o){return o.s}).join("")+'</g><g class="m-top">'+top+'</g>',box:sb};
+  var objsS=objs.map(function(o){return o.s}).join("");
+  return {parts:{defs:defs,sea:sea+gl,land:land,roads:roads,seaObjs:seaObjs,objs:objsS,top:top},svg:'<defs>'+defs+'</defs><g class="m-sea">'+sea+gl+'</g><g class="m-land">'+land+'</g><g class="m-roads">'+roads+'</g>'+seaObjs+'<g class="m-objs">'+objs.map(function(o){return o.s}).join("")+'</g><g class="m-top">'+top+'</g>',box:sb};
  }
 
  /* ---------- visor ---------- */
