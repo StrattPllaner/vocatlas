@@ -11,7 +11,15 @@ window.__uniones=function(svg){
  var isR=svg.classList.contains("rbx-R");
  var isO=svg.classList.contains("rbx-O");if(isO)isR=true;
  var isP=svg.classList.contains("rbx-P");if(isP)isR=true;
- var J=isP?[
+ var isS=svg.classList.contains("rbx-S");if(isS)isR=true;
+ var J=isS?[
+  ["bota izq.",first("rk-legL"),[core],[[37,72.6],[46.4,72.6]]],
+  ["bota der.",first("rk-legR"),[core],[[53.6,72.6],[63,72.6]]],
+  ["asta de la flecha",first("rk-arrow"),caps,[[49.6,21.6],[50.4,21.6]]],
+  ["orejera izq.",first("rk-flapL"),[core].concat(caps),[[31,47],[31.6,49]]],
+  ["orejera der.",first("rk-flapR"),[core].concat(caps),[[70,45.4],[71,47]]],
+  ["gafas sobre el gorro",svg.querySelector(".rk-gog rect"),caps,[[48,31.8],[52,31.8]]]
+ ]:isP?[
   ["pierna izq.",first("rk-legL"),[core],[[350,624],[446,624]]],
   ["pierna der.",first("rk-legR"),[core],[[527,624],[629,624]]],
   ["asta de la flecha",svg.querySelector(".rk-arrow rect"),caps,[[468,296],[484,296]]],
