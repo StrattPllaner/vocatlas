@@ -205,3 +205,9 @@ La cara sale de `cara-rumbo.svg`, usado tal cual (ver DESIGN.md, sección 10.5).
 
 - Modelo T: cuerpo de brújula del modelo S con esa cara.
 - En #rumbo se ve la referencia sola, Rumbo a 64, 128 y 400 px y una superposición de la referencia en rojo semitransparente sobre la cara. Coinciden exactamente.
+
+## Rumbo final en la app (modelo U)
+
+- Todas las pantallas usan el modelo U: inicio, pasaporte, metas, test, mapa, plazas, retos, avisos y estados vacíos. La elección de modelo guardada antes en el dispositivo se reinicia una vez.
+- La pantalla de inicio ya no dibuja el globo viejo: muestra a Rumbo, y al deslizar hacia arriba gira la flecha de la brújula («Gira la brújula hacia arriba»). Al entrar da sus vueltas rápidas y hace zoom como antes.
+- Error corregido: el giro del gorro salía NaN en Chrome porque una variable se llamaba igual que la de la mano derecha.

@@ -733,11 +733,11 @@ var RUMBO=(function(){
    var yy=B.y+lift,vy=(yy-st.py)/(dt||.016);st.py=yy;st.vy+=(vy-st.vy)*.5;
    var vx=(B.x-st.px)/(dt||.016);st.px=B.x;st.vx+=(vx-st.vx)*.5;var vr=(B.r-st.pr)/(dt||.016);st.pr=B.r;st.vr+=(vr-st.vr)*.5;
    var fy=spring(st.sp.face,cl(st.vy*.012,-.8,.8),dt,190,17,.9),fx=spring(st.sp.faceX,cl(-st.vx*.012-st.vr*.01,-.8,.8),dt,190,17,.9);
-   var hy=spring(st.sp.hat,cl(st.vy*.025,-1.2,1.2),dt,120,12,1.2),hr=spring(st.sp.hatR,cl(-st.vr*.03,-4,4),dt,110,10,4);
+   var hy=spring(st.sp.hat,cl(st.vy*.025,-1.2,1.2),dt,120,12,1.2),hatr=spring(st.sp.hatR,cl(-st.vr*.03,-4,4),dt,110,10,4);
    var gy=spring(st.sp.gog,cl(st.vy*.03,-1.2,1.2)+gogY,dt,95,9,1.6);
    var ar=spring(st.sp.arrow,sway+B.r*.6+cl(-st.vy*.12,-8,8)+(mood==="sad"?-10:0),dt,70,7,12);
    var fl=spring(st.sp.flapL,cl(st.vy*.25+st.vr*.2,-15,15),dt,60,6,15),fr=spring(st.sp.flapR,cl(-st.vy*.25+st.vr*.2,-15,15),dt,60,6,15);
-   if(rm){ar=0;fl=0;fr=0;gy=0;hy=0;hr=0;fx=0;fy=0}
+   if(rm){ar=0;fl=0;fr=0;gy=0;hy=0;hatr=0;fx=0;fy=0}
    var flip=cls.contains("left")?-1:1;
    /* el salto mueve todo el personaje; la sombra se queda en el suelo y se encoge */
    T(g.root,{sx:flip,y:lift});
@@ -791,7 +791,7 @@ var RUMBO=(function(){
    /* la flecha gira de alegría en el acierto y la celebración */
    var spin=0;if(A&&(A.k==="yes"||A.k==="cheer")&&!rm){var sp2=cl(A.t/(A.d*.7),0,1);spin=360*(1-Math.pow(1-sp2,3))}
    T(g.face,{x:fx,y:fy});T(g.brows,{x:fx,y:fy});
-   T(g.hat,{y:hy,r:hr+st.asH});if(g.hatb)T(g.hatb,{y:hy,r:hr+st.asH});T(g.arrow,{r:ar+st.asA+spin});T(g.flapL,{r:fl});T(g.flapR,{r:fr+st.asF});T(g.gog,{y:gy});
+   T(g.hat,{y:hy,r:hatr+st.asH});if(g.hatb)T(g.hatb,{y:hy,r:hatr+st.asH});T(g.arrow,{r:ar+st.asA+spin+(+wr.getAttribute("data-spin")||0)});T(g.flapL,{r:fl});T(g.flapR,{r:fr+st.asF});T(g.gog,{y:gy});
    /* ---------- parpadeo: baja rápido (40 %) y sube más lento (60 %); a veces doble ---------- */
    if(cls.contains("blink")||cls.contains("a-blink")){cls.remove("blink");cls.remove("a-blink");blink(st)}
    var bl=0;if(mood!=="sleep"&&!rm){st.blinkIn-=dt;if(st.blinkIn<=0)blink(st);
@@ -867,7 +867,9 @@ var RUMBO=(function(){
   return {go:go};
  })();
  var NAMES={U:"U · Manos con articulaciones",T:"T · Cara de la referencia",S:"S · Libro simplificado",P:"P · Original con brújula",O:"O · Original mejorado",R:"R · Boceto",v1:"Actual (v1)",A:"A · Globo",B:"B · Brújula",C:"C · Híbrido"};
- var cur=null;try{cur=localStorage.getItem("vocatlas_rumbo")}catch(e){}
+ var cur=null;try{cur=localStorage.getItem("vocatlas_rumbo");
+  /* noviembre: Rumbo final (modelo U) en toda la app; se reinicia una vez la elección guardada antes */
+  if(!localStorage.getItem("vocatlas_rumbo_m2")){cur=null;localStorage.removeItem("vocatlas_rumbo");localStorage.setItem("vocatlas_rumbo_m2","1")}}catch(e){}
  function pick(m){if(m){cur=m;try{localStorage.setItem("vocatlas_rumbo",m)}catch(e){}}return cur||"U"}
  function svg(m,ek,fx){m=m||pick();return m==="v1"?rumboSVG():build(m,ek,fx)}
  return {svg:svg,build:build,pick:pick,EYES:EYES,EYEK:EYEK,eyePick:eyePick,FIN:FIN,FINK:FINK,finPick:finPick,NAMES:NAMES,models:["U","T","S","P","O","R","v1","A","B","C"]};
