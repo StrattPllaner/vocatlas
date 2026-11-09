@@ -125,3 +125,4 @@ html.art-on body>*:not(#art){display:none!important}
 .rbx[data-acabado=minimo] .rk-gog,.rbx[data-acabado=minimo] .rk-strap,.rbx[data-acabado=minimo] .rk-tick,.rbx[data-acabado=minimo] .rk-caphl,.rbx[data-acabado=minimo] .rk-lace{display:none}
 .rbx{overflow:visible}
 .rbx-static [data-p]{opacity:0}
+.hk-dbg{display:none}.rb-debug .hk-dbg{display:inline}
