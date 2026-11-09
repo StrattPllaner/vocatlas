@@ -173,3 +173,16 @@ Mismo diseño, construcción nueva:
 - **Delfines:** mejoraron, pero a 64 px todavía pueden leerse como peces.
 - **Rumbo:** su construcción ya sigue las reglas, pero los continentes se ven poco, porque las solapas y el gorro tapan los lados del globo.
 - **Pantalla de inicio en iPad horizontal:** la escena es ancha y baja, así que la isla se recorta abajo. Rumbo y el globo de diálogo sí se ven completos.
+
+## Carreras v2: primer lote (Veterinaria, Arquitectura, Cine, Ciencia de datos, Nutrición)
+
+- Código en `src/iso-bld2.js`, registrado con `ART.addV2(id,{s,e})`. La v1 sigue intacta en `iso-bld.js`.
+- En #art, cada tarjeta trae un selector «Versión 1 / Versión 2». La elección se guarda en el dispositivo (`vocatlas_ver`) y por defecto se usa la v2.
+- `qa/traslapes.js` revisa la v1 y la v2 por separado; ambas salen en 0 hallazgos.
+- Dos rondas de revisión a 200 %:
+  - perro nuevo (`dog2`), de tres cuartos, con cabeza grande, orejas caídas, hocico claro y patas con patitas;
+  - compás separado de la casa;
+  - lupa sin cruzar las barras;
+  - marquesina legible;
+  - la media manzana acostada ahora es una rodaja con semillas (antes parecía un hongo).
+- Se corrigió además un error del mapa: al girar el teléfono, la cámara no se recentraba y los edificios quedaban fuera de la pantalla.

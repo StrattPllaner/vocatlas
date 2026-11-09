@@ -4,7 +4,7 @@
 function renderArt(){
  var old=document.getElementById("art");if(old)old.remove();
  document.documentElement.classList.add("art-on");
- var E=ENV,h="",VB="-72 -110 144 160",NAMES={medicina:"Medicina",derecho:"Derecho",computacion:"Computación",cine:"Cine",arquitectura:"Arquitectura",veterinaria:"Veterinaria",datos:"Ciencia de datos"};
+ var E=ENV,h="",VB="-72 -110 144 160",NAMES={medicina:"Medicina",derecho:"Derecho",computacion:"Computación",cine:"Cine",arquitectura:"Arquitectura",veterinaria:"Veterinaria",datos:"Ciencia de datos",nutricion:"Nutrición"};
  var DESC={
   medicina:["Hospital de tres cuerpos con cruz, helipuerto y ambulancia","Botiquín gigante con un estetoscopio enrollado"],
   derecho:["Juzgado con columnas, escalinata y la estatua de la justicia","Balanza gigante, mazo de juez y libro de leyes"],
@@ -13,18 +13,27 @@ function renderArt(){
   arquitectura:["Estudio con ventanal y maqueta en la entrada","Maqueta a medio construir sobre un plano, compás y regla"],
   veterinaria:["Clínica con letrero de huella, casita y perro esperando","Perro gigante sentado con collar, estetoscopio y plato"],
   datos:["Torre de oficinas con cartelera de gráfica en el techo","Gráfica de barras gigante con tendencia y lupa"]};
+ var DESC2={
+  cine:["Cine clásico con letrero vertical CINE, marquesina con focos, carteles, taquilla y alfombra con postes","Cámara de dos rollos con parasol, trípode de tres patas, claqueta abierta y reflector con viseras"],
+  arquitectura:["Estudio de autor: planta de vidrio, volumen en voladizo con techo inclinado y celosía; maqueta en pedestal","Casa a medio construir (muros y entramado) sobre el plano; compás de pie aparte, regla y lápiz"],
+  veterinaria:["Clínica con techo a dos aguas, letrero de huella enmarcado, marquesina, casita y perro","Perro gigante sentado con collar, placa y estetoscopio; plato con hueso y huellas"],
+  datos:["Torre de vidrio con cartelera de barras y tendencia, tótem con gráfica de pastel","Barras 3D con placa de ejes y tendencia que nace de la primera barra; lupa al frente sin tocarlas; pastel"],
+  nutricion:["Puesto de mercado con toldo de rayas, fruta y báscula en el mostrador, pizarrón, cajas y huerto","Manzana gigante partida (corazón y semillas), la otra mitad, canasta de verduras y báscula"]};
  function svg(inner,px,cls){return '<svg class="'+(cls||"")+'" viewBox="'+VB+'" style="height:'+px+'px" aria-hidden="true">'+inner+'</svg>'}
  h+='<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>'+E.DEFS+'</defs></svg>';
- h+='<header class="ia-h"><h1>Ilustración del mapa</h1><p>Elige para cada carrera la versión que más te guste: la <b>estructura</b> (el lugar donde se ejerce) o el <b>emblema</b> (su objeto a escala gigante). Tu elección se guarda en este dispositivo y el mapa de abajo la usa. Mientras no elijas, se usa la estructura.</p></header>';
+ h+='<header class="ia-h"><h1>Ilustración del mapa</h1><p>Elige para cada carrera la versión que más te guste: la <b>estructura</b> (el lugar donde se ejerce) o el <b>emblema</b> (su objeto a escala gigante). Tu elección se guarda en este dispositivo y el mapa de abajo la usa. Donde hay versión 2, puedes volver a la versión 1 con el selector de cada tarjeta; si no eliges, se usa la versión 2.</p></header>';
  /* ---------- comparación por carrera ---------- */
  h+='<section><h2>Estructura o emblema</h2><div class="ia-cards">';
- ART.ids.forEach(function(id){var cur=ART.pick(id);
-  h+='<article class="ia-card" data-id="'+id+'"><h3>'+NAMES[id]+'</h3><div class="ia-vs">';
-  [["s","Estructura"],["e","Emblema"]].forEach(function(v,i){
-   h+='<div class="ia-opt'+(cur===v[0]?' on':'')+'" data-v="'+v[0]+'"><div class="ia-big">'+svg(ART.get(id,2,v[0]),230)+'</div><p class="ia-d">'+DESC[id][i]+'</p>'+
-    '<div class="ia-small is-night"><div>'+svg(ART.get(id,1,v[0]),96)+'<span>96 px</span></div><div>'+svg(ART.get(id,0,v[0]),64)+'<span>64 px</span></div><div class="ia-sil">'+svg(ART.get(id,2,v[0],{noPlat:true}),64)+'<span>silueta</span></div></div>'+
+ function cardBody(id,vv){var cur=ART.pick(id),D=(vv==="v2"&&DESC2[id])||DESC[id]||["",""],o="";
+  [["s","Estructura"],["e","Emblema"]].forEach(function(v,i){var q={ver:vv};
+   o+='<div class="ia-opt'+(cur===v[0]?' on':'')+'" data-v="'+v[0]+'"><div class="ia-big">'+svg(ART.get(id,2,v[0],q),230)+'</div><p class="ia-d">'+D[i]+'</p>'+
+    '<div class="ia-small is-night"><div>'+svg(ART.get(id,1,v[0],q),96)+'<span>96 px</span></div><div>'+svg(ART.get(id,0,v[0],q),64)+'<span>64 px</span></div><div class="ia-sil">'+svg(ART.get(id,2,v[0],{noPlat:true,ver:vv}),64)+'<span>silueta</span></div></div>'+
     '<button type="button" class="ia-pick" aria-pressed="'+(cur===v[0])+'">'+(cur===v[0]?'Elegida: ':'Elegir ')+v[1].toLowerCase()+'</button></div>'});
-  h+='</div></article>'});
+  return o}
+ ART.ids.forEach(function(id){var vv=ART.ver(id),two=ART.hasV2(id)&&ART.hasV1(id);
+  h+='<article class="ia-card" data-id="'+id+'"><h3>'+NAMES[id]+(ART.hasV2(id)?' <small class="ia-new">v2</small>':'')+'</h3>';
+  if(two)h+='<div class="ia-ver" role="radiogroup" aria-label="Versión de '+NAMES[id]+'">'+["v1","v2"].map(function(x){return '<button type="button" role="radio" data-vv="'+x+'" aria-checked="'+(x===vv)+'">'+(x==="v1"?"Versión 1 (anterior)":"Versión 2 (nueva)")+'</button>'}).join("")+'</div>';
+  h+='<div class="ia-vs">'+cardBody(id,vv)+'</div></article>'});
  h+='</div></section>';
  /* ---------- Rumbo ---------- */
  function rbBox(px,html,cls){return '<div class="ia-rb '+(cls||"")+'" style="width:'+px+'px;height:'+px+'px">'+html+'</div>'}
@@ -80,9 +89,13 @@ function renderArt(){
  var jb=el.querySelector(".ia-jump");if(jb)jb.onclick=function(){var r=jb.closest("figure").querySelector(".rb");mood(r,"happy","jump")};
  /* elegir estilo: se guarda y el mapa se vuelve a dibujar */
  each(el.querySelectorAll(".ia-card"),function(card){var id=card.getAttribute("data-id");
-  each(card.querySelectorAll(".ia-pick"),function(b){b.onclick=function(){var v=b.closest(".ia-opt").getAttribute("data-v");ART.pick(id,v);
+  function wire(){each(card.querySelectorAll(".ia-pick"),function(b){b.onclick=function(){var v=b.closest(".ia-opt").getAttribute("data-v");ART.pick(id,v);
    each(card.querySelectorAll(".ia-opt"),function(o){var on=o.getAttribute("data-v")===v,bt=o.querySelector(".ia-pick");o.classList.toggle("on",on);bt.setAttribute("aria-pressed",on?"true":"false");bt.textContent=(on?"Elegida: ":"Elegir ")+(o.getAttribute("data-v")==="s"?"estructura":"emblema")});
-   build(window.__art.N)}})});
+   build(window.__art.N)}})}
+  wire();
+  each(card.querySelectorAll("[data-vv]"),function(b){b.onclick=function(){var x=b.getAttribute("data-vv");ART.ver(id,x);
+   each(card.querySelectorAll("[data-vv]"),function(o){o.setAttribute("aria-checked",o===b?"true":"false")});
+   card.querySelector(".ia-vs").innerHTML=cardBody(id,x);wire();build(window.__art.N)}})});
  each(el.querySelectorAll("[data-n]"),function(b){b.onclick=function(){build(+b.getAttribute("data-n"))}});
  each(el.querySelectorAll("[data-z]"),function(b){b.onclick=function(){var z=b.getAttribute("data-z");if(z==="fit")M.fit();else M.focus(M.world.byId.medicina?"medicina":M.world.nodes[0].id,+z)}});
  el.querySelector(".ia-night").onclick=function(){var on=this.getAttribute("aria-pressed")!=="true";this.setAttribute("aria-pressed",on?"true":"false");M.el.classList.toggle("is-night",on)};

@@ -462,7 +462,15 @@ var ART=(function(I,E){
  var DEF={medicina:"s",derecho:"e",computacion:"e",cine:"e",arquitectura:"e",veterinaria:"s",datos:"e"};
  function pick(id,v){if(v){PICK[id]=v;try{localStorage.setItem("vocatlas_estilo",JSON.stringify(PICK))}catch(e){}}return PICK[id]||DEF[id]||"s"}
  /* revisión: registra las partes de una pieza (nombre y huella en el suelo) */
- function parts(id,v,d){REC=[];A[id][v](d==null?2:d);var r=REC[0]||[];REC=null;return r}
- function get(id,d,v,o){var a=A[id];if(!a)return null;NOPLAT=!!(o&&o.noPlat);var r=a[v||pick(id)](d==null?2:d);NOPLAT=false;return r}
- return {parts:parts,DEF:DEF,A:A,get:get,pick:pick,has:function(id){return !!A[id]},ids:Object.keys(A)};
+ function parts(id,v,d,vv){REC=[];src(id,vv)[v](d==null?2:d);var r=REC[0]||[];REC=null;return r}
+ /* versiones: v1 es lo que había; v2 es lo nuevo. Mientras no elijas, se usa la v2 cuando existe */
+ var V2={},VER={};try{VER=JSON.parse(localStorage.getItem("vocatlas_ver")||"{}")||{}}catch(e){}
+ function ver(id,v){if(v){VER[id]=v;try{localStorage.setItem("vocatlas_ver",JSON.stringify(VER))}catch(e){}}return VER[id]||(V2[id]?"v2":"v1")}
+ function src(id,vv){vv=vv||ver(id);return vv==="v2"&&V2[id]?V2[id]:A[id]}
+ function get(id,d,v,o){var a=src(id,o&&o.ver);if(!a)return null;NOPLAT=!!(o&&o.noPlat);var r=a[v||pick(id)](d==null?2:d);NOPLAT=false;return r}
+ function addV2(id,fns,def){V2[id]=fns;if(def&&!PICK[id]&&!DEF[id])DEF[id]=def;if(ids.indexOf(id)<0)ids.push(id)}
+ var ids=Object.keys(A);
+ return {parts:parts,DEF:DEF,A:A,V2:V2,get:get,pick:pick,ver:ver,addV2:addV2,has:function(id){return !!(A[id]||V2[id])},hasV2:function(id){return !!V2[id]},hasV1:function(id){return !!A[id]},ids:ids,
+  /* herramientas para las piezas v2 */
+  H:{piece:piece,dp:dp,at:at,deco:deco,plat:function(t,sd){return plat(t,sd)},discX:discX,discY:discY,arch:arch,dog:dog,houseModel:houseModel,serverRack:serverRack,codeScreen:codeScreen,searchlight:searchlight,paw:paw,ambulance:ambulance,Z:Z,GLASS:GLASS,FRAME:FRAME,WALL:WALL,RED:RED}};
 })(ISO,ENV);

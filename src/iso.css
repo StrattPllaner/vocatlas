@@ -111,3 +111,7 @@ html.art-on body>*:not(#art){display:none!important}
 .ia-rbmodel{background:#F6F2EA;border-radius:20px;padding:16px}
 .ia-rbanim{display:flex;gap:16px;flex-wrap:wrap;align-items:center}.ia-rbstage{background:#FFFBF4;border-radius:16px;padding:10px}
 .ia-rbbtns{display:flex;flex-wrap:wrap;gap:8px;max-width:520px}.ia-rbbtns .ia-pick{padding:0 16px;min-height:48px}
+.ia-ver{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 12px}
+.ia-ver button{min-height:48px;padding:0 16px;border-radius:999px;border:2px solid #14323F;background:#FFF;color:#14323F;font:inherit;font-weight:800;font-size:15px;cursor:pointer}
+.ia-ver button[aria-checked=true]{background:#14323F;color:#FFF8E8}
+.ia-new{font-size:12px;font-weight:900;background:#F2B544;color:#14323F;border-radius:6px;padding:2px 6px;vertical-align:middle}

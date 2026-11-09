@@ -2,7 +2,7 @@
 import os
 src=os.path.dirname(os.path.abspath(__file__))+'/'
 p=os.path.join(os.path.dirname(os.path.abspath(__file__)),'..','index.html');s=open(p).read()
-js=''.join(open(src+f).read()+'\n' for f in ['rumbo.js','iso-lib.js','iso-gen.js','iso-env-old.js','iso-env.js','iso-bld.js','iso-map.js','iso-fix.js','iso-art.js','rumbo-page.js'])
+js=''.join(open(src+f).read()+'\n' for f in ['rumbo.js','iso-lib.js','iso-gen.js','iso-env-old.js','iso-env.js','iso-bld.js','iso-bld2.js','iso-map.js','iso-fix.js','iso-art.js','rumbo-page.js'])
 css=open(src+'iso.css').read()
 def put(s,a,b,body,anchor,before=True):
     if a in s:
