@@ -15,7 +15,7 @@ window.__uniones=function(svg){
  var J=isS?[
   ["bota izq.",first("rk-legL"),[core],[[37,72.6],[46.4,72.6]]],
   ["bota der.",first("rk-legR"),[core],[[53.6,72.6],[63,72.6]]],
-  ["asta de la flecha",first("rk-arrow"),caps,[[49.6,21.6],[50.4,21.6]]],
+  ["asta de la flecha",first("rk-arrow"),caps,svg.classList.contains("rbx-U")?[[49.7,24.9],[50.3,24.9]]:[[49.6,21.6],[50.4,21.6]]],
   ["orejera izq.",first("rk-flapL"),[core].concat(caps),[[31,47],[31.6,49]]],
   ["orejera der.",first("rk-flapR"),[core].concat(caps),[[70,45.4],[71,47]]],
   ["gafas sobre el gorro",svg.querySelector(".rk-gog rect"),caps,[[48,31.8],[52,31.8]]]

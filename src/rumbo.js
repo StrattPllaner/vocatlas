@@ -533,6 +533,30 @@ var RUMBO=(function(){
   s+='<g class="hk-flip" filter="url(#'+id+')">'+thumb+palm+rest+cuff+'</g>'+dbg(0,0);
   return s}
  function handAt(id,x,y,side){return '<g transform="translate('+x+' '+y+') scale('+(side<0?-.86:.86)+' .86)">'+handRig(id,side)+'</g>'}
+ /* gorro de aviador del modelo U: casquete redondo con panel central y costuras, borde de borrego esponjoso,
+    gafas grandes con su correa, orejeras con forro de borrego y una correa con hebilla, botón y flecha arriba */
+ function hatU(id){var CAP="#9A5B33",CAPS="#7A4426",CAPL="#B27245",FUR="#F6E8CF",FURS="#E3CDA8",STR="#4E2E19",o=sl;
+  var DOME="M26.8 45.6C25.6 31.4 36.2 22.6 50 22.6C63.8 22.6 74.4 31.4 73.2 45.6Q50 36 26.8 45.6Z";
+  var arrow='<path d="M49.3 25.8L49.3 10.6L50.7 10.6L50.7 25.8Z" fill="'+SGOLD+'"'+o(1.1)+'/><path d="M50 3.6L54.6 10.4Q55 11.4 54 11.2L50 10.2L46 11.2Q45 11.4 45.4 10.4Z" fill="'+SGOLD+'"'+o(1.2)+'/>';
+  var flap=function(m){var X=function(x){return (m<0?x:100-x).toFixed(2)};return '<path d="M'+X(28.4)+' 42.8C'+X(24.2)+' 47.8 '+X(23)+' 54.6 '+X(24)+' 60.4C'+X(24.8)+' 64.8 '+X(29.6)+' 65.6 '+X(31.2)+' 61.8C'+X(32.4)+' 57.4 '+X(32.6)+' 50 '+X(32.6)+' 44Z" fill="'+(m<0?CAP:CAPS)+'"'+o()+'/>'+
+   '<path d="M'+X(25.2)+' 58.6C'+X(25.6)+' 62.4 '+X(28.6)+' 63.6 '+X(30)+' 61" stroke="'+FUR+'" stroke-width="1.8" fill="none" stroke-linecap="round"/>'+
+   (m<0?'<path d="M29.6 61.2L28.6 68.4" stroke="'+STR+'" stroke-width="1.6" stroke-linecap="round"/><rect x="27.2" y="66.6" width="3" height="2.6" rx=".6" fill="none" stroke="'+SGOLD+'" stroke-width=".9"/>':'')};
+  var cap='<clipPath id="'+id+'u"><path d="'+DOME+'"/></clipPath><path class="rk-capj" d="'+DOME+'" fill="'+CAP+'"/>'+
+   '<g clip-path="url(#'+id+'u)"><path d="M59 18C71 22 80 33 77 48L90 48L90 18Z" fill="'+CAPS+'"/>'+
+   '<path d="M44.6 22Q42.6 32 43.6 42L56.4 42Q57.4 32 55.4 22Z" fill="'+CAPL+'" opacity=".55"/>'+
+   '<path d="M44.6 23Q42.8 32 43.8 41M55.4 23Q57.2 32 56.2 41" stroke="'+CAPS+'" stroke-width=".9" fill="none" stroke-dasharray="1.3 1.1" stroke-linecap="round"/>'+
+   '<path d="M24 37.4Q50 23 76 37.4" stroke="'+STR+'" stroke-width="2.6" fill="none"/></g>'+
+   '<path d="M30.6 36Q32 28.6 39.6 24.8" stroke="#C48A5C" stroke-width="1.5" fill="none" stroke-linecap="round" opacity=".8"/>'+
+   '<path d="'+DOME+'" fill="none"'+o()+'/><ellipse cx="50" cy="23" rx="2.2" ry="1.3" fill="'+CAPS+'"'+o(1)+'/>';
+  /* borde de borrego: círculos encimados a lo largo de la curva, primero el contorno y luego el relleno */
+  var fo="",ff="",fs="";for(var i=0;i<=14;i++){var t=i/14,x=(1-t)*(1-t)*26.4+2*(1-t)*t*50+t*t*73.6,y=(1-t)*(1-t)*45.8+2*(1-t)*t*35.4+t*t*45.8,r=i%2?2.15:2.45;
+   fo+='<circle class="rk-capj" cx="'+x.toFixed(2)+'" cy="'+y.toFixed(2)+'" r="'+(r+.75)+'" fill="'+SO+'"/>';ff+='<circle cx="'+x.toFixed(2)+'" cy="'+y.toFixed(2)+'" r="'+r+'" fill="'+FUR+'"/>';
+   }
+  fs='<path d="M28.4 47.6Q50 38.6 71.6 47.6" stroke="'+FURS+'" stroke-width="1.3" fill="none" stroke-linecap="round" opacity=".9"/>';
+  var gog='<rect x="47.4" y="31" width="5.2" height="2.6" rx="1.2" fill="'+SGOLD+'"'+o(1)+'/>';
+  [[41.2,32.6],[58.8,32.6]].forEach(function(c){gog+='<circle cx="'+(c[0]+.5)+'" cy="'+(c[1]+.6)+'" r="6" fill="#B07A2A"/><circle cx="'+c[0]+'" cy="'+c[1]+'" r="6" fill="'+SGOLD+'"'+o(1.2)+'/><circle cx="'+c[0]+'" cy="'+c[1]+'" r="4.2" fill="'+SLENS+'"'+o(1)+'/>'+
+   '<path d="M'+(c[0]-2.6)+' '+(c[1]+.2)+'Q'+(c[0]-2.2)+' '+(c[1]-2.6)+' '+(c[0]+.4)+' '+(c[1]-2.9)+'" stroke="#FFFFFF" stroke-width="1.3" fill="none" stroke-linecap="round" opacity=".9"/>'});
+  return grp("rk-hat",50,42,grp("rk-arrow",50,24.4,arrow)+grp("rk-flapL",30.6,45,flap(-1))+grp("rk-flapR",69.4,45,flap(1))+cap+fo+ff+fs+grp("rk-gog",50,32.6,gog))}
  function buildS(fk,nh){
   var id="rbm"+(++N),C=[50,57.6],R=24.4;
   /* cuerpo: caja dorada con grosor, carátula crema, marcas cortas y triángulo rojo del norte */
@@ -576,7 +600,7 @@ var RUMBO=(function(){
    '<path class="rk-capj" d="M25.4 45.6C33 39.6 41.6 36 50 35.8C58.4 35.6 67 38 75.4 44.6L74.6 48C66.6 41.6 58.2 39.4 50 39.6C41.8 39.8 33.6 43.2 26.4 49.2Z" fill="'+SCAPS+'"'+sl()+'/>';
   var gog='<rect x="45.6" y="30.6" width="8.4" height="2.4" rx="1.2" fill="'+SGOLD+'"'+sl(1)+'/>';
   [[40.8,32.2],[59,31.6]].forEach(function(c){gog+='<circle cx="'+c[0]+'" cy="'+c[1]+'" r="5" fill="'+SGOLD+'"'+sl(1.2)+'/><circle cx="'+c[0]+'" cy="'+c[1]+'" r="3.4" fill="'+SLENS+'"'+sl(.9)+'/><path d="M'+(c[0]-2)+' '+(c[1]+.4)+'L'+(c[0]+.6)+' '+(c[1]-2.2)+'" stroke="'+SLENSH+'" stroke-width="1.2" stroke-linecap="round"/>'});
-  var hat=grp("rk-hat",50,42,grp("rk-arrow",50,22,arrow)+grp("rk-flapL",30,46,flapL)+grp("rk-flapR",71,45,flapR)+cap+grp("rk-gog",50,31.6,gog));
+  var hat=nh?hatU(id):grp("rk-hat",50,42,grp("rk-arrow",50,22,arrow)+grp("rk-flapL",30,46,flapL)+grp("rk-flapR",71,45,flapR)+cap+grp("rk-gog",50,31.6,gog));
   return '<svg class="rbx rbx-S'+(fk==="ref"?' rbx-T'+(nh?' rbx-U':'')+'" data-face="ref':'')+'" data-ojos="retro" data-hatr="-7" data-arr="-16" data-eyefix="1" viewBox="0 0 100 100" aria-hidden="true">'+
    grp("rk-root",50,97,
     '<g class="rk-shadow"><ellipse class="rk-sh" cx="50" cy="97.2" rx="24" ry="2.4" fill="var(--rb-sh,#13213F)" opacity=".2"/><ellipse cx="38.6" cy="97.1" rx="9" ry="1.2" fill="#13213F" opacity=".22"/><ellipse cx="61.4" cy="97.1" rx="9" ry="1.2" fill="#13213F" opacity=".22"/></g>'+
@@ -760,7 +784,7 @@ var RUMBO=(function(){
      var K=[290,260,235,210];
      h.f.forEach(function(fi,k){var tgt=cl(Q.c[k]+(k?dif:0)+(h.mi===k?mic:0),0,1),c=spring(h.c[k],tgt,dt,K[k],14,1.15);
       var sg=k===3?-1:1,base=k===0?spring(h.ta,Q.t+(i?6:0),dt,200,15,180):fi.a0*sp2;
-      T(fi.p,{r:base+c*sg*(k?22:28)+lg,y:k?c*fi.l*.78:0});T(fi.d,{r:c*sg*(k?150:85)+lg*1.4})})});
+      T(fi.p,{r:base+c*sg*(k?6:30)+lg*.6,y:k?c*fi.l*.45:0,sy:k?1-c*.3:1});T(fi.d,{r:lg*.8+(k?0:c*40),sy:k?Math.max(.08,1-c*.92):1})})});
    }
    /* la flecha gira de alegría en el acierto y la celebración */
    var spin=0;if(A&&(A.k==="yes"||A.k==="cheer")&&!rm){var sp2=cl(A.t/(A.d*.7),0,1);spin=360*(1-Math.pow(1-sp2,3))}
