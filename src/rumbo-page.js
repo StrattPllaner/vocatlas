@@ -51,3 +51,5 @@ function renderRumbo(){
   }})});
 }
 window.__RUMBO=RUMBO;window.__ART=ART;
+
+window.__OLD=function(){return rumboSVGOld()};window.__V1=function(){return rumboSVG()};

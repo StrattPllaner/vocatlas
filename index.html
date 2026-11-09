@@ -4109,6 +4109,7 @@ var RUMBO=(function(){
   horizontal:{n:"Horizontales",d:"Óvalos más anchos que altos: mirada tranquila y dulce.",c:[[41.4,58.4],[58.6,58.4]],rx:3.8,ry:2.9},
   separados:{n:"Separados",d:"Botones más abajo y más separados: cara de bebé.",c:[[39.4,59.4],[60.6,59.4]],rx:3,ry:3.2},
   pestanas:{n:"Pestañitas",d:"Puntos con dos pestañitas hacia afuera.",c:[[41.8,58.2],[58.2,58.2]],rx:3.2,ry:3.5},
+  original:{n:"Original",d:"Los ojos del Rumbo original.",c:[[43.2,54.6],[56.8,54.6]],rx:3.3,ry:3.8},
   destellos:{n:"Dos destellos",d:"Óvalos con dos estrellitas de brújula como brillo.",c:[[41.4,57.6],[58.6,57.6]],rx:3.7,ry:4.5},
   enormes:{n:"Enormes",d:"Ojos grandes con blanco y pupilas grandes que casi se tocan. Mucha expresión.",c:[[40.4,57],[59.6,57]],rx:6.2,ry:6.8},
   anime:{n:"Animé",d:"Óvalos grandes con iris en degradado ámbar y varios brillos.",c:[[41,57.2],[59,57.2]],rx:4.6,ry:5.8},
@@ -4239,13 +4240,13 @@ var RUMBO=(function(){
  var FINK=["liso","tinta","papel","minimo"];
  var finCur=null;try{finCur=localStorage.getItem("vocatlas_acabado")}catch(e){}
  function finPick(k){if(k){finCur=k;try{localStorage.setItem("vocatlas_acabado",k)}catch(e){}}return FIN[finCur]?finCur:"liso"}
- function build(model,ek,fx){if(model==="R")return buildR();ek=EYES[ek]?ek:eyePick();fx=FIN[fx]?fx:finPick();
+ function build(model,ek,fx){if(model==="R")return buildR();if(model==="O")return buildO();ek=EYES[ek]?ek:eyePick();fx=FIN[fx]?fx:finPick();
   var id="rbm"+(++N),body,skin;
   if(model==="A"){body=globe(id,27);skin="#F7E0BD"}
   else if(model==="B"){body=compass(id,false);skin="#FBF0DA"}
   else{body=compass(id,true);skin="#F7E0BD"}
   var fc=face(skin,id,ek);
-  var hat=grp("rk-hat",50,46,grp("rk-arrow",50,26,arrow())+grp("rk-flapL",24,47,flapL())+grp("rk-flapR",76,47,flapR())+capParts(id)+grp("rk-gog",50,38,goggles()));
+  var hat=grp("rk-hat",50,42,grp("rk-arrow",50,26,arrow())+grp("rk-flapL",24,47,flapL())+grp("rk-flapR",76,47,flapR())+capParts(id)+grp("rk-gog",50,38,goggles()));
   var flt="",fa="",ha="";
   if(fx==="tinta"){flt='<filter id="'+id+'f" x="-10%" y="-10%" width="120%" height="120%"><feMorphology in="SourceAlpha" operator="dilate" radius="1" result="d0"/><feTurbulence type="fractalNoise" baseFrequency=".28" numOctaves="1" seed="4" result="n"/><feDisplacementMap in="d0" in2="n" scale="1.6" xChannelSelector="R" yChannelSelector="G" result="d"/><feFlood flood-color="#2B1D16"/><feComposite in2="d" operator="in" result="o"/><feMerge><feMergeNode in="o"/><feMergeNode in="SourceGraphic"/></feMerge></filter>';fa=' filter="url(#'+id+'f)"'}
   if(fx==="papel"){flt='<filter id="'+id+'f" x="-10%" y="-10%" width="125%" height="125%"><feTurbulence type="fractalNoise" baseFrequency="2.2" numOctaves="1" seed="7" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 .3 0 0 0 0 .2 0 0 0 0 .1 0 0 0 .16 0" result="g"/><feComposite in="g" in2="SourceAlpha" operator="in" result="gt"/><feDropShadow in="SourceGraphic" dx=".8" dy="1.2" stdDeviation=".3" flood-color="#4A2E18" flood-opacity=".45" result="ds"/><feMerge><feMergeNode in="ds"/><feMergeNode in="gt"/></feMerge></filter>'+
@@ -4346,6 +4347,84 @@ var RUMBO=(function(){
     grp("rk-body",50,86,body+'<g class="rk-face">'+fc[0]+'</g>'+'<g class="rk-brows" style="opacity:0">'+fc[1]+'</g>'+hat)+
     grp("rk-handL",11,57,gloveR(11,57,-1))+grp("rk-handR",89,57,gloveR(89,57,1))
    )+'</svg>'}
+
+ /* ================= modelo O: el original, mejorado =================
+    Mismo personaje del principio (globo con cara, gorro de aviador con la lengüeta de la correa a la izquierda,
+    contorno oscuro) con tres mejoras: el globo es un planeta (océano, continentes, nubes, atmósfera y lado de noche),
+    el gorro es un casquete limpio con costura, gafas y orejeras con forro, y las patas llevan botitas. */
+ var OOL="#412D19",OGL="#1E1A1C",OSEA="#4BA3DB",OSEAD="#3A8CC6",OLAND="#7CC36A",OLANDD="#5FA552",OCAP="#93522E",OCAPL="#B06A3E",OCAPD="#6F3B1F",
+  OLIN="#F1D9B0",OSTR="#C8823C",OSTRL="#E2A866",OBR="#E2A24E",OBRD="#B07A36",OLENS="#A8D4E0",OLEG="#3B6296",OLEGD="#2F5079",OBOOT="#8A5230",OBOOTD="#6E3F22",OGLD="#F1A43E";
+ var OC=[50,57],ORR=23.5;
+ function lo(w){return ' stroke="'+OOL+'" stroke-width="'+(w||1.4)+'" stroke-linejoin="round" stroke-linecap="round"'}
+ function planetO(id){var cx=OC[0],cy=OC[1],r=ORR,s="";
+  var LANDS=[[[-1.05,.02],[-.72,-.04],[-.52,.1],[-.44,.36],[-.22,.5],[-.14,.76],[-.42,1.05],[-1.05,1]],
+   [[.5,-.64],[.76,-.72],[1.05,-.5],[1.05,.5],[.86,.62],[.62,.5],[.55,.28],[.7,.08],[.6,-.22]],[[.2,.76],[.42,.72],[.52,.88],[.3,.96]]];
+  s+='<circle cx="'+cx+'" cy="'+cy+'" r="'+(r+1.8)+'" fill="#BFE6FA" opacity=".55"/>';
+  s+='<clipPath id="'+id+'p"><circle cx="'+cx+'" cy="'+cy+'" r="'+r+'"/></clipPath>';
+  s+='<circle class="rk-core" cx="'+cx+'" cy="'+cy+'" r="'+r+'" fill="'+OSEA+'"/>';
+  s+='<g clip-path="url(#'+id+'p)">';
+  /* los puntos se dan en su posición final sobre la cara; se convierten al disco antes de proyectar a la esfera */
+  function inv(L){return L.map(function(q){var df=Math.hypot(q[0],q[1])||1e-6,d=(2/Math.PI)*Math.asin(Math.min(1,df));return [q[0]/df*d,q[1]/df*d]})}
+  LANDS.forEach(function(L){var d=sm(sph(inv(L),cx,cy,r));s+='<path d="'+d+'" fill="'+OLAND+'"/><path d="'+d+'" fill="none" stroke="'+OLANDD+'" stroke-width=".8"/>'});
+  /* nubes */
+  s+='<path d="M'+(cx-20)+' '+(cy-7)+'q2.4 -2.2 5 -.6q2 -1.6 4 .2" stroke="#FFFFFF" stroke-width="1.5" fill="none" stroke-linecap="round" opacity=".85"/>';
+  s+='<path d="M'+(cx+11)+' '+(cy+15)+'q2.2 -1.8 4.4 -.4q1.8 -1.4 3.6 .2" stroke="#FFFFFF" stroke-width="1.4" fill="none" stroke-linecap="round" opacity=".8"/>';
+  /* lado de noche y brillo de la atmósfera */
+  s+=crescent(cx,cy,r+.4,-4.2,-4.6,"#173E70",.32);
+  s+='</g>';
+  s+='<path d="M'+(cx-r*.84).toFixed(2)+' '+(cy+r*.2).toFixed(2)+'A'+r+' '+r+' 0 0 1 '+(cx-r*.5).toFixed(2)+' '+(cy-r*.76).toFixed(2)+'" stroke="#FFFFFF" stroke-width="1.5" fill="none" stroke-linecap="round" opacity=".7"/>';
+  s+='<circle cx="'+cx+'" cy="'+cy+'" r="'+r+'" fill="none" stroke="'+OGL+'" stroke-width="1.4"/>';
+  return s}
+ function faceO(id){var s="";
+  s+='<ellipse cx="38.6" cy="61.6" rx="3.4" ry="2.2" fill="#F49A9A" opacity=".75"/><ellipse cx="61.4" cy="61.6" rx="3.4" ry="2.2" fill="#F49A9A" opacity=".75"/>';
+  s+=eyeM(id,0,OSEA,"original")+eyeM(id,1,OSEA,"original");
+  var I='stroke="'+INK+'" fill="none" stroke-linecap="round"';
+  s+='<path data-p="idle" d="M45.6 61.4Q50 65.6 54.4 61.4" '+I+' stroke-width="1.9"/>';
+  s+='<g data-p="happy wink"><path d="M45 60.8Q50 67.6 55 60.8Z" fill="'+INK+'" stroke="'+INK+'" stroke-width="1.2" stroke-linejoin="round"/><path d="M47.2 64.4Q50 66 52.8 64.4Q51.4 63.2 50 63.2Q48.6 63.2 47.2 64.4Z" fill="#E86A6A"/></g>';
+  s+='<g data-p="joy"><path d="M44.2 60.2Q50 70 55.8 60.2Z" fill="'+INK+'" stroke="'+INK+'" stroke-width="1.2" stroke-linejoin="round"/><path d="M46.8 65.6Q50 68 53.2 65.6Q51.6 64 50 64Q48.4 64 46.8 65.6Z" fill="#E86A6A"/></g>';
+  s+='<ellipse data-p="wow" cx="50" cy="63" rx="2.4" ry="2.9" fill="'+INK+'"/>';
+  s+='<ellipse data-p="curious" cx="51.6" cy="62.6" rx="1.6" ry="1.8" fill="'+INK+'"/>';
+  s+='<path data-p="think" d="M47.4 62.6Q50.4 61.6 53.2 63" '+I+' stroke-width="1.8"/>';
+  s+='<path data-p="sadhope" d="M46.6 62.4Q50 64.4 53.4 62.4" '+I+' stroke-width="1.8"/>';
+  s+='<path data-p="sad no" d="M46.2 63.8Q50 60.8 53.8 63.8" '+I+' stroke-width="1.9"/>';
+  s+='<path data-p="meh" d="M46.6 62.6H53.4" '+I+' stroke-width="1.9"/>';
+  s+='<ellipse data-p="talk" class="rk-mouth" cx="50" cy="62.6" rx="3" ry="2.4" fill="'+INK+'"/>';
+  s+='<ellipse data-p="sleep" cx="50" cy="62.8" rx="1.5" ry="1.2" fill="'+INK+'"/>';
+  s+='<ellipse data-p="yawn" cx="50" cy="63" rx="2.8" ry="3.6" fill="'+INK+'"/>';
+  s+='<g data-p="sleep"><g class="rk-zz"><text x="70" y="40" font-size="7" font-weight="900" fill="'+INK+'" opacity=".55">z</text><text x="75" y="33" font-size="5" font-weight="900" fill="'+INK+'" opacity=".4">z</text></g></g>';
+  return s}
+ function legO(side){var X=function(x){return (side<0?x:100-x).toFixed(2)},s="";
+  s+='<path d="M'+X(42.2)+' 70.6L'+X(47.4)+' 70.6L'+X(47.4)+' 87.4L'+X(42.2)+' 87.4Z" fill="'+OLEG+'"'+lo()+'/>';
+  s+='<path d="M'+X(45.2)+' 71.4L'+X(47.4)+' 71.4L'+X(47.4)+' 87L'+X(45.2)+' 87Z" fill="'+OLEGD+'"/>';
+  s+='<path d="M'+X(48.4)+' 87.4C'+X(49)+' 91.6 '+X(47.4)+' 93.2 '+X(43.8)+' 93.2L'+X(38.6)+' 93.2C'+X(35.4)+' 93.2 '+X(35)+' 90.2 '+X(37.8)+' 89.1C'+X(39.6)+' 88.5 '+X(41.4)+' 88.3 '+X(42.2)+' 87.2Z" fill="'+OBOOT+'"'+lo()+'/>';
+  s+='<path d="M'+X(36)+' 91.8C'+X(36.8)+' 92.8 '+X(38.4)+' 92.7 '+X(40.6)+' 92.7" stroke="'+OBOOTD+'" stroke-width="1.1" fill="none" stroke-linecap="round"/>';
+  s+='<ellipse cx="'+X(39.4)+'" cy="90.4" rx="1.4" ry=".6" fill="#B07A50"/>';
+  s+='<rect x="'+(side<0?41.4:100-48.4)+'" y="85.6" width="7" height="2.8" rx="1.4" fill="'+OLIN+'"'+lo(1.1)+'/>';
+  return s}
+ function buildO(){
+  var id="rbm"+(++N),body=planetO(id),face=faceO(id);
+  var DOME="M28.4 44.4C27.4 30.4 37 22.2 50 22.2C63 22.2 72.6 30.4 71.6 44.4Q50 34.4 28.4 44.4Z";
+  var arrow='<rect x="49" y="12" width="2" height="12" rx="1" fill="#F2C88A"'+lo(1.1)+'/><path d="M50 4.4Q51 4.4 51.6 5.4L55.2 11.2Q55.8 12.4 54.4 12.4L45.6 12.4Q44.2 12.4 44.8 11.2L48.4 5.4Q49 4.4 50 4.4Z" fill="'+OGLD+'"'+lo(1.2)+'/><path d="M50.4 5.8L53.8 11" stroke="#D9862A" stroke-width="1.1" stroke-linecap="round"/>';
+  var flapL='<path d="M28.4 42.6C24.4 49.4 23.4 57.4 24.6 63.4C25.4 66.6 29.2 66.8 30.2 63.8C31.2 58.8 31.4 50.6 31.8 43.4Z" fill="'+OCAP+'"'+lo()+'/><path d="M26 62.2C26.4 64.4 28.4 64.8 29.2 62.8" stroke="'+OLIN+'" stroke-width="1.5" fill="none" stroke-linecap="round"/>';
+  var flapR='<path d="M71.6 42.6C75 48.6 75.8 55.2 74.6 60.2C73.8 63.2 70.2 63.2 69.4 60.6C68.4 55.8 68 49.4 67.8 43.4Z" fill="'+OCAPD+'"'+lo()+'/><path d="M73.4 59.4C73 61.4 71.2 61.8 70.6 60" stroke="#D9BC92" stroke-width="1.4" fill="none" stroke-linecap="round"/>';
+  var cap='<clipPath id="'+id+'d"><path d="'+DOME+'"/></clipPath><path class="rk-capj" d="'+DOME+'" fill="'+OCAP+'"/>'+
+   '<g clip-path="url(#'+id+'d)"><path d="M58 18C72 22 82 34 78 52L90 52L90 18Z" fill="'+OCAPD+'" opacity=".8"/><path d="M28.6 35.6Q50 23.4 71.4 35.6" stroke="#5E331A" stroke-width="2.2" fill="none"/>'+
+   '<path d="M50 22.4C51.6 28 51.6 33 50.6 38.6" stroke="'+OCAPD+'" stroke-width="1.1" fill="none" stroke-dasharray="1.6 1.4" stroke-linecap="round"/></g>'+
+   '<path d="M31.8 34Q33.2 26.4 41.4 23.4" stroke="'+OCAPL+'" stroke-width="1.8" fill="none" stroke-linecap="round"/>'+
+   '<path d="'+DOME+'" fill="none"'+lo()+'/>'+
+   /* correa: cruza la frente y sale a la izquierda como lengüeta, con hebilla */
+   '<path class="rk-capj" d="M27.2 42.4Q50 32.4 72.8 42.4L73.2 45.8Q50 35.8 26.8 45.8Z" fill="'+OSTR+'"'+lo()+'/>'+
+   '<path d="M28.2 43.6L19.2 45.6Q16.6 46.2 17 48.4Q17.6 50.4 20 49.8L28 47.4Z" fill="'+OSTR+'"'+lo()+'/>'+
+   '<path d="M29.4 42.8Q50 34.6 70.6 42.8" stroke="'+OSTRL+'" stroke-width=".9" fill="none" stroke-linecap="round"/>'+
+   '<rect x="23.2" y="44.8" width="3.2" height="4" rx=".8" fill="none" stroke="'+OBR+'" stroke-width="1.1" transform="rotate(-14 24.8 46.8)"/>';
+  var gog='<rect x="45.6" y="29" width="8.8" height="2.6" rx="1.3" fill="'+OBRD+'"'+lo(1.1)+'/>';
+  [[42.2,30.4],[57.8,30.4]].forEach(function(c){gog+='<circle cx="'+(c[0]+.5)+'" cy="'+(c[1]+.6)+'" r="5.4" fill="'+OBRD+'"/><circle cx="'+c[0]+'" cy="'+c[1]+'" r="5.4" fill="'+OBR+'"'+lo(1.2)+'/><circle cx="'+c[0]+'" cy="'+c[1]+'" r="3.5" fill="'+OLENS+'"'+lo(.9)+'/><path d="M'+(c[0]-2)+' '+(c[1]-.4)+'Q'+(c[0]-1.6)+' '+(c[1]-2.2)+' '+(c[0]+.3)+' '+(c[1]-2.4)+'" stroke="#FFFFFF" stroke-width="1.1" fill="none" stroke-linecap="round"/>'});
+  var hat=grp("rk-hat",50,46,grp("rk-arrow",50,23.4,arrow)+grp("rk-flapL",30,43.6,flapL)+grp("rk-flapR",70,43.6,flapR)+cap+grp("rk-gog",50,30.4,gog));
+  return '<svg class="rbx rbx-O" data-ojos="original" data-hatr="-4" data-arr="4" viewBox="0 0 100 100" aria-hidden="true">'+
+   grp("rk-root",50,93.2,
+    '<g class="rk-shadow"><ellipse class="rk-sh" cx="50" cy="93.4" rx="21" ry="2.6" fill="var(--rb-sh,#13213F)" opacity=".18"/><ellipse cx="41.6" cy="93.3" rx="6" ry="1.2" fill="#13213F" opacity=".24"/><ellipse cx="58.4" cy="93.3" rx="6" ry="1.2" fill="#13213F" opacity=".24"/></g>'+
+    grp("rk-legL",44.8,74,legO(-1))+grp("rk-legR",55.2,74,legO(1))+
+    grp("rk-body",50,80,body+'<g class="rk-face">'+face+'</g>'+hat))+'</svg>'}
 
  var MOT=(function(){
   if(typeof window==="undefined")return null;
@@ -4549,11 +4628,11 @@ var RUMBO=(function(){
   }
   return {go:go};
  })();
- var NAMES={R:"R · Boceto (nuevo)",v1:"Actual (v1)",A:"A · Globo",B:"B · Brújula",C:"C · Híbrido"};
+ var NAMES={O:"O · Original mejorado",R:"R · Boceto",v1:"Actual (v1)",A:"A · Globo",B:"B · Brújula",C:"C · Híbrido"};
  var cur=null;try{cur=localStorage.getItem("vocatlas_rumbo")}catch(e){}
- function pick(m){if(m){cur=m;try{localStorage.setItem("vocatlas_rumbo",m)}catch(e){}}return cur||"B"}
+ function pick(m){if(m){cur=m;try{localStorage.setItem("vocatlas_rumbo",m)}catch(e){}}return cur||"O"}
  function svg(m,ek,fx){m=m||pick();return m==="v1"?rumboSVG():build(m,ek,fx)}
- return {svg:svg,build:build,pick:pick,EYES:EYES,EYEK:EYEK,eyePick:eyePick,FIN:FIN,FINK:FINK,finPick:finPick,NAMES:NAMES,models:["R","v1","A","B","C"]};
+ return {svg:svg,build:build,pick:pick,EYES:EYES,EYEK:EYEK,eyePick:eyePick,FIN:FIN,FINK:FINK,finPick:finPick,NAMES:NAMES,models:["O","R","v1","A","B","C"]};
 })();
 
 /* ================= ilustración isométrica: biblioteca =================
@@ -6550,6 +6629,8 @@ function renderRumbo(){
   }})});
 }
 window.__RUMBO=RUMBO;window.__ART=ART;
+
+window.__OLD=function(){return rumboSVGOld()};window.__V1=function(){return rumboSVG()};
 
 /*@iso-js-fin*/
 /* ================= sistema de diseño: iconos, sonidos y catálogo #kit ================= */

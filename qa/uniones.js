@@ -9,7 +9,15 @@ window.__uniones=function(svg){
  function inside(shape,el,pt){var m=shape.getScreenCTM().inverse().multiply(el.getScreenCTM());var p=svg.createSVGPoint();p.x=pt[0];p.y=pt[1];var q=p.matrixTransform(m);return shape.isPointInFill(q)}
  function inAny(shapes,el,pt){return shapes.some(function(s){return inside(s,el,pt)})}
  var isR=svg.classList.contains("rbx-R");
- var J=isR?[
+ var isO=svg.classList.contains("rbx-O");if(isO)isR=true;
+ var J=isO?[
+  ["pierna izq.",first("rk-legL"),[core],[[42.8,71.4],[47,71.4]]],
+  ["pierna der.",first("rk-legR"),[core],[[53,71.4],[57.2,71.4]]],
+  ["asta de la flecha",first("rk-arrow"),caps,[[49.4,23.6],[50.6,23.6]]],
+  ["orejera izq.",first("rk-flapL"),caps,[[29.2,43.6],[31,43.6]]],
+  ["orejera der.",first("rk-flapR"),caps,[[69,43.6],[70.8,43.6]]],
+  ["gafas sobre el gorro",first("rk-gog"),caps,[[42.2,26],[57.8,26],[37.6,30.4],[62.4,30.4]]]
+ ]:isR?[
   ["pierna izq.",first("rk-legL"),[core],[[42.4,82.4],[44.6,82.4]]],
   ["pierna der.",first("rk-legR"),[core],[[55.4,82.4],[57.6,82.4]]],
   ["asta de la flecha",first("rk-arrow"),caps,[[49.5,17.6],[50.5,17.6]]],
