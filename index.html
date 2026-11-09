@@ -1505,6 +1505,9 @@ html.art-on body>*:not(#art){display:none!important}
 .lp-head{width:calc(100% - 32px);max-width:640px;margin-left:auto;margin-right:auto;box-sizing:border-box}
 .lp-fab.up svg{transform:rotate(180deg)}
 body.lp-open #app{visibility:hidden}body.lp-open #app *{animation-play-state:paused!important}
+/* mapa de la app: sin animaciones dentro del svg; cualquier animación ahí obliga a redibujar todo el mapa en cada cuadro */
+.isow *{animation:none!important}
+.isow .m-glint{opacity:.5}
 /*@iso-css-fin*/
 </style>
 </head>
