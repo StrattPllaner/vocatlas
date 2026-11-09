@@ -1410,12 +1410,12 @@ html.art-on body>*:not(#art){display:none!important}
 .rb.walk .rbx .rb-armL{animation:rbArm .52s ease-in-out infinite}.rb.walk .rbx .rb-armR{animation:rbArm .52s ease-in-out infinite;animation-delay:-.26s}
 @keyframes rbArm{0%,100%{transform:rotate(16deg)}50%{transform:rotate(-16deg)}}
 .rb.p-wave .rbx .rb-armR{animation:rbWave .9s ease-in-out infinite}
-@keyframes rbWave{0%,100%{transform:rotate(-122deg)}50%{transform:rotate(-156deg)}}
+@keyframes rbWave{0%,100%{transform:rotate(-96deg)}50%{transform:rotate(-128deg)}}
 .rb.p-point .rbx .rb-armR{transform:rotate(-82deg)}.rb.p-point .rbx .rb-gaze{transform:translate(2.2px,0)}
 .rb.cheer .rbx .rb-armL,.rb.a-jump .rbx .rb-armL{animation:rbUpL 900ms var(--e-out,ease-out) infinite}.rb.cheer .rbx .rb-armR,.rb.a-jump .rbx .rb-armR{animation:rbUpR 900ms var(--e-out,ease-out) infinite}
 .rb.a-jump .rbx .rb-armL,.rb.a-jump .rbx .rb-armR{animation-iteration-count:1}
-@keyframes rbUpL{0%,100%{transform:rotate(20deg)}35%{transform:rotate(142deg)}}
-@keyframes rbUpR{0%,100%{transform:rotate(-20deg)}35%{transform:rotate(-142deg)}}
+@keyframes rbUpL{0%,100%{transform:rotate(20deg)}35%{transform:rotate(112deg)}}
+@keyframes rbUpR{0%,100%{transform:rotate(-20deg)}35%{transform:rotate(-112deg)}}
 @media (prefers-reduced-motion:reduce){.rbx .rb-armL,.rbx .rb-armR,.rbx .rb-zz{animation:none!important}}
 .ia-rbpick{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,230px),1fr));gap:12px}
 .ia-rbopt{display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;padding:14px;border-radius:18px;border:2px solid transparent;background:#F6F2EA;font:inherit;color:#14323F;cursor:pointer;min-height:48px}
@@ -4052,7 +4052,7 @@ var RUMBO=(function(){
 
  /* ---------- cuerpos ---------- */
  var CX=50,CY=55;
- var LANDS=[[[-1,-.05],[-.82,-.32],[-.62,-.2],[-.55,.12],[-.62,.42],[-.78,.62],[-.98,.5]],[[.62,.36],[.84,.18],[1,.3],[.98,.66],[.78,.78],[.6,.62]],[[-.3,.86],[-.06,.74],[.22,.8],[.3,1],[-.2,1.02]],[[.4,-.62],[.62,-.52],[.58,-.36],[.42,-.4]]];
+ var LANDS=[[[-.62,.44],[-.38,.48],[-.18,.62],[-.22,.8],[-.44,.86],[-.68,.72]],[[.2,.64],[.4,.52],[.64,.54],[.72,.72],[.5,.84],[.26,.82]],[[-.8,-.12],[-.62,-.22],[-.5,-.06],[-.6,.12],[-.78,.08]],[[.56,-.14],[.74,-.2],[.82,0],[.66,.08]]];
  function globe(id,r){var s='<clipPath id="'+id+'g"><circle cx="'+CX+'" cy="'+CY+'" r="'+r+'"/></clipPath>';
   s+='<circle cx="'+CX+'" cy="'+CY+'" r="'+r+'" fill="#F7E0BD"/>';
   s+='<g clip-path="url(#'+id+'g)"><g fill="#7FA2B3">'+LANDS.map(function(L){return '<path d="'+sm(sph(L,CX,CY,r))+'"/>'}).join("")+'</g>'+
@@ -4092,13 +4092,11 @@ var RUMBO=(function(){
   /* muy feliz y celebrando: ojos en arco */
   s+='<g data-p="joy">'+arc(E1,true)+arc(E2,true)+'</g>';
   /* sorprendido: ojos grandes y cejas arriba */
-  s+='<g data-p="wow">'+eye(E1,5.4,6.6)+eye(E2,5.4,6.6)+brow(E1,-6,-2)+brow(E2,6,-2)+'</g>';
+  s+='<g data-p="wow">'+eye(E1,5.4,6.6)+eye(E2,5.4,6.6)+'</g>';br+='<g data-p="wow">'+brow(E1,-6,-1.6)+brow(E2,6,-1.6)+'</g>';
   /* dormido: ojos cerrados y zetas */
   s+='<g data-p="sleep">'+arc(E1,false)+arc(E2,false)+'<g class="rb-zz"><text x="66" y="40" font-size="7" font-weight="900" fill="'+INK+'" opacity=".55">z</text><text x="71" y="33" font-size="5" font-weight="900" fill="'+INK+'" opacity=".4">z</text></g></g>';
   /* cejas por expresión */
-  s+='<g data-p="curious">'+brow(E1,0,0)+brow(E2,-10,-2.2)+'</g>';
-  s+='<g data-p="think">'+brow(E1,10,.4)+brow(E2,-4,-.6)+'</g>';
-  s+='<g data-p="sad sadhope">'+brow(E1,-14,1)+brow(E2,14,1)+'</g>';
+  var br='<g data-p="curious">'+brow(E1,0,0)+brow(E2,-10,-2.2)+'</g><g data-p="think">'+brow(E1,10,.4)+brow(E2,-4,-.6)+'</g><g data-p="sad sadhope">'+brow(E1,-14,1.4)+brow(E2,14,1.4)+'</g>';
   /* bocas */
   s+='<path data-p="idle" d="M45.4 62Q50 66.4 54.6 62" stroke="'+INK+'" stroke-width="1.9" fill="none" stroke-linecap="round"/>';
   s+='<g data-p="happy wink"><path d="M44.6 61.2Q50 68.6 55.4 61.2Z" fill="'+INK+'" stroke="'+INK+'" stroke-width="1.2" stroke-linejoin="round"/><path d="M46.9 65.1Q50 67 53.1 65.1Q51.6 63.8 50 63.8Q48.4 63.8 46.9 65.1Z" fill="#E86A6A"/></g>';
@@ -4113,7 +4111,7 @@ var RUMBO=(function(){
   s+='<ellipse data-p="sleep" cx="50" cy="64" rx="1.6" ry="1.3" fill="'+INK+'" opacity=".8"/>';
   /* "no le gustó": ojos de rayita */
   s+='<g data-p="no"><path d="M37.4 55H44.6M55.4 55H62.6" stroke="'+INK+'" stroke-width="2" stroke-linecap="round"/></g>';
-  return s}
+  return [s,br]}
 
  /* ---------- gorro, solapas, gafas y anillo de la flecha ---------- */
  function hat(id){
@@ -4147,11 +4145,12 @@ var RUMBO=(function(){
   if(model==="A"){body=globe(id,27);skin="#F7E0BD"}
   else if(model==="B"){body=compass(id,false);skin="#FBF0DA"}
   else{body=compass(id,true);skin="#F7E0BD"}
+  var fc=face(skin);
   return '<svg class="rbx rbx-'+model+'" viewBox="0 0 100 100" aria-hidden="true">'+
    '<ellipse class="rb-sh" cx="50" cy="92" rx="21" ry="2.8"/>'+
    '<g class="rb-sh2"><ellipse cx="42" cy="92" rx="6.4" ry="1.3" fill="#13213F" opacity=".22"/><ellipse cx="58" cy="92" rx="6.4" ry="1.3" fill="#13213F" opacity=".22"/></g>'+
-   '<g class="rb-f"><g class="rb-b">'+legs()+arms()+
-    '<g class="rb-head"><g class="rb-n">'+arrow()+'</g>'+body+'<g class="rb-face">'+face(skin)+'</g><g class="rb-hat">'+hat(id)+'</g></g>'+
+   '<g class="rb-f"><g class="rb-b">'+legs()+
+    '<g class="rb-head"><g class="rb-n">'+arrow()+'</g>'+body+'<g class="rb-face">'+fc[0]+'</g><g class="rb-hat">'+hat(id)+'</g><g class="rb-face rb-brows">'+fc[1]+'</g></g>'+arms()+
    '</g></g></svg>';
  }
  var NAMES={v1:"Actual (v1)",A:"A · Globo",B:"B · Brújula",C:"C · Híbrido"};
