@@ -1795,7 +1795,12 @@ var LM={
   lmT(28,-4,'<rect x="-14" y="-24" width="28" height="22" rx="2" fill="#2A3640" stroke="'+OUTC+'" stroke-width="1.6"/><path d="M-10 -20h20M-10 -14h20M-10 -8h14" stroke="#8A97A0" stroke-width="1.4"/><g transform="rotate(-18 -14 -24)"><rect x="-14" y="-32" width="28" height="8" fill="#FFFFFF" stroke="'+OUTC+'" stroke-width="1.6"/><path d="M-9 -32l-4 8M-1 -32l-4 8M7 -32l-4 8" stroke="#2A3640" stroke-width="2.4"/></g>')+
   lmT(-26,-58,'<circle r="11" fill="#2A3640" stroke="'+OUTC+'" stroke-width="1.4"/><circle r="3" fill="#8A97A0"/><circle cx="0" cy="-6" r="2.4" fill="#8A97A0"/><circle cx="5.7" cy="1.9" r="2.4" fill="#8A97A0"/><circle cx="-5.7" cy="1.9" r="2.4" fill="#8A97A0"/>')}
 };
-function poiSVG(c){return '<g transform="scale(.92)">'+(LM[c.id]?LM[c.id](c):lmBase(40))+'</g>'}
+function poiSVG(c){
+ /* carreras con ilustración isométrica: se usa la estructura (el lugar donde se ejerce), centrada en la puerta del nodo */
+ if(typeof ART!=="undefined"&&ART.has(c.id)){isoDefs();return '<g transform="translate(0 8) scale(.84)">'+ART.get(c.id,1,"s")+'</g>'}
+ return '<g transform="scale(.92)">'+(LM[c.id]?LM[c.id](c):lmBase(40))+'</g>'}
+/* degradados de las ilustraciones (halos, reflectores): una sola vez en el documento */
+function isoDefs(){if(document.getElementById("isoDefsDoc")||typeof ENV==="undefined")return;var d=document.createElement("div");d.innerHTML='<svg id="isoDefsDoc" width="0" height="0" style="position:absolute" aria-hidden="true"><defs>'+ENV.DEFS+'</defs></svg>';document.body.appendChild(d.firstChild)}
 
 
 
