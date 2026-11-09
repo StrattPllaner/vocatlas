@@ -10,7 +10,13 @@ window.__uniones=function(svg){
  function inAny(shapes,el,pt){return shapes.some(function(s){return inside(s,el,pt)})}
  var isR=svg.classList.contains("rbx-R");
  var isO=svg.classList.contains("rbx-O");if(isO)isR=true;
- var J=isO?[
+ var isP=svg.classList.contains("rbx-P");if(isP)isR=true;
+ var J=isP?[
+  ["pierna izq.",first("rk-legL"),[core],[[184,344],[218,344]]],
+  ["pierna der.",first("rk-legR"),[core],[[272,344],[308,344]]],
+  ["asta de la flecha",svg.querySelector(".rk-arrow rect"),caps,[[238,166],[248,166]]],
+  ["gafas sobre el gorro",svg.querySelector(".rk-gog ellipse"),caps,[[306,190],[270,163]]]
+ ]:isO?[
   ["pierna izq.",first("rk-legL"),[core],[[42.8,71.4],[47,71.4]]],
   ["pierna der.",first("rk-legR"),[core],[[53,71.4],[57.2,71.4]]],
   ["asta de la flecha",first("rk-arrow"),caps,[[49.4,23.6],[50.6,23.6]]],
