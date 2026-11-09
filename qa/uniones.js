@@ -8,7 +8,15 @@ window.__uniones=function(svg){
  function first(c){return svg.querySelector("."+c+" path, ."+c+" rect")}
  function inside(shape,el,pt){var m=shape.getScreenCTM().inverse().multiply(el.getScreenCTM());var p=svg.createSVGPoint();p.x=pt[0];p.y=pt[1];var q=p.matrixTransform(m);return shape.isPointInFill(q)}
  function inAny(shapes,el,pt){return shapes.some(function(s){return inside(s,el,pt)})}
- var J=[
+ var isR=svg.classList.contains("rbx-R");
+ var J=isR?[
+  ["pierna izq.",first("rk-legL"),[core],[[42.4,82.4],[44.6,82.4]]],
+  ["pierna der.",first("rk-legR"),[core],[[55.4,82.4],[57.6,82.4]]],
+  ["asta de la flecha",first("rk-arrow"),caps,[[49.5,17.6],[50.5,17.6]]],
+  ["orejera izq.",first("rk-flapL"),caps,[[23.4,43.6],[25.6,44]]],
+  ["orejera der.",first("rk-flapR"),caps,[[74.6,43.8],[77.6,43.2]]],
+  ["gafas sobre el gorro",first("rk-gog"),caps,[[36.6,27.2],[63.4,27.2],[40.8,23],[59.2,23]]]
+ ]:[
   ["pierna izq.",first("rk-legL"),[core],[[41.6,70.6],[46.8,70.6]]],
   ["pierna der.",first("rk-legR"),[core],[[53.2,70.6],[58.4,70.6]]],
   ["hombro izq.",svg.querySelector(".rk-armL circle:last-child"),[core],[[24.8,62.4],[30.8,62.4],[27.8,59.4],[27.8,65.4]]],
@@ -22,7 +30,7 @@ window.__uniones=function(svg){
  J.forEach(function(j){if(!j[1])return;var bad=j[3].filter(function(pt){return !inAny(j[2],j[1],pt)});if(bad.length)out.push({n:j[0],fuera:bad})});
  /* la cabeza bajo el gorro: el borde de arriba del cuerpo debe quedar cubierto por el gorro (sin hueco entre gorro y cabeza) */
  if(core){var r=+core.getAttribute("r"),cx=+core.getAttribute("cx"),cy=+core.getAttribute("cy"),bad=[];
-  for(var a=-160;a<=-20;a+=10){var t=a*Math.PI/180,pt=[cx+Math.cos(t)*(r-.6),cy+Math.sin(t)*(r-.6)];if(!inAny(caps,core,pt))bad.push(a)}
+  for(var a=(isR?-125:-160);a<=(isR?-55:-20);a+=10){var t=a*Math.PI/180,pt=[cx+Math.cos(t)*(r-.6),cy+Math.sin(t)*(r-.6)];if(!inAny(caps,core,pt))bad.push(a)}
   if(bad.length)out.push({n:"cabeza descubierta bajo el gorro",fuera:bad})}
  /* ojos dentro de la cara */
  [].slice.call(svg.querySelectorAll(".rk-esq ellipse")).slice(0,1).forEach(function(){});
