@@ -4197,8 +4197,23 @@ var RUMBO=(function(){
  /* flecha: el asta entra en el gorro (se dibuja antes que el casquete) */
  function arrow(){return '<rect x="48.6" y="9" width="2.8" height="19" rx="1" fill="'+GOLD+'"/><rect x="50" y="9" width="1.4" height="19" fill="'+GOLDS+'"/><path d="M50 1.6Q51.2 1.6 52 2.7L57.4 10.4Q58.3 12 56.5 12H43.5Q41.7 12 42.6 10.4L48 2.7Q48.8 1.6 50 1.6Z" fill="'+GOLD+'"/><path d="M50 1.6Q51.2 1.6 52 2.7L57.4 10.4Q58.3 12 56.5 12H50Z" fill="'+GOLDS+'"/>'}
  /* piernas: la parte alta entra por debajo del cuerpo */
- function legL(){var L="M41 70H47.4V88.6Q47.4 92 44 92H37.8Q35 92 35 90Q35 87.8 38 87.4L41 87Z";return '<path d="'+L+'" fill="'+LEG+'"/><path d="M44.4 70H47.4V88.6Q47.4 92 44 92H42Q44.4 91 44.4 88Z" fill="'+LEGS+'"/><path d="M35 90.4Q35 92 37.8 92H44Q47.4 92 47.4 89.6V90.4Z" fill="'+SOLE+'"/>'}
- function legR(){var R="M52.6 70H59V87L62 87.4Q65 87.8 65 90Q65 92 62.2 92H56Q52.6 92 52.6 88.6Z";return '<path d="'+R+'" fill="'+LEG+'"/><path d="M56 70H59V87L62 87.4Q63.6 87.6 64.4 88.4Q60 88.6 56 88.4Z" fill="'+LEGS+'"/><path d="M52.6 89.6Q52.6 92 56 92H62.2Q65 92 65 90.4Z" fill="'+SOLE+'"/>'}
+ /* piernas cortas y botitas de aviador: puntera redonda hacia afuera, borde de borrego como el forro del gorro,
+    ojales, suela oscura y brillo en la punta. La parte alta del pantalón entra bajo el cuerpo. */
+ var BOOT="#8A5230",BOOTS="#6E3F22",BSOLE="#3E2618";
+ function leg(m){var X=function(x){return (m<0?x:100-x).toFixed(2)},s="";
+  var P=function(d){return d.replace(/X\(([-\d.]+)\)/g,function(_,x){return X(+x)})};
+  s+='<path d="'+P("MX(41.6) 69.6LX(47.2) 69.6LX(47.2) 82.4LX(41.6) 82.4Z")+'" fill="'+LEG+'"/><path d="'+(m<0?P("MX(44.8) 69.6LX(47.2) 69.6LX(47.2) 82.4LX(44.8) 82.4Z"):"M55.8 69.6L58.4 69.6L58.4 82.4L55.8 82.4Z")+'" fill="'+LEGS+'"/>';
+  /* bota */
+  s+='<path d="'+P("MX(40.4) 82.2QX(40.4) 80.8 X(41.8) 80.8LX(46.8) 80.8QX(48.2) 80.8 X(48.2) 82.2LX(48.2) 88.8QX(48.2) 92 X(45) 92LX(38.4) 92QX(34.4) 92 X(34.4) 89.2QX(34.4) 86.2 X(37.8) 85.8QX(40.4) 85.5 X(40.4) 83.6Z")+'" fill="'+BOOT+'"/>';
+  if(m<0)s+='<path d="'+P("MX(45.6) 80.8LX(46.8) 80.8QX(48.2) 80.8 X(48.2) 82.2LX(48.2) 88.8QX(48.2) 92 X(45) 92LX(43.6) 92QX(45.6) 91 X(45.6) 88.4Z")+'" fill="'+BOOTS+'"/>';
+  s+='<path d="'+P("MX(34.5) 89.6QX(34.8) 92 X(38.4) 92LX(45) 92QX(48.2) 92 X(48.2) 89LX(48.2) 90.6QX(48) 93.4 X(45) 93.4LX(38.4) 93.4QX(34.2) 93.4 X(34.5) 89.6Z")+'" fill="'+BSOLE+'"/>';
+  s+='<ellipse cx="'+X(37.4)+'" cy="87.7" rx="1.7" ry=".9" fill="#B07A50"/>';
+  s+='<circle cx="'+X(43.4)+'" cy="84.6" r=".55" fill="'+LIN+'"/><circle cx="'+X(43.4)+'" cy="87" r=".55" fill="'+LIN+'"/>';
+  /* borde de borrego */
+  s+='<rect x="'+(m<0?39.8:100-49)+'" y="80.4" width="9.2" height="3.1" rx="1.55" fill="'+LIN+'"/><rect x="'+(m<0?45.4:56.6)+'" y="80.4" width="3.6" height="3.1" rx="1.55" fill="#D9BC92"/>';
+  return s}
+ function legL(){return leg(-1)}
+ function legR(){return leg(1)}
  /* brazos: hombro redondo centrado en el pivote (dentro del cuerpo), así la unión se ve igual en cualquier ángulo;
     manga con su sombra del lado de afuera y puño un poco más oscuro */
  var SHL=[27.8,62.4],SHR=[72.2,62.4];
@@ -4225,7 +4240,7 @@ var RUMBO=(function(){
     '<g class="rk-shadow"><ellipse class="rk-sh" cx="50" cy="92" rx="21" ry="2.8" fill="var(--rb-sh,#13213F)" opacity=".2"/><ellipse cx="42" cy="92" rx="6.4" ry="1.3" fill="#13213F" opacity=".22"/><ellipse cx="58" cy="92" rx="6.4" ry="1.3" fill="#13213F" opacity=".22"/></g>'+
     grp("rk-legL",44,72,legL())+grp("rk-legR",56,72,legR())+
     grp("rk-body",50,82,
-     body+'<g class="rk-face">'+fc[0]+'</g>'+hat+'<g class="rk-brows">'+fc[1]+'</g>'+grp("rk-armL",SHL[0],SHL[1],armL())+grp("rk-armR",SHR[0],SHR[1],armR()))
+     body+'<g class="rk-face">'+fc[0]+'</g>'+hat)
    )+'</svg>';
  }
 
@@ -4321,13 +4336,13 @@ var RUMBO=(function(){
     B.r+=W.walk*2.2*s1;aL+=W.walk*-16*s1;aR+=W.walk*16*s1;lean+=W.walk*3.5;
     if(W.cheer>.001){var hp=hop((t%.9)/.9);lift+=W.cheer*Math.min(0,hp.y);B.y+=W.cheer*Math.max(0,hp.y);B.sy+=W.cheer*(hp.sy-1);aL+=W.cheer*hp.up*112;aR-=W.cheer*hp.up*112}
     /* poses */
-    aR+=st.pose.wave*(-84-18*(.5+.5*Math.sin(t*2*Math.PI/.9)))+st.pose.point*(-82);lean+=st.pose.point*2;
+    B.r+=st.pose.wave*5*Math.sin(t*2*Math.PI/.6);lean+=st.pose.point*5;
     /* coreografías */
     if(A){A.t+=dt;var p=Math.min(1,A.t/A.d),e;
      if(A.k==="jump"){var hj=hop(p);lift+=Math.min(0,hj.y);B.y+=Math.max(0,hj.y);B.sy+=hj.sy-1;aL+=hj.up*100;aR-=hj.up*100}
      else if(A.k==="yes"){var hy2=hop(cl(p/.85,0,1),11);lift+=Math.min(0,hy2.y);B.y+=Math.max(0,hy2.y);B.sy+=hy2.sy-1;aL+=hy2.up*120;aR-=hy2.up*120}
      else if(A.k==="cheer"){var q2=cl(p/.92,0,1),hc=hop((q2*2)%1,15);if(q2>=1)hc={y:0,sy:1,up:0};lift+=Math.min(0,hc.y);B.y+=Math.max(0,hc.y);B.sy+=hc.sy-1;e=env(A,.12,.35);aL+=e*135;aR-=e*135;B.r+=e*3*Math.sin(A.t*2*Math.PI/.45)}
-     else if(A.k==="wave"){e=env(A,.22,.35);aR+=e*(-86+(A.t>.3&&A.t<1.3?-22*Math.sin((A.t-.3)*2*Math.PI/.34):0));B.r+=-2.4*e;look=[1.2,-.4]}
+     else if(A.k==="wave"){e=env(A,.22,.35);B.r+=e*6*Math.sin((A.t-.1)*2*Math.PI/.55);B.y+=-1.2*e*Math.abs(Math.sin((A.t-.1)*2*Math.PI/.55));look=[1.2,-.4]}
      else if(A.k==="oops"){var e1=ease(A.t/.32),e2=ease((A.t-.75)/.5);B.y+=1.8*e1*(1-e2);B.sy+=-.04*e1*(1-e2);B.r+=(-4*e1*(1-e2))+3*Math.sin(cl((A.t-.95)/.6,0,1)*Math.PI*2)*(1-ease((A.t-.95)/.6))*e2;aL+=-12*e1*(1-e2);aR+=12*e1*(1-e2);look=A.t<.9?[-.6,1.6]:null}
      else if(A.k==="adjust"){e=env(A,.32,.4);aL+=e*146;gogY=A.t>.45&&A.t<.95?-1.2*Math.sin((A.t-.45)/.5*Math.PI):0;look=[0,-1.8]}
      else if(A.k==="sway"){e=env(A,.4,.5);B.r+=3*Math.sin(A.t*2*Math.PI/1.2)*e}
