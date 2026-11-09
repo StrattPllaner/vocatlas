@@ -101,28 +101,9 @@ html.art-on body>*:not(#art){display:none!important}
 .ia-seg button[aria-pressed=true],.ia-night[aria-pressed=true]{background:#14323F;color:#FFF8E8}
 .ia-night{background:#F6F2EA}
 .ia-map{position:relative;height:min(72vh,720px);border-radius:20px;overflow:hidden}
-/* ================= Rumbo: modelos nuevos (pivotes en coordenadas 0–100) ================= */
-.rbx .rb-b{transform-origin:50px 92px}.rbx .rb-head{transform-origin:50px 82px}.rbx .rb-n{transform-origin:50px 26px}
-.rbx .rb-face{transform-origin:50px 58px}.rbx .rb-legL{transform-origin:44px 76px}.rbx .rb-legR{transform-origin:56px 76px}
-.rbx .rb-hat{transform-origin:50px 40px}.rbx .rb-sh2{transform-origin:50px 92px}
-.rbx .rb-armL,.rbx .rb-armR{transform-box:view-box;transition:transform var(--t-med,280ms) var(--spring,ease)}
-.rbx .rb-armL{transform-origin:26px 60px}.rbx .rb-armR{transform-origin:74px 60px}
-.rb.g-l .rbx .rb-gaze{transform:translate(-2.2px,.2px)}.rb.g-r .rbx .rb-gaze{transform:translate(2.2px,.2px)}.rb.g-u .rbx .rb-gaze{transform:translate(.8px,-1.6px)}.rb.walk .rbx .rb-gaze{transform:translate(1.6px,0)}
-.rb[data-mood=joy] [data-p~=joy],.rb[data-mood=curious] [data-p~=curious],.rb[data-mood=sadhope] [data-p~=sadhope],.rb[data-mood=sleep] [data-p~=sleep]{opacity:1}
-.rb[data-mood=curious] .rbx .rb-gaze{transform:translate(1.6px,-1.2px)}.rb[data-mood=think] .rbx .rb-gaze{transform:translate(-1.6px,-1.6px)}
-.rb[data-mood=curious] .rbx .rb-head{transform:rotate(-6deg)}
-.rbx .rb-zz{animation:rbZz 2.4s ease-in-out infinite}
-@keyframes rbZz{0%{transform:translate(0,2px);opacity:0}30%,70%{opacity:1}100%{transform:translate(2px,-4px);opacity:0}}
-.rb.walk .rbx .rb-armL{animation:rbArm .52s ease-in-out infinite}.rb.walk .rbx .rb-armR{animation:rbArm .52s ease-in-out infinite;animation-delay:-.26s}
-@keyframes rbArm{0%,100%{transform:rotate(16deg)}50%{transform:rotate(-16deg)}}
-.rb.p-wave .rbx .rb-armR{animation:rbWave .9s ease-in-out infinite}
-@keyframes rbWave{0%,100%{transform:rotate(-96deg)}50%{transform:rotate(-128deg)}}
-.rb.p-point .rbx .rb-armR{transform:rotate(-82deg)}.rb.p-point .rbx .rb-gaze{transform:translate(2.2px,0)}
-.rb.cheer .rbx .rb-armL,.rb.a-jump .rbx .rb-armL{animation:rbUpL 900ms var(--e-out,ease-out) infinite}.rb.cheer .rbx .rb-armR,.rb.a-jump .rbx .rb-armR{animation:rbUpR 900ms var(--e-out,ease-out) infinite}
-.rb.a-jump .rbx .rb-armL,.rb.a-jump .rbx .rb-armR{animation-iteration-count:1}
-@keyframes rbUpL{0%,100%{transform:rotate(20deg)}35%{transform:rotate(112deg)}}
-@keyframes rbUpR{0%,100%{transform:rotate(-20deg)}35%{transform:rotate(-112deg)}}
-@media (prefers-reduced-motion:reduce){.rbx .rb-armL,.rbx .rb-armR,.rbx .rb-zz{animation:none!important}}
+/* ================= Rumbo: modelos nuevos =================
+   Todo el movimiento lo hace el motor en JS (rumbo.js); aquí se apagan las animaciones y transiciones de CSS del personaje. */
+.rbx,.rbx *{animation:none!important;transition:none!important}
 .ia-rbpick{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,230px),1fr));gap:12px}
 .ia-rbopt{display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;padding:14px;border-radius:18px;border:2px solid transparent;background:#F6F2EA;font:inherit;color:#14323F;cursor:pointer;min-height:48px}
 .ia-rbopt b{font-size:17px}.ia-rbopt span{font-size:14px;line-height:1.35;color:rgba(20,50,63,.82)}
