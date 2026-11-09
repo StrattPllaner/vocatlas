@@ -211,3 +211,18 @@ La cara sale de `cara-rumbo.svg`, usado tal cual (ver DESIGN.md, sección 10.5).
 - Todas las pantallas usan el modelo U: inicio, pasaporte, metas, test, mapa, plazas, retos, avisos y estados vacíos. La elección de modelo guardada antes en el dispositivo se reinicia una vez.
 - La pantalla de inicio ya no dibuja el globo viejo: muestra a Rumbo, y al deslizar hacia arriba gira la flecha de la brújula («Gira la brújula hacia arriba»). Al entrar da sus vueltas rápidas y hace zoom como antes.
 - Error corregido: el giro del gorro salía NaN en Chrome porque una variable se llamaba igual que la de la mano derecha.
+
+## Camino de lecciones de cada carrera
+
+- Al entrar a una carrera desde el mapa (zoom y fundido al color de la carrera), se abre un camino vertical en zigzag:
+  - encabezado fijo con la unidad y la lección;
+  - separadores de unidad;
+  - nodos con grosor e icono según el tipo de lección;
+  - cofres;
+  - ilustraciones isométricas de la carrera y pizarrones a los lados;
+  - Rumbo junto a la lección actual;
+  - fondo del color de la carrera con un patrón tenue que se mueve más lento que el camino.
+- Las lecciones salen de lo que la app tiene hoy: «Qué haces», el mini reto y «Tu veredicto» (la calificación). El primer cofre da el sello de la carrera para el pasaporte.
+- Un día real, Lo difícil, Cuánto se gana, Testimonio, Dónde se estudia y Repaso aparecen bloqueados con «llega pronto», porque todavía no tienen contenido. No se inventa nada.
+- El progreso de los cofres se guarda en `S.chest`.
+- Mientras el camino está abierto, el mapa de abajo se oculta y pausa sus animaciones (de 20 a 55 cuadros por segundo con el procesador a ¼).

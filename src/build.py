@@ -9,7 +9,7 @@ vb=re.search(r'viewBox="([^"]+)"',cs).group(1)
 cd=re.search(r' d="([^"]+)"',cs).group(1)
 subs=[x.strip() for x in re.split(r'(?=M)',cd) if x.strip()]
 js='/* cara de Rumbo, copiada de cara-rumbo.svg por build.py; no se edita a mano */\nvar CARA={vb:'+json.dumps(vb)+',sub:'+json.dumps(subs)+'};\n'
-js+=''.join(open(src+f).read()+'\n' for f in ['rumbo.js','iso-lib.js','iso-gen.js','iso-env-old.js','iso-env.js','iso-bld.js','iso-bld2.js','iso-bld3.js','iso-map.js','iso-fix.js','iso-art.js','rumbo-page.js'])
+js+=''.join(open(src+f).read()+'\n' for f in ['rumbo.js','iso-lib.js','iso-gen.js','iso-env-old.js','iso-env.js','iso-bld.js','iso-bld2.js','iso-bld3.js','iso-map.js','iso-fix.js','iso-art.js','rumbo-page.js','path.js'])
 css=open(src+'iso.css').read()
 def put(s,a,b,body,anchor,before=True):
     if a in s:
