@@ -5,7 +5,7 @@
    El orden de dibujo lo garantiza el ensamblador por profundidad. Uso: node qa/traslapes.js */
 const fs=require('fs'),path=require('path'),S=path.join(__dirname,'..','src');
 global.localStorage={getItem(){return null},setItem(){}};
-eval(['iso-lib.js','iso-gen.js','iso-env-old.js','iso-env.js','iso-bld.js','iso-bld2.js'].map(f=>fs.readFileSync(path.join(S,f),'utf8')).join('\n'));
+eval(['iso-lib.js','iso-gen.js','iso-env-old.js','iso-env.js','iso-bld.js','iso-bld2.js','iso-bld3.js'].map(f=>fs.readFileSync(path.join(S,f),'utf8')).join('\n'));
 let fallas=0;
 ART.ids.forEach(id=>['v1','v2'].forEach(vv=>{if(vv==='v1'?!ART.A[id]:!ART.V2[id])return;['s','e'].forEach(v=>{
  const ps=ART.parts(id,v,2,vv),msgs=[];
