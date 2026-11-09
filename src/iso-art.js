@@ -21,7 +21,7 @@ function renderArt(){
   nutricion:["Puesto de mercado con toldo de rayas, fruta y báscula en el mostrador, pizarrón, cajas y huerto","Manzana gigante partida (corazón y semillas), la otra mitad, canasta de verduras y báscula"]};
  function svg(inner,px,cls){return '<svg class="'+(cls||"")+'" viewBox="'+VB+'" style="height:'+px+'px" aria-hidden="true">'+inner+'</svg>'}
  h+='<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>'+E.DEFS+'</defs></svg>';
- h+='<header class="ia-h"><h1>Ilustración del mapa</h1><p>Elige para cada carrera la versión que más te guste: la <b>estructura</b> (el lugar donde se ejerce) o el <b>emblema</b> (su objeto a escala gigante). Tu elección se guarda en este dispositivo y el mapa de abajo la usa. Donde hay versión 2, puedes volver a la versión 1 con el selector de cada tarjeta; si no eliges, se usa la versión 2.</p></header>';
+ h+='<header class="ia-h"><h1>Ilustración del mapa</h1><p>Elige para cada carrera la versión que más te guste: la <b>estructura</b> (el lugar donde se ejerce) o el <b>emblema</b> (su objeto a escala gigante). Tu elección se guarda en este dispositivo y el mapa de abajo la usa. Si no eliges, se usa la estructura. Donde hay versión 2, puedes volver a la versión 1 con el selector de cada tarjeta; si no eliges, se usa la versión 2.</p></header>';
  /* ---------- comparación por carrera ---------- */
  h+='<section><h2>Estructura o emblema</h2><div class="ia-cards">';
  function cardBody(id,vv){var cur=ART.pick(id),D=(vv==="v2"&&DESC2[id])||DESC[id]||["",""],o="";

@@ -349,5 +349,5 @@
  ART.addV2("arquitectura",{s:arq_s,e:arq_e});
  ART.addV2("cine",{s:cine_s,e:cine_e});
  ART.addV2("datos",{s:datos_s,e:datos_e});
- ART.addV2("nutricion",{s:nut_s,e:nut_e},"e");
+ ART.addV2("nutricion",{s:nut_s,e:nut_e});
 })(ISO,ENV,ART.H);

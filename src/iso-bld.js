@@ -457,9 +457,11 @@ var ART=(function(I,E){
   cine:{s:cine_s,e:cine_e},arquitectura:{s:arquitectura_s,e:arquitectura_e},veterinaria:{s:veterinaria_s,e:veterinaria_e},datos:{s:datos_s,e:datos_e}
  };
  /* elección guardada en el dispositivo: estructura (s) o emblema (e); mientras no elijas, estructura */
- var PICK={};try{PICK=JSON.parse(localStorage.getItem("vocatlas_estilo")||"{}")||{}}catch(e){}
+ var PICK={};try{PICK=JSON.parse(localStorage.getItem("vocatlas_estilo")||"{}")||{};
+  /* decisión de noviembre: estructuras para todas; se reinician una vez las elecciones guardadas antes */
+  if(!localStorage.getItem("vocatlas_estilo_m1")){PICK={};localStorage.removeItem("vocatlas_estilo");localStorage.setItem("vocatlas_estilo_m1","1")}}catch(e){}
  /* elecciones del equipo; el usuario puede cambiarlas desde #art */
- var DEF={medicina:"s",derecho:"e",computacion:"e",cine:"e",arquitectura:"e",veterinaria:"s",datos:"e"};
+ var DEF={};
  function pick(id,v){if(v){PICK[id]=v;try{localStorage.setItem("vocatlas_estilo",JSON.stringify(PICK))}catch(e){}}return PICK[id]||DEF[id]||"s"}
  /* revisión: registra las partes de una pieza (nombre y huella en el suelo) */
  function parts(id,v,d,vv){REC=[];src(id,vv)[v](d==null?2:d);var r=REC[0]||[];REC=null;return r}
@@ -468,7 +470,7 @@ var ART=(function(I,E){
  function ver(id,v){if(v){VER[id]=v;try{localStorage.setItem("vocatlas_ver",JSON.stringify(VER))}catch(e){}}return VER[id]||(V2[id]?"v2":"v1")}
  function src(id,vv){vv=vv||ver(id);return vv==="v2"&&V2[id]?V2[id]:A[id]}
  function get(id,d,v,o){var a=src(id,o&&o.ver);if(!a)return null;NOPLAT=!!(o&&o.noPlat);var r=a[v||pick(id)](d==null?2:d);NOPLAT=false;return r}
- function addV2(id,fns,def){V2[id]=fns;if(def&&!PICK[id]&&!DEF[id])DEF[id]=def;if(ids.indexOf(id)<0)ids.push(id)}
+ function addV2(id,fns){V2[id]=fns;if(ids.indexOf(id)<0)ids.push(id)}
  var ids=Object.keys(A);
  return {parts:parts,DEF:DEF,A:A,V2:V2,get:get,pick:pick,ver:ver,addV2:addV2,has:function(id){return !!(A[id]||V2[id])},hasV2:function(id){return !!V2[id]},hasV1:function(id){return !!A[id]},ids:ids,
   /* herramientas para las piezas v2 */
