@@ -8,6 +8,13 @@ function renderRumbo(){
  var POS=[["","De pie","idle"],["p-wave","Saludando","happy"],["p-point","Señalando","curious"],["cheer","Saltando","happy"],["walk","Caminando","idle"]];
  function rb(m,px,mood,cls){return '<div class="ia-rb" style="width:'+px+'px;height:'+px+'px"><div class="rb float '+(cls||"")+'" data-mood="'+(mood||"idle")+'">'+RUMBO.svg(m)+'<div class="burst"></div></div></div>'}
  h+='<header class="ia-h"><h1>Rumbo</h1><p>Elige qué modelo usa la app. Tu elección se guarda en este dispositivo y cambia a Rumbo en todas las pantallas: carga, inicio, perfil, test, mapa, avisos y estados vacíos. Mientras no elijas, la app usa el modelo B. Los ojos siguen tu dedo o tu cursor.</p></header>';
+ /* ---------- muestrario de ojos ---------- */
+ var ek=RUMBO.eyePick(),mm=cur==="v1"?"B":cur;
+ h+='<section><h2>Elige los ojos</h2><p class="ia-d">Los seis están vivos: parpadean, siguen tu dedo o tu cursor y cambian de expresión. Abajo de cada uno: feliz, muy feliz, sorprendido y triste.</p><div class="ia-eyes" role="radiogroup" aria-label="Estilo de ojos">'+
+  RUMBO.EYEK.map(function(k){var E0=RUMBO.EYES[k];
+   return '<div class="ia-eyeopt" data-k="'+k+'" aria-checked="'+(k===ek)+'"><div class="ia-rb" style="width:170px;height:170px"><div class="rb float" data-mood="idle">'+RUMBO.svg(mm,k)+'</div></div>'+
+    '<div class="ia-eyemini">'+["happy","joy","wow","sad"].map(function(md){return '<div class="ia-rb" style="width:64px;height:64px"><div class="rb" data-mood="'+md+'">'+RUMBO.svg(mm,k)+'</div></div>'}).join("")+'</div>'+
+    '<b>'+E0.n+'</b><span>'+E0.d+'</span><button type="button" role="radio" class="ia-pick" aria-checked="'+(k===ek)+'" aria-pressed="'+(k===ek)+'">'+(k===ek?"Elegidos":"Elegir estos ojos")+'</button></div>'}).join("")+'</div></section>';
  h+='<section><h2>Elige el modelo</h2><div class="ia-rbpick" role="radiogroup" aria-label="Modelo de Rumbo">'+M.map(function(m){return '<button type="button" role="radio" class="ia-rbopt" data-m="'+m+'" aria-checked="'+(m===cur)+'">'+rb(m,120)+'<b>'+NM[m]+'</b><span>'+DESC[m]+'</span></button>'}).join("")+'</div></section>';
  M.forEach(function(m){
   h+='<section class="ia-rbmodel"><h2>'+NM[m]+'</h2>';
@@ -19,6 +26,7 @@ function renderRumbo(){
   h+='</section>';
  });
  var el=document.createElement("div");el.id="art";el.className="ia";el.innerHTML=h;document.body.appendChild(el);
+ each(el.querySelectorAll(".ia-eyeopt .ia-pick"),function(bt){bt.onclick=function(){var k=bt.closest(".ia-eyeopt").getAttribute("data-k");RUMBO.eyePick(k);toast("Listo: Rumbo usará los ojos «"+RUMBO.EYES[k].n+"»");var y=scrollY;renderRumbo();scrollTo(0,y)}});
  each(el.querySelectorAll(".ia-rbopt"),function(b){b.onclick=function(){RUMBO.pick(b.getAttribute("data-m"));each(el.querySelectorAll(".ia-rbopt"),function(o){o.setAttribute("aria-checked",o===b?"true":"false")});toast("Listo: la app usará "+NM[b.getAttribute("data-m")])}});
  each(el.querySelectorAll(".ia-rbanim"),function(box){var r=box.querySelector(".rb");
   each(box.querySelectorAll("[data-a]"),function(b){b.onclick=function(){var a=b.getAttribute("data-a");

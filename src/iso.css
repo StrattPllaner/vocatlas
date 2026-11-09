@@ -115,3 +115,9 @@ html.art-on body>*:not(#art){display:none!important}
 .ia-ver button{min-height:48px;padding:0 16px;border-radius:999px;border:2px solid #14323F;background:#FFF;color:#14323F;font:inherit;font-weight:800;font-size:15px;cursor:pointer}
 .ia-ver button[aria-checked=true]{background:#14323F;color:#FFF8E8}
 .ia-new{font-size:12px;font-weight:900;background:#F2B544;color:#14323F;border-radius:6px;padding:2px 6px;vertical-align:middle}
+.ia-eyes{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.ia-eyeopt{display:flex;flex-direction:column;align-items:center;gap:8px;padding:14px;border-radius:18px;background:#FFFDF8;border:2px solid transparent}
+.ia-eyeopt[aria-checked=true]{border-color:#14323F}
+.ia-eyeopt .ia-pick{width:100%}
+.ia-eyeopt span{font-size:14px;color:#41505A;text-align:center;min-height:2.6em}
+.ia-eyemini{display:flex;gap:4px}

@@ -44,23 +44,39 @@ var RUMBO=(function(){
     y uno chico abajo a la derecha (se mueven con la pupila, siempre del mismo lado); todo recortado al blanco.
     Párpado de arriba y de abajo del color de la cara, con su línea; el párpado de arriba lleva la pestaña.
     Bocas y zetas siguen con data-p (fundido corto). */
- var EYE=[[41.4,57.4],[58.6,57.4]],ERX=3.7,ERY=4.7;
- /* destello en forma de rosa de los vientos: el guiño de marca dentro de la mirada */
+ /* estilos de ojos (se elige en #rumbo y se guarda en el dispositivo).
+    Todos comparten párpados del color de la cara, línea solo al cerrar, y la mirada mueve el ojo entero. */
  var STAR="M0 -1.3L.32 -.32L1.3 0L.32 .32L0 1.3L-.32 .32L-1.3 0L-.32 -.32Z";
- function eyeM(id,i,skin){var c=EYE[i],cx=c[0],cy=c[1],cid=id+"e"+i;
-  return '<g class="rk-eye" data-i="'+i+'"><g class="rk-esq">'+
-   '<g class="rk-pup"><ellipse cx="'+cx+'" cy="'+cy+'" rx="'+ERX+'" ry="'+ERY+'" fill="'+INK+'"/>'+
-   '<circle cx="'+(cx-1.15)+'" cy="'+(cy-1.75)+'" r="1.35" fill="#FFFFFF"/>'+
-   '<path d="'+STAR+'" transform="translate('+(cx+1.3)+' '+(cy+1.55)+') scale(.78)" fill="#FFFFFF"/></g>'+
-   /* párpados del color de la cara, recortados a un óvalo un poco mayor que el ojo */
-   '<clipPath id="'+cid+'k"><ellipse cx="'+cx+'" cy="'+cy+'" rx="'+(ERX+1.4)+'" ry="'+(ERY+1.4)+'"/></clipPath><g clip-path="url(#'+cid+'k)">'+
+ var EYES={
+  boton:{n:"Botón",d:"Puntos redondos y pequeños con un brillo. Lo más sencillo y tierno.",c:[[42.2,58.4],[57.8,58.4]],rx:3.1,ry:3.3},
+  frijol:{n:"Frijol",d:"Cápsulas altas y delgadas, un brillo arriba. Moderno y limpio.",c:[[43,57.6],[57,57.6]],rx:2.3,ry:4.4},
+  brillo:{n:"Brillo estelar",d:"Óvalos con brillo redondo y un destello de rosa de los vientos.",c:[[41.4,57.4],[58.6,57.4]],rx:3.7,ry:4.7},
+  blanco:{n:"Con blanco",d:"Blanco suave sin contorno y pupila grande que mira a todos lados.",c:[[40.8,57],[59.2,57]],rx:5,ry:5.5},
+  aguja:{n:"Aguja",d:"Puntos redondos con un brillo en forma de aguja de brújula.",c:[[41.8,58],[58.2,58]],rx:3.5,ry:3.7},
+  sonrisa:{n:"Siempre sonriente",d:"En reposo los ojos son arcos felices; se abren para sorprenderse o pensar.",c:[[41.6,58],[58.4,58]],rx:3.5,ry:4}};
+ var EYEK=["boton","frijol","brillo","blanco","aguja","sonrisa"];
+ var eyeCur=null;try{eyeCur=localStorage.getItem("vocatlas_ojos")}catch(e){}
+ function eyePick(k){if(k){eyeCur=k;try{localStorage.setItem("vocatlas_ojos",k)}catch(e){}}return EYES[eyeCur]?eyeCur:"boton"}
+ function eyeM(id,i,skin,ek){var E0=EYES[ek],c=E0.c[i],cx=c[0],cy=c[1],rx=E0.rx,ry=E0.ry,cid=id+"e"+i,g="";
+  if(ek==="blanco"){
+   g='<ellipse cx="'+cx+'" cy="'+(cy+.5)+'" rx="'+rx+'" ry="'+ry+'" fill="#E9D6B0"/><ellipse cx="'+cx+'" cy="'+cy+'" rx="'+rx+'" ry="'+ry+'" fill="#FFFFFF"/>'+
+    '<clipPath id="'+cid+'w"><ellipse cx="'+cx+'" cy="'+cy+'" rx="'+rx+'" ry="'+ry+'"/></clipPath><g clip-path="url(#'+cid+'w)"><g class="rk-iris">'+
+    '<circle cx="'+cx+'" cy="'+(cy+.6)+'" r="3.5" fill="'+INK+'"/><circle cx="'+(cx-1.1)+'" cy="'+(cy-.6)+'" r="1.25" fill="#FFFFFF"/><circle cx="'+(cx+1.2)+'" cy="'+(cy+1.9)+'" r=".55" fill="#FFFFFF"/></g></g>'}
+  else{g='<ellipse cx="'+cx+'" cy="'+cy+'" rx="'+rx+'" ry="'+ry+'" fill="'+INK+'"/>';
+   if(ek==="boton")g+='<circle cx="'+(cx-1)+'" cy="'+(cy-1.2)+'" r="1.05" fill="#FFFFFF"/>';
+   else if(ek==="frijol")g+='<ellipse cx="'+(cx-.6)+'" cy="'+(cy-2.2)+'" rx=".9" ry="1.2" fill="#FFFFFF"/>';
+   else if(ek==="brillo")g+='<circle cx="'+(cx-1.15)+'" cy="'+(cy-1.75)+'" r="1.35" fill="#FFFFFF"/><path d="'+STAR+'" transform="translate('+(cx+1.3)+' '+(cy+1.55)+') scale(.78)" fill="#FFFFFF"/>';
+   else if(ek==="aguja")g+='<path d="M'+(cx-2.2)+' '+(cy-.2)+'L'+(cx-.9)+' '+(cy-2.6)+'L'+(cx+.1)+' '+(cy-1.6)+'Z" fill="#FFFFFF"/><circle cx="'+(cx+1.3)+'" cy="'+(cy+1.4)+'" r=".55" fill="#FFFFFF"/>';
+   else g+='<circle cx="'+(cx-1)+'" cy="'+(cy-1.4)+'" r="1.15" fill="#FFFFFF"/>'}
+  return '<g class="rk-eye" data-i="'+i+'" data-cx="'+cx+'" data-cy="'+cy+'" data-rx="'+rx+'" data-ry="'+ry+'"><g class="rk-esq"><g class="rk-pup">'+g+'</g>'+
+   '<clipPath id="'+cid+'k"><ellipse cx="'+cx+'" cy="'+cy+'" rx="'+(rx+1.4)+'" ry="'+(ry+1.4)+'"/></clipPath><g clip-path="url(#'+cid+'k)">'+
    '<path class="rk-lo" fill="'+skin+'"/><path class="rk-lol" fill="none" stroke="none"/>'+
    '<path class="rk-up" fill="'+skin+'"/><path class="rk-lash" fill="none" stroke="'+INK+'" stroke-width="1.9" stroke-linecap="round" stroke-opacity="0"/>'+
    '</g></g></g>'}
- function face(skin,id){
+ function face(skin,id,ek){
   var s='';
   /* mejillas planas */
-  s+=eyeM(id,0,skin)+eyeM(id,1,skin);
+  s+=eyeM(id,0,skin,ek)+eyeM(id,1,skin,ek);
   s+='<ellipse cx="34.2" cy="64.6" rx="3.4" ry="2.2" fill="'+CHK+'" opacity=".8"/><ellipse cx="65.8" cy="64.6" rx="3.4" ry="2.2" fill="'+CHK+'" opacity=".8"/>';
   /* bocas */
   s+='<path data-p="idle" d="M45.6 66.2Q50 70.2 54.4 66.2" stroke="'+INK+'" stroke-width="1.9" fill="none" stroke-linecap="round"/>';
@@ -114,14 +130,14 @@ var RUMBO=(function(){
  /* esqueleto: raíz › (sombra, piernas, cuerpo › (brazos, cuerpo, cara, gorro › (flecha, orejeras, casquete, gafas), cejas)).
     Cada grupo lleva data-px/data-py con su pivote; el motor escribe su transform completo en cada cuadro. */
  function grp(cls,px,py,inner){return '<g class="'+cls+'" data-px="'+px+'" data-py="'+py+'">'+inner+'</g>'}
- function build(model){
+ function build(model,ek){ek=EYES[ek]?ek:eyePick();
   var id="rbm"+(++N),body,skin;
   if(model==="A"){body=globe(id,27);skin="#F7E0BD"}
   else if(model==="B"){body=compass(id,false);skin="#FBF0DA"}
   else{body=compass(id,true);skin="#F7E0BD"}
-  var fc=face(skin,id);
+  var fc=face(skin,id,ek);
   var hat=grp("rk-hat",50,46,grp("rk-arrow",50,26,arrow())+grp("rk-flapL",24,47,flapL())+grp("rk-flapR",76,47,flapR())+capParts(id)+grp("rk-gog",50,38,goggles()));
-  return '<svg class="rbx rbx-'+model+'" viewBox="0 0 100 100" aria-hidden="true">'+
+  return '<svg class="rbx rbx-'+model+'" data-ojos="'+ek+'" viewBox="0 0 100 100" aria-hidden="true">'+
    grp("rk-root",50,92,
     '<g class="rk-shadow"><ellipse class="rk-sh" cx="50" cy="92" rx="21" ry="2.8" fill="var(--rb-sh,#13213F)" opacity=".2"/><ellipse cx="42" cy="92" rx="6.4" ry="1.3" fill="#13213F" opacity=".22"/><ellipse cx="58" cy="92" rx="6.4" ry="1.3" fill="#13213F" opacity=".22"/></g>'+
     grp("rk-legL",44,72,legL())+grp("rk-legR",56,72,legR())+
@@ -146,7 +162,7 @@ var RUMBO=(function(){
   /* ---------- ojos: parámetros por expresión (ojo izquierdo, ojo derecho) ----------
      u párpado de arriba (0 abierto, 1 cerrado) · b curva de su borde (+ cuelga, − arco) · t caída hacia afuera
      l párpado de abajo (0 abajo, 1 arriba) · c curva de su borde (+ el centro sube) · s tamaño del ojo · p tamaño de pupila */
-  var D0={u:.1,b:.6,t:0,l:0,c:0,s:1,p:1};
+  var D0={u:0,b:.6,t:0,l:0,c:0,s:1,p:1};
   function E(o){var r={};for(var k in D0)r[k]=o&&o[k]!=null?o[k]:D0[k];return r}
   var ARC={u:.58,b:-3.4,l:.42,c:3.4},HAP={u:.04,l:.3,c:2.2};
   var EP={idle:[E(),E()],talk:[E(),E()],happy:[E(HAP),E(HAP)],joy:[E(ARC),E(ARC)],wink:[E(HAP),E(ARC)],
@@ -165,14 +181,14 @@ var RUMBO=(function(){
   function init(svg){
    var q=function(c){return svg.querySelector("."+c)};
    var st={t:0,g:{root:q("rk-root"),body:q("rk-body"),face:q("rk-face"),brows:q("rk-brows"),legL:q("rk-legL"),legR:q("rk-legR"),hat:q("rk-hat"),arrow:q("rk-arrow"),flapL:q("rk-flapL"),flapR:q("rk-flapR"),gog:q("rk-gog"),armL:q("rk-armL"),armR:q("rk-armR"),shadow:q("rk-shadow"),mouth:q("rk-mouth"),zz:q("rk-zz")},
-    eyes:Array.prototype.slice.call(svg.querySelectorAll(".rk-eye")).map(function(e,i){return {sq:e.querySelector(".rk-esq"),pup:e.querySelector(".rk-pup"),up:e.querySelector(".rk-up"),lash:e.querySelector(".rk-lash"),lo:e.querySelector(".rk-lo"),lol:e.querySelector(".rk-lol"),cx:EYE[i][0],cy:EYE[i][1],cur:E(),last:{}}}),
+    eyes:Array.prototype.slice.call(svg.querySelectorAll(".rk-eye")).map(function(e,i){return {sq:e.querySelector(".rk-esq"),pup:e.querySelector(".rk-pup"),up:e.querySelector(".rk-up"),lash:e.querySelector(".rk-lash"),lo:e.querySelector(".rk-lo"),lol:e.querySelector(".rk-lol"),iris:e.querySelector(".rk-iris"),cx:+e.getAttribute("data-cx"),cy:+e.getAttribute("data-cy"),rx:+e.getAttribute("data-rx"),ry:+e.getAttribute("data-ry"),cur:E(),last:{}}}),
     brw:Array.prototype.slice.call(svg.querySelectorAll(".rk-brow")).map(function(e){return {e:e,dy:0,a:0}}),
     dp:Array.prototype.slice.call(svg.querySelectorAll("[data-p]")).map(function(e){return {e:e,w:e.getAttribute("data-p").split(" "),o:-1}}),
     w:{idle:1,walk:0,cheer:0},pose:{wave:0,point:0},act:null,ov:null,idleIn:rnd(10,15),lastIdle:"",
     blinkIn:rnd(1,4),blinkT:-1,blinkD:.15,twice:false,mood:null,
     gz:[0,0],gzT:[0,0],gzIn:rnd(2.5,5),gzHold:0,mic:[0,0],micIn:.5,rc:null,rcT:0,lk:null,lkT:0,
     sp:{arrow:{x:0,v:0},flapL:{x:0,v:0},flapR:{x:0,v:0},gog:{x:0,v:0},hat:{x:0,v:0},hatR:{x:0,v:0},face:{x:0,v:0},faceX:{x:0,v:0},lean:{x:0,v:0},armL:{x:0,v:0},armR:{x:0,v:0}},
-    py:0,vy:0,px:0,vx:0,pr:0,vr:0};
+    py:0,vy:0,px:0,vx:0,pr:0,vr:0,smile:svg.getAttribute("data-ojos")==="sonrisa"};
    ST.set(svg,st);if(io)io.observe(svg);else VIS.set(svg,true);return st}
   function frame(now){
    raf=0;var dt=Math.min(.05,Math.max(0,(now-(last||now))/1000));last=now;
@@ -282,9 +298,9 @@ var RUMBO=(function(){
    if(Math.hypot(tg[0]-(st.lt||[0,0])[0],tg[1]-(st.lt||[0,0])[1])>1.4&&Math.random()<.45)blink(st);st.lt=tg;
    var ga=rm?1:1-Math.exp(-dt/.028);st.gz[0]+=(tx-st.gz[0])*ga;st.gz[1]+=(ty-st.gz[1])*ga;
    /* ---------- párpados, pupilas y cejas ---------- */
-   var ea=rm?1:1-Math.exp(-dt/.055),tgE=EP[mood],tgB=BRW[mood]||BRW.idle;
+   var ea=rm?1:1-Math.exp(-dt/.055),tgE=st.smile&&(mood==="idle"||mood==="talk"||mood==="happy")?EP.joy:EP[mood],tgB=BRW[mood]||BRW.idle;
    st.eyes.forEach(function(ey,i){var c=ey.cur,T0=tgE[i];for(var k in c)c[k]+=(T0[k]-c[k])*ea;
-    var cx=ey.cx,cy=ey.cy,rx=ERX,ry=ERY,closed=c.u+c.l>.95,b=closed?0:bl;
+    var cx=ey.cx,cy=ey.cy,rx=ey.rx,ry=ey.ry,closed=c.u+c.l>.95,b=closed?0:bl;
     var l=c.l+(Math.max(c.l,.4)-c.l)*b,u=c.u+((1-l)-c.u)*b,bb=c.b+(1.4-c.b)*b,cc=c.c+(-1.4-c.c)*b;
     var side=i===0?-1:1,x0=cx-rx-1.2,x1=cx+rx+1.2,yu=cy-ry+u*2*ry,yo=yu+c.t,yi=yu-c.t*.25;
     var yuL=side<0?yo:yi,yuR=side<0?yi:yo,qu=2*(yu+bb)-(yuL+yuR)/2;
@@ -299,9 +315,10 @@ var RUMBO=(function(){
     var ssx=c.s*(1+.04*bl),ssy=c.s*(1-.1*bl);
     /* la mirada mueve el ojo entero (con sus párpados) sobre la cara */
     setA(ey.sq,"transform","translate("+f(st.gz[0]*.7+cx)+" "+f(st.gz[1]*.7+cy)+") scale("+f(ssx)+" "+f(ssy)+") translate("+(-cx)+" "+(-cy)+")",ey.last,"s");
-    setA(ey.pup,"transform","translate(0 "+f(.5*bl)+")",ey.last,"p")});
-   st.brw.forEach(function(bw2,i){var tb=tgB[i];bw2.dy+=(tb[0]-bw2.dy)*ea;bw2.a+=(tb[1]-bw2.a)*ea;var e2=EYE[i],lift2=bl*.5;
-    bw2.e.setAttribute("transform","translate("+f(e2[0]+st.gz[0]*.15)+" "+f(e2[1]-ERY-3.4+bw2.dy+lift2)+") rotate("+f(bw2.a)+")")});
+    setA(ey.pup,"transform","translate(0 "+f(.5*bl)+")",ey.last,"p");
+    if(ey.iris)setA(ey.iris,"transform","translate("+f(st.gz[0]*.7)+" "+f(st.gz[1]*.7)+")",ey.last,"i")});
+   st.brw.forEach(function(bw2,i){var tb=tgB[i];bw2.dy+=(tb[0]-bw2.dy)*ea;bw2.a+=(tb[1]-bw2.a)*ea;var e2=st.eyes[i],lift2=bl*.5;
+    bw2.e.setAttribute("transform","translate("+f(e2.cx+st.gz[0]*.15)+" "+f(e2.cy-e2.ry-3.4+bw2.dy+lift2)+") rotate("+f(bw2.a)+")")});
    /* bocas con fundido corto */
    var fa=rm?1:1-Math.exp(-dt/.05);
    st.dp.forEach(function(d){var tgt=d.w.indexOf(mood)>-1?1:0;if(d.o<0)d.o=tgt;else d.o+=(tgt-d.o)*fa;var v=Math.round(d.o*100)/100;if(v!==d.last){d.e.style.opacity=v;d.last=v}});
@@ -313,6 +330,6 @@ var RUMBO=(function(){
  var NAMES={v1:"Actual (v1)",A:"A · Globo",B:"B · Brújula",C:"C · Híbrido"};
  var cur=null;try{cur=localStorage.getItem("vocatlas_rumbo")}catch(e){}
  function pick(m){if(m){cur=m;try{localStorage.setItem("vocatlas_rumbo",m)}catch(e){}}return cur||"B"}
- function svg(m){m=m||pick();return m==="v1"?rumboSVG():build(m)}
- return {svg:svg,build:build,pick:pick,NAMES:NAMES,models:["v1","A","B","C"]};
+ function svg(m,ek){m=m||pick();return m==="v1"?rumboSVG():build(m,ek)}
+ return {svg:svg,build:build,pick:pick,EYES:EYES,EYEK:EYEK,eyePick:eyePick,NAMES:NAMES,models:["v1","A","B","C"]};
 })();
