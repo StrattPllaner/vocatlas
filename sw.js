@@ -1,7 +1,7 @@
 /* Vocatlas: funciona sin conexión.
    La página se pide primero a la red (así siempre llega la versión nueva) y, si no hay red, sale de la copia guardada.
    Íconos y fuentes salen de la copia y se actualizan por detrás. */
-var V = "vocatlas-v1";
+var V = "vocatlas-v2";
 var SHELL = ["./", "index.html", "manifest.webmanifest", "icons/icon-192.png", "icons/icon-512.png", "icons/maskable-512.png", "icons/apple-touch-icon.png", "icons/favicon.svg", "icons/favicon-32.png"];
 
 self.addEventListener("install", function (e) {
@@ -13,8 +13,9 @@ self.addEventListener("activate", function (e) {
   }).then(function () { return self.clients.claim() }));
 });
 
-function fromNetwork(req, key) {
-  return fetch(req).then(function (r) {
+function fromNetwork(req, key, fresh) {
+  /* la página se revalida siempre con el servidor (sin la caché del navegador) */
+  return (fresh ? fetch(req.url, { cache: "no-cache", credentials: "same-origin" }) : fetch(req)).then(function (r) {
     if (r && (r.ok || r.type === "opaque")) { var cp = r.clone(); caches.open(V).then(function (c) { c.put(key || req, cp) }) }
     return r;
   });
@@ -26,7 +27,7 @@ self.addEventListener("fetch", function (e) {
   if (url.origin === location.origin && url.searchParams.has("u")) return;
   var page = req.mode === "navigate" || (url.origin === location.origin && /\/(index\.html)?$/.test(url.pathname));
   if (page) {
-    e.respondWith(fromNetwork(req, "index.html").catch(function () {
+    e.respondWith(fromNetwork(req, "index.html", true).catch(function () {
       return caches.match("index.html").then(function (r) { return r || caches.match("./") });
     }));
     return;
