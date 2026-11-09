@@ -34,8 +34,8 @@ var RUMBO=(function(){
   var mk=withGlobe?"#FBF0DA":"#C9B48C",L=withGlobe?3:2.6;
   [[1,0],[0,1],[-1,0]].forEach(function(v){var x0=CX+v[0]*(R-.6),y0=CY+v[1]*(R-.6),x1=CX+v[0]*(R-.6-L*1.6),y1=CY+v[1]*(R-.6-L*1.6);
    if(withGlobe)s+='<path d="M'+(x0-v[1]*1.8).toFixed(1)+' '+(y0-v[0]*1.8).toFixed(1)+'L'+x1.toFixed(1)+' '+y1.toFixed(1)+'L'+(x0+v[1]*1.8).toFixed(1)+' '+(y0+v[0]*1.8).toFixed(1)+'Z" fill="'+BRS+'"/>';
-   else s+='<path d="M'+(CX+v[0]*(r-1.4)).toFixed(1)+' '+(CY+v[1]*(r-1.4)).toFixed(1)+'L'+(CX+v[0]*(r-4.6)).toFixed(1)+' '+(CY+v[1]*(r-4.6)).toFixed(1)+'" stroke="'+mk+'" stroke-width="2.2" stroke-linecap="round"/>'});
-  if(!withGlobe)[[.71,.71],[-.71,.71]].forEach(function(v){s+='<circle cx="'+(CX+v[0]*(r-2.4)).toFixed(1)+'" cy="'+(CY+v[1]*(r-2.4)).toFixed(1)+'" r="1" fill="'+mk+'"/>'});
+   else s+='<path class="rk-tick" d="M'+(CX+v[0]*(r-1.4)).toFixed(1)+' '+(CY+v[1]*(r-1.4)).toFixed(1)+'L'+(CX+v[0]*(r-4.6)).toFixed(1)+' '+(CY+v[1]*(r-4.6)).toFixed(1)+'" stroke="'+mk+'" stroke-width="2.2" stroke-linecap="round"/>'});
+  if(!withGlobe)[[.71,.71],[-.71,.71]].forEach(function(v){s+='<circle class="rk-tick" cx="'+(CX+v[0]*(r-2.4)).toFixed(1)+'" cy="'+(CY+v[1]*(r-2.4)).toFixed(1)+'" r="1" fill="'+mk+'"/>'});
   return s}
 
  /* ---------- cara ----------
@@ -140,10 +140,10 @@ var RUMBO=(function(){
  var CAPD="M22 51Q22 25.6 50 24Q78 25.6 78 51Q66 44 50 44Q34 44 22 51Z";
  function capParts(id){
   var s='<clipPath id="'+id+'c"><path d="'+CAPD+'"/></clipPath>';
-  s+='<path class="rk-capj" d="'+CAPD+'" fill="'+CAP+'"/><g clip-path="url(#'+id+'c)"><path d="M54 20L84 20L84 55L60 55Q64 40 54 20Z" fill="'+CAPS+'"/><path d="M28 42Q29 31 40 27.4" stroke="'+CAPH+'" stroke-width="2" fill="none" stroke-linecap="round"/></g>';
+  s+='<path class="rk-capj" d="'+CAPD+'" fill="'+CAP+'"/><g clip-path="url(#'+id+'c)"><path d="M54 20L84 20L84 55L60 55Q64 40 54 20Z" fill="'+CAPS+'"/><path class="rk-caphl" d="M28 42Q29 31 40 27.4" stroke="'+CAPH+'" stroke-width="2" fill="none" stroke-linecap="round"/></g>';
   /* borde con grosor: baja un poco sobre la cabeza para que nunca aparezca un hueco */
   s+='<path class="rk-capj" d="M22 51Q34 44 50 44Q66 44 78 51L78 53.6Q66 46.6 50 46.6Q34 46.6 22 53.6Z" fill="'+CAPS+'"/>';
-  s+='<path d="M23.2 41.4Q50 31.6 76.8 41.4L76.4 44.4Q50 34.8 23.6 44.4Z" fill="'+STRAP+'"/>';
+  s+='<path class="rk-strap" d="M23.2 41.4Q50 31.6 76.8 41.4L76.4 44.4Q50 34.8 23.6 44.4Z" fill="'+STRAP+'"/>';
   s+='<ellipse cx="50" cy="25.6" rx="4.6" ry="1.7" fill="'+BRS+'"/><ellipse cx="50" cy="24.8" rx="4.6" ry="1.7" fill="'+BR+'"/>';
   return s}
  /* orejeras: nacen dentro del borde del gorro (traslape) */
@@ -164,7 +164,7 @@ var RUMBO=(function(){
   if(m<0)s+='<path d="'+P("MX(45.6) 80.8LX(46.8) 80.8QX(48.2) 80.8 X(48.2) 82.2LX(48.2) 88.8QX(48.2) 92 X(45) 92LX(43.6) 92QX(45.6) 91 X(45.6) 88.4Z")+'" fill="'+BOOTS+'"/>';
   s+='<path d="'+P("MX(34.5) 89.6QX(34.8) 92 X(38.4) 92LX(45) 92QX(48.2) 92 X(48.2) 89LX(48.2) 90.6QX(48) 93.4 X(45) 93.4LX(38.4) 93.4QX(34.2) 93.4 X(34.5) 89.6Z")+'" fill="'+BSOLE+'"/>';
   s+='<ellipse cx="'+X(37.4)+'" cy="87.7" rx="1.7" ry=".9" fill="#B07A50"/>';
-  s+='<circle cx="'+X(43.4)+'" cy="84.6" r=".55" fill="'+LIN+'"/><circle cx="'+X(43.4)+'" cy="87" r=".55" fill="'+LIN+'"/>';
+  s+='<circle class="rk-lace" cx="'+X(43.4)+'" cy="84.6" r=".55" fill="'+LIN+'"/><circle class="rk-lace" cx="'+X(43.4)+'" cy="87" r=".55" fill="'+LIN+'"/>';
   /* borde de borrego */
   s+='<rect x="'+(m<0?39.8:100-49)+'" y="80.4" width="9.2" height="3.1" rx="1.55" fill="'+LIN+'"/><rect x="'+(m<0?45.4:56.6)+'" y="80.4" width="3.6" height="3.1" rx="1.55" fill="#D9BC92"/>';
   return s}
@@ -184,19 +184,33 @@ var RUMBO=(function(){
  /* esqueleto: raíz › (sombra, piernas, cuerpo › (brazos, cuerpo, cara, gorro › (flecha, orejeras, casquete, gafas), cejas)).
     Cada grupo lleva data-px/data-py con su pivote; el motor escribe su transform completo en cada cuadro. */
  function grp(cls,px,py,inner){return '<g class="'+cls+'" data-px="'+px+'" data-py="'+py+'">'+inner+'</g>'}
- function build(model,ek){ek=EYES[ek]?ek:eyePick();
+ /* acabados: liso (el actual), tinta a mano, papel recortado y mínimo. Los tres nuevos llevan asimetría intencional:
+    gorro ladeado, orejera derecha levantada y flecha un poco chueca. */
+ var FIN={liso:{n:"Liso",d:"El acabado actual: formas planas y simétricas."},
+  tinta:{n:"Tinta a mano",d:"Contorno de tinta con trazo irregular, como dibujado con plumón. Gorro ladeado y una orejera arriba."},
+  papel:{n:"Papel recortado",d:"Capas de papel con sombra entre ellas y textura de papel. Gorro ladeado y una orejera arriba."},
+  minimo:{n:"Mínimo",d:"Muy pocas piezas, como un logotipo: sin gafas, sin correa, sin marcas. Gorro ladeado."}};
+ var FINK=["liso","tinta","papel","minimo"];
+ var finCur=null;try{finCur=localStorage.getItem("vocatlas_acabado")}catch(e){}
+ function finPick(k){if(k){finCur=k;try{localStorage.setItem("vocatlas_acabado",k)}catch(e){}}return FIN[finCur]?finCur:"liso"}
+ function build(model,ek,fx){ek=EYES[ek]?ek:eyePick();fx=FIN[fx]?fx:finPick();
   var id="rbm"+(++N),body,skin;
   if(model==="A"){body=globe(id,27);skin="#F7E0BD"}
   else if(model==="B"){body=compass(id,false);skin="#FBF0DA"}
   else{body=compass(id,true);skin="#F7E0BD"}
   var fc=face(skin,id,ek);
   var hat=grp("rk-hat",50,46,grp("rk-arrow",50,26,arrow())+grp("rk-flapL",24,47,flapL())+grp("rk-flapR",76,47,flapR())+capParts(id)+grp("rk-gog",50,38,goggles()));
-  return '<svg class="rbx rbx-'+model+'" data-ojos="'+ek+'"'+(ek==="gafas"?' data-sin-gafas="1"':'')+(EYES[ek].idle?' data-ojos-idle="'+EYES[ek].idle+'"':'')+' viewBox="0 0 100 100" aria-hidden="true">'+
+  var flt="",fa="",ha="";
+  if(fx==="tinta"){flt='<filter id="'+id+'f" x="-10%" y="-10%" width="120%" height="120%"><feMorphology in="SourceAlpha" operator="dilate" radius="1" result="d0"/><feTurbulence type="fractalNoise" baseFrequency=".28" numOctaves="1" seed="4" result="n"/><feDisplacementMap in="d0" in2="n" scale="1.6" xChannelSelector="R" yChannelSelector="G" result="d"/><feFlood flood-color="#2B1D16"/><feComposite in2="d" operator="in" result="o"/><feMerge><feMergeNode in="o"/><feMergeNode in="SourceGraphic"/></feMerge></filter>';fa=' filter="url(#'+id+'f)"'}
+  if(fx==="papel"){flt='<filter id="'+id+'f" x="-10%" y="-10%" width="125%" height="125%"><feTurbulence type="fractalNoise" baseFrequency="2.2" numOctaves="1" seed="7" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 .3 0 0 0 0 .2 0 0 0 0 .1 0 0 0 .16 0" result="g"/><feComposite in="g" in2="SourceAlpha" operator="in" result="gt"/><feDropShadow in="SourceGraphic" dx=".8" dy="1.2" stdDeviation=".3" flood-color="#4A2E18" flood-opacity=".45" result="ds"/><feMerge><feMergeNode in="ds"/><feMergeNode in="gt"/></feMerge></filter>'+
+   '<filter id="'+id+'h" x="-10%" y="-10%" width="125%" height="130%"><feDropShadow dx=".5" dy="1.1" stdDeviation=".35" flood-color="#3A2414" flood-opacity=".5"/></filter>';fa=' filter="url(#'+id+'f)"';ha=' filter="url(#'+id+'h)"'}
+  if(ha)hat='<g'+ha+'>'+hat+'</g>';
+  return '<svg class="rbx rbx-'+model+'" data-acabado="'+fx+'"'+(fx!=="liso"?' data-asim="1"':'')+' data-ojos="'+ek+'"'+(ek==="gafas"?' data-sin-gafas="1"':'')+(EYES[ek].idle?' data-ojos-idle="'+EYES[ek].idle+'"':'')+' viewBox="0 0 100 100" aria-hidden="true">'+
    grp("rk-root",50,92,
     '<g class="rk-shadow"><ellipse class="rk-sh" cx="50" cy="92" rx="21" ry="2.8" fill="var(--rb-sh,#13213F)" opacity=".2"/><ellipse cx="42" cy="92" rx="6.4" ry="1.3" fill="#13213F" opacity=".22"/><ellipse cx="58" cy="92" rx="6.4" ry="1.3" fill="#13213F" opacity=".22"/></g>'+
-    grp("rk-legL",44,72,legL())+grp("rk-legR",56,72,legR())+
+    flt+'<g class="rk-char"'+fa+'>'+grp("rk-legL",44,72,legL())+grp("rk-legR",56,72,legR())+
     grp("rk-body",50,82,
-     body+'<g class="rk-face">'+fc[0]+'</g>'+hat)
+     body+'<g class="rk-face">'+fc[0]+'</g>'+hat)+'</g>'
    )+'</svg>';
  }
 
@@ -242,7 +256,7 @@ var RUMBO=(function(){
     blinkIn:rnd(1,4),blinkT:-1,blinkD:.15,twice:false,mood:null,
     gz:[0,0],gzT:[0,0],gzIn:rnd(2.5,5),gzHold:0,mic:[0,0],micIn:.5,rc:null,rcT:0,lk:null,lkT:0,
     sp:{arrow:{x:0,v:0},flapL:{x:0,v:0},flapR:{x:0,v:0},gog:{x:0,v:0},hat:{x:0,v:0},hatR:{x:0,v:0},face:{x:0,v:0},faceX:{x:0,v:0},lean:{x:0,v:0},armL:{x:0,v:0},armR:{x:0,v:0}},
-    py:0,vy:0,px:0,vx:0,pr:0,vr:0,idleEye:svg.getAttribute("data-ojos-idle"),bk:(EYES[svg.getAttribute("data-ojos")]||{}).brow||1};
+    py:0,vy:0,px:0,vx:0,pr:0,vr:0,idleEye:svg.getAttribute("data-ojos-idle"),asH:svg.getAttribute("data-asim")?-6:0,asA:svg.getAttribute("data-asim")?5:0,asF:svg.getAttribute("data-asim")?-24:0,bk:(EYES[svg.getAttribute("data-ojos")]||{}).brow||1};
    ST.set(svg,st);if(io)io.observe(svg);else VIS.set(svg,true);return st}
   function frame(now){
    raf=0;var dt=Math.min(.05,Math.max(0,(now-(last||now))/1000));last=now;
@@ -331,7 +345,7 @@ var RUMBO=(function(){
    T(g.body,B);T(g.legL,{r:legL,y:lyL+Math.max(0,B.y*.15)});T(g.legR,{r:legR,y:lyR+Math.max(0,B.y*.15)});
    T(g.armL,{r:aL});T(g.armR,{r:aR});
    T(g.face,{x:fx,y:fy});T(g.brows,{x:fx,y:fy});
-   T(g.hat,{y:hy,r:hr});T(g.arrow,{r:ar});T(g.flapL,{r:fl});T(g.flapR,{r:fr});T(g.gog,{y:gy});
+   T(g.hat,{y:hy,r:hr+st.asH});T(g.arrow,{r:ar+st.asA});T(g.flapL,{r:fl});T(g.flapR,{r:fr+st.asF});T(g.gog,{y:gy});
    /* ---------- parpadeo: baja rápido (40 %) y sube más lento (60 %); a veces doble ---------- */
    if(cls.contains("blink")||cls.contains("a-blink")){cls.remove("blink");cls.remove("a-blink");blink(st)}
    var bl=0;if(mood!=="sleep"&&!rm){st.blinkIn-=dt;if(st.blinkIn<=0)blink(st);
@@ -384,6 +398,6 @@ var RUMBO=(function(){
  var NAMES={v1:"Actual (v1)",A:"A · Globo",B:"B · Brújula",C:"C · Híbrido"};
  var cur=null;try{cur=localStorage.getItem("vocatlas_rumbo")}catch(e){}
  function pick(m){if(m){cur=m;try{localStorage.setItem("vocatlas_rumbo",m)}catch(e){}}return cur||"B"}
- function svg(m,ek){m=m||pick();return m==="v1"?rumboSVG():build(m,ek)}
- return {svg:svg,build:build,pick:pick,EYES:EYES,EYEK:EYEK,eyePick:eyePick,NAMES:NAMES,models:["v1","A","B","C"]};
+ function svg(m,ek,fx){m=m||pick();return m==="v1"?rumboSVG():build(m,ek,fx)}
+ return {svg:svg,build:build,pick:pick,EYES:EYES,EYEK:EYEK,eyePick:eyePick,FIN:FIN,FINK:FINK,finPick:finPick,NAMES:NAMES,models:["v1","A","B","C"]};
 })();

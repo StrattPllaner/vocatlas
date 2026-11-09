@@ -8,6 +8,13 @@ function renderRumbo(){
  var POS=[["","De pie","idle"],["p-wave","Saludando","happy"],["p-point","Señalando","curious"],["cheer","Saltando","happy"],["walk","Caminando","idle"]];
  function rb(m,px,mood,cls){return '<div class="ia-rb" style="width:'+px+'px;height:'+px+'px"><div class="rb float '+(cls||"")+'" data-mood="'+(mood||"idle")+'">'+RUMBO.svg(m)+'<div class="burst"></div></div></div>'}
  h+='<header class="ia-h"><h1>Rumbo</h1><p>Elige qué modelo usa la app. Tu elección se guarda en este dispositivo y cambia a Rumbo en todas las pantallas: carga, inicio, perfil, test, mapa, avisos y estados vacíos. Mientras no elijas, la app usa el modelo B. Los ojos siguen tu dedo o tu cursor.</p></header>';
+ /* ---------- acabados ---------- */
+ var fk=RUMBO.finPick(),mm0=cur==="v1"?"B":cur;
+ h+='<section><h2>Elige el acabado</h2><p class="ia-d">El mismo Rumbo con cuatro maneras de dibujarlo. Los tres nuevos llevan el gorro ladeado y una orejera levantada para que no se vea perfecto ni genérico.</p><div class="ia-eyes" role="radiogroup" aria-label="Acabado">'+
+  RUMBO.FINK.map(function(k){var F=RUMBO.FIN[k];
+   return '<div class="ia-eyeopt ia-finopt" data-k="'+k+'" aria-checked="'+(k===fk)+'"><div class="ia-rb" style="width:200px;height:200px"><div class="rb float" data-mood="happy">'+RUMBO.svg(mm0,null,k)+'</div></div>'+
+    '<div class="ia-eyemini">'+["idle","joy","wow","sad"].map(function(md){return '<div class="ia-rb" style="width:64px;height:64px"><div class="rb" data-mood="'+md+'">'+RUMBO.svg(mm0,null,k)+'</div></div>'}).join("")+'</div>'+
+    '<b>'+F.n+'</b><span>'+F.d+'</span><button type="button" role="radio" class="ia-pick" aria-checked="'+(k===fk)+'" aria-pressed="'+(k===fk)+'">'+(k===fk?"Elegido":"Elegir este acabado")+'</button></div>'}).join("")+'</div></section>';
  /* ---------- muestrario de ojos ---------- */
  var ek=RUMBO.eyePick(),mm=cur==="v1"?"B":cur;
  h+='<section><h2>Elige los ojos</h2><p class="ia-d">Los seis están vivos: parpadean, siguen tu dedo o tu cursor y cambian de expresión. Abajo de cada uno: feliz, muy feliz, sorprendido y triste.</p><div class="ia-eyes" role="radiogroup" aria-label="Estilo de ojos">'+
@@ -26,7 +33,8 @@ function renderRumbo(){
   h+='</section>';
  });
  var el=document.createElement("div");el.id="art";el.className="ia";el.innerHTML=h;document.body.appendChild(el);
- each(el.querySelectorAll(".ia-eyeopt .ia-pick"),function(bt){bt.onclick=function(){var k=bt.closest(".ia-eyeopt").getAttribute("data-k");RUMBO.eyePick(k);toast("Listo: Rumbo usará los ojos «"+RUMBO.EYES[k].n+"»");var y=scrollY;renderRumbo();scrollTo(0,y)}});
+ each(el.querySelectorAll(".ia-finopt .ia-pick"),function(bt){bt.onclick=function(){var k=bt.closest(".ia-finopt").getAttribute("data-k");RUMBO.finPick(k);toast("Listo: acabado «"+RUMBO.FIN[k].n+"»");var y=scrollY;renderRumbo();scrollTo(0,y)}});
+ each(el.querySelectorAll(".ia-eyeopt:not(.ia-finopt) .ia-pick"),function(bt){bt.onclick=function(){var k=bt.closest(".ia-eyeopt").getAttribute("data-k");RUMBO.eyePick(k);toast("Listo: Rumbo usará los ojos «"+RUMBO.EYES[k].n+"»");var y=scrollY;renderRumbo();scrollTo(0,y)}});
  each(el.querySelectorAll(".ia-rbopt"),function(b){b.onclick=function(){RUMBO.pick(b.getAttribute("data-m"));each(el.querySelectorAll(".ia-rbopt"),function(o){o.setAttribute("aria-checked",o===b?"true":"false")});toast("Listo: la app usará "+NM[b.getAttribute("data-m")])}});
  each(el.querySelectorAll(".ia-rbanim"),function(box){var r=box.querySelector(".rb");
   each(box.querySelectorAll("[data-a]"),function(b){b.onclick=function(){var a=b.getAttribute("data-a");
