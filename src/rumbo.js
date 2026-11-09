@@ -205,7 +205,7 @@ var RUMBO=(function(){
  var FINK=["liso","tinta","papel","minimo"];
  var finCur=null;try{finCur=localStorage.getItem("vocatlas_acabado")}catch(e){}
  function finPick(k){if(k){finCur=k;try{localStorage.setItem("vocatlas_acabado",k)}catch(e){}}return FIN[finCur]?finCur:"liso"}
- function build(model,ek,fx){if(model==="R")return buildR();if(model==="O")return buildO();if(model==="P")return buildP();if(model==="S")return buildS();if(model==="T")return buildS("cuna");ek=EYES[ek]?ek:eyePick();fx=FIN[fx]?fx:finPick();
+ function build(model,ek,fx){if(model==="R")return buildR();if(model==="O")return buildO();if(model==="P")return buildP();if(model==="S")return buildS();if(model==="T")return buildS("ref");ek=EYES[ek]?ek:eyePick();fx=FIN[fx]?fx:finPick();
   var id="rbm"+(++N),body,skin;
   if(model==="A"){body=globe(id,27);skin="#F7E0BD"}
   else if(model==="B"){body=compass(id,false);skin="#FBF0DA"}
@@ -480,37 +480,30 @@ var RUMBO=(function(){
   s+='<path d="M'+X(29.4)+' 93.2C'+X(30)+' 95.2 '+X(31.4)+' 95.6 '+X(33.6)+' 95.6L'+X(42)+' 95.6C'+X(45.4)+' 95.6 '+X(47.2)+' 94.6 '+X(47.6)+' 92.6L'+X(47.6)+' 94.4C'+X(47.2)+' 96.6 '+X(45.2)+' 97.2 '+X(42)+' 97.2L'+X(33.6)+' 97.2C'+X(30.6)+' 97.2 '+X(29.2)+' 96 '+X(29.4)+' 93.2Z" fill="'+SSOLE+'"'+sl(1.2)+'/>';
   s+='<circle cx="'+X(44.4)+'" cy="85.4" r="1.2" fill="'+SGOLD+'"'+sl(.9)+'/>';
   return s}
- /* cara nueva (modelo T): ojos negros altos con una cuña recortada con máscara que indica hacia dónde mira,
-    nariz en arco, sonrisa de mejilla a mejilla con pliegues y barbilla, y pecas. Trazos de tinta del mismo grosor. */
- var WI="#1A1410",WE=[[43,54.2],[57,54.2]],WRX=3.5,WRY=6.4,WT=[-6,6];
- function faceCuna(id){var s="",L=function(d,w,c){return '<path'+(c?' class="'+c+'"':'')+' d="'+d+'" fill="none" stroke="'+WI+'" stroke-width="'+(w||1.3)+'" stroke-linecap="round" stroke-linejoin="round"/>'};
-  WE.forEach(function(c,i){var cx=c[0],cy=c[1],rx=WRX,ry=WRY,mid=id+"w"+i;
-   s+='<g class="rk-weye" data-i="'+i+'" data-cx="'+cx+'" data-cy="'+cy+'" data-rx="'+rx+'" data-ry="'+ry+'" data-tilt="'+WT[i]+'"><g class="rk-wt" transform="rotate('+WT[i]+' '+cx+' '+cy+')">'+
-    '<mask id="'+mid+'" maskUnits="userSpaceOnUse" x="'+(cx-12)+'" y="'+(cy-12)+'" width="24" height="24"><ellipse cx="'+cx+'" cy="'+cy+'" rx="'+rx+'" ry="'+ry+'" fill="#FFFFFF"/>'+
-    '<path class="rk-wedge" d="M'+(cx+rx*.28)+' '+cy+'L'+(cx+rx*1.8)+' '+(cy-rx*.5)+'L'+(cx+rx*1.8)+' '+(cy+rx*.5)+'Z" fill="#000000" transform="rotate(20 '+cx+' '+cy+')"/></mask>'+
-    '<ellipse class="rk-wo" cx="'+cx+'" cy="'+cy+'" rx="'+rx+'" ry="'+ry+'" fill="'+WI+'" mask="url(#'+mid+')"/>'+
-    '<path class="rk-wup" d="M'+(cx-rx*1.05)+' '+(cy+1.4)+'Q'+cx+' '+(cy-ry*.8)+' '+(cx+rx*1.05)+' '+(cy+1.4)+'" fill="none" stroke="'+WI+'" stroke-width="2.3" stroke-linecap="round" opacity="0"/>'+
-    '<path class="rk-wdn" d="M'+(cx-rx*1.05)+' '+(cy-.4)+'Q'+cx+' '+(cy+ry*.55)+' '+(cx+rx*1.05)+' '+(cy-.4)+'" fill="none" stroke="'+WI+'" stroke-width="2" stroke-linecap="round" opacity="0"/>'+
-    '<path class="rk-wln" d="M'+(cx-rx*.95)+' '+cy+'Q'+cx+' '+(cy+1.1)+' '+(cx+rx*.95)+' '+cy+'" fill="none" stroke="'+WI+'" stroke-width="1.8" stroke-linecap="round" opacity="0"/>'+
-    '</g></g>'});
-  /* nariz: arco pequeño en U invertida */
-  s+=L("M48.8 62.2Q50 59.8 51.2 62.2",1.3);
-  /* pecas (se ocultan en tamaños chicos) */
-  s+='<g class="rk-sm" fill="'+WI+'"><circle cx="34.6" cy="60.2" r=".55"/><circle cx="36" cy="61" r=".55"/><circle cx="34.9" cy="61.9" r=".55"/><circle cx="65.4" cy="60.2" r=".55"/><circle cx="64.1" cy="61.1" r=".55"/><circle cx="65.2" cy="62" r=".55"/></g>';
-  /* bocas */
-  var folds='<g class="rk-sm">'+L("M37.8 61.6Q36.4 63.2 37.6 65.2")+L("M62.2 61.6Q63.6 63.2 62.4 65.2")+'</g>';
-  s+='<g data-p="idle talk">'+L("M38.8 63.4Q50 73.4 61.2 63.4")+folds+L("M48.6 70.6Q50 71.4 51.4 70.6",1.1,"rk-sm")+'</g>';
-  s+='<g data-p="happy wink"><path d="M39 63.2Q50 75.6 61 63.2Q50 68.4 39 63.2Z" fill="'+WI+'" stroke="'+WI+'" stroke-width="1.2" stroke-linejoin="round"/><path d="M44.4 68.6Q50 72.4 55.6 68.6Q50 67 44.4 68.6Z" fill="#E86A6A"/>'+folds+'</g>';
-  s+='<g data-p="joy"><ellipse cx="36.4" cy="63.8" rx="2.6" ry="1.6" fill="#F4A3A0" opacity=".65"/><ellipse cx="63.6" cy="63.8" rx="2.6" ry="1.6" fill="#F4A3A0" opacity=".65"/><path d="M38.6 62.6Q50 77 61.4 62.6Q50 68 38.6 62.6Z" fill="'+WI+'" stroke="'+WI+'" stroke-width="1.2" stroke-linejoin="round"/><path d="M43.8 68.8Q50 73.6 56.2 68.8Q50 67 43.8 68.8Z" fill="#E86A6A"/>'+folds+'</g>';
-  s+='<ellipse data-p="wow" cx="50" cy="66.4" rx="1.8" ry="2.4" fill="'+WI+'"/>';
-  s+='<g data-p="curious">'+L("M46.6 66.4Q50 68.6 53.4 66.4")+'</g>';
-  s+='<g data-p="think">'+L("M47.6 66.8Q50.6 65.6 53 66.4")+'</g>';
-  s+='<g data-p="sadhope">'+L("M45.4 65.6Q50 68.2 54.6 65.6")+'</g>';
-  s+='<g data-p="sad no">'+L("M45.6 67.2Q50 64.4 54.4 67.2")+'</g>';
-  s+='<g data-p="meh">'+L("M46 66.2H54")+'</g>';
-  s+='<ellipse data-p="talk" class="rk-mouth" cx="50" cy="66.6" rx="2.2" ry="1.8" fill="'+WI+'" opacity="0"/>';
-  s+='<g data-p="sleep">'+L("M48.6 66.4Q50 67.4 51.4 66.4")+'<g class="rk-zz"><text x="70" y="36" font-size="7" font-weight="900" fill="'+WI+'" opacity=".55">z</text><text x="75" y="29" font-size="5" font-weight="900" fill="'+WI+'" opacity=".4">z</text></g></g>';
-  s+='<ellipse data-p="yawn" cx="50" cy="66.8" rx="2" ry="2.6" fill="'+WI+'"/>';
+ /* cara de Rumbo (modelo T): la referencia cara-rumbo.svg usada tal cual (CARA, la inyecta build.py).
+    Sus subtrazos se reparten en piezas sin cambiar su forma: el ojo izquierdo y la sonrisa vienen unidos en el dibujo,
+    así que se separan con dos recortes complementarios. Cada pieza tiene su pivote en su centro (coordenadas de la referencia). */
+ var FK=.168,FTX=31.59,FTY=41.77;
+ function caraPieces(){var P={fr:[],fl:[]};
+  CARA.sub.forEach(function(d){var n=d.match(/-?\d+\.?\d*/g).map(Number),x0=1e9,x1=-1e9,y0=1e9,y1=-1e9;for(var k=0;k<n.length;k+=2){x0=Math.min(x0,n[k]);x1=Math.max(x1,n[k]);y0=Math.min(y0,n[k+1]);y1=Math.max(y1,n[k+1])}
+   var w=x1-x0,h=y1-y0;
+   if(w>100)P.big=d;else if(x0>130&&h>60)P.er=d;else if(y0>150)P.chin=d;else if(w<10&&h<10)(x0<100?P.fl:P.fr).push(d);else P.nose=d});
+  return P}
+ function faceRef(id,col){var P=caraPieces(),s='<g transform="translate('+FTX+' '+FTY+') scale('+FK+')" style="color:'+col+'">';
+  var F=function(d,c){return '<path d="'+d+'" fill="currentColor" fill-rule="evenodd"'+(c?' clip-path="url(#'+c+')"':'')+'/>'};
+  var A=function(cls,d,w){return '<path class="'+cls+'" d="'+d+'" fill="none" stroke="currentColor" stroke-width="'+w+'" stroke-linecap="round" opacity="0"/>'};
+  s+='<clipPath id="'+id+'fe"><path d="M40 0H110V125H64L62.6 111.4L60 108H40Z"/></clipPath><clipPath id="'+id+'fs"><path d="M0 108H60L62.6 111.4L64 125H110V0H240V200H0Z"/></clipPath>';
+  var eye=function(cls,d,cx,clip){return '<g class="'+cls+'">'+grp("rk-fo",cx,73,F(d,clip))+
+   A("rk-fup","M"+(cx-21)+" 84Q"+cx+" 50 "+(cx+21)+" 84",9)+A("rk-fdn","M"+(cx-21)+" 70Q"+cx+" 94 "+(cx+21)+" 70",8)+A("rk-fln","M"+(cx-19)+" 76Q"+cx+" 84 "+(cx+19)+" 76",7)+'</g>'};
+  s+=eye("rk-feL",P.big,79,id+"fe")+eye("rk-feR",P.er,159,null);
+  s+=grp("rk-fn",112,112,F(P.nose));
+  s+=grp("rk-fs",115,138,F(P.big,id+"fs"));
+  s+=grp("rk-fc",114,156,F(P.chin));
+  s+='<g class="rk-ff">'+P.fl.map(function(d){return F(d)}).join("")+P.fr.map(function(d){return F(d)}).join("")+'</g>';
+  s+='<ellipse class="rk-fO" cx="114" cy="140" rx="8" ry="10" fill="currentColor" opacity="0"/>';
+  s+='<ellipse data-p="talk" class="rk-mouth" cx="114" cy="141" rx="9" ry="6.5" fill="currentColor"/>';
+  s+='</g>';
+  s+='<g data-p="sleep"><g class="rk-zz"><text x="70" y="36" font-size="7" font-weight="900" fill="'+col+'" opacity=".55">z</text><text x="75" y="29" font-size="5" font-weight="900" fill="'+col+'" opacity=".4">z</text></g></g>';
   return s}
  function buildS(fk){
   var id="rbm"+(++N),C=[50,57.6],R=24.4;
@@ -523,7 +516,7 @@ var RUMBO=(function(){
    body+='<path d="M'+(50+c*r0).toFixed(2)+' '+(57.6+n*r0).toFixed(2)+'L'+(50+c*17.8).toFixed(2)+' '+(57.6+n*17.8).toFixed(2)+'" stroke="'+STK+'" stroke-width="1.2" stroke-linecap="round"/>'}
   body+='<path d="M50 40.6L51.6 44.4L48.4 44.4Z" fill="#D9534F" stroke="#D9534F" stroke-width=".6" stroke-linejoin="round"/>';
   /* cara */
-  var face;if(fk==="cuna")face=faceCuna(id);else{face='<ellipse cx="38.4" cy="65.6" rx="2.6" ry="1.8" fill="#F4A3A0" opacity=".7"/><ellipse cx="61.6" cy="65.6" rx="2.6" ry="1.8" fill="#F4A3A0" opacity=".7"/>'+
+  var face;if(fk==="ref")face=faceRef(id,SO);else{face='<ellipse cx="38.4" cy="65.6" rx="2.6" ry="1.8" fill="#F4A3A0" opacity=".7"/><ellipse cx="61.6" cy="65.6" rx="2.6" ry="1.8" fill="#F4A3A0" opacity=".7"/>'+
    eyeM(id,0,SDIAL,"retro")+eyeM(id,1,SDIAL,"retro");
   var I='stroke="'+SEYE+'" fill="none" stroke-linecap="round"';
   face+='<path data-p="idle" d="M47.6 65.6Q50 67.9 52.4 65.6" '+I+' stroke-width="1.4"/>';
@@ -556,7 +549,7 @@ var RUMBO=(function(){
   var gog='<rect x="45.6" y="30.6" width="8.4" height="2.4" rx="1.2" fill="'+SGOLD+'"'+sl(1)+'/>';
   [[40.8,32.2],[59,31.6]].forEach(function(c){gog+='<circle cx="'+c[0]+'" cy="'+c[1]+'" r="5" fill="'+SGOLD+'"'+sl(1.2)+'/><circle cx="'+c[0]+'" cy="'+c[1]+'" r="3.4" fill="'+SLENS+'"'+sl(.9)+'/><path d="M'+(c[0]-2)+' '+(c[1]+.4)+'L'+(c[0]+.6)+' '+(c[1]-2.2)+'" stroke="'+SLENSH+'" stroke-width="1.2" stroke-linecap="round"/>'});
   var hat=grp("rk-hat",50,42,grp("rk-arrow",50,22,arrow)+grp("rk-flapL",30,46,flapL)+grp("rk-flapR",71,45,flapR)+cap+grp("rk-gog",50,31.6,gog));
-  return '<svg class="rbx rbx-S'+(fk==="cuna"?' rbx-T" data-face="cuna':'')+'" data-ojos="retro" data-hatr="-7" data-arr="-16" data-eyefix="1" viewBox="0 0 100 100" aria-hidden="true">'+
+  return '<svg class="rbx rbx-S'+(fk==="ref"?' rbx-T" data-face="ref':'')+'" data-ojos="retro" data-hatr="-7" data-arr="-16" data-eyefix="1" viewBox="0 0 100 100" aria-hidden="true">'+
    grp("rk-root",50,97,
     '<g class="rk-shadow"><ellipse class="rk-sh" cx="50" cy="97.2" rx="24" ry="2.4" fill="var(--rb-sh,#13213F)" opacity=".2"/><ellipse cx="38.6" cy="97.1" rx="9" ry="1.2" fill="#13213F" opacity=".22"/><ellipse cx="61.4" cy="97.1" rx="9" ry="1.2" fill="#13213F" opacity=".22"/></g>'+
     grp("rk-legL",41.5,76,bootS(-1))+grp("rk-legR",58.5,76,bootS(1))+
@@ -599,7 +592,7 @@ var RUMBO=(function(){
   function init(svg){
    var q=function(c){return svg.querySelector("."+c)};
    var st={t:0,g:{root:q("rk-root"),body:q("rk-body"),face:q("rk-face"),brows:q("rk-brows"),legL:q("rk-legL"),legR:q("rk-legR"),hat:q("rk-hat"),hatb:q("rk-hatb"),arrow:q("rk-arrow"),flapL:q("rk-flapL"),flapR:q("rk-flapR"),gog:q("rk-gog"),armL:q("rk-armL"),handL:q("rk-handL"),handR:q("rk-handR"),armR:q("rk-armR"),shadow:q("rk-shadow"),mouth:q("rk-mouth"),zz:q("rk-zz")},
-    weyes:Array.prototype.slice.call(svg.querySelectorAll(".rk-weye")).map(function(e){return {t:e.querySelector(".rk-wt"),w:e.querySelector(".rk-wedge"),up:e.querySelector(".rk-wup"),dn:e.querySelector(".rk-wdn"),ln:e.querySelector(".rk-wln"),i:+e.getAttribute("data-i"),cx:+e.getAttribute("data-cx"),cy:+e.getAttribute("data-cy"),tilt:+e.getAttribute("data-tilt"),c:{k:0,a:1,sx:1,sy:1,tx:0,ws:1},last:{}}}),wv:[1,.36],smT:-9,sm:Array.prototype.slice.call(svg.querySelectorAll(".rk-sm")),
+    fp:(function(){var g=function(c){return svg.querySelector("."+c)},e=function(c){var r=g(c);return r?{o:r.querySelector(".rk-fo"),up:r.querySelector(".rk-fup"),dn:r.querySelector(".rk-fdn"),ln:r.querySelector(".rk-fln"),c:{sx:1,sy:1,op:1,up:0,dn:0,dx:0,dy:0},last:{}}:null};var L=e("rk-feL");return L?{eL:L,eR:e("rk-feR"),s:g("rk-fs"),c:g("rk-fc"),n:g("rk-fn"),O:g("rk-fO"),ff:g("rk-ff"),m:{ssx:1,ssy:1,sop:1,O:0,ch:1,Os:1},last:{},smT:-9}:null})(),
     eyes:Array.prototype.slice.call(svg.querySelectorAll(".rk-eye")).map(function(e,i){return {sq:e.querySelector(".rk-esq"),pup:e.querySelector(".rk-pup"),up:e.querySelector(".rk-up"),lash:e.querySelector(".rk-lash"),lo:e.querySelector(".rk-lo"),lol:e.querySelector(".rk-lol"),iris:e.querySelector(".rk-iris"),cx:+e.getAttribute("data-cx"),cy:+e.getAttribute("data-cy"),rx:+e.getAttribute("data-rx"),ry:+e.getAttribute("data-ry"),cur:E(),last:{}}}),
     brw:Array.prototype.slice.call(svg.querySelectorAll(".rk-brow")).map(function(e){return {e:e,dy:0,a:0}}),
     dp:Array.prototype.slice.call(svg.querySelectorAll("[data-p]")).map(function(e){return {e:e,w:e.getAttribute("data-p").split(" "),o:-1}}),
@@ -757,29 +750,27 @@ var RUMBO=(function(){
    /* cejas casi invisibles en reposo: aparecen solo en expresiones fuertes */
    if(st.browAuto&&g.brows){var bo=/^(wow|sad|sadhope|curious|think|no)$/.test(mood)?1:0;st.browO=st.browO<0?bo:st.browO+(bo-st.browO)*ea;var bv=f(st.browO);if(bv!==st.browL){g.brows.style.opacity=bv;st.browL=bv}}
 
-   /* ---------- cara de cuña (modelo T) ---------- */
-   if(st.weyes.length){
-    /* por expresión y por ojo: k cerrado (0 abierto, 1 arco), a tipo de arco (1 feliz, -1 dormido), tamaño, inclinación extra y tamaño de la cuña */
-    var WD={k:0,a:1,sx:1,sy:1,tx:0,ws:1},Wm=function(o){var r={};for(var q in WD)r[q]=o&&o[q]!=null?o[q]:WD[q];return r};
-    var WEP={happy:[Wm({k:1}),Wm({k:1})],joy:[Wm({k:1}),Wm({k:1})],wink:[Wm(),Wm({k:1})],sleep:[Wm({k:1,a:-1}),Wm({k:1,a:-1})],
-     wow:[Wm({sx:.86,sy:1.1,ws:.6}),Wm({sx:.86,sy:1.1,ws:.6})],curious:[Wm({sx:.92,sy:.92}),Wm({sx:1.1,sy:1.1})],
-     sadhope:[Wm({tx:-9}),Wm({tx:9})],sad:[Wm({tx:-11,sy:.94}),Wm({tx:11,sy:.94})],yawn:[Wm({k:1,a:-1}),Wm({k:1,a:-1})]};
-    var tw=WEP[mood]||[Wm(),Wm()];
-    /* dirección de la cuña: hacia donde mira; si no mira a ningún lado, a la derecha y un poco abajo */
-    var gm=Math.hypot(st.gz[0],st.gz[1]),dv=gm>.35?[st.gz[0]/gm,st.gz[1]/gm]:[.94,.34];
-    st.wv[0]+=(dv[0]-st.wv[0])*ea;st.wv[1]+=(dv[1]-st.wv[1])*ea;var ang=Math.atan2(st.wv[1],st.wv[0])*180/Math.PI;
-    st.weyes.forEach(function(we,i){var c=we.c,T0=tw[i];for(var q in c)c[q]+=(T0[q]-c[q])*ea;
-     var cx=we.cx,cy=we.cy,cl2=Math.max(c.k,bl),tl=we.tilt+c.tx;
-     setA(we.t,"transform","rotate("+f(tl)+" "+cx+" "+cy+") translate("+cx+" "+cy+") scale("+f(c.sx)+" "+f(c.sy*(1-.9*cl2))+") translate("+(-cx)+" "+(-cy)+")",we.last,"t");
-     setA(we.w,"transform","rotate("+f(ang-tl)+" "+cx+" "+cy+") translate("+cx+" "+cy+") scale("+f(Math.max(.01,c.ws*(1-cl2)))+") translate("+(-cx)+" "+(-cy)+")",we.last,"w");
-     /* los arcos y la línea del parpadeo viven fuera del aplastamiento: se cancelan con la escala inversa */
-     var inv=1/Math.max(.08,c.sy*(1-.9*cl2));
-     var arcT="translate("+cx+" "+cy+") scale(1 "+f(inv)+") translate("+(-cx)+" "+(-cy)+")";
-     setA(we.up,"transform",arcT,we.last,"ut");setA(we.dn,"transform",arcT,we.last,"dt");setA(we.ln,"transform",arcT,we.last,"lt");
-     setA(we.up,"opacity",f(c.k*Math.max(0,c.a)),we.last,"uo");setA(we.dn,"opacity",f(c.k*Math.max(0,-c.a)),we.last,"do");
-     setA(we.ln,"opacity",f(c.k<.5?cl2>.55?(cl2-.55)/.45:0:0),we.last,"lo")});
-    /* pecas y pliegues: se ocultan cuando Rumbo se ve muy chico */
-    if(t-st.smT>1){st.smT=t;var wpx=svg.getBoundingClientRect().width,hide=wpx>0&&wpx<60;st.sm.forEach(function(e){e.style.display=hide?"none":""})}
+   /* ---------- cara de la referencia (modelo T): piezas de cara-rumbo.svg ---------- */
+   if(st.fp){var FP=st.fp,ED={sx:1,sy:1,op:1,up:0,dn:0,dx:0,dy:0},Em=function(o){var r={};for(var q in ED)r[q]=o&&o[q]!=null?o[q]:ED[q];return r};
+    var UP=Em({op:0,up:1}),DN=Em({op:0,dn:1});
+    var FE={happy:[UP,UP],joy:[UP,UP],wink:[Em(),UP],sleep:[DN,DN],yawn:[DN,DN],wow:[Em({sx:.92,sy:1.12}),Em({sx:.92,sy:1.12})],
+     curious:[Em(),Em({sx:1.08,sy:1.08})],sad:[Em({sy:.93}),Em({sy:.93})]}[mood]||[Em(),Em()];
+    var MD={ssx:1,ssy:1,sop:1,O:0,ch:1,Os:1},Mm=function(o){var r={};for(var q in MD)r[q]=o&&o[q]!=null?o[q]:MD[q];return r};
+    var FM={happy:Mm({ssy:1.12}),joy:Mm({ssy:1.25,ssx:1.05}),wink:Mm({ssy:1.1}),wow:Mm({sop:0,O:1,ch:0}),yawn:Mm({sop:0,O:1,ch:0,Os:1.4}),sleep:Mm({ssy:.4,ssx:.7}),
+     sad:Mm({ssy:-.7,ch:0}),no:Mm({ssy:-.6,ch:0}),sadhope:Mm({ssy:.45}),meh:Mm({ssy:.12,ch:0}),think:Mm({ssy:.3,ssx:.6,ch:0}),curious:Mm({ssy:.5,ssx:.8})}[mood]||Mm();
+    var gx=st.gz[0]*3,gy=st.gz[1]*3;
+    [FP.eL,FP.eR].forEach(function(E2,i){if(!E2)return;var c=E2.c,T0=FE[i];for(var q in c)c[q]+=(T0[q]-c[q])*ea;
+     var shut=c.op>.5?bl:0;
+     setA(E2.o,"transform","translate("+f(gx+c.dx)+" "+f(gy+c.dy)+")"+(function(){var px=+E2.o.getAttribute("data-px"),py=+E2.o.getAttribute("data-py");return " translate("+px+" "+py+") scale("+f(c.sx)+" "+f(Math.max(.04,c.sy*(1-.92*shut)))+") translate("+(-px)+" "+(-py)+")"})(),E2.last,"o");
+     setA(E2.o,"opacity",f(c.op*(shut>.85?0:1)),E2.last,"oo");
+     var tr="translate("+f(gx*.5)+" "+f(gy*.5)+")";setA(E2.up,"transform",tr,E2.last,"ut");setA(E2.dn,"transform",tr,E2.last,"dt");setA(E2.ln,"transform",tr,E2.last,"lt");
+     setA(E2.up,"opacity",f(c.up),E2.last,"u");setA(E2.dn,"opacity",f(c.dn),E2.last,"d");setA(E2.ln,"opacity",f(c.op*(shut>.5?(shut-.5)*2:0)),E2.last,"l")});
+    var m=FP.m;for(var q2 in m)m[q2]+=(FM[q2]-m[q2])*ea;
+    T(FP.s,{sx:m.ssx,sy:Math.abs(m.ssy)<.06?(m.ssy<0?-.06:.06):m.ssy});setA(FP.s,"opacity",f(m.sop),FP.last,"so");
+    setA(FP.c,"opacity",f(m.ch),FP.last,"co");setA(FP.O,"opacity",f(m.O),FP.last,"Oo");
+    setA(FP.O,"transform","translate(114 140) scale("+f(m.Os)+") translate(-114 -140)",FP.last,"Ot");
+    /* pecas: se ocultan cuando Rumbo se ve muy chico */
+    if(t-FP.smT>1){FP.smT=t;var wpx=svg.getBoundingClientRect().width;FP.ff.style.display=wpx>0&&wpx<60?"none":""}
    }
    st.brw.forEach(function(bw2,i){var tb=tgB[i];bw2.dy+=(tb[0]-bw2.dy)*ea;bw2.a+=(tb[1]-bw2.a)*ea;var e2=st.eyes[i],lift2=bl*.5;
     bw2.e.setAttribute("transform","translate("+f(e2.cx+st.gz[0]*.15)+" "+f(e2.cy-e2.ry-3.4*st.bk+bw2.dy*st.bk+lift2)+") rotate("+f(bw2.a*(st.bk>1?1.3:1))+") scale("+st.bk+")")});
@@ -791,7 +782,7 @@ var RUMBO=(function(){
   }
   return {go:go};
  })();
- var NAMES={T:"T · Cara nueva",S:"S · Libro simplificado",P:"P · Original con brújula",O:"O · Original mejorado",R:"R · Boceto",v1:"Actual (v1)",A:"A · Globo",B:"B · Brújula",C:"C · Híbrido"};
+ var NAMES={T:"T · Cara de la referencia",S:"S · Libro simplificado",P:"P · Original con brújula",O:"O · Original mejorado",R:"R · Boceto",v1:"Actual (v1)",A:"A · Globo",B:"B · Brújula",C:"C · Híbrido"};
  var cur=null;try{cur=localStorage.getItem("vocatlas_rumbo")}catch(e){}
  function pick(m){if(m){cur=m;try{localStorage.setItem("vocatlas_rumbo",m)}catch(e){}}return cur||"T"}
  function svg(m,ek,fx){m=m||pick();return m==="v1"?rumboSVG():build(m,ek,fx)}

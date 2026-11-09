@@ -1418,6 +1418,7 @@ html.art-on body>*:not(#art){display:none!important}
 .rbx[data-sin-gafas] .rk-gog{display:none}
 .rbx[data-acabado=minimo] .rk-gog,.rbx[data-acabado=minimo] .rk-strap,.rbx[data-acabado=minimo] .rk-tick,.rbx[data-acabado=minimo] .rk-caphl,.rbx[data-acabado=minimo] .rk-lace{display:none}
 .rbx{overflow:visible}
+.rbx-static [data-p]{opacity:0}
 /*@iso-css-fin*/
 </style>
 </head>
@@ -4044,6 +4045,8 @@ var DMQ=window.matchMedia?window.matchMedia("(prefers-color-scheme: dark)"):null
 if(DMQ&&DMQ.addEventListener)DMQ.addEventListener("change",function(){if($("#app").classList.contains("on")&&!RB.plan){buildMap();refreshMap();commit();apply()}});
 
 /*@iso-js*/
+/* cara de Rumbo, copiada de cara-rumbo.svg por build.py; no se edita a mano */
+var CARA={vb:"0 0 232 184",sub:["M112.50 159.84C111.27 159.68 107.95 159.00 107.74 158.87C107.64 158.81 106.78 158.59 105.84 158.39C103.70 157.94 100.35 156.41 99.98 155.72C99.63 155.07 99.88 153.66 100.42 153.21C101.06 152.68 102.96 152.90 105.05 153.74C106.29 154.23 107.94 154.63 109.79 154.88C111.35 155.09 113.08 155.37 113.62 155.50C115.04 155.84 116.76 155.80 119.50 155.38C127.27 154.17 128.32 154.27 128.45 156.28C128.53 157.58 128.15 158.16 127.05 158.38C126.68 158.46 125.52 158.79 124.47 159.12C122.58 159.73 115.07 160.18 112.50 159.84Z", "M109.25 150.49C108.22 150.39 107.02 150.19 106.59 150.05C106.16 149.92 104.36 149.67 102.59 149.50C100.31 149.29 98.94 149.03 97.88 148.60C97.05 148.26 95.53 147.87 94.50 147.73C93.47 147.58 91.84 147.15 90.88 146.77C89.91 146.39 88.51 145.93 87.75 145.75C86.99 145.58 85.87 145.18 85.25 144.87C84.63 144.56 83.76 144.23 83.32 144.14C82.88 144.04 82.09 143.68 81.58 143.33C81.06 142.97 80.19 142.53 79.64 142.34C79.10 142.14 78.48 141.83 78.26 141.64C78.05 141.46 77.14 140.94 76.25 140.51C73.44 139.14 72.06 138.38 71.58 137.96C71.33 137.74 70.67 137.33 70.12 137.05C69.58 136.78 68.85 136.26 68.52 135.90C68.19 135.54 67.78 135.25 67.61 135.25C67.24 135.25 64.40 133.19 63.42 132.21C63.03 131.82 62.61 131.50 62.49 131.50C62.37 131.50 61.87 131.13 61.39 130.69C60.91 130.24 60.12 129.51 59.64 129.06C59.16 128.62 58.66 128.25 58.54 128.25C58.29 128.25 56.59 130.11 55.12 132.00C53.99 133.46 52.13 135.00 51.50 135.00C51.01 135.00 50.48 134.45 49.93 133.38C49.57 132.67 49.59 132.57 50.19 131.50C50.55 130.88 51.17 130.04 51.57 129.62C52.60 128.56 54.40 125.99 54.63 125.25C54.73 124.91 55.14 124.02 55.53 123.28C55.93 122.54 56.25 121.77 56.25 121.58C56.25 121.39 56.52 120.70 56.84 120.05C57.49 118.75 57.67 117.71 57.99 113.09C58.24 109.60 58.43 109.18 59.96 108.76C60.63 108.57 61.03 108.60 61.55 108.86C62.25 109.21 62.25 109.21 62.25 108.34C62.25 107.87 62.10 107.17 61.91 106.80C61.72 106.43 61.42 105.51 61.25 104.76C61.07 104.01 60.67 102.83 60.35 102.14C59.77 100.84 59.63 99.73 58.97 91.24C58.74 88.27 58.74 86.71 58.96 84.62C59.12 83.11 59.37 80.18 59.51 78.10C59.65 76.02 59.93 73.71 60.15 72.97C60.69 71.05 61.16 68.91 61.48 66.80C61.63 65.80 61.98 64.52 62.27 63.97C62.55 63.41 62.94 62.12 63.14 61.10C63.33 60.08 63.71 58.82 63.97 58.31C64.23 57.80 64.67 56.52 64.96 55.47C65.25 54.42 65.70 53.18 65.97 52.72C66.24 52.25 66.54 51.45 66.64 50.93C66.73 50.41 67.09 49.57 67.43 49.06C67.78 48.55 68.21 47.62 68.40 46.98C68.59 46.34 68.98 45.53 69.25 45.18C69.53 44.82 69.93 44.06 70.13 43.49C70.33 42.92 70.77 42.12 71.12 41.72C71.46 41.31 71.97 40.50 72.25 39.93C72.53 39.35 73.07 38.37 73.45 37.75C74.34 36.28 79.70 30.86 80.50 30.63C80.84 30.52 81.50 30.16 81.96 29.81C83.35 28.77 87.26 28.30 90.32 28.81C92.44 29.16 92.84 29.32 94.33 30.39C96.34 31.84 98.21 34.17 98.63 35.76C98.80 36.41 99.19 37.28 99.50 37.70C100.80 39.46 100.73 52.29 99.39 57.75C99.04 59.19 98.63 61.02 98.48 61.81C98.14 63.63 97.91 63.85 95.79 64.33C94.84 64.55 93.66 64.99 93.17 65.33C92.68 65.66 91.80 66.01 91.20 66.10C90.61 66.20 89.70 66.55 89.19 66.89C88.67 67.23 87.65 67.73 86.91 68.01C86.17 68.28 85.37 68.73 85.13 69.00C84.89 69.26 84.32 69.60 83.86 69.75C82.99 70.04 81.00 72.00 81.00 72.57C81.00 73.11 82.75 75.00 83.24 75.00C83.49 75.00 84.36 75.35 85.16 75.78C86.31 76.38 87.21 76.62 89.34 76.89C90.84 77.08 92.73 77.46 93.53 77.74C94.34 78.02 95.15 78.25 95.34 78.25C96.61 78.25 96.78 80.36 95.76 83.64C95.51 84.47 95.17 86.39 95.02 87.89C94.87 89.40 94.47 91.53 94.12 92.63C93.77 93.73 93.38 95.53 93.23 96.62C93.09 97.74 92.75 99.00 92.48 99.47C92.21 99.93 91.75 101.16 91.46 102.20C91.18 103.24 90.68 104.50 90.37 104.99C90.05 105.47 89.65 106.35 89.48 106.93C89.31 107.51 88.91 108.23 88.59 108.53C88.26 108.84 88.00 109.18 88.00 109.30C88.00 110.21 82.63 115.36 81.00 116.00C80.52 116.19 79.82 116.57 79.46 116.83C78.58 117.47 74.51 117.87 72.56 117.51C70.09 117.05 66.40 114.38 64.83 111.93C64.27 111.04 63.11 110.31 62.79 110.63C62.71 110.71 62.57 111.53 62.47 112.45C62.31 114.08 61.94 116.38 61.07 121.21C60.55 124.08 60.58 124.15 63.41 126.61C66.37 129.19 66.74 129.48 67.52 129.88C67.90 130.08 68.37 130.45 68.55 130.71C68.86 131.14 70.07 132.02 71.84 133.10C72.27 133.36 73.02 133.83 73.50 134.15C74.30 134.68 75.79 135.49 78.38 136.81C78.92 137.09 79.67 137.53 80.04 137.78C80.41 138.04 81.43 138.48 82.31 138.75C83.20 139.02 84.12 139.46 84.36 139.73C84.60 140.00 85.38 140.34 86.08 140.49C86.79 140.65 87.84 141.05 88.43 141.39C89.01 141.73 90.14 142.13 90.92 142.28C91.71 142.43 92.79 142.77 93.32 143.04C93.85 143.31 95.72 143.80 97.48 144.14C99.24 144.48 101.56 144.98 102.62 145.25C108.07 146.64 125.64 146.43 131.20 144.91C132.39 144.58 134.33 144.17 135.50 144.00C136.67 143.83 138.22 143.43 138.94 143.11C139.67 142.79 140.87 142.41 141.61 142.27C142.36 142.14 143.61 141.68 144.39 141.26C145.18 140.84 145.99 140.50 146.19 140.50C146.40 140.50 147.25 140.17 148.09 139.77C148.94 139.37 150.13 138.81 150.75 138.53C151.37 138.26 152.16 137.86 152.50 137.65C152.84 137.44 153.63 137.04 154.25 136.74C156.21 135.82 158.08 134.76 158.61 134.27C158.89 134.01 159.52 133.62 160.00 133.40C160.81 133.03 161.95 132.23 163.91 130.64C164.34 130.29 164.81 130.00 164.95 130.00C165.10 130.00 165.48 129.68 165.79 129.28C166.11 128.88 166.72 128.38 167.14 128.17C167.91 127.78 167.91 127.78 167.95 124.52C167.98 121.85 168.07 121.08 168.46 120.32C168.73 119.80 169.08 118.70 169.25 117.88C169.50 116.62 169.74 116.20 170.66 115.31C171.99 114.03 172.54 113.99 173.65 115.10C174.66 116.11 174.71 116.62 173.89 117.73C172.29 119.90 172.04 127.89 173.51 129.75C173.79 130.09 174.24 130.87 174.51 131.48C175.05 132.65 176.97 134.59 178.65 135.65C179.78 136.37 180.50 137.39 180.50 138.30C180.50 139.15 179.82 140.00 179.12 140.00C178.06 140.00 174.93 138.36 173.75 137.18C171.58 135.01 171.27 134.62 170.95 133.62C170.53 132.32 169.70 132.19 168.06 133.15C166.67 133.97 164.83 135.30 164.08 136.04C163.56 136.56 162.39 137.22 159.59 138.59C158.88 138.94 158.22 139.35 158.12 139.51C158.02 139.67 157.25 140.13 156.41 140.53C155.56 140.94 154.48 141.48 154.00 141.74C152.22 142.71 149.34 143.96 148.25 144.25C147.63 144.41 146.77 144.74 146.34 144.99C145.92 145.24 144.74 145.63 143.72 145.86C142.71 146.09 141.52 146.50 141.08 146.77C140.65 147.05 139.46 147.42 138.46 147.62C137.45 147.81 136.23 148.14 135.75 148.34C134.62 148.81 132.69 149.15 128.50 149.61C126.64 149.82 124.22 150.16 123.12 150.37C120.99 150.78 112.90 150.85 109.25 150.49Z", "M187.35 133.39C186.15 132.87 185.91 131.61 186.66 129.74C187.40 127.88 188.88 127.76 190.42 129.41C191.64 130.72 191.64 130.73 191.10 132.15C190.52 133.68 189.10 134.15 187.35 133.39Z", "M38.59 122.71C36.30 121.60 38.13 117.23 40.62 117.85C42.55 118.33 43.09 122.10 41.33 122.77C40.54 123.07 39.28 123.04 38.59 122.71Z", "M102.94 118.27C102.12 117.54 102.12 117.54 102.12 114.83C102.12 111.36 102.69 110.00 105.18 107.54C107.32 105.41 108.20 105.00 110.97 104.82C115.03 104.56 117.26 105.37 120.20 108.18C122.55 110.41 122.70 115.50 120.42 115.50C119.23 115.50 118.58 114.91 118.15 113.44C117.77 112.13 116.97 111.17 114.79 109.42C114.07 108.84 113.73 108.75 112.24 108.75C110.60 108.75 109.25 109.10 109.25 109.53C109.25 109.65 108.90 109.92 108.48 110.14C108.01 110.38 107.57 110.90 107.34 111.45C107.14 111.96 106.75 112.80 106.48 113.31C106.12 113.97 105.99 114.62 106.03 115.56C106.18 118.63 104.75 119.88 102.94 118.27Z", "M152.12 117.48C151.29 117.35 150.35 117.03 150.00 116.75C149.66 116.47 149.09 116.11 148.75 115.95C146.15 114.71 142.06 109.09 141.12 105.48C140.89 104.60 140.44 103.24 140.11 102.46C138.17 97.85 138.26 77.13 140.25 71.22C140.51 70.45 140.84 68.93 140.97 67.84C141.11 66.75 141.50 65.07 141.85 64.12C142.19 63.16 142.64 61.61 142.86 60.68C143.07 59.75 143.40 58.74 143.60 58.43C143.80 58.13 144.20 56.98 144.50 55.88C144.80 54.77 145.25 53.51 145.51 53.07C145.77 52.62 146.14 51.72 146.34 51.07C146.54 50.41 147.05 49.22 147.47 48.41C147.90 47.61 148.25 46.75 148.25 46.52C148.25 46.28 148.58 45.59 148.98 44.98C149.38 44.37 149.79 43.54 149.88 43.12C149.98 42.71 150.39 41.95 150.79 41.43C151.20 40.92 151.70 40.08 151.91 39.57C152.68 37.74 158.12 31.80 160.00 30.74C160.48 30.47 161.16 30.03 161.50 29.75C162.96 28.59 169.59 28.24 171.93 29.19C173.55 29.86 175.78 31.47 176.27 32.34C176.57 32.87 177.13 33.66 177.51 34.10C177.89 34.53 178.29 35.34 178.39 35.88C178.49 36.43 178.86 37.38 179.22 38.00C179.88 39.12 179.88 39.12 179.87 46.88C179.86 54.44 179.84 54.69 179.19 57.25C178.82 58.69 178.40 60.61 178.24 61.51C177.88 63.67 177.84 63.72 175.99 64.15C175.12 64.35 173.75 64.85 172.94 65.26C172.14 65.67 171.35 66.00 171.18 66.00C171.01 66.00 169.99 66.45 168.90 67.00C167.82 67.55 166.79 68.00 166.61 68.00C166.44 68.00 165.72 68.39 165.00 68.88C164.28 69.36 163.61 69.75 163.51 69.75C162.96 69.75 161.00 71.84 161.00 72.43C161.00 73.38 161.90 74.65 162.81 75.00C163.26 75.16 164.25 75.57 165.01 75.89C165.78 76.22 167.24 76.61 168.26 76.76C169.29 76.91 170.86 77.25 171.75 77.51C172.64 77.77 173.82 78.06 174.38 78.15C176.42 78.49 176.65 79.59 175.47 83.41C175.21 84.26 174.88 86.09 174.75 87.46C174.52 89.95 173.87 93.27 173.49 94.01C173.38 94.23 173.12 95.37 172.91 96.55C172.70 97.73 172.25 99.24 171.91 99.91C171.56 100.58 171.20 101.58 171.10 102.12C171.01 102.67 170.62 103.69 170.24 104.38C169.86 105.06 169.41 106.08 169.24 106.62C169.07 107.17 168.61 107.99 168.21 108.45C167.82 108.90 167.50 109.40 167.50 109.57C167.50 109.87 165.15 112.61 163.61 114.12C163.19 114.54 162.40 115.10 161.86 115.38C161.32 115.65 160.48 116.12 160.00 116.42C158.37 117.43 154.89 117.90 152.12 117.48Z", "M188.10 112.14C187.21 111.76 187.06 111.45 186.85 109.66C186.45 106.32 189.05 104.77 191.64 106.80C192.18 107.23 192.25 107.48 192.25 109.00C192.25 111.42 192.03 111.87 190.66 112.22C189.26 112.57 189.06 112.56 188.10 112.14Z", "M27.58 109.59C26.91 108.57 26.98 106.41 27.69 105.69C28.32 105.07 30.47 104.96 31.14 105.51C32.11 106.31 32.08 108.88 31.10 109.86C30.40 110.56 28.10 110.38 27.58 109.59Z", "M42.81 106.57C41.60 106.34 40.94 102.82 41.94 101.94C43.30 100.74 45.79 101.34 46.25 102.99C46.59 104.23 46.59 104.26 45.76 105.58C44.98 106.80 44.62 106.92 42.81 106.57Z"]};
 /* ================= Rumbo: modelos =================
    v1 = el actual (rumboSVG). Modelos nuevos, de estilo plano: formas grandes y redondas, un solo tono de sombra,
    brillo mínimo, ojos grandes con párpados y cejas simples.
@@ -4251,7 +4254,7 @@ var RUMBO=(function(){
  var FINK=["liso","tinta","papel","minimo"];
  var finCur=null;try{finCur=localStorage.getItem("vocatlas_acabado")}catch(e){}
  function finPick(k){if(k){finCur=k;try{localStorage.setItem("vocatlas_acabado",k)}catch(e){}}return FIN[finCur]?finCur:"liso"}
- function build(model,ek,fx){if(model==="R")return buildR();if(model==="O")return buildO();if(model==="P")return buildP();if(model==="S")return buildS();if(model==="T")return buildS("cuna");ek=EYES[ek]?ek:eyePick();fx=FIN[fx]?fx:finPick();
+ function build(model,ek,fx){if(model==="R")return buildR();if(model==="O")return buildO();if(model==="P")return buildP();if(model==="S")return buildS();if(model==="T")return buildS("ref");ek=EYES[ek]?ek:eyePick();fx=FIN[fx]?fx:finPick();
   var id="rbm"+(++N),body,skin;
   if(model==="A"){body=globe(id,27);skin="#F7E0BD"}
   else if(model==="B"){body=compass(id,false);skin="#FBF0DA"}
@@ -4526,37 +4529,30 @@ var RUMBO=(function(){
   s+='<path d="M'+X(29.4)+' 93.2C'+X(30)+' 95.2 '+X(31.4)+' 95.6 '+X(33.6)+' 95.6L'+X(42)+' 95.6C'+X(45.4)+' 95.6 '+X(47.2)+' 94.6 '+X(47.6)+' 92.6L'+X(47.6)+' 94.4C'+X(47.2)+' 96.6 '+X(45.2)+' 97.2 '+X(42)+' 97.2L'+X(33.6)+' 97.2C'+X(30.6)+' 97.2 '+X(29.2)+' 96 '+X(29.4)+' 93.2Z" fill="'+SSOLE+'"'+sl(1.2)+'/>';
   s+='<circle cx="'+X(44.4)+'" cy="85.4" r="1.2" fill="'+SGOLD+'"'+sl(.9)+'/>';
   return s}
- /* cara nueva (modelo T): ojos negros altos con una cuña recortada con máscara que indica hacia dónde mira,
-    nariz en arco, sonrisa de mejilla a mejilla con pliegues y barbilla, y pecas. Trazos de tinta del mismo grosor. */
- var WI="#1A1410",WE=[[43,54.2],[57,54.2]],WRX=3.5,WRY=6.4,WT=[-6,6];
- function faceCuna(id){var s="",L=function(d,w,c){return '<path'+(c?' class="'+c+'"':'')+' d="'+d+'" fill="none" stroke="'+WI+'" stroke-width="'+(w||1.3)+'" stroke-linecap="round" stroke-linejoin="round"/>'};
-  WE.forEach(function(c,i){var cx=c[0],cy=c[1],rx=WRX,ry=WRY,mid=id+"w"+i;
-   s+='<g class="rk-weye" data-i="'+i+'" data-cx="'+cx+'" data-cy="'+cy+'" data-rx="'+rx+'" data-ry="'+ry+'" data-tilt="'+WT[i]+'"><g class="rk-wt" transform="rotate('+WT[i]+' '+cx+' '+cy+')">'+
-    '<mask id="'+mid+'" maskUnits="userSpaceOnUse" x="'+(cx-12)+'" y="'+(cy-12)+'" width="24" height="24"><ellipse cx="'+cx+'" cy="'+cy+'" rx="'+rx+'" ry="'+ry+'" fill="#FFFFFF"/>'+
-    '<path class="rk-wedge" d="M'+(cx+rx*.28)+' '+cy+'L'+(cx+rx*1.8)+' '+(cy-rx*.5)+'L'+(cx+rx*1.8)+' '+(cy+rx*.5)+'Z" fill="#000000" transform="rotate(20 '+cx+' '+cy+')"/></mask>'+
-    '<ellipse class="rk-wo" cx="'+cx+'" cy="'+cy+'" rx="'+rx+'" ry="'+ry+'" fill="'+WI+'" mask="url(#'+mid+')"/>'+
-    '<path class="rk-wup" d="M'+(cx-rx*1.05)+' '+(cy+1.4)+'Q'+cx+' '+(cy-ry*.8)+' '+(cx+rx*1.05)+' '+(cy+1.4)+'" fill="none" stroke="'+WI+'" stroke-width="2.3" stroke-linecap="round" opacity="0"/>'+
-    '<path class="rk-wdn" d="M'+(cx-rx*1.05)+' '+(cy-.4)+'Q'+cx+' '+(cy+ry*.55)+' '+(cx+rx*1.05)+' '+(cy-.4)+'" fill="none" stroke="'+WI+'" stroke-width="2" stroke-linecap="round" opacity="0"/>'+
-    '<path class="rk-wln" d="M'+(cx-rx*.95)+' '+cy+'Q'+cx+' '+(cy+1.1)+' '+(cx+rx*.95)+' '+cy+'" fill="none" stroke="'+WI+'" stroke-width="1.8" stroke-linecap="round" opacity="0"/>'+
-    '</g></g>'});
-  /* nariz: arco pequeño en U invertida */
-  s+=L("M48.8 62.2Q50 59.8 51.2 62.2",1.3);
-  /* pecas (se ocultan en tamaños chicos) */
-  s+='<g class="rk-sm" fill="'+WI+'"><circle cx="34.6" cy="60.2" r=".55"/><circle cx="36" cy="61" r=".55"/><circle cx="34.9" cy="61.9" r=".55"/><circle cx="65.4" cy="60.2" r=".55"/><circle cx="64.1" cy="61.1" r=".55"/><circle cx="65.2" cy="62" r=".55"/></g>';
-  /* bocas */
-  var folds='<g class="rk-sm">'+L("M37.8 61.6Q36.4 63.2 37.6 65.2")+L("M62.2 61.6Q63.6 63.2 62.4 65.2")+'</g>';
-  s+='<g data-p="idle talk">'+L("M38.8 63.4Q50 73.4 61.2 63.4")+folds+L("M48.6 70.6Q50 71.4 51.4 70.6",1.1,"rk-sm")+'</g>';
-  s+='<g data-p="happy wink"><path d="M39 63.2Q50 75.6 61 63.2Q50 68.4 39 63.2Z" fill="'+WI+'" stroke="'+WI+'" stroke-width="1.2" stroke-linejoin="round"/><path d="M44.4 68.6Q50 72.4 55.6 68.6Q50 67 44.4 68.6Z" fill="#E86A6A"/>'+folds+'</g>';
-  s+='<g data-p="joy"><ellipse cx="36.4" cy="63.8" rx="2.6" ry="1.6" fill="#F4A3A0" opacity=".65"/><ellipse cx="63.6" cy="63.8" rx="2.6" ry="1.6" fill="#F4A3A0" opacity=".65"/><path d="M38.6 62.6Q50 77 61.4 62.6Q50 68 38.6 62.6Z" fill="'+WI+'" stroke="'+WI+'" stroke-width="1.2" stroke-linejoin="round"/><path d="M43.8 68.8Q50 73.6 56.2 68.8Q50 67 43.8 68.8Z" fill="#E86A6A"/>'+folds+'</g>';
-  s+='<ellipse data-p="wow" cx="50" cy="66.4" rx="1.8" ry="2.4" fill="'+WI+'"/>';
-  s+='<g data-p="curious">'+L("M46.6 66.4Q50 68.6 53.4 66.4")+'</g>';
-  s+='<g data-p="think">'+L("M47.6 66.8Q50.6 65.6 53 66.4")+'</g>';
-  s+='<g data-p="sadhope">'+L("M45.4 65.6Q50 68.2 54.6 65.6")+'</g>';
-  s+='<g data-p="sad no">'+L("M45.6 67.2Q50 64.4 54.4 67.2")+'</g>';
-  s+='<g data-p="meh">'+L("M46 66.2H54")+'</g>';
-  s+='<ellipse data-p="talk" class="rk-mouth" cx="50" cy="66.6" rx="2.2" ry="1.8" fill="'+WI+'" opacity="0"/>';
-  s+='<g data-p="sleep">'+L("M48.6 66.4Q50 67.4 51.4 66.4")+'<g class="rk-zz"><text x="70" y="36" font-size="7" font-weight="900" fill="'+WI+'" opacity=".55">z</text><text x="75" y="29" font-size="5" font-weight="900" fill="'+WI+'" opacity=".4">z</text></g></g>';
-  s+='<ellipse data-p="yawn" cx="50" cy="66.8" rx="2" ry="2.6" fill="'+WI+'"/>';
+ /* cara de Rumbo (modelo T): la referencia cara-rumbo.svg usada tal cual (CARA, la inyecta build.py).
+    Sus subtrazos se reparten en piezas sin cambiar su forma: el ojo izquierdo y la sonrisa vienen unidos en el dibujo,
+    así que se separan con dos recortes complementarios. Cada pieza tiene su pivote en su centro (coordenadas de la referencia). */
+ var FK=.168,FTX=31.59,FTY=41.77;
+ function caraPieces(){var P={fr:[],fl:[]};
+  CARA.sub.forEach(function(d){var n=d.match(/-?\d+\.?\d*/g).map(Number),x0=1e9,x1=-1e9,y0=1e9,y1=-1e9;for(var k=0;k<n.length;k+=2){x0=Math.min(x0,n[k]);x1=Math.max(x1,n[k]);y0=Math.min(y0,n[k+1]);y1=Math.max(y1,n[k+1])}
+   var w=x1-x0,h=y1-y0;
+   if(w>100)P.big=d;else if(x0>130&&h>60)P.er=d;else if(y0>150)P.chin=d;else if(w<10&&h<10)(x0<100?P.fl:P.fr).push(d);else P.nose=d});
+  return P}
+ function faceRef(id,col){var P=caraPieces(),s='<g transform="translate('+FTX+' '+FTY+') scale('+FK+')" style="color:'+col+'">';
+  var F=function(d,c){return '<path d="'+d+'" fill="currentColor" fill-rule="evenodd"'+(c?' clip-path="url(#'+c+')"':'')+'/>'};
+  var A=function(cls,d,w){return '<path class="'+cls+'" d="'+d+'" fill="none" stroke="currentColor" stroke-width="'+w+'" stroke-linecap="round" opacity="0"/>'};
+  s+='<clipPath id="'+id+'fe"><path d="M40 0H110V125H64L62.6 111.4L60 108H40Z"/></clipPath><clipPath id="'+id+'fs"><path d="M0 108H60L62.6 111.4L64 125H110V0H240V200H0Z"/></clipPath>';
+  var eye=function(cls,d,cx,clip){return '<g class="'+cls+'">'+grp("rk-fo",cx,73,F(d,clip))+
+   A("rk-fup","M"+(cx-21)+" 84Q"+cx+" 50 "+(cx+21)+" 84",9)+A("rk-fdn","M"+(cx-21)+" 70Q"+cx+" 94 "+(cx+21)+" 70",8)+A("rk-fln","M"+(cx-19)+" 76Q"+cx+" 84 "+(cx+19)+" 76",7)+'</g>'};
+  s+=eye("rk-feL",P.big,79,id+"fe")+eye("rk-feR",P.er,159,null);
+  s+=grp("rk-fn",112,112,F(P.nose));
+  s+=grp("rk-fs",115,138,F(P.big,id+"fs"));
+  s+=grp("rk-fc",114,156,F(P.chin));
+  s+='<g class="rk-ff">'+P.fl.map(function(d){return F(d)}).join("")+P.fr.map(function(d){return F(d)}).join("")+'</g>';
+  s+='<ellipse class="rk-fO" cx="114" cy="140" rx="8" ry="10" fill="currentColor" opacity="0"/>';
+  s+='<ellipse data-p="talk" class="rk-mouth" cx="114" cy="141" rx="9" ry="6.5" fill="currentColor"/>';
+  s+='</g>';
+  s+='<g data-p="sleep"><g class="rk-zz"><text x="70" y="36" font-size="7" font-weight="900" fill="'+col+'" opacity=".55">z</text><text x="75" y="29" font-size="5" font-weight="900" fill="'+col+'" opacity=".4">z</text></g></g>';
   return s}
  function buildS(fk){
   var id="rbm"+(++N),C=[50,57.6],R=24.4;
@@ -4569,7 +4565,7 @@ var RUMBO=(function(){
    body+='<path d="M'+(50+c*r0).toFixed(2)+' '+(57.6+n*r0).toFixed(2)+'L'+(50+c*17.8).toFixed(2)+' '+(57.6+n*17.8).toFixed(2)+'" stroke="'+STK+'" stroke-width="1.2" stroke-linecap="round"/>'}
   body+='<path d="M50 40.6L51.6 44.4L48.4 44.4Z" fill="#D9534F" stroke="#D9534F" stroke-width=".6" stroke-linejoin="round"/>';
   /* cara */
-  var face;if(fk==="cuna")face=faceCuna(id);else{face='<ellipse cx="38.4" cy="65.6" rx="2.6" ry="1.8" fill="#F4A3A0" opacity=".7"/><ellipse cx="61.6" cy="65.6" rx="2.6" ry="1.8" fill="#F4A3A0" opacity=".7"/>'+
+  var face;if(fk==="ref")face=faceRef(id,SO);else{face='<ellipse cx="38.4" cy="65.6" rx="2.6" ry="1.8" fill="#F4A3A0" opacity=".7"/><ellipse cx="61.6" cy="65.6" rx="2.6" ry="1.8" fill="#F4A3A0" opacity=".7"/>'+
    eyeM(id,0,SDIAL,"retro")+eyeM(id,1,SDIAL,"retro");
   var I='stroke="'+SEYE+'" fill="none" stroke-linecap="round"';
   face+='<path data-p="idle" d="M47.6 65.6Q50 67.9 52.4 65.6" '+I+' stroke-width="1.4"/>';
@@ -4602,7 +4598,7 @@ var RUMBO=(function(){
   var gog='<rect x="45.6" y="30.6" width="8.4" height="2.4" rx="1.2" fill="'+SGOLD+'"'+sl(1)+'/>';
   [[40.8,32.2],[59,31.6]].forEach(function(c){gog+='<circle cx="'+c[0]+'" cy="'+c[1]+'" r="5" fill="'+SGOLD+'"'+sl(1.2)+'/><circle cx="'+c[0]+'" cy="'+c[1]+'" r="3.4" fill="'+SLENS+'"'+sl(.9)+'/><path d="M'+(c[0]-2)+' '+(c[1]+.4)+'L'+(c[0]+.6)+' '+(c[1]-2.2)+'" stroke="'+SLENSH+'" stroke-width="1.2" stroke-linecap="round"/>'});
   var hat=grp("rk-hat",50,42,grp("rk-arrow",50,22,arrow)+grp("rk-flapL",30,46,flapL)+grp("rk-flapR",71,45,flapR)+cap+grp("rk-gog",50,31.6,gog));
-  return '<svg class="rbx rbx-S'+(fk==="cuna"?' rbx-T" data-face="cuna':'')+'" data-ojos="retro" data-hatr="-7" data-arr="-16" data-eyefix="1" viewBox="0 0 100 100" aria-hidden="true">'+
+  return '<svg class="rbx rbx-S'+(fk==="ref"?' rbx-T" data-face="ref':'')+'" data-ojos="retro" data-hatr="-7" data-arr="-16" data-eyefix="1" viewBox="0 0 100 100" aria-hidden="true">'+
    grp("rk-root",50,97,
     '<g class="rk-shadow"><ellipse class="rk-sh" cx="50" cy="97.2" rx="24" ry="2.4" fill="var(--rb-sh,#13213F)" opacity=".2"/><ellipse cx="38.6" cy="97.1" rx="9" ry="1.2" fill="#13213F" opacity=".22"/><ellipse cx="61.4" cy="97.1" rx="9" ry="1.2" fill="#13213F" opacity=".22"/></g>'+
     grp("rk-legL",41.5,76,bootS(-1))+grp("rk-legR",58.5,76,bootS(1))+
@@ -4645,7 +4641,7 @@ var RUMBO=(function(){
   function init(svg){
    var q=function(c){return svg.querySelector("."+c)};
    var st={t:0,g:{root:q("rk-root"),body:q("rk-body"),face:q("rk-face"),brows:q("rk-brows"),legL:q("rk-legL"),legR:q("rk-legR"),hat:q("rk-hat"),hatb:q("rk-hatb"),arrow:q("rk-arrow"),flapL:q("rk-flapL"),flapR:q("rk-flapR"),gog:q("rk-gog"),armL:q("rk-armL"),handL:q("rk-handL"),handR:q("rk-handR"),armR:q("rk-armR"),shadow:q("rk-shadow"),mouth:q("rk-mouth"),zz:q("rk-zz")},
-    weyes:Array.prototype.slice.call(svg.querySelectorAll(".rk-weye")).map(function(e){return {t:e.querySelector(".rk-wt"),w:e.querySelector(".rk-wedge"),up:e.querySelector(".rk-wup"),dn:e.querySelector(".rk-wdn"),ln:e.querySelector(".rk-wln"),i:+e.getAttribute("data-i"),cx:+e.getAttribute("data-cx"),cy:+e.getAttribute("data-cy"),tilt:+e.getAttribute("data-tilt"),c:{k:0,a:1,sx:1,sy:1,tx:0,ws:1},last:{}}}),wv:[1,.36],smT:-9,sm:Array.prototype.slice.call(svg.querySelectorAll(".rk-sm")),
+    fp:(function(){var g=function(c){return svg.querySelector("."+c)},e=function(c){var r=g(c);return r?{o:r.querySelector(".rk-fo"),up:r.querySelector(".rk-fup"),dn:r.querySelector(".rk-fdn"),ln:r.querySelector(".rk-fln"),c:{sx:1,sy:1,op:1,up:0,dn:0,dx:0,dy:0},last:{}}:null};var L=e("rk-feL");return L?{eL:L,eR:e("rk-feR"),s:g("rk-fs"),c:g("rk-fc"),n:g("rk-fn"),O:g("rk-fO"),ff:g("rk-ff"),m:{ssx:1,ssy:1,sop:1,O:0,ch:1,Os:1},last:{},smT:-9}:null})(),
     eyes:Array.prototype.slice.call(svg.querySelectorAll(".rk-eye")).map(function(e,i){return {sq:e.querySelector(".rk-esq"),pup:e.querySelector(".rk-pup"),up:e.querySelector(".rk-up"),lash:e.querySelector(".rk-lash"),lo:e.querySelector(".rk-lo"),lol:e.querySelector(".rk-lol"),iris:e.querySelector(".rk-iris"),cx:+e.getAttribute("data-cx"),cy:+e.getAttribute("data-cy"),rx:+e.getAttribute("data-rx"),ry:+e.getAttribute("data-ry"),cur:E(),last:{}}}),
     brw:Array.prototype.slice.call(svg.querySelectorAll(".rk-brow")).map(function(e){return {e:e,dy:0,a:0}}),
     dp:Array.prototype.slice.call(svg.querySelectorAll("[data-p]")).map(function(e){return {e:e,w:e.getAttribute("data-p").split(" "),o:-1}}),
@@ -4803,29 +4799,27 @@ var RUMBO=(function(){
    /* cejas casi invisibles en reposo: aparecen solo en expresiones fuertes */
    if(st.browAuto&&g.brows){var bo=/^(wow|sad|sadhope|curious|think|no)$/.test(mood)?1:0;st.browO=st.browO<0?bo:st.browO+(bo-st.browO)*ea;var bv=f(st.browO);if(bv!==st.browL){g.brows.style.opacity=bv;st.browL=bv}}
 
-   /* ---------- cara de cuña (modelo T) ---------- */
-   if(st.weyes.length){
-    /* por expresión y por ojo: k cerrado (0 abierto, 1 arco), a tipo de arco (1 feliz, -1 dormido), tamaño, inclinación extra y tamaño de la cuña */
-    var WD={k:0,a:1,sx:1,sy:1,tx:0,ws:1},Wm=function(o){var r={};for(var q in WD)r[q]=o&&o[q]!=null?o[q]:WD[q];return r};
-    var WEP={happy:[Wm({k:1}),Wm({k:1})],joy:[Wm({k:1}),Wm({k:1})],wink:[Wm(),Wm({k:1})],sleep:[Wm({k:1,a:-1}),Wm({k:1,a:-1})],
-     wow:[Wm({sx:.86,sy:1.1,ws:.6}),Wm({sx:.86,sy:1.1,ws:.6})],curious:[Wm({sx:.92,sy:.92}),Wm({sx:1.1,sy:1.1})],
-     sadhope:[Wm({tx:-9}),Wm({tx:9})],sad:[Wm({tx:-11,sy:.94}),Wm({tx:11,sy:.94})],yawn:[Wm({k:1,a:-1}),Wm({k:1,a:-1})]};
-    var tw=WEP[mood]||[Wm(),Wm()];
-    /* dirección de la cuña: hacia donde mira; si no mira a ningún lado, a la derecha y un poco abajo */
-    var gm=Math.hypot(st.gz[0],st.gz[1]),dv=gm>.35?[st.gz[0]/gm,st.gz[1]/gm]:[.94,.34];
-    st.wv[0]+=(dv[0]-st.wv[0])*ea;st.wv[1]+=(dv[1]-st.wv[1])*ea;var ang=Math.atan2(st.wv[1],st.wv[0])*180/Math.PI;
-    st.weyes.forEach(function(we,i){var c=we.c,T0=tw[i];for(var q in c)c[q]+=(T0[q]-c[q])*ea;
-     var cx=we.cx,cy=we.cy,cl2=Math.max(c.k,bl),tl=we.tilt+c.tx;
-     setA(we.t,"transform","rotate("+f(tl)+" "+cx+" "+cy+") translate("+cx+" "+cy+") scale("+f(c.sx)+" "+f(c.sy*(1-.9*cl2))+") translate("+(-cx)+" "+(-cy)+")",we.last,"t");
-     setA(we.w,"transform","rotate("+f(ang-tl)+" "+cx+" "+cy+") translate("+cx+" "+cy+") scale("+f(Math.max(.01,c.ws*(1-cl2)))+") translate("+(-cx)+" "+(-cy)+")",we.last,"w");
-     /* los arcos y la línea del parpadeo viven fuera del aplastamiento: se cancelan con la escala inversa */
-     var inv=1/Math.max(.08,c.sy*(1-.9*cl2));
-     var arcT="translate("+cx+" "+cy+") scale(1 "+f(inv)+") translate("+(-cx)+" "+(-cy)+")";
-     setA(we.up,"transform",arcT,we.last,"ut");setA(we.dn,"transform",arcT,we.last,"dt");setA(we.ln,"transform",arcT,we.last,"lt");
-     setA(we.up,"opacity",f(c.k*Math.max(0,c.a)),we.last,"uo");setA(we.dn,"opacity",f(c.k*Math.max(0,-c.a)),we.last,"do");
-     setA(we.ln,"opacity",f(c.k<.5?cl2>.55?(cl2-.55)/.45:0:0),we.last,"lo")});
-    /* pecas y pliegues: se ocultan cuando Rumbo se ve muy chico */
-    if(t-st.smT>1){st.smT=t;var wpx=svg.getBoundingClientRect().width,hide=wpx>0&&wpx<60;st.sm.forEach(function(e){e.style.display=hide?"none":""})}
+   /* ---------- cara de la referencia (modelo T): piezas de cara-rumbo.svg ---------- */
+   if(st.fp){var FP=st.fp,ED={sx:1,sy:1,op:1,up:0,dn:0,dx:0,dy:0},Em=function(o){var r={};for(var q in ED)r[q]=o&&o[q]!=null?o[q]:ED[q];return r};
+    var UP=Em({op:0,up:1}),DN=Em({op:0,dn:1});
+    var FE={happy:[UP,UP],joy:[UP,UP],wink:[Em(),UP],sleep:[DN,DN],yawn:[DN,DN],wow:[Em({sx:.92,sy:1.12}),Em({sx:.92,sy:1.12})],
+     curious:[Em(),Em({sx:1.08,sy:1.08})],sad:[Em({sy:.93}),Em({sy:.93})]}[mood]||[Em(),Em()];
+    var MD={ssx:1,ssy:1,sop:1,O:0,ch:1,Os:1},Mm=function(o){var r={};for(var q in MD)r[q]=o&&o[q]!=null?o[q]:MD[q];return r};
+    var FM={happy:Mm({ssy:1.12}),joy:Mm({ssy:1.25,ssx:1.05}),wink:Mm({ssy:1.1}),wow:Mm({sop:0,O:1,ch:0}),yawn:Mm({sop:0,O:1,ch:0,Os:1.4}),sleep:Mm({ssy:.4,ssx:.7}),
+     sad:Mm({ssy:-.7,ch:0}),no:Mm({ssy:-.6,ch:0}),sadhope:Mm({ssy:.45}),meh:Mm({ssy:.12,ch:0}),think:Mm({ssy:.3,ssx:.6,ch:0}),curious:Mm({ssy:.5,ssx:.8})}[mood]||Mm();
+    var gx=st.gz[0]*3,gy=st.gz[1]*3;
+    [FP.eL,FP.eR].forEach(function(E2,i){if(!E2)return;var c=E2.c,T0=FE[i];for(var q in c)c[q]+=(T0[q]-c[q])*ea;
+     var shut=c.op>.5?bl:0;
+     setA(E2.o,"transform","translate("+f(gx+c.dx)+" "+f(gy+c.dy)+")"+(function(){var px=+E2.o.getAttribute("data-px"),py=+E2.o.getAttribute("data-py");return " translate("+px+" "+py+") scale("+f(c.sx)+" "+f(Math.max(.04,c.sy*(1-.92*shut)))+") translate("+(-px)+" "+(-py)+")"})(),E2.last,"o");
+     setA(E2.o,"opacity",f(c.op*(shut>.85?0:1)),E2.last,"oo");
+     var tr="translate("+f(gx*.5)+" "+f(gy*.5)+")";setA(E2.up,"transform",tr,E2.last,"ut");setA(E2.dn,"transform",tr,E2.last,"dt");setA(E2.ln,"transform",tr,E2.last,"lt");
+     setA(E2.up,"opacity",f(c.up),E2.last,"u");setA(E2.dn,"opacity",f(c.dn),E2.last,"d");setA(E2.ln,"opacity",f(c.op*(shut>.5?(shut-.5)*2:0)),E2.last,"l")});
+    var m=FP.m;for(var q2 in m)m[q2]+=(FM[q2]-m[q2])*ea;
+    T(FP.s,{sx:m.ssx,sy:Math.abs(m.ssy)<.06?(m.ssy<0?-.06:.06):m.ssy});setA(FP.s,"opacity",f(m.sop),FP.last,"so");
+    setA(FP.c,"opacity",f(m.ch),FP.last,"co");setA(FP.O,"opacity",f(m.O),FP.last,"Oo");
+    setA(FP.O,"transform","translate(114 140) scale("+f(m.Os)+") translate(-114 -140)",FP.last,"Ot");
+    /* pecas: se ocultan cuando Rumbo se ve muy chico */
+    if(t-FP.smT>1){FP.smT=t;var wpx=svg.getBoundingClientRect().width;FP.ff.style.display=wpx>0&&wpx<60?"none":""}
    }
    st.brw.forEach(function(bw2,i){var tb=tgB[i];bw2.dy+=(tb[0]-bw2.dy)*ea;bw2.a+=(tb[1]-bw2.a)*ea;var e2=st.eyes[i],lift2=bl*.5;
     bw2.e.setAttribute("transform","translate("+f(e2.cx+st.gz[0]*.15)+" "+f(e2.cy-e2.ry-3.4*st.bk+bw2.dy*st.bk+lift2)+") rotate("+f(bw2.a*(st.bk>1?1.3:1))+") scale("+st.bk+")")});
@@ -4837,7 +4831,7 @@ var RUMBO=(function(){
   }
   return {go:go};
  })();
- var NAMES={T:"T · Cara nueva",S:"S · Libro simplificado",P:"P · Original con brújula",O:"O · Original mejorado",R:"R · Boceto",v1:"Actual (v1)",A:"A · Globo",B:"B · Brújula",C:"C · Híbrido"};
+ var NAMES={T:"T · Cara de la referencia",S:"S · Libro simplificado",P:"P · Original con brújula",O:"O · Original mejorado",R:"R · Boceto",v1:"Actual (v1)",A:"A · Globo",B:"B · Brújula",C:"C · Híbrido"};
  var cur=null;try{cur=localStorage.getItem("vocatlas_rumbo")}catch(e){}
  function pick(m){if(m){cur=m;try{localStorage.setItem("vocatlas_rumbo",m)}catch(e){}}return cur||"T"}
  function svg(m,ek,fx){m=m||pick();return m==="v1"?rumboSVG():build(m,ek,fx)}
@@ -6801,6 +6795,12 @@ function renderRumbo(){
  M.forEach(function(m){
   h+='<section class="ia-rbmodel"><h2>'+NM[m]+'</h2>';
   if(m==="R")h+='<h3>Tu boceto y el modelo</h3><div class="ia-rbrow"><figure><img src="media/rumbo-boceto.png" alt="Boceto de Rumbo" style="height:360px;border-radius:12px;background:#fff"><figcaption>Tu boceto</figcaption></figure><figure>'+rb(m,360,"happy","p-wave")+'<figcaption>Modelo R, saludando</figcaption></figure></div>';
+  if(m==="T"){var st0=RUMBO.svg("T").replace('class="rbx ','class="rbx-static ');
+   h+='<h3>Cara: referencia y modelo</h3><div class="ia-rbrow">'+
+    '<figure><div style="background:#FBF3E2;border-radius:12px;padding:10px"><img src="cara-rumbo.svg" alt="Referencia" style="width:232px;height:184px;display:block"></div><figcaption>cara-rumbo.svg sola</figcaption></figure>'+
+    [64,128,400].map(function(px){return '<figure>'+rb(m,px)+'<figcaption>'+px+' px</figcaption></figure>'}).join("")+
+    '<figure><div style="position:relative;width:400px;height:400px">'+st0.replace('<svg ','<svg style="width:400px;height:400px" ')+
+    '<img src="cara-rumbo.svg" alt="" style="position:absolute;left:'+(31.59*4)+'px;top:'+(41.77*4)+'px;width:'+(232*.168*4)+'px;height:'+(184*.168*4)+'px;opacity:.55;filter:invert(24%) sepia(95%) saturate(6000%) hue-rotate(350deg)"></div><figcaption>Referencia en rojo encima, sin animación</figcaption></figure></div>';}
   h+='<h3>Tamaños y silueta</h3><div class="ia-rbrow">'+(m==="R"||m==="T"?[32,48,64,128,400]:[32,64,128,300]).map(function(px){return '<figure>'+rb(m,px)+'<figcaption>'+px+' px</figcaption></figure>'}).join("")+
    '<figure><div class="ia-sil" style="padding:6px;border-radius:12px;background:#FFF">'+rb(m,128)+'</div><figcaption>Silueta</figcaption></figure><figure class="is-night" style="padding:10px;border-radius:14px">'+rb(m,96)+'<figcaption>96 px, noche</figcaption></figure></div>';
   h+='<h3>Expresiones</h3><div class="ia-rbrow">'+EXP.map(function(e){return '<figure>'+rb(m,110,e[0],e[2])+'<figcaption>'+e[1]+'</figcaption></figure>'}).join("")+'</div>';

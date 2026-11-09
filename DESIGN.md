@@ -351,7 +351,9 @@ Todos se presentan en `#kit` en claro y oscuro, con estos estados donde apliquen
 
 ### 10.5 Rumbo
 
-**Capas SVG:** sombra, piernas (dos), cuerpo-globo, continentes, mejillas, ojos (con brillo), boca, gorro, gafas y flecha.
+**Cara:** la única referencia es el archivo `cara-rumbo.svg` (raíz del proyecto). Se usa tal cual: `src/build.py` copia sus trazos al código sin modificarlos y la cara se arma con sus piezas (ojo izquierdo con su cuña, ojo derecho con su cuña, nariz, sonrisa con sus pliegues, barbilla, pecas izquierdas y derechas), centrada en la carátula y en el color oscuro del contorno. Esa es la expresión neutral; las demás solo mueven, aplastan o cambian de forma esas piezas (parpadeo aplastando el ojo hasta una línea, mirar desplazando los ojos, ojos en arco para feliz y guiño, curvas hacia abajo para dormido, boca en O para sorprendido). Quedan anuladas todas las especificaciones anteriores de la cara: ojos con brillos redondos, pupilas, párpados del color de la cara, cejas y mejillas rosadas.
+
+**Capas SVG:** sombra, botas (dos), cuerpo-brújula, cara (piezas de `cara-rumbo.svg`), gorro con orejeras, gafas, flecha y guantes.
 
 **Diez expresiones**
 

@@ -197,3 +197,11 @@ Mismo diseño, construcción nueva:
 - **Brazos con hombro redondo.** El hombro está centrado en el pivote, dentro del cuerpo. Antes, al levantar el brazo, la raíz se separaba del cuerpo; lo detectó la revisión de uniones.
 - **Revisión de uniones.** `qa/uniones.js` revisa cuadro por cuadro piernas, hombros, flecha, orejeras, gafas, la cabeza bajo el gorro y los ojos dentro de la cara. Resultado: 0 fallas en 17 animaciones × 3 modelos, en Chromium y WebKit.
 - **Fluidez.** En #rumbo, con 72 Rumbo en la página, corre a 60 cuadros por segundo: en Chromium con el procesador a ¼ de velocidad (perfil Pixel 7) y en WebKit (perfil iPhone 15).
+
+
+## Cara de Rumbo: referencia única
+
+La cara sale de `cara-rumbo.svg`, usado tal cual (ver DESIGN.md, sección 10.5). Las notas anteriores de este documento sobre ojos (brillos, pupilas, párpados del color de la cara, cejas) y mejillas rosadas quedan anuladas.
+
+- Modelo T: cuerpo de brújula del modelo S con esa cara.
+- En #rumbo se ve la referencia sola, Rumbo a 64, 128 y 400 px y una superposición de la referencia en rojo semitransparente sobre la cara. Coinciden exactamente.

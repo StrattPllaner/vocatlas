@@ -14,6 +14,12 @@ function renderRumbo(){
  M.forEach(function(m){
   h+='<section class="ia-rbmodel"><h2>'+NM[m]+'</h2>';
   if(m==="R")h+='<h3>Tu boceto y el modelo</h3><div class="ia-rbrow"><figure><img src="media/rumbo-boceto.png" alt="Boceto de Rumbo" style="height:360px;border-radius:12px;background:#fff"><figcaption>Tu boceto</figcaption></figure><figure>'+rb(m,360,"happy","p-wave")+'<figcaption>Modelo R, saludando</figcaption></figure></div>';
+  if(m==="T"){var st0=RUMBO.svg("T").replace('class="rbx ','class="rbx-static ');
+   h+='<h3>Cara: referencia y modelo</h3><div class="ia-rbrow">'+
+    '<figure><div style="background:#FBF3E2;border-radius:12px;padding:10px"><img src="cara-rumbo.svg" alt="Referencia" style="width:232px;height:184px;display:block"></div><figcaption>cara-rumbo.svg sola</figcaption></figure>'+
+    [64,128,400].map(function(px){return '<figure>'+rb(m,px)+'<figcaption>'+px+' px</figcaption></figure>'}).join("")+
+    '<figure><div style="position:relative;width:400px;height:400px">'+st0.replace('<svg ','<svg style="width:400px;height:400px" ')+
+    '<img src="cara-rumbo.svg" alt="" style="position:absolute;left:'+(31.59*4)+'px;top:'+(41.77*4)+'px;width:'+(232*.168*4)+'px;height:'+(184*.168*4)+'px;opacity:.55;filter:invert(24%) sepia(95%) saturate(6000%) hue-rotate(350deg)"></div><figcaption>Referencia en rojo encima, sin animación</figcaption></figure></div>';}
   h+='<h3>Tamaños y silueta</h3><div class="ia-rbrow">'+(m==="R"||m==="T"?[32,48,64,128,400]:[32,64,128,300]).map(function(px){return '<figure>'+rb(m,px)+'<figcaption>'+px+' px</figcaption></figure>'}).join("")+
    '<figure><div class="ia-sil" style="padding:6px;border-radius:12px;background:#FFF">'+rb(m,128)+'</div><figcaption>Silueta</figcaption></figure><figure class="is-night" style="padding:10px;border-radius:14px">'+rb(m,96)+'<figcaption>96 px, noche</figcaption></figure></div>';
   h+='<h3>Expresiones</h3><div class="ia-rbrow">'+EXP.map(function(e){return '<figure>'+rb(m,110,e[0],e[2])+'<figcaption>'+e[1]+'</figcaption></figure>'}).join("")+'</div>';
