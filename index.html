@@ -4815,7 +4815,7 @@ var RUMBO=(function(){
      if(pt>.3)hr.r+=pt*160;
      /* en reposo las manos cuelgan: dedos hacia abajo, inclinadas hacia el cuerpo; al caminar se balancean como péndulo */
      var hgL=PL==="relajada"?1:0,hgR=PR==="relajada"?1:0,sw=W.walk*14*s1;
-     hl.r+=hgL*(166+sw);hl.y-=hgL*7.5;hl.x-=hgL*1.2;hr.r-=hgR*(160-sw);hr.y-=hgR*6.5;hr.x+=hgR*.6;
+     hl.r+=hgL*(196+sw);hl.y-=hgL*7.5;hl.x+=hgL*1.4;hr.r-=hgR*(202-sw);hr.y-=hgR*6.5;hr.x-=hgR*1.8;
      var QL=HPOSE[PL]||{},QR=HPOSE[PR]||{},hvw=wr.getAttribute("data-hview"),vf=function(Q){return hvw==="dorso"?-1:hvw==="palma"?1:(Q.v||1)};hl.r-=(QL.r||0)*vf(QL);hr.r+=(QR.r||0)*vf(QR)}
     var by=B.y+lift;hl.y+=by;hr.y+=by;
     var sx2=rm?0:1,HK=150,HC=12;
