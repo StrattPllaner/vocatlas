@@ -12,10 +12,12 @@ window.__uniones=function(svg){
  var isO=svg.classList.contains("rbx-O");if(isO)isR=true;
  var isP=svg.classList.contains("rbx-P");if(isP)isR=true;
  var J=isP?[
-  ["pierna izq.",first("rk-legL"),[core],[[184,344],[218,344]]],
-  ["pierna der.",first("rk-legR"),[core],[[272,344],[308,344]]],
-  ["asta de la flecha",svg.querySelector(".rk-arrow rect"),caps,[[238,166],[248,166]]],
-  ["gafas sobre el gorro",svg.querySelector(".rk-gog ellipse"),caps,[[306,190],[270,163]]]
+  ["pierna izq.",first("rk-legL"),[core],[[350,624],[446,624]]],
+  ["pierna der.",first("rk-legR"),[core],[[527,624],[629,624]]],
+  ["asta de la flecha",svg.querySelector(".rk-arrow rect"),caps,[[468,296],[484,296]]],
+  ["orejera izq.",first("rk-flapL"),[core].concat(caps),[[384,540],[384,620]]],
+  ["orejera der.",first("rk-flapR"),[core].concat(caps),[[640,460],[640,520]]],
+  ["gafas sobre el gorro",svg.querySelector(".rk-gog rect"),caps,[[480,316]]]
  ]:isO?[
   ["pierna izq.",first("rk-legL"),[core],[[42.8,71.4],[47,71.4]]],
   ["pierna der.",first("rk-legR"),[core],[[53,71.4],[57.2,71.4]]],
