@@ -4579,7 +4579,6 @@ var RUMBO=(function(){
   /* el pulgar va detrás de la palma, los dedos encima */
   var thumb=f.slice(0,f.indexOf('<g class="hk-i1'));var rest=f.slice(f.indexOf('<g class="hk-i1'));
   var cuff='<rect x="-4" y="-.4" width="8" height="2.8" rx="1.4" fill="'+HW+'"/><rect x="-4" y="1" width="8" height="1.4" rx=".7" fill="'+HS+'"/><path d="M-3.2 .5H3.2" stroke="'+HSD+'" stroke-width=".4" stroke-linecap="round" opacity=".7"/>';
-  s+='<ellipse cx="1.2" cy="3.2" rx="4.6" ry="1.2" fill="#13213F" opacity=".14"/>';
   s+='<g class="hk-flip" filter="url(#'+id+')">'+thumb+palm+rest+cuff+'</g>'+dbg(0,0);
   return s}
  function handAt(id,x,y,side){return '<g transform="translate('+x+' '+y+') scale('+(side<0?-.86:.86)+' .86)">'+handRig(id,side)+'</g>'}
@@ -4814,11 +4813,14 @@ var RUMBO=(function(){
      if(PL==="aplaudiendo"||PR==="aplaudiendo"){var cl3=Math.abs(Math.sin(t*2*Math.PI/.7));hl.x+=29-cl3*2.4;hl.y+=7;hl.r+=70;hr.x-=31-cl3*2.4;hr.y+=17;hr.r-=70}
      if(PL==="pensando"){hl.x+=26;hl.y+=4;hl.r-=24}
      if(pt>.3)hr.r+=pt*160;
+     /* en reposo las manos cuelgan: dedos hacia abajo, inclinadas hacia el cuerpo; al caminar se balancean como péndulo */
+     var hgL=PL==="relajada"?1:0,hgR=PR==="relajada"?1:0,sw=W.walk*14*s1;
+     hl.r+=hgL*(166+sw);hl.y-=hgL*7.5;hl.x-=hgL*1.2;hr.r-=hgR*(160-sw);hr.y-=hgR*6.5;hr.x+=hgR*.6;
      var QL=HPOSE[PL]||{},QR=HPOSE[PR]||{},hvw=wr.getAttribute("data-hview"),vf=function(Q){return hvw==="dorso"?-1:hvw==="palma"?1:(Q.v||1)};hl.r-=(QL.r||0)*vf(QL);hr.r+=(QR.r||0)*vf(QR)}
     var by=B.y+lift;hl.y+=by;hr.y+=by;
     var sx2=rm?0:1,HK=150,HC=12;
-    T(g.handL,{x:spring(st.sp.hLx,hl.x,dt,HK,HC,40)*sx2,y:spring(st.sp.hLy,hl.y,dt,HK,HC,40)*sx2,r:spring(st.sp.hLr,hl.r,dt,120,11,120)*sx2});
-    T(g.handR,{x:spring(st.sp.hRx,hr.x,dt,HK,HC,40)*sx2,y:spring(st.sp.hRy,hr.y,dt,HK,HC,40)*sx2,r:spring(st.sp.hRr,hr.r,dt,120,11,120)*sx2})}
+    T(g.handL,{x:spring(st.sp.hLx,hl.x,dt,HK,HC,40)*sx2,y:spring(st.sp.hLy,hl.y,dt,HK,HC,40)*sx2,r:spring(st.sp.hLr,hl.r,dt,120,11,260)*sx2});
+    T(g.handR,{x:spring(st.sp.hRx,hr.x,dt,HK,HC,40)*sx2,y:spring(st.sp.hRy,hr.y,dt,HK,HC,40)*sx2,r:spring(st.sp.hRr,hr.r,dt,120,11,260)*sx2})}
 
    /* ---------- dedos: cada uno con su resorte (rigidez distinta, así se doblan uno tras otro con rebote) ---------- */
    if(st.hk&&!rm){var HP=HPOSE,ts=["relajada","relajada"];
