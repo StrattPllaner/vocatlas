@@ -63,7 +63,7 @@ var RUMBO=(function(){
   horizontal:{n:"Horizontales",d:"Óvalos más anchos que altos: mirada tranquila y dulce.",c:[[41.4,58.4],[58.6,58.4]],rx:3.8,ry:2.9},
   separados:{n:"Separados",d:"Botones más abajo y más separados: cara de bebé.",c:[[39.4,59.4],[60.6,59.4]],rx:3,ry:3.2},
   pestanas:{n:"Pestañitas",d:"Puntos con dos pestañitas hacia afuera.",c:[[41.8,58.2],[58.2,58.2]],rx:3.2,ry:3.5},
-  orig3:{n:"Original",d:"Ojos de la imagen de referencia.",c:[[41.7,53.8],[58.5,53.8]],rx:3.15,ry:3.7},
+  orig3:{n:"Original",d:"Ojos de la imagen de referencia, un poco más grandes.",c:[[41.5,53.6],[58.7,53.6]],rx:3.7,ry:4.3},
   orig2:{n:"Original",d:"Ojos del Rumbo original, brillo arriba a la derecha.",c:[[43.2,52.1],[59.36,52.1]],rx:3.32,ry:3.7},
   original:{n:"Original",d:"Los ojos del Rumbo original.",c:[[43.2,54.6],[56.8,54.6]],rx:3.3,ry:3.8},
   destellos:{n:"Dos destellos",d:"Óvalos con dos estrellitas de brújula como brillo.",c:[[41.4,57.6],[58.6,57.6]],rx:3.7,ry:4.5},
@@ -103,7 +103,7 @@ var RUMBO=(function(){
    else if(ek==="ambar"||ek==="cielo"){var IR=ek==="ambar"?"#C98A2E":"#4FA3C7";g+='<ellipse cx="'+cx+'" cy="'+(cy+.3)+'" rx="'+(rx*.74)+'" ry="'+(ry*.74)+'" fill="'+IR+'"/><ellipse cx="'+cx+'" cy="'+(cy+.5)+'" rx="'+(rx*.4)+'" ry="'+(ry*.42)+'" fill="'+INK+'"/><circle cx="'+(cx-1.2)+'" cy="'+(cy-1.4)+'" r="1.2" fill="#FFFFFF"/><circle cx="'+(cx+1.2)+'" cy="'+(cy+1.6)+'" r=".5" fill="#FFFFFF"/>'}
    else if(ek==="clasico")g+='<clipPath id="'+cid+'p"><ellipse cx="'+cx+'" cy="'+cy+'" rx="'+rx+'" ry="'+ry+'"/></clipPath><path clip-path="url(#'+cid+'p)" d="M'+(cx+.1)+' '+(cy-1.2)+'L'+(cx+.6)+' '+(cy-6)+'L'+(cx+3.4)+' '+(cy-3.2)+'Z" fill="#FFFFFF"/>';
    else if(ek==="sinbrillo"){}
-   else if(ek==="orig3")g='<ellipse cx="'+cx+'" cy="'+cy+'" rx="'+rx+'" ry="'+ry+'" fill="#10204A"/><circle cx="'+(cx+1)+'" cy="'+(cy-1.1)+'" r="1" fill="#FFFFFF"/>';
+   else if(ek==="orig3")g='<ellipse cx="'+cx+'" cy="'+cy+'" rx="'+rx+'" ry="'+ry+'" fill="#10204A"/><circle cx="'+(cx+1.15)+'" cy="'+(cy-1.3)+'" r="1.18" fill="#FFFFFF"/>';
    else if(ek==="orig2")g='<ellipse cx="'+cx+'" cy="'+cy+'" rx="'+rx+'" ry="'+ry+'" fill="#10204A"/><circle cx="'+(cx+.98)+'" cy="'+(cy-1.56)+'" r="1.07" fill="#FFFFFF"/>';
    else if(ek==="pestanas"){var sd=i?1:-1;g+='<circle cx="'+(cx-1)+'" cy="'+(cy-1.2)+'" r="1.05" fill="#FFFFFF"/><path d="M'+(cx+sd*2.4)+' '+(cy-2.3)+'L'+(cx+sd*4.4)+' '+(cy-3.9)+'M'+(cx+sd*3)+' '+(cy-1.1)+'L'+(cx+sd*5.1)+' '+(cy-2)+'" stroke="'+INK+'" stroke-width="1.1" stroke-linecap="round"/>'}
    else if(ek==="destellos")g+='<path d="'+STAR+'" transform="translate('+(cx-1.1)+' '+(cy-1.7)+') scale(1.35)" fill="#FFFFFF"/><path d="'+STAR+'" transform="translate('+(cx+1.3)+' '+(cy+1.6)+') scale(.75)" fill="#FFFFFF"/>';
@@ -417,8 +417,7 @@ var RUMBO=(function(){
   body+='<text x="512" y="474" text-anchor="middle" font-size="44" font-weight="900" fill="#D9534F" font-family="Nunito,Arial,sans-serif">N</text>';
   body+='<circle cx="512" cy="583" r="222" fill="none"'+O()+'/>'+QE;
   /* cara */
-  var face='<circle cx="35.8" cy="61.9" r="3.9" fill="'+QCHK+'"/><circle cx="64.3" cy="61.4" r="3.9" fill="'+QCHK+'"/>'+
-   eyeM(id,0,QBALL,"orig3")+eyeM(id,1,QBALL,"orig3");
+  var face=eyeM(id,0,QBALL,"orig3")+eyeM(id,1,QBALL,"orig3");
   var I='stroke="'+QNAVY+'" fill="none" stroke-linecap="round"';
   face+='<path data-p="idle" d="M44.4 61.9Q50.4 68.2 56.5 61.9" '+I+' stroke-width="1.7"/>';
   face+='<g data-p="happy wink"><path d="M44.2 61.4Q50.4 70 56.7 61.4Z" fill="'+QNAVY+'" stroke="'+QNAVY+'" stroke-width="1.2" stroke-linejoin="round"/><path d="M47.2 65.8Q50.4 67.8 53.6 65.8Q52 64.4 50.4 64.4Q48.8 64.4 47.2 65.8Z" fill="#E86A6A"/></g>';
@@ -442,9 +441,8 @@ var RUMBO=(function(){
    '<path d="M'+(cx+rx*.25)+' '+(cy+ry*.28)+'Q'+(cx+rx*.42)+' '+(cy+ry*.2)+' '+(cx+rx*.5)+' '+(cy+ry*.02)+'" stroke="#FFFFFF" stroke-width="6" fill="none" stroke-linecap="round" opacity=".7"/></g>'};
   var gog=MQ+'<rect x="466" y="306" width="30" height="22" rx="8" fill="'+QHOODD+'"'+O(7)+'/>'+lens(568,318,80,54,10)+lens(393,330,86,56,-12)+QE;
   var hat=grp("rk-hat",50,40,front+grp("rk-gog",qx(480),qy(322),gog));
-  var leg=function(x0,x1){var m=(x0+x1)/2;return MQ+'<path d="M'+(x0+8)+' 610L'+(x1-8)+' 610L'+(x1-6)+' 830C'+(x1+18)+' 852 '+(x1+14)+' 908 '+(m+10)+' 908L'+(m-10)+' 908C'+(x0-14)+' 908 '+(x0-18)+' 852 '+(x0+6)+' 830Z" fill="'+QLEG+'"/>'+
-   '<path d="M'+(m+16)+' 760L'+(x1-6)+' 760L'+(x1-4)+' 846C'+(x1+10)+' 868 '+(x1+4)+' 906 '+(m+20)+' 908Q'+(x1-14)+' 880 '+(x1-20)+' 846Z" fill="'+QLEGD+'" opacity=".55"/>'+
-   '<ellipse cx="'+(m-22)+'" cy="872" rx="14" ry="9" fill="#6A94D2" opacity=".55"/>'+QE};
+  var leg=function(x0,x1){var m=(x0+x1)/2;return MQ+'<path d="M'+(x0+8)+' 610L'+(x1-8)+' 610L'+(x1-8)+' 864Q'+(x1-8)+' 908 '+m+' 908Q'+(x0+8)+' 908 '+(x0+8)+' 864Z" fill="'+QLEG+'"/>'+
+   QE};
   return '<svg class="rbx rbx-P" data-ojos="orig3" viewBox="0 0 100 100" aria-hidden="true">'+
    grp("rk-root",50,95.4,
     '<g class="rk-shadow"><ellipse class="rk-sh" cx="50" cy="95.6" rx="25" ry="3" fill="var(--rb-sh,#13213F)" opacity=".22"/></g>'+
@@ -494,7 +492,7 @@ var RUMBO=(function(){
     blinkIn:rnd(1,4),blinkT:-1,blinkD:.15,twice:false,mood:null,
     gz:[0,0],gzT:[0,0],gzIn:rnd(2.5,5),gzHold:0,mic:[0,0],micIn:.5,rc:null,rcT:0,lk:null,lkT:0,
     sp:{arrow:{x:0,v:0},flapL:{x:0,v:0},flapR:{x:0,v:0},gog:{x:0,v:0},hat:{x:0,v:0},hatR:{x:0,v:0},face:{x:0,v:0},faceX:{x:0,v:0},lean:{x:0,v:0},armL:{x:0,v:0},armR:{x:0,v:0},hLx:{x:0,v:0},hLy:{x:0,v:0},hLr:{x:0,v:0},hRx:{x:0,v:0},hRy:{x:0,v:0},hRr:{x:0,v:0}},
-    py:0,vy:0,px:0,vx:0,pr:0,vr:0,idleEye:svg.getAttribute("data-ojos-idle"),asH:svg.getAttribute("data-hatr")?+svg.getAttribute("data-hatr"):svg.getAttribute("data-asim")?-6:0,asA:svg.getAttribute("data-arr")?+svg.getAttribute("data-arr"):svg.getAttribute("data-asim")?5:0,eyefix:!!svg.getAttribute("data-eyefix"),isR:svg.classList.contains("rbx-R"),browAuto:!!svg.getAttribute("data-brow-auto"),browO:-1,spin:0,asF:svg.getAttribute("data-asim")?-24:0,bk:(EYES[svg.getAttribute("data-ojos")]||{}).brow||1};
+    py:0,vy:0,px:0,vx:0,pr:0,vr:0,idleEye:svg.getAttribute("data-ojos-idle"),asH:svg.getAttribute("data-hatr")?+svg.getAttribute("data-hatr"):svg.getAttribute("data-asim")?-6:0,asA:svg.getAttribute("data-arr")?+svg.getAttribute("data-arr"):svg.getAttribute("data-asim")?5:0,eyefix:!!svg.getAttribute("data-eyefix"),isR:svg.classList.contains("rbx-R")||svg.classList.contains("rbx-P"),browAuto:!!svg.getAttribute("data-brow-auto"),browO:-1,spin:0,asF:svg.getAttribute("data-asim")?-24:0,bk:(EYES[svg.getAttribute("data-ojos")]||{}).brow||1};
    ST.set(svg,st);if(io)io.observe(svg);else VIS.set(svg,true);return st}
   function frame(now){
    raf=0;var dt=Math.min(.05,Math.max(0,(now-(last||now))/1000));last=now;
