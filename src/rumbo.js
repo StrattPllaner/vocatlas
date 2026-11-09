@@ -400,11 +400,14 @@ var RUMBO=(function(){
    '<path d="M478 100C492 108 532 162 532 182C532 199 510 205 482 206Z" fill="'+QGLDD+'" opacity=".6"/>'+
    '<path d="M450 160Q462 128 476 112" stroke="#FFD08A" stroke-width="8" fill="none" stroke-linecap="round"/>'+QE;
   /* capucha y orejeras (detrás de la bola) */
-  var hood=MQ+'<path class="rk-capj" d="M252 528C238 420 318 296 470 266C602 248 708 300 732 428C738 470 610 426 512 426C420 426 300 476 252 528Z" fill="'+QHOOD+'"'+O()+'/>'+
-   '<path d="M300 330Q360 284 430 274" stroke="#C98048" stroke-width="10" fill="none" stroke-linecap="round" opacity=".8"/>'+QE;
+  var HD="M252 528C238 420 318 296 470 266C602 248 708 300 732 428C738 470 610 426 512 426C420 426 300 476 252 528Z";
+  var hood=MQ+'<clipPath id="'+id+'h"><path d="'+HD+'"/></clipPath><path class="rk-capj" d="'+HD+'" fill="'+QHOOD+'"/>'+
+   '<g clip-path="url(#'+id+'h)"><path d="M560 230C680 250 760 330 760 470L800 470L800 230Z" fill="'+QHOODD+'" opacity=".55"/>'+
+   '<path d="M300 340Q360 296 430 286" stroke="#C98048" stroke-width="10" fill="none" stroke-linecap="round" opacity=".8"/></g>'+
+   '<path d="'+HD+'" fill="none"'+O()+'/>'+QE;
   var flapL=MQ+'<path d="M266 462C234 536 232 640 266 692C284 716 322 712 326 690L404 640L404 470Z" fill="'+QHOOD+'"'+O()+'/>'+
    '<path d="M300 520C286 590 288 650 304 690" stroke="'+QHOODD+'" stroke-width="12" fill="none" stroke-linecap="round" opacity=".7"/>'+QE;
-  var flapR=MQ+'<path d="M698 410C732 446 746 522 728 572C718 596 690 594 686 570L630 540L620 430Z" fill="'+QHOOD+'"'+O()+'/>'+
+  var flapR=MQ+'<path d="M698 410C732 446 746 522 728 572C718 596 690 594 686 570L630 540L620 430Z" fill="#A15E2D"'+O()+'/>'+
    '<path d="M712 460C722 500 722 536 714 566" stroke="'+QHOODD+'" stroke-width="10" fill="none" stroke-linecap="round" opacity=".7"/>'+QE;
   var hatb=grp("rk-hatb",50,40,grp("rk-arrow",qx(476),qy(285),arrow)+grp("rk-flapL",qx(300),qy(500),flapL)+grp("rk-flapR",qx(700),qy(440),flapR)+hood);
   /* bola: brújula con aro de latón fino, aro interior, triángulos cardinales (norte en rojo), puntitos y N */
@@ -415,6 +418,9 @@ var RUMBO=(function(){
    body+='<path d="M'+(512+ux*tip)+' '+(583+uy*tip)+'L'+(512+ux*base+px*w)+' '+(583+uy*base+py*w)+'L'+(512+ux*base-px*w)+' '+(583+uy*base-py*w)+'Z" fill="'+q[2]+'" stroke="'+q[2]+'" stroke-width="5" stroke-linejoin="round"/>'});
   [45,135,225,315].forEach(function(a){var t=a*Math.PI/180;body+='<circle cx="'+(512+Math.cos(t)*172).toFixed(1)+'" cy="'+(583+Math.sin(t)*172).toFixed(1)+'" r="8" fill="'+QTICK+'"/>'});
   body+='<text x="512" y="474" text-anchor="middle" font-size="44" font-weight="900" fill="#D9534F" font-family="Nunito,Arial,sans-serif">N</text>';
+  /* volumen: media luna de sombra abajo a la derecha y sombra de la correa sobre la carátula */
+  body+='<clipPath id="'+id+'q"><circle cx="512" cy="583" r="222"/></clipPath><g clip-path="url(#'+id+'q)">'+crescent(512,583,226,-34,-40,"#7A4A1E",.16)+
+   '<path d="M260 520Q395 400 520 396Q640 392 740 452L740 476Q640 418 520 424Q400 430 270 548Z" fill="#5A3416" opacity=".14"/></g>';
   body+='<circle cx="512" cy="583" r="222" fill="none"'+O()+'/>'+QE;
   /* cara */
   var face=eyeM(id,0,QBALL,"orig3")+eyeM(id,1,QBALL,"orig3");
@@ -434,7 +440,8 @@ var RUMBO=(function(){
   face+='<g data-p="sleep"><g class="rk-zz"><text x="72" y="40" font-size="7" font-weight="900" fill="'+QNAVY+'" opacity=".55">z</text><text x="77" y="33" font-size="5" font-weight="900" fill="'+QNAVY+'" opacity=".4">z</text></g></g>';
   /* delante: correa con lengüeta (tapa el borde de arriba de la bola) y gafas */
   var front=MQ+'<path class="rk-capj" d="M285 452Q395 352 520 342Q640 338 712 398Q722 418 708 432Q640 392 520 382Q410 388 310 500L222 504Q186 502 188 478Q192 456 222 456Z" fill="'+QSTR+'"'+O()+'/>'+
-   '<path d="M212 472Q250 468 292 468Q392 372 520 360Q628 358 690 400" stroke="'+QSTRL+'" stroke-width="8" fill="none" stroke-linecap="round" opacity=".85"/>'+QE;
+   '<path d="M212 472Q250 468 292 468Q392 372 520 360Q628 358 690 400" stroke="'+QSTRL+'" stroke-width="8" fill="none" stroke-linecap="round" opacity=".85"/>'+
+   '<path d="M226 496Q270 494 306 492Q410 380 520 374Q630 372 700 420" stroke="#9A5726" stroke-width="9" fill="none" stroke-linecap="round" opacity=".6"/>'+QE;
   var lens=function(cx,cy,rx,ry,rot){return '<g transform="rotate('+rot+' '+cx+' '+cy+')"><ellipse cx="'+cx+'" cy="'+cy+'" rx="'+rx+'" ry="'+ry+'" fill="'+QRIM+'"'+O()+'/>'+
    '<ellipse cx="'+cx+'" cy="'+(cy+3)+'" rx="'+(rx*.72)+'" ry="'+(ry*.64)+'" fill="'+QLENS+'"'+O(6)+'/>'+
    '<path d="M'+(cx-rx*.62)+' '+(cy-2)+'Q'+(cx-rx*.5)+' '+(cy-ry*.5)+' '+cx+' '+(cy-ry*.52)+'Q'+(cx+rx*.5)+' '+(cy-ry*.5)+' '+(cx+rx*.62)+' '+(cy-4)+'Q'+(cx+rx*.3)+' '+(cy-ry*.24)+' '+cx+' '+(cy-ry*.24)+'Q'+(cx-rx*.3)+' '+(cy-ry*.24)+' '+(cx-rx*.62)+' '+(cy-2)+'Z" fill="'+QLENSH+'"/>'+
@@ -445,7 +452,7 @@ var RUMBO=(function(){
    QE};
   return '<svg class="rbx rbx-P" data-ojos="orig3" viewBox="0 0 100 100" aria-hidden="true">'+
    grp("rk-root",50,95.4,
-    '<g class="rk-shadow"><ellipse class="rk-sh" cx="50" cy="95.6" rx="25" ry="3" fill="var(--rb-sh,#13213F)" opacity=".22"/></g>'+
+    '<g class="rk-shadow"><ellipse class="rk-sh" cx="50" cy="95.6" rx="25" ry="3" fill="var(--rb-sh,#13213F)" opacity=".26"/><ellipse cx="'+qx(395)+'" cy="95.5" rx="7.4" ry="1.4" fill="#13213F" opacity=".3"/><ellipse cx="'+qx(578)+'" cy="95.5" rx="7.4" ry="1.4" fill="#13213F" opacity=".3"/></g>'+
     grp("rk-legL",qx(395),qy(760),leg(332,458))+grp("rk-legR",qx(578),qy(760),leg(515,641))+
     grp("rk-body",50,qy(805),hatb+body+'<g class="rk-face">'+face+'</g>'+hat))+'</svg>'}
 
