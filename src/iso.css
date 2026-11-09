@@ -121,3 +121,4 @@ html.art-on body>*:not(#art){display:none!important}
 .ia-eyeopt .ia-pick{width:100%}
 .ia-eyeopt span{font-size:14px;color:#41505A;text-align:center;min-height:2.6em}
 .ia-eyemini{display:flex;gap:4px}
+.rbx[data-sin-gafas] .rk-gog{display:none}

@@ -63,12 +63,31 @@ var RUMBO=(function(){
   horizontal:{n:"Horizontales",d:"Óvalos más anchos que altos: mirada tranquila y dulce.",c:[[41.4,58.4],[58.6,58.4]],rx:3.8,ry:2.9},
   separados:{n:"Separados",d:"Botones más abajo y más separados: cara de bebé.",c:[[39.4,59.4],[60.6,59.4]],rx:3,ry:3.2},
   pestanas:{n:"Pestañitas",d:"Puntos con dos pestañitas hacia afuera.",c:[[41.8,58.2],[58.2,58.2]],rx:3.2,ry:3.5},
-  destellos:{n:"Dos destellos",d:"Óvalos con dos estrellitas de brújula como brillo.",c:[[41.4,57.6],[58.6,57.6]],rx:3.7,ry:4.5}};
- var EYEK=["boton","frijol","brillo","blanco","aguja","sonrisa","grandes","medialuna","ambar","cielo","clasico","sinbrillo","horizontal","separados","pestanas","destellos"];
+  destellos:{n:"Dos destellos",d:"Óvalos con dos estrellitas de brújula como brillo.",c:[[41.4,57.6],[58.6,57.6]],rx:3.7,ry:4.5},
+  enormes:{n:"Enormes",d:"Ojos grandes con blanco y pupilas grandes que casi se tocan. Mucha expresión.",c:[[40.4,57],[59.6,57]],rx:6.2,ry:6.8},
+  anime:{n:"Animé",d:"Óvalos grandes con iris en degradado ámbar y varios brillos.",c:[[41,57.2],[59,57.2]],rx:4.6,ry:5.8},
+  gafas:{n:"Tras las gafas",d:"Las gafas bajan a los ojos: ojos grandes detrás de los lentes.",c:[[40.6,56.4],[59.4,56.4]],rx:4.4,ry:4.8,lid:"#D3EEF1"},
+  antifaz:{n:"Antifaz de aviador",d:"Un antifaz café detrás de ojos blancos con pupila: aventurero.",c:[[41,57.4],[59,57.4]],rx:4.2,ry:4.6,lid:"#6E4226"},
+  gotas:{n:"Gotitas",d:"Ojos en forma de gota, redondos abajo, con brillo.",c:[[41.8,57.6],[58.2,57.6]],rx:3.4,ry:4.6},
+  cuadritos:{n:"Cuadraditos",d:"Cuadrados con esquinas muy redondas: geométrico y tierno.",c:[[41.6,57.8],[58.4,57.8]],rx:3.4,ry:3.8},
+  iris:{n:"Iris verde agua",d:"Blanco, iris verde agua grande y pupila: mirada cálida.",c:[[40.8,57],[59.2,57]],rx:5.2,ry:5.6},
+  cejas:{n:"Cejas protagonistas",d:"Puntos mínimos y cejas grandes que hacen casi toda la expresión.",c:[[42.4,58.6],[57.6,58.6]],rx:2.4,ry:2.6,brow:1.6}};
+ var EYEK=["enormes","anime","gafas","antifaz","gotas","cuadritos","iris","cejas","boton","frijol","brillo","blanco","aguja","sonrisa","grandes","medialuna","ambar","cielo","clasico","sinbrillo","horizontal","separados","pestanas","destellos"];
  var eyeCur=null;try{eyeCur=localStorage.getItem("vocatlas_ojos")}catch(e){}
  function eyePick(k){if(k){eyeCur=k;try{localStorage.setItem("vocatlas_ojos",k)}catch(e){}}return EYES[eyeCur]?eyeCur:"boton"}
- function eyeM(id,i,skin,ek){var E0=EYES[ek],c=E0.c[i],cx=c[0],cy=c[1],rx=E0.rx,ry=E0.ry,cid=id+"e"+i,g="";
-  if(ek==="blanco"){
+ function eyeM(id,i,skin,ek){var E0=EYES[ek];skin=E0.lid||skin;var c=E0.c[i],cx=c[0],cy=c[1],rx=E0.rx,ry=E0.ry,cid=id+"e"+i,g="";
+  if(ek==="enormes"||ek==="iris"||ek==="gafas"||ek==="antifaz"){
+   var pr=ek==="enormes"?3.9:ek==="iris"?2.2:ek==="gafas"?3:2.8;
+   g=(ek==="enormes"||ek==="iris"?'<ellipse cx="'+cx+'" cy="'+(cy+.6)+'" rx="'+rx+'" ry="'+ry+'" fill="#E9D6B0"/>':'')+'<ellipse cx="'+cx+'" cy="'+cy+'" rx="'+rx+'" ry="'+ry+'" fill="#FFFFFF"/>'+
+    '<clipPath id="'+cid+'w"><ellipse cx="'+cx+'" cy="'+cy+'" rx="'+rx+'" ry="'+ry+'"/></clipPath><g clip-path="url(#'+cid+'w)"><g class="rk-iris">'+
+    (ek==="iris"?'<circle cx="'+cx+'" cy="'+(cy+.4)+'" r="4" fill="#2E9C8F"/><circle cx="'+cx+'" cy="'+(cy+.4)+'" r="4" fill="none" stroke="#1F6E66" stroke-width=".8"/>':'')+
+    '<circle cx="'+cx+'" cy="'+(cy+.5)+'" r="'+pr+'" fill="'+INK+'"/><circle cx="'+(cx-pr*.36)+'" cy="'+(cy-pr*.3)+'" r="'+(pr*.36)+'" fill="#FFFFFF"/><circle cx="'+(cx+pr*.38)+'" cy="'+(cy+pr*.55)+'" r="'+(pr*.16)+'" fill="#FFFFFF"/></g></g>'}
+  else if(ek==="anime"){var gid=cid+"g";
+   g='<defs><linearGradient id="'+gid+'" x1="0" y1="0" x2="0" y2="1"><stop offset=".35" stop-color="'+INK+'"/><stop offset="1" stop-color="#C98A2E"/></linearGradient></defs><ellipse cx="'+cx+'" cy="'+cy+'" rx="'+rx+'" ry="'+ry+'" fill="url(#'+gid+')"/>'+
+    '<ellipse cx="'+(cx-1.4)+'" cy="'+(cy-2.4)+'" rx="1.7" ry="2" fill="#FFFFFF"/><circle cx="'+(cx+1.6)+'" cy="'+(cy+2.2)+'" r=".8" fill="#FFFFFF"/><circle cx="'+(cx+2)+'" cy="'+(cy-2.6)+'" r=".45" fill="#FFFFFF"/>'}
+  else if(ek==="gotas")g='<path d="M'+cx+' '+(cy-ry)+'C'+(cx+rx*.6)+' '+(cy-ry*.45)+' '+(cx+rx)+' '+(cy+ry*.05)+' '+(cx+rx)+' '+(cy+ry*.4)+'C'+(cx+rx)+' '+(cy+ry*1.05)+' '+(cx-rx)+' '+(cy+ry*1.05)+' '+(cx-rx)+' '+(cy+ry*.4)+'C'+(cx-rx)+' '+(cy+ry*.05)+' '+(cx-rx*.6)+' '+(cy-ry*.45)+' '+cx+' '+(cy-ry)+'Z" fill="'+INK+'"/><circle cx="'+(cx-1)+'" cy="'+(cy+.2)+'" r="1.15" fill="#FFFFFF"/>';
+  else if(ek==="cuadritos")g='<rect x="'+(cx-rx)+'" y="'+(cy-ry)+'" width="'+(2*rx)+'" height="'+(2*ry)+'" rx="2.2" fill="'+INK+'"/><rect x="'+(cx-2.1)+'" y="'+(cy-2.5)+'" width="1.9" height="1.9" rx=".7" fill="#FFFFFF"/>';
+  else if(ek==="blanco"){
    g='<ellipse cx="'+cx+'" cy="'+(cy+.5)+'" rx="'+rx+'" ry="'+ry+'" fill="#E9D6B0"/><ellipse cx="'+cx+'" cy="'+cy+'" rx="'+rx+'" ry="'+ry+'" fill="#FFFFFF"/>'+
     '<clipPath id="'+cid+'w"><ellipse cx="'+cx+'" cy="'+cy+'" rx="'+rx+'" ry="'+ry+'"/></clipPath><g clip-path="url(#'+cid+'w)"><g class="rk-iris">'+
     '<circle cx="'+cx+'" cy="'+(cy+.6)+'" r="3.5" fill="'+INK+'"/><circle cx="'+(cx-1.1)+'" cy="'+(cy-.6)+'" r="1.25" fill="#FFFFFF"/><circle cx="'+(cx+1.2)+'" cy="'+(cy+1.9)+'" r=".55" fill="#FFFFFF"/></g></g>'}
@@ -92,7 +111,11 @@ var RUMBO=(function(){
  function face(skin,id,ek){
   var s='';
   /* mejillas planas */
+  var E0=EYES[ek];
+  if(ek==="antifaz")s+='<path d="M30.6 57.4Q30.6 50.6 41 50.6Q46 50.6 50 52.6Q54 50.6 59 50.6Q69.4 50.6 69.4 57.4Q69.4 64.4 59 64.4Q54 64.4 50 61.4Q46 64.4 41 64.4Q30.6 64.4 30.6 57.4Z" fill="#6E4226"/><path d="M32.4 55Q33.6 51.8 39 51.6" stroke="#8E5A36" stroke-width="1.2" fill="none" stroke-linecap="round"/>';
+  if(ek==="gafas")E0.c.forEach(function(c){s+='<circle cx="'+(c[0]+.5)+'" cy="'+(c[1]+.6)+'" r="7.6" fill="'+BRS+'"/><circle cx="'+c[0]+'" cy="'+c[1]+'" r="7.6" fill="'+BR+'"/><circle cx="'+c[0]+'" cy="'+c[1]+'" r="6" fill="#D3EEF1"/>'});
   s+=eyeM(id,0,skin,ek)+eyeM(id,1,skin,ek);
+  if(ek==="gafas")s+='<rect x="47.4" y="55" width="5.2" height="2.6" rx="1.3" fill="'+BRS+'"/>'+E0.c.map(function(c){return '<path d="M'+(c[0]-4.4)+' '+(c[1]-1.6)+'Q'+(c[0]-3.6)+' '+(c[1]-4.4)+' '+(c[0]-.6)+' '+(c[1]-5)+'" stroke="#FFFFFF" stroke-width="1.3" fill="none" stroke-linecap="round" opacity=".8"/>'}).join("");
   s+='<ellipse cx="34.2" cy="64.6" rx="3.4" ry="2.2" fill="'+CHK+'" opacity=".8"/><ellipse cx="65.8" cy="64.6" rx="3.4" ry="2.2" fill="'+CHK+'" opacity=".8"/>';
   /* bocas */
   s+='<path data-p="idle" d="M45.6 66.2Q50 70.2 54.4 66.2" stroke="'+INK+'" stroke-width="1.9" fill="none" stroke-linecap="round"/>';
@@ -153,7 +176,7 @@ var RUMBO=(function(){
   else{body=compass(id,true);skin="#F7E0BD"}
   var fc=face(skin,id,ek);
   var hat=grp("rk-hat",50,46,grp("rk-arrow",50,26,arrow())+grp("rk-flapL",24,47,flapL())+grp("rk-flapR",76,47,flapR())+capParts(id)+grp("rk-gog",50,38,goggles()));
-  return '<svg class="rbx rbx-'+model+'" data-ojos="'+ek+'"'+(EYES[ek].idle?' data-ojos-idle="'+EYES[ek].idle+'"':'')+' viewBox="0 0 100 100" aria-hidden="true">'+
+  return '<svg class="rbx rbx-'+model+'" data-ojos="'+ek+'"'+(ek==="gafas"?' data-sin-gafas="1"':'')+(EYES[ek].idle?' data-ojos-idle="'+EYES[ek].idle+'"':'')+' viewBox="0 0 100 100" aria-hidden="true">'+
    grp("rk-root",50,92,
     '<g class="rk-shadow"><ellipse class="rk-sh" cx="50" cy="92" rx="21" ry="2.8" fill="var(--rb-sh,#13213F)" opacity=".2"/><ellipse cx="42" cy="92" rx="6.4" ry="1.3" fill="#13213F" opacity=".22"/><ellipse cx="58" cy="92" rx="6.4" ry="1.3" fill="#13213F" opacity=".22"/></g>'+
     grp("rk-legL",44,72,legL())+grp("rk-legR",56,72,legR())+
@@ -204,7 +227,7 @@ var RUMBO=(function(){
     blinkIn:rnd(1,4),blinkT:-1,blinkD:.15,twice:false,mood:null,
     gz:[0,0],gzT:[0,0],gzIn:rnd(2.5,5),gzHold:0,mic:[0,0],micIn:.5,rc:null,rcT:0,lk:null,lkT:0,
     sp:{arrow:{x:0,v:0},flapL:{x:0,v:0},flapR:{x:0,v:0},gog:{x:0,v:0},hat:{x:0,v:0},hatR:{x:0,v:0},face:{x:0,v:0},faceX:{x:0,v:0},lean:{x:0,v:0},armL:{x:0,v:0},armR:{x:0,v:0}},
-    py:0,vy:0,px:0,vx:0,pr:0,vr:0,idleEye:svg.getAttribute("data-ojos-idle")};
+    py:0,vy:0,px:0,vx:0,pr:0,vr:0,idleEye:svg.getAttribute("data-ojos-idle"),bk:(EYES[svg.getAttribute("data-ojos")]||{}).brow||1};
    ST.set(svg,st);if(io)io.observe(svg);else VIS.set(svg,true);return st}
   function frame(now){
    raf=0;var dt=Math.min(.05,Math.max(0,(now-(last||now))/1000));last=now;
@@ -334,7 +357,7 @@ var RUMBO=(function(){
     setA(ey.pup,"transform","translate(0 "+f(.5*bl)+")",ey.last,"p");
     if(ey.iris)setA(ey.iris,"transform","translate("+f(st.gz[0]*.7)+" "+f(st.gz[1]*.7)+")",ey.last,"i")});
    st.brw.forEach(function(bw2,i){var tb=tgB[i];bw2.dy+=(tb[0]-bw2.dy)*ea;bw2.a+=(tb[1]-bw2.a)*ea;var e2=st.eyes[i],lift2=bl*.5;
-    bw2.e.setAttribute("transform","translate("+f(e2.cx+st.gz[0]*.15)+" "+f(e2.cy-e2.ry-3.4+bw2.dy+lift2)+") rotate("+f(bw2.a)+")")});
+    bw2.e.setAttribute("transform","translate("+f(e2.cx+st.gz[0]*.15)+" "+f(e2.cy-e2.ry-3.4*st.bk+bw2.dy*st.bk+lift2)+") rotate("+f(bw2.a*(st.bk>1?1.3:1))+") scale("+st.bk+")")});
    /* bocas con fundido corto */
    var fa=rm?1:1-Math.exp(-dt/.05);
    st.dp.forEach(function(d){var tgt=d.w.indexOf(mood)>-1?1:0;if(d.o<0)d.o=tgt;else d.o+=(tgt-d.o)*fa;var v=Math.round(d.o*100)/100;if(v!==d.last){d.e.style.opacity=v;d.last=v}});
