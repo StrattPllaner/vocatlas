@@ -4699,6 +4699,24 @@ var RUMBO=(function(){
  var SO="#4B2A13",SRING="#E9B44C",SRINGS="#C68E2E",SRINGH="#FCE3A0",SDIAL="#FBF3E2",STK="#8A6A4A",SCAP="#9A5B33",SCAPS="#7A4426",SCAPH="#B97A4E",
   SGOLD="#E3A845",SLENS="#8FB7D6",SLENSH="#C4DDF0",SGLV="#FFFFFF",SGLVS="#E4E2DE",SBOOT="#3F78C8",SBOOTS="#2E5FA6",SSOLE="#D9B98A",SEYE="#3A2213";
  function sl(w){return ' stroke="'+SO+'" stroke-width="'+(w||1.4)+'" stroke-linejoin="round" stroke-linecap="round"'}
+ /* mismas reglas que el mapa isométrico (iso-lib.js): sin contorno café universal; cada pieza se delinea con el tono
+    oscuro de su propio color, mezclado hacia el azul frío de las sombras del mundo (#1D2C55), y las sombras internas
+    usan la misma mezcla, para que Rumbo y los edificios parezcan pintados por la misma mano */
+ function rbHx(h){h=h.replace("#","");return [parseInt(h.slice(0,2),16),parseInt(h.slice(2,4),16),parseInt(h.slice(4,6),16)]}
+ function rbMix(a,b,k){var A=rbHx(a),B=rbHx(b);return "#"+A.map(function(v,i){v=Math.max(0,Math.min(255,Math.round(v+(B[i]-v)*k)));return (v<16?"0":"")+v.toString(16)}).join("").toUpperCase()}
+ function rbShade(c,k){return rbMix(c,"#1D2C55",k)}
+ function rbLine(c){return rbShade(c,.56)}
+ SRINGS=rbShade(SRING,.24);SCAPS=rbShade(SCAP,.24);SBOOTS=rbShade(SBOOT,.24);
+ /* cada contorno toma el color de la última pieza rellena que delinea */
+ function isoInk(svg){var last=SCAP;
+  return svg.replace(/<(path|circle|ellipse|rect|polygon)\b[^>]*>/g,function(t){
+   var f=/ fill="(#[0-9A-Fa-f]{6})"/.exec(t);
+   if(f&&f[1].toUpperCase()==="#4B2A13")return t.replace(/ fill="#4B2A13"/i,' fill="'+rbLine(FUR_INK)+'"');
+   if(f)last=f[1];
+   if(t.indexOf('stroke="'+SO+'"')<0)return t;
+   return t.replace('stroke="'+SO+'"','stroke="'+rbLine(f?f[1]:last)+'"')
+  }).replace(/flood-color="#4B2A13"/g,'flood-color="'+rbLine("#E4E8F0")+'"')}
+ var FUR_INK="#F6E8CF";
  function gloveS(x,y,side){/* guante de caricatura de una sola silueta: pulgar hacia el cuerpo, tres dedos y meñique; puño abajo */
   var G="M-3.4 3.6L-3.6 .6C-5.6 .4 -6.8 -1.4 -5.8 -2.8C-5 -3.8 -3.8 -3.4 -3.3 -2.4L-3.2 -5.4C-3.2 -7.4 -.8 -7.4 -.8 -5.4L-.8 -6.6C-.8 -8.8 1.8 -8.8 1.8 -6.6L1.8 -5.8C1.8 -7.8 4.4 -7.8 4.4 -5.8L4.4 -3.2C4.8 -4.6 6.8 -4.2 6.4 -2.6L5.2 1.6C4.8 3 4.2 3.6 3.6 3.6Z";
   return '<g transform="translate('+x+' '+y+') scale('+(side<0?-1:1)+' 1)"><path d="'+G+'" fill="'+SGLV+'"'+sl(1.1)+'/>'+
@@ -4765,7 +4783,7 @@ var RUMBO=(function(){
  function handAt(id,x,y,side){return '<g transform="translate('+x+' '+y+') scale('+(side<0?-.86:.86)+' .86)">'+handRig(id,side)+'</g>'}
  /* gorro de aviador del modelo U: casquete redondo con panel central y costuras, borde de borrego esponjoso,
     gafas grandes con su correa, orejeras con forro de borrego y una correa con hebilla, botón y flecha arriba */
- function hatU(id){var CAP="#9A5B33",CAPS="#7A4426",CAPL="#B27245",FUR="#F6E8CF",FURS="#E3CDA8",STR="#4E2E19",o=sl;
+ function hatU(id){var CAP="#9A5B33",CAPS=rbShade(CAP,.24),CAPL="#B27245",FUR="#F6E8CF",FURS="#E3CDA8",STR="#4E2E19",o=sl;
   var DOME="M26.8 45.6C25.6 31.4 36.2 22.6 50 22.6C63.8 22.6 74.4 31.4 73.2 45.6Q50 36 26.8 45.6Z";
   var arrow='<path d="M49.3 25.8L49.3 10.6L50.7 10.6L50.7 25.8Z" fill="'+SGOLD+'"'+o(1.1)+'/><path d="M50 3.6L54.6 10.4Q55 11.4 54 11.2L50 10.2L46 11.2Q45 11.4 45.4 10.4Z" fill="'+SGOLD+'"'+o(1.2)+'/>';
   var flap=function(m){var X=function(x){return (m<0?x:100-x).toFixed(2)};return '<path d="M'+X(27.6)+' 41.6L'+X(28.4)+' 42.8C'+X(24.2)+' 47.8 '+X(23)+' 54.6 '+X(24)+' 60.4C'+X(24.8)+' 64.8 '+X(29.6)+' 65.6 '+X(31.2)+' 61.8C'+X(32.4)+' 57.4 '+X(33.6)+' 50 '+X(34)+' 46.4L'+X(34)+' 41.6Z" fill="'+(m<0?CAP:CAPS)+'"'+o()+'/>'+
@@ -4833,12 +4851,12 @@ var RUMBO=(function(){
   var gog='<rect x="45.6" y="30.6" width="8.4" height="2.4" rx="1.2" fill="'+SGOLD+'"'+sl(1)+'/>';
   [[40.8,32.2],[59,31.6]].forEach(function(c){gog+='<circle cx="'+c[0]+'" cy="'+c[1]+'" r="5" fill="'+SGOLD+'"'+sl(1.2)+'/><circle cx="'+c[0]+'" cy="'+c[1]+'" r="3.4" fill="'+SLENS+'"'+sl(.9)+'/><path d="M'+(c[0]-2)+' '+(c[1]+.4)+'L'+(c[0]+.6)+' '+(c[1]-2.2)+'" stroke="'+SLENSH+'" stroke-width="1.2" stroke-linecap="round"/>'});
   var hat=nh?hatU(id):grp("rk-hat",50,42,grp("rk-arrow",50,22,arrow)+grp("rk-flapL",30,46,flapL)+grp("rk-flapR",71,45,flapR)+cap+grp("rk-gog",50,31.6,gog));
-  return '<svg class="rbx rbx-S'+(fk==="ref"?' rbx-T'+(nh?' rbx-U':'')+'" data-face="ref':'')+'" data-ojos="retro" data-hatr="-7" data-arr="-16" data-eyefix="1" viewBox="0 0 100 100" aria-hidden="true">'+
+  return isoInk('<svg class="rbx rbx-S'+(fk==="ref"?' rbx-T'+(nh?' rbx-U':'')+'" data-face="ref':'')+'" data-ojos="retro" data-hatr="-7" data-arr="-16" data-eyefix="1" viewBox="0 0 100 100" aria-hidden="true">'+
    grp("rk-root",50,97,
-    '<g class="rk-shadow"><ellipse class="rk-sh" cx="50" cy="97.2" rx="24" ry="2.4" fill="var(--rb-sh,#13213F)" opacity=".2"/><ellipse cx="38.6" cy="97.1" rx="9" ry="1.2" fill="#13213F" opacity=".22"/><ellipse cx="61.4" cy="97.1" rx="9" ry="1.2" fill="#13213F" opacity=".22"/></g>'+
+    '<g class="rk-shadow"><ellipse class="rk-sh" cx="55" cy="97.6" rx="25" ry="3" fill="var(--rb-sh,#1D2C55)" opacity=".13"/><ellipse cx="38.6" cy="97.1" rx="9" ry="1.2" fill="#13213F" opacity=".22"/><ellipse cx="61.4" cy="97.1" rx="9" ry="1.2" fill="#13213F" opacity=".22"/></g>'+
     grp("rk-legL",41.5,76,bootS(-1))+grp("rk-legR",58.5,76,bootS(1))+
     grp("rk-body",50,82,body+'<g class="rk-face">'+face+'</g>'+hat)+
-    (nh?grp("rk-handL",15,70,handAt(id+"hL",15,70,-1))+grp("rk-handR",86,60,handAt(id+"hR",86,60,1)):grp("rk-handL",16,70,gloveS(16,70,-1))+grp("rk-handR",85,58,gloveS(85,58,1))))+'</svg>'}
+    (nh?grp("rk-handL",15,70,handAt(id+"hL",15,70,-1))+grp("rk-handR",86,60,handAt(id+"hR",86,60,1)):grp("rk-handL",16,70,gloveS(16,70,-1))+grp("rk-handR",85,58,gloveS(85,58,1))))+'</svg>')}
 
  var MOT=(function(){
   if(typeof window==="undefined")return null;
