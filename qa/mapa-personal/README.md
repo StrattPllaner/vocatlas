@@ -8,3 +8,5 @@ Cada script recibe la carpeta donde deja las capturas: `node matrix.mjs <carpeta
 - `flow.mjs`: crear el mapa, agregar y quitar carreras, cuadro por cuadro (congela las animaciones en instantes fijos).
 - `v2.mjs`: elección de carreras y Atlas en todos los tamaños y temas; desbordes, botones menores de 44 px y buscador sin acentos. Color al 0, 25, 50, 75 y 100 %.
 - `v3.mjs`: lección real y regreso al mapa, celebración al completar, quitar y volver a agregar, y fluidez con 20 carreras.
+- `perfil.mjs <tamaño> [d]`: pestaña Yo, colección de Rumbos, hoja de un Rumbo ganado y de uno por ganar, y el mapa con el Rumbo puesto. Capturas en `$OUT`.
+- `skins.mjs "" 205`: lámina con los 21 Rumbos (`$OUT/skins.png`).

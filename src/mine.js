@@ -249,10 +249,13 @@ function celebrate(id){
  var c=byId[id];if(!c||curView!=="map"||plazaId)return;
  if(RB.rb){mood(RB.rb,"happy","jump");burst(RB.rb)}
  var el=document.createElement("div");el.className="ui-modal cel";el.setAttribute("role","alertdialog");el.setAttribute("aria-modal","true");el.setAttribute("aria-labelledby","celT");
- el.innerHTML='<div class="cel-top">'+rumboEl("cheer")+'<div class="stp-cell is-new" style="--k:0">'+stampHTML(c,true)+'</div></div><h3 id="celT">¡'+esc(c.name)+' completa!</h3><p>Terminaste todas sus lecciones y ya se ve a todo color. Su sello está en tu pasaporte.</p><div class="acts"><button type="button" class="ui-btn is-block is-ok">¡Vamos!</button></div>';
+ var sk=RUMBO.SKINS[id]?id:null;
+ el.innerHTML='<div class="cel-top">'+(sk?skinRb(sk,"cheer"):rumboEl("cheer"))+'<div class="stp-cell is-new" style="--k:0">'+stampHTML(c,true)+'</div></div><h3 id="celT">¡'+esc(c.name)+' completa!</h3><p>Terminaste todas sus lecciones y ya se ve a todo color. Ganaste su sello'+(sk?' y a '+esc(RUMBO.SKINS[sk].n):'')+'.</p><div class="acts">'+
+  (sk?'<button type="button" class="ui-btn is-block is-ok" data-a="use">Usar a '+esc(RUMBO.SKINS[sk].n)+'</button><button type="button" class="ui-btn is-block is-ghost" data-a="x">Después</button>':'<button type="button" class="ui-btn is-block is-ok" data-a="x">¡Vamos!</button>')+'</div>';
  var rb=el.querySelector(".rb");wireRumbo(rb);rb.setAttribute("data-mood","happy");
  S.stp[id]=1;save();sfx("ok");
- var close=uiLayer(el,true);el.querySelector(".ui-btn").onclick=close;
+ var close=uiLayer(el,true);
+ [].forEach.call(el.querySelectorAll("[data-a]"),function(b){b.onclick=function(){close();if(b.getAttribute("data-a")==="use"){setSkin(sk);uiToast("Listo: ahora eres "+RUMBO.SKINS[sk].n)}}});
  setTimeout(function(){uiFocus(el.querySelector(".ui-btn"))},60);
 }
 /* abrir el camino de lecciones de una carrera desde cualquier pestaña */
@@ -332,7 +335,7 @@ function renderAtlas(){
 }
 function atSub(title,body,cls){
  var el=document.createElement("div");el.className="at-sub "+(cls||"");el.setAttribute("role","dialog");el.setAttribute("aria-modal","true");el.setAttribute("aria-label",title);
- el.innerHTML='<header class="at-subh noprint"><button type="button" class="ui-iconbtn" aria-label="Volver al Atlas">'+ico("back")+'</button><h2>'+esc(title)+'</h2></header><div class="at-subb"><div class="at-subin">'+body+'</div></div>';
+ el.innerHTML='<header class="at-subh noprint"><button type="button" class="ui-iconbtn" aria-label="Volver">'+ico("back")+'</button><h2>'+esc(title)+'</h2></header><div class="at-subb"><div class="at-subin">'+body+'</div></div>';
  var close=uiLayer(el,false,function(){document.body.classList.remove("rep-open")});
  el.querySelector(".ui-iconbtn").onclick=close;
  setTimeout(function(){uiFocus(el.querySelector(".ui-iconbtn"))},60);

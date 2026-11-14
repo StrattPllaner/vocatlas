@@ -1,0 +1,15 @@
+import {launch,page,state} from './lib.mjs';
+const out=(process.env.OUT||'.')+'/';
+const which=process.argv[2]?process.argv[2].split(','):null,px=+(process.argv[3]||230),dark=process.argv[4]==='d';
+const b=await launch();
+const c=await b.newContext({viewport:{width:1500,height:1000},deviceScaleFactor:1,colorScheme:dark?'dark':'light'});const p=await c.newPage();
+p.on('pageerror',e=>console.log('ERR',e.message));
+await p.addInitScript(s=>{localStorage.setItem('vocatlas_qa','1');localStorage.setItem('vocatlas_v1',JSON.stringify(s))},state(['medicina']));
+await p.goto('http://localhost:8765/index.html');await p.waitForTimeout(3500);
+await p.evaluate(({which,px,dark})=>{const R=window.__vt('RUMBO');const ks=[null].concat(which||Object.keys(R.SKINS));
+ const d=document.createElement('div');d.id='sheet';d.style.cssText='position:fixed;inset:0;z-index:99999;background:'+(dark?'#12232B':'#FBF6EA')+';display:flex;flex-wrap:wrap;align-content:flex-start;gap:4px;padding:8px;overflow:auto';
+ d.innerHTML=ks.map(k=>'<div style="width:'+px+'px;text-align:center;font:600 13px system-ui;color:'+(dark?'#fff':'#123')+'"><div style="width:'+px+'px;height:'+px+'px">'+R.svg('U',null,null,k).replace('class="rbx ','class="rbx-static ').replace('<svg ','<svg style="width:100%;height:100%;overflow:visible" ')+'</div>'+(k?R.SKINS[k].n:'Aviador')+'</div>').join('');
+ document.body.appendChild(d)},{which,px,dark});
+await p.waitForTimeout(400);
+await p.screenshot({path:out+(process.argv[5]||'skins')+'.png'});
+await b.close();

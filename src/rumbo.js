@@ -205,7 +205,7 @@ var RUMBO=(function(){
  var FINK=["liso","tinta","papel","minimo"];
  var finCur=null;try{finCur=localStorage.getItem("vocatlas_acabado")}catch(e){}
  function finPick(k){if(k){finCur=k;try{localStorage.setItem("vocatlas_acabado",k)}catch(e){}}return FIN[finCur]?finCur:"liso"}
- function build(model,ek,fx){if(model==="R")return buildR();if(model==="O")return buildO();if(model==="P")return buildP();if(model==="S")return buildS();if(model==="T")return buildS("ref");if(model==="U")return buildS("ref",true);ek=EYES[ek]?ek:eyePick();fx=FIN[fx]?fx:finPick();
+ function build(model,ek,fx,sk){if(model==="R")return buildR();if(model==="O")return buildO();if(model==="P")return buildP();if(model==="S")return buildS();if(model==="T")return buildS("ref");if(model==="U")return buildS("ref",true,sk===undefined?skinCur:sk);ek=EYES[ek]?ek:eyePick();fx=FIN[fx]?fx:finPick();
   var id="rbm"+(++N),body,skin;
   if(model==="A"){body=globe(id,27);skin="#F7E0BD"}
   else if(model==="B"){body=compass(id,false);skin="#FBF0DA"}
@@ -575,8 +575,11 @@ var RUMBO=(function(){
   [[41.2,32.6],[58.8,32.6]].forEach(function(c){gog+='<circle cx="'+(c[0]+.5)+'" cy="'+(c[1]+.6)+'" r="6" fill="#B07A2A"/><circle cx="'+c[0]+'" cy="'+c[1]+'" r="6" fill="'+SGOLD+'"'+o(1.2)+'/><circle cx="'+c[0]+'" cy="'+c[1]+'" r="4.2" fill="'+SLENS+'"'+o(1)+'/>'+
    '<path d="M'+(c[0]-2.6)+' '+(c[1]+.2)+'Q'+(c[0]-2.2)+' '+(c[1]-2.6)+' '+(c[0]+.4)+' '+(c[1]-2.9)+'" stroke="#FFFFFF" stroke-width="1.3" fill="none" stroke-linecap="round" opacity=".9"/>'});
   return grp("rk-hat",50,42,grp("rk-arrow",50,24.4,arrow)+grp("rk-flapL",30.6,45,flap(-1))+grp("rk-flapR",69.4,45,flap(1))+cap+fo+ff+fs+grp("rk-gog",50,32.6,gog))}
- function buildS(fk,nh){
-  var id="rbm"+(++N),C=[50,57.6],R=24.4;
+/*@skins*/
+ function buildS(fk,nh,sk){
+  var id="rbm"+(++N),C=[50,57.6],R=24.4,SK=sk&&SKINS[sk]||null,b0=SBOOT,b1=SBOOTS;
+  if(SK){SBOOT=SK.boot;SBOOTS=rbShade(SK.boot,.24)}
+  var bL=bootS(-1),bR=bootS(1);SBOOT=b0;SBOOTS=b1;
   /* cuerpo: caja dorada con grosor, carátula crema, marcas cortas y triángulo rojo del norte */
   /* aro y carátula: círculos concéntricos perfectos; la luz y la sombra son arcos sobre el mismo círculo, no formas desplazadas */
   var arc=function(r,a0,a1,col,w){var p0=[50+r*Math.cos(a0*Math.PI/180),57.6+r*Math.sin(a0*Math.PI/180)],p1=[50+r*Math.cos(a1*Math.PI/180),57.6+r*Math.sin(a1*Math.PI/180)];
@@ -620,11 +623,11 @@ var RUMBO=(function(){
    '<path class="rk-capj" d="M25.4 45.6C33 39.6 41.6 36 50 35.8C58.4 35.6 67 38 75.4 44.6L74.6 48C66.6 41.6 58.2 39.4 50 39.6C41.8 39.8 33.6 43.2 26.4 49.2Z" fill="'+SCAPS+'"'+sl()+'/>';
   var gog='<rect x="45.6" y="30.6" width="8.4" height="2.4" rx="1.2" fill="'+SGOLD+'"'+sl(1)+'/>';
   [[40.8,32.2],[59,31.6]].forEach(function(c){gog+='<circle cx="'+c[0]+'" cy="'+c[1]+'" r="5" fill="'+SGOLD+'"'+sl(1.2)+'/><circle cx="'+c[0]+'" cy="'+c[1]+'" r="3.4" fill="'+SLENS+'"'+sl(.9)+'/><path d="M'+(c[0]-2)+' '+(c[1]+.4)+'L'+(c[0]+.6)+' '+(c[1]-2.2)+'" stroke="'+SLENSH+'" stroke-width="1.2" stroke-linecap="round"/>'});
-  var hat=nh?hatU(id):grp("rk-hat",50,42,grp("rk-arrow",50,22,arrow)+grp("rk-flapL",30,46,flapL)+grp("rk-flapR",71,45,flapR)+cap+grp("rk-gog",50,31.6,gog));
-  return isoInk('<svg class="rbx rbx-S'+(fk==="ref"?' rbx-T'+(nh?' rbx-U':'')+'" data-face="ref':'')+'" data-ojos="retro" data-hatr="-7" data-arr="-16" data-eyefix="1" viewBox="0 0 100 100" aria-hidden="true">'+
+  var hat=SK?skinHat(SK,id):nh?hatU(id):grp("rk-hat",50,42,grp("rk-arrow",50,22,arrow)+grp("rk-flapL",30,46,flapL)+grp("rk-flapR",71,45,flapR)+cap+grp("rk-gog",50,31.6,gog));
+  return isoInk('<svg class="rbx rbx-S'+(fk==="ref"?' rbx-T'+(nh?' rbx-U':'')+'" data-face="ref':'')+(SK?'" data-skin="'+sk:'')+'" data-ojos="retro" data-hatr="-7" data-arr="-16" data-eyefix="1" viewBox="0 0 100 100" aria-hidden="true">'+
    grp("rk-root",50,97,
     '<g class="rk-shadow"><ellipse class="rk-sh" cx="55" cy="97.6" rx="25" ry="3" fill="var(--rb-sh,#1D2C55)" opacity=".13"/><ellipse cx="38.6" cy="97.1" rx="9" ry="1.2" fill="#13213F" opacity=".22"/><ellipse cx="61.4" cy="97.1" rx="9" ry="1.2" fill="#13213F" opacity=".22"/></g>'+
-    grp("rk-legL",41.5,76,bootS(-1))+grp("rk-legR",58.5,76,bootS(1))+
+    grp("rk-legL",41.5,76,bL)+grp("rk-legR",58.5,76,bR)+
     grp("rk-body",50,82,body+'<g class="rk-face">'+face+'</g>'+hat)+
     (nh?grp("rk-handL",15,70,handAt(id+"hL",15,70,-1))+grp("rk-handR",86,60,handAt(id+"hR",86,60,1)):grp("rk-handL",16,70,gloveS(16,70,-1))+grp("rk-handR",85,58,gloveS(85,58,1))))+'</svg>')}
 
@@ -893,6 +896,7 @@ var RUMBO=(function(){
   /* noviembre: Rumbo final (modelo U) en toda la app; se reinicia una vez la elección guardada antes */
   if(!localStorage.getItem("vocatlas_rumbo_m2")){cur=null;localStorage.removeItem("vocatlas_rumbo");localStorage.setItem("vocatlas_rumbo_m2","1")}}catch(e){}
  function pick(m){if(m){cur=m;try{localStorage.setItem("vocatlas_rumbo",m)}catch(e){}}return cur||"U"}
- function svg(m,ek,fx){m=m||pick();return m==="v1"?rumboSVG():build(m,ek,fx)}
- return {svg:svg,build:build,pick:pick,EYES:EYES,EYEK:EYEK,eyePick:eyePick,FIN:FIN,FINK:FINK,finPick:finPick,NAMES:NAMES,models:["U","T","S","P","O","R","v1","A","B","C"]};
+ function svg(m,ek,fx,sk){m=m||pick();return m==="v1"?rumboSVG():build(m,ek,fx,sk)}
+ function skin(k){if(k!==undefined)skinCur=SKINS[k]?k:null;return skinCur}
+ return {skin:skin,SKINS:SKINS,svg:svg,build:build,pick:pick,EYES:EYES,EYEK:EYEK,eyePick:eyePick,FIN:FIN,FINK:FINK,finPick:finPick,NAMES:NAMES,models:["U","T","S","P","O","R","v1","A","B","C"]};
 })();

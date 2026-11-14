@@ -32,7 +32,7 @@
  --sh-2:0 1px 2px rgba(20,50,63,.05),0 6px 16px rgba(20,50,63,.07),0 18px 40px rgba(20,50,63,.08);
  --sh-3:0 2px 4px rgba(20,50,63,.06),0 12px 28px rgba(20,50,63,.10),0 32px 64px rgba(20,50,63,.14);
  --sh-accent:0 1px 0 rgba(255,255,255,.28) inset,0 2px 4px rgba(232,96,60,.18),0 8px 22px rgba(232,96,60,.30);
- --sea-bg:radial-gradient(130% 100% at 45% 40%,#7FCBE3 0%,#5AAFD6 55%,#4592C3 100%);
+ --sea-bg:radial-gradient(120% 90% at 30% 20%,#43B0E4 0%,#2E9BD6 45%,#1F84C2 100%);
  --sea-mark:rgba(20,60,85,.10);--shoal:#C9F3EE;--foam:rgba(255,255,255,.85);--grat:rgba(20,60,85,.08);--sea-lbl:rgba(255,255,255,.82);--hill:rgba(20,50,63,.16);--sand:#EED9A8;--cliff:#C9A76E;
  --land-hi:#BFE0A2;--land-lo:#A6D08A;--land-edge:rgba(40,80,40,.18);
  --area-lbl:rgba(255,255,255,.9);--pin-sh:rgba(20,50,63,.18);--rb-sh:rgba(20,50,63,.12);
@@ -56,7 +56,7 @@
  --sh-2:0 1px 2px rgba(0,0,0,.2),0 8px 20px rgba(0,0,0,.24);
  --sh-3:0 2px 6px rgba(0,0,0,.25),0 18px 44px rgba(0,0,0,.42);
  --sh-accent:0 1px 0 rgba(255,255,255,.18) inset,0 8px 22px rgba(232,96,60,.22);
- --sea-bg:radial-gradient(130% 100% at 45% 40%,#14404F 0%,#0D2B37 52%,#081A22 100%);
+ --sea-bg:radial-gradient(120% 90% at 30% 20%,#21507A 0%,#163B5C 45%,#0E2A44 100%);
  --sea-mark:rgba(143,201,232,.10);--shoal:#3F8FA3;--foam:rgba(220,240,245,.22);--grat:rgba(143,201,232,.07);--sea-lbl:rgba(190,225,240,.6);--hill:rgba(246,239,226,.16);--sand:#9C8A62;--cliff:#6B5C40;
  --land-hi:#3B6B4C;--land-lo:#315C41;--land-edge:rgba(0,0,0,.2);
  --area-lbl:rgba(246,239,226,.62);--pin-sh:rgba(0,0,0,.45);--rb-sh:rgba(0,0,0,.35);
@@ -1609,7 +1609,7 @@ body.lp-open #app{visibility:hidden}body.lp-open #app *{animation-play-state:pau
 .pk-empty{margin:var(--sp-8) 0;text-align:center;font:var(--fw-m) var(--fs-md)/var(--lh-body) var(--ff);color:var(--c-ink-2)}
 .pk-bar{flex:none;background:var(--c-surface);border-top:var(--bw) solid var(--c-line);box-shadow:0 -8px 24px rgba(20,50,63,.08);padding:var(--sp-3) calc(var(--sp-4) + var(--sar)) calc(var(--sp-3) + var(--sab)) calc(var(--sp-4) + var(--sal))}
 .pk-barin{display:grid;grid-template-columns:auto 1fr;gap:var(--sp-2) var(--sp-3);align-items:center;max-width:928px;margin:0 auto}
-.pk-mini{width:72px;height:52px;border-radius:var(--r-2);overflow:hidden;background:#6FBFE0;border:var(--bw) solid var(--c-line)}
+.pk-mini{width:72px;height:52px;border-radius:var(--r-2);overflow:hidden;background:#2E9BD6;border:var(--bw) solid var(--c-line)}
 .pk-mini svg{width:100%;height:100%;display:block}
 .pk-mini.pop{animation:pkPop 300ms var(--e-out)}
 .pk-ct{min-width:0}
@@ -1736,6 +1736,78 @@ body.lp-open #app{visibility:hidden}body.lp-open #app *{animation-play-state:pau
 @media (min-width:700px){.at-ring{width:148px;height:148px}.at-hi h2{font-size:var(--fs-3xl)}.at-hi p{font-size:var(--fs-md)}.at-cc{width:148px}}
 @media (prefers-reduced-motion:reduce){.at-in,.stp-cell.is-new .stp{animation:none!important}.at-ring .arc,.at-sub{transition:none!important}}
 @media print{.at-sub.is-rep .at-subb{overflow:visible;padding:0}.rp-stats,.rp-note{-webkit-print-color-adjust:exact;print-color-adjust:exact}.ui-prog,.ui-prog>i,.at-rk{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+/* ================= perfil (Yo) ================= */
+.pf{--pf-sh1:rgba(166,230,236,.45);--pf-sh2:#A6E6EC;--pf-sand:#F5DFA2;--pf-cliff:#D9B56F;--pf-grass:#8FD46B;--pf-grass2:#74BD55}
+@media (prefers-color-scheme:dark){.pf{--pf-sh1:rgba(60,120,160,.4);--pf-sh2:#3A7598;--pf-sand:#B5A070;--pf-cliff:#8F7748;--pf-grass:#5F9A4C;--pf-grass2:#4F8640}}
+.pf.is-still .at-in{animation:none}
+.pf-hero{margin-bottom:var(--sp-6);border-radius:var(--r-5);background:var(--c-surface);border:var(--bw) solid var(--c-line);border-bottom-width:calc(var(--bw) + var(--depth));overflow:hidden}
+.pf-stage{position:relative;height:208px;background:var(--sea-bg);display:grid;place-items:end center;overflow:hidden}
+.pf-isle{position:absolute;left:50%;bottom:6px;width:280px;height:105px;transform:translateX(-50%)}
+.pf-stage .rb{position:relative;width:150px;height:150px;margin-bottom:38px}
+.pf-edit{position:absolute;right:var(--sp-3);top:var(--sp-3);display:inline-flex;align-items:center;gap:6px;min-height:var(--touch);padding:0 var(--sp-4) 0 var(--sp-3);border-radius:var(--r-full);border:0;background:rgba(255,255,255,.92);color:#14323F;font:var(--fw-sb) var(--fs-sm)/1 var(--ff);cursor:pointer;-webkit-tap-highlight-color:transparent}
+.pf-edit .ui-ico{width:18px;height:18px}
+.pf-edit:active{transform:scale(.96)}
+.pf-edit:focus-visible,.pf-sk:focus-visible,.pf-row:focus-visible{outline:3px solid var(--c-focus);outline-offset:2px}
+.pf-id{padding:var(--sp-4) var(--sp-5) 0;text-align:center}
+.pf-id h2{margin:0 0 2px;font:var(--fw-b) var(--fs-2xl)/var(--lh-tight) var(--ff);letter-spacing:-.01em;color:var(--c-ink);overflow-wrap:anywhere}
+.pf-id p{margin:0;font:var(--fw-m) var(--fs-sm)/var(--lh-body) var(--ff);color:var(--c-ink-2)}
+.pf-stats{display:grid;grid-template-columns:repeat(3,1fr);margin:var(--sp-4) var(--sp-3) var(--sp-4)}
+.pf-stats>div{display:grid;justify-items:center;gap:4px;padding:0 var(--sp-2);text-align:center}
+.pf-stats>div+div{border-left:var(--bw) solid var(--c-line)}
+.pf-stats b{font:var(--fw-b) var(--fs-xl)/1 var(--ff);color:var(--c-ink)}
+.pf-stats b i{font-style:normal;font-size:.62em;color:var(--c-ink-2);margin-left:1px}
+.pf-stats span{font:var(--fw-m) var(--fs-xs)/1.25 var(--ff);color:var(--c-ink-2)}
+.pf-count{margin-left:6px;padding:3px 9px;border-radius:var(--r-full);background:var(--c-sunken);font:var(--fw-b) var(--fs-xs)/1 var(--ff);color:var(--c-ink-2);vertical-align:middle}
+.pf-lead{margin:calc(-1*var(--sp-1)) 0 var(--sp-3);font:var(--fw-r) var(--fs-sm)/var(--lh-body) var(--ff);color:var(--c-ink-2)}
+/* colección */
+.pf-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--sp-3)}
+.pf-sk{position:relative;display:flex;flex-direction:column;align-items:center;gap:2px;min-width:0;padding:var(--sp-2) var(--sp-1) var(--sp-3);border-radius:var(--r-4);background:var(--c-surface);border:var(--bw) solid var(--c-line);border-bottom-width:calc(var(--bw) + var(--depth));font-family:var(--ff);color:var(--c-ink);text-align:center;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.pf-sk:active{transform:translateY(2px)}
+.pf-sk-rb{display:block;width:100%;max-width:92px;aspect-ratio:1}
+.pf-sk-rb svg,.pf-sh-rb>svg{width:100%;height:100%;display:block;overflow:visible}
+.pf-sk b{max-width:100%;font:var(--fw-sb) var(--fs-sm)/1.2 var(--ff);overflow-wrap:anywhere}
+.pf-sk small{font:var(--fw-m) var(--fs-xs)/1.2 var(--ff);color:var(--c-ink-2)}
+.pf-sk.is-use{border-color:var(--c-ok);background:var(--c-ok-bg)}
+.pf-sk.is-use small{color:var(--c-ok-ink);font-weight:var(--fw-sb)}
+.pf-sk.is-off{background:var(--c-sunken);border-style:dashed;border-bottom-width:var(--bw)}
+.pf-sk.is-off .pf-sk-rb{opacity:.5}
+.pf-sk.is-off b{color:var(--c-ink-2)}
+.pf-bdg{position:absolute;right:6px;top:6px;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;background:var(--c-surface);color:var(--c-ink-3);border:var(--bw) solid var(--c-line)}
+.pf-bdg .ui-ico{width:13px;height:13px;stroke-width:2.6}
+.pf-bdg.is-use{background:var(--c-ok);border-color:var(--c-ok);color:#FFFFFF}
+.pf-bdg.is-use .ui-ico{stroke-width:3.4}
+/* hoja de un Rumbo */
+.pf-sheet{text-align:center}
+.pf-sh-rb{width:168px;height:168px;margin:0 auto var(--sp-2)}
+.pf-sh-rb .rb{width:168px;height:168px}
+.pf-sh-rb.is-off{opacity:.55}
+.pf-sh-lock{display:inline-flex;align-items:center;gap:6px;margin-bottom:var(--sp-2);padding:5px 12px;border-radius:var(--r-full);background:var(--c-sunken);font:var(--fw-sb) var(--fs-xs)/1 var(--ff);color:var(--c-ink-2)}
+.pf-sh-lock .ui-ico{width:14px;height:14px}
+.pf-sheet .at-pr{margin:calc(-1*var(--sp-2)) 0 var(--sp-5)}
+.pf-sheet .acts{display:grid;gap:var(--sp-2)}
+/* meta y ajustes */
+.pf-goal{margin-bottom:var(--sp-6)}
+.pf-goal h3{margin:0 0 2px;font:var(--fw-b) var(--fs-lg)/var(--lh-tight) var(--ff);color:var(--c-ink)}
+.pf-goal p{margin:0 0 var(--sp-3);font:var(--fw-r) var(--fs-sm)/var(--lh-body) var(--ff);color:var(--c-ink-2)}
+.pf-list{padding:0 var(--sp-4)}
+.pf-row,.pf-edo{width:100%;display:flex;align-items:center;gap:var(--sp-3);min-height:68px;padding:var(--sp-3) 0;background:none;border:0;border-bottom:var(--bw) solid var(--c-line);font-family:var(--ff);color:var(--c-ink);text-align:left}
+.pf-row{cursor:pointer;-webkit-tap-highlight-color:transparent}
+.pf-row:active .pf-row-ic{transform:scale(.92)}
+.pf-edo{align-items:flex-start;border-bottom:0}
+.pf-row-ic{flex:none;width:40px;height:40px;border-radius:var(--r-2);display:grid;place-items:center;background:var(--c-info-bg);color:var(--c-info-edge)}
+@media (prefers-color-scheme:dark){.pf-row-ic{color:var(--cielo-300)}}
+.pf-row-t{flex:1;min-width:0;display:block}
+.pf-row-t>b{display:block;font:var(--fw-sb) var(--fs-md)/1.25 var(--ff)}
+.pf-row-t>span{display:block;margin-top:2px;font:var(--fw-r) var(--fs-sm)/1.35 var(--ff);color:var(--c-ink-2);overflow-wrap:anywhere}
+.pf-chev{flex:none;color:var(--c-ink-3)}
+.pf-soon{display:flex;gap:var(--sp-3);align-items:flex-start;margin-top:var(--sp-3);padding:var(--sp-4);border-radius:var(--r-4);background:var(--c-sunken)}
+.pf-soon>.ui-ico{flex:none;margin-top:2px;color:var(--c-ink-2)}
+.pf-soon h3{margin:0 0 2px;font:var(--fw-sb) var(--fs-md)/1.25 var(--ff);color:var(--c-ink)}
+.pf-soon p{margin:0;font:var(--fw-r) var(--fs-sm)/var(--lh-body) var(--ff);color:var(--c-ink-2)}
+.pf-priv{margin-top:var(--sp-3);padding:0 var(--sp-4);border-radius:var(--r-4);border:var(--bw) solid var(--c-line);background:var(--c-surface);font-family:var(--ff)}
+.ui-btn.pf-rst{margin-top:var(--sp-4);--fg:var(--c-err-ink)}
+.pf-tag{display:inline-block;margin:2px 0 6px;padding:5px 12px;border-radius:var(--r-full);background:var(--c-info-bg);color:var(--c-info-ink);font:var(--fw-sb) var(--fs-xs)/1 var(--ff)}
+@media (min-width:700px){.pf-grid{grid-template-columns:repeat(6,minmax(0,1fr))}.pf-sub .pf-grid{grid-template-columns:repeat(auto-fill,minmax(132px,1fr))}.pf-stage{height:236px}.pf-stage .rb{width:170px;height:170px}}
 /*@iso-css-fin*/
 </style>
 </head>
@@ -2123,11 +2195,11 @@ function isoDefs(){if(document.getElementById("isoDefsDoc")||typeof ENV==="undef
 
 
 /* ---------- estado ---------- */
-function blankState(){return {interests:[],custom:[],res:{},rate:{},seen:{},st:{},chest:{},at:null,edo:null,nick:"",grado:null,edad:null,meta:null,flow:null,pick:[],pk:0,stp:{}}}
+function blankState(){return {interests:[],custom:[],res:{},rate:{},seen:{},st:{},chest:{},at:null,edo:null,nick:"",grado:null,edad:null,meta:null,flow:null,pick:[],pk:0,stp:{},skin:null}}
 var S=blankState();
 try{var raw=localStorage.getItem(KEY);if(raw){var p=JSON.parse(raw);S.interests=p.interests||[];S.custom=(p.custom||[]).filter(function(w){return typeof w==="string"}).map(function(w){return w.replace(/\s+/g," ").trim()}).filter(function(w,i,a){return w.length>1&&a.findIndex(function(x){return topicKey(x)===topicKey(w)})===i});S.res=p.res||{};S.rate=p.rate||{};S.seen=p.seen||{};S.st=p.st||{};S.chest=p.chest||{};S.at=p.at||null;S.edo=p.edo||null;S.nick=typeof p.nick==="string"?p.nick.slice(0,20):"";S.grado=p.grado||null;S.edad=p.edad==null?null:p.edad;S.meta=p.meta||null;S.flow=p.flow||null;S.stp=p.stp||{};S.pk=p.pk?1:0;
  /* mapa personal: quien ya tenía avance con el mapa completo conserva sus carreras con avance como elegidas y ve una vez la pantalla de elección */
- S.pick=Array.isArray(p.pick)?p.pick.filter(function(id,i,a){return byId[id]&&a.indexOf(id)===i}):C.filter(function(c){return S.res[c.id]||S.rate[c.id]!=null||(S.st[c.id]&&S.st[c.id].hace)}).map(function(c){return c.id})}}catch(e){}
+ S.skin=typeof p.skin==="string"?p.skin:null;S.pick=Array.isArray(p.pick)?p.pick.filter(function(id,i,a){return byId[id]&&a.indexOf(id)===i}):C.filter(function(c){return S.res[c.id]||S.rate[c.id]!=null||(S.st[c.id]&&S.st[c.id].hace)}).map(function(c){return c.id})}}catch(e){}
 S.interests=S.interests.filter(function(id){return LAB[id]});
 /* si el navegador no deja guardar (modo privado estricto, almacenamiento lleno), se avisa una sola vez */
 var saveWarned=false;
@@ -2572,8 +2644,8 @@ function seaTile(){
    for(var o=0;o<4;o++){var px=2*f,py=8*f;var n=vn((x+wx*.12)*px,(y+wx*.05)*py,px,py,o);t+=amp*(1-Math.abs(2*n-1));w+=amp;amp*=.5;f*=2}
    t/=w;
    var hi=Math.max(0,Math.min(1,(t-.84)/.1)),lo=Math.max(0,Math.min(1,(.52-t)/.3)),q=(j*N+i)*4;
-   if(hi>0){d[q]=255;d[q+1]=255;d[q+2]=255;d[q+3]=Math.round(hi*hi*(dark?28:80))}
-   else{d[q]=dark?2:18;d[q+1]=dark?20:70;d[q+2]=dark?32:120;d[q+3]=Math.round(lo*(dark?40:34))}
+   if(hi>0){d[q]=255;d[q+1]=255;d[q+2]=255;d[q+3]=Math.round(hi*hi*(dark?26:64))}
+   else{d[q]=dark?2:18;d[q+1]=dark?20:70;d[q+2]=dark?32:120;d[q+3]=Math.round(lo*(dark?26:9))}
   }
   g.putImageData(img,0,0);SEATEX[dark]=cv.toDataURL("image/png");
  }catch(e){SEATEX[dark]=""}
@@ -3659,8 +3731,8 @@ function goalText(){
  if(m.tipo==="top3")return "Tener tu top 3"+(m.plazo&&m.plazo!=="libre"?" "+plazoName(m.plazo).toLowerCase():"")+", "+r;
  return "Probar "+m.n+" carreras, "+r;
 }
-function renderYo(){
- var v=$("#v-yo"),NP=S.pick.length,done=MC().filter(function(c){return S.res[c.id]}).length,nt=S.interests.length+S.custom.length,en=edoName(),g=nextGoal(done),top=topCareer(),m=S.meta;
+function yoMeta(){
+ var NP=S.pick.length,done=MC().filter(function(c){return S.res[c.id]}).length,nt=S.interests.length+S.custom.length,en=edoName(),g=nextGoal(done),top=topCareer(),m=S.meta;
  var meta,pr;
  if(m&&m.tipo==="n"&&done<m.n){meta='<h3>Prueba '+(m.n-done)+' carrera'+(m.n-done===1?'':'s')+' más</h3><p>Tu meta: '+esc(goalText())+'.</p>';pr=done/m.n}
  else if(m&&m.tipo==="top3"&&done<3){meta='<h3>Prueba '+(3-done)+' carrera'+(3-done===1?'':'s')+' más</h3><p>Tu meta: '+esc(goalText())+'. Con 3 probadas ya tienes un top 3 en tu Atlas.</p>';pr=done/3}
@@ -3679,32 +3751,7 @@ function renderYo(){
   where=(of.unis.length||of.becas.length)?'':'<h3>Pronto habrá opciones en '+esc(en)+'</h3><p>Estamos reuniendo universidades y becas de tu estado con fuentes oficiales. Aquí aparecerán en cuanto estén listas.</p>';
  }else if(S.edo===EDO_NONE)where='<h3>Pronto habrá opciones</h3><p>Estamos reuniendo universidades y becas con fuentes oficiales. Si quieres verlas de tu estado, elígelo arriba.</p>';
  else where='<h3>Pronto habrá opciones en tu estado</h3><p>Elige tu estado arriba y aquí verás universidades y becas en cuanto estén listas.</p>';
- var who=[S.grado?gradoName(S.grado):"",typeof S.edad==="number"?S.edad+" años":""].filter(Boolean).join(" · ");
- v.innerHTML='<div class="vwrap"><div class="vhead st"><h2>'+(S.nick?esc(S.nick):'Yo')+'</h2><p>'+(en?'Hola, estás explorando desde '+esc(en)+'.':'Hola, este es tu avance.')+'</p></div>'+
-  '<div class="stats"><div class="stat dark st"'+stag(1)+'><div class="big num">'+tab(nt)+'</div><b>temas elegidos</b><span class="sub">'+(S.custom.length?"Incluye "+S.custom.length+" que agregaste tú":"De la lista inicial")+'</span></div>'+
-  '<div class="stat st"'+stag(2)+'><div class="big num">'+tab(done)+'</div><b>de '+NP+' carrera'+(NP===1?'':'s')+' probada'+(NP===1?'':'s')+'</b><span class="sub">Claridad vocacional: '+clarity()+'%</span></div></div>'+
-  '<div class="ycard st"'+stag(2)+'><div class="eyebrow">Tu mapa</div><h3>'+NP+' carrera'+(NP===1?'':'s')+' elegida'+(NP===1?'':'s')+'</h3><p>'+esc(MC().map(function(c){return c.name}).join(", "))+'.</p><div class="actions" style="margin-top:14px"><button class="btn wide" id="edPick">Editar mis carreras</button></div></div>'+
-  '<div class="ycard st"'+stag(3)+'><div class="eyebrow">Tu siguiente meta</div>'+meta+'<div class="meta-bar"><i style="transform:scaleX('+pr.toFixed(3)+')"></i></div></div>'+
-  '<div class="ycard st"'+stag(4)+'><div class="eyebrow">Tus datos</div><h3>'+(S.nick?esc(S.nick):'Sin apodo')+'</h3><p>'+(who?esc(who):'Aún no nos dices tu grado.')+'</p><div class="actions" style="margin-top:14px"><button class="btn wide" id="edPerf">Editar mi perfil y meta</button></div></div>'+
-  '<div class="ycard st"'+stag(5)+'><div class="eyebrow">Dónde vives</div><h3>Tu estado</h3><p>Opcional. Solo el estado, sin ciudad ni ubicación.</p>'+edoWidget("y")+'</div>'+
-  '<h3 class="sec st"'+stag(6)+'>Dónde estudiar</h3>'+
-  '<div class="ycard st"'+stag(7)+'><div class="soonbox"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 9.5L12 5l9 4.5-9 4.5z"/><path d="M7 11.5V16c0 1.4 2.2 3 5 3s5-1.6 5-3v-4.5"/></svg></div><div>'+where+'</div></div></div>'+
-  '<div class="ycard st"'+stag(8)+'><details class="priv"><summary>Aviso de privacidad</summary>'+PRIV_FULL+'</details></div>'+
-  '<div class="actions st"'+stag(9)+'><button class="btn primary wide" id="chg">Cambiar mis temas</button><button class="btn quiet wide" id="rst">Borrar todo y empezar de cero</button></div></div>';
- bindEdo("y",function(id){renderYo();toast(id===EDO_NONE?"Listo, no lo guardamos":"Guardado: "+edoById(id).n)});
- $("#edPerf").onclick=function(){showFlow("perfil",1,"edit")};
- $("#edPick").onclick=function(){openPicker("edit")};
- $("#chg").onclick=function(){appToQuiz()};
- $("#rst").onclick=function(){
-  var b=this;
-  if(!b.getAttribute("data-arm")){
-   b.setAttribute("data-arm","1");b.textContent="Toca otra vez para borrar todo";
-   setTimeout(function(){b.removeAttribute("data-arm");b.textContent="Borrar todo y empezar de cero"},3500);
-   return;
-  }
-  S=blankState();save();hudP=0;MAPSIG=null;ISOW=null;
-  var a=$("#app");stopWalk();a.classList.remove("on");startApp(-1);
- };
+ return {meta:meta,pr:pr,where:where,done:done};
 }
 function edoWidget(px,lab){
  var en=edoName();
@@ -4591,7 +4638,7 @@ var RUMBO=(function(){
  var FINK=["liso","tinta","papel","minimo"];
  var finCur=null;try{finCur=localStorage.getItem("vocatlas_acabado")}catch(e){}
  function finPick(k){if(k){finCur=k;try{localStorage.setItem("vocatlas_acabado",k)}catch(e){}}return FIN[finCur]?finCur:"liso"}
- function build(model,ek,fx){if(model==="R")return buildR();if(model==="O")return buildO();if(model==="P")return buildP();if(model==="S")return buildS();if(model==="T")return buildS("ref");if(model==="U")return buildS("ref",true);ek=EYES[ek]?ek:eyePick();fx=FIN[fx]?fx:finPick();
+ function build(model,ek,fx,sk){if(model==="R")return buildR();if(model==="O")return buildO();if(model==="P")return buildP();if(model==="S")return buildS();if(model==="T")return buildS("ref");if(model==="U")return buildS("ref",true,sk===undefined?skinCur:sk);ek=EYES[ek]?ek:eyePick();fx=FIN[fx]?fx:finPick();
   var id="rbm"+(++N),body,skin;
   if(model==="A"){body=globe(id,27);skin="#F7E0BD"}
   else if(model==="B"){body=compass(id,false);skin="#FBF0DA"}
@@ -4961,8 +5008,131 @@ var RUMBO=(function(){
   [[41.2,32.6],[58.8,32.6]].forEach(function(c){gog+='<circle cx="'+(c[0]+.5)+'" cy="'+(c[1]+.6)+'" r="6" fill="#B07A2A"/><circle cx="'+c[0]+'" cy="'+c[1]+'" r="6" fill="'+SGOLD+'"'+o(1.2)+'/><circle cx="'+c[0]+'" cy="'+c[1]+'" r="4.2" fill="'+SLENS+'"'+o(1)+'/>'+
    '<path d="M'+(c[0]-2.6)+' '+(c[1]+.2)+'Q'+(c[0]-2.2)+' '+(c[1]-2.6)+' '+(c[0]+.4)+' '+(c[1]-2.9)+'" stroke="#FFFFFF" stroke-width="1.3" fill="none" stroke-linecap="round" opacity=".9"/>'});
   return grp("rk-hat",50,42,grp("rk-arrow",50,24.4,arrow)+grp("rk-flapL",30.6,45,flap(-1))+grp("rk-flapR",69.4,45,flap(1))+cap+fo+ff+fs+grp("rk-gog",50,32.6,gog))}
- function buildS(fk,nh){
-  var id="rbm"+(++N),C=[50,57.6],R=24.4;
+ /* ================= skins de Rumbo: uno por carrera =================
+    Cada skin cambia el gorro de aviador por el de la carrera y el color de las botas; el cuerpo de brújula, la cara
+    y las manos son los mismos, así que todas las animaciones siguen funcionando. Se dibujan con las mismas reglas
+    que el resto: relleno plano, sombra a la derecha y contorno del tono oscuro de cada pieza. */
+ var skinCur=null;
+ var KD="M26.8 45.6C25.6 31.4 36.2 22.6 50 22.6C63.8 22.6 74.4 31.4 73.2 45.6Q50 36 26.8 45.6Z";
+ function kol(c,w){return ' stroke="'+rbLine(c)+'" stroke-width="'+(w||1.4)+'" stroke-linejoin="round" stroke-linecap="round"'}
+ /* casquete: relleno, sombra a la derecha recortada, lo que vaya dentro y el contorno encima */
+ function kCap(id,d,col,inner,n){var c=id+"k"+(n||"");return '<clipPath id="'+c+'"><path d="'+d+'"/></clipPath><path class="rk-capj" d="'+d+'" fill="'+col+'"/>'+
+  '<g clip-path="url(#'+c+')"><path d="M60 0C72 14 80 30 77 52L100 52L100 0Z" fill="'+rbShade(col,.2)+'"/>'+(inner||"")+'</g><path d="'+d+'" fill="none"'+kol(col)+'/>'}
+ function kDome(top,w){w=w||0;return "M"+(26.8-w)+" 45.6C"+(25.6-w)+" "+(top+8.8)+" 36.2 "+top+" 50 "+top+"C63.8 "+top+" "+(74.4+w)+" "+(top+8.8)+" "+(73.2+w)+" 45.6Q50 36 "+(26.8-w)+" 45.6Z"}
+ /* cinta que sigue la frente */
+ function kBand(col,w,dy,x0){dy=dy||0;x0=x0||26.6;var d="M"+x0+" "+(45.4+dy)+"Q50 "+(35.6+dy)+" "+(100-x0)+" "+(45.4+dy);
+  return '<path d="'+d+'" stroke="'+rbLine(col)+'" stroke-width="'+(w+1.6)+'" fill="none" stroke-linecap="round"/><path d="'+d+'" stroke="'+col+'" stroke-width="'+w+'" fill="none" stroke-linecap="round"/>'}
+ /* ala de sombrero: una media luna que sigue la frente y sale a los lados */
+ function kBrim(col,x0,up,th){var a=x0,b=100-x0;
+  return '<path d="M'+a+' '+(44.4)+'Q50 '+(44.4-up*2)+' '+b+' 44.4Q'+(b+2)+' 47 '+(b-1.4)+' 47.8Q50 '+(47.8-up*2+th)+' '+(a+1.4)+' 47.8Q'+(a-2)+' 47 '+a+' 44.4Z" fill="'+col+'"'+sl()+'/>'}
+ function kHi(d,col){return '<path d="'+d+'" stroke="'+col+'" stroke-width="1.5" fill="none" stroke-linecap="round" opacity=".85"/>'}
+ /* la flecha de la brújula, cuando el gorro deja la cabeza descubierta */
+ function kArrow(y0){return '<path d="M49.3 '+y0+'L49.3 17.6L50.7 17.6L50.7 '+y0+'Z" fill="'+SGOLD+'"'+sl(1.1)+'/><path d="M50 10.6L54.6 17.4Q55 18.4 54 18.2L50 17.2L46 18.2Q45 18.4 45.4 17.4Z" fill="'+SGOLD+'"'+sl(1.2)+'/>'}
+ function kHard(id,col,ridge,brim){var d=kDome(20.6);
+  return kCap(id,d,col,'<path d="M46.4 18Q45.2 30 45.8 42L54.2 42Q54.8 30 53.6 18Z" fill="'+ridge+'"/>')+kHi("M31 35.4Q32.6 27.6 40 23.6","#FFFFFF")+
+   '<path d="M23.4 44.2Q50 32.6 76.6 44.2Q78.4 46.8 76 48Q50 37.4 24 48Q21.6 46.8 23.4 44.2Z" fill="'+brim+'"'+sl()+'/>'}
+ var SKINS={
+  medicina:{n:"Rumbo Doctor",boot:"#2FA79A",hat:function(id){
+   return kCap(id,kDome(21.6),"#3DB6A8",'<path d="M20 44.6Q50 30.4 80 44.6L80 52L20 52Z" fill="#F4F8F8"/>')+kHi("M31 35Q32.6 27.4 40.4 23.8","#8FE0D4")+
+    '<circle cx="50" cy="29.4" r="5" fill="#FFFFFF"'+sl(1.1)+'/><path d="M48.8 26.2h2.4v2h2v2.4h-2v2h-2.4v-2h-2v-2.4h2z" fill="#E2434B"/>'}},
+  veterinaria:{n:"Rumbo Veterinario",boot:"#E58B3A",hat:function(id){
+   var ear=function(m){var X=function(x){return (m<0?x:100-x).toFixed(1)},c=m<0?"#A9683A":"#935730";
+    return '<path d="M'+X(31)+' 34.6C'+X(23)+' 30.6 '+X(13.6)+' 36 '+X(13)+' 46.6C'+X(12.6)+' 54.6 '+X(17.6)+' 60.6 '+X(22.6)+' 58.4C'+X(26.4)+' 56.6 '+X(26.2)+' 51 '+X(27.6)+' 46.4C'+X(28.8)+' 42.6 '+X(33)+' 39 '+X(31)+' 34.6Z" fill="'+c+'"'+sl()+'/>'+
+     '<path d="M'+X(26.6)+' 38.4C'+X(21)+' 37.6 '+X(17)+' 41.6 '+X(16.6)+' 47.4C'+X(16.4)+' 51.6 '+X(18.6)+' 55 '+X(21)+' 54.6C'+X(23)+' 53.4 '+X(22.8)+' 49 '+X(24)+' 45.4Z" fill="#E7B58C" opacity=".8"/>'};
+   var band="M26.2 46.6A25.9 25.9 0 0 1 73.8 46.6";
+   return '<path d="'+band+'" stroke="'+rbLine("#E58B3A")+'" stroke-width="5" fill="none" stroke-linecap="round"/><path d="'+band+'" stroke="#E58B3A" stroke-width="3.4" fill="none" stroke-linecap="round"/>'+
+    grp("rk-flapL",29,37,ear(-1))+grp("rk-flapR",71,37,ear(1))+
+    '<circle cx="50" cy="31" r="5.4" fill="#FFFFFF"'+sl(1.1)+'/><ellipse cx="50" cy="32.6" rx="2.3" ry="1.8" fill="#A9683A"/><circle cx="47.2" cy="30" r="1" fill="#A9683A"/><circle cx="50" cy="28.4" r="1.1" fill="#A9683A"/><circle cx="52.8" cy="30" r="1" fill="#A9683A"/>'}},
+  nutricion:{n:"Rumbo Chef",boot:"#5DBB63",hat:function(id){
+   var d="M27.4 45.4L28.8 31.6C19.6 28 21.4 13.6 32.6 15C35.6 6.4 49.6 5.2 54 11.4C62 5.6 76.6 10.4 73.4 22.4C80.4 26 77.4 33.6 71.4 32.4L72.6 45.4Q50 36 27.4 45.4Z";
+   return kCap(id,d,"#FFFFFF",'<path d="M40 30Q39 22 41 15M50 28.6Q50 20 51 13M60 30Q61.6 23 60.6 17" stroke="#D9DEE6" stroke-width="1.2" fill="none" stroke-linecap="round"/><path d="M20 39.6Q50 26.6 80 39.6L80 52L20 52Z" fill="#EEF1F5"/><path d="M28 33.4Q50 26 72 33.2" stroke="#C9D0DA" stroke-width="1" fill="none"/>')+
+    '<path d="M62.6 33.4Q62.4 25.6 70.4 23.6Q71.4 31.4 62.6 33.4Z" fill="#5DBB63"'+sl(1.1)+'/><path d="M63.4 32.4Q66 28 69.6 24.8" stroke="#3E8F46" stroke-width=".8" fill="none" stroke-linecap="round"/>'}},
+  psicologia:{n:"Rumbo Psicólogo",boot:"#8B6FD0",hat:function(id){
+   return '<circle cx="50" cy="15.6" r="5.4" fill="#F1E9FF"'+sl()+'/><path d="M47 13.6Q49 12 51 13M48.6 17.6Q51 18.6 53 16.6" stroke="#CDBCF0" stroke-width="1" fill="none" stroke-linecap="round"/>'+
+    kCap(id,kDome(19.4),"#9B7BD4",'<path d="M38 20Q35 30 36 40M50 19Q50 30 50 38M62 20Q65 30 64 40" stroke="#8566C2" stroke-width="1.1" fill="none" stroke-linecap="round"/>')+kHi("M31 34Q32.6 26 40 22","#BFA6EC")+
+    '<path d="M25.4 46.6Q50 36.4 74.6 46.6L75 39.4Q50 29.2 25 39.4Z" fill="#B79AE6"'+sl()+'/><path d="M47.2 34.8v1.9a2.8 2.8 0 0 0 5.6 0v-1.9M50 34.2v6.6" stroke="#FFFFFF" stroke-width="1.3" fill="none" stroke-linecap="round"/>'}},
+  civil:{n:"Rumbo Ingeniero",boot:"#B9773F",hat:function(id){
+   return kHard(id,"#F7C52E","#FBDD6E","#EDB21B")+'<rect x="46.4" y="33.4" width="7.2" height="4.6" rx="1.2" fill="#3A4252"'+sl(1)+'/><circle cx="50" cy="35.7" r="1.5" fill="#FFF3B0"/>'}},
+  mecatronica:{n:"Rumbo Robot",boot:"#8794A3",hat:function(id){
+   var bolt=function(x,c){return '<circle cx="'+x+'" cy="45.4" r="4.6" fill="'+c+'"'+sl()+'/><circle cx="'+x+'" cy="45.4" r="1.9" fill="#5C6877"/>'};
+   return '<path d="M50 22L50 12" stroke="'+rbLine("#AEB8C4")+'" stroke-width="2.2" stroke-linecap="round"/><circle cx="50" cy="9.6" r="3" fill="#E2434B"'+sl(1.1)+'/><circle cx="49" cy="8.6" r=".9" fill="#FFFFFF" opacity=".8"/>'+
+    kCap(id,kDome(21.4),"#AEB8C4",'<path d="M20 42.6Q50 29 80 42.6" stroke="#2B3A4A" stroke-width="5.4" fill="none"/><circle cx="41" cy="35" r="1.1" fill="#4FE0D0"/><circle cx="46" cy="33.6" r="1.1" fill="#4FE0D0"/><circle cx="54" cy="33.6" r="1.1" fill="#FFD66B"/><circle cx="59" cy="35" r="1.1" fill="#4FE0D0"/><path d="M36 26L64 26" stroke="#97A3B1" stroke-width="1"/>')+
+    kHi("M31 33Q32.6 27 39.6 23.6","#DCE3EA")+'<circle cx="38.6" cy="28.6" r=".9" fill="#7C8898"/><circle cx="61.4" cy="28.6" r=".9" fill="#7C8898"/>'+bolt(26.4,"#9AA6B4")+bolt(73.6,"#8794A3")}},
+  aeroespacial:{n:"Rumbo Astronauta",boot:"#E9EEF3",hat:function(id){
+   return '<path d="M66 23L70.6 13.6" stroke="'+rbLine("#E9EEF3")+'" stroke-width="1.8" stroke-linecap="round"/><circle cx="71" cy="12.6" r="2.2" fill="#E2434B"'+sl(1)+'/>'+
+    kCap(id,kDome(17.6,1.4),"#F4F6F8",'<path d="M20 41Q50 26.4 80 41" stroke="#F0B34A" stroke-width="8.4" fill="none"/><path d="M20 36.4Q50 21.8 80 36.4" stroke="#E2434B" stroke-width="1.5" fill="none"/><path d="M33 34.4Q41 30.6 47 29.8" stroke="#FFE9B0" stroke-width="1.8" fill="none" stroke-linecap="round"/><path d="M20 44.4Q50 29.8 80 44.4" stroke="#C98A25" stroke-width="1.2" fill="none"/>')+
+    kHi("M30.4 30Q32.6 23.4 39.6 20","#FFFFFF")+kBand("#C3CCD6",2.6,.6,25.4)+'<circle cx="26.2" cy="45.6" r="4" fill="#DDE3EA"'+sl()+'/><circle cx="26.2" cy="45.6" r="1.5" fill="#E2434B"/>'}},
+  ambiental:{n:"Rumbo Guardabosques",boot:"#4E7A3A",hat:function(id){
+   var d="M33.6 38C35.6 28 44 18.6 50 17.6C56 18.6 64.4 28 66.4 38Q50 31.8 33.6 38Z";
+   return kBrim("#7BA05B",17,5.4,3.4)+kCap(id,d,"#6B8E4E",'<path d="M30 39Q50 28.6 70 39" stroke="#5E3A22" stroke-width="4.6" fill="none"/><path d="M50 18Q48.6 24 49.4 30" stroke="#587A3E" stroke-width="1" fill="none" stroke-linecap="round"/>')+
+    '<path d="M46.6 35Q46.4 28.6 53 27Q53.8 33.4 46.6 35Z" fill="#A7D46B"'+sl(1)+'/>'}},
+  computacion:{n:"Rumbo Programador",boot:"#2B3445",hat:function(id){
+   var band="M24.6 48.6A26.9 26.9 0 0 1 75.4 48.6",cup=function(x,c){return '<rect x="'+(x-4)+'" y="44.6" width="8" height="14.4" rx="3.6" fill="'+c+'"'+sl()+'/><rect x="'+(x-1.5)+'" y="47.8" width="3" height="8" rx="1.5" fill="#4FE0D0"/>'};
+   return grp("rk-arrow",50,31,kArrow(31))+'<path d="'+band+'" stroke="'+rbLine("#2B3445")+'" stroke-width="5.8" fill="none" stroke-linecap="round"/><path d="'+band+'" stroke="#3A4558" stroke-width="4.2" fill="none" stroke-linecap="round"/>'+
+    '<path d="M40 33.6Q50 29.6 60 33.6" stroke="#566378" stroke-width="2.2" fill="none" stroke-linecap="round"/>'+
+    '<path d="M23.4 58Q23.4 70.4 33 71.6" stroke="'+rbLine("#2B3445")+'" stroke-width="1.7" fill="none" stroke-linecap="round"/><ellipse cx="34.4" cy="71.7" rx="2.5" ry="1.9" fill="#2B3445"'+sl(1)+'/>'+cup(23.6,"#3A4558")+cup(76.4,"#2B3445")}},
+  datos:{n:"Rumbo Analista",boot:"#2F4A8A",hat:function(id){
+   return kCap(id,KD,"#2F4A8A",'<path d="M50 22Q45 30 44 42M50 22Q55 30 56 42" stroke="#263D74" stroke-width="1" fill="none"/>')+kHi("M31 35.6Q32.6 28.6 40 24.8","#5B78BE")+
+    '<ellipse cx="50" cy="23" rx="2.2" ry="1.3" fill="#263D74"'+sl(1)+'/>'+
+    '<path d="M31 43.4Q50 35.2 69 43.4Q72.6 49.6 50 47.4Q27.4 49.6 31 43.4Z" fill="#263D74"'+sl()+'/>'+
+    '<rect x="45.2" y="31.4" width="2.6" height="5" rx=".5" fill="#FFFFFF"/><rect x="48.7" y="28.4" width="2.6" height="8" rx=".5" fill="#4FE0D0"/><rect x="52.2" y="30" width="2.6" height="6.4" rx=".5" fill="#FFD66B"/>'}},
+  biotec:{n:"Rumbo Científico",boot:"#4CB872",hat:function(id){
+   return kCap(id,KD,"#F4F6F8",'<path d="M20 37Q50 24 80 37" stroke="#4CB872" stroke-width="3.4" fill="none"/>')+kHi("M31 35.6Q32.6 28.6 40 24.8","#FFFFFF")+
+    '<rect x="36" y="26.6" width="28" height="11.6" rx="5.6" fill="#4CB872"'+sl(1.2)+'/><rect x="38.2" y="28.6" width="23.6" height="7.6" rx="3.8" fill="#D2F1F4"'+sl(.9)+'/>'+
+    '<path d="M41 33.6Q41.6 30.6 45 30.2" stroke="#FFFFFF" stroke-width="1.3" fill="none" stroke-linecap="round"/><path d="M50 28.6V36.2" stroke="#4CB872" stroke-width="1.6"/>'}},
+  fisica:{n:"Rumbo Físico",boot:"#7A5AA8",hat:function(id){
+   /* melena blanca despeinada: mechones en punta que salen hacia afuera, más largos a los lados */
+   var T=[[205,27,-8],[224,30,-7],[243,27,-5],[259,31,-3],[275,28,3],[291,31,5],[308,28,7],[325,30,8],[341,27,9]],cx=50,cy=44,d="M27 47",px=27,py=47;
+   T.forEach(function(t,i){var a=t[0]*Math.PI/180,x=cx+t[1]*Math.cos(a),y=cy+t[1]*Math.sin(a)*.92,a2=(t[0]+9)*Math.PI/180,vx=cx+19.4*Math.cos(a2),vy=cy+19.4*Math.sin(a2)*.92;
+    d+="Q"+(px+(x-px)*.3-3).toFixed(1)+" "+(py+(y-py)*.62).toFixed(1)+" "+x.toFixed(1)+" "+y.toFixed(1);
+    if(i<T.length-1)d+="Q"+(x+(vx-x)*.75+1).toFixed(1)+" "+(y+(vy-y)*.3).toFixed(1)+" "+vx.toFixed(1)+" "+vy.toFixed(1);px=i<T.length-1?vx:x;py=i<T.length-1?vy:y});
+   d+="Q76 43 73 47Q50 36 27 47Z";
+   return kCap(id,d,"#F4F1EA",'<path d="M31 40Q32 33 27 28M39.6 35Q39 27 35 21.6M50 33Q50 25 51 18M60.4 35Q61.6 27 66 22M69 40Q69 33 73.6 28.6" stroke="#CFC8BA" stroke-width="1.2" fill="none" stroke-linecap="round"/>')}},
+  derecho:{n:"Rumbo Juez",boot:"#3A3F4E",hat:function(id){
+   var lap=function(m){var X=function(x){return (m<0?x:100-x).toFixed(1)},c=m<0?"#F1EEE6":"#DFDACE",s="";
+    s+='<path d="M'+X(28.6)+' 40.6C'+X(22.6)+' 45.6 '+X(20.6)+' 56 '+X(22)+' 66C'+X(22.8)+' 70.6 '+X(30.4)+' 70.6 '+X(31.2)+' 66C'+X(32.2)+' 58 '+X(33.4)+' 50 '+X(34.4)+' 43Z" fill="'+c+'"'+sl()+'/>';
+    [50,55.4,60.8,66.2].forEach(function(y){s+='<path d="M'+X(23.6)+' '+y+'Q'+X(27)+' '+(y+2.2)+' '+X(30.6)+' '+y+'" stroke="#BDB6A6" stroke-width="1.1" fill="none" stroke-linecap="round"/>'});return s};
+   var curls="";[[30,40.6],[34,34],[40,28.6],[60,28.6],[66,34],[70,40.6]].forEach(function(q){curls+='<path d="M'+(q[0]-3)+' '+q[1]+'q3 2.4 6 0" stroke="#BDB6A6" stroke-width="1.1" fill="none" stroke-linecap="round"/>'});
+   return grp("rk-flapL",30,44,lap(-1))+grp("rk-flapR",70,44,lap(1))+kCap(id,kDome(21.6),"#F1EEE6",curls+'<path d="M50 21Q49.4 30 50 39" stroke="#BDB6A6" stroke-width="1.1" fill="none"/>')}},
+  educacion:{n:"Rumbo Maestro",boot:"#C8553D",hat:function(id){
+   return kCap(id,kDome(25),"#2B3445","")+
+    '<path d="M19 25.6L50 36.4L81 25.6L81 28.2L50 39L19 28.2Z" fill="#1F2735"'+sl()+'/><path d="M50 14.8L81 25.6L50 36.4L19 25.6Z" fill="#3A4558"'+sl()+'/>'+
+    '<path d="M50 25.6Q62 26 71.6 29.4L72.4 40" stroke="#E3A845" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><ellipse cx="50" cy="25.6" rx="2.4" ry="1.3" fill="#E3A845"'+sl(.9)+'/>'+
+    '<path d="M70.6 39.6L74.2 39.6L75 46.6L69.8 46.6Z" fill="#E3A845"'+sl(1)+'/>'}},
+  negocios:{n:"Rumbo Empresario",boot:"#2B3445",hat:function(id){
+   var d="M33 39L31.4 15.6Q50 9.6 68.6 15.6L67 39Q50 32.4 33 39Z";
+   return kBrim("#2B3445",21,5,3.6)+kCap(id,d,"#3A4558",'<path d="M30 36.6Q50 28.6 70 36.6" stroke="#E3A845" stroke-width="4.4" fill="none"/><path d="M31.4 15.6Q50 20.6 68.6 15.6" stroke="#566378" stroke-width="1.2" fill="none"/>')+kHi("M36 31L35 19.6","#566378")}},
+  finanzas:{n:"Rumbo Financiero",boot:"#2F8F5B",hat:function(id){
+   var band="M25.2 47.6A26.3 26.3 0 0 1 74.8 47.6";
+   return grp("rk-arrow",50,31,kArrow(31))+'<path d="'+band+'" stroke="'+rbLine("#2F8F5B")+'" stroke-width="5" fill="none" stroke-linecap="round"/><path d="'+band+'" stroke="#2F8F5B" stroke-width="3.4" fill="none" stroke-linecap="round"/>'+
+    '<path d="M27.6 44.6Q50 34.6 72.4 44.6Q78.6 53 50 49.6Q21.4 53 27.6 44.6Z" fill="#3FBF7F" fill-opacity=".8"'+kol("#2F8F5B")+'/><path d="M32 46Q42 41.6 50 41.2" stroke="#B8F0D0" stroke-width="1.3" fill="none" stroke-linecap="round"/>'+
+    '<circle cx="50" cy="33" r="4.6" fill="#F2C14E"'+sl(1.1)+'/><path d="M51.6 31.4Q50 30.2 48.8 31.4Q48 32.8 50 33.1Q52 33.4 51.2 34.8Q50 35.9 48.4 34.7M50 29.8V36.3" stroke="#8A5E12" stroke-width=".9" fill="none" stroke-linecap="round"/>'}},
+  arquitectura:{n:"Rumbo Arquitecto",boot:"#4A90D9",hat:function(id){
+   return kHard(id,"#F4F6F8","#4A90D9","#DDE3EA")+
+    '<g transform="rotate(-58 70 36)"><rect x="62" y="34.6" width="14" height="3" fill="#F7C52E"'+sl(1)+'/><path d="M76 34.6L80.6 36.1L76 37.6Z" fill="#E7C9A0"'+sl(1)+'/><path d="M79 35.6L80.6 36.1L79 36.6Z" fill="#3A4252"/><rect x="59.6" y="34.6" width="2.6" height="3" rx=".6" fill="#F08A9B"'+sl(1)+'/></g>'}},
+  moda:{n:"Rumbo Diseñador",boot:"#E0568A",hat:function(id){
+   var d="M33.4 37.6C31.6 25.6 40 19.6 50 19.6C60 19.6 68.4 25.6 66.6 37.6Q50 31.6 33.4 37.6Z";
+   return '<path d="M11.6 42.6Q30 29.4 50 30.4Q70 29.4 88.4 42.6Q90.6 47.6 84.4 47Q66 38.4 50 39Q34 38.4 15.6 47Q9.4 47.6 11.6 42.6Z" fill="#F27FA5"'+sl()+'/><path d="M72 36.6Q80 40 84.6 44" stroke="#D9638C" stroke-width="1.2" fill="none" stroke-linecap="round"/>'+
+    kCap(id,d,"#F593B4",'<path d="M30 36Q50 28 70 36" stroke="#B83B6E" stroke-width="4.4" fill="none"/>')+kHi("M37 30Q38.6 24.6 44 22","#FBC3D6")+
+    '<path d="M63 31.6L70.6 27.6L70 35.6Z" fill="#B83B6E"'+sl(1)+'/><path d="M63 31.6L56.6 26.6L56 34Z" fill="#CC4C80"'+sl(1)+'/><circle cx="63" cy="31.6" r="1.9" fill="#E0568A"'+sl(1)+'/>'}},
+  comunicacion:{n:"Rumbo Reportero",boot:"#8A5A34",hat:function(id){
+   var d="M33 38.6C31.4 26 37 17.6 44.6 19.2Q50 22.6 55.4 19.2C63 17.6 68.6 26 67 38.6Q50 32.4 33 38.6Z";
+   return kBrim("#C9A26B",19.6,5.4,3.6)+kCap(id,d,"#D4B07A",'<path d="M30 36.4Q50 28.4 70 36.4" stroke="#5E3A22" stroke-width="4.6" fill="none"/>')+kHi("M37 30Q38 24 42.6 21.6","#EBD0A4")+
+    '<g transform="rotate(14 62 27)"><rect x="57.6" y="22.4" width="9.4" height="7" rx=".9" fill="#FFFFFF"'+sl(1)+'/><path d="M59.4 24.8H65.2M59.4 27H63.6" stroke="#E2434B" stroke-width="1" stroke-linecap="round"/></g>'}},
+  cine:{n:"Rumbo Director",boot:"#C8553D",hat:function(id){
+   var d="M25 42.4C19.6 30 33.6 19.4 52 20.4C70.4 21.4 81.6 31 76 41.6Q72.6 45.4 66.4 42.8Q50 36 33.6 42.8Q28 46 25 42.4Z";
+   return '<path d="M53 21L54.6 16.4" stroke="'+rbLine("#39405A")+'" stroke-width="2.2" stroke-linecap="round"/>'+kCap(id,d,"#39405A",'')+kHi("M30 33Q33.6 25.6 42.6 23","#5E6788")+
+    kBand("#262B3D",2.4,-1.2,31)+'<path d="M64.2 26.6l1.3 2.7 3 .4-2.2 2.1.5 3-2.6-1.4-2.6 1.4.5-3-2.2-2.1 3-.4z" fill="#F2C14E"'+sl(.9)+'/>'}}
+ };
+ var SKINK=["medicina","veterinaria","nutricion","psicologia","civil","mecatronica","aeroespacial","ambiental","computacion","datos","biotec","fisica","derecho","educacion","negocios","finanzas","arquitectura","moda","comunicacion","cine"];
+ function skinHat(SK,id){var h=SK.hat(id);
+  /* las piezas que el motor de animación busca: si el gorro no trae flecha u orejeras, quedan vacías */
+  return grp("rk-hat",50,42,h)}
+
+ function buildS(fk,nh,sk){
+  var id="rbm"+(++N),C=[50,57.6],R=24.4,SK=sk&&SKINS[sk]||null,b0=SBOOT,b1=SBOOTS;
+  if(SK){SBOOT=SK.boot;SBOOTS=rbShade(SK.boot,.24)}
+  var bL=bootS(-1),bR=bootS(1);SBOOT=b0;SBOOTS=b1;
   /* cuerpo: caja dorada con grosor, carátula crema, marcas cortas y triángulo rojo del norte */
   /* aro y carátula: círculos concéntricos perfectos; la luz y la sombra son arcos sobre el mismo círculo, no formas desplazadas */
   var arc=function(r,a0,a1,col,w){var p0=[50+r*Math.cos(a0*Math.PI/180),57.6+r*Math.sin(a0*Math.PI/180)],p1=[50+r*Math.cos(a1*Math.PI/180),57.6+r*Math.sin(a1*Math.PI/180)];
@@ -5006,11 +5176,11 @@ var RUMBO=(function(){
    '<path class="rk-capj" d="M25.4 45.6C33 39.6 41.6 36 50 35.8C58.4 35.6 67 38 75.4 44.6L74.6 48C66.6 41.6 58.2 39.4 50 39.6C41.8 39.8 33.6 43.2 26.4 49.2Z" fill="'+SCAPS+'"'+sl()+'/>';
   var gog='<rect x="45.6" y="30.6" width="8.4" height="2.4" rx="1.2" fill="'+SGOLD+'"'+sl(1)+'/>';
   [[40.8,32.2],[59,31.6]].forEach(function(c){gog+='<circle cx="'+c[0]+'" cy="'+c[1]+'" r="5" fill="'+SGOLD+'"'+sl(1.2)+'/><circle cx="'+c[0]+'" cy="'+c[1]+'" r="3.4" fill="'+SLENS+'"'+sl(.9)+'/><path d="M'+(c[0]-2)+' '+(c[1]+.4)+'L'+(c[0]+.6)+' '+(c[1]-2.2)+'" stroke="'+SLENSH+'" stroke-width="1.2" stroke-linecap="round"/>'});
-  var hat=nh?hatU(id):grp("rk-hat",50,42,grp("rk-arrow",50,22,arrow)+grp("rk-flapL",30,46,flapL)+grp("rk-flapR",71,45,flapR)+cap+grp("rk-gog",50,31.6,gog));
-  return isoInk('<svg class="rbx rbx-S'+(fk==="ref"?' rbx-T'+(nh?' rbx-U':'')+'" data-face="ref':'')+'" data-ojos="retro" data-hatr="-7" data-arr="-16" data-eyefix="1" viewBox="0 0 100 100" aria-hidden="true">'+
+  var hat=SK?skinHat(SK,id):nh?hatU(id):grp("rk-hat",50,42,grp("rk-arrow",50,22,arrow)+grp("rk-flapL",30,46,flapL)+grp("rk-flapR",71,45,flapR)+cap+grp("rk-gog",50,31.6,gog));
+  return isoInk('<svg class="rbx rbx-S'+(fk==="ref"?' rbx-T'+(nh?' rbx-U':'')+'" data-face="ref':'')+(SK?'" data-skin="'+sk:'')+'" data-ojos="retro" data-hatr="-7" data-arr="-16" data-eyefix="1" viewBox="0 0 100 100" aria-hidden="true">'+
    grp("rk-root",50,97,
     '<g class="rk-shadow"><ellipse class="rk-sh" cx="55" cy="97.6" rx="25" ry="3" fill="var(--rb-sh,#1D2C55)" opacity=".13"/><ellipse cx="38.6" cy="97.1" rx="9" ry="1.2" fill="#13213F" opacity=".22"/><ellipse cx="61.4" cy="97.1" rx="9" ry="1.2" fill="#13213F" opacity=".22"/></g>'+
-    grp("rk-legL",41.5,76,bootS(-1))+grp("rk-legR",58.5,76,bootS(1))+
+    grp("rk-legL",41.5,76,bL)+grp("rk-legR",58.5,76,bR)+
     grp("rk-body",50,82,body+'<g class="rk-face">'+face+'</g>'+hat)+
     (nh?grp("rk-handL",15,70,handAt(id+"hL",15,70,-1))+grp("rk-handR",86,60,handAt(id+"hR",86,60,1)):grp("rk-handL",16,70,gloveS(16,70,-1))+grp("rk-handR",85,58,gloveS(85,58,1))))+'</svg>')}
 
@@ -5279,8 +5449,9 @@ var RUMBO=(function(){
   /* noviembre: Rumbo final (modelo U) en toda la app; se reinicia una vez la elección guardada antes */
   if(!localStorage.getItem("vocatlas_rumbo_m2")){cur=null;localStorage.removeItem("vocatlas_rumbo");localStorage.setItem("vocatlas_rumbo_m2","1")}}catch(e){}
  function pick(m){if(m){cur=m;try{localStorage.setItem("vocatlas_rumbo",m)}catch(e){}}return cur||"U"}
- function svg(m,ek,fx){m=m||pick();return m==="v1"?rumboSVG():build(m,ek,fx)}
- return {svg:svg,build:build,pick:pick,EYES:EYES,EYEK:EYEK,eyePick:eyePick,FIN:FIN,FINK:FINK,finPick:finPick,NAMES:NAMES,models:["U","T","S","P","O","R","v1","A","B","C"]};
+ function svg(m,ek,fx,sk){m=m||pick();return m==="v1"?rumboSVG():build(m,ek,fx,sk)}
+ function skin(k){if(k!==undefined)skinCur=SKINS[k]?k:null;return skinCur}
+ return {skin:skin,SKINS:SKINS,svg:svg,build:build,pick:pick,EYES:EYES,EYEK:EYEK,eyePick:eyePick,FIN:FIN,FINK:FINK,finPick:finPick,NAMES:NAMES,models:["U","T","S","P","O","R","v1","A","B","C"]};
 })();
 
 /* ================= ilustración isométrica: biblioteca =================
@@ -8069,10 +8240,13 @@ function celebrate(id){
  var c=byId[id];if(!c||curView!=="map"||plazaId)return;
  if(RB.rb){mood(RB.rb,"happy","jump");burst(RB.rb)}
  var el=document.createElement("div");el.className="ui-modal cel";el.setAttribute("role","alertdialog");el.setAttribute("aria-modal","true");el.setAttribute("aria-labelledby","celT");
- el.innerHTML='<div class="cel-top">'+rumboEl("cheer")+'<div class="stp-cell is-new" style="--k:0">'+stampHTML(c,true)+'</div></div><h3 id="celT">¡'+esc(c.name)+' completa!</h3><p>Terminaste todas sus lecciones y ya se ve a todo color. Su sello está en tu pasaporte.</p><div class="acts"><button type="button" class="ui-btn is-block is-ok">¡Vamos!</button></div>';
+ var sk=RUMBO.SKINS[id]?id:null;
+ el.innerHTML='<div class="cel-top">'+(sk?skinRb(sk,"cheer"):rumboEl("cheer"))+'<div class="stp-cell is-new" style="--k:0">'+stampHTML(c,true)+'</div></div><h3 id="celT">¡'+esc(c.name)+' completa!</h3><p>Terminaste todas sus lecciones y ya se ve a todo color. Ganaste su sello'+(sk?' y a '+esc(RUMBO.SKINS[sk].n):'')+'.</p><div class="acts">'+
+  (sk?'<button type="button" class="ui-btn is-block is-ok" data-a="use">Usar a '+esc(RUMBO.SKINS[sk].n)+'</button><button type="button" class="ui-btn is-block is-ghost" data-a="x">Después</button>':'<button type="button" class="ui-btn is-block is-ok" data-a="x">¡Vamos!</button>')+'</div>';
  var rb=el.querySelector(".rb");wireRumbo(rb);rb.setAttribute("data-mood","happy");
  S.stp[id]=1;save();sfx("ok");
- var close=uiLayer(el,true);el.querySelector(".ui-btn").onclick=close;
+ var close=uiLayer(el,true);
+ [].forEach.call(el.querySelectorAll("[data-a]"),function(b){b.onclick=function(){close();if(b.getAttribute("data-a")==="use"){setSkin(sk);uiToast("Listo: ahora eres "+RUMBO.SKINS[sk].n)}}});
  setTimeout(function(){uiFocus(el.querySelector(".ui-btn"))},60);
 }
 /* abrir el camino de lecciones de una carrera desde cualquier pestaña */
@@ -8152,7 +8326,7 @@ function renderAtlas(){
 }
 function atSub(title,body,cls){
  var el=document.createElement("div");el.className="at-sub "+(cls||"");el.setAttribute("role","dialog");el.setAttribute("aria-modal","true");el.setAttribute("aria-label",title);
- el.innerHTML='<header class="at-subh noprint"><button type="button" class="ui-iconbtn" aria-label="Volver al Atlas">'+ico("back")+'</button><h2>'+esc(title)+'</h2></header><div class="at-subb"><div class="at-subin">'+body+'</div></div>';
+ el.innerHTML='<header class="at-subh noprint"><button type="button" class="ui-iconbtn" aria-label="Volver">'+ico("back")+'</button><h2>'+esc(title)+'</h2></header><div class="at-subb"><div class="at-subin">'+body+'</div></div>';
  var close=uiLayer(el,false,function(){document.body.classList.remove("rep-open")});
  el.querySelector(".ui-iconbtn").onclick=close;
  setTimeout(function(){uiFocus(el.querySelector(".ui-iconbtn"))},60);
@@ -8188,6 +8362,125 @@ function openReport(){
 }
 /* solo para las pruebas automáticas (qa/): con la marca vocatlas_qa se puede inspeccionar el estado interno */
 try{if(localStorage.getItem("vocatlas_qa"))window.__vt=function(c){return eval(c)}}catch(e){}
+
+/* ================= perfil (pestaña Yo) y colección de Rumbos =================
+   Cada carrera completa regala a su Rumbo: la mascota con el gorro y las botas de esa carrera (src/skins.js).
+   El que elijas se guarda en S.skin y lo usa Rumbo en toda la app. */
+function skinOn(k){return !k||progOf(k).p>=1}
+function skinName(k){return k?RUMBO.SKINS[k].n:"Rumbo Aviador"}
+function skinShort(k){return skinName(k).replace(/^Rumbo /,"")}
+function skinStatic(k,off){var s=RUMBO.svg("U",null,null,k||null).replace('class="rbx ','class="rbx-static ');return off?ISO.greyAll(s):s}
+function skinRb(k,extra){return '<div class="rb float '+(extra||"")+'" data-mood="idle">'+RUMBO.svg("U",null,null,k||null)+'<div class="burst"></div></div>'}
+function skinsWon(){return C.filter(function(c){return RUMBO.SKINS[c.id]&&skinOn(c.id)}).map(function(c){return c.id})}
+/* orden de la colección: el aviador, los ganados y luego los más cercanos a ganarse */
+function skinOrder(){
+ var ks=C.filter(function(c){return RUMBO.SKINS[c.id]}).map(function(c,i){var p=progOf(c.id).p;return {k:c.id,w:p>=1?3:picked(c.id)?1+p:0,i:i}});
+ ks.sort(function(a,b){return b.w-a.w||a.i-b.i});
+ return [""].concat(ks.map(function(o){return o.k}));
+}
+function setSkin(k){
+ S.skin=k&&skinOn(k)?k:null;save();RUMBO.skin(S.skin);
+ /* todos los Rumbos que ya están en pantalla se cambian de ropa en su lugar */
+ [].forEach.call(document.querySelectorAll(".rb"),function(el){var sv=el.querySelector("svg.rbx");if(sv&&!el.hasAttribute("data-skinfix"))sv.outerHTML=RUMBO.svg()});
+}
+RUMBO.skin(S.skin&&RUMBO.SKINS[S.skin]&&skinOn(S.skin)?S.skin:null);
+
+function skTile(k,i){
+ var c=k?byId[k]:null,on=skinOn(k),use=(S.skin||"")===k,pg=k?progOf(k):null;
+ var sub=use?"En uso":on?(k?esc(shortName(c)):"El original"):picked(k)?pg.done+" de "+pg.total:"Sin agregar";
+ return '<button type="button" class="pf-sk'+(use?" is-use":"")+(on?"":" is-off")+' at-in" style="--i:'+Math.min(i,8)+'" data-k="'+k+'" aria-label="'+esc(skinName(k))+', '+(use?"en uso":on?"ganado":"por ganar")+'">'+
+  '<span class="pf-sk-rb">'+skinStatic(k,!on)+'</span>'+
+  (use?'<span class="pf-bdg is-use">'+ico("check")+'</span>':on?'':'<span class="pf-bdg">'+ico("lock")+'</span>')+
+  '<b>'+esc(skinShort(k))+'</b><small>'+sub+'</small></button>';
+}
+function skGrid(ks){return '<div class="pf-grid">'+ks.map(skTile).join("")+'</div>'}
+var PFSUB=null;
+function skBind(root){[].forEach.call(root.querySelectorAll(".pf-sk"),function(b){b.onclick=function(){openSkin(b.getAttribute("data-k"))}})}
+function skRefresh(){
+ if(curView==="yo")renderYo(true);
+ if(PFSUB&&PFSUB.isConnected){var g=PFSUB.querySelector(".pf-grid");if(g){g.outerHTML=skGrid(skinOrder());skBind(PFSUB)}}
+}
+function openSkin(k){
+ var c=k?byId[k]:null,on=skinOn(k),use=(S.skin||"")===k,pg=k?progOf(k):null,left=pg?pg.total-pg.done:0,inMap=k?picked(k):true;
+ var el=document.createElement("div");el.className="ui-sheet pf-sheet";el.setAttribute("role","dialog");el.setAttribute("aria-modal","true");el.setAttribute("aria-labelledby","pfSkT");
+ var txt=!k?"Es Rumbo como lo conociste: gorro de aviador, gafas y botas azules.":
+  on?"Lo ganaste al completar "+esc(c.name)+".":
+  inMap?(pg.done?"Te falta"+(left===1?"":"n")+" "+left+" "+(left===1?"lección":"lecciones")+" de "+esc(c.name)+" para ganarlo.":"Completa las "+pg.total+" lecciones de "+esc(c.name)+" para ganarlo."):
+  "Agrega "+esc(c.name)+" a tu mapa y completa sus lecciones para ganarlo.";
+ var act=use?'<button type="button" class="ui-btn is-block is-sec" data-a="x">En uso</button>':
+  on?'<button type="button" class="ui-btn is-block" data-a="use">Usar este Rumbo</button>':
+  inMap?'<button type="button" class="ui-btn is-block" data-a="go">Ir a '+esc(shortName(c))+ico("next")+'</button>':
+  '<button type="button" class="ui-btn is-block" data-a="add">Agregar a mi mapa'+ico("plus")+'</button>';
+ el.innerHTML='<div class="grab"></div><div class="pf-sh-rb'+(on?"":" is-off")+'">'+(on?'<div class="rb float" data-skinfix="1" data-mood="happy">'+RUMBO.svg("U",null,null,k||null)+'<div class="burst"></div></div>':skinStatic(k,true))+'</div>'+
+  (on?'':'<div class="pf-sh-lock">'+ico("lock")+'Por ganar</div>')+
+  '<h3 id="pfSkT">'+esc(skinName(k))+'</h3><p>'+txt+'</p>'+
+  (!on&&inMap?'<div class="at-pr"><div class="ui-prog" style="--v:'+pg.p+'" role="img" aria-label="'+pg.done+' de '+pg.total+' lecciones"><i></i></div><span class="num">'+pg.done+'/'+pg.total+'</span></div>':'')+
+  '<div class="acts">'+act+(use?'':'<button type="button" class="ui-btn is-block is-ghost" data-a="x">Cerrar</button>')+'</div>';
+ var close=uiLayer(el,true),rb=el.querySelector(".rb");if(rb)wireRumbo(rb);
+ [].forEach.call(el.querySelectorAll("[data-a]"),function(b){b.onclick=function(){
+  var a=b.getAttribute("data-a");close();
+  if(a==="use"){setSkin(k);sfx("ok");skRefresh();uiToast("Listo: ahora eres "+skinName(k))}
+  else if(a==="go"){if(PFSUB&&PFSUB._close)PFSUB._close();setTimeout(function(){openCareer(k)},RM()?0:320)}
+  else if(a==="add"){if(PFSUB&&PFSUB._close)PFSUB._close();setTimeout(function(){openPicker("edit",c.area)},RM()?0:320)}
+ }});
+ setTimeout(function(){uiFocus(el.querySelector(".ui-btn"))},60);
+}
+function openSkins(){
+ var won=skinsWon().length+1,tot=Object.keys(RUMBO.SKINS).length+1;
+ PFSUB=atSub("Tus Rumbos",'<p class="at-lead">Cada carrera tiene su Rumbo. Lo ganas cuando completas todas sus lecciones. Llevas '+won+' de '+tot+'.</p>'+skGrid(skinOrder()),"pf-sub");
+ PFSUB._close=function(){var b=PFSUB.querySelector(".at-subh .ui-iconbtn");if(b)b.click()};
+ skBind(PFSUB);
+}
+
+/* isla pequeña donde se para Rumbo en el perfil: mismos colores del mapa */
+function pfIsle(){
+ return '<svg class="pf-isle" viewBox="0 0 240 90" aria-hidden="true"><ellipse cx="120" cy="50" rx="112" ry="36" fill="var(--pf-sh1)"/><ellipse cx="120" cy="49" rx="98" ry="30" fill="var(--pf-sh2)"/>'+
+  '<ellipse cx="120" cy="50" rx="86" ry="25" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-dasharray="12 9" stroke-linecap="round" opacity=".7"/>'+
+  '<ellipse cx="120" cy="47" rx="80" ry="22" fill="var(--pf-cliff)"/><ellipse cx="120" cy="43" rx="80" ry="22" fill="var(--pf-sand)"/><ellipse cx="120" cy="41" rx="64" ry="16.5" fill="var(--pf-grass2)"/><ellipse cx="120" cy="39.6" rx="64" ry="16.5" fill="var(--pf-grass)"/></svg>';
+}
+function renderYo(keep){
+ var v=$("#v-yo"),sc=keep?v.scrollTop:0,NP=S.pick.length,Y=yoMeta(),en=edoName(),nt=S.interests.length+S.custom.length;
+ var won=skinsWon().length+1,tot=Object.keys(RUMBO.SKINS).length+1,stamps=earnedStamps().length;
+ var who=[S.grado?gradoName(S.grado):"",typeof S.edad==="number"?S.edad+" años":"",en||""].filter(Boolean);
+ var row=function(id,ic,t,sub){return '<button type="button" class="pf-row" id="'+id+'"><span class="pf-row-ic">'+ico(ic)+'</span><span class="pf-row-t"><b>'+t+'</b><span>'+sub+'</span></span>'+ico("next","pf-chev")+'</button>'};
+ var h='<div class="vwrap pf at'+(keep?" is-still":"")+'">';
+ /* 1. quién eres: Rumbo con su ropa, tu nombre y tus números */
+ h+='<section class="pf-hero at-in" style="--i:0"><div class="pf-stage">'+pfIsle()+rumboEl()+'<button type="button" class="pf-edit" id="edPerf" aria-label="Editar mi perfil y mi meta">'+ico("user")+'<span>Editar</span></button></div>'+
+  '<div class="pf-id"><h2>'+(S.nick?esc(S.nick):"Tu perfil")+'</h2><span class="pf-tag">'+esc(skinName(S.skin||""))+'</span>'+(who.length?'<p>'+esc(who.join(" · "))+'</p>':'')+'</div>'+
+  '<div class="pf-stats"><div><b class="num">'+clarity()+'<i>%</i></b><span>claridad</span></div><div><b class="num">'+Y.done+'<i>/'+NP+'</i></b><span>carrera'+(NP===1?"":"s")+' probada'+(NP===1?"":"s")+'</span></div><div><b class="num">'+stamps+'</b><span>sello'+(stamps===1?"":"s")+'</span></div></div></section>';
+ /* 2. colección */
+ h+='<section class="at-sec at-in" style="--i:1"><div class="at-sh"><h3>Tus Rumbos <span class="pf-count num">'+won+'/'+tot+'</span></h3><button type="button" class="at-link" id="pfAll">Ver todos</button></div>'+
+  '<p class="pf-lead">Completa una carrera y ganas a su Rumbo. Toca uno para ponértelo.</p>'+skGrid(skinOrder().slice(0,6))+'</section>';
+ /* 3. meta */
+ h+='<section class="ui-card pf-goal at-in" style="--i:2"><div class="at-eb">Tu siguiente meta</div>'+Y.meta+'<div class="ui-prog is-gold" style="--v:'+(keep?Y.pr.toFixed(3):0)+'" data-v="'+Y.pr.toFixed(3)+'"><i></i></div></section>';
+ /* 4. ajustes */
+ h+='<section class="at-sec at-in" style="--i:3"><div class="at-sh"><h3>Ajustes</h3></div><div class="ui-card pf-list">'+
+  row("edPick","map","Mis carreras",NP+" elegida"+(NP===1?"":"s")+" en tu mapa")+
+  row("chg","heart","Mis temas",nt+" tema"+(nt===1?"":"s")+" elegido"+(nt===1?"":"s"))+
+  row("edPerf2","user","Mi perfil y mi meta",(S.nick?esc(S.nick):"Sin apodo")+(S.grado?" · "+esc(gradoName(S.grado)):""))+
+  '<div class="pf-edo"><span class="pf-row-ic">'+ico("globe")+'</span><div class="pf-row-t"><b id="yEdoLab">Mi estado</b><span>Opcional. Solo el estado, sin ciudad ni ubicación.</span>'+edoWidget("y","yEdoLab")+'</div></div></div>'+
+  (Y.where?'<div class="pf-soon">'+ico("book")+'<div>'+Y.where+'</div></div>':'')+
+  '<details class="priv pf-priv"><summary>Aviso de privacidad</summary>'+PRIV_FULL+'</details>'+
+  '<button type="button" class="ui-btn is-block is-ghost pf-rst" id="rst">Borrar todo y empezar de cero</button></section></div>';
+ v.innerHTML=h;if(keep)v.scrollTop=sc;
+ wireRumbo(v.querySelector(".pf-stage .rb"));
+ if(!keep)requestAnimationFrame(function(){requestAnimationFrame(function(){var p=v.querySelector(".pf-goal .ui-prog");if(p)p.style.setProperty("--v",p.getAttribute("data-v"))})});
+ skBind(v);
+ bindEdo("y",function(id){renderYo(true);toast(id===EDO_NONE?"Listo, no lo guardamos":"Guardado: "+edoById(id).n)});
+ $("#edPerf").onclick=$("#edPerf2").onclick=function(){showFlow("perfil",1,"edit")};
+ $("#edPick").onclick=function(){openPicker("edit")};
+ $("#chg").onclick=function(){appToQuiz()};
+ $("#pfAll").onclick=openSkins;
+ $("#rst").onclick=function(){
+  var el=document.createElement("div");el.className="ui-modal";el.setAttribute("role","alertdialog");el.setAttribute("aria-modal","true");el.setAttribute("aria-labelledby","rstT");
+  el.innerHTML=rumboEl()+'<h3 id="rstT">¿Borrar todo?</h3><p>Se borran tus carreras, tu avance, tus sellos y tus Rumbos de este dispositivo. No se puede deshacer.</p><div class="acts"><button type="button" class="ui-btn is-block is-danger" data-a="ok">Sí, borrar todo</button><button type="button" class="ui-btn is-block is-sec" data-a="no">No, conservar</button></div>';
+  el.querySelector(".rb").setAttribute("data-mood","sad");
+  var close=uiLayer(el,true);
+  el.querySelector("[data-a=no]").onclick=close;
+  el.querySelector("[data-a=ok]").onclick=function(){close();S=blankState();save();RUMBO.skin(null);hudP=0;MAPSIG=null;ISOW=null;var a=$("#app");stopWalk();a.classList.remove("on");startApp(-1)};
+  setTimeout(function(){uiFocus(el.querySelector("[data-a=no]"))},60);
+ };
+}
 
 /*@iso-js-fin*/
 /* ================= sistema de diseño: iconos, sonidos y catálogo #kit ================= */

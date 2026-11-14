@@ -16,3 +16,7 @@ El script reemplaza lo que hay entre `/*@iso-js*/ … /*@iso-js-fin*/` y `/*@iso
 - `iso-fix.js`: catálogos de prueba de 20, 50 y 120 carreras.
 - `iso-art.js`: página interna `#art`.
 - `iso.css`: estilos del mapa y de `#art`.
+- `rumbo.js`: la mascota. `build.py` mete `skins.js` en el marcador `/*@skins*/`.
+- `skins.js`: un Rumbo por carrera (gorro y botas). `RUMBO.svg("U",null,null,"medicina")` lo dibuja; `RUMBO.skin(k)` fija el que usa toda la app.
+- `mine.js`, `mine.css`: mapa personal, elección de carreras, Atlas.
+- `perfil.js`, `perfil.css`: pestaña Yo (perfil, colección de Rumbos, ajustes).
