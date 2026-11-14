@@ -27,7 +27,7 @@ var PATH=(function(){
  /* catálogo de la carrera: unidades y lecciones con el contenido que existe hoy */
  function catalog(id){var c=byId[id];
   var U=[
-   {t:"Conoce "+c.name,items:[{k:"hace",ty:"concepto",n:"Qué haces"},{k:"reto",ty:"reto",n:"Pruébalo: mini reto"},{chest:"c1",n:"Sello de pasaporte"}]},
+   {t:"Conoce "+c.name,items:[{k:"hace",ty:"concepto",n:"Qué haces"},{k:"reto",ty:"reto",n:"Pruébalo: mini reto"},{chest:"c1",n:"Cofre de la unidad"}]},
    {t:"Un día real en "+c.name,items:[{k:"dia",ty:"dia",n:"Un día real",soon:1},{k:"dificil",ty:"dificil",n:"Lo difícil",soon:1},{k:"gana",ty:"gana",n:"Cuánto se gana",soon:1},{k:"testi",ty:"testi",n:"Testimonio",soon:1},{chest:"c2",n:"Cofre de la unidad",soon:1}]},
    {t:"Tu veredicto",items:[{k:"donde",ty:"donde",n:"Dónde se estudia",soon:1},{k:"repaso",ty:"repaso",n:"Repaso",soon:1},{k:"veredicto",ty:"veredicto",n:"Tu veredicto",fin:1}]}
   ];
@@ -150,7 +150,7 @@ var PATH=(function(){
   var h='<h3>'+esc(it.n)+'</h3>',btn="";
   if(it.state==="soon")h+='<p>Esta lección todavía no tiene contenido. Llega pronto.</p>';
   else if(it.state==="lock")h+='<p>Se desbloquea cuando termines la lección anterior.</p>';
-  else if(it.chest){h+='<p>'+(it.done?"Ya lo abriste: el sello de "+esc(c.name)+" está en tu pasaporte.":"Termina la unidad y gana el sello de "+esc(c.name)+" para tu pasaporte.")+'</p>';if(!it.done)btn='<button class="btn primary wide" id="lpGo">Abrir</button>'}
+  else if(it.chest){h+='<p>'+(it.done?"Ya lo abriste. El sello de "+esc(c.name)+" se gana al completar todas sus lecciones.":"Termina la unidad y ábrelo: cuenta para el sello de "+esc(c.name)+".")+'</p>';if(!it.done)btn='<button class="btn primary wide" id="lpGo">Abrir</button>'}
   else{
    h+='<p class="lp-meta">'+(DUR[it.ty]||"")+(it.state==="done"?" · Hecha":" · Pendiente")+'</p>';
    if(it.k==="hace")h+='<p>'+esc(c.desc)+'</p>';
@@ -186,7 +186,7 @@ var PATH=(function(){
   var id=st.id,c=byId[id],b=document.querySelector('#lpCol .lp-n[data-i="'+it.k2+'"]');
   S.chest=S.chest||{};S.chest[id+":"+it.chest]=1;save();
   if(b){b.innerHTML=chestSVG(true);restart(b,"opened");burstAt(b)}
-  setTimeout(function(){lesson('<div class="lp-stamp" style="--c:'+c.color+'"><b>'+esc(c.name.toUpperCase())+'</b><span>VOCATLAS · PASAPORTE</span></div><h2>¡Sello nuevo!</h2><p>Ya tienes el sello de '+esc(c.name)+' en tu pasaporte de exploración.</p>',"Seguir",function(){refresh(true)})},RM()?0:500);
+  setTimeout(function(){var full=progOf(id).p>=1;lesson('<div class="lp-chestbig">'+chestSVG(true)+'</div><h2>¡Unidad completa!</h2><p>'+(full?'Con esto completaste '+esc(c.name)+'. Vuelve al mapa: ahí te espera su sello.':'Vas muy bien. Te falta tu veredicto para ganar el sello de '+esc(c.name)+'.')+'</p>',"Seguir",function(){refresh(true)})},RM()?0:500);
  }
  function burstAt(b){if(RM())return;var cols=["#F2B544","#FFFFFF","#7FB59A","#8FC9E8"];for(var i=0;i<12;i++){var s=document.createElement("i");s.className="lp-pt";s.style.background=cols[i%4];s.style.setProperty("--a",(i*30)+"deg");b.appendChild(s);setTimeout(function(x){return function(){x.remove()}}(s),700)}}
  /* al terminar una lección: el nodo se llena, chispas, palomita, el siguiente se activa y Rumbo salta hasta él */

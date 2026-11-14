@@ -59,6 +59,67 @@ var MAPGEN=(function(){
   return out;
  }
 
+ /* ---------- acomodo estable (mapa personal) ----------
+    El mapa se arma solo con las carreras elegidas y cambia cuando se agregan o quitan. Para que nadie se desoriente:
+    cada área tiene una dirección fija alrededor del centro y cada carrera un lugar "de casa" dentro de su isla (el que
+    tendría con el catálogo completo). Con menos carreras la isla se encoge hacia su centro, pero nadie cambia de lado. */
+ var HOME={};
+ function homes(aid,full){
+  if(HOME[aid])return HOME[aid];
+  var cs=full.filter(function(c){return c.area===aid}).sort(function(p,q){return p.id<q.id?-1:1}),subs=[];
+  cs.forEach(function(c){if(subs.indexOf(c.sub)<0)subs.push(c.sub)});
+  var h={},ns=cs.length?placeCareers({a:{id:aid},x:0,y:0,R:D*.62*Math.sqrt(cs.length)+70},cs,subs):[];
+  ns.forEach(function(o){h[o.c.id]=[o.x,o.y]});h._n=cs.length;return HOME[aid]=h;
+ }
+ function placeStable(I,cs,full){
+  var n=cs.length,out=cs.map(function(c){return {c:c,x:0,y:0}});
+  if(n===1){out[0].x=I.x;out[0].y=I.y;return out}
+  var h=homes(I.a.id,full),k=Math.sqrt(n/Math.max(n,h._n||n)),mx=0,my=0;
+  out.forEach(function(o,i){var q=h[o.c.id]||[Math.cos(i*2.4)*60,Math.sin(i*2.4)*60];o.x=q[0]*k;o.y=q[1]*k;mx+=o.x;my+=o.y});
+  mx/=n;my/=n;out.forEach(function(o){o.x-=mx;o.y-=my});
+  var lim=Math.max(20,I.R-62);
+  for(var it=0;it<220;it++){
+   var cool=1-it/220;
+   for(var i=0;i<n;i++){var A=out[i],fx=-A.x*.012,fy=-A.y*.012;
+    for(var j=0;j<n;j++){if(i===j)continue;var B=out[j],dx=A.x-B.x,dy=A.y-B.y,d=Math.hypot(dx,dy);
+     if(d<.01){dx=Math.cos(i*2.4);dy=Math.sin(i*2.4);d=.01}
+     if(d<D*1.08){var k2=(D*1.08-d)/d*.5;fx+=dx*k2;fy+=dy*k2}}
+    A.x+=fx*(.35+.65*cool);A.y+=fy*(.35+.65*cool);
+    var od=Math.hypot(A.x,A.y);if(od>lim){A.x*=lim/od;A.y*=lim/od}
+   }
+  }
+  out.forEach(function(o){o.x+=I.x;o.y+=I.y});
+  return out;
+ }
+ function placeIslandsStable(areas,byArea){
+  var list=[],N=areas.length;
+  areas.forEach(function(a,i){var n=(byArea[a.id]||[]).length;if(!n)return;var an=(-90+i*360/N)*Math.PI/180;
+   list.push({a:a,n:n,R:D*.62*Math.sqrt(n)+70,ux:Math.cos(an),uy:Math.sin(an),x:Math.cos(an)*40,y:Math.sin(an)*40})});
+  for(var it=0;it<500;it++){
+   /* en pantalla el suelo se ve el doble de ancho que de alto (proyección 2:1): se aprieta más a lo ancho
+      para que el conjunto quede compacto y quepa igual en un celular de pie que en una computadora */
+   if(it<440)list.forEach(function(I){var u=(I.x+I.y)/2,v=(I.x-I.y)/2;u*=.985;v*=.93;I.x=u+v;I.y=u-v});
+   for(var pass=0;pass<4;pass++)for(var i=0;i<list.length;i++)for(var j=i+1;j<list.length;j++){
+    var A=list[i],B=list[j],dx=B.x-A.x,dy=B.y-A.y,d=Math.hypot(dx,dy),need=A.R+B.R+GAP;
+    if(d<.01){dx=B.ux-A.ux;dy=B.uy-A.uy;d=Math.hypot(dx,dy)||1}
+    if(d<need){var m=(need-d)/2/d;A.x-=dx*m;A.y-=dy*m;B.x+=dx*m;B.y+=dy*m}
+   }
+  }
+  return list;
+ }
+ /* islotes con niebla: uno por área sin elegir, en su dirección, lo más cerca que cabe sin tocar las islas */
+ function placeGhosts(areas,byArea,isl,more){
+  var out=[],N=areas.length,ext=0;isl.forEach(function(I){ext=Math.max(ext,Math.hypot(I.x,I.y)+I.R)});
+  var slots=[];areas.forEach(function(a,i){if(!(byArea[a.id]||[]).length)slots.push([a,i])});
+  if(!slots.length&&more)slots=[[null,.5],[null,N/2+.5]];
+  slots.slice(0,3).forEach(function(sl,k){
+   var an=(-90+sl[1]*360/N)*Math.PI/180,ux=Math.cos(an),uy=Math.sin(an),Rg=58,t=ext+Rg+140,ok=function(tt){for(var m=0;m<isl.length;m++)if(Math.hypot(ux*tt-isl[m].x,uy*tt-isl[m].y)<isl[m].R+Rg+50)return false;return true};
+   while(t>Rg+40&&ok(t-10))t-=10;
+   out.push({a:sl[0]||{id:"mar"+k,name:"",biome:"ciudad"},ghost:true,n:0,R:Rg,x:ux*t,y:uy*t});
+  });
+  return out;
+ }
+
  /* ---------- 3. contorno orgánico: campo de manchas alrededor de cada carrera + ruido, curvas de nivel ---------- */
  function noise2(seed){var R=rng(seed),g=[];for(var i=0;i<64;i++)g.push(R()*Math.PI*2);
   return function(x,y){var s=0;for(var k=0;k<3;k++){var f=.006*(k+1),a=g[k*3],b=g[k*3+1],c=g[k*3+2];s+=Math.sin(x*f*Math.cos(a)+y*f*Math.sin(a)+c)*(.5/(k+1))+Math.sin(x*f*Math.cos(b)-y*f*Math.sin(b)+a)*(.35/(k+1))}return s}}
@@ -121,17 +182,19 @@ var MAPGEN=(function(){
  function curve(a,b,seed){var R=rng(seed),dx=b[0]-a[0],dy=b[1]-a[1],L=Math.hypot(dx,dy),k=(R()-.5)*.28*L,mx=(a[0]+b[0])/2-dy/L*k,my=(a[1]+b[1])/2+dx/L*k,o=[];for(var t=0;t<=1.0001;t+=1/Math.max(4,Math.round(L/14))){var u=1-t;o.push([u*u*a[0]+2*u*t*mx+t*t*b[0],u*u*a[1]+2*u*t*my+t*t*b[1]])}return o}
 
  /* ---------- generar ---------- */
- function build(cat,areas){
+ function build(cat,areas,opt){
+  opt=opt||{};
   var byArea={},tagsOf={};
   cat.forEach(function(c){(byArea[c.area]=byArea[c.area]||[]).push(c)});
   areas.forEach(function(a){var t={};(byArea[a.id]||[]).forEach(function(c){c.tags.forEach(function(g){t[g]=1})});tagsOf[a.id]=Object.keys(t)});
-  var isl=placeIslands(areas,byArea,function(id){return tagsOf[id]});
+  var isl=opt.stable?placeIslandsStable(areas,byArea):placeIslands(areas,byArea,function(id){return tagsOf[id]});
   var W={islands:[],nodes:[],edges:[],bridges:[],subs:[],byId:{}};
   isl.forEach(function(I){
    var cs=byArea[I.a.id].slice().sort(function(p,q){return p.id<q.id?-1:1}),subs=[];
    cs.forEach(function(c){if(subs.indexOf(c.sub)<0)subs.push(c.sub)});
-   var ns=placeCareers(I,cs,subs);
-   var F=field(ns,hs(I.a.id),78),pad=200,xs=ns.map(function(o){return o.x}),ys=ns.map(function(o){return o.y});
+   var ns=opt.stable?placeStable(I,cs,opt.full||cat):placeCareers(I,cs,subs);
+   /* con una o dos carreras la isla se dibuja un poco más amplia: pequeña, pero completa */
+   var F=field(ns,hs(I.a.id),opt.stable?(cs.length===1?104:cs.length===2?88:78):78),pad=200,xs=ns.map(function(o){return o.x}),ys=ns.map(function(o){return o.y});
    var bb=[Math.min.apply(null,xs)-pad,Math.min.apply(null,ys)-pad,Math.max.apply(null,xs)+pad,Math.max.apply(null,ys)+pad];
    var cell=12,coast=chaikin(simplify(contour(F,bb,.32,cell),10),2),plateau=chaikin(simplify(contour(F,bb,.52,cell),10),2);
    var isle={id:I.a.id,area:I.a,x:I.x,y:I.y,R:I.R,coast:coast,plateau:plateau,nodes:[],F:F};
@@ -157,8 +220,16 @@ var MAPGEN=(function(){
    W.bridges.push({a:A.id,b:B.id,p0:a2,p1:b2,len:l+32});
    [[A,a2],[B,b2]].forEach(function(z){var isle=z[0],pt=z[1],nn=null,nd=1e9;isle.nodes.forEach(function(o){var d=Math.hypot(o.x-pt[0],o.y-pt[1]);if(d<nd){nd=d;nn=o}});if(nn)W.edges.push({a:nn.id,b:null,dock:true,pts:curve([nn.x,nn.y],pt,hs(nn.id+"b"))})});
   });
+  W.ghosts=[];
+  if(opt.ghosts)placeGhosts(areas,byArea,isl,cat.length<(opt.full||cat).length).forEach(function(G,k){
+   /* no estorbar a los puentes */
+   for(var b=0;b<W.bridges.length;b++){var q=W.bridges[b],dx=q.p1[0]-q.p0[0],dy=q.p1[1]-q.p0[1],t=Math.max(0,Math.min(1,((G.x-q.p0[0])*dx+(G.y-q.p0[1])*dy)/(dx*dx+dy*dy||1)));if(Math.hypot(G.x-q.p0[0]-t*dx,G.y-q.p0[1]-t*dy)<G.R+40)return}
+   var gr=rng(hs("niebla"+G.a.id)),gn=[{x:G.x,y:G.y}];for(var q2=0;q2<2;q2++){var ga=gr()*Math.PI*2,gd=26+gr()*16;gn.push({x:G.x+Math.cos(ga)*gd,y:G.y+Math.sin(ga)*gd})}
+   var F=field(gn,hs("niebla"+G.a.id),36),bb=[G.x-140,G.y-140,G.x+140,G.y+140];
+   W.ghosts.push({id:"g-"+G.a.id,ghost:true,area:G.a,x:G.x,y:G.y,R:G.R,nodes:[],coast:chaikin(simplify(contour(F,bb,.34,7),6),2),plateau:chaikin(simplify(contour(F,bb,.72,7),6),2)});
+  });
   /* caja del mundo */
-  var bx=[1e9,1e9,-1e9,-1e9];W.islands.forEach(function(I){I.coast.forEach(function(p){bx[0]=Math.min(bx[0],p[0]);bx[1]=Math.min(bx[1],p[1]);bx[2]=Math.max(bx[2],p[0]);bx[3]=Math.max(bx[3],p[1])})});
+  var bx=[1e9,1e9,-1e9,-1e9];W.islands.concat(W.ghosts).forEach(function(I){I.coast.forEach(function(p){bx[0]=Math.min(bx[0],p[0]);bx[1]=Math.min(bx[1],p[1]);bx[2]=Math.max(bx[2],p[0]);bx[3]=Math.max(bx[3],p[1])})});
   W.bbox=bx;W.inPoly=inPoly;W.edgeDist=edgeDist;W.rng=rng;W.hs=hs;
   return W;
  }

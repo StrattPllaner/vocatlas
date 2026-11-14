@@ -24,33 +24,35 @@ var ISOMAP=(function(I,E,G){
   opt=opt||{};var aff=opt.aff||{},sea="",land="",roads="",objs=[],top="",R=G.rng(7);
   function obj(x,y,s,cls){objs.push({k:x+y,s:'<g class="'+(cls||"m-o")+'">'+s+'</g>'})}
   /* aguas someras alrededor de cada isla: tres anillos */
-  W.islands.forEach(function(L){var d=closed(L.coast,0);
+  var ALL=W.islands.concat(W.ghosts||[]),EI={};W.islands.forEach(function(L,i){EI[L.id]=i});
+  var GHOST={grass:"#C3CDC2",grass2:"#B4BFB3",side:"#98A497"};
+  ALL.forEach(function(L){var d=closed(L.coast,0);
    sea+='<path d="'+d+'" fill="none" stroke="var(--m-sh1)" stroke-width="150" stroke-linejoin="round"/>';
   });
-  W.islands.forEach(function(L){var d=closed(L.coast,0);
+  ALL.forEach(function(L){var d=closed(L.coast,0);
    sea+='<path d="'+d+'" fill="var(--m-sh2)" stroke="var(--m-sh2)" stroke-width="70" stroke-linejoin="round"/>';
   });
-  W.islands.forEach(function(L){var d=closed(L.coast,0);
+  ALL.forEach(function(L){var d=closed(L.coast,0);
    sea+='<path d="'+d+'" fill="var(--m-sh3)" stroke="var(--m-sh3)" stroke-width="30" stroke-linejoin="round"/>';
    sea+='<path class="m-foam" d="'+d+'" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-dasharray="14 10" stroke-linecap="round" opacity=".75" transform="translate(0 6)"/>';
   });
   /* islas: acantilado de arena, playa, ladera y meseta de pasto con manchas de tierra y roca */
-  W.islands.forEach(function(L,li){
-   var look=AREA_LOOK[L.area.biome]||AREA_LOOK.ciudad,dc=closed(L.coast,0),dp=closed(L.plateau,Z_TOP),cid=I.uid("mc");
-   land+='<g class="m-isle" data-a="'+L.id+'">';
-   land+='<path d="'+closed(L.coast,0,14)+'" fill="'+CLIFF+'"/>';
-   land+='<path d="'+dc+'" fill="'+SAND+'"/>';
+  ALL.forEach(function(L,li){
+   var look=L.ghost?GHOST:(AREA_LOOK[L.area.biome]||AREA_LOOK.ciudad),dc=closed(L.coast,0),dp=closed(L.plateau,Z_TOP),cid=I.uid("mc");
+   land+='<g class="m-isle'+(L.ghost?' m-ghost':'')+'" data-a="'+L.id+'" style="--ei:'+(L.ghost?W.islands.length:li)+'"><g class="m-isle-in" style="transform-origin:'+f1(pj([L.x,L.y],0)[0])+'px '+f1(pj([L.x,L.y],0)[1])+'px">';
+   land+='<path d="'+closed(L.coast,0,14)+'" fill="'+(L.ghost?"#BDB096":CLIFF)+'"/>';
+   land+='<path d="'+dc+'" fill="'+(L.ghost?"#EFE6CC":SAND)+'"/>';
    land+='<path d="'+closed(L.coast,0,1.5)+'" fill="none" stroke="#FFF6DA" stroke-width="1.6" opacity=".8" transform="translate(0 -3)"/>';
    land+='<path d="'+closed(L.plateau,0)+'" fill="'+look.side+'"/>';
    land+='<path d="'+dp+'" fill="'+look.grass+'"/>';
    land+='<clipPath id="'+cid+'"><path d="'+dp+'"/></clipPath><g clip-path="url(#'+cid+')">';
    /* manchas de pasto oscuro, tierra y roca */
    var rr=G.rng(G.hs(L.id+"t")),bx=W.bbox;
-   for(var k=0;k<L.nodes.length*5+6;k++){var a=rr()*Math.PI*2,r=rr()*L.R,x=L.x+Math.cos(a)*r,y=L.y+Math.sin(a)*r,t=rr(),c=t<.6?look.grass2:t<.85?"#D3B886":"#BDB6AA",rad=14+rr()*26,p=pj([x,y],Z_TOP);
+   for(var k=0;k<(L.ghost?3:L.nodes.length*5+6);k++){var a=rr()*Math.PI*2,r=rr()*L.R,x=L.x+Math.cos(a)*r,y=L.y+Math.sin(a)*r,t=rr(),c=L.ghost||t<.6?look.grass2:t<.85?"#D3B886":"#BDB6AA",rad=14+rr()*26,p=pj([x,y],Z_TOP);
     land+='<ellipse cx="'+f1(p[0])+'" cy="'+f1(p[1])+'" rx="'+f1(rad*1.3)+'" ry="'+f1(rad*.62)+'" fill="'+c+'" opacity="'+(t<.6?.8:.55)+'"/>'}
    land+='</g>';
-   land+='<path d="'+dp+'" fill="none" stroke="#C8F0A8" stroke-width="1.4" opacity=".7"/>';
-   land+='</g>';
+   land+='<path d="'+dp+'" fill="none" stroke="'+(L.ghost?"#E6EAE7":"#C8F0A8")+'" stroke-width="1.4" opacity=".7"/>';
+   land+='</g></g>';
   });
   /* caminos de adoquín: borde, cuerpo y piedritas */
   var rd="";W.edges.forEach(function(e){var q=e.pts.map(function(p){var inT=W.inPoly(p[0],p[1],W.byId[e.a].isle.plateau);return pj(p,inT?Z_TOP:0)});rd+=open(q)});
@@ -66,7 +68,7 @@ var ISOMAP=(function(I,E,G){
    [1,-1].forEach(function(sd){var post=[];for(var t=0;t<=l;t+=l/Math.max(2,Math.round(l/26))){var x=a[0]+ux*t+nx*sd,y=a[1]+uy*t+ny*sd;s+=I.line([P(x,y,2),P(x,y,11)],"#7A5634",1.8);post.push(P(x,y,10))}
     var dd="M"+f1(post[0][0])+" "+f1(post[0][1]);for(var k=1;k<post.length;k++){var m=[(post[k-1][0]+post[k][0])/2,(post[k-1][1]+post[k][1])/2+3];dd+="Q"+f1(m[0])+" "+f1(m[1])+" "+f1(post[k][0])+" "+f1(post[k][1])}
     s+='<path d="'+dd+'" fill="none" stroke="#E8D3A6" stroke-width="1.1"/>'});
-   objs.push({k:(a[0]+c[0]+a[1]+c[1])/2-40,s:'<g class="m-o">'+s+'</g>'});
+   objs.push({k:(a[0]+c[0]+a[1]+c[1])/2-40,s:'<g class="m-o m-br" style="--ei:'+Math.max(EI[b.a]||0,EI[b.b]||0)+'">'+s+'</g>'});
   });
   /* edificios: cada carrera se define una vez (completa y simplificada) y se reutiliza; usa la versión elegida */
   var defs=E.DEFS;
@@ -74,9 +76,10 @@ var ISOMAP=(function(I,E,G){
    var c=n.c,k=aff[c.id]!=null?aff[c.id]:.5,sc=(.92+.22*k).toFixed(3),p=pj([n.x,n.y],Z_TOP),v=opt.style||null,id=I.uid("b");
    var full,lite;
    if(opt.app){/* app: una sola versión (estructura), con id de edificio para tocar y redibujar delante de Rumbo */
-    full=typeof ART!=="undefined"&&ART.has(c.id)?ART.get(c.id,opt.detail||2,"s"):E.generic(n.isle.area.biome,c.color,G.hs(c.id));
-    defs+='<g id="'+id+'f">'+full+'</g>';
-    objs.push({k:n.x+n.y,s:'<g class="poi m-b" id="poi-'+c.id+'" data-id="'+c.id+'" transform="translate('+f1(p[0])+' '+f1(p[1])+') scale('+sc+')"><use href="#'+id+'f"/></g>'});return}
+    var mk=function(){return typeof ART!=="undefined"&&ART.has(c.id)?ART.get(c.id,opt.detail||2,"s"):E.generic(n.isle.area.biome,c.color,G.hs(c.id))};
+    /* dos versiones: gris precalculado y color; el avance mezcla una con otra sin filtros */
+    defs+='<g id="'+id+'f">'+mk()+'</g><g id="'+id+'g">'+I.greyAll(mk())+'</g>';
+    objs.push({k:n.x+n.y,s:'<g class="poi m-b" id="poi-'+c.id+'" data-id="'+c.id+'" data-a="'+n.isle.id+'" style="--ei:'+EI[n.isle.id]+'" transform="translate('+f1(p[0])+' '+f1(p[1])+') scale('+sc+')"><g class="pp"><use class="b-g" href="#'+id+'g"/><use class="b-c" href="#'+id+'f"/></g></g>'});return}
    if(typeof ART!=="undefined"&&ART.has(c.id)){full=ART.get(c.id,2,v);lite=ART.get(c.id,0,v)}
    else{full=E.generic(n.isle.area.biome,c.color,G.hs(c.id));lite=full}
    defs+='<g id="'+id+'f">'+full+'</g><g id="'+id+'l">'+lite+'</g>';
@@ -95,15 +98,24 @@ var ISOMAP=(function(I,E,G){
     for(m=0;m<placed.length&&ok;m++)if(Math.hypot(placed[m][0]-x,placed[m][1]-y)<15)ok=false;
     if(!ok)continue;placed.push([x,y]);
     var kind;if(kinds)kind=kinds[placed.length%kinds.length];else if(!onTop)kind=rr()<.55?"palm":"rock";else{var u=rr();kind=u<.5?(b.tree==="pine"?"treePine":b.tree==="palm"?(rr()<.6?"palm":"treeRound"):"treeRound"):b.deco[Math.floor(rr()*b.deco.length)]}
-    var p=pj([x,y],onTop?Z_TOP:0);
-    objs.push({k:x+y,s:'<g class="m-d" transform="translate('+f1(p[0])+' '+f1(p[1])+')">'+E.one(kind,{d:2,k:kind==="treeRound"||kind==="treePine"||kind==="palm"?.85:1,ph:rr()*3,flip:rr()<.5})+'</g>'});
+    var p=pj([x,y],onTop?Z_TOP:0),art=E.one(kind,{d:2,k:kind==="treeRound"||kind==="treePine"||kind==="palm"?.85:1,ph:rr()*3,flip:rr()<.5}),tag="";
+    if(opt.app&&onTop){var nn=null,nd=1e9;L.nodes.forEach(function(o){var dd=Math.hypot(o.x-x,o.y-y);if(dd<nd){nd=dd;nn=o}});
+     tag=' data-c="'+nn.id+'" data-d="'+f1(nd)+'"';art='<g class="d-g">'+I.greyAll(art)+'</g><g class="d-c">'+art+'</g>'}
+    objs.push({k:x+y,s:'<g class="m-d" data-a="'+L.id+'" style="--ei:'+EI[L.id]+'"'+tag+' transform="translate('+f1(p[0])+' '+f1(p[1])+')">'+art+'</g>'});
    }
+  });
+  /* islotes por descubrir: una palmera y una roca en gris, y dos nubes bajas que los tapan a medias */
+  (W.ghosts||[]).forEach(function(Gh,gi){
+   var rr=G.rng(G.hs(Gh.id+"d")),p=pj([Gh.x,Gh.y],Z_TOP),a=rr()*Math.PI*2;
+   [["palm",8,.8],["rock",-16,.9]].forEach(function(q,qi){var x=Gh.x+Math.cos(a+qi*2.6)*Math.abs(q[1]),y=Gh.y+Math.sin(a+qi*2.6)*Math.abs(q[1]),pp=pj([x,y],Z_TOP);
+    objs.push({k:x+y,s:'<g class="m-d m-gh" style="--ei:'+W.islands.length+'" transform="translate('+f1(pp[0])+' '+f1(pp[1])+')">'+I.greyAll(E.one(q[0],{d:2,k:q[2],ph:rr()*3,flip:rr()<.5}))+'</g>'})});
+   [[-30,-34,2.1,.3],[40,-10,1.7,1.7],[-8,6,1.5,2.9]].forEach(function(q){top+='<g class="m-fog" transform="translate('+f1(p[0]+q[0])+' '+f1(p[1]+q[1])+')" opacity=".94">'+E.cloud({k:q[2],ph:gi+q[3]})+'</g>'});
   });
   objs.sort(function(a,b){return a.k-b.k});
   /* mar abierto: faro en su islote, barcos, ballena, delfines; arriba, nubes y gaviotas */
   var bb=W.bbox,cx=(bb[0]+bb[2])/2,cy=(bb[1]+bb[3])/2;
   function seaSpot(seed,minD){var rr=G.rng(seed);for(var t=0;t<200;t++){var x=bb[0]-120+rr()*(bb[2]-bb[0]+240),y=bb[1]-120+rr()*(bb[3]-bb[1]+240),ok=true;
-    for(var i=0;i<W.islands.length;i++){var L=W.islands[i];if(W.inPoly(x,y,L.coast)||W.edgeDist(x,y,L.coast)<minD){ok=false;break}}if(ok)return [x,y]}return [bb[0]-140,bb[1]-140]}
+    for(var i=0;i<ALL.length;i++){var L=ALL[i];if(W.inPoly(x,y,L.coast)||W.edgeDist(x,y,L.coast)<minD+(L.ghost?70:0)){ok=false;break}}if(ok)return [x,y]}return [bb[0]-140,bb[1]-140]}
   function put(pt,s,cls){var p=pj(pt,0);return '<g class="'+(cls||"m-sea-o")+'" transform="translate('+f1(p[0])+' '+f1(p[1])+')">'+s+'</g>'}
   var seaObjs="",SEA=opt.sea||["lighthouse","sailboat","whale","dolphins","ferry","compass"];
   if(opt.budget)SEA=SEA.slice(0,opt.budget.sea);
@@ -115,7 +127,7 @@ var ISOMAP=(function(I,E,G){
   for(var cl=0;cl<(opt.budget?1:3);cl++){var sp2=seaSpot(200+cl,260),p2=pj(sp2,0);top+='<g transform="translate('+f1(p2[0])+' '+f1(p2[1]-120)+')">'+E.cloud({k:1.4+cl%2*.5,ph:cl})+'</g>'}
   for(var gu=0;gu<(opt.budget?1:4);gu++){var sp3=seaSpot(300+gu,30),p3=pj(sp3,0);top+='<g transform="translate('+f1(p3[0])+' '+f1(p3[1]-70)+')">'+E.gull()+'</g>'}
   /* caja en pantalla */
-  var sb=[1e9,1e9,-1e9,-1e9];W.islands.forEach(function(L){L.coast.forEach(function(p){var q=pj(p,0);sb[0]=Math.min(sb[0],q[0]);sb[1]=Math.min(sb[1],q[1]-120);sb[2]=Math.max(sb[2],q[0]);sb[3]=Math.max(sb[3],q[1]+20)})});
+  var sb=[1e9,1e9,-1e9,-1e9];ALL.forEach(function(L){L.coast.forEach(function(p){var q=pj(p,0);sb[0]=Math.min(sb[0],q[0]);sb[1]=Math.min(sb[1],q[1]-120);sb[2]=Math.max(sb[2],q[0]);sb[3]=Math.max(sb[3],q[1]+20)})});
   var objsS=objs.map(function(o){return o.s}).join("");
   return {parts:{defs:defs,sea:sea+gl,land:land,roads:roads,seaObjs:seaObjs,objs:objsS,top:top},svg:'<defs>'+defs+'</defs><g class="m-sea">'+sea+gl+'</g><g class="m-land">'+land+'</g><g class="m-roads">'+roads+'</g>'+seaObjs+'<g class="m-objs">'+objs.map(function(o){return o.s}).join("")+'</g><g class="m-top">'+top+'</g>',box:sb};
  }
@@ -214,5 +226,5 @@ var ISOMAP=(function(I,E,G){
   measureB();measure();fit();if(opt.start)startView(opt.start);
   return {startView:startView,view:view,fit:fit,focus:focus,zoomAt:zoomAt,apply:apply,setScale:function(s){var w=W0()/2,h=H0()/2;zoomAt(gm.getBoundingClientRect().left+w,gm.getBoundingClientRect().top+h,s/view.s)},world:W,el:gm};
  }
- return {render:render,mount:mount};
+ return {render:render,mount:mount,grass:function(b){return (AREA_LOOK[b]||AREA_LOOK.ciudad).grass}};
 })(ISO,ENV,MAPGEN);
