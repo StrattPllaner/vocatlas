@@ -93,6 +93,7 @@ function renderYo(keep){
   row("edPick","map","Mis carreras",NP+" elegida"+(NP===1?"":"s")+" en tu mapa")+
   row("chg","heart","Mis temas",nt+" tema"+(nt===1?"":"s")+" elegido"+(nt===1?"":"s"))+
   row("edPerf2","user","Mi perfil y mi meta",(S.nick?esc(S.nick):"Sin apodo")+(S.grado?" · "+esc(gradoName(S.grado)):""))+
+  '<div class="pf-edo pf-tema"><span class="pf-row-ic">'+ico(TEMA.dark()?"moon":"sun")+'</span><div class="pf-row-t"><b id="yTemaLab">Día o noche</b><span>Cambia los colores de toda la app.</span><div class="ui-seg" id="yTema" role="group" aria-labelledby="yTemaLab">'+[["auto","Automático"],["light","Día"],["dark","Noche"]].map(function(o){return '<button type="button" data-t="'+o[0]+'" aria-pressed="'+(TEMA.get()===o[0])+'">'+o[1]+'</button>'}).join("")+'</div></div></div>'+
   '<div class="pf-edo"><span class="pf-row-ic">'+ico("globe")+'</span><div class="pf-row-t"><b id="yEdoLab">Mi estado</b><span>Opcional. Solo el estado, sin ciudad ni ubicación.</span>'+edoWidget("y","yEdoLab")+'</div></div></div>'+
   (Y.where?'<div class="pf-soon">'+ico("book")+'<div>'+Y.where+'</div></div>':'')+
   '<details class="priv pf-priv"><summary>Aviso de privacidad</summary>'+PRIV_FULL+'</details>'+
@@ -106,6 +107,7 @@ function renderYo(keep){
  $("#edPick").onclick=function(){openPicker("edit")};
  $("#chg").onclick=function(){appToQuiz()};
  $("#pfAll").onclick=openSkins;
+ [].forEach.call(v.querySelectorAll("#yTema button"),function(b){b.onclick=function(){var was=TEMA.dark();TEMA.set(b.getAttribute("data-t"));if(was!==TEMA.dark())themeChanged();renderYo(true)}});
  $("#rst").onclick=function(){
   var el=document.createElement("div");el.className="ui-modal";el.setAttribute("role","alertdialog");el.setAttribute("aria-modal","true");el.setAttribute("aria-labelledby","rstT");
   el.innerHTML=rumboEl()+'<h3 id="rstT">¿Borrar todo?</h3><p>Se borran tus carreras, tu avance, tus sellos y tus Rumbos de este dispositivo. No se puede deshacer.</p><div class="acts"><button type="button" class="ui-btn is-block is-danger" data-a="ok">Sí, borrar todo</button><button type="button" class="ui-btn is-block is-sec" data-a="no">No, conservar</button></div>';

@@ -1794,6 +1794,8 @@ body.lp-open #app{visibility:hidden}body.lp-open #app *{animation-play-state:pau
 .pf-row{cursor:pointer;-webkit-tap-highlight-color:transparent}
 .pf-row:active .pf-row-ic{transform:scale(.92)}
 .pf-edo{align-items:flex-start;border-bottom:0}
+.pf-tema{border-bottom:var(--bw) solid var(--c-line)}
+.pf-tema .ui-seg{margin-top:var(--sp-3)}
 .pf-row-ic{flex:none;width:40px;height:40px;border-radius:var(--r-2);display:grid;place-items:center;background:var(--c-info-bg);color:var(--c-info-edge)}
 @media (prefers-color-scheme:dark){.pf-row-ic{color:var(--cielo-300)}}
 .pf-row-t{flex:1;min-width:0;display:block}
@@ -1810,6 +1812,24 @@ body.lp-open #app{visibility:hidden}body.lp-open #app *{animation-play-state:pau
 @media (min-width:700px){.pf-grid{grid-template-columns:repeat(6,minmax(0,1fr))}.pf-sub .pf-grid{grid-template-columns:repeat(auto-fill,minmax(132px,1fr))}.pf-stage{height:236px}.pf-stage .rb{width:170px;height:170px}}
 /*@iso-css-fin*/
 </style>
+<script>
+/* tema elegido en el perfil (auto, light, dark): las reglas @media (prefers-color-scheme) se reescriben para obedecerlo */
+(function(){
+ var MQ=window.matchMedia?matchMedia("(prefers-color-scheme: dark)"):null,ORIG=[],cur="auto";
+ try{cur=localStorage.getItem("vocatlas_tema")||"auto"}catch(e){}
+ function walk(rules){for(var i=0;i<rules.length;i++){var r=rules[i];if(r.media&&/prefers-color-scheme/.test(r.media.mediaText))ORIG.push([r,r.media.mediaText]);if(r.cssRules&&r.type!==1)walk(r.cssRules)}}
+ function apply(){
+  if(!ORIG.length){for(var i=0;i<document.styleSheets.length;i++){try{walk(document.styleSheets[i].cssRules)}catch(e){/* hoja de otro origen (fuentes): no se puede leer ni hace falta */}}}
+  var YES="(min-width: 0px)",NO="(max-width: 0px)";
+  ORIG.forEach(function(o){var t=o[1];if(cur!=="auto")t=t.replace(/\(prefers-color-scheme:\s*dark\)/g,cur==="dark"?YES:NO).replace(/\(prefers-color-scheme:\s*light\)/g,cur==="dark"?NO:YES);try{o[0].media.mediaText=t}catch(e){}});
+  var d=dark();document.documentElement.style.colorScheme=cur==="auto"?"":d?"dark":"light";
+  var m=document.querySelectorAll('meta[name="theme-color"]');for(var k=0;k<m.length;k++){if(!m[k]._c)m[k]._c=m[k].getAttribute("content");m[k].setAttribute("content",cur==="auto"?m[k]._c:d?"#0D2129":"#F6EFE2")}
+ }
+ function dark(){return cur==="dark"||(cur!=="light"&&!!(MQ&&MQ.matches))}
+ window.TEMA={get:function(){return cur},set:function(v){cur=v==="dark"||v==="light"?v:"auto";try{localStorage.setItem("vocatlas_tema",cur)}catch(e){}apply()},dark:dark,mq:MQ};
+ if(cur!=="auto")apply();
+})();
+</script>
 </head>
 <body>
 
@@ -4424,8 +4444,9 @@ function enterApp(fromDive,emerge){
  });
 }
 /* el agua somera se pinta en canvas: si cambia el modo claro/oscuro, se vuelve a armar el mapa */
-var DMQ=window.matchMedia?window.matchMedia("(prefers-color-scheme: dark)"):null;
-if(DMQ&&DMQ.addEventListener)DMQ.addEventListener("change",function(){if($("#app").classList.contains("on")&&!RB.plan){buildMap();refreshMap();commit();apply()}});
+var DMQ={get matches(){return TEMA.dark()}};
+function themeChanged(){if($("#app").classList.contains("on")&&!RB.plan){buildMap();refreshMap();commit();apply()}}
+if(TEMA.mq&&TEMA.mq.addEventListener)TEMA.mq.addEventListener("change",function(){if(TEMA.get()==="auto")themeChanged()});
 
 /*@iso-js*/
 /* cara de Rumbo, copiada de cara-rumbo.svg por build.py; no se edita a mano */
@@ -8457,6 +8478,7 @@ function renderYo(keep){
   row("edPick","map","Mis carreras",NP+" elegida"+(NP===1?"":"s")+" en tu mapa")+
   row("chg","heart","Mis temas",nt+" tema"+(nt===1?"":"s")+" elegido"+(nt===1?"":"s"))+
   row("edPerf2","user","Mi perfil y mi meta",(S.nick?esc(S.nick):"Sin apodo")+(S.grado?" · "+esc(gradoName(S.grado)):""))+
+  '<div class="pf-edo pf-tema"><span class="pf-row-ic">'+ico(TEMA.dark()?"moon":"sun")+'</span><div class="pf-row-t"><b id="yTemaLab">Día o noche</b><span>Cambia los colores de toda la app.</span><div class="ui-seg" id="yTema" role="group" aria-labelledby="yTemaLab">'+[["auto","Automático"],["light","Día"],["dark","Noche"]].map(function(o){return '<button type="button" data-t="'+o[0]+'" aria-pressed="'+(TEMA.get()===o[0])+'">'+o[1]+'</button>'}).join("")+'</div></div></div>'+
   '<div class="pf-edo"><span class="pf-row-ic">'+ico("globe")+'</span><div class="pf-row-t"><b id="yEdoLab">Mi estado</b><span>Opcional. Solo el estado, sin ciudad ni ubicación.</span>'+edoWidget("y","yEdoLab")+'</div></div></div>'+
   (Y.where?'<div class="pf-soon">'+ico("book")+'<div>'+Y.where+'</div></div>':'')+
   '<details class="priv pf-priv"><summary>Aviso de privacidad</summary>'+PRIV_FULL+'</details>'+
@@ -8470,6 +8492,7 @@ function renderYo(keep){
  $("#edPick").onclick=function(){openPicker("edit")};
  $("#chg").onclick=function(){appToQuiz()};
  $("#pfAll").onclick=openSkins;
+ [].forEach.call(v.querySelectorAll("#yTema button"),function(b){b.onclick=function(){var was=TEMA.dark();TEMA.set(b.getAttribute("data-t"));if(was!==TEMA.dark())themeChanged();renderYo(true)}});
  $("#rst").onclick=function(){
   var el=document.createElement("div");el.className="ui-modal";el.setAttribute("role","alertdialog");el.setAttribute("aria-modal","true");el.setAttribute("aria-labelledby","rstT");
   el.innerHTML=rumboEl()+'<h3 id="rstT">¿Borrar todo?</h3><p>Se borran tus carreras, tu avance, tus sellos y tus Rumbos de este dispositivo. No se puede deshacer.</p><div class="acts"><button type="button" class="ui-btn is-block is-danger" data-a="ok">Sí, borrar todo</button><button type="button" class="ui-btn is-block is-sec" data-a="no">No, conservar</button></div>';
@@ -8523,6 +8546,8 @@ var ICO={
  camera:'<path d="M4 8.5h3l1.5-2.5h7L17 8.5h3v11H4v-11Z"/><circle cx="12" cy="13.5" r="3.5"/>',
  music:'<path d="M9 17.5V5.5l10-2v12"/><circle cx="6.5" cy="17.5" r="2.5"/><circle cx="16.5" cy="15.5" r="2.5"/>',
  rocket:'<path d="M12 15.5 8.5 12c1.6-4.6 5-7.6 11-8.5-.9 6-3.9 9.4-8.5 11h1Z"/><path d="M8.5 12 5 12.5 3.5 16l3.5-.5M12 15.5l-.5 3.5-3.5 1.5.5-3.5"/>',
+ sun:'<circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.5M12 19v2.5M2.5 12H5M19 12h2.5M5.3 5.3l1.8 1.8M16.9 16.9l1.8 1.8M5.3 18.7l1.8-1.8M16.9 7.1l1.8-1.8"/>',
+ moon:'<path d="M20 14.2A8.2 8.2 0 0 1 9.8 4 8.2 8.2 0 1 0 20 14.2Z"/>',
  globe:'<circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.4 2.5 3.5 5.3 3.5 8.5s-1.1 6-3.5 8.5c-2.4-2.5-3.5-5.3-3.5-8.5s1.1-6 3.5-8.5Z"/>'
 };
 var ICO_FILL={mapF:1,bulbF:1,compassF:1,userF:1,starF:1};

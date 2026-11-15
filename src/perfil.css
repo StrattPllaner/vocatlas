@@ -56,6 +56,8 @@
 .pf-row{cursor:pointer;-webkit-tap-highlight-color:transparent}
 .pf-row:active .pf-row-ic{transform:scale(.92)}
 .pf-edo{align-items:flex-start;border-bottom:0}
+.pf-tema{border-bottom:var(--bw) solid var(--c-line)}
+.pf-tema .ui-seg{margin-top:var(--sp-3)}
 .pf-row-ic{flex:none;width:40px;height:40px;border-radius:var(--r-2);display:grid;place-items:center;background:var(--c-info-bg);color:var(--c-info-edge)}
 @media (prefers-color-scheme:dark){.pf-row-ic{color:var(--cielo-300)}}
 .pf-row-t{flex:1;min-width:0;display:block}

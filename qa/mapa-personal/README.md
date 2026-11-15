@@ -10,3 +10,4 @@ Cada script recibe la carpeta donde deja las capturas: `node matrix.mjs <carpeta
 - `v3.mjs`: lección real y regreso al mapa, celebración al completar, quitar y volver a agregar, y fluidez con 20 carreras.
 - `perfil.mjs <tamaño> [d]`: pestaña Yo, colección de Rumbos, hoja de un Rumbo ganado y de uno por ganar, y el mapa con el Rumbo puesto. Capturas en `$OUT`.
 - `skins.mjs "" 205`: lámina con los 21 Rumbos (`$OUT/skins.png`).
+- `tema.mjs`: elegir Día o Noche desde el perfil con el sistema en el tema contrario; revisa fondo, mapa y que se conserve al recargar.
