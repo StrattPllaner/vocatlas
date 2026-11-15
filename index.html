@@ -2883,8 +2883,7 @@ function isoGeo(){
 }
 function isoWorld(w,defs){
  var R=ISOW.R.parts,OX=ISOW.OX,OY=ISOW.OY,tr="translate("+OX.toFixed(1)+" "+OY.toFixed(1)+")",night=(DMQ&&DMQ.matches)?" is-night":"";
- var wp=sv("pattern",{id:"waves",width:300,height:300,patternUnits:"userSpaceOnUse"},defs),tx=seaTile();if(tx)sv("image",{href:tx,width:300,height:300},wp);
- sv("rect",{x:-3*WW,y:-3*WH,width:7*WW,height:7*WH,fill:"url(#waves)"},w);
+ /* mar liso como en el modelo de arte: solo el degradado azul del fondo y los anillos de agua baja, sin textura encima */
  var g1=sv("g",{"class":"gm isow"+night,transform:tr,"pointer-events":"none"},w);
  g1.innerHTML='<defs>'+R.defs+'</defs><g class="m-sea">'+R.sea+'</g><g class="m-land">'+R.land+'</g>';
  /* territorios: sobre la meseta de cada isla, la celda de cada carrera lleva una capa gris con un hueco redondo
