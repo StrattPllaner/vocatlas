@@ -78,7 +78,7 @@ var ISOMAP=(function(I,E,G){
    if(opt.app){/* app: una sola versión (estructura), con id de edificio para tocar y redibujar delante de Rumbo */
     var mk=function(){return typeof ART!=="undefined"&&ART.has(c.id)?ART.get(c.id,opt.detail||2,"s"):E.generic(n.isle.area.biome,c.color,G.hs(c.id))};
     /* dos versiones: gris precalculado y color; el avance mezcla una con otra sin filtros */
-    defs+='<g id="'+id+'f">'+mk()+'</g><g id="'+id+'g">'+I.greyAll(mk())+'</g>';
+    defs+='<g id="'+id+'f">'+mk()+'</g><g id="'+id+'g">'+I.sketchAll(mk())+'</g>';
     objs.push({k:n.x+n.y,s:'<g class="poi m-b" id="poi-'+c.id+'" data-id="'+c.id+'" data-a="'+n.isle.id+'" style="--ei:'+EI[n.isle.id]+'" transform="translate('+f1(p[0])+' '+f1(p[1])+') scale('+sc+')"><g class="pp"><use class="b-g" href="#'+id+'g"/><use class="b-c" href="#'+id+'f"/></g></g>'});return}
    if(typeof ART!=="undefined"&&ART.has(c.id)){full=ART.get(c.id,2,v);lite=ART.get(c.id,0,v)}
    else{full=E.generic(n.isle.area.biome,c.color,G.hs(c.id));lite=full}
@@ -100,7 +100,7 @@ var ISOMAP=(function(I,E,G){
     var kind;if(kinds)kind=kinds[placed.length%kinds.length];else if(!onTop)kind=rr()<.55?"palm":"rock";else{var u=rr();kind=u<.5?(b.tree==="pine"?"treePine":b.tree==="palm"?(rr()<.6?"palm":"treeRound"):"treeRound"):b.deco[Math.floor(rr()*b.deco.length)]}
     var p=pj([x,y],onTop?Z_TOP:0),art=E.one(kind,{d:2,k:kind==="treeRound"||kind==="treePine"||kind==="palm"?.85:1,ph:rr()*3,flip:rr()<.5}),tag="";
     if(opt.app&&onTop){var nn=null,nd=1e9;L.nodes.forEach(function(o){var dd=Math.hypot(o.x-x,o.y-y);if(dd<nd){nd=dd;nn=o}});
-     tag=' data-c="'+nn.id+'" data-d="'+f1(nd)+'"';art='<g class="d-g">'+I.greyAll(art)+'</g><g class="d-c">'+art+'</g>'}
+     tag=' data-c="'+nn.id+'" data-d="'+f1(nd)+'"';art='<g class="d-g">'+I.sketchAll(art)+'</g><g class="d-c">'+art+'</g>'}
     objs.push({k:x+y,s:'<g class="m-d" data-a="'+L.id+'" style="--ei:'+EI[L.id]+'"'+tag+' transform="translate('+f1(p[0])+' '+f1(p[1])+')">'+art+'</g>'});
    }
   });
@@ -108,7 +108,7 @@ var ISOMAP=(function(I,E,G){
   (W.ghosts||[]).forEach(function(Gh,gi){
    var rr=G.rng(G.hs(Gh.id+"d")),p=pj([Gh.x,Gh.y],Z_TOP),a=rr()*Math.PI*2;
    [["palm",8,.8],["rock",-16,.9]].forEach(function(q,qi){var x=Gh.x+Math.cos(a+qi*2.6)*Math.abs(q[1]),y=Gh.y+Math.sin(a+qi*2.6)*Math.abs(q[1]),pp=pj([x,y],Z_TOP);
-    objs.push({k:x+y,s:'<g class="m-d m-gh" style="--ei:'+W.islands.length+'" transform="translate('+f1(pp[0])+' '+f1(pp[1])+')">'+I.greyAll(E.one(q[0],{d:2,k:q[2],ph:rr()*3,flip:rr()<.5}))+'</g>'})});
+    objs.push({k:x+y,s:'<g class="m-d m-gh" style="--ei:'+W.islands.length+'" transform="translate('+f1(pp[0])+' '+f1(pp[1])+')">'+I.sketchAll(E.one(q[0],{d:2,k:q[2],ph:rr()*3,flip:rr()<.5}))+'</g>'})});
    [[-30,-34,2.1,.3],[40,-10,1.7,1.7],[-8,6,1.5,2.9]].forEach(function(q){top+='<g class="m-fog" transform="translate('+f1(p[0]+q[0])+' '+f1(p[1]+q[1])+')" opacity=".94">'+E.cloud({k:q[2],ph:gi+q[3]})+'</g>'});
   });
   objs.sort(function(a,b){return a.k-b.k});
@@ -117,19 +117,26 @@ var ISOMAP=(function(I,E,G){
   function seaSpot(seed,minD){var rr=G.rng(seed);for(var t=0;t<200;t++){var x=bb[0]-120+rr()*(bb[2]-bb[0]+240),y=bb[1]-120+rr()*(bb[3]-bb[1]+240),ok=true;
     for(var i=0;i<ALL.length;i++){var L=ALL[i];if(W.inPoly(x,y,L.coast)||W.edgeDist(x,y,L.coast)<minD+(L.ghost?70:0)){ok=false;break}}if(ok)return [x,y]}return [bb[0]-140,bb[1]-140]}
   function put(pt,s,cls){var p=pj(pt,0);return '<g class="'+(cls||"m-sea-o")+'" transform="translate('+f1(p[0])+' '+f1(p[1])+')">'+s+'</g>'}
-  var seaObjs="",SEA=opt.sea||["lighthouse","sailboat","whale","dolphins","ferry","compass"];
+  var amb=[],seaObjs="",SEA=opt.sea||["lighthouse","sailboat","whale","dolphins","ferry","compass"];
   if(opt.budget)SEA=SEA.slice(0,opt.budget.sea);
   SEA.forEach(function(k,i){var sp=seaSpot(11+i*7,k==="lighthouse"?110:k==="compass"?150:80);
    var art=k==="lighthouse"?E.lighthouse():k==="sailboat"?E.sailboat({c:i%2?"#3F7DA6":"#E0434B"}):k==="ferry"?E.ferry():k==="whale"?E.whale():k==="dolphins"?E.dolphins():k==="compass"?E.compass():"";
+   /* app: lo que se mueve (barcos, ballena, delfines) sale del svg y va a la capa de ambiente */
+   if(opt.amb&&/sailboat|ferry|whale|dolphins/.test(k)){var pa=pj(sp,0);amb.push({k:k==="sailboat"||k==="ferry"?"boat":k==="whale"?"whale":"dolphin",x:pa[0],y:pa[1],art:k==="dolphins"?E.dolphin():art,i:i});return}
    seaObjs+=put(sp,'<g class="m-sea-'+k+'">'+art+'</g>')});
   /* olas lentas y brillos */
   var gl="";for(var w=0;w<(opt.budget?24:60);w++){var sp=seaSpot(100+w,40),p=pj(sp,0);gl+='<path class="m-glint" style="--gd:'+(w%7*.6).toFixed(1)+'s" d="M'+f1(p[0])+' '+f1(p[1])+'q4 -2.4 8 0q4 -2.4 8 0" fill="none" stroke="#FFFFFF" stroke-width="1.3" stroke-linecap="round"/>'}
-  for(var cl=0;cl<(opt.budget?1:3);cl++){var sp2=seaSpot(200+cl,260),p2=pj(sp2,0);top+='<g transform="translate('+f1(p2[0])+' '+f1(p2[1]-120)+')">'+E.cloud({k:1.4+cl%2*.5,ph:cl})+'</g>'}
-  for(var gu=0;gu<(opt.budget?1:4);gu++){var sp3=seaSpot(300+gu,30),p3=pj(sp3,0);top+='<g transform="translate('+f1(p3[0])+' '+f1(p3[1]-70)+')">'+E.gull()+'</g>'}
+  if(opt.amb){
+   for(var ac=0;ac<(opt.budget?3:5);ac++){var sa=seaSpot(200+ac,ac<2?260:120),qa=pj(sa,0);amb.push({k:"cloud",x:qa[0],y:qa[1]-120-ac%3*26,art:E.cloud({k:1.2+ac%3*.35,ph:ac}),i:ac})}
+   for(var ag=0;ag<(opt.budget?3:5);ag++){var sg=seaSpot(300+ag,30),qg=pj(sg,0);amb.push({k:"gull",x:qg[0],y:qg[1]-70,art:E.gull(),i:ag})}
+   for(var aw=0;aw<(opt.budget?10:18);aw++){var sw=seaSpot(400+aw,46),qw=pj(sw,0);amb.push({k:"wave",x:qw[0],y:qw[1],art:'<path d="M-12 0q4 -2.6 8 0q4 -2.6 8 0q4 -2.6 8 0" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round"/>',i:aw})}
+  }
+  else for(var cl=0;cl<(opt.budget?1:3);cl++){var sp2=seaSpot(200+cl,260),p2=pj(sp2,0);top+='<g transform="translate('+f1(p2[0])+' '+f1(p2[1]-120)+')">'+E.cloud({k:1.4+cl%2*.5,ph:cl})+'</g>'}
+  if(!opt.amb)for(var gu=0;gu<(opt.budget?1:4);gu++){var sp3=seaSpot(300+gu,30),p3=pj(sp3,0);top+='<g transform="translate('+f1(p3[0])+' '+f1(p3[1]-70)+')">'+E.gull()+'</g>'}
   /* caja en pantalla */
   var sb=[1e9,1e9,-1e9,-1e9];ALL.forEach(function(L){L.coast.forEach(function(p){var q=pj(p,0);sb[0]=Math.min(sb[0],q[0]);sb[1]=Math.min(sb[1],q[1]-120);sb[2]=Math.max(sb[2],q[0]);sb[3]=Math.max(sb[3],q[1]+20)})});
   var objsS=objs.map(function(o){return o.s}).join("");
-  return {parts:{defs:defs,sea:sea+gl,land:land,roads:roads,seaObjs:seaObjs,objs:objsS,top:top},svg:'<defs>'+defs+'</defs><g class="m-sea">'+sea+gl+'</g><g class="m-land">'+land+'</g><g class="m-roads">'+roads+'</g>'+seaObjs+'<g class="m-objs">'+objs.map(function(o){return o.s}).join("")+'</g><g class="m-top">'+top+'</g>',box:sb};
+  return {amb:amb,parts:{defs:defs,sea:sea+gl,land:land,roads:roads,seaObjs:seaObjs,objs:objsS,top:top},svg:'<defs>'+defs+'</defs><g class="m-sea">'+sea+gl+'</g><g class="m-land">'+land+'</g><g class="m-roads">'+roads+'</g>'+seaObjs+'<g class="m-objs">'+objs.map(function(o){return o.s}).join("")+'</g><g class="m-top">'+top+'</g>',box:sb};
  }
 
  /* ---------- visor ---------- */

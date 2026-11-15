@@ -35,7 +35,7 @@ function artDefs(){
  var h="";
  C.forEach(function(c){
   var mk=function(){return typeof ART!=="undefined"&&ART.has(c.id)?ART.get(c.id,0,ART.pick(c.id)):'<circle cx="0" cy="-30" r="34" fill="'+c.color+'"/>'};
-  h+='<g id="ad-'+c.id+'">'+mk()+'</g><g id="ad-'+c.id+'-g">'+(typeof ISO!=="undefined"?ISO.greyAll(mk()):mk())+'</g>';
+  h+='<g id="ad-'+c.id+'">'+mk()+'</g><g id="ad-'+c.id+'-g">'+(typeof ISO!=="undefined"?ISO.sketchAll(mk()):mk())+'</g>';
  });
  var d=document.createElement("div");d.innerHTML='<svg id="artSprite" width="0" height="0" style="position:absolute" aria-hidden="true"><defs>'+h+'</defs></svg>';
  document.body.appendChild(d.firstChild);

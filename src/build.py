@@ -10,7 +10,7 @@ cd=re.search(r' d="([^"]+)"',cs).group(1)
 subs=[x.strip() for x in re.split(r'(?=M)',cd) if x.strip()]
 js='/* cara de Rumbo, copiada de cara-rumbo.svg por build.py; no se edita a mano */\nvar CARA={vb:'+json.dumps(vb)+',sub:'+json.dumps(subs)+'};\n'
 js+=open(src+'rumbo.js').read().replace('/*@skins*/',open(src+'skins.js').read())+'\n'
-js+=''.join(open(src+f).read()+'\n' for f in ['iso-lib.js','iso-gen.js','iso-env-old.js','iso-env.js','iso-bld.js','iso-bld2.js','iso-bld3.js','iso-map.js','iso-fix.js','iso-art.js','rumbo-page.js','path.js','mine.js','perfil.js'])
+js+=''.join(open(src+f).read()+'\n' for f in ['iso-lib.js','iso-gen.js','iso-env-old.js','iso-env.js','iso-bld.js','iso-bld2.js','iso-bld3.js','iso-map.js','iso-fix.js','iso-art.js','rumbo-page.js','path.js','amb.js','mine.js','perfil.js'])
 css=open(src+'iso.css').read()+open(src+'mine.css').read()+open(src+'perfil.css').read()
 def put(s,a,b,body,anchor,before=True):
     if a in s:

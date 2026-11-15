@@ -224,3 +224,9 @@
 @media (min-width:700px){.at-ring{width:148px;height:148px}.at-hi h2{font-size:var(--fs-3xl)}.at-hi p{font-size:var(--fs-md)}.at-cc{width:148px}}
 @media (prefers-reduced-motion:reduce){.at-in,.stp-cell.is-new .stp{animation:none!important}.at-ring .arc,.at-sub{transition:none!important}}
 @media print{.at-sub.is-rep .at-subb{overflow:visible;padding:0}.rp-stats,.rp-note{-webkit-print-color-adjust:exact;print-color-adjust:exact}.ui-prog,.ui-prog>i,.at-rk{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+/* ambiente del mapa */
+.amb-s{position:absolute;pointer-events:none;contain:layout style}
+.amb-m{width:100%;height:100%;will-change:transform,opacity;transform-origin:50% 60%}
+.amb-m svg{display:block;overflow:visible}
+.amb-gull .iso-gull,.amb-whale .iso-spout{animation:none!important}
+.amb-wave .amb-m{opacity:0}
