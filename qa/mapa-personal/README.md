@@ -9,5 +9,5 @@ Cada script recibe la carpeta donde deja las capturas: `node matrix.mjs <carpeta
 - `v2.mjs`: elección de carreras y Atlas en todos los tamaños y temas; desbordes, botones menores de 44 px y buscador sin acentos. Color al 0, 25, 50, 75 y 100 %.
 - `v3.mjs`: lección real y regreso al mapa, celebración al completar, quitar y volver a agregar, y fluidez con 20 carreras.
 - `perfil.mjs <tamaño> [d]`: pestaña Yo, colección de Rumbos, hoja de un Rumbo ganado y de uno por ganar, y el mapa con el Rumbo puesto. Capturas en `$OUT`.
-- `skins.mjs "" 205`: lámina con los 21 Rumbos (`$OUT/skins.png`).
+- `skins.mjs "medicina,cine" 290 nombre`: lámina con los Rumbos animados que se pidan (sin lista, todos).
 - `tema.mjs`: elegir Día o Noche desde el perfil con el sistema en el tema contrario; revisa fondo, mapa y que se conserve al recargar.

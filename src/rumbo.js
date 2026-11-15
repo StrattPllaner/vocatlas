@@ -624,12 +624,12 @@ var RUMBO=(function(){
   var gog='<rect x="45.6" y="30.6" width="8.4" height="2.4" rx="1.2" fill="'+SGOLD+'"'+sl(1)+'/>';
   [[40.8,32.2],[59,31.6]].forEach(function(c){gog+='<circle cx="'+c[0]+'" cy="'+c[1]+'" r="5" fill="'+SGOLD+'"'+sl(1.2)+'/><circle cx="'+c[0]+'" cy="'+c[1]+'" r="3.4" fill="'+SLENS+'"'+sl(.9)+'/><path d="M'+(c[0]-2)+' '+(c[1]+.4)+'L'+(c[0]+.6)+' '+(c[1]-2.2)+'" stroke="'+SLENSH+'" stroke-width="1.2" stroke-linecap="round"/>'});
   var hat=SK?skinHat(SK,id):nh?hatU(id):grp("rk-hat",50,42,grp("rk-arrow",50,22,arrow)+grp("rk-flapL",30,46,flapL)+grp("rk-flapR",71,45,flapR)+cap+grp("rk-gog",50,31.6,gog));
-  return isoInk('<svg class="rbx rbx-S'+(fk==="ref"?' rbx-T'+(nh?' rbx-U':'')+'" data-face="ref':'')+(SK?'" data-skin="'+sk:'')+'" data-ojos="retro" data-hatr="-7" data-arr="-16" data-eyefix="1" viewBox="0 0 100 100" aria-hidden="true">'+
+  return isoInk('<svg class="rbx rbx-S'+(fk==="ref"?' rbx-T'+(nh?' rbx-U':'')+'" data-face="ref':'')+(SK?'" data-skin="'+sk+(SK.prop?'" data-pose-l="puño':''):'')+'" data-ojos="retro" data-hatr="'+(SK?0:-7)+'" data-arr="'+(SK?0:-16)+'" data-eyefix="1" viewBox="0 0 100 100" aria-hidden="true">'+
    grp("rk-root",50,97,
     '<g class="rk-shadow"><ellipse class="rk-sh" cx="55" cy="97.6" rx="25" ry="3" fill="var(--rb-sh,#1D2C55)" opacity=".13"/><ellipse cx="38.6" cy="97.1" rx="9" ry="1.2" fill="#13213F" opacity=".22"/><ellipse cx="61.4" cy="97.1" rx="9" ry="1.2" fill="#13213F" opacity=".22"/></g>'+
     grp("rk-legL",41.5,76,bL)+grp("rk-legR",58.5,76,bR)+
-    grp("rk-body",50,82,body+'<g class="rk-face">'+face+'</g>'+hat)+
-    (nh?grp("rk-handL",15,70,handAt(id+"hL",15,70,-1))+grp("rk-handR",86,60,handAt(id+"hR",86,60,1)):grp("rk-handL",16,70,gloveS(16,70,-1))+grp("rk-handR",85,58,gloveS(85,58,1))))+'</svg>')}
+    grp("rk-body",50,82,body+(SK&&SK.bib?SK.bib(id):'')+'<g class="rk-face">'+face+'</g>'+hat)+
+    (nh?grp("rk-handL",15,70,(SK&&SK.prop?'<g class="rk-prop" transform="translate(15 66.6)">'+SK.prop()+'</g>':'')+handAt(id+"hL",15,70,-1))+grp("rk-handR",86,60,handAt(id+"hR",86,60,1)):grp("rk-handL",16,70,gloveS(16,70,-1))+grp("rk-handR",85,58,gloveS(85,58,1))))+'</svg>')}
 
  var MOT=(function(){
   if(typeof window==="undefined")return null;
@@ -784,7 +784,7 @@ var RUMBO=(function(){
     /* manos con articulaciones: pose de cada mano (las dos nunca iguales) y su lugar */
     var PL="relajada",PR="relajada";
     if(st.hk){if(up>.5)PL=PR="celebrando";if(A&&A.k==="yes"){PL="celebrando";PR="pulgar"}if(wv>.3)PR="saludo";if(pt>.3)PR="señalar";if(mood==="think")PL="pensando";if(A&&A.k==="oops")PL=PR="sosteniendo";
-     var xl=wr.getAttribute("data-pose-l"),xr=wr.getAttribute("data-pose-r");if(xl)PL=xl;if(xr)PR=xr;st.PL=PL;st.PR=PR;
+     var xl=wr.getAttribute("data-pose-l")||svg.getAttribute("data-pose-l"),xr=wr.getAttribute("data-pose-r");if(xl)PL=xl;if(xr)PR=xr;st.PL=PL;st.PR=PR;
      if(PL==="aplaudiendo"||PR==="aplaudiendo"){var cl3=Math.abs(Math.sin(t*2*Math.PI/.7));hl.x+=29-cl3*2.4;hl.y+=7;hl.r+=70;hr.x-=31-cl3*2.4;hr.y+=17;hr.r-=70}
      if(PL==="pensando"){hl.x+=26;hl.y+=4;hl.r-=24}
      if(pt>.3)hr.r+=pt*160;
