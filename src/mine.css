@@ -1,6 +1,8 @@
 /* ================= mapa personal: color por avance, islotes, agregar carrera ================= */
-.m-d .d-c{display:none}.m-d.is-ink .d-c{display:inline}.m-d.is-ink .d-g{display:none}
-.t-ink{pointer-events:auto}
+.t-hit{fill:transparent;pointer-events:all}
+.t-ring{stroke:var(--sk3);stroke-width:9;stroke-opacity:.5;stroke-linejoin:round}
+.isow{--sk0:#BFA57E;--sk1:#D8C29C;--sk2:#E9D9B8;--sk3:#F5EBD4;--skl:#7A5C3A}
+.m-terr.is-night .t-gsk{filter:brightness(.72) saturate(.85)}
 #mlayer.tight .al .t{font-size:10.5px;letter-spacing:.12em}#mlayer.tight .sl .t{font-size:12px}
 .pn-s{display:none}#mlayer.tight .pn-s{display:inline}#mlayer.tight .pn-l{display:none}
 .mpin.s-full .pd{box-shadow:0 0 0 2px var(--mostaza)}

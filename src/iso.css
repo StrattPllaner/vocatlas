@@ -214,3 +214,9 @@ body.lp-open #app{visibility:hidden}body.lp-open #app *{animation-play-state:pau
 /* mapa de la app: sin animaciones dentro del svg; cualquier animación ahí obliga a redibujar todo el mapa en cada cuadro */
 .isow *{animation:none!important}
 .isow .m-glint{opacity:.5}
+.ia-inkrow{margin:0 0 18px}.ia-inkrow h3{margin:0 0 6px;font-size:15px}
+.ia-inkc{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
+.ia-inkc figure{margin:0;background:#2E9BD6;border-radius:12px;overflow:hidden;text-align:center}
+.ia-inkc svg{display:block;width:100%;height:auto}
+.ia-inkc figcaption{font-size:12px;font-weight:700;color:#fff;padding:2px 0 5px}
+@media (max-width:620px){.ia-inkc{grid-template-columns:repeat(2,minmax(0,1fr))}}

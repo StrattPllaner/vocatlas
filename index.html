@@ -1518,9 +1518,17 @@ body.lp-open #app{visibility:hidden}body.lp-open #app *{animation-play-state:pau
 /* mapa de la app: sin animaciones dentro del svg; cualquier animación ahí obliga a redibujar todo el mapa en cada cuadro */
 .isow *{animation:none!important}
 .isow .m-glint{opacity:.5}
+.ia-inkrow{margin:0 0 18px}.ia-inkrow h3{margin:0 0 6px;font-size:15px}
+.ia-inkc{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
+.ia-inkc figure{margin:0;background:#2E9BD6;border-radius:12px;overflow:hidden;text-align:center}
+.ia-inkc svg{display:block;width:100%;height:auto}
+.ia-inkc figcaption{font-size:12px;font-weight:700;color:#fff;padding:2px 0 5px}
+@media (max-width:620px){.ia-inkc{grid-template-columns:repeat(2,minmax(0,1fr))}}
 /* ================= mapa personal: color por avance, islotes, agregar carrera ================= */
-.m-d .d-c{display:none}.m-d.is-ink .d-c{display:inline}.m-d.is-ink .d-g{display:none}
-.t-ink{pointer-events:auto}
+.t-hit{fill:transparent;pointer-events:all}
+.t-ring{stroke:var(--sk3);stroke-width:9;stroke-opacity:.5;stroke-linejoin:round}
+.isow{--sk0:#BFA57E;--sk1:#D8C29C;--sk2:#E9D9B8;--sk3:#F5EBD4;--skl:#7A5C3A}
+.m-terr.is-night .t-gsk{filter:brightness(.72) saturate(.85)}
 #mlayer.tight .al .t{font-size:10.5px;letter-spacing:.12em}#mlayer.tight .sl .t{font-size:12px}
 .pn-s{display:none}#mlayer.tight .pn-s{display:inline}#mlayer.tight .pn-l{display:none}
 .mpin.s-full .pd{box-shadow:0 0 0 2px var(--mostaza)}
@@ -2840,7 +2848,7 @@ function buildMap(){
  ALABELS.forEach(function(a){addLabel("al",a[1]*K,a[2]*K,'<span class="t">'+esc(a[0])+"</span>")});}
  if(iso)ISOW.ghosts.forEach(function(g,i){if(!i)addLabel("al gh",g.x,g.ly,'<span class="t gh-t">Islas por descubrir</span>');var e=addLabel("ghost",g.x,g.y,'<span class="gh-hit"></span>');e.setAttribute("role","button");e.setAttribute("tabindex","0");e.setAttribute("aria-label","Isla por descubrir. Agregar carrera");if(g.area)e.setAttribute("data-a",g.area)});
  (iso?mapCs():C).forEach(function(c,i){
-  var e=addLabel("mpin",c.cx,c.cy,'<span class="pl"><span class="pd"><svg class="i-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><svg class="i-mid" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.6" stroke-linecap="round"><path d="M6 12h12"/></svg><svg class="i-no" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"><path d="M7 7l10 10M17 7L7 17"/></svg></span><span class="pn-l">'+esc(c.name)+'</span><span class="pn-s">'+esc(PSHORT[c.id]||c.name)+"</span><small></small></span>");
+  var e=addLabel("mpin",c.lx!=null?c.lx:c.cx,c.ly!=null?c.ly:c.cy,'<span class="pl"><span class="pd"><svg class="i-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><svg class="i-mid" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.6" stroke-linecap="round"><path d="M6 12h12"/></svg><svg class="i-no" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"><path d="M7 7l10 10M17 7L7 17"/></svg></span><span class="pn-l">'+esc(c.name)+'</span><span class="pn-s">'+esc(PSHORT[c.id]||c.name)+"</span><small></small></span>");
   e.setAttribute("data-id",c.id);e.setAttribute("role","button");e.setAttribute("tabindex","0");e.setAttribute("aria-label",c.name+(S.res[c.id]?", ya probada":"")+". Ir con Rumbo");
   e.style.setProperty("--c",c.color);e.style.setProperty("--ic",lum(c.color)>.62?"#14323F":"#FFFBF2");e.style.setProperty("--d",(380+i*22)+"ms");e.style.setProperty("--c0",c.color);
   refs[c.id].pin=e;refs[c.id].mk=e.querySelector(".pd");refs[c.id].sm=e.querySelector("small");
@@ -2879,7 +2887,7 @@ function isoGeo(){
  WW=Math.round(sb[2]-sb[0]+2*pad);WH=Math.round(sb[3]-sb[1]+2*pad);
  function pj(p,z){var q=P(p[0],p[1],z||0);return [q[0]+OX,q[1]+OY]}
  var door={};
- W.nodes.forEach(function(n){var c=byId[n.id];if(!c)return;door[n.id]=[n.x+30,n.y+30];var q=pj(door[n.id],ZT);c.cx=q[0];c.cy=q[1];c.bx=pj([n.x,n.y],ZT);c.isle=n.isle.id});
+ W.nodes.forEach(function(n){var c=byId[n.id];if(!c)return;door[n.id]=[n.x+58,n.y-6];var q=pj(door[n.id],ZT);c.cx=q[0];c.cy=q[1];c.bx=pj([n.x,n.y],ZT);var ql=pj([n.x+14,n.y+50],ZT);c.lx=ql[0];c.ly=ql[1];c.isle=n.isle.id});
  Object.keys(NODES).forEach(function(k){delete NODES[k]});
  MC().forEach(function(c){NODES[c.id]=[c.cx,c.cy]});
  EDGES.length=0;
@@ -2910,7 +2918,9 @@ function isoGeo(){
   var bb=[Math.min.apply(null,xs)-20,Math.min.apply(null,ys)-20,Math.max.apply(null,xs)+20,Math.max.apply(null,ys)+20],samp=ns.map(function(){return []});
   for(var x=bb[0];x<bb[2];x+=9)for(var y=bb[1];y<bb[3];y+=9){if(!W.inPoly(x,y,L.plateau))continue;var bi=0,bd=1e9;for(var i=0;i<ns.length;i++){var d=Math.hypot(ns[i].x-x,ns[i].y-y);if(d<bd){bd=d;bi=i}}if(bd>48)samp[bi].push(bd)}
   ns.forEach(function(n,i){var d=samp[i].sort(function(a,b){return a-b});if(!d.length)d=[60];
-   cells[n.id]={poly:cellPoly(i,sites,ws,bb).map(function(q){return pj(q,ZT)}),d:d,R:d[d.length-1]+12,c:pj([n.x,n.y],ZT),isle:L.id,grass:ISOMAP.grass(L.area.biome)}});
+   var cxs=L.coast.map(function(q){return q[0]}),cys=L.coast.map(function(q){return q[1]}),zb=[Math.min.apply(null,cxs)-260,Math.min.apply(null,cys)-260,Math.max.apply(null,cxs)+260,Math.max.apply(null,cys)+260];
+   var cb=pj([n.x,n.y],ZT+34),Rz=150;L.coast.forEach(function(q){var bi=0,bd=1e9;for(var k=0;k<ns.length;k++){var dd=Math.hypot(ns[k].x-q[0],ns[k].y-q[1]);if(dd<bd){bd=dd;bi=k}}if(bi!==i)return;var sp=pj(q,0);Rz=Math.max(Rz,Math.hypot((sp[0]-cb[0])/1.3,(sp[1]+16-cb[1])/.85)+36)});
+   cells[n.id]={poly:cellPoly(i,sites,ws,bb).map(function(q){return pj(q,ZT)}),zone:cellPoly(i,sites,ws,zb).map(function(q){return pj(q,ZT)}),cb:cb,Rz:Rz,d:d,R:d[d.length-1]+12,c:pj([n.x,n.y],ZT),isle:L.id,grass:ISOMAP.grass(L.area.biome)}});
  });
  var fit=[1e9,1e9,-1e9,-1e9];W.islands.forEach(function(L){L.coast.forEach(function(p){var q=pj(p,0);fit[0]=Math.min(fit[0],q[0]);fit[1]=Math.min(fit[1],q[1]-96);fit[2]=Math.max(fit[2],q[0]);fit[3]=Math.max(fit[3],q[1]+16)})});
  var ghosts=W.ghosts.map(function(g){var q=pj([g.x,g.y],6),ly=-1e9;g.coast.forEach(function(p){ly=Math.max(ly,pj(p,0)[1])});return {x:q[0],y:q[1],ly:ly+30,area:g.area&&AREAS[g.area.id]?g.area.id:""}});
@@ -2920,31 +2930,37 @@ function isoWorld(w,defs){
  var R=ISOW.R.parts,OX=ISOW.OX,OY=ISOW.OY,tr="translate("+OX.toFixed(1)+" "+OY.toFixed(1)+")",night=(DMQ&&DMQ.matches)?" is-night":"";
  /* mar liso como en el modelo de arte: solo el degradado azul del fondo y los anillos de agua baja, sin textura encima */
  var g1=sv("g",{"class":"gm isow"+night,transform:tr,"pointer-events":"none"},w);
- g1.innerHTML='<defs>'+R.defs+'</defs><g class="m-sea">'+R.sea+'</g><g class="m-land">'+R.land+'</g>';
- /* territorios: sobre la meseta de cada isla, la celda de cada carrera lleva una capa gris con un hueco redondo
-    alrededor de su edificio. El hueco crece con el avance: por ahí asoma el pasto de color, como tinta que se extiende.
-    El gris ya viene calculado (ISO.grey); no hay filtros en vivo. */
- var tL=sv("g",{"class":"m-terr"},w),nk=night?.72:1;INK={};
+ g1.innerHTML='<defs>'+R.defs+'</defs><g class="m-sea">'+R.sea+'</g><g class="m-land">'+R.land+'</g><g class="m-roads">'+R.roads+'</g>';
+ /* territorios. Cada carrera tiene una sola mancha (la acuarela) y de ella salen dos recortes:
+    «col-id» deja ver lo que cae dentro (versión a color) y «skc-id» lo que cae fuera (versión boceto).
+    Todas las piezas de su territorio usan esos dos recortes: el suelo de su zona (arena, pasto, ladera, caminos),
+    su edificio y su vegetación. Así todo se pinta a la vez y con el mismo borde. Sin filtros en vivo. */
+ var tL=sv("g",{"class":"m-terr isow"+night},w);INK={};
  ISOW.W.islands.forEach(function(L,li){
   var plat=L.plateau.map(function(p){return ISOW.pj(p,ISOW.ZT)}),d="M"+plat.map(function(q){return q[0].toFixed(1)+" "+q[1].toFixed(1)}).join("L")+"Z";
   var cp=sv("clipPath",{id:"clip-"+L.id},defs);sv("path",{d:d},cp);
-  var inner=sv("g",{"clip-path":"url(#clip-"+L.id+")","class":"t-isle","data-a":L.id,style:"--ei:"+li+";transform-origin:"+ISOW.pj([L.x,L.y],0)[0].toFixed(1)+"px "+ISOW.pj([L.x,L.y],0)[1].toFixed(1)+"px"},tL);
+  var isle=sv("g",{"class":"t-isle","data-a":L.id,style:"--ei:"+li+";transform-origin:"+ISOW.pj([L.x,L.y],0)[0].toFixed(1)+"px "+ISOW.pj([L.x,L.y],0)[1].toFixed(1)+"px"},tL);
+  /* silueta de la isla (costa y su ladera) para que nada del boceto ni del borde de acuarela caiga en el mar */
+  var ci=sv("clipPath",{id:"isl-"+L.id},defs),cpt=L.coast.map(function(p){var q=ISOW.pj(p,0);return [q[0]-OX,q[1]-OY]});
+  sv("polygon",{points:cpt.map(function(q){return q[0].toFixed(1)+" "+q[1].toFixed(1)}).join(" ")},ci);sv("polygon",{points:cpt.map(function(q){return q[0].toFixed(1)+" "+(q[1]+15).toFixed(1)}).join(" ")},ci);
+  var gsk=sv("g",{transform:tr,"pointer-events":"none","class":"t-gsk"},isle),inner=sv("g",{"clip-path":"url(#clip-"+L.id+")"},isle);
   mapCs().filter(function(c){return c.isle===L.id}).forEach(function(c){
-   var K=ISOW.cells[c.id],ps=ptsStr(K.poly),tg=sv("g",{"class":"terr","data-id":c.id},inner),gq=rgb(ISO.sketch(K.grass)),gc="#"+gq.map(function(v){v=Math.round(v*nk);return (v<16?"0":"")+v.toString(16)}).join("");
-   /* papel sobre la celda con un hueco de borde irregular: dos manchas, la de fuera a media tinta, como acuarela que se corre */
-   var cp2=sv("clipPath",{id:"cell-"+c.id},defs);sv("polygon",{points:ps},cp2);
-   var ig=sv("g",{"clip-path":"url(#cell-"+c.id+")","class":"t-ink"},tg),ink=sv("path",{fill:gc,"fill-rule":"evenodd"},ig),ink2=sv("path",{fill:gc,"fill-rule":"evenodd",opacity:.5},ig);
-   /* trazos de lápiz sobre el papel: rayado corto, fijo por carrera */
-   var hr=rng(hash(c.id+"h")),hd="";for(var hi=0;hi<14;hi++){var ha=hr()*6.283,hq=Math.sqrt(hr())*K.R*.92,hx=K.c[0]+Math.cos(ha)*hq*1.41,hy=K.c[1]+Math.sin(ha)*hq*.71,hl=7+hr()*9;hd+="M"+hx.toFixed(1)+" "+hy.toFixed(1)+"l"+hl.toFixed(1)+" "+(-hl*.5).toFixed(1)+"m-"+(hl-3).toFixed(1)+" "+(hl*.5+3).toFixed(1)+"l"+(hl*.8).toFixed(1)+" "+(-hl*.4).toFixed(1)}
-   var hat=sv("path",{d:hd,fill:"none",stroke:ISO.SKL,"stroke-width":1,"stroke-linecap":"round",opacity:night?.3:.38,"clip-path":"url(#cell-"+c.id+")","pointer-events":"none"},tg);
-   sv("polygon",{points:ps,"class":"t-sel"},tg);
-   var wob=[],wr=rng(hash(c.id+"w")),w1=wr()*6.283,w2=wr()*6.283,w3=wr()*6.283;for(var wi=0;wi<40;wi++){var wa=wi/40*6.283;wob.push([Math.cos(wa),Math.sin(wa),1+.1*Math.sin(wa*3+w1)+.07*Math.sin(wa*5+w2)+.045*Math.sin(wa*9+w3),1+.09*Math.sin(wa*4+w2)+.06*Math.sin(wa*7+w1)])}
-   var big=K.R*4,outer="M"+(K.c[0]-big).toFixed(0)+" "+(K.c[1]-big).toFixed(0)+"h"+(2*big).toFixed(0)+"v"+(2*big).toFixed(0)+"h-"+(2*big).toFixed(0)+"Z";
-   refs[c.id]={g:tg,ps:ps,R:K.R,host:inner,ink:ig,i1:ink,i2:ink2,hat:hat,wob:wob,outer:outer,K:K};
+   var K=ISOW.cells[c.id],ps=ptsStr(K.poly),tg=sv("g",{"class":"terr","data-id":c.id},inner);
+   sv("polygon",{points:ps,"class":"t-hit"},tg);sv("polygon",{points:ps,"class":"t-sel"},tg);
+   /* los recortes viven en el sistema del mapa (sin el desplazamiento OX, OY), igual que las piezas */
+   var zp=K.zone.map(function(q){return (q[0]-OX).toFixed(1)+" "+(q[1]-OY).toFixed(1)}).join(" ");
+   var cz=sv("clipPath",{id:"zone-"+c.id},defs);sv("polygon",{points:zp},cz);
+   var c1=sv("clipPath",{id:"skc-"+c.id},defs),cs=sv("path",{"clip-rule":"evenodd"},c1),c2=sv("clipPath",{id:"col-"+c.id},defs),cc=sv("path",{},c2);
+   var gz=sv("g",{"clip-path":"url(#zone-"+c.id+")","data-c":c.id},gsk),gs=sv("g",{"class":"sk","clip-path":"url(#skc-"+c.id+")"},gz);
+   sv("use",{href:"#skl-"+L.id},gs);sv("use",{href:"#skroads"},gs);
+   var ring=sv("path",{"class":"t-ring",fill:"none"},sv("g",{"clip-path":"url(#isl-"+L.id+")"},gz));
+   var wob=[],wr=rng(hash(c.id+"w")),w1=wr()*6.283,w2=wr()*6.283,w3=wr()*6.283;for(var wi=0;wi<48;wi++){var wa=wi/48*6.283;wob.push([Math.cos(wa),Math.sin(wa),1+.1*Math.sin(wa*3+w1)+.07*Math.sin(wa*5+w2)+.045*Math.sin(wa*9+w3)])}
+   var bx=K.cb[0]-OX,by=K.cb[1]-OY,big=K.Rz*6,outer="M"+(bx-big).toFixed(0)+" "+(by-big).toFixed(0)+"h"+(2*big).toFixed(0)+"v"+(2*big).toFixed(0)+"h-"+(2*big).toFixed(0)+"Z";
+   refs[c.id]={g:tg,ps:ps,R:K.R,host:inner,cs:cs,cc:cc,ring:ring,gs:gs,wob:wob,outer:outer,bc:[bx,by],Rz:K.Rz,K:K,st:-1};
   });
  });
  var g2=sv("g",{"class":"gm isow"+night,transform:tr},w);
- g2.innerHTML='<g class="m-roads" pointer-events="none">'+R.roads+'</g><g pointer-events="none">'+R.seaObjs+'</g><g class="m-objs">'+R.objs+'</g><g class="m-top" pointer-events="none">'+R.top+'</g>';
+ g2.innerHTML='<g pointer-events="none">'+R.seaObjs+'</g><g class="m-objs">'+R.objs+'</g><g class="m-top" pointer-events="none">'+R.top+'</g>';
 }
 /* capa de efectos: niebla sobre lo no visitado y huellitas; vive en su propio svg para no repintar el mapa */
 var fogs={},stepsL=null;
@@ -2969,21 +2985,26 @@ function refreshMap(waveId){
    p de 0 a 1. El edificio mezcla su versión gris con la de color (opacidad = p), el terreno descubre la fracción p de
    su celda desde el edificio hacia el borde, y la vegetación y la bandera cambian cuando el color las alcanza. */
 var INK={};
-/* mancha de acuarela: contorno irregular alrededor del edificio, achatado como el suelo isométrico */
-function inkBlob(r,rad,k){
- if(rad<=0)return "";var c=r.K.c,w=r.wob,d="";
- for(var i=0;i<w.length;i++){var q=w[i],m=rad*q[k];d+=(i?"L":"M")+(c[0]+q[0]*m*1.4142).toFixed(1)+" "+(c[1]+q[1]*m*.7071).toFixed(1)}
+/* mancha de acuarela: contorno irregular centrado en el edificio */
+function inkBlob(r,rad){
+ if(rad<=0)return "";var c=r.bc,w=r.wob,d="";
+ for(var i=0;i<w.length;i++){var q=w[i],m=rad*q[2];d+=(i?"L":"M")+(c[0]+q[0]*m*1.3).toFixed(1)+" "+(c[1]+q[1]*m*.85).toFixed(1)}
  return d+"Z";
 }
+/* p de 0 a 1. Estados: 0 todo boceto (la versión a color ni se dibuja), 1 a medias (los dos recortes siguen la mancha),
+   2 todo a color (la versión boceto ni se dibuja). */
 function setInk(id,p){
  var r=refs[id];if(!r||!r.K)return;INK[id]=p;
- var K=r.K,d=K.d,rad=p<=0?0:p>=1?K.R:d[Math.min(d.length-1,Math.floor(p*(d.length-1)))],soft=p<=0?0:Math.min(16,rad*.5);
- if(p>=1)r.ink.style.display="none";
- else{r.ink.style.display="";r.i1.setAttribute("d",r.outer+inkBlob(r,rad*1.06,2));r.i2.setAttribute("d",r.outer+inkBlob(r,Math.max(0,rad*1.06-soft*1.1),3))}
- if(r.hat)r.hat.style.display=p>=.999?"none":"";if(r.hat&&p>0&&p<1){r.hat.setAttribute("opacity",(.38*(1-p*.6)).toFixed(2))}
- if(!r.bc){var g=document.getElementById("poi-"+id);r.bc=g&&g.querySelector(".b-c");r.bg=g&&g.querySelector(".b-g");r.deco=[];each(document.querySelectorAll('#world .m-d[data-c="'+id+'"]'),function(e){r.deco.push([e,+e.getAttribute("data-d")])})}
- if(r.bc){r.bc.style.display=p<=0?"none":"";r.bc.style.opacity=p>=1?"":p.toFixed(3);r.bg.style.display=p>=1?"none":""}
- r.deco.forEach(function(q){q[0].classList.toggle("is-ink",p>=1||q[1]<rad)});
+ var st=p>=1?2:p<=0?0:1,rad=st===1?(.12+.88*p)*r.Rz:0,blob=st===1?inkBlob(r,rad):"";
+ if(!r.sk){r.sk=[r.gs];r.co=[];each(document.querySelectorAll('#world [data-c="'+id+'"]>.sk'),function(e){if(e!==r.gs)r.sk.push(e)});each(document.querySelectorAll('#world [data-c="'+id+'"]>.co'),function(e){r.co.push(e)})}
+ if(st===1){r.cs.setAttribute("d",r.outer+blob);r.cc.setAttribute("d",blob);r.ring.setAttribute("d",blob)}
+ if(st!==r.st){r.st=st;
+  if(st===0){r.cs.setAttribute("d",r.outer);r.ring.setAttribute("d","")}
+  if(st===2){r.cc.setAttribute("d",r.outer);r.ring.setAttribute("d","")}
+  /* el recorte solo hace falta mientras la carrera va a medias; sin él, cada pieza se dibuja directo (más barato) */
+  r.sk.forEach(function(e){e.style.display=st===2?"none":"";if(st===1)e.setAttribute("clip-path","url(#skc-"+id+")");else e.removeAttribute("clip-path")});
+  r.co.forEach(function(e){e.style.display=st===0?"none":"";if(st===1)e.setAttribute("clip-path","url(#col-"+id+")");else e.removeAttribute("clip-path")});
+ }
  if(r.pin){var c=byId[id];r.pin.style.setProperty("--c",mixHex("#B79C74",c.color,p));r.pin.style.setProperty("--ic",lum(mixHex("#B79C74",c.color,p))>.62?"#14323F":"#FFFBF2")}
 }
 /* el color avanza con suavidad; al llegar a 100 % se celebra una vez */
@@ -5593,11 +5614,62 @@ var ISO=(function(){
  var GC={};
  function grey(c){var k=c.toUpperCase();if(GC[k])return GC[k];var q=hx(k),l=.299*q[0]+.587*q[1]+.114*q[2],v=Math.max(34,Math.min(246,128+(l-128)*1.06+10));return GC[k]=toHex([v,v*1.004,v*1.012])}
  function greyAll(svg){return svg.replace(/#[0-9A-Fa-f]{6}\b/g,function(m){return grey(m)})}
- /* versión boceto de un tono: lápiz sepia sobre papel. El relleno pasa a uno de cuatro tonos de papel según su luminancia
-    (sombreado a lápiz) y el contorno a una línea sepia. Igual que el gris, se calcula una vez; nada de filtros en vivo. */
- var SKC={},SKP=["#B79C74","#D3BC94","#E6D4B0","#F3E8CF"],SKL="#7A5C3A";
- function sketch(c){var k=c.toUpperCase();if(SKC[k])return SKC[k];var q=hx(k),l=(.299*q[0]+.587*q[1]+.114*q[2])/255;return SKC[k]=SKP[l<.3?0:l<.52?1:l<.74?2:3]}
- function sketchAll(svg){return svg.replace(/stroke="#[0-9A-Fa-f]{6}"/g,'stroke="'+SKL+'" stroke-opacity=".55"').replace(/#[0-9A-Fa-f]{6}\b/g,function(m){return m.toUpperCase()===SKL?m:sketch(m)})}
+ /* ---------- versión boceto: lápiz sepia sobre papel ----------
+    Cada pieza se vuelve a escribir completa, etiqueta por etiqueta, una sola vez (nada de filtros en vivo):
+    · relleno: tono de papel según la luminancia del color original; las caras claras quedan lisas,
+    · caras en sombra: papel un poco más oscuro con rayado diagonal (un patrón, así que nunca se sale de la forma),
+    · sombras proyectadas (rellenos oscuros translúcidos): solo el rayado,
+    · contorno y detalles: línea sepia del mismo grosor; los trazos gruesos que hacen de forma (caminos) se tratan como relleno.
+    El rayado mantiene dirección y separación aunque la pieza esté reflejada, escalada o dibujada sobre un plano inclinado:
+    se lleva la cuenta de las transformaciones y cada patrón se compensa con la inversa. */
+ var SKC={},SKP=["#BFA57E","#D8C29C","#E9D9B8","#F5EBD4"],SKL="#7A5C3A",SKPAT={},SKN=0;
+ function skLum(c){var q=hx(c);return (.299*q[0]+.587*q[1]+.114*q[2])/255}
+ function skTone(c){var l=skLum(c);return l<.36?0:l<.55?1:l<.77?2:3}
+ function sketch(c){var k=c.toUpperCase();return SKC[k]||(SKC[k]=SKP[skTone(k)])}
+ function skVar(t){return 'var(--sk'+t+','+SKP[t]+')'}
+ function skLin(tr){var M=[1,0,0,1],re=/(matrix|scale|rotate|translate|skewX|skewY)\(([^)]*)\)/g,m;
+  while((m=re.exec(tr))){var a=m[2].split(/[\s,]+/).filter(function(x){return x!==""}).map(Number),L=null;
+   if(m[1]==="matrix")L=[a[0],a[1],a[2],a[3]];
+   else if(m[1]==="scale")L=[a[0],0,0,a.length>1?a[1]:a[0]];
+   else if(m[1]==="rotate"){var r=a[0]*Math.PI/180;L=[Math.cos(r),Math.sin(r),-Math.sin(r),Math.cos(r)]}
+   else if(m[1]==="skewX")L=[1,0,Math.tan(a[0]*Math.PI/180),1];
+   else if(m[1]==="skewY")L=[1,Math.tan(a[0]*Math.PI/180),0,1];
+   if(L)M=skMul(M,L)}
+  return M}
+ function skMul(A,B){return [A[0]*B[0]+A[2]*B[1],A[1]*B[0]+A[3]*B[1],A[0]*B[2]+A[2]*B[3],A[1]*B[2]+A[3]*B[3]]}
+ /* patrón de rayado k (0 sombra fuerte, 1 sombra suave, S sombra proyectada) compensado para la transformación M */
+ function skPat(k,M){
+  var det=M[0]*M[3]-M[1]*M[2];if(!det||Math.abs(det)<1e-4)M=[1,0,0,1],det=1;
+  var I=[M[3]/det,-M[1]/det,-M[2]/det,M[0]/det],r=-38*Math.PI/180,R=[Math.cos(r),Math.sin(r),-Math.sin(r),Math.cos(r)],T=skMul(I,R);
+  var key=k+T.map(function(v){return v.toFixed(2)}).join(","),id=SKPAT[key];if(id)return id.id;
+  if(SKN>240)return SKPAT[Object.keys(SKPAT)[k==="0"?0:0]].id;
+  var sp=k==="1"?5.5:4.2,nid="skp"+(SKN++).toString(36);
+  SKPAT[key]={id:nid,s:'<pattern id="'+nid+'" width="'+sp+'" height="'+sp+'" patternUnits="userSpaceOnUse" patternTransform="matrix('+T.map(function(v){return v.toFixed(3)}).join(" ")+' 0 0)">'+
+   '<rect width="'+sp+'" height="'+sp+'" fill="'+skVar(k==="0"?0:1)+'"/>'+'<line x1="0" y1="'+(sp/2)+'" x2="'+sp+'" y2="'+(sp/2)+'" stroke="var(--skl,'+SKL+')" stroke-width="'+(k==="1"?.7:.85)+'" stroke-opacity="'+(k==="1"?.5:.7)+'"/></pattern>'};
+  return nid}
+ function skDefs(){var s="";for(var k in SKPAT)s+=SKPAT[k].s;return s}
+ function sketchAll(svg,M0){
+  var st=[M0||[1,0,0,1]];
+  return svg.replace(/<(\/?)([a-zA-Z]+)((?:"[^"]*"|[^>"])*)>/g,function(m,close,name,at){
+   if(close){if(name==="g"&&st.length>1)st.pop();return m}
+   var self=/\/\s*$/.test(at),cur=st[st.length-1],tr=/\btransform="([^"]*)"/.exec(at),M=tr?skMul(cur,skLin(tr[1])):cur;
+   if(name==="g"&&!self)st.push(M);
+   if(name==="clipPath"||name==="use"||at.indexOf("#")<0)return m;
+   /* brillos y haces de luz (degradados) no existen en el boceto; los colores con transparencia pierden el canal alfa */
+   at=at.replace(/\s(fill|stroke)="url\(#iso[^"]*\)"/g,' $1="none"').replace(/#([0-9A-Fa-f]{6})[0-9A-Fa-f]{2}\b/g,"#$1");
+   var op=/\sopacity="([^"]*)"/.exec(at),fl=/\sfill="(#[0-9A-Fa-f]{6})"/.exec(at),sk=/\sstroke="(#[0-9A-Fa-f]{6})"/.exec(at),sw=/\sstroke-width="([^"]*)"/.exec(at),w=sw?parseFloat(sw[1]):1;
+   var nf=null,ns=null;
+   if(fl){var l=skLum(fl[1]),t=skTone(fl[1]);
+    if(op&&parseFloat(op[1])<.5&&l<.3){nf='url(#'+skPat("S",M)+')';at=at.replace(op[0],' opacity="1"')}
+    else nf=t<2?'url(#'+skPat(String(t),M)+')':skVar(t);
+    at=at.replace(fl[0],' fill="\u0001"')}
+   if(sk){
+    if(w>2.2)ns=' stroke="'+skVar(Math.max(1,skTone(sk[1])))+'"';
+    else{ns=' stroke="var(--skl,'+SKL+')" stroke-opacity=".62" stroke-linecap="round"';if(sw)at=at.replace(sw[0],' stroke-width=".9"');else ns+=' stroke-width=".9"'}
+    at=at.replace(sk[0],"\u0002")}
+   at=at.replace(/#[0-9A-Fa-f]{6}\b/g,function(c){return skVar(skTone(c))});
+   if(nf)at=at.replace("\u0001",nf);if(ns)at=at.replace("\u0002",ns);
+   return "<"+name+at+">"})}
  function T(c){if(TC[c])return TC[c];return TC[c]={b:c,s:shade(c,.24),d:shade(c,.42),l:tint(c,.3),h:tint(c,.62),e:shade(c,.34)}}
  function poly(a,fill,o){o=o||{};return '<polygon points="'+pts(a)+'" fill="'+fill+'"'+(o.st===false?'':' stroke="'+(o.st||fill)+'" stroke-width="'+(o.sw||1)+'" stroke-linejoin="round"')+(o.op!=null?' opacity="'+o.op+'"':'')+(o.cls?' class="'+o.cls+'"':'')+'/>'}
  function line(a,col,w,o){o=o||{};return '<polyline points="'+pts(a)+'" fill="none" stroke="'+col+'" stroke-width="'+w+'" stroke-linecap="'+(o.cap||"round")+'" stroke-linejoin="'+(o.join||"round")+'"'+(o.op!=null?' opacity="'+o.op+'"':'')+(o.dash?' stroke-dasharray="'+o.dash+'"':'')+(o.cls?' class="'+o.cls+'"':'')+'/>'}
@@ -5719,7 +5791,7 @@ var ISO=(function(){
  function cast(rx,len,o){o=o||{};var x=o.x||0,y=o.y||0;return '<path d="M'+f1(x-rx)+' '+f1(y)+'Q'+f1(x-rx*.4)+' '+f1(y+rx*.5)+' '+f1(x+len*.5)+' '+f1(y+rx*.62+len*.18)+'Q'+f1(x+len+rx*.4)+' '+f1(y+len*.3)+' '+f1(x+len*.9)+' '+f1(y+len*.08)+'Q'+f1(x+rx*.3)+' '+f1(y-rx*.36)+' '+f1(x-rx)+' '+f1(y)+'Z" fill="#13213F" opacity="'+(o.op||.13)+'"/>'}
  /* recorte por silueta: base en un tono, planos de sombra y luz dentro */
  function shaded(d,base,inner){var id=uid("k");return clipDef(id,d)+'<path d="'+d+'" fill="'+base+'"/><g clip-path="url(#'+id+')">'+inner+'</g>'}
- return {sketch:sketch,sketchAll:sketchAll,SKL:SKL,uid:uid,smooth:smooth,blobPts:blobPts,blob:blob,clipDef:clipDef,planeX:planeX,planeY:planeY,planeG:planeG,contact:contact,cast:cast,shaded:shaded,walk:walk,P:P,pts:pts,poly:poly,line:line,path:path,box:box,faceL:faceL,faceR:faceR,faceTop:faceTop,quad:quad,win:win,cyl:cyl,cylD:cylD,ell:ell,ball:ball,dome:dome,gable:gable,shadowEll:shadowEll,shadowBox:shadowBox,platform:platform,T:T,shade:shade,tint:tint,mix:mix,f1:f1,grey:grey,greyAll:greyAll};
+ return {sketch:sketch,sketchAll:sketchAll,skDefs:skDefs,SKL:SKL,SKP:SKP,uid:uid,smooth:smooth,blobPts:blobPts,blob:blob,clipDef:clipDef,planeX:planeX,planeY:planeY,planeG:planeG,contact:contact,cast:cast,shaded:shaded,walk:walk,P:P,pts:pts,poly:poly,line:line,path:path,box:box,faceL:faceL,faceR:faceR,faceTop:faceTop,quad:quad,win:win,cyl:cyl,cylD:cylD,ell:ell,ball:ball,dome:dome,gable:gable,shadowEll:shadowEll,shadowBox:shadowBox,platform:platform,T:T,shade:shade,tint:tint,mix:mix,f1:f1,grey:grey,greyAll:greyAll};
 })();
 
 /* ================= generador del mapa a partir del catálogo =================
@@ -7493,7 +7565,7 @@ var ISOMAP=(function(I,E,G){
 
  /* ---------- dibujo del mundo ---------- */
  function render(W,opt){
-  opt=opt||{};var aff=opt.aff||{},sea="",land="",roads="",objs=[],top="",R=G.rng(7);
+  opt=opt||{};var aff=opt.aff||{},sea="",land="",roads="",objs=[],top="",R=G.rng(7),skLand="";
   function obj(x,y,s,cls){objs.push({k:x+y,s:'<g class="'+(cls||"m-o")+'">'+s+'</g>'})}
   /* aguas someras alrededor de cada isla: tres anillos */
   var ALL=W.islands.concat(W.ghosts||[]),EI={};W.islands.forEach(function(L,i){EI[L.id]=i});
@@ -7511,6 +7583,7 @@ var ISOMAP=(function(I,E,G){
   /* islas: acantilado de arena, playa, ladera y meseta de pasto con manchas de tierra y roca */
   ALL.forEach(function(L,li){
    var look=L.ghost?GHOST:(AREA_LOOK[L.area.biome]||AREA_LOOK.ciudad),dc=closed(L.coast,0),dp=closed(L.plateau,Z_TOP),cid=I.uid("mc");
+   var land0=land.length;
    land+='<g class="m-isle'+(L.ghost?' m-ghost':'')+'" data-a="'+L.id+'" style="--ei:'+(L.ghost?W.islands.length:li)+'"><g class="m-isle-in" style="transform-origin:'+f1(pj([L.x,L.y],0)[0])+'px '+f1(pj([L.x,L.y],0)[1])+'px">';
    land+='<path d="'+closed(L.coast,0,14)+'" fill="'+(L.ghost?"#BDB096":CLIFF)+'"/>';
    land+='<path d="'+dc+'" fill="'+(L.ghost?"#EFE6CC":SAND)+'"/>';
@@ -7525,6 +7598,7 @@ var ISOMAP=(function(I,E,G){
    land+='</g>';
    land+='<path d="'+dp+'" fill="none" stroke="'+(L.ghost?"#E6EAE7":"#C8F0A8")+'" stroke-width="1.4" opacity=".7"/>';
    land+='</g></g>';
+   if(opt.app&&!L.ghost)skLand+='<g id="skl-'+L.id+'">'+I.sketchAll(land.slice(land0).replace(/ class="[^"]*"/g,"").replace(/ style="[^"]*"/g,"").replace(/ data-a="[^"]*"/g,""))+'</g>';
   });
   /* caminos de adoquín: borde, cuerpo y piedritas */
   var rd="";W.edges.forEach(function(e){var q=e.pts.map(function(p){var inT=W.inPoly(p[0],p[1],W.byId[e.a].isle.plateau);return pj(p,inT?Z_TOP:0)});rd+=open(q)});
@@ -7550,8 +7624,10 @@ var ISOMAP=(function(I,E,G){
    if(opt.app){/* app: una sola versión (estructura), con id de edificio para tocar y redibujar delante de Rumbo */
     var mk=function(){return typeof ART!=="undefined"&&ART.has(c.id)?ART.get(c.id,opt.detail||2,"s"):E.generic(n.isle.area.biome,c.color,G.hs(c.id))};
     /* dos versiones: gris precalculado y color; el avance mezcla una con otra sin filtros */
-    defs+='<g id="'+id+'f">'+mk()+'</g><g id="'+id+'g">'+I.sketchAll(mk())+'</g>';
-    objs.push({k:n.x+n.y,s:'<g class="poi m-b" id="poi-'+c.id+'" data-id="'+c.id+'" data-a="'+n.isle.id+'" style="--ei:'+EI[n.isle.id]+'" transform="translate('+f1(p[0])+' '+f1(p[1])+') scale('+sc+')"><g class="pp"><use class="b-g" href="#'+id+'g"/><use class="b-c" href="#'+id+'f"/></g></g>'});return}
+    /* dos versiones completas: color y boceto. Cada una va recortada con la mancha de su carrera (dentro: color, fuera: boceto) */
+    var tb='translate('+f1(p[0])+' '+f1(p[1])+') scale('+sc+')';
+    defs+='<g id="'+id+'f">'+mk()+'</g><g id="'+id+'g">'+I.sketchAll(mk(),[+sc,0,0,+sc])+'</g>';
+    objs.push({k:n.x+n.y,s:'<g class="poi m-b" id="poi-'+c.id+'" data-id="'+c.id+'" data-c="'+c.id+'" data-a="'+n.isle.id+'" style="--ei:'+EI[n.isle.id]+'"><g class="co" clip-path="url(#col-'+c.id+')"><g transform="'+tb+'"><g class="pp"><use href="#'+id+'f"/></g></g></g><g class="sk" clip-path="url(#skc-'+c.id+')"><g transform="'+tb+'"><g class="pp"><use href="#'+id+'g"/></g></g></g></g>'});return}
    if(typeof ART!=="undefined"&&ART.has(c.id)){full=ART.get(c.id,2,v);lite=ART.get(c.id,0,v)}
    else{full=E.generic(n.isle.area.biome,c.color,G.hs(c.id));lite=full}
    defs+='<g id="'+id+'f">'+full+'</g><g id="'+id+'l">'+lite+'</g>';
@@ -7571,9 +7647,10 @@ var ISOMAP=(function(I,E,G){
     if(!ok)continue;placed.push([x,y]);
     var kind;if(kinds)kind=kinds[placed.length%kinds.length];else if(!onTop)kind=rr()<.55?"palm":"rock";else{var u=rr();kind=u<.5?(b.tree==="pine"?"treePine":b.tree==="palm"?(rr()<.6?"palm":"treeRound"):"treeRound"):b.deco[Math.floor(rr()*b.deco.length)]}
     var p=pj([x,y],onTop?Z_TOP:0),art=E.one(kind,{d:2,k:kind==="treeRound"||kind==="treePine"||kind==="palm"?.85:1,ph:rr()*3,flip:rr()<.5}),tag="";
-    if(opt.app&&onTop){var nn=null,nd=1e9;L.nodes.forEach(function(o){var dd=Math.hypot(o.x-x,o.y-y);if(dd<nd){nd=dd;nn=o}});
-     tag=' data-c="'+nn.id+'" data-d="'+f1(nd)+'"';art='<g class="d-g">'+I.sketchAll(art)+'</g><g class="d-c">'+art+'</g>'}
-    objs.push({k:x+y,s:'<g class="m-d" data-a="'+L.id+'" style="--ei:'+EI[L.id]+'"'+tag+' transform="translate('+f1(p[0])+' '+f1(p[1])+')">'+art+'</g>'});
+    var td='translate('+f1(p[0])+' '+f1(p[1])+')';
+    if(opt.app){var nn=null,nd=1e9;L.nodes.forEach(function(o){var dd=Math.hypot(o.x-x,o.y-y);if(dd<nd){nd=dd;nn=o}});
+     objs.push({k:x+y,s:'<g class="m-d" data-a="'+L.id+'" data-c="'+nn.id+'" data-k="'+kind+'" style="--ei:'+EI[L.id]+'"><g class="co" clip-path="url(#col-'+nn.id+')"><g transform="'+td+'">'+art+'</g></g><g class="sk" clip-path="url(#skc-'+nn.id+')"><g transform="'+td+'">'+I.sketchAll(art)+'</g></g></g>'});continue}
+    objs.push({k:x+y,s:'<g class="m-d" data-a="'+L.id+'" style="--ei:'+EI[L.id]+'"'+tag+' transform="'+td+'">'+art+'</g>'});
    }
   });
   /* islotes por descubrir: una palmera y una roca en gris, y dos nubes bajas que los tapan a medias */
@@ -7608,6 +7685,8 @@ var ISOMAP=(function(I,E,G){
   /* caja en pantalla */
   var sb=[1e9,1e9,-1e9,-1e9];ALL.forEach(function(L){L.coast.forEach(function(p){var q=pj(p,0);sb[0]=Math.min(sb[0],q[0]);sb[1]=Math.min(sb[1],q[1]-120);sb[2]=Math.max(sb[2],q[0]);sb[3]=Math.max(sb[3],q[1]+20)})});
   var objsS=objs.map(function(o){return o.s}).join("");
+  if(opt.app)defs+=skLand+'<g id="skroads">'+I.sketchAll(roads)+'</g>';
+  defs+=I.skDefs();
   return {amb:amb,parts:{defs:defs,sea:sea+gl,land:land,roads:roads,seaObjs:seaObjs,objs:objsS,top:top},svg:'<defs>'+defs+'</defs><g class="m-sea">'+sea+gl+'</g><g class="m-land">'+land+'</g><g class="m-roads">'+roads+'</g>'+seaObjs+'<g class="m-objs">'+objs.map(function(o){return o.s}).join("")+'</g><g class="m-top">'+top+'</g>',box:sb};
  }
 
@@ -7746,6 +7825,21 @@ var ISOFIX=(function(){
 /* ================= página interna #art =================
    Comparación estructura contra emblema por carrera (con elección guardada), fila a 64 px sobre la noche,
    escenas de prueba, entorno antes y después con silueta, y el mapa generado. */
+/* una carrera sola en su isla, con la misma mancha y los mismos recortes que el mapa de la app */
+function inkStrip(c){
+ var ar=ISOFIX.AREAS.filter(function(a){return a.id===c.area}),W=MAPGEN.build([c],ar.length?ar:ISOFIX.AREAS),R=ISOMAP.render(W,{app:true,amb:true,detail:2}),n=W.nodes[0],L=W.islands[0],P=ISO.P;
+ var cb=P(n.x,n.y,42),Rz=150;L.coast.forEach(function(q){var sp=P(q[0],q[1],0);Rz=Math.max(Rz,Math.hypot((sp[0]-cb[0])/1.3,(sp[1]+16-cb[1])/.85)+36)});
+ var xs=[],ys=[];L.coast.forEach(function(q){var sp=P(q[0],q[1],0);xs.push(sp[0]);ys.push(sp[1])});
+ var x0=Math.min.apply(null,xs)-14,x1=Math.max.apply(null,xs)+14,y0=Math.min.apply(null,ys)-130,y1=Math.max.apply(null,ys)+28;
+ var cp0=xs.map(function(x,i){return x.toFixed(1)+" "+ys[i].toFixed(1)}).join(" "),cp1=xs.map(function(x,i){return x.toFixed(1)+" "+(ys[i]+15).toFixed(1)}).join(" ");
+ var wr=rng(hash(c.id+"w")),w1=wr()*6.283,w2=wr()*6.283,w3=wr()*6.283,big=Rz*6,outer="M"+(cb[0]-big).toFixed(0)+" "+(cb[1]-big).toFixed(0)+"h"+(2*big).toFixed(0)+"v"+(2*big).toFixed(0)+"h-"+(2*big).toFixed(0)+"Z";
+ function blob(rad){var d="";for(var i=0;i<48;i++){var a=i/48*6.283,m=rad*(1+.1*Math.sin(a*3+w1)+.07*Math.sin(a*5+w2)+.045*Math.sin(a*9+w3));d+=(i?"L":"M")+(cb[0]+Math.cos(a)*m*1.3).toFixed(1)+" "+(cb[1]+Math.sin(a)*m*.85).toFixed(1)}return d+"Z"}
+ return [0,.25,.5,.75,1].map(function(p,i){
+  var b=p>0&&p<1?blob((.12+.88*p)*Rz):"",sfx="-"+c.id+"-"+i;
+  var body='<defs>'+R.parts.defs+'<clipPath id="skc-'+c.id+'"><path clip-rule="evenodd" d="'+(p>=1?"M0 0":outer+b)+'"/></clipPath><clipPath id="isl'+sfx+'"><polygon points="'+cp0+'"/><polygon points="'+cp1+'"/></clipPath><clipPath id="col-'+c.id+'"><path d="'+(p<=0?"M0 0":p>=1?outer:b)+'"/></clipPath></defs>'+
+   '<g class="m-land">'+R.parts.land+'</g><g class="m-roads">'+R.parts.roads+'</g><g clip-path="url(#skc-'+c.id+')"><use href="#skl-'+L.id+'"/><use href="#skroads"/></g>'+(b?'<g clip-path="url(#isl'+sfx+')"><path class="t-ring" fill="none" d="'+b+'"/></g>':'')+'<g class="m-objs">'+R.parts.objs+'</g>';
+  body=body.split("skc-"+c.id).join("skc"+sfx).split("col-"+c.id).join("col"+sfx).split("skl-"+L.id).join("skl"+sfx).split("skroads").join("skroads"+sfx);
+  return '<figure data-p="'+p+'"><svg class="gm isow" viewBox="'+[x0,y0,x1-x0,y1-y0].map(function(v){return v.toFixed(0)}).join(" ")+'" aria-hidden="true">'+body+'</svg><figcaption>'+Math.round(p*100)+' %</figcaption></figure>'}).join("")}
 function renderArt(){
  var old=document.getElementById("art");if(old)old.remove();
  document.documentElement.classList.add("art-on");
@@ -7807,11 +7901,17 @@ function renderArt(){
  ENVL.forEach(function(p){var nw=E[p[1]]({});var vb=p[2],sv=function(x,px,c){return '<svg class="'+(c||"")+'" viewBox="'+vb+'" style="height:'+px+'px" aria-hidden="true">'+x+'</svg>'};
   h+='<div class="ia-envrow"><h3>'+p[0]+'</h3><div class="ia-envc"><div class="old">'+sv(p[3](),110)+'<span>Antes</span></div><div>'+sv(nw,110)+'<span>Ahora</span></div><div class="ia-sil">'+sv(nw,110)+'<span>Silueta</span></div><div class="is-night">'+sv(E[p[1]]({d:1}),96)+'<span>96 px</span></div></div></div>'});
  h+='</div></section>';
+ /* ---------- boceto y acuarela: cada carrera a 0, 25, 50, 75 y 100 % ---------- */
+ h+='<section><h2>Boceto y acuarela por avance</h2><p class="ia-n">Cada carrera en su isla, a 0, 25, 50, 75 y 100 % de avance. A 0 % todo su territorio es boceto (suelo, ladera, caminos, edificio y vegetación); el color sale del edificio con una sola mancha que recorta todas las piezas a la vez.</p><div class="ia-ink" id="iaInk"></div></section>';
  /* ---------- mapa generado ---------- */
  h+='<section><h2>Mapa generado desde el catálogo</h2><p class="ia-n">Usa tus elecciones. Lejos: islas y áreas. Medio: carreras simplificadas con nombre corto. Cerca: todo el detalle y nombres completos.</p>'+
   '<div class="ia-ctl"><div class="ia-seg" role="group" aria-label="Cantidad de carreras"><button type="button" data-n="20" aria-pressed="true">20 carreras</button><button type="button" data-n="50">50</button><button type="button" data-n="120">120</button></div><div class="ia-seg" role="group" aria-label="Zoom"><button type="button" data-z="fit">Lejos</button><button type="button" data-z=".45">Medio</button><button type="button" data-z=".9">Cerca</button></div><button type="button" class="ia-night" aria-pressed="false">Noche</button></div>'+
   '<div class="ia-map" id="iaMap"></div><p class="ia-n" id="iaStat"></p></section>';
  var el=document.createElement("div");el.id="art";el.className="ia";el.innerHTML=h;document.body.appendChild(el);
+ /* se dibuja por partes para no trabar la página */
+ (function(){var cat=ISOFIX.catalog(20),host=document.getElementById("iaInk"),i=0;
+  function one(){if(i>=cat.length)return;var c=cat[i++],d=document.createElement("div");d.className="ia-inkrow";d.innerHTML='<h3>'+c.name+'</h3><div class="ia-inkc">'+inkStrip(c)+'</div>';host.appendChild(d);setTimeout(one,30)}
+  one()})();
  /* escenas */
  var SC=ISOFIX.catalog(20).filter(function(c){return ART.has(c.id)}).map(function(c){return {id:c.id,name:c.name,short:c.short,area:"escena",sub:"Prueba",color:c.color,tags:c.tags}});
  var SA=[{id:"escena",name:"Isla de prueba",biome:"jardin"}],SW=MAPGEN.build(SC,SA);
@@ -8216,7 +8316,7 @@ function artDefs(){
   var mk=function(){return typeof ART!=="undefined"&&ART.has(c.id)?ART.get(c.id,0,ART.pick(c.id)):'<circle cx="0" cy="-30" r="34" fill="'+c.color+'"/>'};
   h+='<g id="ad-'+c.id+'">'+mk()+'</g><g id="ad-'+c.id+'-g">'+(typeof ISO!=="undefined"?ISO.sketchAll(mk()):mk())+'</g>';
  });
- var d=document.createElement("div");d.innerHTML='<svg id="artSprite" width="0" height="0" style="position:absolute" aria-hidden="true"><defs>'+h+'</defs></svg>';
+ var d=document.createElement("div");d.innerHTML='<svg id="artSprite" width="0" height="0" style="position:absolute" aria-hidden="true"><defs>'+h+(typeof ISO!=="undefined"?ISO.skDefs():"")+'</defs></svg>';
  document.body.appendChild(d.firstChild);
 }
 /* p: avance de 0 a 1; mezcla gris y color igual que el mapa */

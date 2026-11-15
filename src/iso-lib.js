@@ -18,11 +18,62 @@ var ISO=(function(){
  var GC={};
  function grey(c){var k=c.toUpperCase();if(GC[k])return GC[k];var q=hx(k),l=.299*q[0]+.587*q[1]+.114*q[2],v=Math.max(34,Math.min(246,128+(l-128)*1.06+10));return GC[k]=toHex([v,v*1.004,v*1.012])}
  function greyAll(svg){return svg.replace(/#[0-9A-Fa-f]{6}\b/g,function(m){return grey(m)})}
- /* versión boceto de un tono: lápiz sepia sobre papel. El relleno pasa a uno de cuatro tonos de papel según su luminancia
-    (sombreado a lápiz) y el contorno a una línea sepia. Igual que el gris, se calcula una vez; nada de filtros en vivo. */
- var SKC={},SKP=["#B79C74","#D3BC94","#E6D4B0","#F3E8CF"],SKL="#7A5C3A";
- function sketch(c){var k=c.toUpperCase();if(SKC[k])return SKC[k];var q=hx(k),l=(.299*q[0]+.587*q[1]+.114*q[2])/255;return SKC[k]=SKP[l<.3?0:l<.52?1:l<.74?2:3]}
- function sketchAll(svg){return svg.replace(/stroke="#[0-9A-Fa-f]{6}"/g,'stroke="'+SKL+'" stroke-opacity=".55"').replace(/#[0-9A-Fa-f]{6}\b/g,function(m){return m.toUpperCase()===SKL?m:sketch(m)})}
+ /* ---------- versión boceto: lápiz sepia sobre papel ----------
+    Cada pieza se vuelve a escribir completa, etiqueta por etiqueta, una sola vez (nada de filtros en vivo):
+    · relleno: tono de papel según la luminancia del color original; las caras claras quedan lisas,
+    · caras en sombra: papel un poco más oscuro con rayado diagonal (un patrón, así que nunca se sale de la forma),
+    · sombras proyectadas (rellenos oscuros translúcidos): solo el rayado,
+    · contorno y detalles: línea sepia del mismo grosor; los trazos gruesos que hacen de forma (caminos) se tratan como relleno.
+    El rayado mantiene dirección y separación aunque la pieza esté reflejada, escalada o dibujada sobre un plano inclinado:
+    se lleva la cuenta de las transformaciones y cada patrón se compensa con la inversa. */
+ var SKC={},SKP=["#BFA57E","#D8C29C","#E9D9B8","#F5EBD4"],SKL="#7A5C3A",SKPAT={},SKN=0;
+ function skLum(c){var q=hx(c);return (.299*q[0]+.587*q[1]+.114*q[2])/255}
+ function skTone(c){var l=skLum(c);return l<.36?0:l<.55?1:l<.77?2:3}
+ function sketch(c){var k=c.toUpperCase();return SKC[k]||(SKC[k]=SKP[skTone(k)])}
+ function skVar(t){return 'var(--sk'+t+','+SKP[t]+')'}
+ function skLin(tr){var M=[1,0,0,1],re=/(matrix|scale|rotate|translate|skewX|skewY)\(([^)]*)\)/g,m;
+  while((m=re.exec(tr))){var a=m[2].split(/[\s,]+/).filter(function(x){return x!==""}).map(Number),L=null;
+   if(m[1]==="matrix")L=[a[0],a[1],a[2],a[3]];
+   else if(m[1]==="scale")L=[a[0],0,0,a.length>1?a[1]:a[0]];
+   else if(m[1]==="rotate"){var r=a[0]*Math.PI/180;L=[Math.cos(r),Math.sin(r),-Math.sin(r),Math.cos(r)]}
+   else if(m[1]==="skewX")L=[1,0,Math.tan(a[0]*Math.PI/180),1];
+   else if(m[1]==="skewY")L=[1,Math.tan(a[0]*Math.PI/180),0,1];
+   if(L)M=skMul(M,L)}
+  return M}
+ function skMul(A,B){return [A[0]*B[0]+A[2]*B[1],A[1]*B[0]+A[3]*B[1],A[0]*B[2]+A[2]*B[3],A[1]*B[2]+A[3]*B[3]]}
+ /* patrón de rayado k (0 sombra fuerte, 1 sombra suave, S sombra proyectada) compensado para la transformación M */
+ function skPat(k,M){
+  var det=M[0]*M[3]-M[1]*M[2];if(!det||Math.abs(det)<1e-4)M=[1,0,0,1],det=1;
+  var I=[M[3]/det,-M[1]/det,-M[2]/det,M[0]/det],r=-38*Math.PI/180,R=[Math.cos(r),Math.sin(r),-Math.sin(r),Math.cos(r)],T=skMul(I,R);
+  var key=k+T.map(function(v){return v.toFixed(2)}).join(","),id=SKPAT[key];if(id)return id.id;
+  if(SKN>240)return SKPAT[Object.keys(SKPAT)[k==="0"?0:0]].id;
+  var sp=k==="1"?5.5:4.2,nid="skp"+(SKN++).toString(36);
+  SKPAT[key]={id:nid,s:'<pattern id="'+nid+'" width="'+sp+'" height="'+sp+'" patternUnits="userSpaceOnUse" patternTransform="matrix('+T.map(function(v){return v.toFixed(3)}).join(" ")+' 0 0)">'+
+   '<rect width="'+sp+'" height="'+sp+'" fill="'+skVar(k==="0"?0:1)+'"/>'+'<line x1="0" y1="'+(sp/2)+'" x2="'+sp+'" y2="'+(sp/2)+'" stroke="var(--skl,'+SKL+')" stroke-width="'+(k==="1"?.7:.85)+'" stroke-opacity="'+(k==="1"?.5:.7)+'"/></pattern>'};
+  return nid}
+ function skDefs(){var s="";for(var k in SKPAT)s+=SKPAT[k].s;return s}
+ function sketchAll(svg,M0){
+  var st=[M0||[1,0,0,1]];
+  return svg.replace(/<(\/?)([a-zA-Z]+)((?:"[^"]*"|[^>"])*)>/g,function(m,close,name,at){
+   if(close){if(name==="g"&&st.length>1)st.pop();return m}
+   var self=/\/\s*$/.test(at),cur=st[st.length-1],tr=/\btransform="([^"]*)"/.exec(at),M=tr?skMul(cur,skLin(tr[1])):cur;
+   if(name==="g"&&!self)st.push(M);
+   if(name==="clipPath"||name==="use"||at.indexOf("#")<0)return m;
+   /* brillos y haces de luz (degradados) no existen en el boceto; los colores con transparencia pierden el canal alfa */
+   at=at.replace(/\s(fill|stroke)="url\(#iso[^"]*\)"/g,' $1="none"').replace(/#([0-9A-Fa-f]{6})[0-9A-Fa-f]{2}\b/g,"#$1");
+   var op=/\sopacity="([^"]*)"/.exec(at),fl=/\sfill="(#[0-9A-Fa-f]{6})"/.exec(at),sk=/\sstroke="(#[0-9A-Fa-f]{6})"/.exec(at),sw=/\sstroke-width="([^"]*)"/.exec(at),w=sw?parseFloat(sw[1]):1;
+   var nf=null,ns=null;
+   if(fl){var l=skLum(fl[1]),t=skTone(fl[1]);
+    if(op&&parseFloat(op[1])<.5&&l<.3){nf='url(#'+skPat("S",M)+')';at=at.replace(op[0],' opacity="1"')}
+    else nf=t<2?'url(#'+skPat(String(t),M)+')':skVar(t);
+    at=at.replace(fl[0],' fill="\u0001"')}
+   if(sk){
+    if(w>2.2)ns=' stroke="'+skVar(Math.max(1,skTone(sk[1])))+'"';
+    else{ns=' stroke="var(--skl,'+SKL+')" stroke-opacity=".62" stroke-linecap="round"';if(sw)at=at.replace(sw[0],' stroke-width=".9"');else ns+=' stroke-width=".9"'}
+    at=at.replace(sk[0],"\u0002")}
+   at=at.replace(/#[0-9A-Fa-f]{6}\b/g,function(c){return skVar(skTone(c))});
+   if(nf)at=at.replace("\u0001",nf);if(ns)at=at.replace("\u0002",ns);
+   return "<"+name+at+">"})}
  function T(c){if(TC[c])return TC[c];return TC[c]={b:c,s:shade(c,.24),d:shade(c,.42),l:tint(c,.3),h:tint(c,.62),e:shade(c,.34)}}
  function poly(a,fill,o){o=o||{};return '<polygon points="'+pts(a)+'" fill="'+fill+'"'+(o.st===false?'':' stroke="'+(o.st||fill)+'" stroke-width="'+(o.sw||1)+'" stroke-linejoin="round"')+(o.op!=null?' opacity="'+o.op+'"':'')+(o.cls?' class="'+o.cls+'"':'')+'/>'}
  function line(a,col,w,o){o=o||{};return '<polyline points="'+pts(a)+'" fill="none" stroke="'+col+'" stroke-width="'+w+'" stroke-linecap="'+(o.cap||"round")+'" stroke-linejoin="'+(o.join||"round")+'"'+(o.op!=null?' opacity="'+o.op+'"':'')+(o.dash?' stroke-dasharray="'+o.dash+'"':'')+(o.cls?' class="'+o.cls+'"':'')+'/>'}
@@ -144,5 +195,5 @@ var ISO=(function(){
  function cast(rx,len,o){o=o||{};var x=o.x||0,y=o.y||0;return '<path d="M'+f1(x-rx)+' '+f1(y)+'Q'+f1(x-rx*.4)+' '+f1(y+rx*.5)+' '+f1(x+len*.5)+' '+f1(y+rx*.62+len*.18)+'Q'+f1(x+len+rx*.4)+' '+f1(y+len*.3)+' '+f1(x+len*.9)+' '+f1(y+len*.08)+'Q'+f1(x+rx*.3)+' '+f1(y-rx*.36)+' '+f1(x-rx)+' '+f1(y)+'Z" fill="#13213F" opacity="'+(o.op||.13)+'"/>'}
  /* recorte por silueta: base en un tono, planos de sombra y luz dentro */
  function shaded(d,base,inner){var id=uid("k");return clipDef(id,d)+'<path d="'+d+'" fill="'+base+'"/><g clip-path="url(#'+id+')">'+inner+'</g>'}
- return {sketch:sketch,sketchAll:sketchAll,SKL:SKL,uid:uid,smooth:smooth,blobPts:blobPts,blob:blob,clipDef:clipDef,planeX:planeX,planeY:planeY,planeG:planeG,contact:contact,cast:cast,shaded:shaded,walk:walk,P:P,pts:pts,poly:poly,line:line,path:path,box:box,faceL:faceL,faceR:faceR,faceTop:faceTop,quad:quad,win:win,cyl:cyl,cylD:cylD,ell:ell,ball:ball,dome:dome,gable:gable,shadowEll:shadowEll,shadowBox:shadowBox,platform:platform,T:T,shade:shade,tint:tint,mix:mix,f1:f1,grey:grey,greyAll:greyAll};
+ return {sketch:sketch,sketchAll:sketchAll,skDefs:skDefs,SKL:SKL,SKP:SKP,uid:uid,smooth:smooth,blobPts:blobPts,blob:blob,clipDef:clipDef,planeX:planeX,planeY:planeY,planeG:planeG,contact:contact,cast:cast,shaded:shaded,walk:walk,P:P,pts:pts,poly:poly,line:line,path:path,box:box,faceL:faceL,faceR:faceR,faceTop:faceTop,quad:quad,win:win,cyl:cyl,cylD:cylD,ell:ell,ball:ball,dome:dome,gable:gable,shadowEll:shadowEll,shadowBox:shadowBox,platform:platform,T:T,shade:shade,tint:tint,mix:mix,f1:f1,grey:grey,greyAll:greyAll};
 })();

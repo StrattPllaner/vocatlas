@@ -1,6 +1,21 @@
 /* ================= página interna #art =================
    Comparación estructura contra emblema por carrera (con elección guardada), fila a 64 px sobre la noche,
    escenas de prueba, entorno antes y después con silueta, y el mapa generado. */
+/* una carrera sola en su isla, con la misma mancha y los mismos recortes que el mapa de la app */
+function inkStrip(c){
+ var ar=ISOFIX.AREAS.filter(function(a){return a.id===c.area}),W=MAPGEN.build([c],ar.length?ar:ISOFIX.AREAS),R=ISOMAP.render(W,{app:true,amb:true,detail:2}),n=W.nodes[0],L=W.islands[0],P=ISO.P;
+ var cb=P(n.x,n.y,42),Rz=150;L.coast.forEach(function(q){var sp=P(q[0],q[1],0);Rz=Math.max(Rz,Math.hypot((sp[0]-cb[0])/1.3,(sp[1]+16-cb[1])/.85)+36)});
+ var xs=[],ys=[];L.coast.forEach(function(q){var sp=P(q[0],q[1],0);xs.push(sp[0]);ys.push(sp[1])});
+ var x0=Math.min.apply(null,xs)-14,x1=Math.max.apply(null,xs)+14,y0=Math.min.apply(null,ys)-130,y1=Math.max.apply(null,ys)+28;
+ var cp0=xs.map(function(x,i){return x.toFixed(1)+" "+ys[i].toFixed(1)}).join(" "),cp1=xs.map(function(x,i){return x.toFixed(1)+" "+(ys[i]+15).toFixed(1)}).join(" ");
+ var wr=rng(hash(c.id+"w")),w1=wr()*6.283,w2=wr()*6.283,w3=wr()*6.283,big=Rz*6,outer="M"+(cb[0]-big).toFixed(0)+" "+(cb[1]-big).toFixed(0)+"h"+(2*big).toFixed(0)+"v"+(2*big).toFixed(0)+"h-"+(2*big).toFixed(0)+"Z";
+ function blob(rad){var d="";for(var i=0;i<48;i++){var a=i/48*6.283,m=rad*(1+.1*Math.sin(a*3+w1)+.07*Math.sin(a*5+w2)+.045*Math.sin(a*9+w3));d+=(i?"L":"M")+(cb[0]+Math.cos(a)*m*1.3).toFixed(1)+" "+(cb[1]+Math.sin(a)*m*.85).toFixed(1)}return d+"Z"}
+ return [0,.25,.5,.75,1].map(function(p,i){
+  var b=p>0&&p<1?blob((.12+.88*p)*Rz):"",sfx="-"+c.id+"-"+i;
+  var body='<defs>'+R.parts.defs+'<clipPath id="skc-'+c.id+'"><path clip-rule="evenodd" d="'+(p>=1?"M0 0":outer+b)+'"/></clipPath><clipPath id="isl'+sfx+'"><polygon points="'+cp0+'"/><polygon points="'+cp1+'"/></clipPath><clipPath id="col-'+c.id+'"><path d="'+(p<=0?"M0 0":p>=1?outer:b)+'"/></clipPath></defs>'+
+   '<g class="m-land">'+R.parts.land+'</g><g class="m-roads">'+R.parts.roads+'</g><g clip-path="url(#skc-'+c.id+')"><use href="#skl-'+L.id+'"/><use href="#skroads"/></g>'+(b?'<g clip-path="url(#isl'+sfx+')"><path class="t-ring" fill="none" d="'+b+'"/></g>':'')+'<g class="m-objs">'+R.parts.objs+'</g>';
+  body=body.split("skc-"+c.id).join("skc"+sfx).split("col-"+c.id).join("col"+sfx).split("skl-"+L.id).join("skl"+sfx).split("skroads").join("skroads"+sfx);
+  return '<figure data-p="'+p+'"><svg class="gm isow" viewBox="'+[x0,y0,x1-x0,y1-y0].map(function(v){return v.toFixed(0)}).join(" ")+'" aria-hidden="true">'+body+'</svg><figcaption>'+Math.round(p*100)+' %</figcaption></figure>'}).join("")}
 function renderArt(){
  var old=document.getElementById("art");if(old)old.remove();
  document.documentElement.classList.add("art-on");
@@ -62,11 +77,17 @@ function renderArt(){
  ENVL.forEach(function(p){var nw=E[p[1]]({});var vb=p[2],sv=function(x,px,c){return '<svg class="'+(c||"")+'" viewBox="'+vb+'" style="height:'+px+'px" aria-hidden="true">'+x+'</svg>'};
   h+='<div class="ia-envrow"><h3>'+p[0]+'</h3><div class="ia-envc"><div class="old">'+sv(p[3](),110)+'<span>Antes</span></div><div>'+sv(nw,110)+'<span>Ahora</span></div><div class="ia-sil">'+sv(nw,110)+'<span>Silueta</span></div><div class="is-night">'+sv(E[p[1]]({d:1}),96)+'<span>96 px</span></div></div></div>'});
  h+='</div></section>';
+ /* ---------- boceto y acuarela: cada carrera a 0, 25, 50, 75 y 100 % ---------- */
+ h+='<section><h2>Boceto y acuarela por avance</h2><p class="ia-n">Cada carrera en su isla, a 0, 25, 50, 75 y 100 % de avance. A 0 % todo su territorio es boceto (suelo, ladera, caminos, edificio y vegetación); el color sale del edificio con una sola mancha que recorta todas las piezas a la vez.</p><div class="ia-ink" id="iaInk"></div></section>';
  /* ---------- mapa generado ---------- */
  h+='<section><h2>Mapa generado desde el catálogo</h2><p class="ia-n">Usa tus elecciones. Lejos: islas y áreas. Medio: carreras simplificadas con nombre corto. Cerca: todo el detalle y nombres completos.</p>'+
   '<div class="ia-ctl"><div class="ia-seg" role="group" aria-label="Cantidad de carreras"><button type="button" data-n="20" aria-pressed="true">20 carreras</button><button type="button" data-n="50">50</button><button type="button" data-n="120">120</button></div><div class="ia-seg" role="group" aria-label="Zoom"><button type="button" data-z="fit">Lejos</button><button type="button" data-z=".45">Medio</button><button type="button" data-z=".9">Cerca</button></div><button type="button" class="ia-night" aria-pressed="false">Noche</button></div>'+
   '<div class="ia-map" id="iaMap"></div><p class="ia-n" id="iaStat"></p></section>';
  var el=document.createElement("div");el.id="art";el.className="ia";el.innerHTML=h;document.body.appendChild(el);
+ /* se dibuja por partes para no trabar la página */
+ (function(){var cat=ISOFIX.catalog(20),host=document.getElementById("iaInk"),i=0;
+  function one(){if(i>=cat.length)return;var c=cat[i++],d=document.createElement("div");d.className="ia-inkrow";d.innerHTML='<h3>'+c.name+'</h3><div class="ia-inkc">'+inkStrip(c)+'</div>';host.appendChild(d);setTimeout(one,30)}
+  one()})();
  /* escenas */
  var SC=ISOFIX.catalog(20).filter(function(c){return ART.has(c.id)}).map(function(c){return {id:c.id,name:c.name,short:c.short,area:"escena",sub:"Prueba",color:c.color,tags:c.tags}});
  var SA=[{id:"escena",name:"Isla de prueba",biome:"jardin"}],SW=MAPGEN.build(SC,SA);
