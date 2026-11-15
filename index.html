@@ -174,7 +174,7 @@ nav button:active svg{transform:scale(.84)}
 #mapbox{position:absolute;inset:0;touch-action:none;overflow:hidden;cursor:grab;background:var(--sea-bg);-webkit-user-select:none;user-select:none}
 #mapbox:active{cursor:grabbing}
 #mapwrap{position:absolute;inset:0}
-#mapwrap.reveal{animation:mapIn var(--t-long) var(--spring) both}
+#mapwrap.mreveal{animation:mapIn var(--t-long) var(--spring) both}
 #map{position:absolute;display:block;will-change:transform;transform:translate3d(0,0,0)}
 .wave-p{fill:none;stroke:var(--sea-mark);stroke-width:2.6;stroke-linecap:round}
 .grat{stroke:var(--grat);stroke-width:1.2;vector-effect:non-scaling-stroke}
@@ -262,9 +262,9 @@ nav button:active svg{transform:scale(.84)}
 #mlayer.lod-far .al .t{font-size:13px}
 .sl .t{font-size:14px;font-weight:450;font-style:italic;letter-spacing:.06em;color:var(--sea-lbl)}
 #mlayer.lod-near .sl .t{font-size:16px}
-#mapbox.reveal .pl{animation:plIn var(--t-med) var(--spring) backwards;animation-delay:calc(var(--d) + 60ms)}
-#mapbox.reveal .rbw{animation:pinIn var(--t-long) var(--spring) backwards;animation-delay:500ms}
-#mapbox.reveal .al .t,#mapbox.reveal .sl .t{animation:fadeIn var(--t-long) var(--soft) backwards;animation-delay:420ms}
+#mapbox.mreveal .pl{animation:plIn var(--t-med) var(--spring) backwards;animation-delay:calc(var(--d) + 60ms)}
+#mapbox.mreveal .rbw{animation:pinIn var(--t-long) var(--spring) backwards;animation-delay:500ms}
+#mapbox.mreveal .al .t,#mapbox.mreveal .sl .t{animation:fadeIn var(--t-long) var(--soft) backwards;animation-delay:420ms}
 
 .mapskel{position:absolute;inset:0;transition:opacity var(--t-med) var(--soft);pointer-events:none}
 .mapskel.gone{opacity:0}
@@ -4468,17 +4468,17 @@ function enterApp(fromDive,emerge){
  stopWalk();if(!pre){RB.at=(S.at&&picked(S.at))?S.at:bestStart();RB.el=null}
  curView="map";showView("map",true);
  if(!pre){$("#world").innerHTML="";$("#mlayer").innerHTML="";labels=[]}
- mw.classList.remove("reveal");box.classList.remove("reveal");
+ mw.classList.remove("mreveal");box.classList.remove("mreveal");
  sk.style.display=emerge?"none":"";sk.classList.remove("gone");
  $("#hint").classList.toggle("hide",!!emerge);
  fontsReady(function(){
   if(!pre)buildMap();refreshMap();centerStart();idleLook();ambSync();
   if(emerge)emergeMap();
   if(emerge)return;
-  void mw.getBoundingClientRect();mw.classList.add("reveal");box.classList.add("reveal");
+  void mw.getBoundingClientRect();mw.classList.add("mreveal");box.classList.add("mreveal");
   sk.classList.add("gone");
   setTimeout(function(){sk.style.display="none"},T.med);
-  setTimeout(function(){mw.classList.remove("reveal");box.classList.remove("reveal");a.classList.remove("enter")},1600);
+  setTimeout(function(){mw.classList.remove("mreveal");box.classList.remove("mreveal");a.classList.remove("enter")},1600);
  });
 }
 /* el agua somera se pinta en canvas: si cambia el modo claro/oscuro, se vuelve a armar el mapa */
