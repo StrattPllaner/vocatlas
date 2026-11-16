@@ -246,3 +246,8 @@
 
 /* con las piezas ya horneadas como imagen (de día o de noche), el grupo no necesita filtro */
 #world.spr-ok .gm.is-night .m-objs{filter:none}
+
+/* orilla superior de las pestañas: el contenido se desvanece bajo la barra de estado en vez de cortarse en seco */
+#app::before{content:"";position:absolute;left:0;right:0;top:0;height:calc(var(--sat) + 22px);z-index:6;pointer-events:none;background:linear-gradient(var(--c-bg) calc(var(--sat) + 4px),color-mix(in srgb,var(--c-bg) 0%,transparent));opacity:1;transition:opacity .2s ease}
+#app[data-v=map]::before{opacity:0}
+.view{overscroll-behavior:contain}

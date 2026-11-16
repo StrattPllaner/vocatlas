@@ -719,7 +719,7 @@ var RUMBO=(function(){
    /* mezcla suave entre estados (≈200 ms) */
    var a=1-Math.exp(-dt/.07);["idle","walk","cheer"].forEach(function(k){st.w[k]+=((k===loop?1:0)-st.w[k])*a});
    st.pose.wave+=((cls.contains("p-wave")?1:0)-st.pose.wave)*a;st.pose.point+=((cls.contains("p-point")?1:0)-st.pose.point)*a;
-   var W=st.w,B={x:0,y:0,r:0,sy:1},lift=0,legL=0,legR=0,lyL=0,lyR=0,ksL=1,ksR=1,aL=0,aR=0,sway=0,lean=0,gogY=0,look=null;
+   var W=st.w,B={x:0,y:0,r:0,sy:1},lift=0,legL=0,legR=0,lyL=0,lyR=0,lxL=0,lxR=0,ksL=1,ksR=1,aL=0,aR=0,sway=0,lean=0,gogY=0,look=null;
    if(!rm){
     /* reposo: respiración sutil y flecha que busca el norte */
     var br=Math.sin(t*2*Math.PI/3.4),slp=mood==="sleep"?1.8:1,bw=cls.contains("float")?1:.4;
@@ -727,8 +727,14 @@ var RUMBO=(function(){
     /* caminar: cada pie se levanta por turnos desde la cadera; el cuerpo sube con la pierna recta y baja al apoyar */
     var ph=t*2*Math.PI/.52,s1=Math.sin(ph),c2=Math.cos(2*ph);
     /* pasos: cada pierna va adelante y atrás desde la cadera, alternadas; la que avanza se levanta */
-    var cph=Math.cos(ph);lyL+=W.walk*(2.6*s1-3*Math.max(0,cph));lyR+=W.walk*(-2.6*s1-3*Math.max(0,-cph));ksL+=W.walk*.08*s1;ksR-=W.walk*.08*s1;legL+=W.walk*5*s1;legR+=W.walk*5*s1;B.y+=W.walk*-2*(.5+.5*c2);
-    B.r+=W.walk*2.2*s1;aL+=W.walk*-16*s1;aR+=W.walk*16*s1;lean+=W.walk*3.5;
+    /* caminar de lado: cada pie va de atrás hacia adelante y el otro al revés, así se cruzan; el que avanza se levanta en arco
+       (la punta un poco arriba) y pasa por detrás del que está apoyado. El cuerpo sube cuando los pies se cruzan y baja con el paso largo */
+    var cph=Math.cos(ph),swL=Math.max(0,cph),swR=Math.max(0,-cph);
+    lxL+=W.walk*6.5*s1;lxR-=W.walk*6.5*s1;
+    lyL+=W.walk*-3.6*Math.pow(swL,1.3);lyR+=W.walk*-3.6*Math.pow(swR,1.3);
+    legL+=W.walk*(5*s1-4*swL);legR+=W.walk*(-5*s1-4*swR);
+    B.y+=W.walk*-1.8*(.5+.5*c2);B.r+=W.walk*1.4*s1;aL+=W.walk*-18*s1;aR+=W.walk*18*s1;lean+=W.walk*3;
+    st.back=W.walk>.5?(cph>0?"L":"R"):null;
     if(W.cheer>.001){var hp=hop((t%.9)/.9);lift+=W.cheer*Math.min(0,hp.y);B.y+=W.cheer*Math.max(0,hp.y);B.sy+=W.cheer*(hp.sy-1);aL+=W.cheer*hp.up*112;aR-=W.cheer*hp.up*112}
     /* poses */
     B.r+=(g.handR?0:st.pose.wave*5*Math.sin(t*2*Math.PI/.6));lean+=st.pose.point*(g.handR?2:5)+(mood==="curious"?-7:0);
@@ -767,7 +773,9 @@ var RUMBO=(function(){
    /* el salto mueve todo el personaje; la sombra se queda en el suelo y se encoge */
    T(g.root,{sx:flip,y:lift});
    var hgt=Math.max(0,-lift);T(g.shadow,{y:-lift,sx:1-hgt/36,sy:1-hgt/36});
-   T(g.body,B);T(g.legL,{r:legL,y:lyL+Math.max(0,B.y*.15),sx:ksL,sy:ksL});T(g.legR,{r:legR,y:lyR+Math.max(0,B.y*.15),sx:ksR,sy:ksR});
+   T(g.body,B);T(g.legL,{x:lxL,r:legL,y:lyL+Math.max(0,B.y*.15),sx:ksL,sy:ksL});T(g.legR,{x:lxR,r:legR,y:lyR+Math.max(0,B.y*.15),sx:ksR,sy:ksR});
+   /* el pie que avanza va detrás del apoyado: se cambia el orden de las piernas solo cuando hace falta */
+   if(st.back!==st.lastBack&&g.legL&&g.legR&&g.legL.parentNode===g.legR.parentNode){var P=g.legL.parentNode;if(st.back==="L"&&g.legL.nextSibling!==g.legR&&g.legL.compareDocumentPosition(g.legR)&Node.DOCUMENT_POSITION_PRECEDING)P.insertBefore(g.legL,g.legR);else if(st.back==="R"&&g.legR.compareDocumentPosition(g.legL)&Node.DOCUMENT_POSITION_PRECEDING)P.insertBefore(g.legR,g.legL);st.lastBack=st.back}
    T(g.armL,{r:aL});T(g.armR,{r:aR});
    /* manitas flotantes: posición y giro con resorte (pequeño rebote); siguen al cuerpo con un leve retraso */
    if(g.handR){var hl={x:0,y:0,r:0},hr={x:0,y:0,r:0},fl2=Math.sin(t*2*Math.PI/2.4),fl3=Math.sin(t*2*Math.PI/2.4+1.7);

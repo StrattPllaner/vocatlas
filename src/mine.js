@@ -159,7 +159,7 @@ function pkApply(add,rem){
  S.pick=C.filter(function(c){return sel.indexOf(c.id)>-1}).map(function(c){return c.id});S.pk=1;save();
  if(first){making(function(){var el=$("#pick");el.classList.remove("on");el.innerHTML="";enterApp(false,true)});return}
  closePicker();
- if(curView==="yo")renderYo();if(curView==="probar")renderProbar();if(curView==="atlas")renderAtlas();
+ if(curView==="yo")renderYo();if(curView==="probar")renderProbar();if(curView==="atlas")renderAtlas();if(curView==="comparar")renderComparar();
  if(add.length||rem.length)mapChange(add,rem);
 }
 /* Rumbo avisa que está armando el mapa */

@@ -116,10 +116,17 @@
  };
  var SKINK=["medicina","veterinaria","nutricion","psicologia","civil","mecatronica","aeroespacial","ambiental","computacion","datos","biotec","fisica","derecho","educacion","negocios","finanzas","arquitectura","moda","comunicacion","cine"];
  /* ---------- ropa: la parte baja de la brújula se viste (bata, traje, chaleco) ---------- */
- function kBib(id,col,inner,y0){y0=y0||70.4;var E="M20 "+y0+"Q50 "+(y0+7.2)+" 80 "+y0,P=E+"L80 90L20 90Z";
-  return '<clipPath id="'+id+'bc"><circle cx="50" cy="57.6" r="24.4"/></clipPath><clipPath id="'+id+'bp"><path d="'+P+'"/></clipPath>'+
-   '<g clip-path="url(#'+id+'bc)"><g clip-path="url(#'+id+'bp)"><path d="'+P+'" fill="'+col+'"/><path d="M62 60L90 60L90 90L67 90Z" fill="'+rbShade(col,.14)+'"/>'+(inner||"")+'</g><path d="'+E+'" fill="none"'+kol(col,1.3)+'/></g>'+
-   '<g clip-path="url(#'+id+'bp)"><circle cx="50" cy="57.6" r="24.4" fill="none"'+kol(col)+'/></g>'}
+ /* prenda: tela, no placa. Escote curvo, costados que siguen el cuerpo y luego se abren en A por debajo de él (como bata o saco),
+    bastilla ondulada, dos pliegues suaves y el costado derecho en sombra. Tapa el arranque de las piernas, como una prenda de verdad */
+ function kBib(id,col,inner,y0){y0=y0||70.4;var cx=50,cy=57.6,R=24.4,a0=Math.asin((y0-cy)/R),a1=1.02,
+  xa=cx-R*Math.cos(a0),xb=cx+R*Math.cos(a0),x1=cx-R*Math.cos(a1),x2=cx+R*Math.cos(a1),y1=cy+R*Math.sin(a1),H=87.2,f=function(v){return v.toFixed(2)};
+  var E="M"+f(xa)+" "+f(y0)+"Q50 "+f(y0+7.2)+" "+f(xb)+" "+f(y0),
+   P=E+"A"+R+" "+R+" 0 0 1 "+f(x2)+" "+f(y1)+"Q"+f(x2+4.2)+" "+f(y1+4.6)+" "+f(x2+5.2)+" "+f(H)+"Q"+f(cx+13)+" "+f(H+2.2)+" "+f(cx+6.6)+" "+f(H+.6)+"Q50 "+f(H+2.2)+" "+f(cx-6.6)+" "+f(H+.6)+"Q"+f(cx-13)+" "+f(H+2.2)+" "+f(x1-5.2)+" "+f(H)+"Q"+f(x1-4.2)+" "+f(y1+4.6)+" "+f(x1)+" "+f(y1)+"A"+R+" "+R+" 0 0 1 "+f(xa)+" "+f(y0)+"Z";
+  var sh=rbShade(col,.14),dk=rbShade(col,.26);
+  return '<clipPath id="'+id+'bp"><path d="'+P+'"/></clipPath>'+
+   '<g clip-path="url(#'+id+'bp)"><path d="'+P+'" fill="'+col+'"/><path d="M61 58Q66 74 70 92L92 92L92 58Z" fill="'+sh+'"/>'+
+   '<path d="M36.6 79.6Q37.4 84 36.2 88.4M63.6 79.4Q62.6 84 63.8 88.4" fill="none" stroke="'+dk+'" stroke-width=".9" stroke-linecap="round" opacity=".55"/>'+
+   (inner||"")+'</g><path d="'+P+'" fill="none"'+kol(col,1.5)+'/>'}
  /* cuello en V con camisa, solapas y, si se pide, corbata */
  function kV(col,shirt,tie){return '<path d="M43.2 72.4Q50 75.4 56.8 72.4L50 81.6Z" fill="'+shirt+'"/><path d="M43.2 72.6L50 81.6L56.8 72.6" fill="none"'+kol(col,1.1)+'/>'+
   (tie?'<path d="M48.7 74.4L51.3 74.4L50.9 76.2L52 80.6L50 82.4L48 80.6L49.1 76.2Z" fill="'+tie+'" stroke="'+rbLine(tie)+'" stroke-width=".7" stroke-linejoin="round"/>':'')}
