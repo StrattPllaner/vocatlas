@@ -233,16 +233,14 @@
 .amb-m svg{display:block;overflow:visible}
 .amb-gull .iso-gull,.amb-whale .iso-spout{animation:none!important}
 .amb-wave .amb-m{opacity:0}
-/* muro de nubes que limita el mapa (las orillas las dibuja cloudTile en JS) */
-#cwall{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:1}
-#cwall i{position:absolute;left:0;top:0;display:block;will-change:transform;background:var(--cw,#F4F7F9)}
-#cwall .cw-t,#cwall .cw-b{left:-300px;width:calc(100% + 600px);height:2400px}
-#cwall .cw-l,#cwall .cw-r{width:2400px}
-#cwall i::after{content:"";position:absolute;background-image:var(--cwi);background-size:var(--cwz)}
-#cwall .cw-t::after{left:0;right:0;bottom:-96px;height:120px;background-repeat:repeat-x}
-#cwall .cw-b::after{left:0;right:0;top:-96px;height:120px;background-repeat:repeat-x}
-#cwall .cw-l::after{top:-60px;bottom:-60px;right:-96px;width:120px;background-repeat:repeat-y}
-#cwall .cw-r::after{top:-60px;bottom:-60px;left:-96px;width:120px;background-repeat:repeat-y}
+/* neblina que limita el mapa: cuatro bandas que siguen a la cámara y se desvanecen hacia el mar; las nubes ilustradas van encima, en el mapa */
+#cwall{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:1;--fog:#E9F2F8}
+#cwall i{position:absolute;left:0;top:0;display:block;will-change:transform}
+#cwall .cw-t{left:-300px;width:calc(100% + 600px);height:2700px;background:linear-gradient(to bottom,var(--fog) calc(100% - 420px),color-mix(in srgb,var(--fog) 0%,transparent))}
+#cwall .cw-b{left:-300px;width:calc(100% + 600px);height:2700px;margin-top:-300px;background:linear-gradient(to top,var(--fog) calc(100% - 420px),color-mix(in srgb,var(--fog) 0%,transparent))}
+#cwall .cw-l{width:2700px;background:linear-gradient(to right,var(--fog) calc(100% - 420px),color-mix(in srgb,var(--fog) 0%,transparent))}
+#cwall .cw-r{width:2700px;margin-left:-300px;background:linear-gradient(to left,var(--fog) calc(100% - 420px),color-mix(in srgb,var(--fog) 0%,transparent))}
+@media (prefers-color-scheme:dark){#cwall{--fog:#1B3048}}
 
 /* con las piezas ya horneadas como imagen (de día o de noche), el grupo no necesita filtro */
 #world.spr-ok .gm.is-night .m-objs{filter:none}

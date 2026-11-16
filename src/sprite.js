@@ -37,6 +37,7 @@ function sprStart(){
  each(w.querySelectorAll(".m-objs .poi .pp>use"),function(u){var ref=document.getElementById((u.getAttribute("href")||"").slice(1));if(ref)q.push({el:u,art:ref.innerHTML,pp:true})});
  each(w.querySelectorAll(".m-objs .m-d>.vco>g,.m-objs .m-d>.vbz>g"),function(e){q.push({el:e,art:e.innerHTML})});
  each(w.querySelectorAll(".m-objs .m-gh"),function(e){q.push({el:e,art:e.innerHTML})});
+ each(w.querySelectorAll(".m-edge>g"),function(e){q.push({el:e,art:e.innerHTML})});
  SPR.q=q;var done=0,n=q.length;
  function step(){
   if(g!==SPR.gen)return;var t0=performance.now();
