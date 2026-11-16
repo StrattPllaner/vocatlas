@@ -26,13 +26,14 @@
    return kCap(id,kDome(21.6),"#3DB6A8",'<path d="M20 44.6Q50 30.4 80 44.6L80 52L20 52Z" fill="#F4F8F8"/>')+kHi("M31 35Q32.6 27.4 40.4 23.8","#8FE0D4")+
     '<circle cx="50" cy="29.4" r="5" fill="#FFFFFF"'+sl(1.1)+'/><path d="M48.8 26.2h2.4v2h2v2.4h-2v2h-2.4v-2h-2v-2.4h2z" fill="#E2434B"/>'}},
   veterinaria:{n:"Rumbo Veterinario",boot:"#E58B3A",hat:function(id){
-   var ear=function(m){var X=function(x){return (m<0?x:100-x).toFixed(1)},c=m<0?"#A9683A":"#935730";
-    return '<path d="M'+X(31)+' 34.6C'+X(23)+' 30.6 '+X(13.6)+' 36 '+X(13)+' 46.6C'+X(12.6)+' 54.6 '+X(17.6)+' 60.6 '+X(22.6)+' 58.4C'+X(26.4)+' 56.6 '+X(26.2)+' 51 '+X(27.6)+' 46.4C'+X(28.8)+' 42.6 '+X(33)+' 39 '+X(31)+' 34.6Z" fill="'+c+'"'+sl()+'/>'+
-     '<path d="M'+X(26.6)+' 38.4C'+X(21)+' 37.6 '+X(17)+' 41.6 '+X(16.6)+' 47.4C'+X(16.4)+' 51.6 '+X(18.6)+' 55 '+X(21)+' 54.6C'+X(23)+' 53.4 '+X(22.8)+' 49 '+X(24)+' 45.4Z" fill="#E7B58C" opacity=".8"/>'};
-   var band="M26.2 46.6A25.9 25.9 0 0 1 73.8 46.6";
-   return '<path d="'+band+'" stroke="'+rbLine("#E58B3A")+'" stroke-width="5" fill="none" stroke-linecap="round"/><path d="'+band+'" stroke="#E58B3A" stroke-width="3.4" fill="none" stroke-linecap="round"/>'+
-    grp("rk-flapL",29,37,ear(-1))+grp("rk-flapR",71,37,ear(1))+
-    '<circle cx="50" cy="31" r="5.4" fill="#FFFFFF"'+sl(1.1)+'/><ellipse cx="50" cy="32.6" rx="2.3" ry="1.8" fill="#A9683A"/><circle cx="47.2" cy="30" r="1" fill="#A9683A"/><circle cx="50" cy="28.4" r="1.1" fill="#A9683A"/><circle cx="52.8" cy="30" r="1" fill="#A9683A"/>'}},
+   /* gorra de veterinario de campo: copa verde con costuras, parche blanco con huellita y visera al frente */
+   var G="#4E9E7C",d=kDome(21.4);
+   var paw='<ellipse cx="50" cy="35" rx="2.5" ry="2" fill="#E58B3A"/><circle cx="46.9" cy="32" r="1.05" fill="#E58B3A"/><circle cx="49" cy="30.4" r="1.1" fill="#E58B3A"/><circle cx="51" cy="30.4" r="1.1" fill="#E58B3A"/><circle cx="53.1" cy="32" r="1.05" fill="#E58B3A"/>';
+   return kCap(id,d,G,'<path d="M50 21.4Q41.4 27 38.6 44M50 21.4Q58.6 27 61.4 44" stroke="'+rbShade(G,.22)+'" stroke-width="1" fill="none"/><path d="M41.6 39.6Q41.2 29.4 50 27.4Q58.8 29.4 58.4 39.6Q50 37.6 41.6 39.6Z" fill="#FFFBF2"/>')+
+    kHi("M31.4 35Q33 27.6 40.2 23.8","#8FD3B4")+paw+
+    '<circle cx="50" cy="21.6" r="1.8" fill="'+G+'"'+sl(1)+'/>'+
+    '<path d="M25.6 44.6Q50 34.4 74.4 44.6Q77.2 48.6 72.4 50.2Q50 42.8 27.6 50.2Q22.8 48.6 25.6 44.6Z" fill="'+rbShade(G,.12)+'"'+sl()+'/>'+
+    '<path d="M29 46.4Q50 39.4 71 46.4" stroke="'+rbShade(G,.32)+'" stroke-width="1" fill="none" stroke-dasharray="1.6 1.4"/>'}},
   nutricion:{n:"Rumbo Chef",boot:"#5DBB63",hat:function(id){
    var d="M27.4 45.4L28.8 31.6C19.6 28 21.4 13.6 32.6 15C35.6 6.4 49.6 5.2 54 11.4C62 5.6 76.6 10.4 73.4 22.4C80.4 26 77.4 33.6 71.4 32.4L72.6 45.4Q50 36 27.4 45.4Z";
    return kCap(id,d,"#FFFFFF",'<path d="M40 30Q39 22 41 15M50 28.6Q50 20 51 13M60 30Q61.6 23 60.6 17" stroke="#D9DEE6" stroke-width="1.2" fill="none" stroke-linecap="round"/><path d="M20 39.6Q50 26.6 80 39.6L80 52L20 52Z" fill="#EEF1F5"/><path d="M28 33.4Q50 26 72 33.2" stroke="#C9D0DA" stroke-width="1" fill="none"/>')+

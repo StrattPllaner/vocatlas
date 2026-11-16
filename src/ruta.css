@@ -213,3 +213,48 @@
 /* página de muestra de las dinámicas (#din) */
 .din{max-width:560px;margin:0 auto;padding:24px 20px 60px;font-family:var(--ff,inherit);color:var(--c-ink,#14323F)}
 .din h1{font-size:26px;margin:0 0 6px}.din p{margin:0 0 16px;color:var(--c-ink-2,#41505A)}
+
+/* ================= ruta en espiral (rt3) ================= */
+#plaza .lp.rt3{background:radial-gradient(120% 90% at 50% 46%,#7ED3EE 0%,#47ADDD 42%,#2A89C4 100%)}
+#plaza .lp.rt3.lp-dark{background:radial-gradient(120% 90% at 50% 46%,#24608F 0%,#163B5C 50%,#0E2A44 100%)}
+.rt3::before{display:none}
+.rt3-stage{position:relative;z-index:1;flex:1;min-height:0;display:grid;place-items:center;overflow:hidden}
+.rt3-map{position:relative;width:340px;height:340px}
+.rt3-svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;display:block}
+.rt3-waves path{fill:none;stroke:#FFFFFF;stroke-width:2;stroke-linecap:round;opacity:.45}
+.rt3-sh1{fill:rgba(255,255,255,.14)}.rt3-sh2{fill:#8ED8EC;opacity:.75}
+.lp-dark .rt3-sh1{fill:rgba(120,190,230,.1)}.lp-dark .rt3-sh2{fill:#2B6F95;opacity:.8}
+.rt3-trail{fill:none;stroke:var(--c);stroke-width:4;stroke-linecap:round;stroke-dasharray:1000 1000;opacity:.85}
+.rt3-core{position:absolute;left:50%;top:51%;width:30%;aspect-ratio:1;transform:translate(-50%,-62%);pointer-events:none}
+.rt3-core svg{width:100%;height:100%;display:block;overflow:visible}
+/* paradas: botones redondos sobre el sendero (con 44 px de área para tocar) */
+.rt3-n{position:absolute;width:clamp(34px,9.5%,58px);aspect-ratio:1;transform:translate(-50%,-50%);padding:0;border:3px solid #FFFFFF;border-radius:50%;
+ display:grid;place-items:center;background:var(--c);color:var(--ct);cursor:pointer;z-index:2;box-shadow:0 4px 0 var(--cd),0 6px 12px rgba(10,40,60,.25);-webkit-tap-highlight-color:transparent;transition:transform .15s ease}
+.rt3-n::after{content:"";position:absolute;inset:-8px;border-radius:50%}
+.rt3-n:active{transform:translate(-50%,-46%)}
+.rt3-n .lp-ic{width:52%;height:52%;stroke-width:3}
+.rt3-n.s-done{background:var(--c)}
+.rt3-n.s-cur{background:#FFFFFF;color:var(--cd);border-color:var(--c);border-width:4px}
+.rt3-n.s-cur::before{content:"";position:absolute;inset:-9px;border-radius:50%;border:3px solid #FFFFFF;animation:rtPulse 1.6s ease-out infinite}
+.rt3-n.s-lock{background:#EFE6D3;color:#8A7A5E;border-color:#FFFBF2;box-shadow:0 4px 0 #C9B997,0 6px 10px rgba(10,40,60,.15)}
+.rt3-n.s-soon{background:#F6EEDC;color:#9C8A68;border:2.5px dashed #B79C74;box-shadow:none}
+.rt3-n.is-final{width:clamp(44px,12%,70px)}
+.rt3-n.is-chest{border:0;background:none;box-shadow:none;width:clamp(40px,11%,64px)}
+.rt3-n.is-chest svg{width:100%;height:100%;overflow:visible}
+.rt3-n.is-chest.s-lock svg{filter:sepia(.9) saturate(.55) brightness(1.08);opacity:.8}
+.rt3-n.is-sel{outline:4px solid #FFFFFF;outline-offset:4px}
+.rt3-n.is-chest.is-sel{outline:0}.rt3-n.is-chest.is-sel svg{filter:drop-shadow(0 0 6px #FFFFFF)}
+.rt3-n.fill{animation:lpFill .5s ease}
+.rt3-n.opened svg{animation:lpOpen .5s cubic-bezier(.3,1.6,.5,1)}
+/* banderín de cada unidad */
+.rt3-u{position:absolute;transform:translate(-50%,-50%);width:22px;height:22px;border-radius:7px;display:grid;place-items:center;z-index:1;pointer-events:none;
+ background:#FFFBF2;color:#14323F;font:900 12px/1 var(--ff,inherit);box-shadow:0 2px 0 rgba(20,50,63,.25)}
+.rt3-u.s-done{background:#F2B544}
+.rt3-u.s-soon,.rt3-u.s-lock{background:#F3E9D2;color:#8A7A5E}
+.rt3-rb{left:0;top:0;width:clamp(52px,15%,96px);height:auto;aspect-ratio:1;transform:translate(-50%,-108%);transition:left .7s cubic-bezier(.45,.05,.3,1),top .7s cubic-bezier(.45,.05,.3,1)}
+@media (min-width:760px){.rt3 .rt2-card{margin-bottom:16px;border-radius:24px}}
+/* lo que falta se ve discreto: puntitos de papel; el candado solo aparece en la tarjeta al tocarlos */
+.rt3-n.s-lock:not(.is-chest),.rt3-n.s-soon:not(.is-chest){width:clamp(16px,4.6%,26px);border-width:2px;box-shadow:0 2px 0 #C9B997}
+.rt3-n.s-lock:not(.is-chest) .lp-ic,.rt3-n.s-soon:not(.is-chest) .lp-ic{display:none}
+.rt3-n.s-lock:not(.is-chest)::after,.rt3-n.s-soon:not(.is-chest)::after{inset:-12px}
+.rt3-n.is-chest.s-lock{width:clamp(30px,8%,46px)}

@@ -1357,7 +1357,7 @@ html.kit-on body>*:not(#kit):not(.ui-scrim):not(.ui-modal):not(.ui-sheet):not(.u
 @keyframes mSmoke{0%{transform:translateY(0) scale(.6);opacity:.7}100%{transform:translateY(-14px) scale(1.4);opacity:0}}
 @media (prefers-reduced-motion:reduce){.gm *,.ia *{animation:none!important}.gm .iso-whale,.gm .iso-dolphin,.gm .m-glint{opacity:0}}
 :root[data-theme=dark] .gm,.gm.is-night{--m-sea:#163B5C;--m-sea2:#0E2A44;--m-sh1:rgba(60,120,160,.3);--m-sh2:#2B5F82;--m-sh3:#3A7598;background:radial-gradient(120% 90% at 30% 20%,#21507A 0%,var(--m-sea) 45%,var(--m-sea2) 100%)}
-.gm.is-night .m-land,.gm.is-night .m-objs,.gm.is-night .m-roads{filter:brightness(.72) saturate(.85)}
+/* de noche solo cambia el mar: las islas conservan sus colores (y el boceto no se oscurece) */
 .gm.is-night .iso-lamp{filter:drop-shadow(0 0 3px #FFE08A)}
 .iso-halo{display:none}.gm.is-night .iso-halo,.is-night .iso-halo{display:inline}
 /* ================= página interna #art ================= */
@@ -1514,7 +1514,8 @@ html.art-on body>*:not(#art){display:none!important}
 .lp-pop p,.lp-pop h3{color:inherit}
 .lp-head{width:calc(100% - 32px);max-width:640px;margin-left:auto;margin-right:auto;box-sizing:border-box}
 .lp-fab.up svg{transform:rotate(180deg)}
-body.lp-open #app{visibility:hidden}body.lp-open #app *{animation-play-state:paused!important}
+/* con una carrera abierta el mapa sigue ahí debajo (ocultarlo obligaba a redibujarlo completo al volver); solo se pausa el ambiente */
+body.lp-open #amb{visibility:hidden}body.lp-open #amb *{animation-play-state:paused!important}
 /* mapa de la app: sin animaciones dentro del svg; cualquier animación ahí obliga a redibujar todo el mapa en cada cuadro */
 .isow *{animation:none!important}
 .isow .m-glint{opacity:.5}
@@ -1528,7 +1529,7 @@ body.lp-open #app{visibility:hidden}body.lp-open #app *{animation-play-state:pau
 .t-hit{fill:transparent;pointer-events:all}
 .t-ring{stroke:var(--sk3);stroke-width:9;stroke-opacity:.5;stroke-linejoin:round}
 .isow{--sk0:#BFA57E;--sk1:#D8C29C;--sk2:#E9D9B8;--sk3:#F5EBD4;--skl:#7A5C3A}
-.m-terr.is-night .t-gsk{filter:brightness(.72) saturate(.85)}
+
 #mlayer.tight .al .t{font-size:10.5px;letter-spacing:.12em}#mlayer.tight .sl .t{font-size:12px}
 .pn-s{display:none}#mlayer.tight .pn-s{display:inline}#mlayer.tight .pn-l{display:none}
 .mpin.s-full .pd{box-shadow:0 0 0 2px var(--mostaza)}
@@ -1760,16 +1761,26 @@ body.lp-open #app{visibility:hidden}body.lp-open #app *{animation-play-state:pau
 .amb-gull .iso-gull,.amb-whale .iso-spout{animation:none!important}
 .amb-wave .amb-m{opacity:0}
 /* neblina que limita el mapa: cuatro bandas que siguen a la cámara y se desvanecen hacia el mar; las nubes ilustradas van encima, en el mapa */
-#cwall{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:1;--fog:#E9F2F8}
+#cwall{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:1;--fog:#E6EFF6}
 #cwall i{position:absolute;left:0;top:0;display:block;will-change:transform}
-#cwall .cw-t{left:-300px;width:calc(100% + 600px);height:2700px;background:linear-gradient(to bottom,var(--fog) calc(100% - 420px),color-mix(in srgb,var(--fog) 0%,transparent))}
-#cwall .cw-b{left:-300px;width:calc(100% + 600px);height:2700px;margin-top:-300px;background:linear-gradient(to top,var(--fog) calc(100% - 420px),color-mix(in srgb,var(--fog) 0%,transparent))}
-#cwall .cw-l{width:2700px;background:linear-gradient(to right,var(--fog) calc(100% - 420px),color-mix(in srgb,var(--fog) 0%,transparent))}
-#cwall .cw-r{width:2700px;margin-left:-300px;background:linear-gradient(to left,var(--fog) calc(100% - 420px),color-mix(in srgb,var(--fog) 0%,transparent))}
-@media (prefers-color-scheme:dark){#cwall{--fog:#1B3048}}
+#cwall .cw-t,#cwall .cw-b{width:16000px;height:3000px}
+#cwall .cw-l,#cwall .cw-r{width:3000px;height:16000px}
+#cwall .cw-t{background:linear-gradient(to bottom,var(--fog) 0,var(--fog) calc(100% - var(--fl,560px)),color-mix(in srgb,var(--fog) 86%,transparent) calc(100% - var(--fl,560px)*.72),color-mix(in srgb,var(--fog) 52%,transparent) calc(100% - var(--fl,560px)*.4),color-mix(in srgb,var(--fog) 18%,transparent) calc(100% - var(--fl,560px)*.16),color-mix(in srgb,var(--fog) 0%,transparent) 100%)}
+#cwall .cw-b{background:linear-gradient(to top,var(--fog) 0,var(--fog) calc(100% - var(--fl,560px)),color-mix(in srgb,var(--fog) 86%,transparent) calc(100% - var(--fl,560px)*.72),color-mix(in srgb,var(--fog) 52%,transparent) calc(100% - var(--fl,560px)*.4),color-mix(in srgb,var(--fog) 18%,transparent) calc(100% - var(--fl,560px)*.16),color-mix(in srgb,var(--fog) 0%,transparent) 100%)}
+#cwall .cw-l{background:linear-gradient(to right,var(--fog) 0,var(--fog) calc(100% - var(--fl,560px)),color-mix(in srgb,var(--fog) 86%,transparent) calc(100% - var(--fl,560px)*.72),color-mix(in srgb,var(--fog) 52%,transparent) calc(100% - var(--fl,560px)*.4),color-mix(in srgb,var(--fog) 18%,transparent) calc(100% - var(--fl,560px)*.16),color-mix(in srgb,var(--fog) 0%,transparent) 100%)}
+#cwall .cw-r{background:linear-gradient(to left,var(--fog) 0,var(--fog) calc(100% - var(--fl,560px)),color-mix(in srgb,var(--fog) 86%,transparent) calc(100% - var(--fl,560px)*.72),color-mix(in srgb,var(--fog) 52%,transparent) calc(100% - var(--fl,560px)*.4),color-mix(in srgb,var(--fog) 18%,transparent) calc(100% - var(--fl,560px)*.16),color-mix(in srgb,var(--fog) 0%,transparent) 100%)}
+@media (prefers-color-scheme:dark){#cwall{--fog:#3A5674}}
+/* nubes de la orilla: una tira de nubes horneadas que se repite a lo largo de cada banda; asoman un poco sobre el mar
+   y hacia afuera se pierden en la neblina. Aparecen con suavidad cuando ya están listas */
+#cwall i::after{content:"";position:absolute;opacity:0;transition:opacity .9s ease;pointer-events:none}
+#cwall.ok i::after{opacity:1}
+#cwall .cw-t::after{left:0;right:0;bottom:calc(var(--cin,60px)*-1);height:var(--csh,360px);background:var(--cwh) repeat-x 0 0/auto 100%}
+#cwall .cw-b::after{left:0;right:0;top:calc(var(--cin,60px)*-1);height:var(--csh,360px);background:var(--cwb) repeat-x 37% 0/auto 100%}
+#cwall .cw-l::after{top:0;bottom:0;right:calc(var(--cin,60px)*-1);width:var(--csw,360px);background:var(--cwv) repeat-y 0 0/100% auto}
+#cwall .cw-r::after{top:0;bottom:0;left:calc(var(--cin,60px)*-1);width:var(--csw,360px);background:var(--cwr) repeat-y 0 41%/100% auto}
 
 /* con las piezas ya horneadas como imagen (de día o de noche), el grupo no necesita filtro */
-#world.spr-ok .gm.is-night .m-objs{filter:none}
+
 
 /* orilla superior de las pestañas: el contenido se desvanece bajo la barra de estado en vez de cortarse en seco */
 #app::before{content:"";position:absolute;left:0;right:0;top:0;height:calc(var(--sat) + 22px);z-index:6;pointer-events:none;background:linear-gradient(var(--c-bg) calc(var(--sat) + 4px),color-mix(in srgb,var(--c-bg) 0%,transparent));opacity:1;transition:opacity .2s ease}
@@ -1784,6 +1795,8 @@ body.lp-open #app{visibility:hidden}body.lp-open #app *{animation-play-state:pau
 .glass{-webkit-backdrop-filter:none;backdrop-filter:none;background:color-mix(in srgb,var(--glass) 30%,var(--bg) 70%)}
 
 #v-map.in-r,#v-map.in-l,#v-map.out{animation:none!important}
+/* al entrar, el mapa solo aparece (sin escalar): escalar la capa entera obligaba a redibujarla */
+#mapwrap.mreveal{animation:fadeIn var(--t-long) var(--soft) both}
 /* ================= perfil (Yo) ================= */
 .pf{--pf-sh1:rgba(166,230,236,.45);--pf-sh2:#A6E6EC;--pf-sand:#F5DFA2;--pf-cliff:#D9B56F;--pf-grass:#8FD46B;--pf-grass2:#74BD55}
 @media (prefers-color-scheme:dark){.pf{--pf-sh1:rgba(60,120,160,.4);--pf-sh2:#3A7598;--pf-sand:#B5A070;--pf-cliff:#8F7748;--pf-grass:#5F9A4C;--pf-grass2:#4F8640}}
@@ -2073,6 +2086,51 @@ body.lp-open #app{visibility:hidden}body.lp-open #app *{animation-play-state:pau
 /* página de muestra de las dinámicas (#din) */
 .din{max-width:560px;margin:0 auto;padding:24px 20px 60px;font-family:var(--ff,inherit);color:var(--c-ink,#14323F)}
 .din h1{font-size:26px;margin:0 0 6px}.din p{margin:0 0 16px;color:var(--c-ink-2,#41505A)}
+
+/* ================= ruta en espiral (rt3) ================= */
+#plaza .lp.rt3{background:radial-gradient(120% 90% at 50% 46%,#7ED3EE 0%,#47ADDD 42%,#2A89C4 100%)}
+#plaza .lp.rt3.lp-dark{background:radial-gradient(120% 90% at 50% 46%,#24608F 0%,#163B5C 50%,#0E2A44 100%)}
+.rt3::before{display:none}
+.rt3-stage{position:relative;z-index:1;flex:1;min-height:0;display:grid;place-items:center;overflow:hidden}
+.rt3-map{position:relative;width:340px;height:340px}
+.rt3-svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;display:block}
+.rt3-waves path{fill:none;stroke:#FFFFFF;stroke-width:2;stroke-linecap:round;opacity:.45}
+.rt3-sh1{fill:rgba(255,255,255,.14)}.rt3-sh2{fill:#8ED8EC;opacity:.75}
+.lp-dark .rt3-sh1{fill:rgba(120,190,230,.1)}.lp-dark .rt3-sh2{fill:#2B6F95;opacity:.8}
+.rt3-trail{fill:none;stroke:var(--c);stroke-width:4;stroke-linecap:round;stroke-dasharray:1000 1000;opacity:.85}
+.rt3-core{position:absolute;left:50%;top:51%;width:30%;aspect-ratio:1;transform:translate(-50%,-62%);pointer-events:none}
+.rt3-core svg{width:100%;height:100%;display:block;overflow:visible}
+/* paradas: botones redondos sobre el sendero (con 44 px de área para tocar) */
+.rt3-n{position:absolute;width:clamp(34px,9.5%,58px);aspect-ratio:1;transform:translate(-50%,-50%);padding:0;border:3px solid #FFFFFF;border-radius:50%;
+ display:grid;place-items:center;background:var(--c);color:var(--ct);cursor:pointer;z-index:2;box-shadow:0 4px 0 var(--cd),0 6px 12px rgba(10,40,60,.25);-webkit-tap-highlight-color:transparent;transition:transform .15s ease}
+.rt3-n::after{content:"";position:absolute;inset:-8px;border-radius:50%}
+.rt3-n:active{transform:translate(-50%,-46%)}
+.rt3-n .lp-ic{width:52%;height:52%;stroke-width:3}
+.rt3-n.s-done{background:var(--c)}
+.rt3-n.s-cur{background:#FFFFFF;color:var(--cd);border-color:var(--c);border-width:4px}
+.rt3-n.s-cur::before{content:"";position:absolute;inset:-9px;border-radius:50%;border:3px solid #FFFFFF;animation:rtPulse 1.6s ease-out infinite}
+.rt3-n.s-lock{background:#EFE6D3;color:#8A7A5E;border-color:#FFFBF2;box-shadow:0 4px 0 #C9B997,0 6px 10px rgba(10,40,60,.15)}
+.rt3-n.s-soon{background:#F6EEDC;color:#9C8A68;border:2.5px dashed #B79C74;box-shadow:none}
+.rt3-n.is-final{width:clamp(44px,12%,70px)}
+.rt3-n.is-chest{border:0;background:none;box-shadow:none;width:clamp(40px,11%,64px)}
+.rt3-n.is-chest svg{width:100%;height:100%;overflow:visible}
+.rt3-n.is-chest.s-lock svg{filter:sepia(.9) saturate(.55) brightness(1.08);opacity:.8}
+.rt3-n.is-sel{outline:4px solid #FFFFFF;outline-offset:4px}
+.rt3-n.is-chest.is-sel{outline:0}.rt3-n.is-chest.is-sel svg{filter:drop-shadow(0 0 6px #FFFFFF)}
+.rt3-n.fill{animation:lpFill .5s ease}
+.rt3-n.opened svg{animation:lpOpen .5s cubic-bezier(.3,1.6,.5,1)}
+/* banderín de cada unidad */
+.rt3-u{position:absolute;transform:translate(-50%,-50%);width:22px;height:22px;border-radius:7px;display:grid;place-items:center;z-index:1;pointer-events:none;
+ background:#FFFBF2;color:#14323F;font:900 12px/1 var(--ff,inherit);box-shadow:0 2px 0 rgba(20,50,63,.25)}
+.rt3-u.s-done{background:#F2B544}
+.rt3-u.s-soon,.rt3-u.s-lock{background:#F3E9D2;color:#8A7A5E}
+.rt3-rb{left:0;top:0;width:clamp(52px,15%,96px);height:auto;aspect-ratio:1;transform:translate(-50%,-108%);transition:left .7s cubic-bezier(.45,.05,.3,1),top .7s cubic-bezier(.45,.05,.3,1)}
+@media (min-width:760px){.rt3 .rt2-card{margin-bottom:16px;border-radius:24px}}
+/* lo que falta se ve discreto: puntitos de papel; el candado solo aparece en la tarjeta al tocarlos */
+.rt3-n.s-lock:not(.is-chest),.rt3-n.s-soon:not(.is-chest){width:clamp(16px,4.6%,26px);border-width:2px;box-shadow:0 2px 0 #C9B997}
+.rt3-n.s-lock:not(.is-chest) .lp-ic,.rt3-n.s-soon:not(.is-chest) .lp-ic{display:none}
+.rt3-n.s-lock:not(.is-chest)::after,.rt3-n.s-soon:not(.is-chest)::after{inset:-12px}
+.rt3-n.is-chest.s-lock{width:clamp(30px,8%,46px)}
 /* ================= Probar: test de intereses y comparador ================= */
 .pb-cards{display:grid;gap:12px;margin:0 0 26px}
 .pb-card{display:flex;align-items:center;gap:14px;width:100%;text-align:left;font:inherit;color:var(--c-ink);cursor:pointer;-webkit-tap-highlight-color:transparent}
@@ -2194,6 +2252,46 @@ body.lp-open #app{visibility:hidden}body.lp-open #app *{animation-play-state:pau
 .cx-list button[aria-pressed=true]{border-color:var(--c-sel-line);background:var(--c-sel)}
 .cx-list i{width:14px;height:14px;border-radius:50%;flex:none}
 @media (max-width:370px){.cx-art{width:72px;height:72px}.cx-row{grid-template-columns:28px 1fr auto 1fr 28px;gap:5px;font-size:12.5px}}
+/* ================= pantallas anchas (iPad y computadora) =================
+   Como en Strattpllaner: la barra de abajo pasa a ser un riel vertical a la izquierda y el contenido usa todo
+   el ancho que queda. Desde 1080 px cada pestaña se acomoda en dos columnas en vez de una tira angosta al centro. */
+#nav .ind{transform:translateX(calc(var(--i,0) * 100%))}
+@media (min-width:760px){
+ #nav{left:calc(14px + var(--sal));top:50%;bottom:auto;transform:translateY(-50%);width:88px;flex-direction:column;padding:6px;border-radius:30px}
+ #nav .ind{left:6px;right:6px;top:6px;bottom:auto;width:auto;height:calc((100% - 12px) / 5);transform:translateY(calc(var(--i,0) * 100%))}
+ #nav button{flex:none;min-height:72px;font-size:12.5px;border-radius:24px}
+ #app.enter #nav{animation:none}
+ .view{padding:calc(28px + var(--sat)) calc(32px + var(--sar)) calc(40px + var(--sab)) calc(134px + var(--sal))}
+ .vwrap{max-width:none}
+ /* mapa: los controles de la izquierda se hacen a un lado del riel */
+ .clar{left:calc(14px + var(--sal))}
+ .addc{left:calc(118px + var(--sal));bottom:calc(20px + var(--sab))}
+ .pf-grid{grid-template-columns:repeat(auto-fill,minmax(128px,1fr))}
+ /* las tiras que se deslizan de lado se vuelven cuadrícula: nada queda cortado en la orilla */
+ .at-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));overflow:visible;margin:0;padding:2px 0 var(--sp-2)}
+ .at-row>*{width:auto!important;min-width:0}
+}
+@media (min-width:1080px){
+ .vwrap{max-width:1320px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:28px;align-items:start}
+ .vwrap>*{grid-column:1 / -1;min-width:0}
+ /* Yo: la tarjeta con Rumbo queda fija a la izquierda y lo demás corre a la derecha */
+ .pf.vwrap{grid-template-columns:minmax(340px,5fr) minmax(0,7fr)}
+ .pf.vwrap>.pf-hero{grid-column:1;grid-row:1 / span 6;position:sticky;top:0}
+ .pf.vwrap>:not(.pf-hero){grid-column:2}
+ /* Atlas: arriba el resumen; abajo, dos columnas */
+ .at:not(.pf).vwrap>.at-next{grid-column:1;grid-row:2}
+ .at:not(.pf).vwrap>.at-sec:nth-of-type(2){grid-column:2;grid-row:2 / span 2}
+ .at:not(.pf).vwrap>.at-sec:nth-of-type(3){grid-column:1;grid-row:3}
+ /* Comparar: el duelo arriba y las tarjetas en dos columnas */
+ .cx.vwrap>.cx-card{grid-column:auto}
+ .cx.vwrap>.cx-card:nth-of-type(2){grid-column:2;grid-row:3 / span 3}
+ .cx.vwrap>.cx-card:not(:nth-of-type(2)){grid-column:1}
+ .cx-duel{max-width:760px;width:100%;margin-left:auto;margin-right:auto}
+ .cx-final{max-width:560px;width:100%;margin-left:auto;margin-right:auto}
+ /* Probar: el test destacado y la lista lado a lado */
+ #v-probar .vwrap>.hero,#v-probar .vwrap>.group{grid-column:auto;grid-row:4}
+ #v-probar .vwrap>h3.sec{grid-column:auto;grid-row:3}
+}
 /*@iso-css-fin*/
 </style>
 <script>
@@ -2278,14 +2376,7 @@ body.lp-open #app{visibility:hidden}body.lp-open #app *{animation-play-state:pau
         <div id="mapwrap"><svg id="map" xmlns="http://www.w3.org/2000/svg"><g id="world"></g></svg><svg id="fx" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g id="fxw"></g></svg><div id="amb" aria-hidden="true"></div></div>
         <div id="cwall" aria-hidden="true"><i class="cw-t"></i><i class="cw-b"></i><i class="cw-l"></i><i class="cw-r"></i></div><div id="mlayer"></div>
         <svg id="occl" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g id="occw"></g></svg>
-        <div id="mapskel" class="mapskel" aria-hidden="true">
-          <div class="sk" style="left:12%;top:18%;width:28%;height:30%;border-radius:48% 52% 44% 56%"></div>
-          <div class="sk" style="left:26%;top:50%;width:24%;height:26%;border-radius:52% 48% 56% 44%"></div>
-          <div class="sk" style="left:50%;top:14%;width:38%;height:58%;border-radius:44% 56% 50% 50%"></div>
-          <div class="sk" style="left:20%;top:30%;width:84px;height:20px;border-radius:10px"></div>
-          <div class="sk" style="left:62%;top:34%;width:96px;height:20px;border-radius:10px"></div>
-          <div class="sk" style="left:34%;top:60%;width:72px;height:20px;border-radius:10px"></div>
-        </div>
+        <div id="mapskel" class="mapskel" aria-hidden="true"></div>
         <button type="button" class="clar glass" id="clar" aria-label="Claridad vocacional. Abrir tu Atlas">
           <svg class="ring" viewBox="0 0 48 48" aria-hidden="true">
             <defs><clipPath id="rcR"><rect x="24" y="0" width="24" height="48"/></clipPath><clipPath id="rcL"><rect x="0" y="0" width="24" height="48"/></clipPath></defs>
@@ -3291,7 +3382,7 @@ function isoGeo(){
  var ghosts=W.ghosts.map(function(g){var q=pj([g.x,g.y],6),ly=-1e9;g.coast.forEach(function(p){ly=Math.max(ly,pj(p,0)[1])});return {x:q[0],y:q[1],ly:ly+30,area:g.area&&AREAS[g.area.id]?g.area.id:""}});
  /* zona del mapa: las islas con carreras y los islotes por descubrir, con un margen de mar; afuera, nubes */
  var zn=fit.slice();W.ghosts.forEach(function(g){g.coast.forEach(function(p){var q=pj(p,0);zn[0]=Math.min(zn[0],q[0]);zn[1]=Math.min(zn[1],q[1]-60);zn[2]=Math.max(zn[2],q[0]);zn[3]=Math.max(zn[3],q[1]+20)})});
- zn=[zn[0]-110,zn[1]-150,zn[2]+110,zn[3]+120];
+ zn=[zn[0]-150,zn[1]-180,zn[2]+150,zn[3]+150];
  seas=[["Mar de las Preguntas",zn[0]+190,zn[3]-46],["Océano de las Posibilidades",(zn[0]+zn[2])/2,zn[1]+56]];
  ISOW={W:W,R:R,OX:OX,OY:OY,pj:pj,ZT:ZT,areas:areas,seas:seas,cells:cells,ghosts:ghosts,fit:fit,zone:zn,sig:S.pick.join(",")};
 }
@@ -3332,15 +3423,11 @@ function isoWorld(w,defs){
  g2.innerHTML='<g pointer-events="none">'+R.seaObjs+'</g><g class="m-objs">'+R.objs+'</g><g class="m-top" pointer-events="none">'+R.top+'</g>';
  /* lavado de acuarela: mientras la carrera no está completa, lo que ya tiene color lleva una capa de papel encima
     (más ligera conforme avanzas). Así 75 % se ve todavía en proceso y solo 100 % queda a todo color */
- /* orilla del mapa: nubes ilustradas (las mismas del mar) en dos filas sobre el borde de la zona, encima de la neblina */
- var z=ISOW.zone,ec="",rr=rng(hash(ISOW.sig+"nubes")),E=function(x,y,k){/* dentro del área dibujada del mapa, para que ninguna nube se recorte en seco */x=Math.min(WW-25*k,Math.max(25*k,x));y=Math.min(WH-6*k,Math.max(22*k,y));ec+='<g transform="translate('+(x-OX).toFixed(0)+' '+(y-OY).toFixed(0)+')">'+ENV.cloud({k:k,ph:rr()*3})+'</g>'};
- [[z[0],z[1],z[2],z[1]],[z[0],z[3],z[2],z[3]],[z[0],z[1],z[0],z[3]],[z[2],z[1],z[2],z[3]]].forEach(function(L,side){var len=Math.hypot(L[2]-L[0],L[3]-L[1]),n=Math.max(2,Math.round(len/150));
-  for(var i=0;i<=n;i++){var t=i/n,x=L[0]+(L[2]-L[0])*t,y=L[1]+(L[3]-L[1])*t,ox=side===2?-60:side===3?60:0,oy=side===0?-50:side===1?50:0;
-   var jx=side>1?(rr()-.5)*150:(rr()-.5)*90,jy=side<2?(rr()-.5)*120:(rr()-.5)*60;
-   E(x+ox*1.6+jx,y+oy*1.6+jy,4.8+rr()*2.2);if(rr()<.7)E(x+(rr()-.5)*120+ox*.2,y+oy*.2+(rr()-.5)*70,2.4+rr()*1.6);if(rr()<.35)E(x+ox*3+(rr()-.5)*160,y+oy*3+(rr()-.5)*120,5.5+rr()*2)}});
- var ge=sv("g",{"class":"m-edge","pointer-events":"none"},g2);ge.innerHTML=ec;
+ /* las nubes de la orilla viven en la capa de la neblina (#cwall), no en el mapa: así la capa del mapa no crece */
+ edgeStrips(!!night);
+
  var gw=sv("g",{"class":"m-wash","pointer-events":"none"},g2);
- Object.keys(refs).forEach(function(id){var r=refs[id];if(!r.K)return;r.wash=sv("path",{"clip-path":"url(#zone-"+id+")",fill:"var(--sk3,#F5EBD4)",style:"display:none"},gw)});
+ Object.keys(refs).forEach(function(id){var r=refs[id];if(!r.K)return;r.wash=sv("path",{"clip-path":"url(#zone-"+id+")",fill:"var(--sk3,#F5EBD4)",style:"display:none"},sv("g",{"clip-path":"url(#isl-"+byId[id].isle+")"},gw))});
 }
 /* capa de efectos: niebla sobre lo no visitado y huellitas; vive en su propio svg para no repintar el mapa */
 var fogs={},stepsL=null;
@@ -3425,7 +3512,10 @@ function commit(){
  var ct="translate3d("+cm.tx.toFixed(1)+"px,"+cm.ty.toFixed(1)+"px,0)";svgEls.forEach(function(e){e.style.transform=ct});
  ambPlace();
 }
+var CAMHOLD=false;
 function idleCommit(){
+ /* mientras se entra a una carrera la cámara se acerca solo de forma visual: no se redibuja el mapa */
+ if(CAMHOLD)return;
  if(raf||ptrs.size){cmT=setTimeout(idleCommit,160);return}
  if(cm.s!==view.s)commit();else ambPlace();
 }
@@ -3433,7 +3523,7 @@ function apply(){
  var vw=box.clientWidth,vh=box.clientHeight,s=view.s,z=zone();
  /* la zona siempre llena la pantalla; a lo más una franja de nubes en cada orilla */
  function cl(t,a,b,v,f){var lo=v*(1-f)-b*s,hi=v*f-a*s;return lo>hi?(lo+hi)/2:Math.min(hi,Math.max(lo,t))}
- view.tx=cl(view.tx,z[0],z[2],vw,.22);view.ty=cl(view.ty,z[1],z[3],vh,.22);
+ view.tx=cl(view.tx,z[0],z[2],vw,.12);view.ty=cl(view.ty,z[1],z[3],vh,.12);
  var k=view.s/cm.s,ct="translate3d("+view.tx.toFixed(1)+"px,"+view.ty.toFixed(1)+"px,0)"+(Math.abs(k-1)>1e-4?" scale("+k.toFixed(4)+")":"");
  svgEls.forEach(function(e){e.style.transform=ct});
  placeLabels(vw,vh);
@@ -3442,12 +3532,16 @@ function apply(){
 /* muro de nubes alrededor de la zona: cuatro bandas en pantalla que siguen a la cámara (no se redibujan) */
 function cloudWall(vw,vh){
  var cw=$("#cwall");if(!cw||!ISOW)return;var z=zone(),s=view.s,x0=view.tx+z[0]*s,y0=view.ty+z[1]*s,x1=view.tx+z[2]*s,y1=view.ty+z[3]*s;
- var e=cw.children;
- /* la neblina empieza 300 px dentro de la zona y se vuelve sólida hacia afuera */
- e[0].style.transform="translate3d(0,"+(y0-2400).toFixed(0)+"px,0)";
- e[1].style.transform="translate3d(0,"+y1.toFixed(0)+"px,0)";
- e[2].style.transform="translate3d("+(x0-2400).toFixed(0)+"px,"+(y0-300).toFixed(0)+"px,0)";e[2].style.height=Math.max(0,y1-y0+600).toFixed(0)+"px";
- e[3].style.transform="translate3d("+x1.toFixed(0)+"px,"+(y0-300).toFixed(0)+"px,0)";e[3].style.height=Math.max(0,y1-y0+600).toFixed(0)+"px";
+ var e=cw.children,fl=Math.max(150,400*s);
+ /* la neblina se vuelve sólida a la misma distancia del mapa a cualquier acercamiento (donde están las nubes de afuera) */
+ if(!cw._fl||Math.abs(fl/cw._fl-1)>.08){cw._fl=fl;cw.style.setProperty("--fl",fl.toFixed(0)+"px")}
+ /* la neblina se vuelve transparente justo en la orilla de la zona: nunca tapa las islas.
+    Las bandas son muy largas y solo se trasladan (no cambian de tamaño): moverse no las redibuja */
+ var mx=((x0+x1)/2-8000).toFixed(0),my=((y0+y1)/2-8000).toFixed(0);
+ e[0].style.transform="translate3d("+mx+"px,"+(y0-3000).toFixed(0)+"px,0)";
+ e[1].style.transform="translate3d("+mx+"px,"+y1.toFixed(0)+"px,0)";
+ e[2].style.transform="translate3d("+(x0-3000).toFixed(0)+"px,"+my+"px,0)";
+ e[3].style.transform="translate3d("+x1.toFixed(0)+"px,"+my+"px,0)";
 }
 function placeLabels(vw,vh){
  cloudWall(vw,vh);
@@ -3801,6 +3895,8 @@ function enterPlaza(id){
  var c=byId[id];plazaId=id;pzReacted=false;
  var p=$("#plaza");buildPlaza(id);
  function show(){
+  /* la carrera ya tapa el mapa: la cámara vuelve a donde estaba, sin redibujar nada */
+  if(PZ.cam){stopAnim();view.s=PZ.cam.s;view.tx=PZ.cam.tx;view.ty=PZ.cam.ty;PZ.cam=null;apply()}CAMHOLD=false;
   if(typeof PATH!=="undefined"){p.classList.remove("leaving");p.classList.add("on","pz-in");PATH.show();setTimeout(function(){p.classList.remove("pz-in")},1400);return}
   p.classList.remove("leaving");p.classList.add("on","pz-in");sizeStage();
   PZ.x=150;PZ.y=396;PZ.cur=null;placePz();setFacing(PZ.rb,false);
@@ -3808,8 +3904,9 @@ function enterPlaza(id){
   setTimeout(function(){p.classList.remove("pz-in")},1400);
  }
  if(RM()){p.classList.add("fadein");show();setTimeout(function(){p.classList.remove("fadein")},T.med+40);return}
- /* cámara al edificio y una forma que se expande con el color de la carrera */
- var f=framing(c.cx,c.cy-40,2.1);
+ /* cámara al edificio (solo un acercamiento visual, sin redibujar) y una forma que se expande con el color de la carrera */
+ CAMHOLD=true;PZ.cam={s:view.s,tx:view.tx,ty:view.ty};
+ var f=framing(c.cx,c.cy-40,view.s*1.3);
  animView(f.s,f.tx,f.ty,T.long);
  setTimeout(function(){
   var r=box.getBoundingClientRect();
@@ -3997,7 +4094,7 @@ function exitPlaza(){
   setTimeout(function(){if(!RB.plan)mood(RB.rb,"idle")},3200);
   idleLook();
  }
- var n=NODES[id],f=framing(n[0],n[1]-30,.85);
+ var n=NODES[id],f=framing(n[0],n[1]-30,view.s);
  if(RM()){p.classList.remove("on");view.s=f.s;view.tx=f.tx;view.ty=f.ty;apply();landed();return}
  var r=box.getBoundingClientRect();
  iris(r.left+box.clientWidth/2,r.top+box.clientHeight/2,c.color,false,function(){
@@ -4114,7 +4211,7 @@ function showView(v,instant){
  });
  outT=setTimeout(function(){each(document.querySelectorAll(".view.out"),function(s){s.classList.remove("out")})},T.fast);
  each(document.querySelectorAll("nav button"),function(b){b.classList.toggle("on",b.getAttribute("data-v")===v)});
- $("#ind").style.transform="translateX("+(to*100)+"%)";
+ $("#ind").style.setProperty("--i",to);
  curView=v;$("#app").setAttribute("data-v",v);ambSync();
  if(v==="map"){
   apply();
@@ -5516,13 +5613,14 @@ var RUMBO=(function(){
    return kCap(id,kDome(21.6),"#3DB6A8",'<path d="M20 44.6Q50 30.4 80 44.6L80 52L20 52Z" fill="#F4F8F8"/>')+kHi("M31 35Q32.6 27.4 40.4 23.8","#8FE0D4")+
     '<circle cx="50" cy="29.4" r="5" fill="#FFFFFF"'+sl(1.1)+'/><path d="M48.8 26.2h2.4v2h2v2.4h-2v2h-2.4v-2h-2v-2.4h2z" fill="#E2434B"/>'}},
   veterinaria:{n:"Rumbo Veterinario",boot:"#E58B3A",hat:function(id){
-   var ear=function(m){var X=function(x){return (m<0?x:100-x).toFixed(1)},c=m<0?"#A9683A":"#935730";
-    return '<path d="M'+X(31)+' 34.6C'+X(23)+' 30.6 '+X(13.6)+' 36 '+X(13)+' 46.6C'+X(12.6)+' 54.6 '+X(17.6)+' 60.6 '+X(22.6)+' 58.4C'+X(26.4)+' 56.6 '+X(26.2)+' 51 '+X(27.6)+' 46.4C'+X(28.8)+' 42.6 '+X(33)+' 39 '+X(31)+' 34.6Z" fill="'+c+'"'+sl()+'/>'+
-     '<path d="M'+X(26.6)+' 38.4C'+X(21)+' 37.6 '+X(17)+' 41.6 '+X(16.6)+' 47.4C'+X(16.4)+' 51.6 '+X(18.6)+' 55 '+X(21)+' 54.6C'+X(23)+' 53.4 '+X(22.8)+' 49 '+X(24)+' 45.4Z" fill="#E7B58C" opacity=".8"/>'};
-   var band="M26.2 46.6A25.9 25.9 0 0 1 73.8 46.6";
-   return '<path d="'+band+'" stroke="'+rbLine("#E58B3A")+'" stroke-width="5" fill="none" stroke-linecap="round"/><path d="'+band+'" stroke="#E58B3A" stroke-width="3.4" fill="none" stroke-linecap="round"/>'+
-    grp("rk-flapL",29,37,ear(-1))+grp("rk-flapR",71,37,ear(1))+
-    '<circle cx="50" cy="31" r="5.4" fill="#FFFFFF"'+sl(1.1)+'/><ellipse cx="50" cy="32.6" rx="2.3" ry="1.8" fill="#A9683A"/><circle cx="47.2" cy="30" r="1" fill="#A9683A"/><circle cx="50" cy="28.4" r="1.1" fill="#A9683A"/><circle cx="52.8" cy="30" r="1" fill="#A9683A"/>'}},
+   /* gorra de veterinario de campo: copa verde con costuras, parche blanco con huellita y visera al frente */
+   var G="#4E9E7C",d=kDome(21.4);
+   var paw='<ellipse cx="50" cy="35" rx="2.5" ry="2" fill="#E58B3A"/><circle cx="46.9" cy="32" r="1.05" fill="#E58B3A"/><circle cx="49" cy="30.4" r="1.1" fill="#E58B3A"/><circle cx="51" cy="30.4" r="1.1" fill="#E58B3A"/><circle cx="53.1" cy="32" r="1.05" fill="#E58B3A"/>';
+   return kCap(id,d,G,'<path d="M50 21.4Q41.4 27 38.6 44M50 21.4Q58.6 27 61.4 44" stroke="'+rbShade(G,.22)+'" stroke-width="1" fill="none"/><path d="M41.6 39.6Q41.2 29.4 50 27.4Q58.8 29.4 58.4 39.6Q50 37.6 41.6 39.6Z" fill="#FFFBF2"/>')+
+    kHi("M31.4 35Q33 27.6 40.2 23.8","#8FD3B4")+paw+
+    '<circle cx="50" cy="21.6" r="1.8" fill="'+G+'"'+sl(1)+'/>'+
+    '<path d="M25.6 44.6Q50 34.4 74.4 44.6Q77.2 48.6 72.4 50.2Q50 42.8 27.6 50.2Q22.8 48.6 25.6 44.6Z" fill="'+rbShade(G,.12)+'"'+sl()+'/>'+
+    '<path d="M29 46.4Q50 39.4 71 46.4" stroke="'+rbShade(G,.32)+'" stroke-width="1" fill="none" stroke-dasharray="1.6 1.4"/>'}},
   nutricion:{n:"Rumbo Chef",boot:"#5DBB63",hat:function(id){
    var d="M27.4 45.4L28.8 31.6C19.6 28 21.4 13.6 32.6 15C35.6 6.4 49.6 5.2 54 11.4C62 5.6 76.6 10.4 73.4 22.4C80.4 26 77.4 33.6 71.4 32.4L72.6 45.4Q50 36 27.4 45.4Z";
    return kCap(id,d,"#FFFFFF",'<path d="M40 30Q39 22 41 15M50 28.6Q50 20 51 13M60 30Q61.6 23 60.6 17" stroke="#D9DEE6" stroke-width="1.2" fill="none" stroke-linecap="round"/><path d="M20 39.6Q50 26.6 80 39.6L80 52L20 52Z" fill="#EEF1F5"/><path d="M28 33.4Q50 26 72 33.2" stroke="#C9D0DA" stroke-width="1" fill="none"/>')+
@@ -8754,89 +8852,97 @@ var PATH=(function(){
     :'<path d="M12 34L40 20L68 34L40 48Z" fill="#E8AE55"/><path d="M12 34L40 48L40 40L12 26Z" fill="#E8AE55"/><path d="M12 26L40 12L68 26L40 40Z" fill="#F2C470"/><path d="M40 40L68 26V34L40 48Z" fill="#C98A3A"/>')+
    '<rect x="35" y="'+(open?46:42)+'" width="10" height="10" rx="2" fill="#F2C14E" stroke="#8A5A1E" stroke-width="1.4"/><circle cx="40" cy="'+(open?50:46)+'" r="1.6" fill="#8A5A1E"/></svg>'}
 
- /* ---------- geometría: cada isla mide IW x IH; las paradas van sobre un sendero en S ---------- */
- /* la isla ocupa casi todo el alto libre entre el encabezado y la tarjeta de abajo */
- function geo(){var vw=Math.min(window.innerWidth,document.documentElement.clientWidth||window.innerWidth),vh=window.innerHeight,free=vh-(vw<700?300:280),
-  IW=Math.round(Math.min(520,Math.max(300,vw-40))),IH=Math.round(Math.max(300,Math.min(IW*1.12,free))),GAP=Math.round(Math.max(48,IW*.16));
-  return {IW:IW,IH:IH,GAP:GAP,X0:Math.round((vw-IW)/2)}}
- /* sendero en zigzag: cada parada alterna arriba y abajo para que nunca se encimen */
- function stopPts(n,IW,IH,ui){var o=[],f=ui%2?-1:1;for(var i=0;i<n;i++){var t=n===1?.5:i/(n-1),x=IW*(.18+.64*t),y=IH*(.52+f*(i%2?.17:-.17)+.03*Math.sin(i*1.7+ui));o.push([x,y])}return o}
- /* curva suave que pasa por todas las paradas (Catmull-Rom) */
- function curve(p){var d="M"+p[0][0].toFixed(1)+" "+p[0][1].toFixed(1);for(var i=0;i<p.length-1;i++){var a=p[Math.max(0,i-1)],b=p[i],c=p[i+1],e=p[Math.min(p.length-1,i+2)],k=.2;
-  d+="C"+(b[0]+(c[0]-a[0])*k).toFixed(1)+" "+(b[1]+(c[1]-a[1])*k).toFixed(1)+" "+(c[0]-(e[0]-b[0])*k).toFixed(1)+" "+(c[1]-(e[1]-b[1])*k).toFixed(1)+" "+c[0].toFixed(1)+" "+c[1].toFixed(1)}return d}
- /* la isla: anillos de agua baja, arena y pasto; en boceto si la unidad aún no se explora */
- function islandSVG(id,ui,u,G,pts,sk){
-  var c=byId[id],IW=G.IW,IH=G.IH,r=rng(hash(id+"isla"+ui)),cx=IW/2,cy=IH*.52,rx=IW*.47,ry=IH*.42;
-  var coast=ISO.blobPts(cx,cy,rx,ry,3+Math.floor(r()*3),r()*6,.16,null,72),inner=ISO.blobPts(cx,cy-6,rx*.84,ry*.78,3+Math.floor(r()*3),r()*6,.14,null,72);
-  var dC=ISO.smooth(coast),dI=ISO.smooth(inner),grass=mixHex(c.color,"#86BF73",.62),grass2=mixHex(c.color,"#6FA95E",.55);
-  var s='<path d="'+dC+'" fill="var(--rt-sh1)" stroke="var(--rt-sh1)" stroke-width="56" stroke-linejoin="round"/>'+
-   '<path d="'+dC+'" fill="var(--rt-sh2)" stroke="var(--rt-sh2)" stroke-width="24" stroke-linejoin="round"/>'+
-   '<path d="'+dC+'" fill="#E2C891" transform="translate(0 7)"/><path d="'+dC+'" fill="#F1DDAE"/>'+
-   '<path d="'+dI+'" fill="'+grass2+'" transform="translate(0 5)"/><path d="'+dI+'" fill="'+grass+'"/>';
-  for(var k=0;k<5;k++){var a=r()*6.283,q=Math.sqrt(r())*.6;s+='<ellipse cx="'+(cx+Math.cos(a)*rx*q*.8).toFixed(1)+'" cy="'+(cy+Math.sin(a)*ry*q*.7).toFixed(1)+'" rx="'+(18+r()*22).toFixed(1)+'" ry="'+(8+r()*9).toFixed(1)+'" fill="'+grass2+'" opacity=".5"/>'}
-  /* sendero: borde y adoquín */
-  var pd=curve([[IW*.02,pts[0][1]]].concat(pts).concat([[IW*.98,pts[pts.length-1][1]]]));
-  s+='<path d="'+pd+'" fill="none" stroke="#C9A877" stroke-width="15" stroke-linecap="round"/><path d="'+pd+'" fill="none" stroke="#EAD5AA" stroke-width="10" stroke-linecap="round"/><path d="'+pd+'" fill="none" stroke="#D4BB8C" stroke-width="3" stroke-linecap="round" stroke-dasharray=".1 9"/>';
-  /* vegetación lejos del sendero */
-  var dec="",K=["treeRound","palm","rock","bush","treePine","flowers","palm","treeRound"],placed=[];
-  for(var t=0;t<60&&placed.length<7;t++){var a2=r()*6.283,q2=Math.sqrt(r()),x=cx+Math.cos(a2)*rx*.8*q2,y=cy+Math.sin(a2)*ry*.72*q2,ok=true;
-   pts.forEach(function(p){if(Math.hypot(p[0]-x,(p[1]-y)*1.6)<62)ok=false});placed.forEach(function(p){if(Math.hypot(p[0]-x,p[1]-y)<34)ok=false});if(!ok)continue;placed.push([x,y])}
-  placed.sort(function(a,b){return a[1]-b[1]}).forEach(function(p,i){var kd=K[(i+ui)%K.length];dec+='<g transform="translate('+p[0].toFixed(1)+' '+p[1].toFixed(1)+') scale(1.15)">'+ENV.one(kd,{d:2,k:1,ph:i,flip:i%2===0})+'</g>'});
-  s+=dec;
-  if(sk)s=ISO.sketchAll(s);
-  return '<svg class="rt-isl" viewBox="-40 -40 '+(IW+80)+' '+(IH+80)+'" style="left:-40px;top:-40px;width:'+(IW+80)+'px;height:'+(IH+80)+'px" aria-hidden="true"><defs>'+ENV.DEFS+ISO.skDefs()+'</defs>'+s+'</svg>'}
-
+ /* ---------- la ruta es una espiral hacia el centro de la carrera ----------
+    Una sola isla redonda. El sendero entra por la playa y da vueltas hacia el centro, donde está el edificio de la carrera.
+    La isla empieza en boceto y se pinta a color por donde ya pasaste, igual que el mapa. Todo cabe en una pantalla. */
+ var V=400,VH=400,KY=1,CX=200,CY=204,R0=150,R1=52,TURNS=2.15,A0=Math.PI*.5;
+ /* en celular la isla se estira a lo alto para llenar la pantalla */
+ function shape(){var vw=window.innerWidth,vh=window.innerHeight;KY=Math.max(.92,Math.min(1.5,(vh-230)/Math.max(200,vw-24)));VH=Math.round(400*KY);CY=Math.round(VH/2+4)}
+ /* la espiral muestreada: puntos y largo acumulado */
+ function spiral(){if(st.sp)return st.sp;var pts=[],L=[0],N=700,TH=TURNS*Math.PI*2;
+  for(var i=0;i<=N;i++){var t=i/N,th=t*TH,r=R0-(R0-R1)*t,a=A0+th;pts.push([CX+Math.cos(a)*r,CY+Math.sin(a)*r*.96*KY]);if(i)L.push(L[i-1]+Math.hypot(pts[i][0]-pts[i-1][0],pts[i][1]-pts[i-1][1]))}
+  st.sp={p:pts,L:L,T:L[N]};return st.sp}
+ function at(f){var S=spiral(),want=f*S.T,lo=0,hi=S.L.length-1;while(hi-lo>1){var m=(lo+hi)>>1;if(S.L[m]<want)lo=m;else hi=m}return S.p[hi]}
+ function pathTo(f){var S=spiral(),d="",want=f*S.T;for(var i=0;i<S.p.length&&S.L[i]<=want+.01;i+=3)d+=(i?"L":"M")+S.p[i][0].toFixed(1)+" "+S.p[i][1].toFixed(1);return d}
+ /* dónde va cada parada sobre el sendero (las primeras un poco más separadas: la vuelta de afuera es más larga) */
+ function posOf(k,n){return .035+.93*k/(n-1)}
+ /* suelo de la isla (a color); la versión boceto sale de la misma con ISO.sketchAll */
+ function ground(id){
+  var c=byId[id],r=rng(hash(id+"espiral")),grass=mixHex(c.color,"#8CC772",.66),grass2=mixHex(c.color,"#72AE5F",.6),road=pathTo(1);
+  var coast=ISO.smooth(ISO.blobPts(CX,CY,R0+30,(R0*.96+28)*KY,5,r()*6,.05,null,72)),top=ISO.smooth(ISO.blobPts(CX,CY-2,R0+12,(R0*.96+10)*KY,5,r()*6,.05,null,72));
+  var g='<path d="'+coast+'" fill="#D9B97E" transform="translate(0 9)"/><path d="'+coast+'" fill="#F1DDAE"/>'+
+   '<path d="'+top+'" fill="'+grass2+'" transform="translate(0 5)"/><path d="'+top+'" fill="'+grass+'"/>';
+  /* manchas de pasto más claro entre las vueltas */
+  for(var k=0;k<7;k++){var q=at(.06+k*.13),dx=(q[0]-CX)*.12,dy=(q[1]-CY)*.12;g+='<ellipse cx="'+(q[0]+dx).toFixed(0)+'" cy="'+(q[1]+dy).toFixed(0)+'" rx="'+(16+r()*12).toFixed(0)+'" ry="'+(7+r()*5).toFixed(0)+'" fill="'+mixHex(grass,"#FFFFFF",.18)+'"/>'}
+  /* sendero: orilla, arena y huellas al centro */
+  g+='<path d="'+road+'" fill="none" stroke="#C9A877" stroke-width="19" stroke-linecap="round" stroke-linejoin="round"/>'+
+   '<path d="'+road+'" fill="none" stroke="#EED9AE" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>'+
+   '<path d="'+road+'" fill="none" stroke="#D8BE8C" stroke-width="2" stroke-dasharray="3 9" stroke-linecap="round"/>';
+  /* vegetación en medio de las vueltas, lejos de las paradas y del centro */
+  var dec="",K=["palm","treeRound","rock","bush","treePine","flowers","palm","bush","treeRound","rock"],placed=[];
+  for(var t=0;t<160&&placed.length<9;t++){var f=r(),q2=at(f),mid=[CX+(q2[0]-CX)*(1+.17*(r()<.5?1:-1)),CY+(q2[1]-CY)*(1+.17*(r()<.5?1:-1))],dc=Math.hypot(mid[0]-CX,mid[1]-CY);
+   var de=Math.hypot(mid[0]-CX,(mid[1]-CY)/KY);if(de<R1+40||de>R0+6)continue;var ok=true;
+   for(var j=0;j<=40;j++){var s2=at(j/40);if(Math.hypot(s2[0]-mid[0],s2[1]-mid[1])<20){ok=false;break}}
+   placed.forEach(function(p){if(Math.hypot(p[0]-mid[0],p[1]-mid[1])<30)ok=false});if(ok)placed.push(mid)}
+  var hand="";placed.sort(function(a,b){return a[1]-b[1]}).forEach(function(p,i){dec+='<g transform="translate('+p[0].toFixed(1)+' '+p[1].toFixed(1)+') scale(.62)">'+ENV.one(K[i%K.length],{d:2,k:1,ph:i,flip:i%2===1})+'</g>';
+   /* en boceto: un arbolito dibujado a mano */
+   hand+='<g transform="translate('+p[0].toFixed(1)+' '+p[1].toFixed(1)+')" fill="#F7EEDB" stroke="#A88B62" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="1" cy="1" rx="8" ry="2.6" fill="#E9DCC0" stroke="none"/><path d="M0 0V-6" fill="none"/><circle cx="-4.5" cy="-9" r="5.2"/><circle cx="4.5" cy="-9.5" r="5"/><circle cx="0" cy="-14" r="6"/><path d="M-2 -15q2-2 4 0" fill="none" stroke-width=".9"/></g>'});
+  return {c:g+dec,s:ISO.sketchAll(g)+'<path d="'+coast+'" fill="none" stroke="#B79C74" stroke-width="1.6"/>'+hand}}
  function build(id){
-  var c=byId[id],p=$("#plaza"),dark=!!(DMQ&&DMQ.matches),cat=catalog(id),G=geo();st.id=id;st.items=cat.all;st.units=cat.units;st.geo=G;
-  var col=c.color,cd=dk(col,.38),txt=lum(col)>.62?"#14323F":"#FFFFFF";
+  shape();var c=byId[id],p=$("#plaza"),dark=!!(DMQ&&DMQ.matches),cat=catalog(id),pg=progOf(id);st.id=id;st.items=cat.all;st.units=cat.units;st.sp=null;
+  if(typeof artDefs==="function")artDefs();
+  var col=c.color,cd=dk(col,.38),txt=lum(col)>.62?"#14323F":"#FFFFFF",n=cat.all.length;
   p.style.setProperty("--pc",col);
-  var pg=progOf(id),n=cat.units.length,SW=G.X0*2+n*G.IW+(n-1)*G.GAP;
-  var h='<div class="lp rt2'+(dark?" lp-dark":"")+'" style="--c:'+col+';--cd:'+cd+';--ct:'+txt+'">'+
-   '<header class="rt2-head"><button class="lp-back rt2-back" id="pzx" aria-label="Volver al mapa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>'+
+  /* cuánto del sendero ya se recorrió: hasta la última parada hecha seguida */
+  var reach=-1;cat.all.forEach(function(it,k){if(it.done&&reach===k-1)reach=k});
+  var fr=reach<0?0:Math.min(1,posOf(reach,n)+.5/(n-1)),g=ground(id),road=pathTo(fr);
+  /* la parte a color se ve solo por donde ya pasaste (una franja del ancho de una vuelta sobre el sendero) */
+  var band=((R0-R1)/TURNS).toFixed(0),mask=fr>=.995?'<rect x="0" y="0" width="'+V+'" height="'+VH+'" fill="#fff"/>':
+   (fr>0?'<path d="'+road+'" fill="none" stroke="#fff" stroke-width="'+band+'" stroke-linecap="round" stroke-linejoin="round"/>':'');
+  var waves="";for(var w=0;w<10;w++){var a=w/10*6.283+.3,rr=R0+58+(w%3)*14;waves+='<path d="M'+(CX+Math.cos(a)*rr*1.12-9).toFixed(0)+' '+(CY+Math.sin(a)*rr*KY).toFixed(0)+'q4.5-4 9 0q4.5-4 9 0"/>'}
+  var svg='<svg class="rt3-svg" viewBox="0 0 '+V+' '+VH+'" aria-hidden="true"><defs>'+ENV.DEFS+ISO.skDefs()+'<mask id="rt3m" maskUnits="userSpaceOnUse" x="0" y="0" width="'+V+'" height="'+VH+'">'+mask+'</mask></defs>'+
+   '<g class="rt3-waves">'+waves+'</g>'+
+   '<ellipse cx="'+CX+'" cy="'+(CY+8)+'" rx="'+(R0+62)+'" ry="'+((R0*.96+60)*KY).toFixed(0)+'" class="rt3-sh1"/><ellipse cx="'+CX+'" cy="'+(CY+6)+'" rx="'+(R0+44)+'" ry="'+((R0*.96+42)*KY).toFixed(0)+'" class="rt3-sh2"/>'+
+   '<g>'+g.s+'</g>'+(mask?'<g mask="url(#rt3m)">'+g.c+'</g>':'')+
+   '<path d="'+pathTo(1)+'" class="rt3-trail" pathLength="1000" style="stroke-dashoffset:'+(1000*(1-fr)).toFixed(0)+'"/></svg>';
+  var h='<div class="lp rt2 rt3'+(dark?" lp-dark":"")+'" style="--c:'+col+';--cd:'+cd+';--ct:'+txt+'">'+
+   '<header class="rt2-head"><button class="lp-back rt2-back" id="pzx" aria-label="Volver al mapa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>'+
    '<div class="rt2-t"><h2>'+esc(c.name)+'</h2><div class="rt2-pg"><div class="rt2-bar"><i style="width:'+(pg.p*100).toFixed(1)+'%"></i></div><b class="num">'+pg.done+'/'+pg.total+'</b></div></div></header>'+
-   '<nav class="rt2-tabs" aria-label="Unidades">'+cat.units.map(function(u,ui){return '<button type="button" data-u="'+ui+'" class="s-'+u.state+'" aria-label="Unidad '+(ui+1)+': '+esc(u.t)+'"><i>'+(u.state==="done"?icon(LIC.check):ui+1)+'</i><span>'+esc(u.t)+'</span></button>'}).join("")+'</nav>'+
-   '<div class="rt2-sea" id="lpScroll"><div class="rt2-strip" id="lpCol" style="width:'+SW+'px;height:'+(G.IH+40)+'px">';
-  /* travesías entre islas: punteado sobre el mar */
-  var tr="";
-  cat.units.forEach(function(u,ui){
-   var ox=G.X0+ui*(G.IW+G.GAP),L=u.items.length,pts=stopPts(L,G.IW,G.IH,ui),sk=u.state==="soon"||u.state==="lock";
-   u.ox=ox;u.pts=pts;
-   if(ui<n-1){var a=[ox+G.IW*.98,pts[L-1][1]+20],nx=G.X0+(ui+1)*(G.IW+G.GAP),np=stopPts(cat.units[ui+1].items.length,G.IW,G.IH,ui+1),b=[nx+G.IW*.02,np[0][1]+20];
-    tr+='<path d="M'+a[0]+' '+a[1]+'C'+(a[0]+G.GAP*.7)+' '+(a[1]+40)+' '+(b[0]-G.GAP*.7)+' '+(b[1]+40)+' '+b[0]+' '+b[1]+'"/>'}
-   h+='<section class="rt2-isle'+(sk?" is-sketch":"")+'" data-u="'+ui+'" style="left:'+ox+'px;width:'+G.IW+'px;height:'+G.IH+'px" aria-label="Unidad '+(ui+1)+': '+esc(u.t)+'">'+islandSVG(id,ui,u,G,pts,sk)+
-    '<div class="rt2-name"><span>Unidad '+(ui+1)+'</span>'+esc(u.t)+'</div>';
-   u.items.forEach(function(it,li){var q=pts[li];it.x=ox+q[0];it.y=q[1];
-    var cls="rt2-n s-"+it.state+" p-"+it.parada;
-    h+='<button type="button" class="'+cls+'" data-i="'+it.k2+'" style="left:'+q[0].toFixed(0)+'px;top:'+q[1].toFixed(0)+'px" aria-label="'+(it.lid?it.lid+" ":"")+esc(it.n)+(it.state==="done"?", hecha":it.state==="soon"?", llega pronto":it.state==="lock"?", bloqueada":"")+'">'+
-     (it.chest!=null?chestSVG(it.done):nodeSVG(it)+'<span class="lp-face">'+icon(it.state==="lock"||it.state==="soon"?LIC.lock:LIC[LI[it.lid]]||LIC.libro,"lp-ic")+'</span>')+
-     (it.state==="done"&&it.chest==null?'<span class="lp-ok">'+icon(LIC.check)+'</span>':'')+(it.lid?'<b class="rt2-num">'+it.lid+'</b>':'')+'</button>'});
-   h+='</section>'});
-  h+='<svg class="rt2-trips" width="'+SW+'" height="'+(G.IH+40)+'" aria-hidden="true">'+tr+'</svg>';
-  h+='<div class="rt2-rb" id="lpRb">'+(typeof skinOn==="function"&&RUMBO.SKINS[id]&&skinOn(id)?skinRb(id):rumboEl())+'</div></div></div>'+
+   '<div class="rt3-stage" id="lpScroll"><div class="rt3-map" id="lpCol">'+svg+
+   '<div class="rt3-core" aria-hidden="true">'+artSVG(id,pg.p)+'</div>';
+  /* marcas de unidad: un banderín con su número antes de su primera parada */
+  cat.units.forEach(function(u,ui){var it=u.items[0];if(!it)return;var f=Math.max(.004,posOf(it.k2,n)-.42/(n-1)),q=at(f);
+   h+='<span class="rt3-u s-'+u.state+'" style="left:'+(q[0]/V*100).toFixed(2)+'%;top:'+(q[1]/VH*100).toFixed(2)+'%" aria-hidden="true">'+(ui+1)+'</span>'});
+  cat.all.forEach(function(it,k){var q=at(posOf(k,n));it.x=q[0];it.y=q[1];
+   var ic=it.chest!=null?"":it.state==="done"?LIC.check:it.state==="lock"||it.state==="soon"?LIC.lock:LIC[LI[it.lid]]||LIC.libro;
+   h+='<button type="button" class="rt3-n s-'+it.state+(it.chest!=null?" is-chest":"")+(it.parada==="final"?" is-final":"")+'" data-i="'+k+'" style="left:'+(q[0]/V*100).toFixed(2)+'%;top:'+(q[1]/VH*100).toFixed(2)+'%" aria-label="'+(it.lid?it.lid+" ":"")+esc(it.n)+(it.state==="done"?", hecha":it.state==="soon"?", llega pronto":it.state==="lock"?", bloqueada":"")+'">'+
+    (it.chest!=null?chestSVG(it.done):icon(ic,"lp-ic"))+'</button>'});
+  h+='<div class="rt2-rb rt3-rb" id="lpRb">'+(typeof skinOn==="function"&&RUMBO.SKINS[id]&&skinOn(id)?skinRb(id):rumboEl())+'</div></div></div>'+
    '<div class="rt2-card" id="lpPop" aria-live="polite"></div></div>';
   p.innerHTML=h;
   st.el=p.querySelector(".lp");st.sc=$("#lpScroll");
   PZ.rb=p.querySelector(".rt2-rb .rb");PZ.el=null;wireRumbo(PZ.rb);
   $("#pzx").onclick=function(){leave();exitPlaza()};
-  each(p.querySelectorAll(".rt2-n"),function(b){b.onclick=function(e){e.stopPropagation();select(+b.getAttribute("data-i"),true)}});
-  each(p.querySelectorAll(".rt2-tabs button"),function(b){b.onclick=function(){var ui=+b.getAttribute("data-u"),u=st.units[ui],k=u.items.filter(function(it){return it.state==="cur"||it.state==="open"})[0]||u.items[0];select(k.k2,true)}});
-  st.sc.addEventListener("scroll",function(){if(!st.raf)st.raf=requestAnimationFrame(onScroll)},{passive:true});
-  var ci=curIndex();placeRumbo(ci,false);select(ci,false);onScroll();
+  each(p.querySelectorAll(".rt3-n"),function(b){b.onclick=function(e){e.stopPropagation();select(+b.getAttribute("data-i"),true)}});
+  fit();if(!st.rz){st.rz=1;window.addEventListener("resize",function(){if(st.sc&&st.sc.isConnected)fit()})}
+  var ci=curIndex();placeRumbo(ci,false);select(ci,false);
  }
+ /* el cuadro de la isla: lo más grande que quepa entre el encabezado y la tarjeta */
+ function fit(){var s=st.sc,m=$("#lpCol");if(!s||!m)return;var w=s.clientWidth-12,h=s.clientHeight-6,z=Math.max(240,Math.min(w,h/(VH/V),820));m.style.width=z+"px";m.style.height=(z*VH/V)+"px"}
  function curIndex(){for(var i=0;i<st.items.length;i++)if(st.items[i].state==="open")return i;
   for(i=0;i<st.items.length;i++)if(st.items[i].state==="cur")return i;
   for(i=st.items.length-1;i>=0;i--)if(st.items[i].state==="done")return i;return 0}
- /* Rumbo junto a la parada actual, un poco atrás en el sendero */
+ /* Rumbo de pie junto a la parada actual */
  function placeRumbo(i,walk){var e=$("#lpRb");if(!e)return;var it=st.items[i];if(!it)return;
-  e.style.transform="translate3d("+(it.x-38).toFixed(0)+"px,"+(it.y-122).toFixed(0)+"px,0)";
+  e.style.left=(it.x/V*100).toFixed(2)+"%";e.style.top=(it.y/VH*100).toFixed(2)+"%";
   if(PZ.rb){if(walk&&!RM()){PZ.rb.classList.add("walk");setTimeout(function(){PZ.rb&&PZ.rb.classList.remove("walk")},720)}
    mood(PZ.rb,it.parada==="hexagono"?"curious":it.state==="done"?"happy":"idle")}}
  function unitOf(i){return st.items[i].u}
  /* tarjeta de abajo con la parada elegida */
  function select(i,scroll){
-  st.sel=i;var it=st.items[i],u=st.units[it.u],c=byId[st.id],pop=$("#lpPop");
-  each(document.querySelectorAll(".rt2-n"),function(b){b.classList.toggle("is-sel",+b.getAttribute("data-i")===i)});
-  var h='<div class="rt2-ci"><div class="rt2-ct"><span>Unidad '+(it.u+1)+' · '+esc(u.t)+'</span><h3>'+(it.lid?it.lid+" ":"")+esc(it.n)+'</h3></div>',btn="",meta="";
+  st.sel=i;var it=st.items[i],u=st.units[it.u],pop=$("#lpPop");
+  each(document.querySelectorAll(".rt3-n"),function(b){b.classList.toggle("is-sel",+b.getAttribute("data-i")===i)});
+  var h='<div class="rt2-ci"><div class="rt2-ct"><span>Unidad '+(it.u+1)+' de '+st.units.length+' · '+esc(u.t)+'</span><h3>'+esc(it.n)+'</h3></div>',btn="",meta="";
   if(it.state==="soon")meta="Llega pronto";
   else if(it.state==="lock")meta=it.chest!=null?"Termina la unidad para abrirlo":"Termina la lección anterior";
   else if(it.chest!=null){meta=it.done?"Ya lo abriste":"Unidad terminada";if(!it.done)btn='<button class="ui-btn is-block" id="lpGo">Abrir</button>'}
@@ -8844,12 +8950,8 @@ var PATH=(function(){
   h+='<em class="rt2-meta s-'+it.state+'">'+meta+'</em></div>'+btn;
   pop.innerHTML=h;
   var go=$("#lpGo");if(go)go.onclick=function(e){e.stopPropagation();run(it)};
-  if(scroll)toIsle(it.u,true);
  }
- function toIsle(ui,smooth){var sc=st.sc,G=st.geo;if(!sc)return;var x=ui*(G.IW+G.GAP);
-  if(smooth&&!RM())sc.scrollTo({left:x,behavior:"smooth"});else sc.scrollLeft=x}
- function onScroll(){st.raf=0;var sc=st.sc,G=st.geo;if(!sc)return;var ui=Math.round(sc.scrollLeft/(G.IW+G.GAP));
-  each(document.querySelectorAll(".rt2-tabs button"),function(b){b.classList.toggle("vis",+b.getAttribute("data-u")===ui)})}
+ function toIsle(){}
  /* abrir una lección */
  function run(it){
   var id=st.id,c=byId[id];
@@ -8870,7 +8972,7 @@ var PATH=(function(){
   $("#lpLok").onclick=function(){onDone();o.classList.remove("on");setTimeout(function(){o.remove()},RM()?0:T.med)};
  }
  function openChest(it){
-  var id=st.id,c=byId[id],b=document.querySelector('.rt2-n[data-i="'+it.k2+'"]'),u=st.units[it.u];
+  var id=st.id,c=byId[id],b=document.querySelector('.rt3-n[data-i="'+it.k2+'"]'),u=st.units[it.u];
   S.chest=S.chest||{};S.chest[id+":"+chestKey(it.chest)]=1;save();
   if(b){b.innerHTML=chestSVG(true);restart(b,"opened");burstAt(b)}
   /* al cerrar la unidad 2 se gana el Rumbo de la carrera */
@@ -8885,14 +8987,14 @@ var PATH=(function(){
  function burstAt(b){if(RM())return;var cols=["#F2B544","#FFFFFF","#7FB59A","#8FC9E8"];for(var i=0;i<12;i++){var s=document.createElement("i");s.className="lp-pt";s.style.background=cols[i%4];s.style.setProperty("--a",(i*30)+"deg");b.appendChild(s);setTimeout(function(x){return function(){x.remove()}}(s),700)}}
  /* al terminar una lección: la parada se llena, chispas, y Rumbo camina a la siguiente */
  function complete(it){
-  var b=document.querySelector('.rt2-n[data-i="'+it.k2+'"]');if(b){b.classList.remove("s-cur");b.classList.add("s-done","fill");burstAt(b)}
+  var b=document.querySelector('.rt3-n[data-i="'+it.k2+'"]');if(b){b.classList.remove("s-cur");b.classList.add("s-done","fill");burstAt(b)}
   if(typeof sfx==="function")sfx("ok");
   setTimeout(function(){refresh(true)},RM()?0:650);
  }
- function refresh(animate){if(!st.sc||!$("#lpScroll"))return;var x=st.sc.scrollLeft,prev=curIndex();build(st.id);st.sc.scrollLeft=x;
-  var ci=curIndex();if(animate&&ci!==prev){placeRumbo(prev,false);void document.body.offsetWidth;setTimeout(function(){placeRumbo(ci,true);if(st.items[ci].u!==st.items[prev].u)toIsle(st.items[ci].u,true)},RM()?0:60)}
+ function refresh(animate){if(!st.sc||!$("#lpScroll"))return;var prev=curIndex();build(st.id);
+  var ci=curIndex();if(animate&&ci!==prev){placeRumbo(prev,false);void document.body.offsetWidth;setTimeout(function(){placeRumbo(ci,true)},RM()?0:60)}
   if(animate&&PZ.rb)setTimeout(function(){mood(PZ.rb,"happy","jump")},RM()?0:760)}
- function show(){document.body.classList.add("lp-open");toIsle(unitOf(curIndex()),false);if(PZ.rb)mood(PZ.rb,"happy","wave")}
+ function show(){document.body.classList.add("lp-open");fit();if(PZ.rb)mood(PZ.rb,"happy","wave")}
  function react(id){var k=S.res[id];if(!carCat(id))markLesson(id,"2.1");refresh(true);if(PZ.rb)mood(PZ.rb,k==="yes"?"happy":k==="mid"?"meh":"no",k==="yes"?"jump":k==="mid"?"tilt":"shake")}
  function leave(){document.body.classList.remove("lp-open");ambSync();if(typeof LEC!=="undefined")LEC.close();var l=$("#lpLesson");if(l)l.remove()}
  return {build:build,show:show,react:react,leave:leave,state:function(){},closePop:function(){},catalog:catalog};
@@ -9095,38 +9197,106 @@ function sprBox(art){
 /* noche: oscurecer y bajar saturación, igual que el filtro que había (brightness .72, saturate .85) */
 function sprNight(ctx,w,h){var im=ctx.getImageData(0,0,w,h),d=im.data;for(var i=0;i<d.length;i+=4){if(!d[i+3])continue;var r=d[i],g=d[i+1],b=d[i+2],l=.2126*r+.7152*g+.0722*b;
  d[i]=(l+(r-l)*.85)*.72;d[i+1]=(l+(g-l)*.85)*.72;d[i+2]=(l+(b-l)*.85)*.72}ctx.putImageData(im,0,0)}
+/* las imágenes horneadas se guardan en el teléfono (Cache Storage): la siguiente vez que abres la app no se vuelven a dibujar */
+var SPRC={p:null};
+function sprCache(){if(SPRC.p)return SPRC.p;SPRC.p=(window.caches&&window.isSecureContext)?caches.open("vocatlas-spr-1").catch(function(){return null}):Promise.resolve(null);return SPRC.p}
 function sprMake(art,night,cb){
  var key=(night?"n":"d")+art;if(SPR.cache[key]){cb(SPR.cache[key]);return}
  var bx=sprBox(art);if(!bx){cb(null);return}
  var R=sprRes(),W=Math.max(1,Math.round(bx[2]*R)),H=Math.max(1,Math.round(bx[3]*R));
- var svg='<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="'+W+'" height="'+H+'" viewBox="'+bx.join(" ")+'"><defs>'+ENV.DEFS+ISO.skDefs()+'</defs>'+sprTheme(art,night)+'</svg>';
- var img=new Image(),url=URL.createObjectURL(new Blob([sprTheme(svg,night)],{type:"image/svg+xml"}));
- img.onload=function(){URL.revokeObjectURL(url);try{
-   var c=document.createElement("canvas");c.width=W;c.height=H;var x=c.getContext("2d");x.drawImage(img,0,0,W,H);if(night)sprNight(x,W,H);
-   c.toBlob(function(bl){if(!bl){cb(null);return}var u=URL.createObjectURL(bl),o={u:u,b:bx};SPR.cache[key]=o;cb(o)},"image/png")}catch(e){cb(null)}};
- img.onerror=function(){URL.revokeObjectURL(url);cb(null)};
- img.src=url;
+ var ck="/spr/"+hash(key).toString(36)+"-"+key.length.toString(36)+"-"+W+"x"+H;
+ function keep(bl){var u=URL.createObjectURL(bl),o={u:u,b:bx};SPR.cache[key]=o;cb(o)}
+ function draw(c){
+  var svg='<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="'+W+'" height="'+H+'" viewBox="'+bx.join(" ")+'"><defs>'+ENV.DEFS+ISO.skDefs()+'</defs>'+sprTheme(art,night)+'</svg>';
+  var img=new Image(),url=URL.createObjectURL(new Blob([sprTheme(svg,night)],{type:"image/svg+xml"}));
+  img.onload=function(){URL.revokeObjectURL(url);try{
+    var cv=document.createElement("canvas");cv.width=W;cv.height=H;var x=cv.getContext("2d");x.drawImage(img,0,0,W,H);if(night)sprNight(x,W,H);
+    cv.toBlob(function(bl){if(!bl){cb(null);return}keep(bl);if(c)try{c.put(ck,new Response(bl,{headers:{"Content-Type":"image/png"}})).catch(function(){})}catch(e){}},"image/png")}catch(e){cb(null)}};
+  img.onerror=function(){URL.revokeObjectURL(url);cb(null)};
+  img.src=url;
+ }
+ sprCache().then(function(c){if(!c){draw(null);return}
+  c.match(ck).then(function(r){if(r)r.blob().then(keep,function(){draw(c)});else draw(c)},function(){draw(c)})},function(){draw(null)});
 }
 function sprImg(o){return '<image href="'+o.u+'" x="'+o.b[0]+'" y="'+o.b[1]+'" width="'+o.b[2]+'" height="'+o.b[3]+'" preserveAspectRatio="none"/>'}
 /* cola: edificios (su <use> apunta a la definición) y vegetación (su dibujo va dentro del grupo) */
 function sprStart(){
  if(typeof ENV==="undefined"||!window.URL||!window.Blob)return;
- var g=++SPR.gen,night=!!(DMQ&&DMQ.matches),q=[],w=$("#world");if(!w)return;
+ /* de noche las islas conservan sus colores: ya no se hornea una versión oscura */
+ var g=++SPR.gen,night=false,q=[],w=$("#world");if(!w)return;
  each(w.querySelectorAll(".m-objs .poi .pp>use"),function(u){var ref=document.getElementById((u.getAttribute("href")||"").slice(1));if(ref)q.push({el:u,art:ref.innerHTML,pp:true})});
  each(w.querySelectorAll(".m-objs .m-d>.vco>g,.m-objs .m-d>.vbz>g"),function(e){q.push({el:e,art:e.innerHTML})});
  each(w.querySelectorAll(".m-objs .m-gh"),function(e){q.push({el:e,art:e.innerHTML})});
- each(w.querySelectorAll(".m-edge>g"),function(e){q.push({el:e,art:e.innerHTML})});
- SPR.q=q;var done=0,n=q.length;
+
+ SPR.q=q;var done=0,n=q.length,ready=[];
+ /* todas las piezas se cambian juntas al final: un solo redibujado en vez de cientos */
+ function swap(){ready.forEach(function(it){if(!it.el.isConnected)return;var o=it.o;
+  if(it.pp){var im=document.createElementNS(NS,"g");im.innerHTML=sprImg(o);it.el.parentNode.replaceChild(im.firstChild,it.el)}else{it.el.innerHTML=sprImg(o);if(it.edge)it.el.classList.add("sp")}});ready=[]}
  function step(){
   if(g!==SPR.gen)return;var t0=performance.now();
-  while(SPR.q.length&&performance.now()-t0<10){var it=SPR.q.shift();(function(it){sprMake(it.art,night,function(o){if(g!==SPR.gen||!o||!it.el.isConnected){fin();return}
-    if(it.pp){var im=document.createElementNS(NS,"g");im.innerHTML=sprImg(o);it.el.parentNode.replaceChild(im.firstChild,it.el)}else it.el.innerHTML=sprImg(o);fin()})})(it)}
+  while(SPR.q.length&&performance.now()-t0<10){var it=SPR.q.shift();(function(it){sprMake(it.art,night,function(o){if(g!==SPR.gen||!o){fin();return}it.o=o;ready.push(it);fin()})})(it)}
   if(SPR.q.length)setTimeout(step,16);
  }
- function fin(){done++;if(done===n&&g===SPR.gen){w.classList.add("spr-ok");occKey="";
+ function fin(){done++;if(done===n&&g===SPR.gen){swap();w.classList.add("spr-ok");occKey="";
   /* luego, con calma, las ilustraciones de las otras pestañas */
   setTimeout(function(){if(typeof artDefs==="function")artDefs()},400)}}
  if(!n)return;setTimeout(step,RM()?60:400);
+}
+/* nubes de la orilla: racimos de bolas suaves del mismo tono que la neblina, sin base plana ni contorno,
+   con el borde difuminado (el desenfoque solo cuesta al hornearlas una vez). Pocas variantes que se reusan. */
+var EDGEART={};
+function edgeArts(night){
+ var C=night?{b:"#3A5674",h:"#56728F",s:"#2E4864"}:{b:"#E6EFF6",h:"#FFFFFF",s:"#CBDBE8"},r=rng(hash("orilla"));EDGEART={};
+ for(var v=0;v<6;v++){var n=5+Math.floor(r()*3),balls=[];
+  for(var i=0;i<n;i++){var t=i/(n-1),x=(t-.5)*220+(r()-.5)*24,R=34+r()*26+Math.sin(t*Math.PI)*22;balls.push([x,(r()-.5)*16-Math.sin(t*Math.PI)*20,R])}
+  /* bolas de abajo: redondean la base para que no quede plana */
+  for(var j=0;j<3;j++)balls.push([(r()-.5)*150,26+r()*12,30+r()*14]);
+  var c=function(dx,dy,k,f,op){return balls.map(function(b){return '<circle cx="'+(b[0]+dx).toFixed(0)+'" cy="'+(b[1]+dy).toFixed(0)+'" r="'+(b[2]*k).toFixed(0)+'"/>'}).join("").replace(/<circle/g,'<circle fill="'+f+'"'+(op?' fill-opacity="'+op+'"':''))};
+  EDGEART["e"+v]='<rect x="-190" y="-130" width="380" height="230" fill="none"/><filter id="eblur" x="-30%" y="-40%" width="160%" height="180%"><feGaussianBlur stdDeviation="7"/></filter>'+
+   '<g filter="url(#eblur)">'+c(8,14,1,C.s)+c(0,0,1,C.b)+c(-8,-14,.62,C.h,.75)+'</g>'}
+}
+/* tiras de nubes para la neblina: se hornean las variantes y se acomodan en un lienzo que se repite a lo largo de cada orilla.
+   Hay una tira horizontal (arriba y abajo) y una vertical (a los lados) */
+function edgeStrips(night){
+ var cw=$("#cwall");if(!cw||!window.URL)return;edgeArts(night);cw.classList.remove("ok");var g=++SPR.egen||(SPR.egen=1),ks=Object.keys(EDGEART),got={},left=ks.length;
+ ks.forEach(function(k){sprMake(EDGEART[k],false,function(o){got[k]=o;if(--left===0&&g===SPR.egen)compose()})});
+ function load(o,cb){var im=new Image();im.onload=function(){cb(im)};im.onerror=function(){cb(null)};im.src=o.u}
+ function compose(){var ims={},n=ks.length;ks.forEach(function(k){if(!got[k]){if(--n===0)draw(ims);return}load(got[k],function(im){ims[k]=im;if(--n===0)draw(ims)})})}
+ function draw(ims){if(g!==SPR.egen)return;var r=rng(hash("tira"+(night?1:0))),D=2,list=ks.filter(function(k){return ims[k]});if(!list.length)return;
+  /* u: unidades de la nube (380 de ancho) a pixeles de pantalla */
+  var vm=Math.min(window.innerWidth,window.innerHeight),u=Math.max(.42,Math.min(.75,vm/1200));
+  function strip(W,H,horiz){var c=document.createElement("canvas");c.width=W*D;c.height=H*D;var x=c.getContext("2d");x.scale(D,D);
+   function put(along,across,k){var im=ims[list[Math.floor(r()*list.length)]],sc=k*u,bw=im.width/sprRes(),bh=im.height/sprRes();
+    /* cada nube se dibuja también desplazada un largo de tira para que la repetición no tenga corte */
+    [0,horiz?W:H,horiz?-W:-H].forEach(function(sh){var cx=horiz?along+sh:across,cy=horiz?across:along+sh;x.drawImage(im,cx-bw*sc/2,cy-bh*sc/2,bw*sc,bh*sc)})}
+   var L=horiz?W:H,T=horiz?H:W;
+   /* de afuera hacia adentro: nubes grandes en la neblina, luego medianas, y al final las que asoman sobre el mar */
+   for(var a=0;a<L;a+=150*u)put(a+(r()-.5)*60*u,T*.28+(r()-.5)*40*u,1.25+r()*.3);
+   for(a=70*u;a<L;a+=130*u)put(a+(r()-.5)*50*u,T*.5+(r()-.5)*30*u,1+r()*.25);
+   for(a=30*u;a<L;a+=120*u)put(a+(r()-.5)*40*u,T*.72+(r()-.5)*24*u,.72+r()*.25);
+   return c}
+  var Lh=Math.round(1800*u),T=Math.round(560*u);
+  var h=strip(Lh,T,true),v=strip(T,Lh,false);
+  var urls=[];function blob(c,cb){c.toBlob(function(bl){if(!bl){cb(null);return}var u2=URL.createObjectURL(bl);urls.push(u2);cb(u2)},"image/png")}
+  blob(h,function(uh){blob(strip2(Lh,T),function(ub){blob(v,function(uv){blob(strip3(T,Lh),function(ur){if(g!==SPR.egen)return;
+   (SPR.eurls||[]).forEach(function(x){try{URL.revokeObjectURL(x)}catch(e){}});SPR.eurls=urls;
+   cw.style.setProperty("--cwh",'url("'+uh+'")');cw.style.setProperty("--cwb",'url("'+ub+'")');cw.style.setProperty("--cwv",'url("'+uv+'")');cw.style.setProperty("--cwr",'url("'+ur+'")');
+   cw.style.setProperty("--csh",T+"px");cw.style.setProperty("--csw",T+"px");cw.style.setProperty("--cin",Math.round(T*.32)+"px");
+   requestAnimationFrame(function(){cw.classList.add("ok")})})})})});
+  /* tiras con las nubes chicas del otro lado (abajo y a la derecha) */
+  function strip2(W,H){r=rng(hash("tira2"+(night?1:0)));var c=document.createElement("canvas");c.width=W*D;c.height=H*D;var x=c.getContext("2d");x.scale(D,D);
+   function put(along,across,k){var im=ims[list[Math.floor(r()*list.length)]],sc=k*u,bw=im.width/sprRes(),bh=im.height/sprRes();[0,W,-W].forEach(function(sh){x.drawImage(im,along+sh-bw*sc/2,across-bh*sc/2,bw*sc,bh*sc)})}
+   for(var a=0;a<W;a+=150*u)put(a+(r()-.5)*60*u,H*.72+(r()-.5)*40*u,1.25+r()*.3);
+   for(a=70*u;a<W;a+=130*u)put(a+(r()-.5)*50*u,H*.5+(r()-.5)*30*u,1+r()*.25);
+   for(a=30*u;a<W;a+=120*u)put(a+(r()-.5)*40*u,H*.28+(r()-.5)*24*u,.72+r()*.25);
+   return c}
+  function strip3(W,H){r=rng(hash("tira3"+(night?1:0)));var c=document.createElement("canvas");c.width=W*D;c.height=H*D;var x=c.getContext("2d");x.scale(D,D);
+   function put(along,across,k){var im=ims[list[Math.floor(r()*list.length)]],sc=k*u,bw=im.width/sprRes(),bh=im.height/sprRes();[0,H,-H].forEach(function(sh){x.drawImage(im,across-bw*sc/2,along+sh-bh*sc/2,bw*sc,bh*sc)})}
+   for(var a=0;a<H;a+=150*u)put(a+(r()-.5)*60*u,W*.72+(r()-.5)*40*u,1.25+r()*.3);
+   for(a=70*u;a<H;a+=130*u)put(a+(r()-.5)*50*u,W*.5+(r()-.5)*30*u,1+r()*.25);
+   for(a=30*u;a<H;a+=120*u)put(a+(r()-.5)*40*u,W*.28+(r()-.5)*24*u,.72+r()*.25);
+   return c}
+ }
 }
 
 /* ================= ambiente del mapa: nubes, olas, ballena, delfines, barcos y gaviotas =================

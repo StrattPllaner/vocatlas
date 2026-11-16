@@ -1,0 +1,40 @@
+/* ================= pantallas anchas (iPad y computadora) =================
+   Como en Strattpllaner: la barra de abajo pasa a ser un riel vertical a la izquierda y el contenido usa todo
+   el ancho que queda. Desde 1080 px cada pestaña se acomoda en dos columnas en vez de una tira angosta al centro. */
+#nav .ind{transform:translateX(calc(var(--i,0) * 100%))}
+@media (min-width:760px){
+ #nav{left:calc(14px + var(--sal));top:50%;bottom:auto;transform:translateY(-50%);width:88px;flex-direction:column;padding:6px;border-radius:30px}
+ #nav .ind{left:6px;right:6px;top:6px;bottom:auto;width:auto;height:calc((100% - 12px) / 5);transform:translateY(calc(var(--i,0) * 100%))}
+ #nav button{flex:none;min-height:72px;font-size:12.5px;border-radius:24px}
+ #app.enter #nav{animation:none}
+ .view{padding:calc(28px + var(--sat)) calc(32px + var(--sar)) calc(40px + var(--sab)) calc(134px + var(--sal))}
+ .vwrap{max-width:none}
+ /* mapa: los controles de la izquierda se hacen a un lado del riel */
+ .clar{left:calc(14px + var(--sal))}
+ .addc{left:calc(118px + var(--sal));bottom:calc(20px + var(--sab))}
+ .pf-grid{grid-template-columns:repeat(auto-fill,minmax(128px,1fr))}
+ /* las tiras que se deslizan de lado se vuelven cuadrícula: nada queda cortado en la orilla */
+ .at-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));overflow:visible;margin:0;padding:2px 0 var(--sp-2)}
+ .at-row>*{width:auto!important;min-width:0}
+}
+@media (min-width:1080px){
+ .vwrap{max-width:1320px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:28px;align-items:start}
+ .vwrap>*{grid-column:1 / -1;min-width:0}
+ /* Yo: la tarjeta con Rumbo queda fija a la izquierda y lo demás corre a la derecha */
+ .pf.vwrap{grid-template-columns:minmax(340px,5fr) minmax(0,7fr)}
+ .pf.vwrap>.pf-hero{grid-column:1;grid-row:1 / span 6;position:sticky;top:0}
+ .pf.vwrap>:not(.pf-hero){grid-column:2}
+ /* Atlas: arriba el resumen; abajo, dos columnas */
+ .at:not(.pf).vwrap>.at-next{grid-column:1;grid-row:2}
+ .at:not(.pf).vwrap>.at-sec:nth-of-type(2){grid-column:2;grid-row:2 / span 2}
+ .at:not(.pf).vwrap>.at-sec:nth-of-type(3){grid-column:1;grid-row:3}
+ /* Comparar: el duelo arriba y las tarjetas en dos columnas */
+ .cx.vwrap>.cx-card{grid-column:auto}
+ .cx.vwrap>.cx-card:nth-of-type(2){grid-column:2;grid-row:3 / span 3}
+ .cx.vwrap>.cx-card:not(:nth-of-type(2)){grid-column:1}
+ .cx-duel{max-width:760px;width:100%;margin-left:auto;margin-right:auto}
+ .cx-final{max-width:560px;width:100%;margin-left:auto;margin-right:auto}
+ /* Probar: el test destacado y la lista lado a lado */
+ #v-probar .vwrap>.hero,#v-probar .vwrap>.group{grid-column:auto;grid-row:4}
+ #v-probar .vwrap>h3.sec{grid-column:auto;grid-row:3}
+}

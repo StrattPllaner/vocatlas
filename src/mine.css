@@ -2,7 +2,7 @@
 .t-hit{fill:transparent;pointer-events:all}
 .t-ring{stroke:var(--sk3);stroke-width:9;stroke-opacity:.5;stroke-linejoin:round}
 .isow{--sk0:#BFA57E;--sk1:#D8C29C;--sk2:#E9D9B8;--sk3:#F5EBD4;--skl:#7A5C3A}
-.m-terr.is-night .t-gsk{filter:brightness(.72) saturate(.85)}
+
 #mlayer.tight .al .t{font-size:10.5px;letter-spacing:.12em}#mlayer.tight .sl .t{font-size:12px}
 .pn-s{display:none}#mlayer.tight .pn-s{display:inline}#mlayer.tight .pn-l{display:none}
 .mpin.s-full .pd{box-shadow:0 0 0 2px var(--mostaza)}
@@ -234,16 +234,26 @@
 .amb-gull .iso-gull,.amb-whale .iso-spout{animation:none!important}
 .amb-wave .amb-m{opacity:0}
 /* neblina que limita el mapa: cuatro bandas que siguen a la cámara y se desvanecen hacia el mar; las nubes ilustradas van encima, en el mapa */
-#cwall{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:1;--fog:#E9F2F8}
+#cwall{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:1;--fog:#E6EFF6}
 #cwall i{position:absolute;left:0;top:0;display:block;will-change:transform}
-#cwall .cw-t{left:-300px;width:calc(100% + 600px);height:2700px;background:linear-gradient(to bottom,var(--fog) calc(100% - 420px),color-mix(in srgb,var(--fog) 0%,transparent))}
-#cwall .cw-b{left:-300px;width:calc(100% + 600px);height:2700px;margin-top:-300px;background:linear-gradient(to top,var(--fog) calc(100% - 420px),color-mix(in srgb,var(--fog) 0%,transparent))}
-#cwall .cw-l{width:2700px;background:linear-gradient(to right,var(--fog) calc(100% - 420px),color-mix(in srgb,var(--fog) 0%,transparent))}
-#cwall .cw-r{width:2700px;margin-left:-300px;background:linear-gradient(to left,var(--fog) calc(100% - 420px),color-mix(in srgb,var(--fog) 0%,transparent))}
-@media (prefers-color-scheme:dark){#cwall{--fog:#1B3048}}
+#cwall .cw-t,#cwall .cw-b{width:16000px;height:3000px}
+#cwall .cw-l,#cwall .cw-r{width:3000px;height:16000px}
+#cwall .cw-t{background:linear-gradient(to bottom,var(--fog) 0,var(--fog) calc(100% - var(--fl,560px)),color-mix(in srgb,var(--fog) 86%,transparent) calc(100% - var(--fl,560px)*.72),color-mix(in srgb,var(--fog) 52%,transparent) calc(100% - var(--fl,560px)*.4),color-mix(in srgb,var(--fog) 18%,transparent) calc(100% - var(--fl,560px)*.16),color-mix(in srgb,var(--fog) 0%,transparent) 100%)}
+#cwall .cw-b{background:linear-gradient(to top,var(--fog) 0,var(--fog) calc(100% - var(--fl,560px)),color-mix(in srgb,var(--fog) 86%,transparent) calc(100% - var(--fl,560px)*.72),color-mix(in srgb,var(--fog) 52%,transparent) calc(100% - var(--fl,560px)*.4),color-mix(in srgb,var(--fog) 18%,transparent) calc(100% - var(--fl,560px)*.16),color-mix(in srgb,var(--fog) 0%,transparent) 100%)}
+#cwall .cw-l{background:linear-gradient(to right,var(--fog) 0,var(--fog) calc(100% - var(--fl,560px)),color-mix(in srgb,var(--fog) 86%,transparent) calc(100% - var(--fl,560px)*.72),color-mix(in srgb,var(--fog) 52%,transparent) calc(100% - var(--fl,560px)*.4),color-mix(in srgb,var(--fog) 18%,transparent) calc(100% - var(--fl,560px)*.16),color-mix(in srgb,var(--fog) 0%,transparent) 100%)}
+#cwall .cw-r{background:linear-gradient(to left,var(--fog) 0,var(--fog) calc(100% - var(--fl,560px)),color-mix(in srgb,var(--fog) 86%,transparent) calc(100% - var(--fl,560px)*.72),color-mix(in srgb,var(--fog) 52%,transparent) calc(100% - var(--fl,560px)*.4),color-mix(in srgb,var(--fog) 18%,transparent) calc(100% - var(--fl,560px)*.16),color-mix(in srgb,var(--fog) 0%,transparent) 100%)}
+@media (prefers-color-scheme:dark){#cwall{--fog:#3A5674}}
+/* nubes de la orilla: una tira de nubes horneadas que se repite a lo largo de cada banda; asoman un poco sobre el mar
+   y hacia afuera se pierden en la neblina. Aparecen con suavidad cuando ya están listas */
+#cwall i::after{content:"";position:absolute;opacity:0;transition:opacity .9s ease;pointer-events:none}
+#cwall.ok i::after{opacity:1}
+#cwall .cw-t::after{left:0;right:0;bottom:calc(var(--cin,60px)*-1);height:var(--csh,360px);background:var(--cwh) repeat-x 0 0/auto 100%}
+#cwall .cw-b::after{left:0;right:0;top:calc(var(--cin,60px)*-1);height:var(--csh,360px);background:var(--cwb) repeat-x 37% 0/auto 100%}
+#cwall .cw-l::after{top:0;bottom:0;right:calc(var(--cin,60px)*-1);width:var(--csw,360px);background:var(--cwv) repeat-y 0 0/100% auto}
+#cwall .cw-r::after{top:0;bottom:0;left:calc(var(--cin,60px)*-1);width:var(--csw,360px);background:var(--cwr) repeat-y 0 41%/100% auto}
 
 /* con las piezas ya horneadas como imagen (de día o de noche), el grupo no necesita filtro */
-#world.spr-ok .gm.is-night .m-objs{filter:none}
+
 
 /* orilla superior de las pestañas: el contenido se desvanece bajo la barra de estado en vez de cortarse en seco */
 #app::before{content:"";position:absolute;left:0;right:0;top:0;height:calc(var(--sat) + 22px);z-index:6;pointer-events:none;background:linear-gradient(var(--c-bg) calc(var(--sat) + 4px),color-mix(in srgb,var(--c-bg) 0%,transparent));opacity:1;transition:opacity .2s ease}
@@ -258,3 +268,5 @@
 .glass{-webkit-backdrop-filter:none;backdrop-filter:none;background:color-mix(in srgb,var(--glass) 30%,var(--bg) 70%)}
 
 #v-map.in-r,#v-map.in-l,#v-map.out{animation:none!important}
+/* al entrar, el mapa solo aparece (sin escalar): escalar la capa entera obligaba a redibujarla */
+#mapwrap.mreveal{animation:fadeIn var(--t-long) var(--soft) both}

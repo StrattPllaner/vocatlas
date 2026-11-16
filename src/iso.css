@@ -53,7 +53,7 @@
 @keyframes mSmoke{0%{transform:translateY(0) scale(.6);opacity:.7}100%{transform:translateY(-14px) scale(1.4);opacity:0}}
 @media (prefers-reduced-motion:reduce){.gm *,.ia *{animation:none!important}.gm .iso-whale,.gm .iso-dolphin,.gm .m-glint{opacity:0}}
 :root[data-theme=dark] .gm,.gm.is-night{--m-sea:#163B5C;--m-sea2:#0E2A44;--m-sh1:rgba(60,120,160,.3);--m-sh2:#2B5F82;--m-sh3:#3A7598;background:radial-gradient(120% 90% at 30% 20%,#21507A 0%,var(--m-sea) 45%,var(--m-sea2) 100%)}
-.gm.is-night .m-land,.gm.is-night .m-objs,.gm.is-night .m-roads{filter:brightness(.72) saturate(.85)}
+/* de noche solo cambia el mar: las islas conservan sus colores (y el boceto no se oscurece) */
 .gm.is-night .iso-lamp{filter:drop-shadow(0 0 3px #FFE08A)}
 .iso-halo{display:none}.gm.is-night .iso-halo,.is-night .iso-halo{display:inline}
 /* ================= página interna #art ================= */
@@ -210,7 +210,8 @@ html.art-on body>*:not(#art){display:none!important}
 .lp-pop p,.lp-pop h3{color:inherit}
 .lp-head{width:calc(100% - 32px);max-width:640px;margin-left:auto;margin-right:auto;box-sizing:border-box}
 .lp-fab.up svg{transform:rotate(180deg)}
-body.lp-open #app{visibility:hidden}body.lp-open #app *{animation-play-state:paused!important}
+/* con una carrera abierta el mapa sigue ahí debajo (ocultarlo obligaba a redibujarlo completo al volver); solo se pausa el ambiente */
+body.lp-open #amb{visibility:hidden}body.lp-open #amb *{animation-play-state:paused!important}
 /* mapa de la app: sin animaciones dentro del svg; cualquier animación ahí obliga a redibujar todo el mapa en cada cuadro */
 .isow *{animation:none!important}
 .isow .m-glint{opacity:.5}
