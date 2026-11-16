@@ -45,6 +45,8 @@ function sprStart(){
     if(it.pp){var im=document.createElementNS(NS,"g");im.innerHTML=sprImg(o);it.el.parentNode.replaceChild(im.firstChild,it.el)}else it.el.innerHTML=sprImg(o);fin()})})(it)}
   if(SPR.q.length)setTimeout(step,16);
  }
- function fin(){done++;if(done===n&&g===SPR.gen){w.classList.add("spr-ok");occKey=""}}
+ function fin(){done++;if(done===n&&g===SPR.gen){w.classList.add("spr-ok");occKey="";
+  /* luego, con calma, las ilustraciones de las otras pestañas */
+  setTimeout(function(){if(typeof artDefs==="function")artDefs()},400)}}
  if(!n)return;setTimeout(step,RM()?60:400);
 }

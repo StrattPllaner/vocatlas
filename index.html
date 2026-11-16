@@ -1775,6 +1775,15 @@ body.lp-open #app{visibility:hidden}body.lp-open #app *{animation-play-state:pau
 #app::before{content:"";position:absolute;left:0;right:0;top:0;height:calc(var(--sat) + 22px);z-index:6;pointer-events:none;background:linear-gradient(var(--c-bg) calc(var(--sat) + 4px),color-mix(in srgb,var(--c-bg) 0%,transparent));opacity:1;transition:opacity .2s ease}
 #app[data-v=map]::before{opacity:0}
 .view{overscroll-behavior:contain}
+
+/* fluidez: el mapa nunca se apaga al cambiar de pestaña (apagarlo obligaba a redibujarlo entero al volver);
+   las otras pestañas lo tapan con su fondo */
+#v-map{display:block!important;z-index:0}
+.view:not(#v-map){z-index:1;background:var(--c-bg)}
+/* el vidrio esmerilado (desenfoque en vivo) es de lo más caro en Safari: se cambia por un fondo casi opaco */
+.glass{-webkit-backdrop-filter:none;backdrop-filter:none;background:color-mix(in srgb,var(--glass) 30%,var(--bg) 70%)}
+
+#v-map.in-r,#v-map.in-l,#v-map.out{animation:none!important}
 /* ================= perfil (Yo) ================= */
 .pf{--pf-sh1:rgba(166,230,236,.45);--pf-sh2:#A6E6EC;--pf-sand:#F5DFA2;--pf-cliff:#D9B56F;--pf-grass:#8FD46B;--pf-grass2:#74BD55}
 @media (prefers-color-scheme:dark){.pf{--pf-sh1:rgba(60,120,160,.4);--pf-sh2:#3A7598;--pf-sand:#B5A070;--pf-cliff:#8F7748;--pf-grass:#5F9A4C;--pf-grass2:#4F8640}}
@@ -3365,7 +3374,9 @@ function inkBlob(r,rad){
 /* p de 0 a 1. Estados: 0 todo boceto (la versión a color ni se dibuja), 1 a medias (los dos recortes siguen la mancha),
    2 todo a color (la versión boceto ni se dibuja). */
 function setInk(id,p){
- var r=refs[id];if(!r||!r.K)return;INK[id]=p;
+ var r=refs[id];if(!r||!r.K)return;
+ /* si el avance no cambió no se toca nada: cualquier cambio en los recortes obliga a redibujar el mapa */
+ if(INK[id]===p&&r.st!==-1)return;INK[id]=p;
  var st=p>=1?2:p<=0?0:1,rad=st===1?(.1+.72*Math.pow(p,1.2))*r.Rz:0,blob=st===1?inkBlob(r,rad):"";
  if(r.wash){if(st===1){r.wash.setAttribute("d",blob);r.wash.setAttribute("fill-opacity",(.46-.26*p).toFixed(2));r.wash.style.display=""}else r.wash.style.display="none"}
  if(!r.sk){r.sk=[r.gs];r.co=[];each(document.querySelectorAll('#world [data-c="'+id+'"]>.vbz'),function(e){if(e!==r.gs)r.sk.push(e)});each(document.querySelectorAll('#world [data-c="'+id+'"]>.vco'),function(e){r.co.push(e)})}
@@ -9112,7 +9123,9 @@ function sprStart(){
     if(it.pp){var im=document.createElementNS(NS,"g");im.innerHTML=sprImg(o);it.el.parentNode.replaceChild(im.firstChild,it.el)}else it.el.innerHTML=sprImg(o);fin()})})(it)}
   if(SPR.q.length)setTimeout(step,16);
  }
- function fin(){done++;if(done===n&&g===SPR.gen){w.classList.add("spr-ok");occKey=""}}
+ function fin(){done++;if(done===n&&g===SPR.gen){w.classList.add("spr-ok");occKey="";
+  /* luego, con calma, las ilustraciones de las otras pestañas */
+  setTimeout(function(){if(typeof artDefs==="function")artDefs()},400)}}
  if(!n)return;setTimeout(step,RM()?60:400);
 }
 
@@ -9212,11 +9225,18 @@ function artDefs(){
  });
  var d=document.createElement("div");d.innerHTML='<svg id="artSprite" width="0" height="0" style="position:absolute" aria-hidden="true"><defs>'+h+(typeof ISO!=="undefined"?ISO.skDefs():"")+'</defs></svg>';
  document.body.appendChild(d.firstChild);
+ setTimeout(artBake,RM()?100:900);
 }
 /* p: avance de 0 a 1; mezcla gris y color igual que el mapa */
+/* las ilustraciones de las pestañas también se hornean como imagen (las vectoriales trababan al cambiar de pestaña) */
+var ARTIMG={};
+function artBake(){if(typeof sprMake!=="function")return;var night=!!(DMQ&&DMQ.matches),k=night?"n":"d";
+ C.forEach(function(c){["",'-g'].forEach(function(v){var key=c.id+v+k,src=document.getElementById("ad-"+c.id+v);if(!src||ARTIMG[key])return;ARTIMG[key]=1;
+  sprMake(src.innerHTML,night,function(o){if(!o){delete ARTIMG[key];return}ARTIMG[key]=o;each(document.querySelectorAll('.ar use[href="#ad-'+c.id+v+'"]'),function(u){u.outerHTML=sprImg(o).replace("<image ",'<image'+(u.getAttribute("opacity")?' opacity="'+u.getAttribute("opacity")+'"':'')+' ')})})})})}
+function artUse(id,v,op){var o=ARTIMG[id+v+((DMQ&&DMQ.matches)?"n":"d")];var a=op!=null?' opacity="'+op+'"':'';return o&&o.u?sprImg(o).replace("<image ",'<image'+a+' '):'<use href="#ad-'+id+v+'"'+a+'/>'}
 function artSVG(id,p){
  p=p==null?1:p;
- return '<svg class="ar" viewBox="-58 -84 116 116" aria-hidden="true">'+(p<1?'<use href="#ad-'+id+'-g"/>':'')+(p>0?'<use href="#ad-'+id+'"'+(p<1?' opacity="'+p.toFixed(2)+'"':'')+'/>':'')+'</svg>';
+ return '<svg class="ar" viewBox="-58 -84 116 116" aria-hidden="true">'+(p<1?artUse(id,"-g"):'')+(p>0?artUse(id,"",p<1?p.toFixed(2):null):'')+'</svg>';
 }
 function shortName(c){return c.name.replace(/^Ing\. /,"")}
 

@@ -249,3 +249,12 @@
 #app::before{content:"";position:absolute;left:0;right:0;top:0;height:calc(var(--sat) + 22px);z-index:6;pointer-events:none;background:linear-gradient(var(--c-bg) calc(var(--sat) + 4px),color-mix(in srgb,var(--c-bg) 0%,transparent));opacity:1;transition:opacity .2s ease}
 #app[data-v=map]::before{opacity:0}
 .view{overscroll-behavior:contain}
+
+/* fluidez: el mapa nunca se apaga al cambiar de pestaña (apagarlo obligaba a redibujarlo entero al volver);
+   las otras pestañas lo tapan con su fondo */
+#v-map{display:block!important;z-index:0}
+.view:not(#v-map){z-index:1;background:var(--c-bg)}
+/* el vidrio esmerilado (desenfoque en vivo) es de lo más caro en Safari: se cambia por un fondo casi opaco */
+.glass{-webkit-backdrop-filter:none;backdrop-filter:none;background:color-mix(in srgb,var(--glass) 30%,var(--bg) 70%)}
+
+#v-map.in-r,#v-map.in-l,#v-map.out{animation:none!important}
