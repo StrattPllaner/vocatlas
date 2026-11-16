@@ -1,0 +1,132 @@
+{
+ "version": 1,
+ "fuente": "O*NET OnLine, resumen de cada ocupación (sección Interests)",
+ "consultado": "2026-11-15",
+ "pesos": [
+  3,
+  2,
+  1
+ ],
+ "carreras": {
+  "medicina": {
+   "ocupacion": "General Internal Medicine Physicians",
+   "codigo": "29-1216.00",
+   "intereses": "ISR",
+   "url": "https://www.onetonline.org/link/summary/29-1216.00"
+  },
+  "veterinaria": {
+   "ocupacion": "Veterinarians",
+   "codigo": "29-1131.00",
+   "intereses": "IR",
+   "url": "https://www.onetonline.org/link/summary/29-1131.00"
+  },
+  "nutricion": {
+   "ocupacion": "Dietitians and Nutritionists",
+   "codigo": "29-1031.00",
+   "intereses": "SI",
+   "url": "https://www.onetonline.org/link/summary/29-1031.00"
+  },
+  "psicologia": {
+   "ocupacion": "Clinical and Counseling Psychologists",
+   "codigo": "19-3033.00",
+   "intereses": "SI",
+   "url": "https://www.onetonline.org/link/summary/19-3033.00"
+  },
+  "civil": {
+   "ocupacion": "Civil Engineers",
+   "codigo": "17-2051.00",
+   "intereses": "RIC",
+   "url": "https://www.onetonline.org/link/summary/17-2051.00"
+  },
+  "mecatronica": {
+   "ocupacion": "Mechatronics Engineers",
+   "codigo": "17-2199.05",
+   "intereses": "RIC",
+   "url": "https://www.onetonline.org/link/summary/17-2199.05"
+  },
+  "aeroespacial": {
+   "ocupacion": "Aerospace Engineers",
+   "codigo": "17-2011.00",
+   "intereses": "IRC",
+   "url": "https://www.onetonline.org/link/summary/17-2011.00"
+  },
+  "ambiental": {
+   "ocupacion": "Environmental Engineers",
+   "codigo": "17-2081.00",
+   "intereses": "IRC",
+   "url": "https://www.onetonline.org/link/summary/17-2081.00"
+  },
+  "computacion": {
+   "ocupacion": "Software Developers",
+   "codigo": "15-1252.00",
+   "intereses": "IC",
+   "url": "https://www.onetonline.org/link/summary/15-1252.00"
+  },
+  "datos": {
+   "ocupacion": "Data Scientists",
+   "codigo": "15-2051.00",
+   "intereses": "IC",
+   "url": "https://www.onetonline.org/link/summary/15-2051.00"
+  },
+  "biotec": {
+   "ocupacion": "Biochemists and Biophysicists",
+   "codigo": "19-1021.00",
+   "intereses": "IR",
+   "url": "https://www.onetonline.org/link/summary/19-1021.00"
+  },
+  "fisica": {
+   "ocupacion": "Physicists",
+   "codigo": "19-2012.00",
+   "intereses": "IRC",
+   "url": "https://www.onetonline.org/link/summary/19-2012.00"
+  },
+  "derecho": {
+   "ocupacion": "Lawyers",
+   "codigo": "23-1011.00",
+   "intereses": "ECI",
+   "url": "https://www.onetonline.org/link/summary/23-1011.00"
+  },
+  "educacion": {
+   "ocupacion": "Secondary School Teachers, Except Special and Career/Technical Education",
+   "codigo": "25-2031.00",
+   "intereses": "S",
+   "url": "https://www.onetonline.org/link/summary/25-2031.00"
+  },
+  "negocios": {
+   "ocupacion": "General and Operations Managers",
+   "codigo": "11-1021.00",
+   "intereses": "EC",
+   "url": "https://www.onetonline.org/link/summary/11-1021.00"
+  },
+  "finanzas": {
+   "ocupacion": "Financial and Investment Analysts",
+   "codigo": "13-2051.00",
+   "intereses": "CEI",
+   "url": "https://www.onetonline.org/link/summary/13-2051.00"
+  },
+  "arquitectura": {
+   "ocupacion": "Architects, Except Landscape and Naval",
+   "codigo": "17-1011.00",
+   "intereses": "RCA",
+   "url": "https://www.onetonline.org/link/summary/17-1011.00"
+  },
+  "moda": {
+   "ocupacion": "Fashion Designers",
+   "codigo": "27-1022.00",
+   "intereses": "ARE",
+   "url": "https://www.onetonline.org/link/summary/27-1022.00"
+  },
+  "comunicacion": {
+   "ocupacion": "News Analysts, Reporters, and Journalists",
+   "codigo": "27-3023.00",
+   "intereses": "AIE",
+   "url": "https://www.onetonline.org/link/summary/27-3023.00"
+  },
+  "cine": {
+   "ocupacion": "Producers and Directors",
+   "codigo": "27-2012.00",
+   "intereses": "AE",
+   "url": "https://www.onetonline.org/link/summary/27-2012.00"
+  }
+ }
+}

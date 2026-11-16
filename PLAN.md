@@ -13,9 +13,11 @@ Estado al 15 de noviembre de 2026. Se marca conforme avanza.
   - [ ] Pendiente: las 7 cifras de Medicina siguen sin verificar (la app muestra el estado vacío).
   - [ ] Pendiente: testimonio de Medicina (falta la entrevista).
   - [ ] Pendiente: el catálogo va dentro de `index.html`; con cinco carreras completas habrá que cargarlo aparte para no pasar el límite de peso.
-- [ ] Fase 4: Probar (test de O*NET con preguntas oficiales, retos rápidos, comparador).
+- [x] Fase 4: Probar con el test de intereses (versiones de 30 y 60, una pregunta por pantalla, resultados, carreras sugeridas con «Agregar», historial, créditos y avisos), retos rápidos y comparador.
+  - [ ] Pendiente tuyo: crear la clave en services.onetcenter.org y correr `ONET_API_KEY=… python3 datos/onet/cargar.py`. Hasta entonces el test avisa que no tiene preguntas y no deja empezar.
+  - [ ] Pendiente: probar el test con las preguntas reales; solo se probó con un banco de prueba que vive en el script de QA.
   - [x] Correo en inglés para onet@onetcenter.org: `docs/CORREO_ONET.md` (falta que lo envíes).
-  - [ ] Tabla de la regla entre los seis tipos de intereses y las carreras, con código de O*NET.
+  - [x] Tabla de la regla entre intereses y carreras, con el código de O*NET de cada ocupación verificado: `docs/REGLA_INTERESES.md` (falta que la revise un orientador).
 - [ ] Pausa: prueba de Medicina y del test con estudiantes.
 - [ ] Fase 3b: contenido de Computación, Derecho, Arquitectura y Veterinaria.
 - [ ] Fase 5: perfil.

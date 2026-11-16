@@ -1,0 +1,4 @@
+{
+ "estado": "pendiente",
+ "nota": "Aquí van las preguntas oficiales del O*NET Interest Profiler en español. Se llenan con datos/onet/cargar.py y una clave de O*NET Web Services. No se escriben a mano."
+}
