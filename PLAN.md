@@ -18,6 +18,8 @@ Estado al 15 de noviembre de 2026. Se marca conforme avanza.
   - [ ] Pendiente: probar el test con las preguntas reales; solo se probó con un banco de prueba que vive en el script de QA.
   - [x] Correo en inglés para onet@onetcenter.org: `docs/CORREO_ONET.md` (falta que lo envíes).
   - [x] Tabla de la regla entre intereses y carreras, con el código de O*NET de cada ocupación verificado: `docs/REGLA_INTERESES.md` (falta que la revise un orientador).
+- [x] Arreglos pedidos el 16 de noviembre: mapa fluido (cámara que no redibuja y piezas horneadas como imagen), límite de nubes, anillos de agua junto con su isla, ruta de lecciones como viaje entre islas, Comparar como pestaña propia, trajes de tela, caminado con pasos cruzados, 75 % en proceso, orilla superior al hacer scroll, menos texto.
+  - [ ] Pendiente: medir en un iPhone y en Safari de verdad (solo se midió en WebKit sin tarjeta gráfica).
 - [ ] Pausa: prueba de Medicina y del test con estudiantes.
 - [ ] Fase 3b: contenido de Computación, Derecho, Arquitectura y Veterinaria.
 - [ ] Fase 5: perfil.
