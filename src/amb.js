@@ -20,9 +20,10 @@ function ambBuild(){
 /* tamaño y lugar en pantalla: solo al fijar la cámara, nunca en cada cuadro */
 function ambPlace(){
  var el=document.getElementById("amb");if(!el||!AMB.it.length)return;
- var W=el.clientWidth,H=el.clientHeight,s=cm.s;AMB.s=s;
- for(var i=0;i<AMB.it.length;i++){var o=AMB.it[i],B=o.B,l=M+cm.tx+(o.x+B[0])*s,t=M+cm.ty+(o.y+B[1])*s,w=B[2]*s,h=B[3]*s;
-  o.vis=l+w>-160*s&&l<W+160*s&&t+h>-80*s&&t<H+80*s;
+ var W=box.clientWidth,H=box.clientHeight,s=cm.s,vs=view.s/cm.s;AMB.s=s;
+ /* la capa mide lo que el mundo; cada cosa va en su lugar del mundo y solo se anima lo que cae en pantalla */
+ for(var i=0;i<AMB.it.length;i++){var o=AMB.it[i],B=o.B,l=(o.x+B[0])*s,t=(o.y+B[1])*s,w=B[2]*s,h=B[3]*s,sl=view.tx+l*vs,st=view.ty+t*vs;
+  o.vis=sl+w*vs>-120&&sl<W+120&&st+h*vs>-80&&st<H+80;
   o.el.style.cssText="left:"+l.toFixed(1)+"px;top:"+t.toFixed(1)+"px;width:"+w.toFixed(1)+"px;height:"+h.toFixed(1)+"px"+(o.off||!o.vis?";display:none":"");
  }
 }

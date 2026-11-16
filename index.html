@@ -218,7 +218,7 @@ nav button:active svg{transform:scale(.84)}
 .ripple{fill:none;stroke:var(--land-hi);stroke-width:10;opacity:0;transform-box:fill-box;transform-origin:center;animation:ripple var(--t-long) var(--soft) both;pointer-events:none}
 
 /* capa HTML de etiquetas: tamaño fijo en pantalla, se mueve con translate3d */
-#mlayer{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+#mlayer{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:2}
 .ml{position:absolute;left:0;top:0;width:0;height:0;will-change:transform}
 .mpin{pointer-events:auto;cursor:pointer}.mpin:focus{outline:none}.mpin:focus-visible .pl{outline:3px solid var(--ink);outline-offset:3px}
 .mpin::before{content:"";position:absolute;left:-30px;top:-24px;width:60px;height:56px;border-radius:24px}
@@ -1553,7 +1553,8 @@ body.lp-open #app{visibility:hidden}body.lp-open #app *{animation-play-state:pau
 @keyframes bldSink{to{transform:translateY(36px) scale(.88);opacity:0}}
 .poi .pp{transform-box:fill-box;transform-origin:50% 100%}
 /* el mapa tiene apagadas las animaciones continuas (.isow *); estas son de una sola vez y por eso se imponen */
-#world.emerge .m-sea{animation:mkFade 500ms var(--soft) both!important;animation-delay:400ms!important}
+#world.emerge .m-rg{animation:mkFade 640ms var(--soft) both!important;animation-delay:calc(640ms + var(--ei,0)*280ms)!important}
+#mapbox.emerging #amb{opacity:0}#amb{transition:opacity .8s ease}
 #world.emerge .m-isle-in,#world.emerge .t-isle{animation:isleUp 820ms var(--spring) both!important;animation-delay:calc(700ms + var(--ei,0)*280ms)!important}
 #world.emerge .m-objs .pp{animation:bldPop 560ms var(--spring) both!important;animation-delay:calc(1250ms + var(--ei,0)*280ms)!important}
 #world.emerge .m-objs .m-d,#world.emerge .m-objs .m-br{animation:mkFade 420ms var(--soft) both!important;animation-delay:calc(1200ms + var(--ei,0)*280ms)!important}
@@ -1758,6 +1759,19 @@ body.lp-open #app{visibility:hidden}body.lp-open #app *{animation-play-state:pau
 .amb-m svg{display:block;overflow:visible}
 .amb-gull .iso-gull,.amb-whale .iso-spout{animation:none!important}
 .amb-wave .amb-m{opacity:0}
+/* muro de nubes que limita el mapa (las orillas las dibuja cloudTile en JS) */
+#cwall{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:1}
+#cwall i{position:absolute;left:0;top:0;display:block;will-change:transform;background:var(--cw,#F4F7F9)}
+#cwall .cw-t,#cwall .cw-b{left:-300px;width:calc(100% + 600px);height:2400px}
+#cwall .cw-l,#cwall .cw-r{width:2400px}
+#cwall i::after{content:"";position:absolute;background-image:var(--cwi);background-size:var(--cwz)}
+#cwall .cw-t::after{left:0;right:0;bottom:-96px;height:120px;background-repeat:repeat-x}
+#cwall .cw-b::after{left:0;right:0;top:-96px;height:120px;background-repeat:repeat-x}
+#cwall .cw-l::after{top:-60px;bottom:-60px;right:-96px;width:120px;background-repeat:repeat-y}
+#cwall .cw-r::after{top:-60px;bottom:-60px;left:-96px;width:120px;background-repeat:repeat-y}
+
+/* con las piezas ya horneadas como imagen (de día o de noche), el grupo no necesita filtro */
+#world.spr-ok .gm.is-night .m-objs{filter:none}
 /* ================= perfil (Yo) ================= */
 .pf{--pf-sh1:rgba(166,230,236,.45);--pf-sh2:#A6E6EC;--pf-sand:#F5DFA2;--pf-cliff:#D9B56F;--pf-grass:#8FD46B;--pf-grass2:#74BD55}
 @media (prefers-color-scheme:dark){.pf{--pf-sh1:rgba(60,120,160,.4);--pf-sh2:#3A7598;--pf-sand:#B5A070;--pf-cliff:#8F7748;--pf-grass:#5F9A4C;--pf-grass2:#4F8640}}
@@ -2192,7 +2206,7 @@ body.lp-open #app{visibility:hidden}body.lp-open #app *{animation-play-state:pau
     <section id="v-map" class="view on">
       <div id="mapbox">
         <div id="mapwrap"><svg id="map" xmlns="http://www.w3.org/2000/svg"><g id="world"></g></svg><svg id="fx" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g id="fxw"></g></svg><div id="amb" aria-hidden="true"></div></div>
-        <div id="mlayer"></div>
+        <div id="cwall" aria-hidden="true"><i class="cw-t"></i><i class="cw-b"></i><i class="cw-l"></i><i class="cw-r"></i></div><div id="mlayer"></div>
         <svg id="occl" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g id="occw"></g></svg>
         <div id="mapskel" class="mapskel" aria-hidden="true">
           <div class="sk" style="left:12%;top:18%;width:28%;height:30%;border-radius:48% 52% 44% 56%"></div>
@@ -3135,6 +3149,7 @@ function buildMap(){
  var rb=document.createElement("div");rb.className="ml rbm";rb.innerHTML='<div class="rbw">'+rumboEl()+'</div>';layer.appendChild(rb);
  RB.el=rb;RB.rb=rb.querySelector(".rb");wireRumbo(RB.rb);
  if(!RB.plan){var n=NODES[RB.at];RB.x=n[0];RB.y=n[1]}
+ if(iso&&typeof sprStart==="function")sprStart();
 }
 function inPoly(x,y,P){var c=false;for(var i=0,j=P.length-1;i<P.length;j=i++){if((P[i][1]>y)!==(P[j][1]>y)&&x<(P[j][0]-P[i][0])*(y-P[i][1])/(P[j][1]-P[i][1])+P[i][0])c=!c}return c}
 function edgeDist(x,y,P){var m=1e9;for(var i=0,j=P.length-1;i<P.length;j=i++){var ax=P[j][0],ay=P[j][1],bx=P[i][0],by=P[i][1],dx=bx-ax,dy=by-ay,t=Math.max(0,Math.min(1,((x-ax)*dx+(y-ay)*dy)/(dx*dx+dy*dy)));m=Math.min(m,Math.hypot(x-ax-t*dx,y-ay-t*dy))}return m}
@@ -3202,7 +3217,11 @@ function isoGeo(){
  });
  var fit=[1e9,1e9,-1e9,-1e9];W.islands.forEach(function(L){L.coast.forEach(function(p){var q=pj(p,0);fit[0]=Math.min(fit[0],q[0]);fit[1]=Math.min(fit[1],q[1]-96);fit[2]=Math.max(fit[2],q[0]);fit[3]=Math.max(fit[3],q[1]+16)})});
  var ghosts=W.ghosts.map(function(g){var q=pj([g.x,g.y],6),ly=-1e9;g.coast.forEach(function(p){ly=Math.max(ly,pj(p,0)[1])});return {x:q[0],y:q[1],ly:ly+30,area:g.area&&AREAS[g.area.id]?g.area.id:""}});
- ISOW={W:W,R:R,OX:OX,OY:OY,pj:pj,ZT:ZT,areas:areas,seas:seas,cells:cells,ghosts:ghosts,fit:fit,sig:S.pick.join(",")};
+ /* zona del mapa: las islas con carreras y los islotes por descubrir, con un margen de mar; afuera, nubes */
+ var zn=fit.slice();W.ghosts.forEach(function(g){g.coast.forEach(function(p){var q=pj(p,0);zn[0]=Math.min(zn[0],q[0]);zn[1]=Math.min(zn[1],q[1]-60);zn[2]=Math.max(zn[2],q[0]);zn[3]=Math.max(zn[3],q[1]+20)})});
+ zn=[zn[0]-110,zn[1]-150,zn[2]+110,zn[3]+120];
+ seas=[["Mar de las Preguntas",zn[0]+190,zn[3]-46],["Océano de las Posibilidades",(zn[0]+zn[2])/2,zn[1]+56]];
+ ISOW={W:W,R:R,OX:OX,OY:OY,pj:pj,ZT:ZT,areas:areas,seas:seas,cells:cells,ghosts:ghosts,fit:fit,zone:zn,sig:S.pick.join(",")};
 }
 function isoWorld(w,defs){
  var R=ISOW.R.parts,OX=ISOW.OX,OY=ISOW.OY,tr="translate("+OX.toFixed(1)+" "+OY.toFixed(1)+")",night=(DMQ&&DMQ.matches)?" is-night":"";
@@ -3298,40 +3317,71 @@ function inkTo(id,to,done){
  })(t0);
 }
 
-/* ---------- cámara: capa compuesta durante el gesto, redibujo nítido al soltar ---------- */
+/* ---------- cámara ----------
+   Las capas del mapa (svg) miden lo que mide el mundo a la escala actual. Moverse es solo trasladar esa capa ya dibujada
+   (la tarjeta gráfica la mueve; no se redibuja nada). Al pellizcar se escala la misma capa y, cuando el dedo se detiene,
+   se redibuja una sola vez a la escala nueva para que se vea nítida. */
 var view={s:.5,tx:0,ty:0},cm={s:.5,tx:0,ty:0},box=$("#mapbox"),svgEls=[$("#map"),$("#fx"),$("#occl"),$("#amb")],M=0,cmT=0;
-var SMIN=.2,SMAX=2.4,PAD=220;
-function clampS(s){return Math.min(SMAX,Math.max(SMIN,s))}
-function sizeSvg(){
- var vw=box.clientWidth,vh=box.clientHeight;lastBox=[vw,vh];M=Math.round(Math.max(vw,vh)*.3);
- svgEls.forEach(function(e){
-  e.style.left=-M+"px";e.style.top=-M+"px";
-  e.style.width=(vw+2*M)+"px";e.style.height=(vh+2*M)+"px";
-  e.style.transformOrigin=M+"px "+M+"px";
- });
-}
+var SMIN=.2,SMAX=1.8,PAD=220,LAYER_MAX=7000;
+function clampS(s){return Math.min(smax(),Math.max(smin(),s))}
+/* el mapa termina donde empiezan las nubes: no se aleja más de lo necesario para ver toda la zona con nubes alrededor */
+function zone(){return ISOW&&ISOW.zone?ISOW.zone:[0,0,WW,WH]}
+function smin(){var z=zone(),vw=box.clientWidth||360,vh=box.clientHeight||640,zw=z[2]-z[0],zh=z[3]-z[1];return Math.max(SMIN,Math.min(vw/zw,vh/zh)*.94,Math.max(vw/zw,vh/zh)*.62)}
+function smax(){return Math.max(smin()*1.5,Math.min(SMAX,LAYER_MAX/Math.max(WW||1,WH||1)))}
+function layerSize(){var w=Math.ceil((WW||1)*cm.s),h=Math.ceil((WH||1)*cm.s);
+ svgEls.forEach(function(e){e.style.left="0px";e.style.top="0px";e.style.width=w+"px";e.style.height=h+"px";e.style.transformOrigin="0 0"})}
+function sizeSvg(){var vw=box.clientWidth,vh=box.clientHeight;lastBox=[vw,vh];layerSize()}
 function commit(){
  cm={s:view.s,tx:view.tx,ty:view.ty};
- var tr="translate("+(cm.tx+M).toFixed(1)+" "+(cm.ty+M).toFixed(1)+") scale("+cm.s.toFixed(4)+")";
+ var tr="scale("+cm.s.toFixed(4)+")";
  $("#world").setAttribute("transform",tr);$("#fxw").setAttribute("transform",tr);$("#occw").setAttribute("transform",tr);
- svgEls.forEach(function(e){e.style.transform="translate3d(0,0,0)"});
+ layerSize();
+ var ct="translate3d("+cm.tx.toFixed(1)+"px,"+cm.ty.toFixed(1)+"px,0)";svgEls.forEach(function(e){e.style.transform=ct});
  ambPlace();
 }
 function idleCommit(){
  if(raf||ptrs.size){cmT=setTimeout(idleCommit,160);return}
- if(cm.s!==view.s||cm.tx!==view.tx||cm.ty!==view.ty)commit();
+ if(cm.s!==view.s)commit();else ambPlace();
 }
 function apply(){
- var vw=box.clientWidth,vh=box.clientHeight,s=view.s;
- view.tx=Math.min(vw/2+PAD*s,Math.max(vw/2-(WW+PAD)*s,view.tx));
- view.ty=Math.min(vh/2+PAD*s,Math.max(vh/2-(WH+PAD)*s,view.ty));
- var k=view.s/cm.s,dx=view.tx-k*cm.tx,dy=view.ty-k*cm.ty;
- if(k<.65||k>1.45||Math.abs(dx)>M*.8||Math.abs(dy)>M*.8)commit();
- else{var ct="translate3d("+dx.toFixed(1)+"px,"+dy.toFixed(1)+"px,0) scale("+k.toFixed(4)+")";svgEls.forEach(function(e){e.style.transform=ct})}
+ var vw=box.clientWidth,vh=box.clientHeight,s=view.s,z=zone();
+ /* la zona siempre llena la pantalla; a lo más una franja de nubes en cada orilla */
+ function cl(t,a,b,v,f){var lo=v*(1-f)-b*s,hi=v*f-a*s;return lo>hi?(lo+hi)/2:Math.min(hi,Math.max(lo,t))}
+ view.tx=cl(view.tx,z[0],z[2],vw,.22);view.ty=cl(view.ty,z[1],z[3],vh,.22);
+ var k=view.s/cm.s,ct="translate3d("+view.tx.toFixed(1)+"px,"+view.ty.toFixed(1)+"px,0)"+(Math.abs(k-1)>1e-4?" scale("+k.toFixed(4)+")":"");
+ svgEls.forEach(function(e){e.style.transform=ct});
  placeLabels(vw,vh);
- clearTimeout(cmT);cmT=setTimeout(idleCommit,160);
+ clearTimeout(cmT);cmT=setTimeout(idleCommit,Math.abs(k-1)>1e-4?200:240);
+}
+/* orilla de nubes: bolas de distinto tamaño con sombra azulada hacia el mar y un brillo arriba; se dibuja una vez por tema */
+function cloudTile(side,night){
+ var C=night?["#2E4560","#22344A","#3A5574"]:["#F6F9FB","#D5E2EA","#FFFFFF"],P=[[16,40,30],[58,52,38],[104,40,30],[144,56,36],[186,44,30],[224,54,34]],W=240,H=120,o="";
+ /* coordenadas para la orilla de arriba (nube encima del mar); las demás se giran */
+ o+='<rect width="'+W+'" height="26" fill="'+C[0]+'"/>';
+ P.forEach(function(p){o+='<circle cx="'+p[0]+'" cy="'+(p[1]+10)+'" r="'+p[2]+'" fill="'+C[1]+'"/>'});
+ P.forEach(function(p){o+='<circle cx="'+p[0]+'" cy="'+p[1]+'" r="'+p[2]+'" fill="'+C[0]+'"/>'});
+ P.forEach(function(p){o+='<circle cx="'+(p[0]-p[2]*.25)+'" cy="'+(p[1]-p[2]*.35)+'" r="'+(p[2]*.45)+'" fill="'+C[2]+'" opacity=".55"/>'});
+ var tr=side==="b"?'transform="translate(0 '+H+') scale(1 -1)"':side==="l"?'transform="translate(0 0) rotate(90 0 0) translate(0 -'+H+') scale(1 -1)"':side==="r"?'transform="rotate(90 0 0) translate(0 -'+H+')"':"",vw=side==="l"||side==="r"?H:W,vh=side==="l"||side==="r"?W:H;
+ if(side==="l")tr='transform="matrix(0 1 -1 0 '+H+' 0) translate(0 0)"';
+ if(side==="r")tr='transform="matrix(0 1 1 0 0 0)"';
+ if(side==="l")tr='transform="matrix(0 1 1 0 0 0) translate(0 0)"';
+ if(side==="r")tr='transform="matrix(0 1 -1 0 '+H+' 0)"';
+ var svg='<svg xmlns="http://www.w3.org/2000/svg" width="'+vw+'" height="'+vh+'"><g '+tr+'>'+o+'</g></svg>';
+ return {i:'url("data:image/svg+xml,'+encodeURIComponent(svg)+'")',z:vw+"px "+vh+"px"}
+}
+function cloudPaint(){var cw=$("#cwall");if(!cw)return;var n=!!(DMQ&&DMQ.matches),k=n?"n":"d";if(cw._k===k)return;cw._k=k;cw.style.setProperty("--cw",n?"#2E4560":"#F6F9FB");
+ ["t","b","l","r"].forEach(function(sd,i){var t=cloudTile(sd,n),e=cw.children[i];e.style.setProperty("--cwi",t.i);e.style.setProperty("--cwz",t.z)})}
+/* muro de nubes alrededor de la zona: cuatro bandas en pantalla que siguen a la cámara (no se redibujan) */
+function cloudWall(vw,vh){
+ var cw=$("#cwall");if(!cw||!ISOW)return;cloudPaint();var z=zone(),s=view.s,x0=view.tx+z[0]*s,y0=view.ty+z[1]*s,x1=view.tx+z[2]*s,y1=view.ty+z[3]*s;
+ var e=cw.children;
+ e[0].style.transform="translate3d(0,"+(y0-2400).toFixed(0)+"px,0)";
+ e[1].style.transform="translate3d(0,"+y1.toFixed(0)+"px,0)";
+ e[2].style.transform="translate3d("+(x0-2400).toFixed(0)+"px,"+y0.toFixed(0)+"px,0)";e[2].style.height=Math.max(0,y1-y0).toFixed(0)+"px";
+ e[3].style.transform="translate3d("+x1.toFixed(0)+"px,"+y0.toFixed(0)+"px,0)";e[3].style.height=Math.max(0,y1-y0).toFixed(0)+"px";
 }
 function placeLabels(vw,vh){
+ cloudWall(vw,vh);
  var s=view.s,layer=$("#mlayer"),L=s<(S.pick.length>10?.36:.3)?"lod-far":s>1.15?"lod-near":"lod-mid";
  if(L!==lod){if(lod)layer.classList.remove(lod);layer.classList.add(L);lod=L}
  var tg=s<.62;if(tg!==tight){tight=tg;layer.classList.toggle("tight",tg);for(var q=0;q<labels.length;q++)if(labels[q].t)labels[q].w=0}
@@ -4783,7 +4833,7 @@ function enterApp(fromDive,emerge){
 }
 /* el agua somera se pinta en canvas: si cambia el modo claro/oscuro, se vuelve a armar el mapa */
 var DMQ={get matches(){return TEMA.dark()}};
-function themeChanged(){if($("#app").classList.contains("on")&&!RB.plan){buildMap();refreshMap();commit();apply()}}
+function themeChanged(){var cw=$("#cwall");if(cw)cw._k=null;if($("#app").classList.contains("on")&&!RB.plan){buildMap();refreshMap();commit();apply()}}
 if(TEMA.mq&&TEMA.mq.addEventListener)TEMA.mq.addEventListener("change",function(){if(TEMA.get()==="auto")themeChanged()});
 
 /*@iso-js*/
@@ -7851,15 +7901,17 @@ var ISOMAP=(function(I,E,G){
   /* aguas someras alrededor de cada isla: tres anillos */
   var ALL=W.islands.concat(W.ghosts||[]),EI={};W.islands.forEach(function(L,i){EI[L.id]=i});
   var GHOST={grass:"#C3CDC2",grass2:"#B4BFB3",side:"#98A497"};
+  /* cada anillo lleva el turno de su isla (--ei): al aparecer el mapa sale junto con ella, no antes */
+  function ei(L){return L.ghost?W.islands.length:EI[L.id]}
   ALL.forEach(function(L){var d=closed(L.coast,0);
-   sea+='<path d="'+d+'" fill="none" stroke="var(--m-sh1)" stroke-width="150" stroke-linejoin="round"/>';
+   sea+='<path class="m-rg" style="--ei:'+ei(L)+'" d="'+d+'" fill="none" stroke="var(--m-sh1)" stroke-width="150" stroke-linejoin="round"/>';
   });
   ALL.forEach(function(L){var d=closed(L.coast,0);
-   sea+='<path d="'+d+'" fill="var(--m-sh2)" stroke="var(--m-sh2)" stroke-width="70" stroke-linejoin="round"/>';
+   sea+='<path class="m-rg" style="--ei:'+ei(L)+'" d="'+d+'" fill="var(--m-sh2)" stroke="var(--m-sh2)" stroke-width="70" stroke-linejoin="round"/>';
   });
   ALL.forEach(function(L){var d=closed(L.coast,0);
-   sea+='<path d="'+d+'" fill="var(--m-sh3)" stroke="var(--m-sh3)" stroke-width="30" stroke-linejoin="round"/>';
-   sea+='<path class="m-foam" d="'+d+'" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-dasharray="14 10" stroke-linecap="round" opacity=".75" transform="translate(0 6)"/>';
+   sea+='<path class="m-rg" style="--ei:'+ei(L)+'" d="'+d+'" fill="var(--m-sh3)" stroke="var(--m-sh3)" stroke-width="30" stroke-linejoin="round"/>';
+   sea+='<path class="m-foam m-rg" style="--ei:'+ei(L)+'" d="'+d+'" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-dasharray="14 10" stroke-linecap="round" opacity=".75" transform="translate(0 6)"/>';
   });
   /* islas: acantilado de arena, playa, ladera y meseta de pasto con manchas de tierra y roca */
   ALL.forEach(function(L,li){
@@ -7957,7 +8009,7 @@ var ISOMAP=(function(I,E,G){
   /* olas lentas y brillos */
   var gl="";for(var w=0;w<(opt.budget?24:60);w++){var sp=seaSpot(100+w,40),p=pj(sp,0);gl+='<path class="m-glint" style="--gd:'+(w%7*.6).toFixed(1)+'s" d="M'+f1(p[0])+' '+f1(p[1])+'q4 -2.4 8 0q4 -2.4 8 0" fill="none" stroke="#FFFFFF" stroke-width="1.3" stroke-linecap="round"/>'}
   if(opt.amb){
-   for(var ac=0;ac<(opt.budget?3:5);ac++){var sa=seaSpot(200+ac,ac<2?260:120),qa=pj(sa,0);amb.push({k:"cloud",x:qa[0],y:qa[1]-120-ac%3*26,art:E.cloud({k:1.2+ac%3*.35,ph:ac}),i:ac})}
+   for(var ac=0;ac<(opt.budget?3:5);ac++){var sa=seaSpot(200+ac,240),qa=pj(sa,0);amb.push({k:"cloud",x:qa[0],y:qa[1]-60-ac%3*20,art:E.cloud({k:1.2+ac%3*.35,ph:ac}),i:ac})}
    for(var ag=0;ag<(opt.budget?3:5);ag++){var sg=seaSpot(300+ag,30),qg=pj(sg,0);amb.push({k:"gull",x:qg[0],y:qg[1]-70,art:E.gull(),i:ag})}
    for(var aw=0;aw<(opt.budget?10:18);aw++){var sw=seaSpot(400+aw,46),qw=pj(sw,0);amb.push({k:"wave",x:qw[0],y:qw[1],art:'<path d="M-12 0q4 -2.6 8 0q4 -2.6 8 0q4 -2.6 8 0" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round"/>',i:aw})}
   }
@@ -8871,6 +8923,56 @@ function probarTop(){
   '<button type="button" class="ui-card pb-card" id="pbCmp"'+(n<2?' aria-disabled="true"':'')+'><span class="pb-ic">'+ico("cols")+'</span><span class="pb-t"><b>Comparar carreras</b><small>'+(n<2?'Agrega otra carrera a tu mapa para comparar.':'Dos o tres carreras de tu mapa, lado a lado.')+'</small></span>'+ico("next")+'</button></div>'}
 function probarBind(v){var a=v.querySelector("#pbIP");if(a)a.onclick=openIP;var b=v.querySelector("#pbCmp");if(b)b.onclick=function(){if(MC().length<2){uiToast("Agrega otra carrera a tu mapa para comparar");return}openCompare()}}
 
+/* ================= sprites del mapa: edificios y vegetación como imágenes =================
+   Dibujar cientos de piezas vectoriales (con recortes, degradados y rayado) cada vez que entra un pedazo nuevo del mapa
+   a la pantalla es lo que trababa el mapa, sobre todo en Safari. Así que, después de armar el mapa, cada pieza se dibuja
+   una sola vez en un lienzo (canvas) y se cambia por una imagen. Las piezas iguales comparten la misma imagen.
+   La versión de noche se hornea en la imagen (más oscura y menos saturada), así el mapa ya no usa filtros en vivo.
+   Si algo falla, la pieza se queda como vector: el mapa se ve igual, solo menos fluido. */
+var SPR={gen:0,cache:{},q:[],t:0,meas:null};
+/* resolución de la imagen: unidades del mapa → pixeles. Nítida hasta un acercamiento normal en pantallas de alta densidad */
+function sprRes(){return Math.min(3.2,Math.max(2,(window.devicePixelRatio||1)*1.25))}
+var SPR_NIGHT={"sk0":"#7E735F","sk1":"#93876F","sk2":"#A3977E","sk3":"#B3A78D","skl":"#3F3424"};
+function sprTheme(str,night){return str.replace(/var\(--(sk\d|skl),\s*(#[0-9A-Fa-f]{6})\)/g,function(m,k,fb){return night&&SPR_NIGHT[k]?SPR_NIGHT[k]:fb})}
+/* caja de una pieza, medida fuera de pantalla (las piezas ocultas no se pueden medir en su lugar) */
+function sprBox(art){
+ if(!SPR.meas){var d=document.createElementNS(NS,"svg");d.setAttribute("width","10");d.setAttribute("height","10");d.setAttribute("aria-hidden","true");d.style.cssText="position:absolute;left:-9999px;top:0;visibility:hidden;overflow:hidden";d.innerHTML="<defs>"+ENV.DEFS+"</defs><g></g>";document.body.appendChild(d);SPR.meas=d}
+ var g=SPR.meas.lastChild;g.innerHTML=art;var b;try{b=g.getBBox()}catch(e){b=null}g.innerHTML="";
+ if(!b||!b.width||!b.height)return null;return [Math.floor(b.x-3),Math.floor(b.y-3),Math.ceil(b.width+6),Math.ceil(b.height+6)]}
+/* noche: oscurecer y bajar saturación, igual que el filtro que había (brightness .72, saturate .85) */
+function sprNight(ctx,w,h){var im=ctx.getImageData(0,0,w,h),d=im.data;for(var i=0;i<d.length;i+=4){if(!d[i+3])continue;var r=d[i],g=d[i+1],b=d[i+2],l=.2126*r+.7152*g+.0722*b;
+ d[i]=(l+(r-l)*.85)*.72;d[i+1]=(l+(g-l)*.85)*.72;d[i+2]=(l+(b-l)*.85)*.72}ctx.putImageData(im,0,0)}
+function sprMake(art,night,cb){
+ var key=(night?"n":"d")+art;if(SPR.cache[key]){cb(SPR.cache[key]);return}
+ var bx=sprBox(art);if(!bx){cb(null);return}
+ var R=sprRes(),W=Math.max(1,Math.round(bx[2]*R)),H=Math.max(1,Math.round(bx[3]*R));
+ var svg='<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="'+W+'" height="'+H+'" viewBox="'+bx.join(" ")+'"><defs>'+ENV.DEFS+ISO.skDefs()+'</defs>'+sprTheme(art,night)+'</svg>';
+ var img=new Image(),url=URL.createObjectURL(new Blob([sprTheme(svg,night)],{type:"image/svg+xml"}));
+ img.onload=function(){URL.revokeObjectURL(url);try{
+   var c=document.createElement("canvas");c.width=W;c.height=H;var x=c.getContext("2d");x.drawImage(img,0,0,W,H);if(night)sprNight(x,W,H);
+   c.toBlob(function(bl){if(!bl){cb(null);return}var u=URL.createObjectURL(bl),o={u:u,b:bx};SPR.cache[key]=o;cb(o)},"image/png")}catch(e){cb(null)}};
+ img.onerror=function(){URL.revokeObjectURL(url);cb(null)};
+ img.src=url;
+}
+function sprImg(o){return '<image href="'+o.u+'" x="'+o.b[0]+'" y="'+o.b[1]+'" width="'+o.b[2]+'" height="'+o.b[3]+'" preserveAspectRatio="none"/>'}
+/* cola: edificios (su <use> apunta a la definición) y vegetación (su dibujo va dentro del grupo) */
+function sprStart(){
+ if(typeof ENV==="undefined"||!window.URL||!window.Blob)return;
+ var g=++SPR.gen,night=!!(DMQ&&DMQ.matches),q=[],w=$("#world");if(!w)return;
+ each(w.querySelectorAll(".m-objs .poi .pp>use"),function(u){var ref=document.getElementById((u.getAttribute("href")||"").slice(1));if(ref)q.push({el:u,art:ref.innerHTML,pp:true})});
+ each(w.querySelectorAll(".m-objs .m-d>.vco>g,.m-objs .m-d>.vbz>g"),function(e){q.push({el:e,art:e.innerHTML})});
+ each(w.querySelectorAll(".m-objs .m-gh"),function(e){q.push({el:e,art:e.innerHTML})});
+ SPR.q=q;var done=0,n=q.length;
+ function step(){
+  if(g!==SPR.gen)return;var t0=performance.now();
+  while(SPR.q.length&&performance.now()-t0<10){var it=SPR.q.shift();(function(it){sprMake(it.art,night,function(o){if(g!==SPR.gen||!o||!it.el.isConnected){fin();return}
+    if(it.pp){var im=document.createElementNS(NS,"g");im.innerHTML=sprImg(o);it.el.parentNode.replaceChild(im.firstChild,it.el)}else it.el.innerHTML=sprImg(o);fin()})})(it)}
+  if(SPR.q.length)setTimeout(step,16);
+ }
+ function fin(){done++;if(done===n&&g===SPR.gen){w.classList.add("spr-ok");occKey=""}}
+ if(!n)return;setTimeout(step,RM()?60:400);
+}
+
 /* ================= ambiente del mapa: nubes, olas, ballena, delfines, barcos y gaviotas =================
    Cada cosa que se mueve vive fuera del svg del mapa, en su propia capa, y solo cambia transform y opacity.
    Un solo requestAnimationFrame mueve todo. Se detiene si la pestaña no se ve, si no estás en el mapa o si hay una lección abierta.
@@ -8893,9 +8995,10 @@ function ambBuild(){
 /* tamaño y lugar en pantalla: solo al fijar la cámara, nunca en cada cuadro */
 function ambPlace(){
  var el=document.getElementById("amb");if(!el||!AMB.it.length)return;
- var W=el.clientWidth,H=el.clientHeight,s=cm.s;AMB.s=s;
- for(var i=0;i<AMB.it.length;i++){var o=AMB.it[i],B=o.B,l=M+cm.tx+(o.x+B[0])*s,t=M+cm.ty+(o.y+B[1])*s,w=B[2]*s,h=B[3]*s;
-  o.vis=l+w>-160*s&&l<W+160*s&&t+h>-80*s&&t<H+80*s;
+ var W=box.clientWidth,H=box.clientHeight,s=cm.s,vs=view.s/cm.s;AMB.s=s;
+ /* la capa mide lo que el mundo; cada cosa va en su lugar del mundo y solo se anima lo que cae en pantalla */
+ for(var i=0;i<AMB.it.length;i++){var o=AMB.it[i],B=o.B,l=(o.x+B[0])*s,t=(o.y+B[1])*s,w=B[2]*s,h=B[3]*s,sl=view.tx+l*vs,st=view.ty+t*vs;
+  o.vis=sl+w*vs>-120&&sl<W+120&&st+h*vs>-80&&st<H+80;
   o.el.style.cssText="left:"+l.toFixed(1)+"px;top:"+t.toFixed(1)+"px;width:"+w.toFixed(1)+"px;height:"+h.toFixed(1)+"px"+(o.off||!o.vis?";display:none":"");
  }
 }

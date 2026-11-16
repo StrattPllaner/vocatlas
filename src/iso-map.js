@@ -26,15 +26,17 @@ var ISOMAP=(function(I,E,G){
   /* aguas someras alrededor de cada isla: tres anillos */
   var ALL=W.islands.concat(W.ghosts||[]),EI={};W.islands.forEach(function(L,i){EI[L.id]=i});
   var GHOST={grass:"#C3CDC2",grass2:"#B4BFB3",side:"#98A497"};
+  /* cada anillo lleva el turno de su isla (--ei): al aparecer el mapa sale junto con ella, no antes */
+  function ei(L){return L.ghost?W.islands.length:EI[L.id]}
   ALL.forEach(function(L){var d=closed(L.coast,0);
-   sea+='<path d="'+d+'" fill="none" stroke="var(--m-sh1)" stroke-width="150" stroke-linejoin="round"/>';
+   sea+='<path class="m-rg" style="--ei:'+ei(L)+'" d="'+d+'" fill="none" stroke="var(--m-sh1)" stroke-width="150" stroke-linejoin="round"/>';
   });
   ALL.forEach(function(L){var d=closed(L.coast,0);
-   sea+='<path d="'+d+'" fill="var(--m-sh2)" stroke="var(--m-sh2)" stroke-width="70" stroke-linejoin="round"/>';
+   sea+='<path class="m-rg" style="--ei:'+ei(L)+'" d="'+d+'" fill="var(--m-sh2)" stroke="var(--m-sh2)" stroke-width="70" stroke-linejoin="round"/>';
   });
   ALL.forEach(function(L){var d=closed(L.coast,0);
-   sea+='<path d="'+d+'" fill="var(--m-sh3)" stroke="var(--m-sh3)" stroke-width="30" stroke-linejoin="round"/>';
-   sea+='<path class="m-foam" d="'+d+'" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-dasharray="14 10" stroke-linecap="round" opacity=".75" transform="translate(0 6)"/>';
+   sea+='<path class="m-rg" style="--ei:'+ei(L)+'" d="'+d+'" fill="var(--m-sh3)" stroke="var(--m-sh3)" stroke-width="30" stroke-linejoin="round"/>';
+   sea+='<path class="m-foam m-rg" style="--ei:'+ei(L)+'" d="'+d+'" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-dasharray="14 10" stroke-linecap="round" opacity=".75" transform="translate(0 6)"/>';
   });
   /* islas: acantilado de arena, playa, ladera y meseta de pasto con manchas de tierra y roca */
   ALL.forEach(function(L,li){
@@ -132,7 +134,7 @@ var ISOMAP=(function(I,E,G){
   /* olas lentas y brillos */
   var gl="";for(var w=0;w<(opt.budget?24:60);w++){var sp=seaSpot(100+w,40),p=pj(sp,0);gl+='<path class="m-glint" style="--gd:'+(w%7*.6).toFixed(1)+'s" d="M'+f1(p[0])+' '+f1(p[1])+'q4 -2.4 8 0q4 -2.4 8 0" fill="none" stroke="#FFFFFF" stroke-width="1.3" stroke-linecap="round"/>'}
   if(opt.amb){
-   for(var ac=0;ac<(opt.budget?3:5);ac++){var sa=seaSpot(200+ac,ac<2?260:120),qa=pj(sa,0);amb.push({k:"cloud",x:qa[0],y:qa[1]-120-ac%3*26,art:E.cloud({k:1.2+ac%3*.35,ph:ac}),i:ac})}
+   for(var ac=0;ac<(opt.budget?3:5);ac++){var sa=seaSpot(200+ac,240),qa=pj(sa,0);amb.push({k:"cloud",x:qa[0],y:qa[1]-60-ac%3*20,art:E.cloud({k:1.2+ac%3*.35,ph:ac}),i:ac})}
    for(var ag=0;ag<(opt.budget?3:5);ag++){var sg=seaSpot(300+ag,30),qg=pj(sg,0);amb.push({k:"gull",x:qg[0],y:qg[1]-70,art:E.gull(),i:ag})}
    for(var aw=0;aw<(opt.budget?10:18);aw++){var sw=seaSpot(400+aw,46),qw=pj(sw,0);amb.push({k:"wave",x:qw[0],y:qw[1],art:'<path d="M-12 0q4 -2.6 8 0q4 -2.6 8 0q4 -2.6 8 0" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round"/>',i:aw})}
   }

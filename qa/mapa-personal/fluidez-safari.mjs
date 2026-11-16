@@ -1,0 +1,23 @@
+// Fluidez en WebKit (motor de Safari) y Chrome: cuadros por segundo y peor cuadro en reposo, arrastre, zoom, cambio de pestaña y ruta.
+import {webkit,chromium} from 'playwright';
+import {state,ALL} from './lib.mjs';
+const ENG=process.argv[2]||'wk',N=+(process.argv[3]||6),W=+(process.argv[4]||1440),H=+(process.argv[5]||800),URLX=process.argv[6]||'index.html';
+const b=ENG==='wk'?await webkit.launch():await chromium.launch({executablePath:'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'});
+const pick=N>=20?ALL:['medicina','veterinaria','psicologia','negocios','arquitectura','datos'].slice(0,N);
+const c=await b.newContext({viewport:{width:W,height:H},deviceScaleFactor:2});const p=await c.newPage();const errs=[];p.on('pageerror',e=>errs.push(e.message));
+await p.addInitScript(s=>{localStorage.setItem('vocatlas_v1',JSON.stringify(s));localStorage.setItem('vocatlas_qa','1');localStorage.setItem('vocatlas_sfx','0')},state(pick,{medicina:2,veterinaria:1}));
+await p.goto('http://localhost:8765/'+URLX);await p.waitForTimeout(3000);await p.waitForFunction(()=>document.querySelector('#world').classList.contains('spr-ok'),{timeout:30000}).catch(()=>console.log('sin sprites'));await p.waitForTimeout(800);
+const start=()=>p.evaluate(()=>{window.__f=[];let last=performance.now();window.__on=true;(function f(t){window.__f.push(t-last);last=t;if(window.__on)requestAnimationFrame(f)})(last)});
+const stop=async()=>{const f=await p.evaluate(()=>{window.__on=false;return window.__f.slice(2)});const tot=f.reduce((a,x)=>a+x,0);const s=f.slice().sort((a,b)=>a-b);return {fps:+(f.length/(tot/1000)).toFixed(0),p95:+s[Math.floor(s.length*.95)].toFixed(0),peor:+s[s.length-1].toFixed(0),lentos:f.filter(x=>x>34).length}};
+const R={};
+await start();await p.waitForTimeout(2500);R.reposo=await stop();
+await start();await p.mouse.move(W/2,H/2);await p.mouse.down();for(let i=0;i<90;i++){await p.mouse.move(W/2+Math.sin(i/9)*260,H/2+Math.cos(i/9)*150)}await p.mouse.up();R.arrastre=await stop();
+await p.waitForTimeout(600);
+await start();for(let i=0;i<6;i++){await p.mouse.move(W/2,H/2);await p.mouse.wheel(0,i<3?-240:240);await p.waitForTimeout(260)}R.rueda=await stop();
+await p.waitForTimeout(600);
+await start();for(let i=0;i<4;i++){await p.click(i%2?'#zout':'#zin');await p.waitForTimeout(520)}R.zoom=await stop();
+await start();for(const v of ['probar','atlas','yo','map']){await p.click(`nav button[data-v=${v}]`);await p.waitForTimeout(600)}R.pestañas=await stop();
+await p.evaluate(()=>__vt('openCareer("medicina")'));await start();await p.waitForTimeout(1800);R.abrirRuta=await stop();
+await start();for(let i=0;i<30;i++){await p.mouse.move(W/2,H/2);await p.mouse.wheel(0,60);await p.waitForTimeout(16)}await p.waitForTimeout(300);R.rutaScroll=await stop();
+for(const k in R)console.log(ENG,N,k.padEnd(11),JSON.stringify(R[k]));console.log('errores',errs.length);
+await b.close();
