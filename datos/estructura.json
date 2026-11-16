@@ -1,0 +1,152 @@
+{
+ "version": 1,
+ "unidades": [
+  {
+   "id": "u1",
+   "titulo": "Conócela",
+   "sub": "Qué es, a quién ayuda y qué se dice de ella",
+   "lecciones": [
+    [
+     "1.1",
+     "Qué es y qué resuelve",
+     "sello"
+    ],
+    [
+     "1.2",
+     "A quién ayudas",
+     "sello"
+    ],
+    [
+     "1.3",
+     "Mitos y realidades",
+     "sello"
+    ],
+    [
+     "1.4",
+     "Carreras parecidas",
+     "sello"
+    ]
+   ]
+  },
+  {
+   "id": "u2",
+   "titulo": "Pruébala",
+   "sub": "Cuatro retos como los de la carrera",
+   "lecciones": [
+    [
+     "2.1",
+     "Reto 1",
+     "hexagono"
+    ],
+    [
+     "2.2",
+     "Reto 2",
+     "hexagono"
+    ],
+    [
+     "2.3",
+     "Reto 3",
+     "hexagono"
+    ],
+    [
+     "2.4",
+     "Reto 4",
+     "hexagono"
+    ]
+   ]
+  },
+  {
+   "id": "u3",
+   "titulo": "La realidad",
+   "sub": "Un día normal, lo difícil y una historia real",
+   "lecciones": [
+    [
+     "3.1",
+     "Un día real",
+     "pergamino"
+    ],
+    [
+     "3.2",
+     "Lo difícil",
+     "sello"
+    ],
+    [
+     "3.3",
+     "Historia real",
+     "pergamino"
+    ],
+    [
+     "3.4",
+     "¿Quién lo disfruta?",
+     "brujula"
+    ]
+   ]
+  },
+  {
+   "id": "u4",
+   "titulo": "El camino",
+   "sub": "Cuánto dura, cómo se entra y cuánto cuesta",
+   "lecciones": [
+    [
+     "4.1",
+     "Cuánto dura y qué estudias",
+     "sello"
+    ],
+    [
+     "4.2",
+     "Cómo se entra",
+     "sello"
+    ],
+    [
+     "4.3",
+     "Dónde, cuánto cuesta y becas",
+     "sello"
+    ]
+   ]
+  },
+  {
+   "id": "u5",
+   "titulo": "El futuro",
+   "sub": "Dónde se trabaja y qué viene después",
+   "lecciones": [
+    [
+     "5.1",
+     "Dónde se trabaja",
+     "sello"
+    ],
+    [
+     "5.2",
+     "Sueldo y demanda",
+     "sello"
+    ],
+    [
+     "5.3",
+     "Cómo la cambia la tecnología",
+     "brujula"
+    ],
+    [
+     "5.4",
+     "Después de titularte",
+     "sello"
+    ]
+   ]
+  },
+  {
+   "id": "u6",
+   "titulo": "Tu veredicto",
+   "sub": "Lo que sentiste y lo que decides",
+   "lecciones": [
+    [
+     "6.1",
+     "Lo que sentiste",
+     "brujula"
+    ],
+    [
+     "6.2",
+     "Tu veredicto",
+     "final"
+    ]
+   ]
+  }
+ ]
+}

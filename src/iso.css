@@ -166,7 +166,7 @@ html.art-on body>*:not(#art){display:none!important}
 .lp-n.chest{width:84px;height:76px;margin-left:-42px;background:none;box-shadow:none;border-radius:0}
 .lp-n.chest::after{display:none}
 .lp-n.chest svg{width:100%;height:100%}
-.lp-n.chest.s-soon svg,.lp-n.chest.s-lock svg{filter:grayscale(1) opacity(.55)}
+.lp-n.chest.s-soon svg,.lp-n.chest.s-lock svg{filter:grayscale(1)}
 .lp-n.opened svg{animation:lpOpen .5s cubic-bezier(.3,1.6,.5,1)}
 @keyframes lpOpen{40%{transform:scale(1.15) rotate(-4deg)}}
 .lp-pt{position:absolute;left:50%;top:50%;width:8px;height:8px;margin:-4px;border-radius:50%;animation:lpPt .65s ease-out forwards;transform:rotate(var(--a))}

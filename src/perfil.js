@@ -1,7 +1,8 @@
 /* ================= perfil (pestaña Yo) y colección de Rumbos =================
    Cada carrera completa regala a su Rumbo: la mascota con el gorro y las botas de esa carrera (src/skins.js).
    El que elijas se guarda en S.skin y lo usa Rumbo en toda la app. */
-function skinOn(k){return !k||progOf(k).p>=1}
+/* el Rumbo de una carrera se gana al terminar su unidad 2 (Pruébala); en las carreras que aún no tienen esa unidad completa, al terminar lo que hay */
+function skinOn(k){return !k||unitDone(k,1)||progOf(k).p>=1}
 function skinName(k){return k?RUMBO.SKINS[k].n:"Rumbo Aviador"}
 function skinShort(k){return skinName(k).replace(/^Rumbo /,"")}
 function skinStatic(k,off){var s=RUMBO.svg("U",null,null,k||null).replace('class="rbx ','class="rbx-static ');return off?ISO.greyAll(s):s}

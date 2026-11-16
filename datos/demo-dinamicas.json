@@ -1,0 +1,175 @@
+{
+ "id": "demo",
+ "titulo": "Las seis dinámicas nuevas",
+ "tarjetas": [
+  {
+   "tipo": "armar",
+   "area": "Ingenierías",
+   "pregunta": "Arma un puente de cuatro tramos que aguante el camión sin pasarte del presupuesto.",
+   "ranuras": 4,
+   "piezas": [
+    {
+     "texto": "Madera",
+     "costo": 1,
+     "fuerza": 1
+    },
+    {
+     "texto": "Concreto",
+     "costo": 2,
+     "fuerza": 3
+    },
+    {
+     "texto": "Acero",
+     "costo": 4,
+     "fuerza": 5
+    }
+   ],
+   "carga": 11,
+   "presupuesto": 9,
+   "revelacion": "No hace falta el material más caro en todos los tramos: se trata de cumplir la carga gastando lo justo."
+  },
+  {
+   "tipo": "bloques",
+   "area": "Tecnología y ciencias",
+   "pregunta": "El robot debe llegar a la bandera, pero termina en el agua. Toca el bloque que está mal.",
+   "bloques": [
+    "Avanzar 2",
+    "Girar a la derecha",
+    "Avanzar 3",
+    "Girar a la derecha",
+    "Avanzar 1"
+   ],
+   "falla": 3,
+   "opciones": [
+    "Girar a la izquierda",
+    "Avanzar 2",
+    "Quitar el bloque"
+   ],
+   "correcta": 0,
+   "revelacion": "El segundo giro era a la izquierda. El error estaba en un solo bloque, pero se notó tres pasos después."
+  },
+  {
+   "tipo": "patron",
+   "area": "Tecnología y ciencias",
+   "pregunta": "Visitas a una tienda en línea, de lunes a jueves. ¿Qué valor sigue el viernes?",
+   "serie": [
+    3,
+    6,
+    12,
+    24
+   ],
+   "etiquetas": [
+    "Lun",
+    "Mar",
+    "Mié",
+    "Jue",
+    "Vie"
+   ],
+   "opciones": [
+    30,
+    36,
+    48
+   ],
+   "correcta": 2,
+   "revelacion": "Cada día se duplica. Ver el patrón antes de calcular es la mitad del trabajo con datos."
+  },
+  {
+   "tipo": "presupuesto",
+   "area": "Negocios y sociedad",
+   "pregunta": "Tienes 10 monedas para abrir tu puesto de aguas frescas. Elige en qué gastas.",
+   "limite": 10,
+   "partidas": [
+    {
+     "texto": "Fruta de buena calidad",
+     "costo": 4,
+     "clase": "producto"
+    },
+    {
+     "texto": "Letrero llamativo",
+     "costo": 3,
+     "clase": "venta"
+    },
+    {
+     "texto": "Hielera grande",
+     "costo": 3,
+     "clase": "producto"
+    },
+    {
+     "texto": "Volantes",
+     "costo": 2,
+     "clase": "venta"
+    },
+    {
+     "texto": "Uniforme",
+     "costo": 3,
+     "clase": "imagen"
+    }
+   ],
+   "revelacion": "No alcanza para todo, y así es siempre. Decidir qué dejas fuera es la decisión de negocio."
+  },
+  {
+   "tipo": "encuadre",
+   "area": "Arte y comunicación",
+   "pregunta": "Quieres que se note que Rumbo está solo en un lugar enorme. ¿Qué encuadre usas?",
+   "opciones": [
+    {
+     "texto": "Plano general",
+     "vista": "0 0 300 200",
+     "efecto": "Se ve pequeño frente al paisaje: transmite soledad e inmensidad."
+    },
+    {
+     "texto": "Plano medio",
+     "vista": "96 62 108 72",
+     "efecto": "Se ve a Rumbo y algo del lugar. Informa, pero no transmite soledad."
+    },
+    {
+     "texto": "Primer plano",
+     "vista": "126 82 48 32",
+     "efecto": "Solo se ve su cara: transmite emoción, pero el lugar desaparece."
+    }
+   ],
+   "mejor": 0,
+   "revelacion": "El encuadre decide qué siente quien mira. La misma escena cuenta historias distintas."
+  },
+  {
+   "tipo": "componer",
+   "area": "Arte y comunicación",
+   "pregunta": "Acomoda el cartel de un concierto para que se lea de un vistazo.",
+   "filas": 3,
+   "columnas": 2,
+   "elementos": [
+    "Título",
+    "Foto",
+    "Fecha y lugar",
+    "Logo"
+   ],
+   "reglas": [
+    {
+     "elemento": 0,
+     "zonas": [
+      0,
+      1
+     ],
+     "texto": "El título va arriba: es lo primero que se lee."
+    },
+    {
+     "elemento": 3,
+     "zonas": [
+      4,
+      5
+     ],
+     "texto": "El logo va abajo y no compite con el título."
+    },
+    {
+     "elemento": 1,
+     "zonas": [
+      2,
+      3
+     ],
+     "texto": "La foto ocupa el centro y sostiene la mirada."
+    }
+   ],
+   "revelacion": "Componer es decidir en qué orden se lee. Primero lo más importante, y cada cosa en su lugar."
+  }
+ ]
+}

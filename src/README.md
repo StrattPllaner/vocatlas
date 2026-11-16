@@ -20,3 +20,11 @@ El script reemplaza lo que hay entre `/*@iso-js*/ … /*@iso-js-fin*/` y `/*@iso
 - `skins.js`: un Rumbo por carrera (gorro y botas). `RUMBO.svg("U",null,null,"medicina")` lo dibuja; `RUMBO.skin(k)` fija el que usa toda la app.
 - `mine.js`, `mine.css`: mapa personal, elección de carreras, Atlas.
 - `perfil.js`, `perfil.css`: pestaña Yo (perfil, colección de Rumbos, ajustes).
+
+## Lecciones (fase 3a)
+
+- `leccion.js`: reproductor de tarjetas (`LEC.open`). Un tipo de tarjeta = una función en `R`. No trae contenido.
+- `ruta.js`: la ruta de cada carrera (`PATH`) y el avance por lección (`lessDone`, `progOf`, `nextLesson`, `unitDone`, `markLesson`).
+- `ruta.css`: estilos de la ruta (`.rt-*`) y de las lecciones (`.lc-*`).
+- El contenido viene de `../datos/` y `build.py` lo copia como `CAT`. Ver `../datos/README.md`.
+- Ojo con los nombres de clase cortos: `.reveal` y `.sk` ya existían con otro uso y causaron dos errores. Las clases nuevas llevan prefijo.

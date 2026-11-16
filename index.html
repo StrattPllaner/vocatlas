@@ -1470,7 +1470,7 @@ html.art-on body>*:not(#art){display:none!important}
 .lp-n.chest{width:84px;height:76px;margin-left:-42px;background:none;box-shadow:none;border-radius:0}
 .lp-n.chest::after{display:none}
 .lp-n.chest svg{width:100%;height:100%}
-.lp-n.chest.s-soon svg,.lp-n.chest.s-lock svg{filter:grayscale(1) opacity(.55)}
+.lp-n.chest.s-soon svg,.lp-n.chest.s-lock svg{filter:grayscale(1)}
 .lp-n.opened svg{animation:lpOpen .5s cubic-bezier(.3,1.6,.5,1)}
 @keyframes lpOpen{40%{transform:scale(1.15) rotate(-4deg)}}
 .lp-pt{position:absolute;left:50%;top:50%;width:8px;height:8px;margin:-4px;border-radius:50%;animation:lpPt .65s ease-out forwards;transform:rotate(var(--a))}
@@ -1832,6 +1832,217 @@ body.lp-open #app{visibility:hidden}body.lp-open #app *{animation-play-state:pau
 .ui-btn.pf-rst{margin-top:var(--sp-4);--fg:var(--c-err-ink)}
 .pf-tag{display:inline-block;margin:2px 0 6px;padding:5px 12px;border-radius:var(--r-full);background:var(--c-info-bg);color:var(--c-info-ink);font:var(--fw-sb) var(--fs-xs)/1 var(--ff)}
 @media (min-width:700px){.pf-grid{grid-template-columns:repeat(6,minmax(0,1fr))}.pf-sub .pf-grid{grid-template-columns:repeat(auto-fill,minmax(132px,1fr))}.pf-stage{height:236px}.pf-stage .rb{width:170px;height:170px}}
+/* ================= ruta de lecciones (regiones, paradas con forma) ================= */
+#plaza .lp.rt{background:var(--c-bg,#F6EFE2)}
+.rt-head{flex-wrap:wrap;row-gap:10px;padding-bottom:12px}
+.rt-head .lp-ht{flex:1}
+.rt-head .lp-eb{font-size:12px}
+.rt-head .lp-tt{font-size:20px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rt-pg{flex:none;text-align:right;line-height:1}
+.rt-pg b{display:block;font-size:22px;font-weight:900}
+.rt-pg span{font-size:12px;font-weight:700;opacity:.85}
+.rt-bar{flex:0 0 100%;height:8px;border-radius:8px;background:rgba(0,0,0,.2);overflow:hidden}
+.rt-bar i{display:block;height:100%;border-radius:8px;background:#FFFFFF;transition:width .5s ease}
+.rt-col{max-width:none}
+.rt-band{position:absolute;left:0;right:0;overflow:hidden}
+.rt-band::before{content:"";position:absolute;left:0;right:0;top:-1px;height:14px;background:radial-gradient(14px 12px at 14px 0,var(--prev,rgba(255,255,255,.35)) 98%,transparent) repeat-x;background-size:28px 14px;opacity:.5}
+.rt-band b{position:absolute;right:max(10px,calc(50% - 270px));bottom:-34px;font:900 220px/1 var(--ff,inherit);color:#000;opacity:.045;pointer-events:none}
+.lp-dark .rt-band b{color:#FFF;opacity:.05}
+.rt-line{position:absolute;left:50%;top:0;width:560px;margin-left:-280px;pointer-events:none;overflow:visible}
+.rt-l0{fill:none;stroke:rgba(20,50,63,.28);stroke-width:7;stroke-linecap:round;stroke-dasharray:.1 16}
+.lp-dark .rt-l0{stroke:rgba(255,255,255,.28)}
+.rt-l1{fill:none;stroke:var(--c);stroke-width:9;stroke-linecap:round}
+.rt-ban{position:absolute;left:50%;width:min(520px,calc(100% - 32px));transform:translateX(-50%);height:124px;display:flex;align-items:center;gap:8px;padding:12px 16px;border-radius:22px;background:var(--c-surface,#FFF);color:var(--c-ink,#14323F);box-shadow:0 5px 0 rgba(20,50,63,.14);overflow:hidden}
+.rt-ban.r{flex-direction:row-reverse}
+.rt-bant{flex:1;min-width:0}
+.rt-bant span{font-size:12px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--cd)}
+.lp-dark .rt-bant span{color:var(--c)}
+.rt-bant h3{margin:1px 0 2px;font-size:21px;line-height:1.1;font-weight:900;color:inherit}
+.rt-bant p{margin:0;font-size:14px;line-height:1.3;color:var(--c-ink-2,#41505A)}
+.rt-bant em{display:inline-block;margin-top:6px;font-style:normal;font-size:12.5px;font-weight:800;padding:2px 9px;border-radius:99px;background:color-mix(in srgb,var(--c) 16%,transparent);color:var(--cd)}
+.lp-dark .rt-bant em{color:#FFF}
+.rt-bana{flex:none;width:104px;height:112px}
+.rt-bana svg{width:100%;height:100%;display:block}
+.rt-deco{position:absolute;width:54px;height:62px;margin-left:-27px;pointer-events:none;opacity:.95}
+.rt-deco svg{width:100%;height:100%;display:block;overflow:visible}
+/* paradas */
+.lp-n.rt-n{width:80px;height:88px;margin-left:-40px;background:none;box-shadow:none;border-radius:0;color:var(--ct)}
+.lp-n.rt-n::after{display:none}
+.lp-dark .lp-n.rt-n,.lp-dark .lp-n.rt-n.s-lock,.lp-dark .lp-n.rt-n.s-soon{background:none;box-shadow:none}
+.rt-shape{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.rt-top{fill:var(--c);stroke:var(--c);stroke-width:3}
+.rt-ex{fill:var(--cd);stroke:var(--cd);stroke-width:3}
+.rt-perf{fill:none;stroke:var(--ct);stroke-width:2;stroke-dasharray:1 6;stroke-linecap:round;opacity:.55}
+.rt-n .lp-face{inset:0 0 12px}
+.rt-n.p-final{width:96px;height:90px;margin-left:-48px}
+.rt-n.p-final .lp-ic{width:38px;height:38px}
+.rt-n.s-lock .rt-top{fill:#D9D2C3;stroke:#D9D2C3}.rt-n.s-lock .rt-ex{fill:#B8AF9D;stroke:#B8AF9D}
+.rt-n.s-lock{color:#8A8272}
+.lp-dark .rt-n.s-lock .rt-top{fill:#3A4656;stroke:#3A4656}.lp-dark .rt-n.s-lock .rt-ex{fill:#2A3441;stroke:#2A3441}
+.lp-dark .rt-n.s-lock{color:#7C8796}
+.rt-n.s-soon .rt-top{fill:color-mix(in srgb,var(--c) 10%,#F2EFE6);stroke:rgba(20,50,63,.4);stroke-dasharray:6 6}.rt-n.s-soon .rt-ex{display:none}
+.rt-n.s-soon{color:rgba(20,50,63,.5)}.rt-n.s-soon .rt-perf{display:none}
+.lp-dark .rt-n.s-soon .rt-top{fill:color-mix(in srgb,var(--c) 22%,#0F1B2A);stroke:rgba(255,255,255,.4)}.lp-dark .rt-n.s-soon{color:rgba(255,255,255,.5)}
+.rt-n.s-cur .rt-top{filter:none}
+.rt-n.s-cur::before{content:"";position:absolute;left:50%;top:38px;width:96px;height:96px;margin:-48px;border-radius:50%;border:4px solid var(--c);opacity:.35;animation:rtPulse 1.8s ease-out infinite}
+@keyframes rtPulse{from{transform:scale(.8);opacity:.5}to{transform:scale(1.25);opacity:0}}
+.rt-n .lp-ok{right:0;top:-4px}
+.rt-n.chest{width:84px;height:76px;margin-left:-42px}
+.rt-n.chest.s-lock svg{filter:grayscale(1)}
+.rt-lab{position:absolute;top:14px;width:max-content;max-width:min(170px,calc(50vw - 92px));font-size:14.5px;line-height:1.22;font-weight:800;color:var(--c-ink,#14323F);text-align:left;pointer-events:none}
+.lp-dark .rt-lab{color:#F3EEE4}
+.rt-lab.r{left:calc(100% + 10px)}
+.rt-lab.l{right:calc(100% + 10px);text-align:right}
+.rt-lab b{display:block;font-size:12px;font-weight:900;letter-spacing:.06em;opacity:.6}
+.rt-lab em{display:block;font-style:normal;font-size:12px;font-weight:700;opacity:.6}
+.rt-n.s-lock .rt-lab,.rt-n.s-soon .rt-lab{opacity:.62}
+.rt-rb{width:84px;height:84px;margin-left:-42px}
+.rt-skin{width:150px;height:150px;margin:0 auto 6px}.rt-skin .rb{width:100%;height:100%}
+.lp-lin .btn+.btn{margin-top:10px}
+@media (prefers-reduced-motion:reduce){.rt-n.s-cur::before{animation:none}.rt-bar i{transition:none}}
+
+/* ================= lección: tarjetas ================= */
+.lc{position:fixed;inset:0;z-index:60;display:flex;flex-direction:column;background:var(--c-bg,#F6EFE2);color:var(--c-ink,#14323F);font-family:var(--ff,inherit);opacity:0;transform:translateY(16px);transition:opacity .22s ease,transform .26s ease}
+.lc.on{opacity:1;transform:none}
+.lc-top{flex:none;display:flex;align-items:center;gap:12px;padding:calc(10px + env(safe-area-inset-top)) calc(16px + env(safe-area-inset-right)) 8px calc(16px + env(safe-area-inset-left))}
+.lc-seg{flex:1;display:flex;gap:5px}
+.lc-seg i{flex:1;height:8px;border-radius:8px;background:var(--c-track,#D9DEE2);transition:background-color .25s ease}
+.lc-seg i.d{background:var(--c)}.lc-seg i.c{background:color-mix(in srgb,var(--c) 55%,var(--c-track,#D9DEE2))}
+.lc-body{flex:1;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
+.lc-wrap{max-width:560px;margin:0 auto;padding:8px 20px 24px}
+.lc-eb{font-size:12.5px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--cd);margin:6px 0 10px}
+@media (prefers-color-scheme:dark){.lc-eb{color:var(--c)}}
+.lc-card.in{animation:lcIn .3s ease both}
+@keyframes lcIn{from{opacity:0;transform:translateX(18px)}}
+.lc-big{font-size:21px;line-height:1.36;font-weight:700;margin:0 0 18px}
+.lc-q{font-size:18.5px;line-height:1.34;font-weight:800;margin:0 0 12px}
+.lc-note{font-size:13.5px;color:var(--c-ink-3,#5A6A74);margin:10px 0 0}
+.lc-q+.lc-note{margin:-4px 0 12px}
+.lc-rb{width:104px;height:104px;margin:4px 0 10px -6px}.lc-rb .rb{width:100%;height:100%}
+.lc-key{display:flex;gap:14px;align-items:flex-start;padding:22px 18px;border-radius:22px;background:var(--c);color:var(--ct);box-shadow:0 6px 0 var(--cd);margin-top:10px}
+.lc-key span{flex:none;width:44px;height:44px;border-radius:14px;background:rgba(255,255,255,.2);display:grid;place-items:center}
+.lc-key svg{width:26px;height:26px}
+.lc-key p{margin:0;font-size:21px;line-height:1.3;font-weight:800}
+/* opciones */
+.lc-opts{display:flex;flex-direction:column;gap:10px}
+.lc-opts.is-row{flex-direction:row}.lc-opts.is-row .lc-opt{flex:1;text-align:center;font-size:19px;font-weight:900}
+.lc-opt,.lc-oi,.lc-pi,.lc-bud button,.lc-two button{display:block;width:100%;min-height:52px;padding:13px 16px;border-radius:16px;border:2px solid var(--c-line-2,#D8CDB8);border-bottom-width:5px;background:var(--c-surface,#FFF);color:inherit;font:inherit;font-size:16px;line-height:1.3;font-weight:650;text-align:left;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:transform .12s ease,border-color .12s ease,background-color .12s ease}
+.lc-opt:active,.lc-oi:active,.lc-pi:active,.lc-two button:active{transform:translateY(2px)}
+.lc-opt[aria-checked=true],.lc-bud button[aria-checked=true],.lc-two button.on,.lc-pi.on{border-color:var(--c-sel-line,#3F7DA6);background:var(--c-sel,#E3F0F7)}
+.lc .good{border-color:var(--c-ok,#3F9C7A)!important;background:var(--c-ok-bg,#E0F1E9)!important;color:var(--c-ok-ink,#1F5A45)!important}
+.lc .bad{border-color:var(--c-err,#B8433A)!important;background:var(--c-err-bg,#FBE5E2)!important;color:var(--c-err-ink,#7E2A24)!important}
+.lc .off{opacity:.5}
+.lc-vf,.lc-int,.lc-ver{display:flex;gap:10px}
+.lc-vf button,.lc-int button,.lc-ver button{flex:1;min-height:64px;border-radius:18px;border:2px solid var(--c-line-2,#D8CDB8);border-bottom-width:6px;background:var(--c-surface,#FFF);color:inherit;font:inherit;font-size:18px;font-weight:850;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.lc-ver{flex-direction:column}.lc-ver button{min-height:54px;font-size:16.5px}
+.lc-int button.on,.lc-ver button.on{border-color:var(--c);background:var(--c);color:var(--ct)}
+.lc-two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.lc-two button{min-height:150px;display:flex;flex-direction:column;gap:10px;font-size:16.5px;font-weight:750}
+.lc-two i,.lc-oi i,.lc-pi i,.lc-blk i{flex:none;font-style:normal;display:inline-grid;place-items:center;width:28px;height:28px;border-radius:9px;background:var(--c-sunken,#EFE6D4);font-size:14px;font-weight:900}
+.lc-ord{display:flex;flex-direction:column;gap:9px}
+.lc-oi,.lc-pi{display:flex;align-items:center;gap:10px}
+.lc-oi.used i,.lc-pi.used i{background:var(--c);color:var(--ct)}
+.lc-link{margin-top:10px;min-height:44px;padding:0 4px;border:0;background:none;color:var(--c-info-edge,#2F6388);font:inherit;font-weight:800;font-size:15px;cursor:pointer}
+.lc-pair{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:10px;align-items:start}
+.lc-pair.is-slots{grid-template-columns:minmax(0,.62fr) minmax(0,1.38fr)}
+.lc-pl,.lc-pr{display:flex;flex-direction:column;gap:9px}
+.lc-pi{padding:10px 10px;font-size:14.5px;min-height:64px}
+.lc-pl .lc-pi.used{opacity:.55}
+.lc-pr .lc-pi i:empty{background:transparent;border:2px dashed var(--c-line-2,#D8CDB8)}
+/* clasificar */
+.lc-cln{font-size:13px;font-weight:800;color:var(--c-ink-3,#5A6A74);min-height:18px}
+.lc-clc{min-height:112px;display:grid;place-items:center;text-align:center;padding:18px;border-radius:20px;background:var(--c-surface,#FFF);border:2px solid var(--c-line,#E6DCC8);font-size:19px;line-height:1.3;font-weight:750;margin:6px 0 14px}
+.lc-clc.in{animation:lcIn .25s ease both}
+.lc-clg{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.lc-clg button{min-height:56px;padding:8px 10px;border-radius:16px;border:2px solid var(--c-line-2,#D8CDB8);border-bottom-width:5px;background:var(--c-surface,#FFF);color:inherit;font:inherit;font-size:15.5px;font-weight:800;cursor:pointer}
+/* escala */
+.lc-scale{display:flex;gap:8px}
+.lc-scale button{flex:1;min-height:56px;border-radius:16px;border:2px solid var(--c-line-2,#D8CDB8);border-bottom-width:5px;background:var(--c-surface,#FFF);color:inherit;font:inherit;font-size:19px;font-weight:900;cursor:pointer}
+.lc-scale button[aria-checked=true]{background:var(--c);border-color:var(--cd);color:var(--ct)}
+.lc-scl{display:flex;justify-content:space-between;font-size:13px;font-weight:700;color:var(--c-ink-3,#5A6A74);margin:6px 2px 16px}
+/* rango y dato */
+.lc-rng{display:flex;align-items:baseline;gap:8px;margin:6px 0 2px}
+.lc-rng b{font-size:40px;font-weight:900;line-height:1}.lc-rng span{font-size:16px;font-weight:700;color:var(--c-ink-2,#41505A)}
+.lc-empty{display:flex;gap:10px;align-items:center;padding:14px 16px 14px 8px;border-radius:20px;background:var(--c-warn-bg,#FBF0D0);color:var(--c-warn-ink,#5C4308);margin-top:14px}
+.lc-empty .lc-rb{flex:none;width:76px;height:76px;margin:0}
+.lc-empty p{margin:0;font-size:15.5px;line-height:1.38}
+.lc-bet{font-size:14.5px;color:var(--c-ink-2,#41505A);margin:12px 2px 0}
+.lc-dato{padding:18px;border-radius:20px;background:var(--c-surface,#FFF);border:2px solid var(--c-line,#E6DCC8);margin-top:14px}
+.lc-dato b{font-size:36px;font-weight:900}.lc-dato small{display:block;margin-top:8px;font-size:13px;color:var(--c-ink-3,#5A6A74)}
+.lc-testi{padding:18px;border-radius:20px;background:var(--c-surface,#FFF);border:2px solid var(--c-line,#E6DCC8)}
+/* resumen y comparar */
+.lc-sum{padding:14px 16px;border-radius:20px;background:var(--c-surface,#FFF);border:2px solid var(--c-line,#E6DCC8);margin-bottom:16px}
+.lc-sr{display:grid;grid-template-columns:104px 1fr;gap:10px;align-items:center;padding:7px 0;font-size:14.5px;font-weight:750}
+.lc-sr em{font-style:normal;font-weight:600;font-size:13px;color:var(--c-ink-3,#5A6A74)}
+.lc-sb{display:grid;gap:4px}
+.lc-sb i,.lc-sk i{display:block;height:9px;border-radius:9px;background:var(--c);width:calc(var(--v,1)*100%)}
+.lc-sb i.c,.lc-sk i.c{background:var(--c-gold,#F2B544)}
+.lc-sk{display:flex;gap:14px;flex-wrap:wrap;margin-top:8px;font-size:12.5px;font-weight:700;color:var(--c-ink-2,#41505A)}
+.lc-sk span{display:flex;align-items:center;gap:6px}.lc-sk i{width:18px}
+.lc-cnt{display:flex;gap:8px}.lc-cnt span{flex:1;padding:12px 8px;border-radius:16px;background:var(--c-surface,#FFF);border:2px solid var(--c-line,#E6DCC8);text-align:center;font-size:13px;font-weight:700}
+.lc-cnt b{display:block;font-size:26px;font-weight:900}
+.lc-tblw{overflow-x:auto;border-radius:18px;border:2px solid var(--c-line,#E6DCC8);background:var(--c-surface,#FFF)}
+.lc-tbl{width:100%;border-collapse:collapse;font-size:14.5px}
+.lc-tbl th,.lc-tbl td{padding:10px 10px;text-align:center;border-bottom:1px solid var(--c-line,#E6DCC8)}
+.lc-tbl thead th{font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--c-ink-3,#5A6A74)}
+.lc-tbl tbody th{text-align:left;font-weight:850}.lc-tbl tr.me{background:color-mix(in srgb,var(--c) 14%,transparent)}
+.lc-tbl tbody tr:last-child th,.lc-tbl tbody tr:last-child td{border-bottom:0}
+/* dinámicas nuevas */
+.lc-armp{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px}
+.lc-armp button,.lc-cmpe button{min-height:56px;padding:8px 6px;border-radius:14px;border:2px solid var(--c-line-2,#D8CDB8);border-bottom-width:5px;background:var(--c-surface,#FFF);color:inherit;font:inherit;font-size:15px;cursor:pointer}
+.lc-armp small{display:block;font-size:11.5px;font-weight:650;color:var(--c-ink-3,#5A6A74)}
+.lc-armp button.on,.lc-cmpe button.on{border-color:var(--c-sel-line,#3F7DA6);background:var(--c-sel,#E3F0F7)}
+.lc-arms{display:flex;gap:4px;padding:0 14px;margin-bottom:16px;border-left:14px solid #B79C74;border-right:14px solid #B79C74;border-radius:6px}
+.lc-arms button{flex:1;min-height:64px;border-radius:8px;border:2px dashed var(--c-line-2,#D8CDB8);background:transparent;color:#14323F;font:inherit;font-size:13px;font-weight:850;cursor:pointer}
+.lc-arms .k0{background:#D9A86C;border:2px solid #A8773A}.lc-arms .k1{background:#C9CDD3;border:2px solid #8C939D}.lc-arms .k2{background:#8FA9C4;border:2px solid #56718F}
+.lc-met{display:grid;grid-template-columns:74px 1fr auto;gap:10px;align-items:center;font-size:14px;font-weight:800;margin-bottom:10px}
+.lc-met div{height:12px;border-radius:12px;background:var(--c-track,#D9DEE2);overflow:hidden}
+.lc-met i{display:block;height:100%;width:0;border-radius:12px;background:var(--c-ok,#3F9C7A);transition:width .25s ease}
+.lc-met i.over{background:var(--c-err,#B8433A)}
+.lc-blk{display:flex;flex-direction:column;gap:6px;padding:12px;border-radius:18px;background:#1F2A3A;margin-bottom:14px}
+.lc-blk button{display:flex;align-items:center;gap:10px;min-height:48px;padding:8px 12px;border-radius:12px;border:2px solid transparent;background:#31425A;color:#F3EEE4;font:inherit;font-size:16px;font-weight:750;text-align:left;cursor:pointer}
+.lc-blk i{background:rgba(255,255,255,.14);color:#F3EEE4}
+.lc-blk .shake,.lc-bud .shake{animation:lcShake .3s ease}
+@keyframes lcShake{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.lc-pat{display:flex;gap:8px;align-items:flex-end;height:170px;padding:12px 12px 0;border-radius:18px;background:var(--c-surface,#FFF);border:2px solid var(--c-line,#E6DCC8);margin-bottom:14px}
+.lc-pat>div{flex:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:4px}
+.lc-pat i{display:block;width:100%;border-radius:8px 8px 0 0;background:var(--c);transition:height .3s ease}
+.lc-pat .q i{background:repeating-linear-gradient(45deg,var(--c-gold,#F2B544) 0 6px,#F7CF7E 6px 12px)}
+.lc-pat b{font-size:14px;font-weight:900}.lc-pat span{font-size:12px;font-weight:700;color:var(--c-ink-3,#5A6A74);padding-bottom:6px}
+.lc-bud{display:flex;flex-direction:column;gap:8px}
+.lc-bud button{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.lc-bud b{flex:none;min-width:34px;height:34px;border-radius:50%;background:var(--c-gold,#F2B544);color:#14323F;display:grid;place-items:center;font-weight:900}
+.lc-enc{display:grid;gap:10px}
+.lc-enc button{display:grid;grid-template-columns:132px 1fr;gap:12px;align-items:center;padding:8px;border-radius:16px;border:2px solid var(--c-line-2,#D8CDB8);border-bottom-width:5px;background:var(--c-surface,#FFF);color:inherit;font:inherit;font-size:16px;font-weight:800;text-align:left;cursor:pointer}
+.lc-enc svg{width:132px;height:88px;border-radius:10px;display:block}
+.lc-enc button[aria-checked=true]{border-color:var(--c-sel-line,#3F7DA6);background:var(--c-sel,#E3F0F7)}
+.lc-cmp{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1fr);gap:12px;align-items:start}
+.lc-cmpe{display:flex;flex-direction:column;gap:8px}
+.lc-cmpe button.used{opacity:.45}
+.lc-cmpg{display:grid;gap:5px;padding:8px;border-radius:10px;background:#FFFDF6;border:2px solid #14323F;box-shadow:5px 5px 0 rgba(20,50,63,.18)}
+.lc-cmpg button{min-height:62px;border-radius:6px;border:2px dashed #C9BEA6;background:transparent;color:#14323F;font:inherit;font-size:13px;font-weight:850;cursor:pointer;padding:2px}
+.lc-cmpg button.has{border:2px solid #14323F;background:#F2E7CE}
+.lc-rules{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:6px}
+.lc-rules li{display:flex;gap:8px;align-items:flex-start;padding:8px 10px;border-radius:12px;border:2px solid transparent;font-size:14.5px;font-weight:650}
+.lc-rules svg{flex:none;width:18px;height:18px;margin-top:1px}
+/* revelación y pie */
+.lc-fb{display:none;gap:12px;align-items:flex-start;padding:14px 16px;border-radius:18px;margin-top:16px;font-size:16px;line-height:1.4}
+.lc-fb.on{display:flex;animation:lcIn .25s ease both}
+.lc-fb small{display:block;margin-top:6px;font-size:13.5px;opacity:.85}
+.lc-fbi{flex:none;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;color:#FFF}
+.lc-fbi svg{width:18px;height:18px;stroke-width:3}
+.lc-fb.is-ok{background:var(--c-ok-bg,#E0F1E9);color:var(--c-ok-ink,#1F5A45)}.lc-fb.is-ok .lc-fbi{background:var(--c-ok,#3F9C7A)}
+.lc-fb.is-no{background:var(--c-err-bg,#FBE5E2);color:var(--c-err-ink,#7E2A24)}.lc-fb.is-no .lc-fbi{background:var(--c-err,#B8433A)}
+.lc-fb.is-info{background:var(--c-info-bg,#E3F0F7);color:var(--c-info-ink,#1E4A66)}.lc-fb.is-info .lc-fbi{background:var(--c-info,#3F7DA6)}
+.lc-foot{flex:none;border-top:1px solid var(--c-line,#E6DCC8);background:var(--c-bg,#F6EFE2)}
+.lc-footin{max-width:560px;margin:0 auto;padding:12px 20px calc(14px + env(safe-area-inset-bottom))}
+.lc .rate{margin:4px 0 16px}
+@media (max-width:370px){.lc-big{font-size:19px}.lc-q{font-size:17px}.lc-two button{min-height:136px;font-size:15.5px}.lc-pi{font-size:13.5px;padding:8px}}
+@media (min-width:700px){.lc-wrap{padding-top:24px}}
+@media (prefers-reduced-motion:reduce){.lc,.lc-card.in,.lc-fb.on,.lc-clc.in{animation:none!important;transition:none!important}}
+/* página de muestra de las dinámicas (#din) */
+.din{max-width:560px;margin:0 auto;padding:24px 20px 60px;font-family:var(--ff,inherit);color:var(--c-ink,#14323F)}
+.din h1{font-size:26px;margin:0 0 6px}.din p{margin:0 0 16px;color:var(--c-ink-2,#41505A)}
 /*@iso-css-fin*/
 </style>
 <script>
@@ -2239,11 +2450,11 @@ function isoDefs(){if(document.getElementById("isoDefsDoc")||typeof ENV==="undef
 
 
 /* ---------- estado ---------- */
-function blankState(){return {interests:[],custom:[],res:{},rate:{},seen:{},st:{},chest:{},at:null,edo:null,nick:"",grado:null,edad:null,meta:null,flow:null,pick:[],pk:0,stp:{},skin:null}}
+function blankState(){return {interests:[],custom:[],res:{},rate:{},seen:{},st:{},chest:{},at:null,edo:null,nick:"",grado:null,edad:null,meta:null,flow:null,pick:[],pk:0,stp:{},skin:null,les:{},int:{},auto:{},ver:{},lp:{},bet:{},mig:{},skw:{}}}
 var S=blankState();
 try{var raw=localStorage.getItem(KEY);if(raw){var p=JSON.parse(raw);S.interests=p.interests||[];S.custom=(p.custom||[]).filter(function(w){return typeof w==="string"}).map(function(w){return w.replace(/\s+/g," ").trim()}).filter(function(w,i,a){return w.length>1&&a.findIndex(function(x){return topicKey(x)===topicKey(w)})===i});S.res=p.res||{};S.rate=p.rate||{};S.seen=p.seen||{};S.st=p.st||{};S.chest=p.chest||{};S.at=p.at||null;S.edo=p.edo||null;S.nick=typeof p.nick==="string"?p.nick.slice(0,20):"";S.grado=p.grado||null;S.edad=p.edad==null?null:p.edad;S.meta=p.meta||null;S.flow=p.flow||null;S.stp=p.stp||{};S.pk=p.pk?1:0;
  /* mapa personal: quien ya tenía avance con el mapa completo conserva sus carreras con avance como elegidas y ve una vez la pantalla de elección */
- S.skin=typeof p.skin==="string"?p.skin:null;S.pick=Array.isArray(p.pick)?p.pick.filter(function(id,i,a){return byId[id]&&a.indexOf(id)===i}):C.filter(function(c){return S.res[c.id]||S.rate[c.id]!=null||(S.st[c.id]&&S.st[c.id].hace)}).map(function(c){return c.id})}}catch(e){}
+ S.skin=typeof p.skin==="string"?p.skin:null;["les","int","auto","ver","lp","bet","mig","skw"].forEach(function(k){S[k]=p[k]&&typeof p[k]==="object"?p[k]:{}});S.pick=Array.isArray(p.pick)?p.pick.filter(function(id,i,a){return byId[id]&&a.indexOf(id)===i}):C.filter(function(c){return S.res[c.id]||S.rate[c.id]!=null||(S.st[c.id]&&S.st[c.id].hace)}).map(function(c){return c.id})}}catch(e){}
 S.interests=S.interests.filter(function(id){return LAB[id]});
 /* si el navegador no deja guardar (modo privado estricto, almacenamiento lleno), se avisa una sola vez */
 var saveWarned=false;
@@ -4415,7 +4626,8 @@ var STEPS={
 
 /* carga: progreso real (fuentes, carta y, para quien regresa, el mapa); Rumbo camina sobre la barra */
 function boot(){
- if(location.hash==="#kit"||location.hash==="#art"||location.hash==="#rumbo"){var b0=document.getElementById("boot");if(b0)b0.style.display="none";if(location.hash==="#art")renderArt();else if(location.hash==="#rumbo")renderRumbo();else renderKit();return}
+ if(typeof migrateLessons==="function")migrateLessons();
+ if(location.hash==="#kit"||location.hash==="#art"||location.hash==="#rumbo"||location.hash==="#din"){var b0=document.getElementById("boot");if(b0)b0.style.display="none";if(location.hash==="#art")renderArt();else if(location.hash==="#rumbo")renderRumbo();else if(location.hash==="#din")renderDin();else renderKit();return}
  var ret=document.documentElement.classList.contains("ret"),bt=$("#boot"),trail=$("#btTrail"),sayEl=$("#btSay");
  var now=function(){return window.performance?performance.now():Date.now()};
  var total=0,fin=0,ended=false,shownAt=ret?0:now(),phr=0,timer=0;
@@ -4510,6 +4722,8 @@ if(TEMA.mq&&TEMA.mq.addEventListener)TEMA.mq.addEventListener("change",function(
 /*@iso-js*/
 /* cara de Rumbo, copiada de cara-rumbo.svg por build.py; no se edita a mano */
 var CARA={vb:"0 0 232 184",sub:["M112.50 159.84C111.27 159.68 107.95 159.00 107.74 158.87C107.64 158.81 106.78 158.59 105.84 158.39C103.70 157.94 100.35 156.41 99.98 155.72C99.63 155.07 99.88 153.66 100.42 153.21C101.06 152.68 102.96 152.90 105.05 153.74C106.29 154.23 107.94 154.63 109.79 154.88C111.35 155.09 113.08 155.37 113.62 155.50C115.04 155.84 116.76 155.80 119.50 155.38C127.27 154.17 128.32 154.27 128.45 156.28C128.53 157.58 128.15 158.16 127.05 158.38C126.68 158.46 125.52 158.79 124.47 159.12C122.58 159.73 115.07 160.18 112.50 159.84Z", "M109.25 150.49C108.22 150.39 107.02 150.19 106.59 150.05C106.16 149.92 104.36 149.67 102.59 149.50C100.31 149.29 98.94 149.03 97.88 148.60C97.05 148.26 95.53 147.87 94.50 147.73C93.47 147.58 91.84 147.15 90.88 146.77C89.91 146.39 88.51 145.93 87.75 145.75C86.99 145.58 85.87 145.18 85.25 144.87C84.63 144.56 83.76 144.23 83.32 144.14C82.88 144.04 82.09 143.68 81.58 143.33C81.06 142.97 80.19 142.53 79.64 142.34C79.10 142.14 78.48 141.83 78.26 141.64C78.05 141.46 77.14 140.94 76.25 140.51C73.44 139.14 72.06 138.38 71.58 137.96C71.33 137.74 70.67 137.33 70.12 137.05C69.58 136.78 68.85 136.26 68.52 135.90C68.19 135.54 67.78 135.25 67.61 135.25C67.24 135.25 64.40 133.19 63.42 132.21C63.03 131.82 62.61 131.50 62.49 131.50C62.37 131.50 61.87 131.13 61.39 130.69C60.91 130.24 60.12 129.51 59.64 129.06C59.16 128.62 58.66 128.25 58.54 128.25C58.29 128.25 56.59 130.11 55.12 132.00C53.99 133.46 52.13 135.00 51.50 135.00C51.01 135.00 50.48 134.45 49.93 133.38C49.57 132.67 49.59 132.57 50.19 131.50C50.55 130.88 51.17 130.04 51.57 129.62C52.60 128.56 54.40 125.99 54.63 125.25C54.73 124.91 55.14 124.02 55.53 123.28C55.93 122.54 56.25 121.77 56.25 121.58C56.25 121.39 56.52 120.70 56.84 120.05C57.49 118.75 57.67 117.71 57.99 113.09C58.24 109.60 58.43 109.18 59.96 108.76C60.63 108.57 61.03 108.60 61.55 108.86C62.25 109.21 62.25 109.21 62.25 108.34C62.25 107.87 62.10 107.17 61.91 106.80C61.72 106.43 61.42 105.51 61.25 104.76C61.07 104.01 60.67 102.83 60.35 102.14C59.77 100.84 59.63 99.73 58.97 91.24C58.74 88.27 58.74 86.71 58.96 84.62C59.12 83.11 59.37 80.18 59.51 78.10C59.65 76.02 59.93 73.71 60.15 72.97C60.69 71.05 61.16 68.91 61.48 66.80C61.63 65.80 61.98 64.52 62.27 63.97C62.55 63.41 62.94 62.12 63.14 61.10C63.33 60.08 63.71 58.82 63.97 58.31C64.23 57.80 64.67 56.52 64.96 55.47C65.25 54.42 65.70 53.18 65.97 52.72C66.24 52.25 66.54 51.45 66.64 50.93C66.73 50.41 67.09 49.57 67.43 49.06C67.78 48.55 68.21 47.62 68.40 46.98C68.59 46.34 68.98 45.53 69.25 45.18C69.53 44.82 69.93 44.06 70.13 43.49C70.33 42.92 70.77 42.12 71.12 41.72C71.46 41.31 71.97 40.50 72.25 39.93C72.53 39.35 73.07 38.37 73.45 37.75C74.34 36.28 79.70 30.86 80.50 30.63C80.84 30.52 81.50 30.16 81.96 29.81C83.35 28.77 87.26 28.30 90.32 28.81C92.44 29.16 92.84 29.32 94.33 30.39C96.34 31.84 98.21 34.17 98.63 35.76C98.80 36.41 99.19 37.28 99.50 37.70C100.80 39.46 100.73 52.29 99.39 57.75C99.04 59.19 98.63 61.02 98.48 61.81C98.14 63.63 97.91 63.85 95.79 64.33C94.84 64.55 93.66 64.99 93.17 65.33C92.68 65.66 91.80 66.01 91.20 66.10C90.61 66.20 89.70 66.55 89.19 66.89C88.67 67.23 87.65 67.73 86.91 68.01C86.17 68.28 85.37 68.73 85.13 69.00C84.89 69.26 84.32 69.60 83.86 69.75C82.99 70.04 81.00 72.00 81.00 72.57C81.00 73.11 82.75 75.00 83.24 75.00C83.49 75.00 84.36 75.35 85.16 75.78C86.31 76.38 87.21 76.62 89.34 76.89C90.84 77.08 92.73 77.46 93.53 77.74C94.34 78.02 95.15 78.25 95.34 78.25C96.61 78.25 96.78 80.36 95.76 83.64C95.51 84.47 95.17 86.39 95.02 87.89C94.87 89.40 94.47 91.53 94.12 92.63C93.77 93.73 93.38 95.53 93.23 96.62C93.09 97.74 92.75 99.00 92.48 99.47C92.21 99.93 91.75 101.16 91.46 102.20C91.18 103.24 90.68 104.50 90.37 104.99C90.05 105.47 89.65 106.35 89.48 106.93C89.31 107.51 88.91 108.23 88.59 108.53C88.26 108.84 88.00 109.18 88.00 109.30C88.00 110.21 82.63 115.36 81.00 116.00C80.52 116.19 79.82 116.57 79.46 116.83C78.58 117.47 74.51 117.87 72.56 117.51C70.09 117.05 66.40 114.38 64.83 111.93C64.27 111.04 63.11 110.31 62.79 110.63C62.71 110.71 62.57 111.53 62.47 112.45C62.31 114.08 61.94 116.38 61.07 121.21C60.55 124.08 60.58 124.15 63.41 126.61C66.37 129.19 66.74 129.48 67.52 129.88C67.90 130.08 68.37 130.45 68.55 130.71C68.86 131.14 70.07 132.02 71.84 133.10C72.27 133.36 73.02 133.83 73.50 134.15C74.30 134.68 75.79 135.49 78.38 136.81C78.92 137.09 79.67 137.53 80.04 137.78C80.41 138.04 81.43 138.48 82.31 138.75C83.20 139.02 84.12 139.46 84.36 139.73C84.60 140.00 85.38 140.34 86.08 140.49C86.79 140.65 87.84 141.05 88.43 141.39C89.01 141.73 90.14 142.13 90.92 142.28C91.71 142.43 92.79 142.77 93.32 143.04C93.85 143.31 95.72 143.80 97.48 144.14C99.24 144.48 101.56 144.98 102.62 145.25C108.07 146.64 125.64 146.43 131.20 144.91C132.39 144.58 134.33 144.17 135.50 144.00C136.67 143.83 138.22 143.43 138.94 143.11C139.67 142.79 140.87 142.41 141.61 142.27C142.36 142.14 143.61 141.68 144.39 141.26C145.18 140.84 145.99 140.50 146.19 140.50C146.40 140.50 147.25 140.17 148.09 139.77C148.94 139.37 150.13 138.81 150.75 138.53C151.37 138.26 152.16 137.86 152.50 137.65C152.84 137.44 153.63 137.04 154.25 136.74C156.21 135.82 158.08 134.76 158.61 134.27C158.89 134.01 159.52 133.62 160.00 133.40C160.81 133.03 161.95 132.23 163.91 130.64C164.34 130.29 164.81 130.00 164.95 130.00C165.10 130.00 165.48 129.68 165.79 129.28C166.11 128.88 166.72 128.38 167.14 128.17C167.91 127.78 167.91 127.78 167.95 124.52C167.98 121.85 168.07 121.08 168.46 120.32C168.73 119.80 169.08 118.70 169.25 117.88C169.50 116.62 169.74 116.20 170.66 115.31C171.99 114.03 172.54 113.99 173.65 115.10C174.66 116.11 174.71 116.62 173.89 117.73C172.29 119.90 172.04 127.89 173.51 129.75C173.79 130.09 174.24 130.87 174.51 131.48C175.05 132.65 176.97 134.59 178.65 135.65C179.78 136.37 180.50 137.39 180.50 138.30C180.50 139.15 179.82 140.00 179.12 140.00C178.06 140.00 174.93 138.36 173.75 137.18C171.58 135.01 171.27 134.62 170.95 133.62C170.53 132.32 169.70 132.19 168.06 133.15C166.67 133.97 164.83 135.30 164.08 136.04C163.56 136.56 162.39 137.22 159.59 138.59C158.88 138.94 158.22 139.35 158.12 139.51C158.02 139.67 157.25 140.13 156.41 140.53C155.56 140.94 154.48 141.48 154.00 141.74C152.22 142.71 149.34 143.96 148.25 144.25C147.63 144.41 146.77 144.74 146.34 144.99C145.92 145.24 144.74 145.63 143.72 145.86C142.71 146.09 141.52 146.50 141.08 146.77C140.65 147.05 139.46 147.42 138.46 147.62C137.45 147.81 136.23 148.14 135.75 148.34C134.62 148.81 132.69 149.15 128.50 149.61C126.64 149.82 124.22 150.16 123.12 150.37C120.99 150.78 112.90 150.85 109.25 150.49Z", "M187.35 133.39C186.15 132.87 185.91 131.61 186.66 129.74C187.40 127.88 188.88 127.76 190.42 129.41C191.64 130.72 191.64 130.73 191.10 132.15C190.52 133.68 189.10 134.15 187.35 133.39Z", "M38.59 122.71C36.30 121.60 38.13 117.23 40.62 117.85C42.55 118.33 43.09 122.10 41.33 122.77C40.54 123.07 39.28 123.04 38.59 122.71Z", "M102.94 118.27C102.12 117.54 102.12 117.54 102.12 114.83C102.12 111.36 102.69 110.00 105.18 107.54C107.32 105.41 108.20 105.00 110.97 104.82C115.03 104.56 117.26 105.37 120.20 108.18C122.55 110.41 122.70 115.50 120.42 115.50C119.23 115.50 118.58 114.91 118.15 113.44C117.77 112.13 116.97 111.17 114.79 109.42C114.07 108.84 113.73 108.75 112.24 108.75C110.60 108.75 109.25 109.10 109.25 109.53C109.25 109.65 108.90 109.92 108.48 110.14C108.01 110.38 107.57 110.90 107.34 111.45C107.14 111.96 106.75 112.80 106.48 113.31C106.12 113.97 105.99 114.62 106.03 115.56C106.18 118.63 104.75 119.88 102.94 118.27Z", "M152.12 117.48C151.29 117.35 150.35 117.03 150.00 116.75C149.66 116.47 149.09 116.11 148.75 115.95C146.15 114.71 142.06 109.09 141.12 105.48C140.89 104.60 140.44 103.24 140.11 102.46C138.17 97.85 138.26 77.13 140.25 71.22C140.51 70.45 140.84 68.93 140.97 67.84C141.11 66.75 141.50 65.07 141.85 64.12C142.19 63.16 142.64 61.61 142.86 60.68C143.07 59.75 143.40 58.74 143.60 58.43C143.80 58.13 144.20 56.98 144.50 55.88C144.80 54.77 145.25 53.51 145.51 53.07C145.77 52.62 146.14 51.72 146.34 51.07C146.54 50.41 147.05 49.22 147.47 48.41C147.90 47.61 148.25 46.75 148.25 46.52C148.25 46.28 148.58 45.59 148.98 44.98C149.38 44.37 149.79 43.54 149.88 43.12C149.98 42.71 150.39 41.95 150.79 41.43C151.20 40.92 151.70 40.08 151.91 39.57C152.68 37.74 158.12 31.80 160.00 30.74C160.48 30.47 161.16 30.03 161.50 29.75C162.96 28.59 169.59 28.24 171.93 29.19C173.55 29.86 175.78 31.47 176.27 32.34C176.57 32.87 177.13 33.66 177.51 34.10C177.89 34.53 178.29 35.34 178.39 35.88C178.49 36.43 178.86 37.38 179.22 38.00C179.88 39.12 179.88 39.12 179.87 46.88C179.86 54.44 179.84 54.69 179.19 57.25C178.82 58.69 178.40 60.61 178.24 61.51C177.88 63.67 177.84 63.72 175.99 64.15C175.12 64.35 173.75 64.85 172.94 65.26C172.14 65.67 171.35 66.00 171.18 66.00C171.01 66.00 169.99 66.45 168.90 67.00C167.82 67.55 166.79 68.00 166.61 68.00C166.44 68.00 165.72 68.39 165.00 68.88C164.28 69.36 163.61 69.75 163.51 69.75C162.96 69.75 161.00 71.84 161.00 72.43C161.00 73.38 161.90 74.65 162.81 75.00C163.26 75.16 164.25 75.57 165.01 75.89C165.78 76.22 167.24 76.61 168.26 76.76C169.29 76.91 170.86 77.25 171.75 77.51C172.64 77.77 173.82 78.06 174.38 78.15C176.42 78.49 176.65 79.59 175.47 83.41C175.21 84.26 174.88 86.09 174.75 87.46C174.52 89.95 173.87 93.27 173.49 94.01C173.38 94.23 173.12 95.37 172.91 96.55C172.70 97.73 172.25 99.24 171.91 99.91C171.56 100.58 171.20 101.58 171.10 102.12C171.01 102.67 170.62 103.69 170.24 104.38C169.86 105.06 169.41 106.08 169.24 106.62C169.07 107.17 168.61 107.99 168.21 108.45C167.82 108.90 167.50 109.40 167.50 109.57C167.50 109.87 165.15 112.61 163.61 114.12C163.19 114.54 162.40 115.10 161.86 115.38C161.32 115.65 160.48 116.12 160.00 116.42C158.37 117.43 154.89 117.90 152.12 117.48Z", "M188.10 112.14C187.21 111.76 187.06 111.45 186.85 109.66C186.45 106.32 189.05 104.77 191.64 106.80C192.18 107.23 192.25 107.48 192.25 109.00C192.25 111.42 192.03 111.87 190.66 112.22C189.26 112.57 189.06 112.56 188.10 112.14Z", "M27.58 109.59C26.91 108.57 26.98 106.41 27.69 105.69C28.32 105.07 30.47 104.96 31.14 105.51C32.11 106.31 32.08 108.88 31.10 109.86C30.40 110.56 28.10 110.38 27.58 109.59Z", "M42.81 106.57C41.60 106.34 40.94 102.82 41.94 101.94C43.30 100.74 45.79 101.34 46.25 102.99C46.59 104.23 46.59 104.26 45.76 105.58C44.98 106.80 44.62 106.92 42.81 106.57Z"]};
+/* catálogo de contenido, copiado de datos/ por build.py; no se edita aquí */
+var CAT={"est":{"version":1,"unidades":[{"id":"u1","titulo":"Conócela","sub":"Qué es, a quién ayuda y qué se dice de ella","lecciones":[["1.1","Qué es y qué resuelve","sello"],["1.2","A quién ayudas","sello"],["1.3","Mitos y realidades","sello"],["1.4","Carreras parecidas","sello"]]},{"id":"u2","titulo":"Pruébala","sub":"Cuatro retos como los de la carrera","lecciones":[["2.1","Reto 1","hexagono"],["2.2","Reto 2","hexagono"],["2.3","Reto 3","hexagono"],["2.4","Reto 4","hexagono"]]},{"id":"u3","titulo":"La realidad","sub":"Un día normal, lo difícil y una historia real","lecciones":[["3.1","Un día real","pergamino"],["3.2","Lo difícil","sello"],["3.3","Historia real","pergamino"],["3.4","¿Quién lo disfruta?","brujula"]]},{"id":"u4","titulo":"El camino","sub":"Cuánto dura, cómo se entra y cuánto cuesta","lecciones":[["4.1","Cuánto dura y qué estudias","sello"],["4.2","Cómo se entra","sello"],["4.3","Dónde, cuánto cuesta y becas","sello"]]},{"id":"u5","titulo":"El futuro","sub":"Dónde se trabaja y qué viene después","lecciones":[["5.1","Dónde se trabaja","sello"],["5.2","Sueldo y demanda","sello"],["5.3","Cómo la cambia la tecnología","brujula"],["5.4","Después de titularte","sello"]]},{"id":"u6","titulo":"Tu veredicto","sub":"Lo que sentiste y lo que decides","lecciones":[["6.1","Lo que sentiste","brujula"],["6.2","Tu veredicto","final"]]}]},"cif":{"medicina.duracion":{"valor":null,"unidad":"años","fuente":null,"url":null,"consultado":null,"estado":"pendiente","fuente_sugerida":"el plan de estudios en el sitio oficial de la universidad que te interese"},"medicina.aspirantes":{"valor":null,"unidad":"aspirantes por lugar","fuente":null,"url":null,"consultado":null,"estado":"pendiente","fuente_sugerida":"las estadísticas de admisión que publica cada universidad"},"medicina.costo_publica":{"valor":null,"unidad":"pesos por semestre","fuente":null,"url":null,"consultado":null,"estado":"pendiente","fuente_sugerida":"la convocatoria y el reglamento de pagos de la universidad pública de tu estado"},"medicina.costo_privada":{"valor":null,"unidad":"pesos por semestre","fuente":null,"url":null,"consultado":null,"estado":"pendiente","fuente_sugerida":"la página de colegiaturas de la universidad privada que te interese"},"medicina.becas":{"valor":null,"unidad":"","fuente":null,"url":null,"consultado":null,"estado":"pendiente","fuente_sugerida":"los sitios oficiales de becas del gobierno y de cada universidad"},"medicina.ingreso":{"valor":null,"unidad":"pesos al mes","fuente":null,"url":null,"consultado":null,"estado":"pendiente","fuente_sugerida":"Compara Carreras, del IMCO"},"medicina.ocupacion_afin":{"valor":null,"unidad":"de cada 100","fuente":null,"url":null,"consultado":null,"estado":"pendiente","fuente_sugerida":"el Observatorio Laboral, de la Secretaría del Trabajo"}},"demo":{"id":"demo","titulo":"Las seis dinámicas nuevas","tarjetas":[{"tipo":"armar","area":"Ingenierías","pregunta":"Arma un puente de cuatro tramos que aguante el camión sin pasarte del presupuesto.","ranuras":4,"piezas":[{"texto":"Madera","costo":1,"fuerza":1},{"texto":"Concreto","costo":2,"fuerza":3},{"texto":"Acero","costo":4,"fuerza":5}],"carga":11,"presupuesto":9,"revelacion":"No hace falta el material más caro en todos los tramos: se trata de cumplir la carga gastando lo justo."},{"tipo":"bloques","area":"Tecnología y ciencias","pregunta":"El robot debe llegar a la bandera, pero termina en el agua. Toca el bloque que está mal.","bloques":["Avanzar 2","Girar a la derecha","Avanzar 3","Girar a la derecha","Avanzar 1"],"falla":3,"opciones":["Girar a la izquierda","Avanzar 2","Quitar el bloque"],"correcta":0,"revelacion":"El segundo giro era a la izquierda. El error estaba en un solo bloque, pero se notó tres pasos después."},{"tipo":"patron","area":"Tecnología y ciencias","pregunta":"Visitas a una tienda en línea, de lunes a jueves. ¿Qué valor sigue el viernes?","serie":[3,6,12,24],"etiquetas":["Lun","Mar","Mié","Jue","Vie"],"opciones":[30,36,48],"correcta":2,"revelacion":"Cada día se duplica. Ver el patrón antes de calcular es la mitad del trabajo con datos."},{"tipo":"presupuesto","area":"Negocios y sociedad","pregunta":"Tienes 10 monedas para abrir tu puesto de aguas frescas. Elige en qué gastas.","limite":10,"partidas":[{"texto":"Fruta de buena calidad","costo":4,"clase":"producto"},{"texto":"Letrero llamativo","costo":3,"clase":"venta"},{"texto":"Hielera grande","costo":3,"clase":"producto"},{"texto":"Volantes","costo":2,"clase":"venta"},{"texto":"Uniforme","costo":3,"clase":"imagen"}],"revelacion":"No alcanza para todo, y así es siempre. Decidir qué dejas fuera es la decisión de negocio."},{"tipo":"encuadre","area":"Arte y comunicación","pregunta":"Quieres que se note que Rumbo está solo en un lugar enorme. ¿Qué encuadre usas?","opciones":[{"texto":"Plano general","vista":"0 0 300 200","efecto":"Se ve pequeño frente al paisaje: transmite soledad e inmensidad."},{"texto":"Plano medio","vista":"96 62 108 72","efecto":"Se ve a Rumbo y algo del lugar. Informa, pero no transmite soledad."},{"texto":"Primer plano","vista":"126 82 48 32","efecto":"Solo se ve su cara: transmite emoción, pero el lugar desaparece."}],"mejor":0,"revelacion":"El encuadre decide qué siente quien mira. La misma escena cuenta historias distintas."},{"tipo":"componer","area":"Arte y comunicación","pregunta":"Acomoda el cartel de un concierto para que se lea de un vistazo.","filas":3,"columnas":2,"elementos":["Título","Foto","Fecha y lugar","Logo"],"reglas":[{"elemento":0,"zonas":[0,1],"texto":"El título va arriba: es lo primero que se lee."},{"elemento":3,"zonas":[4,5],"texto":"El logo va abajo y no compite con el título."},{"elemento":1,"zonas":[2,3],"texto":"La foto ocupa el centro y sostiene la mirada."}],"revelacion":"Componer es decidir en qué orden se lee. Primero lo más importante, y cada cosa en su lugar."}]},"car":{"medicina":{"id":"medicina","version":1,"estado":"completo","revision":"Pendiente de revisión por un médico. Las tarjetas con «revisar»: «medico» contienen afirmaciones clínicas o del ejercicio profesional; las de «fuente» son reglas o trámites que hay que confirmar en fuente oficial.","unidades":[{"id":"u1","lecciones":[{"id":"1.1","titulo":"Qué es y qué resuelve","minutos":3,"tarjetas":[{"tipo":"escena","texto":"Son las 3 de la tarde. Don Luis, de 58 años, llega a tu consultorio. Dice que desde la mañana siente un dolor que le aprieta el pecho."},{"tipo":"decision","pregunta":"¿Qué haces primero?","opciones":[{"texto":"Preguntarle cómo es el dolor y desde cuándo","consecuencia":"Con pocas preguntas ya sabes mucho: cuándo empezó, qué tan fuerte es y si se corre al brazo. Casi todo diagnóstico empieza escuchando.","mejor":true},{"texto":"Mandarlo a hacerse todos los estudios","consecuencia":"Los estudios tardan y cuestan. Sin saber qué buscas, no sabes cuál pedir ni cómo leer el resultado."},{"texto":"Darle algo para el dolor y que regrese mañana","consecuencia":"Quitar el dolor sin saber la causa puede esconder algo grave. Primero se busca el porqué."}],"revisar":"medico"},{"tipo":"ordenar","pregunta":"Así trabaja un médico. Ponlo en orden.","pasos":["Escuchar al paciente","Revisarlo","Pedir los estudios que hacen falta","Decidir el tratamiento","Darle seguimiento"],"revelacion":"Escuchar, revisar, estudiar, decidir y dar seguimiento. En una emergencia los pasos se enciman, pero la lógica es la misma.","revisar":"medico"},{"tipo":"vf","afirmacion":"Un médico siempre sabe con certeza qué tiene su paciente antes de tratarlo.","respuesta":false,"revelacion":"Muchas veces se decide con lo que hay: síntomas, revisión y probabilidad. Luego se ajusta según cómo responde el paciente.","revisar":"medico"},{"tipo":"clave","texto":"Medicina es decidir con información incompleta para cuidar a alguien."},{"tipo":"interes"}]},{"id":"1.2","titulo":"A quién ayudas","minutos":3,"tarjetas":[{"tipo":"escena","texto":"Cuando piensas en un médico, quizá imaginas un hospital. Pero la medicina se ejerce en lugares muy distintos. Vamos a ver seis casos."},{"tipo":"clasificar","pregunta":"¿A qué tipo de trabajo médico corresponde?","grupos":["Consulta","Urgencias","Prevención","Investigación"],"elementos":[{"texto":"Una niña con tos y fiebre desde ayer","grupo":0},{"texto":"Un señor se cayó de una escalera y no puede mover la pierna","grupo":1},{"texto":"Una campaña de vacunación en una primaria","grupo":2},{"texto":"Probar si una medicina nueva funciona mejor que la actual","grupo":3},{"texto":"La revisión de cada año de una persona con diabetes","grupo":0},{"texto":"Pláticas en una comunidad para evitar el dengue","grupo":2}],"revelacion":"Atender al enfermo es solo una parte. Prevenir evita que la gente llegue al hospital, e investigar mejora los tratamientos para todos.","revisar":"medico"},{"tipo":"dos_caminos","pregunta":"¿Qué te llama más?","a":{"texto":"Atender a una persona a la vez y ver cómo mejora","dice":"Te atrae la clínica: consulta, hospital y trato directo con pacientes."},"b":{"texto":"Cambiar la salud de miles con programas y datos","dice":"Te atrae la salud pública o la investigación: menos consultorio, más comunidad y análisis."}},{"tipo":"vf","afirmacion":"Todos los médicos trabajan dentro de un hospital.","respuesta":false,"revelacion":"Hay médicos en consultorios, centros de salud, escuelas, empresas, laboratorios, universidades y oficinas de gobierno."},{"tipo":"clave","texto":"No todo es hospital: también se previene y se investiga."},{"tipo":"interes"}]},{"id":"1.3","titulo":"Mitos y realidades","minutos":4,"tarjetas":[{"tipo":"escena","texto":"Sobre Medicina se dicen muchas cosas. Algunas son ciertas y otras vienen de las series. Apuesta en cada una antes de ver la respuesta."},{"tipo":"vf","afirmacion":"Para estudiar Medicina hay que ser de puro 10.","respuesta":false,"revelacion":"Un buen promedio ayuda a entrar, pero lo que sostiene la carrera es estudiar con constancia durante años."},{"tipo":"vf","afirmacion":"Todos los médicos terminan operando.","respuesta":false,"revelacion":"Operar es trabajo de las especialidades quirúrgicas. Muchos médicos nunca operan: dan consulta, leen estudios, investigan o trabajan en prevención.","revisar":"medico"},{"tipo":"vf","afirmacion":"Si te impresiona la sangre, Medicina no es para ti.","respuesta":false,"revelacion":"A muchos estudiantes les impresiona al principio y se acostumbran con la práctica. Además hay áreas con muy poco contacto con sangre.","revisar":"medico"},{"tipo":"vf","afirmacion":"El ingreso de un médico es el mismo haga o no una especialidad.","respuesta":false,"revelacion":"Cambia según la especialidad, el lugar y si trabaja en el sector público, en el privado o en los dos. Las cifras las vemos en la unidad 5.","revisar":"fuente"},{"tipo":"clave","texto":"Pesa más la constancia que el promedio."},{"tipo":"interes"}]},{"id":"1.4","titulo":"Carreras parecidas","minutos":4,"tarjetas":[{"tipo":"escena","texto":"En un hospital no solo trabajan médicos. Hay muchas carreras de salud, y cada una hace algo distinto por el paciente."},{"tipo":"emparejar","pregunta":"Une cada carrera con lo que hace.","pares":[["Medicina","Diagnostica y decide el tratamiento"],["Enfermería","Cuida al paciente y aplica el tratamiento día y noche"],["Fisioterapia","Ayuda a recuperar el movimiento"],["Nutrición","Diseña la alimentación para prevenir y tratar"],["Psicología","Atiende la salud mental y emocional"]],"revelacion":"Todas cuidan la salud con tareas distintas y trabajan en equipo. El médico es una pieza de ese equipo, no el dueño de todo.","revisar":"medico"},{"tipo":"decision","pregunta":"Te gusta la salud, pero no te ves estudiando tantos años. ¿Qué harías?","opciones":[{"texto":"Revisar otras carreras de salud antes de decidir","consecuencia":"Buena idea. Hay carreras del área con menos años de estudio y contacto directo con pacientes. Agrega alguna a tu mapa y compárala.","mejor":true},{"texto":"Entrar a Medicina de todos modos","consecuencia":"Se vale, pero entra sabiendo cuánto dura. En la unidad 4 lo revisamos."},{"texto":"Descartar toda el área de salud","consecuencia":"Quizá es pronto. Lo que no te gusta es la duración, no la salud."}],"revisar":"fuente"},{"tipo":"dos_caminos","pregunta":"¿Qué parte del cuidado te atrae más?","a":{"texto":"Encontrar qué tiene el paciente","dice":"Eso es diagnosticar: el centro de Medicina."},"b":{"texto":"Acompañarlo mientras se recupera","dice":"Eso se parece más a Enfermería o a Fisioterapia. Vale la pena que las explores."}},{"tipo":"clave","texto":"Hay muchas formas de trabajar en salud sin ser médico."},{"tipo":"interes"}]}]},{"id":"u2","lecciones":[{"id":"2.1","titulo":"Triaje","minutos":4,"tarjetas":[{"tipo":"escena","texto":"Son las 2 de la mañana en urgencias. Eres la única persona de guardia y acaban de entrar cinco pacientes al mismo tiempo."},{"tipo":"ordenar","pregunta":"¿A quién atiendes primero? Acomódalos del más urgente al menos urgente.","pasos":["Señora que no puede respirar bien","Señor de 60 años con dolor en el pecho y sudor frío","Niña con fiebre que juega con un celular","Hombre con una cortada en la mano que ya no sangra","Joven con el tobillo torcido"],"exige":2,"revelacion":"Primero quien no puede respirar y quien tiene dolor de pecho: su vida corre peligro en minutos. Los otros tres pueden esperar aunque les duela.","revisar":"medico"},{"tipo":"vf","afirmacion":"El paciente que más se queja es el más grave.","respuesta":false,"revelacion":"Quien puede gritar, respira. A veces el más grave es el más callado.","revisar":"medico"},{"tipo":"decision","pregunta":"La mamá de la niña te reclama: llegó antes que el señor. ¿Qué le dices?","opciones":[{"texto":"Que se atiende primero a quien corre más peligro, y que a su hija la verás pronto","consecuencia":"Explicar el porqué calma más que pedir paciencia. Y es verdad: su hija está estable.","mejor":true},{"texto":"Que espere su turno, y sigues trabajando","consecuencia":"Es cierto que debe esperar, pero sin explicación se queda con miedo y enojo. Diez segundos ahorran un conflicto."},{"texto":"Atiendes primero a la niña para evitar problemas","consecuencia":"El señor puede empeorar en minutos. Ceder a quien más reclama pone en riesgo a quien más lo necesita."}],"revisar":"medico"},{"tipo":"clave","texto":"Lo urgente no siempre es lo que más grita."},{"tipo":"interes"}]},{"id":"2.2","titulo":"Síntoma y estudio","minutos":4,"tarjetas":[{"tipo":"escena","texto":"Un estudio no se pide «por si acaso». Cada uno contesta una pregunta distinta. Tu trabajo es saber qué pregunta tienes."},{"tipo":"emparejar","pregunta":"¿Qué estudio ayuda más en cada caso?","pares":[["Dolor que aprieta el pecho","Electrocardiograma: revisa la actividad eléctrica del corazón"],["Caída con dolor y el brazo deformado","Radiografía: muestra los huesos"],["Mucha sed, orina seguido y bajó de peso","Glucosa en sangre: mide el azúcar"],["Cansancio y palidez desde hace semanas","Biometría hemática: cuenta las células de la sangre"]],"revelacion":"Primero viene la sospecha y después el estudio. Si no sabes qué buscas, el resultado no te dice nada.","revisar":"medico"},{"tipo":"vf","afirmacion":"Entre más estudios pidas, mejor médico eres.","respuesta":false,"revelacion":"Los estudios cuestan, tardan y a veces confunden. Se piden los necesarios para confirmar o descartar lo que sospechas.","revisar":"medico"},{"tipo":"decision","pregunta":"Un joven sano llega con gripa de dos días y te pide «todos los análisis». ¿Qué haces?","opciones":[{"texto":"Le explicas que por ahora no hacen falta y qué señales vigilar","consecuencia":"Saber qué vigilar le da tranquilidad sin gastar de más. Si aparece una señal de alarma, entonces sí se estudia.","mejor":true},{"texto":"Se los pides todos para que se quede tranquilo","consecuencia":"Pagó estudios que no cambiaban el tratamiento. Y un resultado dudoso puede asustarlo sin motivo."},{"texto":"Le dices que no tiene nada y que se vaya","consecuencia":"Sí tiene algo: se siente mal y está preocupado. Sin explicación buscará a otro médico o se automedicará."}],"revisar":"medico"},{"tipo":"clave","texto":"Un estudio se pide para contestar una pregunta."},{"tipo":"interes"}]},{"id":"2.3","titulo":"Curar una herida","minutos":3,"tarjetas":[{"tipo":"escena","texto":"Llega un niño con una cortada en la rodilla por caerse de la bici. No es grave, pero hay que curarla bien. Tú diriges."},{"tipo":"ordenar","pregunta":"Ordena los pasos de la curación.","pasos":["Lavarte las manos","Ponerte guantes","Lavar la herida con agua y jabón","Cerrar o cubrir la herida","Explicar cómo cuidarla en casa"],"revelacion":"Manos y guantes van antes de tocar la herida: así no le llevas microbios. Y las indicaciones del final son parte de la curación.","revisar":"medico"},{"tipo":"vf","afirmacion":"Si la herida se ve limpia, puedes saltarte el lavado de manos.","respuesta":false,"revelacion":"Los microbios no se ven. Lavarse las manos es una de las medidas más sencillas para evitar infecciones en un hospital.","revisar":"medico"},{"tipo":"decision","pregunta":"Vas con prisa: hay seis pacientes esperando. ¿Qué paso recortas?","opciones":[{"texto":"Ninguno: sigues el orden aunque tarde más","consecuencia":"Una infección por saltarte un paso cuesta días de tratamiento. La prisa no cambia el procedimiento.","mejor":true},{"texto":"Las indicaciones para casa","consecuencia":"Sin indicaciones la herida puede infectarse en casa y el niño regresa peor. Ese minuto ahorra una segunda visita."},{"texto":"Los guantes","consecuencia":"Los guantes te protegen a ti y al paciente. Quitarlos ahorra segundos y arriesga a los dos."}],"revisar":"medico"},{"tipo":"clave","texto":"El orden evita infecciones."},{"tipo":"interes"}]},{"id":"2.4","titulo":"Hablar con el paciente","minutos":4,"tarjetas":[{"tipo":"escena","texto":"Doña Carmen tiene la presión alta. Hace un mes le recetaste una pastilla diaria. Hoy regresa y te dice que dejó de tomarla."},{"tipo":"decision","pregunta":"¿Qué le dices primero?","opciones":[{"texto":"«¿Qué pasó? Cuénteme por qué la dejó»","consecuencia":"Te cuenta que la pastilla la mareaba y que le dio pena decírtelo. Ya tienes la causa.","mejor":true},{"texto":"«Tiene que tomarla, es por su bien»","consecuencia":"Asiente, pero no te dice por qué la dejó. Lo más probable es que la vuelva a dejar."},{"texto":"«Si no la toma, le puede dar un infarto»","consecuencia":"Se asusta y se pone a la defensiva. El miedo rara vez convence, y sigues sin saber la causa."}],"revisar":"medico"},{"tipo":"decision","pregunta":"Ya sabes que la mareaba. ¿Ahora qué?","opciones":[{"texto":"Buscas con ella otra opción u otro horario","consecuencia":"Ajustar el tratamiento es parte del trabajo. Uno que la paciente sí puede seguir vale más que el ideal que abandona.","mejor":true},{"texto":"Le dices que el mareo se aguanta","consecuencia":"Para ella no es poca cosa: por eso la dejó. Si no lo tomas en serio, no regresa."},{"texto":"Le recetas lo mismo y le pides que ahora sí la tome","consecuencia":"Nada cambió, así que el resultado será el mismo."}],"revisar":"medico"},{"tipo":"decision","pregunta":"Antes de que se vaya, ¿cómo cierras?","opciones":[{"texto":"Le pides que te explique con sus palabras cómo la va a tomar","consecuencia":"Así compruebas que entendió sin hacerla sentir examinada. Si algo quedó confuso, lo aclaras ahí mismo.","mejor":true},{"texto":"Le preguntas: «¿entendió?»","consecuencia":"Casi todos contestan que sí, aunque no hayan entendido. No sabes si quedó claro."},{"texto":"Le das la receta y la despides","consecuencia":"La receta dice qué tomar, pero no resuelve dudas. Es fácil que se confunda en casa."}],"revisar":"medico"},{"tipo":"clave","texto":"Escuchar también es parte del tratamiento."},{"tipo":"interes"}]}]},{"id":"u3","lecciones":[{"id":"3.1","titulo":"Un día real","minutos":4,"tarjetas":[{"tipo":"escena","texto":"Hacia el final de la carrera llega el internado: trabajas en un hospital de tiempo completo. Arma cómo crees que es un día con guardia.","revisar":"fuente"},{"tipo":"armar_dia","pregunta":"Coloca cada actividad en su momento del día.","bloques":["Muy temprano","Mañana","Tarde","Noche","Madrugada"],"actividades":["Pase de visita: revisar a cada paciente con el equipo","Consulta y pendientes: notas, estudios y curaciones","Clase o sesión académica","Guardia: atender lo que llegue","Dormir a ratos, si se puede"],"revelacion":"Los horarios cambian en cada hospital, pero el patrón se repite: empiezas muy temprano y, si te toca guardia, sigues hasta el día siguiente.","revisar":"medico"},{"tipo":"vf","afirmacion":"En el internado tienes un horario parecido al de la prepa.","respuesta":false,"revelacion":"Hay guardias de noche y en fin de semana. Tu sueño, tus comidas y tu vida social se acomodan alrededor del hospital.","revisar":"medico"},{"tipo":"dos_caminos","pregunta":"Te toca guardia el día del cumpleaños de tu mejor amigo. ¿Cómo lo vives?","a":{"texto":"Me pesa, pero lo entiendo: es parte del trato","dice":"Aceptar que te perderás algunas cosas hace más llevadera la carrera."},"b":{"texto":"Me costaría mucho perderme esas fechas","dice":"Es válido. Piensa qué tanto: en Medicina pasará varias veces durante años."}},{"tipo":"clave","texto":"Las guardias cambian tu rutina completa."},{"tipo":"interes"}]},{"id":"3.2","titulo":"Lo difícil","minutos":4,"tarjetas":[{"tipo":"escena","texto":"Llevas 20 horas despierto en la guardia. Llega una paciente y tienes que decidir si se queda internada o se va a su casa. Estás agotado."},{"tipo":"decision","pregunta":"¿Qué haces?","opciones":[{"texto":"Pides a un compañero o a tu superior que revise tu decisión","consecuencia":"Cansado te equivocas más. Pedir otra opinión no es debilidad: es cuidar a la paciente.","mejor":true},{"texto":"Decides rápido para terminar pronto","consecuencia":"Con sueño, decidir rápido es cuando hay más errores. Y aquí el error lo paga otra persona."},{"texto":"La dejas internada por si acaso, sin revisarla bien","consecuencia":"Parece lo seguro, pero ocupa una cama que otro puede necesitar y no resuelve qué tiene."}],"revisar":"medico"},{"tipo":"clasificar","pregunta":"¿Qué tipo de dificultad es?","grupos":["De estudio","Emocional","De tiempo y dinero"],"elementos":[{"texto":"Anatomía, Bioquímica y Farmacología: mucha memoria y poco tiempo","grupo":0},{"texto":"Dar una mala noticia a una familia","grupo":1},{"texto":"Años de estudio antes de tener un sueldo propio","grupo":2},{"texto":"Ver sufrir a un paciente que no mejora","grupo":1},{"texto":"Exámenes cada pocas semanas","grupo":0},{"texto":"Guardias que te dejan sin fines de semana","grupo":2}],"revelacion":"La carrera pesa por tres lados a la vez. Saberlo antes no la hace fácil, pero evita que te tome por sorpresa.","revisar":"medico"},{"tipo":"reflexion","pregunta":"¿Cuál de las tres crees que te pesaría más?","opciones":["La de estudio","La emocional","La de tiempo y dinero","Todavía no lo sé"]},{"tipo":"clave","texto":"Es una carrera larga: se aguanta mejor con un porqué claro."},{"tipo":"interes"}]},{"id":"3.3","titulo":"Historia real","minutos":3,"tarjetas":[{"tipo":"reflexion","pregunta":"Si pudieras preguntarle algo a alguien que ya estudia Medicina, ¿qué sería?","opciones":["¿Qué fue lo más difícil?","¿Qué te sorprendió?","¿Volverías a elegirla?","¿Cómo es un día normal?"]},{"tipo":"testimonio","estado":"pendiente","perfil":"Estudiante en internado o médico recién egresado"},{"tipo":"reflexion","pregunta":"Mientras llega esta historia, ¿a quién podrías preguntarle tú?","opciones":["A un familiar o conocido que sea médico","A un estudiante de Medicina de mi ciudad","Al médico de mi clínica","Todavía no conozco a nadie"]},{"tipo":"clave","texto":"Una persona real te cuenta lo que ningún folleto dice."},{"tipo":"interes"}]},{"id":"3.4","titulo":"¿Quién lo disfruta?","minutos":3,"tarjetas":[{"tipo":"escena","texto":"No hay un solo tipo de persona para Medicina, pero hay cosas que ayudan a disfrutarla. Contesta pensando en ti, no en lo que «deberías» decir."},{"tipo":"reflexion","pregunta":"Estudiar mucho, durante varios años seguidos.","escala":["No va conmigo","Va mucho conmigo"]},{"tipo":"reflexion","pregunta":"Tratar con personas en sus peores días.","escala":["No va conmigo","Va mucho conmigo"]},{"tipo":"reflexion","pregunta":"Decidir sin tener toda la información.","escala":["No va conmigo","Va mucho conmigo"]},{"tipo":"dos_caminos","pregunta":"¿Qué te atrae más de la carrera?","a":{"texto":"El cuerpo humano y cómo funciona","dice":"Te gusta la ciencia. Recuerda que en la práctica pasarás más tiempo con personas que con libros."},"b":{"texto":"Ayudar a la gente cuando lo necesita","dice":"Te gusta el trato humano. Recuerda que para llegar ahí hay años de ciencia pesada."}},{"tipo":"clave","texto":"Te debe gustar la gente, no solo la biología."},{"tipo":"interes"}]}]},{"id":"u4","lecciones":[{"id":"4.1","titulo":"Cuánto dura y qué estudias","minutos":3,"tarjetas":[{"tipo":"escena","texto":"Medicina no se cursa igual que otras carreras: tiene etapas, y varias se viven dentro de un hospital."},{"tipo":"ordenar","pregunta":"Ordena las etapas de la carrera.","pasos":["Ciencias básicas: aulas y laboratorios","Ciclos clínicos: clases dentro del hospital","Internado: trabajo de tiempo completo en hospital","Servicio social","Examen profesional y título"],"revelacion":"Este es el orden más común en México; cada universidad lo ajusta. Después del título, quien quiere especialidad vuelve a concursar y a estudiar.","revisar":"fuente"},{"tipo":"rango","pregunta":"¿Cuántos años crees que pasan desde que entras hasta que te titulas?","min":3,"max":10,"paso":1,"unidad":"años","dato":"medicina.duracion"},{"tipo":"vf","afirmacion":"Con el título de médico ya eres especialista.","respuesta":false,"revelacion":"El título te hace médico general. La especialidad es otra etapa: se entra por concurso y toma varios años más.","revisar":"fuente"},{"tipo":"clave","texto":"El título es apenas la mitad si quieres especialidad."},{"tipo":"interes"}]},{"id":"4.2","titulo":"Cómo se entra","minutos":4,"tarjetas":[{"tipo":"escena","texto":"Entrar a Medicina suele ser de lo más competido en una universidad. Veamos qué tanto sabes del proceso."},{"tipo":"vf","afirmacion":"En las universidades públicas, entrar a Medicina depende solo de tu promedio de prepa.","respuesta":false,"revelacion":"Lo más común es un examen de admisión; algunas escuelas también cuentan el promedio. Cada universidad publica sus reglas en su convocatoria.","revisar":"fuente"},{"tipo":"vf","afirmacion":"Hay muchos más aspirantes que lugares.","respuesta":true,"revelacion":"Por eso el puntaje que se pide para Medicina suele ser de los más altos. La cifra cambia cada año y en cada universidad.","revisar":"fuente"},{"tipo":"dato","titulo":"Aspirantes por cada lugar","dato":"medicina.aspirantes"},{"tipo":"decision","pregunta":"Estás en quinto semestre de prepa y quieres entrar. ¿Qué haces desde hoy?","opciones":[{"texto":"Revisas la convocatoria y el temario, y armas un plan de estudio","consecuencia":"La convocatoria te dice fechas, requisitos y temario. Con eso estudias lo que sí viene, y con tiempo.","mejor":true},{"texto":"Esperas a salir de la prepa para prepararte","consecuencia":"Se puede, pero compites con quienes llevan meses estudiando. Empezar antes te quita presión."},{"texto":"Confías en tus calificaciones","consecuencia":"Un buen promedio ayuda, pero el examen pregunta temas concretos. Vale la pena revisar el temario."}]},{"tipo":"vf","afirmacion":"Para hacer una especialidad médica hay que pasar un examen nacional.","respuesta":true,"revelacion":"Se llama ENARM y se presenta después de titularte. También es muy competido.","revisar":"fuente"},{"tipo":"clave","texto":"Entrar es competido: se prepara con tiempo."},{"tipo":"interes"}]},{"id":"4.3","titulo":"Dónde, cuánto cuesta y becas","minutos":4,"tarjetas":[{"tipo":"escena","texto":"El costo de estudiar Medicina cambia mucho entre una universidad pública y una privada. Antes de ver datos, apuesta."},{"tipo":"rango","pregunta":"¿Cuánto crees que cuesta un semestre en una universidad pública?","min":0,"max":60000,"paso":1000,"unidad":"pesos","dato":"medicina.costo_publica"},{"tipo":"rango","pregunta":"¿Y un semestre en una universidad privada?","min":0,"max":300000,"paso":5000,"unidad":"pesos","dato":"medicina.costo_privada"},{"tipo":"dato","titulo":"Becas para estudiar Medicina","dato":"medicina.becas"},{"tipo":"vf","afirmacion":"Una universidad cara garantiza que serás mejor médico.","respuesta":false,"revelacion":"El costo no mide la calidad. Fíjate en los hospitales donde harías tus prácticas y en cómo les va a sus egresados.","revisar":"medico"},{"tipo":"reflexion","pregunta":"¿Qué pesa más para ti al elegir escuela?","opciones":["El costo","Que esté cerca de mi casa","El prestigio","Los hospitales donde haría prácticas"]},{"tipo":"clave","texto":"Pública o privada cambia el costo, no el esfuerzo."},{"tipo":"interes"}]}]},{"id":"u5","lecciones":[{"id":"5.1","titulo":"Dónde se trabaja","minutos":3,"tarjetas":[{"tipo":"escena","texto":"Con el título puedes trabajar en lugares muy distintos, y el día a día cambia por completo de uno a otro."},{"tipo":"emparejar","pregunta":"Une cada lugar con cómo es trabajar ahí.","pares":[["Hospital público","Muchos pacientes, casos muy variados y trabajo en equipo"],["Consultorio propio","Tú pones el horario y también consigues a tus pacientes"],["Salud pública","Programas de prevención para comunidades enteras"],["Investigación","Estudios para probar tratamientos nuevos"],["Docencia","Formas a los próximos médicos"]],"revelacion":"Ningún lugar es mejor en todo: unos dan estabilidad, otros libertad y otros alcance.","revisar":"medico"},{"tipo":"dos_caminos","pregunta":"¿Qué prefieres?","a":{"texto":"Sueldo fijo y horario definido","dice":"Eso se parece a un puesto en una institución: más estabilidad y menos control sobre tu agenda."},"b":{"texto":"Ser mi propio jefe aunque el ingreso varíe","dice":"Eso se parece al consultorio propio: más libertad, y también te toca administrarlo."}},{"tipo":"vf","afirmacion":"Un médico solo puede tener un trabajo a la vez.","respuesta":false,"revelacion":"Es común combinar: por ejemplo, un puesto en una institución por la mañana y consulta privada por la tarde.","revisar":"medico"},{"tipo":"clave","texto":"Muchos médicos combinan dos trabajos."},{"tipo":"interes"}]},{"id":"5.2","titulo":"Sueldo y demanda","minutos":4,"tarjetas":[{"tipo":"escena","texto":"Hablemos de dinero sin rodeos. Antes de ver cualquier cifra, apuesta: así recuerdas mejor el dato real."},{"tipo":"rango","pregunta":"¿Cuánto crees que gana al mes, en promedio, un profesionista de Medicina en México?","min":5000,"max":100000,"paso":1000,"unidad":"pesos","dato":"medicina.ingreso"},{"tipo":"rango","pregunta":"De cada 100 egresados, ¿cuántos crees que trabajan en algo de su carrera?","min":0,"max":100,"paso":5,"unidad":"de cada 100","dato":"medicina.ocupacion_afin"},{"tipo":"vf","afirmacion":"Un médico general y un especialista ganan parecido.","respuesta":false,"revelacion":"Con especialidad el ingreso suele ser mayor, pero llegas a él varios años después. Las cifras las mostramos cuando estén verificadas.","revisar":"fuente"},{"tipo":"reflexion","pregunta":"¿Qué tanto pesa el sueldo en tu decisión?","escala":["No va conmigo","Va mucho conmigo"]},{"tipo":"clave","texto":"El ingreso sube mucho con la especialidad, pero tarda."},{"tipo":"interes"}]},{"id":"5.3","titulo":"Cómo la cambia la tecnología","minutos":4,"tarjetas":[{"tipo":"escena","texto":"Un programa de inteligencia artificial revisa una radiografía y marca una mancha sospechosa. Tú eres el médico responsable."},{"tipo":"decision","pregunta":"¿Qué haces con ese aviso?","opciones":[{"texto":"Revisas la imagen tú mismo y decides","consecuencia":"El programa ayuda a no pasar cosas por alto, pero puede equivocarse. Quien firma el diagnóstico eres tú.","mejor":true},{"texto":"Confías en el programa: ve más imágenes que tú","consecuencia":"Puede acertar muchas veces, pero no conoce al paciente ni responde por él. Sin revisar, su error se vuelve tuyo."},{"texto":"Lo ignoras: prefieres tu criterio","consecuencia":"Ignorar una segunda mirada tampoco es prudente. Úsala como ayuda y verifica."}],"revisar":"medico"},{"tipo":"dos_caminos","pregunta":"Una paciente vive a cuatro horas del hospital. ¿Le das consulta por videollamada?","a":{"texto":"Sí: es mejor que no tener consulta","dice":"Te atrae usar la tecnología para llegar más lejos. Ojo: no todo se puede revisar por pantalla."},"b":{"texto":"Prefiero verla en persona, aunque tarde","dice":"Valoras la revisión física. Ojo: para algunos pacientes, esperar significa no atenderse."}},{"tipo":"vf","afirmacion":"La tecnología hará que ya no se necesiten médicos.","respuesta":false,"revelacion":"Cambia las tareas: menos papeleo y más apoyo para decidir. La responsabilidad y el trato con el paciente siguen siendo de una persona.","revisar":"medico"},{"tipo":"clave","texto":"La tecnología ayuda a decidir; la responsabilidad sigue siendo tuya."},{"tipo":"interes"}]},{"id":"5.4","titulo":"Después de titularte","minutos":3,"tarjetas":[{"tipo":"escena","texto":"Ya tienes el título. No es el final: ahora eliges otra vez qué tipo de médico quieres ser."},{"tipo":"emparejar","pregunta":"Une cada camino con lo que implica.","pares":[["Especialidad","Varios años más de formación en un hospital"],["Maestría en salud pública","Estudiar la salud de poblaciones enteras"],["Investigación","Hacer estudios y publicar resultados"],["Consultorio general","Empezar a atender pacientes de inmediato"]],"revelacion":"Son caminos distintos y se pueden combinar con los años. Ninguno es el «correcto».","revisar":"medico"},{"tipo":"dos_caminos","pregunta":"¿Qué harías tú?","a":{"texto":"Seguir estudiando para especializarme","dice":"Más años de formación a cambio de dedicarte a lo que más te guste."},"b":{"texto":"Empezar a trabajar cuanto antes","dice":"Ingreso propio más pronto, con un campo de trabajo más general."}},{"tipo":"reflexion","pregunta":"¿Qué área te da más curiosidad hoy?","opciones":["Niños","Cirugía","Mente y cerebro","Prevención y comunidad","Todavía no sé"]},{"tipo":"clave","texto":"Al titularte eliges otra vez."},{"tipo":"interes"}]}]},{"id":"u6","lecciones":[{"id":"6.1","titulo":"Lo que sentiste","minutos":3,"tarjetas":[{"tipo":"reflexion","pregunta":"Antes de ver tus respuestas: ¿cómo te fue con Medicina?","opciones":["Me gustó más de lo que pensaba","Más o menos como esperaba","Me gustó menos de lo que pensaba"]},{"tipo":"resumen"},{"tipo":"reflexion","pregunta":"Viendo tus respuestas, ¿qué pesó más?","opciones":["Lo que sentí al probarla","Lo que supe de la realidad","El camino para llegar","El futuro que ofrece"]},{"tipo":"clave","texto":"Lo que sentiste al probarla vale más que lo que imaginabas."},{"tipo":"interes","pregunta":"¿Te ves estudiando Medicina?"}]},{"id":"6.2","titulo":"Tu veredicto","minutos":3,"tarjetas":[{"tipo":"reflexion","pregunta":"Si mañana tuvieras que elegir carrera, ¿Medicina estaría entre tus opciones?","opciones":["Sí, entre las primeras","Sí, pero no arriba","No creo","No lo sé"]},{"tipo":"comparar"},{"tipo":"dos_caminos","pregunta":"¿Qué te ayudaría más a decidir?","a":{"texto":"Hablar con alguien que la estudia","dice":"Busca a un estudiante o a un médico cerca de ti y hazle tus preguntas. Una plática aclara más que diez videos."},"b":{"texto":"Probar otra carrera y comparar","dice":"Explora otra de tu mapa. Comparar dos caminos reales aclara más que pensar en uno solo."}},{"tipo":"veredicto"},{"tipo":"clave","texto":"Decidir «en duda» también es avanzar."}]}]}]}}};
 /* ================= Rumbo: modelos =================
    v1 = el actual (rumboSVG). Modelos nuevos, de estilo plano: formas grandes y redondas, un solo tono de sombra,
    brillo mínimo, ojos grandes con párpados y cejas simples.
@@ -8025,53 +8239,302 @@ window.__RUMBO=RUMBO;window.__ART=ART;
 
 window.__OLD=function(){return rumboSVGOld()};window.__V1=function(){return rumboSVG()};
 
-/* ================= camino de lecciones de cada carrera =================
-   Al entrar a una carrera se abre un camino vertical de lecciones (unidades, nodos, cofres e ilustraciones a los lados).
-   Las lecciones salen de lo que la app ya tiene por carrera: qué haces, mini reto y tu veredicto. Lo que todavía no
-   tiene contenido (un día real, lo difícil, cuánto se gana, testimonio, dónde se estudia, repaso) aparece bloqueado
-   con el aviso de que llega pronto; no se inventan datos. Usa el contenedor #plaza y sus transiciones. */
+/* ================= lecciones: reproductor de tarjetas =================
+   El contenido viene del catálogo (datos/, inyectado como CAT por build.py); aquí solo está cómo se juega cada tipo de tarjeta.
+   Una tarjeta pasa por dos momentos: responder y ver la revelación. Las de solo lectura pasan directo a «Seguir».
+   Nada de cifras aquí: las tarjetas «rango» y «dato» apuntan a CAT.cif; si la cifra está pendiente se muestra un estado vacío. */
+var LEC=(function(){
+ var L=null; /* lección abierta: {id,les,cards,i,el,onDone,ctx} */
+ function h(s){return esc(s)}
+ function mix(a,k){var r=rng(hash(k)),o=a.map(function(x,i){return i});for(var i=o.length-1;i>0;i--){var j=Math.floor(r()*(i+1)),t=o[i];o[i]=o[j];o[j]=t}
+  /* que nunca salga ya resuelto */
+  if(o.length>1&&o.every(function(v,i){return v===i})){o.push(o.shift())}return o}
+ function fb(kind,html){var f=L.el.querySelector(".lc-fb");f.className="lc-fb on is-"+kind;f.innerHTML='<span class="lc-fbi">'+ico(kind==="ok"?"check":kind==="no"?"x":"bulb")+'</span><div>'+html+'</div>';
+  if(typeof sfx==="function")sfx(kind==="ok"?"ok":kind==="no"?"no":"tap");
+  var b=L.el.querySelector(".lc-body");setTimeout(function(){b.scrollTo({top:b.scrollHeight,behavior:RM()?"auto":"smooth"})},60)}
+ function main(label,on){var b=L.el.querySelector("#lcGo");b.textContent=label;b.setAttribute("aria-disabled",on?"false":"true");b.disabled=!on}
+ function done(label){L.phase=1;main(label||(L.i>=L.cards.length-1?"Terminar":"Seguir"),true)}
+ var EB={escena:"Imagina",decision:"Tú decides",vf:"¿Verdadero o falso?",rango:"Apuesta",ordenar:"Ordena",emparejar:"Une",clasificar:"Clasifica",dos_caminos:"¿Cuál va más contigo?",armar_dia:"Arma el día",reflexion:"Sobre ti",comparar:"Tus carreras",resumen:"Tus respuestas",testimonio:"Historia real",dato:"El dato",clave:"Idea clave",interes:"Una última",autoevaluacion:"Cierre de la unidad",veredicto:"Tu veredicto",armar:"Construye",bloques:"Depura",patron:"Encuentra el patrón",presupuesto:"Reparte",encuadre:"Encuadra",componer:"Compón"};
+ function rb(m){return '<div class="lc-rb">'+rumboEl()+'</div>'}
+ function datoHTML(key,bet,uni){var d=(CAT.cif||{})[key];
+  if(!d||d.estado==="pendiente"||d.valor==null)return '<div class="lc-empty">'+rb()+'<p><b>Todavía no tenemos esta cifra verificada.</b> No la vamos a inventar.'+(d&&d.fuente_sugerida?' Puedes buscarla en '+h(d.fuente_sugerida)+'.':'')+'</p></div>'+(bet!=null?'<p class="lc-bet">Tu apuesta: <b>'+bet+'</b> '+h(uni||"")+'. La guardamos para compararla cuando llegue el dato.</p>':'');
+  return '<div class="lc-dato"><b class="num">'+h(String(d.valor))+'</b> <span>'+h(d.unidad||"")+'</span><small>Fuente: '+(d.url?'<a href="'+h(d.url)+'" target="_blank" rel="noopener">'+h(d.fuente)+'</a>':h(d.fuente))+' · consultado el '+h(d.consultado||"")+'</small></div>'+(bet!=null?'<p class="lc-bet">Tu apuesta: <b>'+bet+'</b> '+h(uni||"")+'.</p>':'')}
+ /* interacción común: elegir una pieza y luego un lugar */
+ function pairUI(box,left,right,order,opts){
+  /* left: textos fijos; right: textos; order: orden en que se muestran los de la derecha. Devuelve {get,lock,mark} */
+  var sel=-1,map={};/* map[rightIndex]=leftIndex */
+  box.innerHTML='<div class="lc-pair'+(opts&&opts.slots?' is-slots':'')+'"><div class="lc-pl">'+left.map(function(t,i){return '<button type="button" class="lc-pi" data-l="'+i+'"><i>'+(i+1)+'</i><span>'+h(t)+'</span></button>'}).join("")+'</div><div class="lc-pr">'+order.map(function(ri){return '<button type="button" class="lc-pi" data-r="'+ri+'"><i></i><span>'+h(right[ri])+'</span></button>'}).join("")+'</div></div>';
+  function paint(){each(box.querySelectorAll("[data-l]"),function(b){var i=+b.getAttribute("data-l"),used=Object.keys(map).some(function(k){return map[k]===i});b.classList.toggle("on",sel===i);b.classList.toggle("used",used)});
+   each(box.querySelectorAll("[data-r]"),function(b){var r=+b.getAttribute("data-r"),has=map[r]!=null;b.classList.toggle("used",has);b.querySelector("i").textContent=has?(map[r]+1):""});
+   if(opts.onChange)opts.onChange(Object.keys(map).length===left.length)}
+  each(box.querySelectorAll("[data-l]"),function(b){b.onclick=function(){if(L.phase)return;var i=+b.getAttribute("data-l");for(var k in map)if(map[k]===i)delete map[k];sel=sel===i?-1:i;paint()}});
+  each(box.querySelectorAll("[data-r]"),function(b){b.onclick=function(){if(L.phase)return;var r=+b.getAttribute("data-r");
+   if(map[r]!=null&&sel<0){delete map[r];paint();return}
+   if(sel<0){/* sin pieza elegida: toma la primera libre */for(var i=0;i<left.length;i++){var u=false;for(var k in map)if(map[k]===i)u=true;if(!u){sel=i;break}}}
+   if(sel<0)return;for(var k2 in map)if(map[k2]===sel)delete map[k2];map[r]=sel;sel=-1;paint()}});
+  paint();
+  return {mark:function(){var ok=0;each(box.querySelectorAll("[data-r]"),function(b){var r=+b.getAttribute("data-r"),good=map[r]===r;if(good)ok++;b.classList.add(good?"good":"bad");b.querySelector("i").textContent=r+1});return ok}}
+ }
+ function scale(box,labels,onPick){box.innerHTML='<div class="lc-scale" role="radiogroup">'+[1,2,3,4,5].map(function(n){return '<button type="button" role="radio" aria-checked="false" data-n="'+n+'" aria-label="'+n+' de 5">'+n+'</button>'}).join("")+'</div><div class="lc-scl"><span>'+h(labels[0])+'</span><span>'+h(labels[1])+'</span></div>';
+  each(box.querySelectorAll("button"),function(b){b.onclick=function(){each(box.querySelectorAll("button"),function(x){x.setAttribute("aria-checked",x===b?"true":"false")});onPick(+b.getAttribute("data-n"))}})}
+ function opts(box,list,onPick,cls){box.innerHTML='<div class="lc-opts '+(cls||"")+'" role="radiogroup">'+list.map(function(t,i){return '<button type="button" class="lc-opt" role="radio" aria-checked="false" data-i="'+i+'">'+h(t)+'</button>'}).join("")+'</div>';
+  each(box.querySelectorAll(".lc-opt"),function(b){b.onclick=function(){if(L.phase)return;each(box.querySelectorAll(".lc-opt"),function(x){x.setAttribute("aria-checked",x===b?"true":"false")});onPick(+b.getAttribute("data-i"),b)}})}
+
+ /* ---------- tipos de tarjeta: cada uno recibe (tarjeta, caja) y deja lista la interacción ---------- */
+ var R={
+  escena:function(t,box){box.innerHTML=rb()+'<p class="lc-big">'+h(t.texto)+'</p>';done()},
+  clave:function(t,box){box.innerHTML='<div class="lc-key"><span>'+ico("bulb")+'</span><p>'+h(t.texto)+'</p></div>';done()},
+  decision:function(t,box){var pick=-1,ord=mix(t.opciones,L.id+L.les.id+L.i);
+   box.innerHTML='<p class="lc-q">'+h(t.pregunta)+'</p><div class="lc-in"></div>';
+   opts(box.querySelector(".lc-in"),ord.map(function(i){return t.opciones[i].texto}),function(i){pick=ord[i];main("Comprobar",true)});
+   main("Comprobar",false);
+   L.check=function(){var o=t.opciones[pick],best=-1;t.opciones.forEach(function(x,i){if(x.mejor)best=i});
+    each(box.querySelectorAll(".lc-opt"),function(b){var i=ord[+b.getAttribute("data-i")];if(i===best)b.classList.add("good");else if(i===pick)b.classList.add("bad")});
+    fb(o.mejor?"ok":"no",h(o.consecuencia)+(o.mejor?"":'<small>La opción marcada en verde es la que más ayuda.</small>'));done()}},
+  vf:function(t,box){box.innerHTML='<p class="lc-big">'+h(t.afirmacion)+'</p><div class="lc-vf"><button type="button" data-v="1">Verdadero</button><button type="button" data-v="0">Falso</button></div>';
+   main("Seguir",false);
+   each(box.querySelectorAll(".lc-vf button"),function(b){b.onclick=function(){if(L.phase)return;var v=b.getAttribute("data-v")==="1",ok=v===!!t.respuesta;
+    each(box.querySelectorAll(".lc-vf button"),function(x){var xv=x.getAttribute("data-v")==="1";x.classList.add(xv===!!t.respuesta?"good":x===b?"bad":"off")});
+    fb(ok?"ok":"no",'<b>'+(t.respuesta?"Verdadero.":"Falso.")+'</b> '+h(t.revelacion));done()}})},
+  dos_caminos:function(t,box){box.innerHTML=(t.pregunta?'<p class="lc-q">'+h(t.pregunta)+'</p>':'')+'<div class="lc-two"><button type="button" data-k="a"><i>A</i>'+h(t.a.texto)+'</button><button type="button" data-k="b"><i>B</i>'+h(t.b.texto)+'</button></div><p class="lc-note">Aquí no hay respuesta correcta.</p>';
+   main("Seguir",false);
+   each(box.querySelectorAll(".lc-two button"),function(b){b.onclick=function(){if(L.phase)return;b.classList.add("on");fb("info",h(t[b.getAttribute("data-k")].dice));done()}})},
+  reflexion:function(t,box){box.innerHTML='<p class="lc-q">'+h(t.pregunta)+'</p><div class="lc-in"></div><p class="lc-note">Contesta por ti. Nadie más ve esto.</p>';main("Seguir",false);
+   if(t.opciones)opts(box.querySelector(".lc-in"),t.opciones,function(){L.phase=0;main(L.i>=L.cards.length-1?"Terminar":"Seguir",true);L.check=function(){next()}});
+   else scale(box.querySelector(".lc-in"),t.escala||["Nada","Mucho"],function(){main(L.i>=L.cards.length-1?"Terminar":"Seguir",true);L.check=function(){next()}})},
+  rango:function(t,box){var v=Math.round((t.min+t.max)/2/t.paso)*t.paso,fmt=function(n){return n.toLocaleString("es-MX")};
+   box.innerHTML='<p class="lc-q">'+h(t.pregunta)+'</p><div class="lc-rng"><b class="num" id="lcRv">'+fmt(v)+'</b><span>'+h(t.unidad||"")+'</span></div><input type="range" class="range" id="lcRi" min="'+t.min+'" max="'+t.max+'" step="'+t.paso+'" value="'+v+'" aria-label="'+h(t.pregunta)+'" style="--p:50%"><div class="lc-scl"><span>'+fmt(t.min)+'</span><span>'+fmt(t.max)+'</span></div><div class="lc-out"></div>';
+   var inp=box.querySelector("#lcRi");inp.oninput=function(){v=+inp.value;box.querySelector("#lcRv").textContent=fmt(v);inp.style.setProperty("--p",((v-t.min)/(t.max-t.min)*100)+"%")};
+   main("Ver el dato",true);
+   L.check=function(){inp.disabled=true;S.bet=S.bet||{};S.bet[t.dato]=v;save();box.querySelector(".lc-out").innerHTML=datoHTML(t.dato,fmt(v),t.unidad);done()}},
+  dato:function(t,box){box.innerHTML='<p class="lc-q">'+h(t.titulo||"")+'</p>'+datoHTML(t.dato);done()},
+  testimonio:function(t,box){
+   if(t.estado!=="listo"){box.innerHTML='<div class="lc-empty">'+rb()+'<p><b>Aquí va a ir una historia real.</b> Estamos buscando a alguien que la cuente'+(t.perfil?': '+h(t.perfil.charAt(0).toLowerCase()+t.perfil.slice(1)):'')+'. No inventamos testimonios.</p></div>';done();return}
+   box.innerHTML='<div class="lc-testi"><b>'+h(t.persona)+'</b><p><i>Lo que más me sorprendió:</i> '+h(t.sorprendio)+'</p><p><i>Lo más difícil:</i> '+h(t.dificil)+'</p><p><i>¿La recomendaría?</i> '+h(t.recomendaria)+'</p></div>';done()},
+  ordenar:function(t,box){var ord=mix(t.pasos,L.id+L.les.id+"o"),seq=[];
+   box.innerHTML='<p class="lc-q">'+h(t.pregunta)+'</p><p class="lc-note">Toca en el orden que creas correcto.</p><div class="lc-ord">'+ord.map(function(i){return '<button type="button" class="lc-oi" data-i="'+i+'"><i></i><span>'+h(t.pasos[i])+'</span></button>'}).join("")+'</div><button type="button" class="lc-link" id="lcClr">Borrar orden</button>';
+   function paint(){each(box.querySelectorAll(".lc-oi"),function(b){var p=seq.indexOf(+b.getAttribute("data-i"));b.classList.toggle("used",p>=0);b.querySelector("i").textContent=p>=0?p+1:""});main("Comprobar",seq.length===t.pasos.length)}
+   each(box.querySelectorAll(".lc-oi"),function(b){b.onclick=function(){if(L.phase)return;var i=+b.getAttribute("data-i"),p=seq.indexOf(i);if(p>=0)seq.splice(p,1);else seq.push(i);paint()}});
+   box.querySelector("#lcClr").onclick=function(){if(L.phase)return;seq=[];paint()};paint();
+   L.check=function(){var n=t.exige||t.pasos.length,ok=true;
+    if(t.exige){for(var k=0;k<n;k++)if(seq[k]>=n)ok=false}else seq.forEach(function(v,k){if(v!==k)ok=false});
+    var wrap=box.querySelector(".lc-ord");t.pasos.forEach(function(_,i){var b=wrap.querySelector('[data-i="'+i+'"]'),p=seq.indexOf(i);b.classList.add(t.exige?(i<n?(p<n?"good":"bad"):"off"):(p===i?"good":"bad"));b.querySelector("i").textContent=i+1;wrap.appendChild(b)});
+    box.querySelector("#lcClr").style.display="none";fb(ok?"ok":"no",(ok?"":"<b>Así queda el orden.</b> ")+h(t.revelacion));done()}},
+  emparejar:function(t,box,slots){var left=t.pares.map(function(p){return p[0]}),right=t.pares.map(function(p){return p[1]}),ui;
+   box.innerHTML='<p class="lc-q">'+h(t.pregunta)+'</p><p class="lc-note">Toca uno de la izquierda y luego su pareja.</p><div class="lc-in"></div>';
+   ui=pairUI(box.querySelector(".lc-in"),left,right,mix(right,L.id+L.les.id+"e"),{slots:slots,onChange:function(all){main("Comprobar",all)}});
+   L.check=function(){var ok=ui.mark();fb(ok===left.length?"ok":"no",(ok===left.length?"":'<b>Acertaste '+ok+' de '+left.length+'.</b> El número muestra la pareja correcta. ')+h(t.revelacion));done()}},
+  armar_dia:function(t,box){R.emparejar({pregunta:t.pregunta,pares:t.bloques.map(function(b,i){return [b,t.actividades[i]]}),revelacion:t.revelacion},box,true)},
+  clasificar:function(t,box){var i=0,ok=0,ord=mix(t.elementos,L.id+L.les.id+"c");
+   box.innerHTML='<p class="lc-q">'+h(t.pregunta)+'</p><div class="lc-cl"><div class="lc-cln"></div><div class="lc-clc"></div><div class="lc-clg">'+t.grupos.map(function(g,k){return '<button type="button" data-g="'+k+'">'+h(g)+'</button>'}).join("")+'</div></div>';
+   main("Seguir",false);
+   function show(){var e=t.elementos[ord[i]];box.querySelector(".lc-cln").textContent=(i+1)+" de "+ord.length;var c=box.querySelector(".lc-clc");c.textContent=e.texto;restart(c,"in");each(box.querySelectorAll(".lc-clg button"),function(b){b.className=""})}
+   each(box.querySelectorAll(".lc-clg button"),function(b){b.onclick=function(){if(L.phase||L.busy)return;var e=t.elementos[ord[i]],g=+b.getAttribute("data-g"),good=g===e.grupo;if(good)ok++;
+    b.classList.add(good?"good":"bad");if(!good)box.querySelector('.lc-clg [data-g="'+e.grupo+'"]').classList.add("good");if(typeof sfx==="function")sfx(good?"ok":"no");
+    L.busy=true;setTimeout(function(){L.busy=false;i++;if(i<ord.length)show();else{box.querySelector(".lc-clc").textContent="Listo";box.querySelector(".lc-cln").textContent="";each(box.querySelectorAll(".lc-clg button"),function(x){x.className="off"});fb(ok===ord.length?"ok":"info",'<b>Acertaste '+ok+' de '+ord.length+'.</b> '+h(t.revelacion));done()}},RM()?500:good?520:1100)}});
+   show()},
+  interes:function(t,box){var id=L.id,lid=L.les.id;box.innerHTML='<p class="lc-big">'+h(t.pregunta||"¿Te ves haciendo esto?")+'</p><div class="lc-int"><button type="button" data-k="yes">Sí</button><button type="button" data-k="mid">No sé</button><button type="button" data-k="no">No</button></div><p class="lc-note">Tu respuesta se guarda para tu veredicto.</p>';
+   main("Terminar",false);
+   each(box.querySelectorAll(".lc-int button"),function(b){b.onclick=function(){each(box.querySelectorAll(".lc-int button"),function(x){x.classList.toggle("on",x===b)});S.int=S.int||{};S.int[id]=S.int[id]||{};S.int[id][lid]=b.getAttribute("data-k");save();main(L.i>=L.cards.length-1?"Terminar":"Seguir",true);L.check=function(){next()}}})},
+  autoevaluacion:function(t,box){var a={i:0,c:0},u=L.ctx.unit;
+   box.innerHTML='<p class="lc-big">Terminaste la unidad «'+h(L.ctx.unitName)+'».</p><p class="lc-q">¿Qué tanto te interesó?</p><div class="lc-a1"></div><p class="lc-q">¿Qué tan capaz te sentiste?</p><div class="lc-a2"></div>';
+   main("Terminar",false);function chk(){if(a.i&&a.c){S.auto=S.auto||{};S.auto[L.id]=S.auto[L.id]||{};S.auto[L.id][u]={i:a.i,c:a.c};save();main("Terminar",true);L.check=function(){next()}}}
+   scale(box.querySelector(".lc-a1"),["Nada","Mucho"],function(n){a.i=n;chk()});scale(box.querySelector(".lc-a2"),["Nada","Mucho"],function(n){a.c=n;chk()})},
+  resumen:function(t,box){var A=(S.auto||{})[L.id]||{},I=(S.int||{})[L.id]||{},cn={yes:0,mid:0,no:0};for(var k in I)cn[I[k]]++;
+   var rows=CAT.est.unidades.slice(0,5).map(function(u,ui){var a=A[ui];return '<div class="lc-sr"><span>'+h(u.titulo)+'</span>'+(a?'<div class="lc-sb"><i style="--v:'+a.i/5+'"></i><i class="c" style="--v:'+a.c/5+'"></i></div>':'<em>Sin respuesta</em>')+'</div>'}).join("");
+   box.innerHTML='<p class="lc-q">Esto contestaste al cerrar cada unidad.</p><div class="lc-sum">'+rows+'<div class="lc-sk"><span><i></i>Interés</span><span><i class="c"></i>Qué tan capaz te sentiste</span></div></div><p class="lc-q">Y al terminar cada lección:</p><div class="lc-cnt"><span><b class="num">'+cn.yes+'</b> «sí me veo»</span><span><b class="num">'+cn.mid+'</b> «no sé»</span><span><b class="num">'+cn.no+'</b> «no»</span></div>';done()},
+  comparar:function(t,box){var cs=MC().filter(function(c){return progOf(c.id).done>0||c.id===L.id});
+   var rows=cs.map(function(c){var A=(S.auto||{})[c.id]||{},n=0,si=0,sc=0;for(var k in A){n++;si+=A[k].i;sc+=A[k].c}var pg=progOf(c.id);
+    return '<tr'+(c.id===L.id?' class="me"':'')+'><th>'+h(c.short||c.name)+'</th><td>'+pg.done+' de '+pg.total+'</td><td>'+(n?(si/n).toFixed(1):"—")+'</td><td>'+(n?(sc/n).toFixed(1):"—")+'</td></tr>'}).join("");
+   box.innerHTML='<p class="lc-q">Así van las carreras que has explorado.</p><div class="lc-tblw"><table class="lc-tbl"><thead><tr><th></th><th>Lecciones</th><th>Interés</th><th>Capacidad</th></tr></thead><tbody>'+rows+'</tbody></table></div><p class="lc-note">Interés y capacidad van de 1 a 5 y salen de tus propias respuestas. '+(cs.length<2?'Cuando explores otra carrera, aquí podrás compararlas.':'')+'</p>';done()},
+  veredicto:function(t,box){var id=L.id,c=byId[id],v=S.rate[id]!=null?S.rate[id]:5,ver=(S.ver||{})[id]||null;
+   box.innerHTML='<p class="lc-big">¿Qué decides sobre '+h(c.name)+'?</p>'+rateW(id,v)+'<div class="lc-ver"><button type="button" data-k="si">La guardo</button><button type="button" data-k="duda">Sigo en duda</button><button type="button" data-k="no">La descarto</button></div><p class="lc-note">Puedes cambiarlo cuando quieras.</p>';
+   bindRate(box,null,false);main("Guardar",!!ver);
+   each(box.querySelectorAll(".lc-ver button"),function(b){b.classList.toggle("on",b.getAttribute("data-k")===ver);b.onclick=function(){ver=b.getAttribute("data-k");each(box.querySelectorAll(".lc-ver button"),function(x){x.classList.toggle("on",x===b)});main("Guardar",true)}});
+   L.check=function(){S.rate[id]=+box.querySelector("input[type=range]").value;S.ver=S.ver||{};S.ver[id]=ver;save();next()}},
+
+  /* ---------- las seis dinámicas nuevas ---------- */
+  armar:function(t,box){var sel=0,slots=[];for(var i=0;i<t.ranuras;i++)slots.push(-1);var tries=0;
+   box.innerHTML='<p class="lc-q">'+h(t.pregunta)+'</p><div class="lc-arm"><div class="lc-armp">'+t.piezas.map(function(p,i){return '<button type="button" data-p="'+i+'"><b>'+h(p.texto)+'</b><small>Cuesta '+p.costo+' · aguanta '+p.fuerza+'</small></button>'}).join("")+'</div><div class="lc-arms">'+slots.map(function(_,i){return '<button type="button" data-s="'+i+'" aria-label="Tramo '+(i+1)+'"></button>'}).join("")+'</div><div class="lc-met"><span>Aguanta</span><div><i id="lcM1"></i></div><b id="lcT1"></b></div><div class="lc-met"><span>Costo</span><div><i id="lcM2"></i></div><b id="lcT2"></b></div></div>';
+   function tot(k){return slots.reduce(function(s,v){return s+(v<0?0:t.piezas[v][k])},0)}
+   function paint(){each(box.querySelectorAll("[data-p]"),function(b){b.classList.toggle("on",+b.getAttribute("data-p")===sel)});
+    each(box.querySelectorAll("[data-s]"),function(b){var v=slots[+b.getAttribute("data-s")];b.textContent=v<0?"":t.piezas[v].texto;b.className=v<0?"":"k"+v});
+    var f=tot("fuerza"),c=tot("costo");box.querySelector("#lcM1").style.width=Math.min(100,f/t.carga*100)+"%";box.querySelector("#lcT1").textContent=f+" de "+t.carga;
+    var m2=box.querySelector("#lcM2");m2.style.width=Math.min(100,c/t.presupuesto*100)+"%";m2.classList.toggle("over",c>t.presupuesto);box.querySelector("#lcT2").textContent=c+" de "+t.presupuesto;
+    main("Probar",slots.every(function(v){return v>=0}))}
+   each(box.querySelectorAll("[data-p]"),function(b){b.onclick=function(){if(L.phase)return;sel=+b.getAttribute("data-p");paint()}});
+   each(box.querySelectorAll("[data-s]"),function(b){b.onclick=function(){if(L.phase)return;var i=+b.getAttribute("data-s");slots[i]=slots[i]===sel?-1:sel;paint()}});paint();
+   L.check=function(){var f=tot("fuerza"),c=tot("costo"),ok=f>=t.carga&&c<=t.presupuesto;tries++;
+    if(ok){fb("ok",h(t.revelacion));done();return}
+    var why=f<t.carga?"No aguanta la carga: le faltan "+(t.carga-f)+".":"Aguanta, pero te pasaste del presupuesto por "+(c-t.presupuesto)+".";
+    if(tries>=3){fb("no",why+" "+h(t.revelacion));done()}else fb("no",why+" Cambia alguna pieza y prueba otra vez.")}},
+  bloques:function(t,box){var step=0,pick=-1;
+   box.innerHTML='<p class="lc-q">'+h(t.pregunta)+'</p><div class="lc-blk">'+t.bloques.map(function(b,i){return '<button type="button" data-b="'+i+'"><i>'+(i+1)+'</i>'+h(b)+'</button>'}).join("")+'</div><div class="lc-in"></div>';
+   main("Comprobar",false);
+   each(box.querySelectorAll("[data-b]"),function(b){b.onclick=function(){if(L.phase||step)return;var i=+b.getAttribute("data-b");
+    if(i!==t.falla){restart(b,"shake");fb("no","Ese bloque está bien. Sigue el programa paso a paso y fíjate dónde empieza a desviarse.");return}
+    step=1;b.classList.add("bad");var f=L.el.querySelector(".lc-fb");f.className="lc-fb";
+    box.querySelector(".lc-in").innerHTML='<p class="lc-q">Ese es. ¿Por cuál lo cambias?</p><div class="lc-in2"></div>';
+    opts(box.querySelector(".lc-in2"),t.opciones,function(k){pick=k;main("Comprobar",true)})}});
+   L.check=function(){var ok=pick===t.correcta;each(box.querySelectorAll(".lc-opt"),function(b){var i=+b.getAttribute("data-i");if(i===t.correcta)b.classList.add("good");else if(i===pick)b.classList.add("bad")});
+    if(ok){var bl=box.querySelector('[data-b="'+t.falla+'"]');bl.classList.remove("bad");bl.classList.add("good");bl.lastChild.textContent=t.opciones[t.correcta]}
+    fb(ok?"ok":"no",h(t.revelacion));done()}},
+  patron:function(t,box){var pick=-1,mx=Math.max.apply(null,t.serie.concat(t.opciones));
+   box.innerHTML='<p class="lc-q">'+h(t.pregunta)+'</p><div class="lc-pat">'+t.serie.map(function(v,i){return '<div><b>'+v+'</b><i style="height:'+Math.max(6,v/mx*100)+'%"></i><span>'+h((t.etiquetas||[])[i]||"")+'</span></div>'}).join("")+'<div class="q"><b id="lcPv">?</b><i id="lcPb" style="height:6%"></i><span>'+h((t.etiquetas||[])[t.serie.length]||"")+'</span></div></div><div class="lc-in"></div>';
+   opts(box.querySelector(".lc-in"),t.opciones.map(String),function(i){pick=i;box.querySelector("#lcPv").textContent=t.opciones[i];box.querySelector("#lcPb").style.height=Math.max(6,t.opciones[i]/mx*100)+"%";main("Comprobar",true)},"is-row");
+   main("Comprobar",false);
+   L.check=function(){var ok=pick===t.correcta;each(box.querySelectorAll(".lc-opt"),function(b){var i=+b.getAttribute("data-i");if(i===t.correcta)b.classList.add("good");else if(i===pick)b.classList.add("bad")});
+    box.querySelector("#lcPv").textContent=t.opciones[t.correcta];box.querySelector("#lcPb").style.height=Math.max(6,t.opciones[t.correcta]/mx*100)+"%";fb(ok?"ok":"no",h(t.revelacion));done()}},
+  presupuesto:function(t,box){var on={};
+   box.innerHTML='<p class="lc-q">'+h(t.pregunta)+'</p><div class="lc-met"><span>Gastado</span><div><i id="lcM1"></i></div><b id="lcT1"></b></div><div class="lc-bud">'+t.partidas.map(function(p,i){return '<button type="button" role="checkbox" aria-checked="false" data-i="'+i+'"><span>'+h(p.texto)+'</span><b>'+p.costo+'</b></button>'}).join("")+'</div>';
+   function sum(){var s=0;for(var k in on)if(on[k])s+=t.partidas[k].costo;return s}
+   function paint(){var s=sum();box.querySelector("#lcM1").style.width=(s/t.limite*100)+"%";box.querySelector("#lcT1").textContent=s+" de "+t.limite;each(box.querySelectorAll(".lc-bud button"),function(b){b.setAttribute("aria-checked",on[b.getAttribute("data-i")]?"true":"false")});main("Listo",s>0)}
+   each(box.querySelectorAll(".lc-bud button"),function(b){b.onclick=function(){if(L.phase)return;var i=b.getAttribute("data-i");if(!on[i]&&sum()+t.partidas[i].costo>t.limite){restart(b,"shake");fb("info","No te alcanza. Para agregar eso tienes que quitar otra cosa.");return}on[i]=!on[i];L.el.querySelector(".lc-fb").className="lc-fb";paint()}});paint();
+   L.check=function(){var by={},top=null;for(var k in on)if(on[k]){var c=t.partidas[k].clase;by[c]=(by[c]||0)+t.partidas[k].costo}for(var c2 in by)if(!top||by[c2]>by[top])top=c2;
+    var left=t.partidas.filter(function(p,i){return !on[i]}).map(function(p){return p.texto.toLowerCase()});
+    fb("info",'<b>Le apostaste más a: '+h(top)+'.</b> '+(left.length?'Dejaste fuera: '+h(left.join(", "))+'. ':'')+h(t.revelacion));done()}},
+  encuadre:function(t,box){var pick=-1,sc=sceneSVG();
+   box.innerHTML='<p class="lc-q">'+h(t.pregunta)+'</p><div class="lc-enc" role="radiogroup">'+t.opciones.map(function(o,i){return '<button type="button" role="radio" aria-checked="false" data-i="'+i+'"><svg viewBox="'+o.vista+'" preserveAspectRatio="xMidYMid slice" aria-hidden="true">'+sc+'</svg><span>'+h(o.texto)+'</span></button>'}).join("")+'</div>';
+   main("Comprobar",false);
+   each(box.querySelectorAll(".lc-enc button"),function(b){b.onclick=function(){if(L.phase)return;pick=+b.getAttribute("data-i");each(box.querySelectorAll(".lc-enc button"),function(x){x.setAttribute("aria-checked",x===b?"true":"false")});main("Comprobar",true)}});
+   L.check=function(){var ok=pick===t.mejor;each(box.querySelectorAll(".lc-enc button"),function(b){var i=+b.getAttribute("data-i");if(i===t.mejor)b.classList.add("good");else if(i===pick)b.classList.add("bad")});
+    fb(ok?"ok":"no",h(t.opciones[pick].efecto)+" "+h(t.revelacion));done()}},
+  componer:function(t,box){var sel=-1,at={},tries=0,n=t.filas*t.columnas;/* at[zona]=elemento */
+   box.innerHTML='<p class="lc-q">'+h(t.pregunta)+'</p><p class="lc-note">Toca un elemento y luego el lugar del cartel.</p><div class="lc-cmp"><div class="lc-cmpe">'+t.elementos.map(function(e,i){return '<button type="button" data-e="'+i+'">'+h(e)+'</button>'}).join("")+'</div><div class="lc-cmpg" style="grid-template-columns:repeat('+t.columnas+',1fr)">'+Array.apply(null,{length:n}).map(function(_,z){return '<button type="button" data-z="'+z+'" aria-label="Lugar '+(z+1)+'"></button>'}).join("")+'</div></div><ul class="lc-rules"></ul>';
+   function placed(e){for(var z in at)if(at[z]===e)return +z;return -1}
+   function paint(){each(box.querySelectorAll("[data-e]"),function(b){var e=+b.getAttribute("data-e");b.classList.toggle("on",sel===e);b.classList.toggle("used",placed(e)>=0)});
+    each(box.querySelectorAll("[data-z]"),function(b){var z=b.getAttribute("data-z");b.textContent=at[z]!=null?t.elementos[at[z]]:"";b.classList.toggle("has",at[z]!=null)});
+    main("Comprobar",Object.keys(at).length===t.elementos.length)}
+   each(box.querySelectorAll("[data-e]"),function(b){b.onclick=function(){if(L.phase)return;var e=+b.getAttribute("data-e"),z=placed(e);if(z>=0)delete at[z];sel=sel===e?-1:e;paint()}});
+   each(box.querySelectorAll("[data-z]"),function(b){b.onclick=function(){if(L.phase)return;var z=b.getAttribute("data-z");if(sel<0){if(at[z]!=null){sel=at[z];delete at[z]}paint();return}var o=placed(sel);if(o>=0)delete at[o];at[z]=sel;sel=-1;paint()}});paint();
+   L.check=function(){tries++;var ok=0,ul=box.querySelector(".lc-rules");ul.innerHTML=t.reglas.map(function(r){var g=r.zonas.indexOf(placed(r.elemento))>=0;if(g)ok++;return '<li class="'+(g?"good":"bad")+'">'+ico(g?"check":"x")+h(r.texto)+'</li>'}).join("");
+    if(ok===t.reglas.length||tries>=2){fb(ok===t.reglas.length?"ok":"info",h(t.revelacion));done()}else fb("no","Cumples "+ok+" de "+t.reglas.length+" reglas. Mueve lo que falta y comprueba otra vez.")}}
+ };
+ /* escena fija para «encuadre»: Rumbo solo en una isla, con mar y cielo */
+ function sceneSVG(){return '<rect width="300" height="200" fill="#8FD0EE"/><rect y="118" width="300" height="82" fill="#2E9BD6"/><circle cx="244" cy="38" r="17" fill="#FFE9A8"/><path d="M0 118c40-26 76-30 118-12s84 20 182-6v18H0Z" fill="#6FB6C9" opacity=".7"/><ellipse cx="150" cy="150" rx="74" ry="20" fill="#F1DDAE"/><ellipse cx="150" cy="144" rx="52" ry="12" fill="#86BF73"/><path d="M104 144c-2-18-3-30 2-44" stroke="#8A5A34" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M106 100c-12-6-22-4-28 4M106 100c4-12 14-16 24-12M106 100c-10 2-16 10-16 20M106 100c10 0 18 6 22 16" stroke="#3F8F4F" stroke-width="4.5" fill="none" stroke-linecap="round"/><g transform="translate(132 86) scale(.36)">'+RUMBO.svg("U").replace(/^<svg[^>]*>/,'<svg viewBox="0 0 100 100" width="100" height="100" class="rbx-static">').replace(/class="rbx [^"]*"/,'')+'</g><path d="M20 150q6-4 12 0q6-4 12 0M236 168q6-4 12 0q6-4 12 0M52 182q6-4 12 0" stroke="#FFFFFF" stroke-width="2" fill="none" stroke-linecap="round" opacity=".8"/>'}
+
+ function render(){
+  var t=L.cards[L.i],box=L.el.querySelector(".lc-card");L.phase=0;L.check=null;L.busy=false;
+  L.el.querySelector(".lc-fb").className="lc-fb";
+  each(L.el.querySelectorAll(".lc-seg i"),function(s,i){s.className=i<L.i?"d":i===L.i?"c":""});
+  L.el.querySelector(".lc-eb").textContent=(t.area?t.area+" · ":"")+(EB[t.tipo]||"");
+  box.innerHTML="";box.setAttribute("data-t",t.tipo);
+  (R[t.tipo]||R.escena)(t,box);
+  var wr=box.querySelector(".rb");if(wr)wireRumbo(wr);
+  restart(box,"in");L.el.querySelector(".lc-body").scrollTop=0;
+  if(L.ctx.resume){S.lp=S.lp||{};S.lp[L.id+":"+L.les.id]=L.i;save()}
+ }
+ function next(){
+  if(L.i>=L.cards.length-1){finish();return}
+  L.i++;render()}
+ function finish(){var l=L,el=L.el;if(l.ctx.resume&&S.lp)delete S.lp[l.id+":"+l.les.id];
+  el.classList.remove("on");setTimeout(function(){el.remove()},RM()?0:260);L=null;if(l.onDone)l.onDone()}
+ function close(){if(!L)return;var el=L.el;el.classList.remove("on");setTimeout(function(){el.remove()},RM()?0:260);var l=L;L=null;if(l.onClose)l.onClose()}
+ /* abre una lección. ctx: {unit, unitName, unitEnd, color, resume} */
+ function open(id,les,ctx,onDone,onClose){
+  var c=byId[id]||{name:"",color:"#3F7DA6"},cards=les.tarjetas.slice();ctx=ctx||{};
+  if(ctx.unitEnd)cards.push({tipo:"autoevaluacion"});
+  var el=document.createElement("div");el.className="lc";el.setAttribute("role","dialog");el.setAttribute("aria-modal","true");el.setAttribute("aria-label",les.titulo);
+  var col=ctx.color||c.color;el.style.setProperty("--c",col);el.style.setProperty("--cd",dk(col,.38));el.style.setProperty("--ct",lum(col)>.62?"#14323F":"#FFFFFF");
+  el.innerHTML='<header class="lc-top"><button type="button" class="ui-iconbtn" id="lcX" aria-label="Salir de la lección">'+ico("x")+'</button><div class="lc-seg" aria-hidden="true">'+cards.map(function(){return "<i></i>"}).join("")+'</div></header>'+
+   '<div class="lc-body"><div class="lc-wrap"><div class="lc-eb"></div><div class="lc-card"></div><div class="lc-fb" aria-live="polite"></div></div></div>'+
+   '<footer class="lc-foot"><div class="lc-footin"><button type="button" class="ui-btn is-block" id="lcGo"></button></div></footer>';
+  (document.getElementById("plaza").classList.contains("on")?document.getElementById("plaza"):document.body).appendChild(el);
+  var start=0;if(ctx.resume&&S.lp&&S.lp[id+":"+les.id]!=null)start=Math.min(cards.length-1,S.lp[id+":"+les.id]);
+  L={id:id,les:les,cards:cards,i:start,el:el,onDone:onDone,onClose:onClose,ctx:ctx,phase:0};
+  el.querySelector("#lcX").onclick=close;
+  el.querySelector("#lcGo").onclick=function(){if(!L||this.disabled)return;if(L.phase||!L.check)next();else L.check()};
+  render();requestAnimationFrame(function(){el.classList.add("on")});
+ }
+ return {open:open,close:close,isOpen:function(){return !!L},types:Object.keys(R)};
+})();
+/* #din: las seis dinámicas nuevas en una lección de muestra, para probarlas sin entrar a una carrera */
+function renderDin(){
+ var d=document.createElement("div");d.className="din";d.innerHTML='<h1>Dinámicas nuevas</h1><p>Armar, depurar por bloques, encontrar el patrón, repartir un presupuesto, encuadrar y componer. Son de muestra: el contenido real de cada carrera va en su catálogo.</p><button type="button" class="ui-btn is-block" id="dinGo">Probar las seis</button>';
+ document.body.appendChild(d);
+ function go(){LEC.open("demo",{id:"demo",titulo:CAT.demo.titulo,tarjetas:CAT.demo.tarjetas},{color:"#3F7DA6"},function(){uiToast("Terminaste las seis dinámicas")})}
+ d.querySelector("#dinGo").onclick=go;go();
+}
+
+/* ================= ruta de lecciones de cada carrera =================
+   Al entrar a una carrera se abre su ruta de viaje: seis regiones (una por unidad) y una parada por lección.
+   La estructura es la misma para todas (CAT.est); el contenido de cada lección sale del catálogo de la carrera (CAT.car[id]).
+   Las carreras que todavía no tienen catálogo conservan lo que ya existía (qué haces, mini reto y veredicto) y el resto
+   de sus paradas dice «llega pronto». Usa el contenedor #plaza y sus transiciones. */
+
+/* ---------- avance por lección (lo usa toda la app) ---------- */
+function carCat(id){return (CAT.car||{})[id]||null}
+function carLes(id,lid){var c=carCat(id);if(!c)return null;for(var u=0;u<c.unidades.length;u++)for(var l=0;l<c.unidades[u].lecciones.length;l++)if(c.unidades[u].lecciones[l].id===lid)return c.unidades[u].lecciones[l];return null}
+var LEGACY={"1.1":1,"2.1":1,"6.2":1};
+function lessHas(id,lid){return carCat(id)?!!carLes(id,lid):!!LEGACY[lid]}
+function lessDone(id,lid){
+ if(S.les&&S.les[id]&&S.les[id][lid])return true;
+ if(carCat(id))return false;
+ return lid==="1.1"?!!(S.st[id]&&S.st[id].hace):lid==="2.1"?!!S.res[id]:lid==="6.2"?S.rate[id]!=null:false}
+function lessList(id){var o=[];CAT.est.unidades.forEach(function(u,ui){u.lecciones.forEach(function(l){if(lessHas(id,l[0])){var cl=carLes(id,l[0]);o.push([l[0],cl?cl.titulo:(l[0]==="1.1"?"Qué haces":l[0]==="2.1"?"Mini reto":l[1]),ui])}})});return o}
+function progOf(id){var L=lessList(id),d=0;L.forEach(function(l){if(lessDone(id,l[0]))d++});return {done:d,total:L.length,p:L.length?d/L.length:0}}
+function nextLesson(id){var L=lessList(id);for(var i=0;i<L.length;i++)if(!lessDone(id,L[i][0]))return L[i][1];return null}
+function unitFull(id,ui){return CAT.est.unidades[ui].lecciones.every(function(l){return lessHas(id,l[0])})}
+function unitDone(id,ui){return unitFull(id,ui)&&CAT.est.unidades[ui].lecciones.every(function(l){return lessDone(id,l[0])})}
+function markLesson(id,lid){S.les=S.les||{};S.les[id]=S.les[id]||{};S.les[id][lid]=1;
+ /* lo que el resto de la app ya leía: «qué haces», la reacción al reto y la calificación */
+ if(lid==="1.1"){S.st[id]=S.st[id]||{};S.st[id].hace=1}
+ if(lid==="2.1"&&!S.res[id]&&S.int&&S.int[id]&&S.int[id]["2.1"])S.res[id]=S.int[id]["2.1"];
+ save()}
+/* quien ya había avanzado en una carrera que ahora tiene catálogo completo conserva esas tres lecciones */
+function migrateLessons(){(Object.keys(CAT.car||{})).forEach(function(id){S.mig=S.mig||{};if(S.mig[id])return;S.mig[id]=1;S.les=S.les||{};var L=S.les[id]=S.les[id]||{};
+  if(S.st[id]&&S.st[id].hace)L["1.1"]=1;if(S.res[id])L["2.1"]=1;if(S.rate[id]!=null)L["6.2"]=1})}
+
 var PATH=(function(){
  var LIC={
-  concepto:'<path d="M4 5.5C6.5 4.5 9.5 4.5 12 6c2.5-1.5 5.5-1.5 8-.5V19c-2.5-1-5.5-1-8 .5-2.5-1.5-5.5-1.5-8-.5z"/><path d="M12 6v13.5"/>',
-  dia:'<circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/>',
+  libro:'<path d="M4 5.5C6.5 4.5 9.5 4.5 12 6c2.5-1.5 5.5-1.5 8-.5V19c-2.5-1-5.5-1-8 .5-2.5-1.5-5.5-1.5-8-.5z"/><path d="M12 6v13.5"/>',
+  gente:'<circle cx="9" cy="8" r="3.2"/><path d="M3 20c.6-3.4 2.8-5.2 6-5.2s5.4 1.8 6 5.2"/><circle cx="17" cy="9" r="2.4"/><path d="M16.5 14.6c2.4.2 4 1.7 4.5 4.4"/>',
+  mito:'<path d="M9.2 9a3 3 0 1 1 4.3 2.7c-.9.5-1.5 1.2-1.5 2.3"/><circle cx="12" cy="18" r=".6" fill="currentColor"/><circle cx="12" cy="12" r="9"/>',
+  par:'<circle cx="9" cy="12" r="5.5"/><circle cx="15" cy="12" r="5.5"/>',
   reto:'<path d="M5 21V4M5 4h11l-2 4 2 4H5"/>',
+  dia:'<circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/>',
   dificil:'<path d="M3 19l6.5-10 4 6 2.5-3.5L21 19z"/>',
-  gana:'<ellipse cx="12" cy="7" rx="7" ry="3"/><path d="M5 7v5c0 1.7 3 3 7 3s7-1.3 7-3V7M5 12v5c0 1.7 3 3 7 3s7-1.3 7-3v-5"/>',
-  donde:'<path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5M22 9v6"/>',
   testi:'<path d="M4 5h16v11H10l-5 4v-4H4z"/>',
-  repaso:'<path d="M20 11a8 8 0 0 0-14.5-4.5L4 8M4 4v4h4M4 13a8 8 0 0 0 14.5 4.5L20 16M20 20v-4h-4"/>',
+  brujula:'<circle cx="12" cy="12" r="8.5"/><path d="m15.5 8.5-2 5-5 2 2-5 5-2Z"/>',
+  etapas:'<path d="M4 18h4v-4h4v-4h4V6h4"/>',
+  puerta:'<path d="M6 21V4h12v17M3 21h18"/><circle cx="14.5" cy="12.5" r=".8" fill="currentColor"/>',
+  donde:'<path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5M22 9v6"/>',
+  lugar:'<path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.400-6.5 11-6.5 11Z"/><circle cx="12" cy="10" r="2.4"/>',
+  gana:'<ellipse cx="12" cy="7" rx="7" ry="3"/><path d="M5 7v5c0 1.7 3 3 7 3s7-1.3 7-3V7M5 12v5c0 1.7 3 3 7 3s7-1.3 7-3v-5"/>',
+  chip:'<rect x="7" y="7" width="10" height="10" rx="2"/><path d="M10 3v4M14 3v4M10 17v4M14 17v4M3 10h4M3 14h4M17 10h4M17 14h4"/>',
+  flecha:'<path d="M5 19 19 5M10 5h9v9"/>',
+  repaso:'<path d="M5 19V9M10 19V5M15 19v-7M20 19v-4"/>',
   veredicto:'<path d="M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M7 6H4a3 3 0 0 0 3 4M17 6h3a3 3 0 0 1-3 4M12 14v3M8 20h8M9 17h6"/>',
   check:'<path d="M5 12.5l4.5 4.5L19 7.5"/>',lock:'<rect x="5" y="11" width="14" height="10" rx="2.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/>'
  };
- /* fondo: un icono de línea por área, en patrón tenue */
- var PAT={salud:'<path d="M9 4h6v5h5v6h-5v5H9v-5H4V9h5z"/>',ing:'<circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/>',
-  tec:'<path d="M8 7l-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/>',neg:'<path d="M12 3v18M5 7h14M7 7l-3 7h6zM17 7l-3 7h6z"/>',arte:'<path d="M3 7h18v12H3zM3 11h18M7 7l2-4M13 7l2-4"/>'};
- var PATC={medicina:PAT.salud,cine:PAT.arte,computacion:PAT.tec,derecho:PAT.neg,arquitectura:'<path d="M3 21h18M5 21L12 4l7 17M12 4v3M8 14h8"/>'};
- var DUR={concepto:"1 min",reto:"2 min",veredicto:"1 min"};
- var st={id:null,el:null,sc:null,raf:0,cur:null,items:[],units:[],headU:-1,onScroll:null};
+ var LI={"1.1":"libro","1.2":"gente","1.3":"mito","1.4":"par","2.1":"reto","2.2":"reto","2.3":"reto","2.4":"reto","3.1":"dia","3.2":"dificil","3.3":"testi","3.4":"brujula","4.1":"etapas","4.2":"puerta","4.3":"donde","5.1":"lugar","5.2":"gana","5.3":"chip","5.4":"flecha","6.1":"repaso","6.2":"veredicto"};
+ /* forma de cada parada: la misma silueta dos veces (la de abajo, más oscura, le da volumen) */
+ var SH={
+  sello:'<circle cx="40" cy="38" r="33"/>',
+  hexagono:'<path d="M40 4 70 21v34L40 72 10 55V21Z" stroke-linejoin="round"/>',
+  pergamino:'<path d="M14 12h52a6 6 0 0 1 6 6v0a6 6 0 0 1-6 6h-2v28h2a6 6 0 0 1 6 6v0a6 6 0 0 1-6 6H14a6 6 0 0 1-6-6v0a6 6 0 0 1 6-6h2V24h-2a6 6 0 0 1-6-6v0a6 6 0 0 1 6-6Z"/>',
+  brujula:'<path d="M40 3 75 38 40 73 5 38Z" stroke-linejoin="round"/>',
+  final:'<path d="M48 4l8.300 7.500 11.100-1.500 2.400 11 9.800 5.500-4.600 10.200 4.600 10.200-9.800 5.500-2.400 11-11.100-1.500L48 71.400l-8.300-7.500-11.100 1.500-2.400-11-9.800-5.500L21 38.700l-4.600-10.200 9.800-5.500 2.400-11 11.100 1.500Z" stroke-linejoin="round"/>'
+ };
+ function nodeSVG(it){var f=it.parada==="final",w=f?96:80,sh=SH[it.parada]||SH.sello,inner=it.parada==="sello"?'<circle class="rt-perf" cx="40" cy="38" r="26.500"/>':"";
+  return '<svg class="rt-shape" viewBox="0 0 '+w+' '+(f?90:88)+'" aria-hidden="true"><g class="rt-ex" transform="translate(0 8)">'+sh+'</g><g class="rt-top">'+sh+inner+'</g></svg>'}
+ var st={id:null,el:null,sc:null,raf:0,items:[],units:[],headU:-1,onScroll:null};
+ function chestKey(ui){return "u"+(ui+1)}
+ function chestDone(id,ui){return !!(S.chest&&S.chest[id+":"+chestKey(ui)])}
 
- function chestDone(id,k){return !!(S.chest&&S.chest[id+":"+k])}
- /* catálogo de la carrera: unidades y lecciones con el contenido que existe hoy */
- function catalog(id){var c=byId[id];
-  var U=[
-   {t:"Conoce "+c.name,items:[{k:"hace",ty:"concepto",n:"Qué haces"},{k:"reto",ty:"reto",n:"Pruébalo: mini reto"},{chest:"c1",n:"Cofre de la unidad"}]},
-   {t:"Un día real en "+c.name,items:[{k:"dia",ty:"dia",n:"Un día real",soon:1},{k:"dificil",ty:"dificil",n:"Lo difícil",soon:1},{k:"gana",ty:"gana",n:"Cuánto se gana",soon:1},{k:"testi",ty:"testi",n:"Testimonio",soon:1},{chest:"c2",n:"Cofre de la unidad",soon:1}]},
-   {t:"Tu veredicto",items:[{k:"donde",ty:"donde",n:"Dónde se estudia",soon:1},{k:"repaso",ty:"repaso",n:"Repaso",soon:1},{k:"veredicto",ty:"veredicto",n:"Tu veredicto",fin:1}]}
-  ];
-  var all=[];U.forEach(function(u,ui){u.items.forEach(function(it,li){it.u=ui;it.li=li;all.push(it)})});
-  /* estado: hecho, disponible (siguiente en la ruta) o bloqueado; lo que llega pronto no frena la ruta */
-  var blocked=false;
+ /* la ruta de la carrera: unidades, paradas y su estado */
+ function catalog(id){
+  var U=CAT.est.unidades.map(function(u,ui){
+   var items=u.lecciones.map(function(l,li){var cl=carLes(id,l[0]);return {lid:l[0],n:cl?cl.titulo:(carCat(id)?l[1]:(l[0]==="1.1"?"Qué haces":l[0]==="2.1"?"Mini reto":l[1])),parada:l[2],les:cl,u:ui,li:li,min:cl?cl.minutos:null}});
+   if(unitFull(id,ui))items.push({chest:ui,n:"Cofre de «"+u.titulo+"»",u:ui,li:items.length,parada:"cofre"});
+   return {t:u.titulo,sub:u.sub,items:items,n:u.lecciones.length}});
+  var all=[],blocked=false;U.forEach(function(u){u.items.forEach(function(it){all.push(it)})});
   all.forEach(function(it){
-   if(it.chest){it.done=chestDone(id,it.chest);it.state=it.soon?"soon":it.done?"done":blocked?"lock":"open";return}
-   it.done=it.k==="hace"?stSeen(id,"hace"):it.k==="reto"?!!S.res[id]:it.k==="veredicto"?S.rate[id]!=null:false;
-   if(it.soon){it.state="soon";return}
-   it.state=it.done?"done":blocked?"lock":"cur";if(!it.done)blocked=true;
-  });
-  return {units:U,all:all};
- }
- function nodeIcon(it){return it.state==="soon"||it.state==="lock"?LIC.lock:LIC[it.ty]}
-
- /* cofre isométrico sencillo */
+   if(it.chest!=null){it.done=chestDone(id,it.chest);it.state=it.done?"done":unitDone(id,it.chest)?"open":"lock";return}
+   if(!lessHas(id,it.lid)){it.state="soon";return}
+   it.done=lessDone(id,it.lid);it.state=it.done?"done":blocked?"lock":"cur";if(!it.done)blocked=true});
+  U.forEach(function(u,ui){u.done=u.items.filter(function(it){return it.lid&&it.done}).length;u.avail=u.items.filter(function(it){return it.lid&&it.state!=="soon"}).length});
+  return {units:U,all:all}}
  function chestSVG(open){
   return '<svg viewBox="0 0 80 72" aria-hidden="true"><ellipse cx="40" cy="64" rx="30" ry="6" fill="#000" opacity=".22"/>'+
    '<path d="M12 34L40 48L68 34V56L40 70L12 56Z" fill="#C98A3A"/><path d="M40 48L68 34V56L40 70Z" fill="#A86E28"/>'+
@@ -8079,54 +8542,46 @@ var PATH=(function(){
    (open?'<path d="M12 34L40 20L68 34L40 48Z" fill="#4A2C12"/><path d="M12 34L40 20L40 6L12 20Z" fill="#E0A54E"/><path d="M40 20L68 34L68 20L40 6Z" fill="#C9883A"/><circle cx="40" cy="30" r="5" fill="#FFE59A" opacity=".9"/>'
     :'<path d="M12 34L40 20L68 34L40 48Z" fill="#E8AE55"/><path d="M12 34L40 48L40 40L12 26Z" fill="#E8AE55"/><path d="M12 26L40 12L68 26L40 40Z" fill="#F2C470"/><path d="M40 40L68 26V34L40 48Z" fill="#C98A3A"/>')+
    '<rect x="35" y="'+(open?46:42)+'" width="10" height="10" rx="2" fill="#F2C14E" stroke="#8A5A1E" stroke-width="1.4"/><circle cx="40" cy="'+(open?50:46)+'" r="1.6" fill="#8A5A1E"/></svg>'}
-
- function art(id,v,d){if(typeof ART==="undefined"||!ART.has(id))return "";return '<svg viewBox="-72 -110 144 160" aria-hidden="true"><defs>'+(typeof ENV!=="undefined"?ENV.DEFS:"")+'</defs>'+ART.get(id,d||1,v)+'</svg>'}
+ function art(id,v){if(typeof ART==="undefined"||!ART.has(id))return "";return '<svg viewBox="-72 -110 144 160" aria-hidden="true"><defs>'+(typeof ENV!=="undefined"?ENV.DEFS:"")+'</defs>'+ART.get(id,1,v)+'</svg>'}
+ function envArt(k){if(typeof ENV==="undefined")return "";var vb={treeRound:"-22 -46 44 52",palm:"-24 -50 48 56",rock:"-14 -12 28 18",treePine:"-18 -46 36 52",bush:"-16 -18 32 24",lamp:"-10 -34 20 40",signpost:"-14 -30 28 36"}[k];return '<svg viewBox="'+vb+'" aria-hidden="true">'+ENV.one(k,{d:2,k:1.6})+'</svg>'}
 
  function build(id){
   st.headU=-1;var c=byId[id],p=$("#plaza"),dark=!!(DMQ&&DMQ.matches),cat=catalog(id);st.id=id;st.items=cat.all;st.units=cat.units;
-  var col=c.color,cd=dk(col,.38),txt=lum(col)>.62?"#14323F":"#FFFFFF";
-  var bg=dark?mixHex(col,"#0B1626",.82):mixHex(col,"#FFFBF2",.86),bg2=dark?mixHex(col,"#0B1626",.74):mixHex(col,"#FFFBF2",.78);
-  var patIc=PATC[id]||PAT[c.area]||PAT.salud,patCol=dark?"%23FFFFFF":"%23"+dk(col,.3).slice(1);
-  var pat="url(\"data:image/svg+xml,"+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120"><g fill="none" stroke="'+decodeURIComponent(patCol)+'" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><g transform="translate(18 18) scale(1.1)">'+patIc+'</g><g transform="translate(76 70) scale(1.1) rotate(12 12 12)">'+patIc+'</g></g></svg>')+"\")";
+  var col=c.color,cd=dk(col,.38),txt=lum(col)>.62?"#14323F":"#FFFFFF",base=dark?"#0B1626":"#FFFBF2";
   p.style.setProperty("--pc",col);
-  var h='<div class="lp'+(dark?" lp-dark":"")+'" style="--c:'+col+';--cd:'+cd+';--ct:'+txt+';--lb:'+bg+';--lb2:'+bg2+';--pat:'+pat.replace(/"/g,"'")+'">'+
-   '<div class="lp-bg" id="lpBg"></div>'+
-   '<header class="lp-head" id="lpHead"><button class="lp-back" id="pzx" aria-label="Volver al mapa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>'+
-   '<div class="lp-ht"><div class="lp-eb" id="lpEb"></div><h2 class="lp-tt" id="lpTt"></h2></div></header>'+
-   '<div class="lp-scroll" id="lpScroll"><div class="lp-col" id="lpCol">';
-  /* nodos en zigzag: la onda se repite cada seis nodos */
-  var y=150,k=0,rows=[],deco=[];
+  var pg=progOf(id);
+  var h='<div class="lp rt'+(dark?" lp-dark":"")+'" style="--c:'+col+';--cd:'+cd+';--ct:'+txt+'">'+
+   '<header class="lp-head rt-head" id="lpHead"><button class="lp-back" id="pzx" aria-label="Volver al mapa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>'+
+   '<div class="lp-ht"><div class="lp-eb" id="lpEb"></div><h2 class="lp-tt">'+esc(c.name)+'</h2></div><div class="rt-pg" aria-label="'+pg.done+' de '+pg.total+' lecciones"><b class="num">'+pg.done+'</b><span>de '+pg.total+'</span></div><div class="rt-bar"><i style="width:'+(pg.p*100).toFixed(1)+'%"></i></div></header>'+
+   '<div class="lp-scroll" id="lpScroll"><div class="lp-col rt-col" id="lpCol">';
+  /* regiones y paradas. La ruta serpentea; cada parada lleva su nombre del lado que queda libre */
+  var y=0,k=0,pts=[],bands="",nodes="",deco="",DK=["treeRound","rock","palm","bush","treePine","signpost","lamp"];
   cat.units.forEach(function(u,ui){
-   if(ui>0){h+='<div class="lp-sep" style="top:'+y+'px" data-u="'+ui+'"><span>'+esc(u.t)+'</span></div>';y+=86}
-   else{h+='<div class="lp-u0" data-u="0" style="top:0px"></div>'}
-   u.items.forEach(function(it,li){
-    var off=Math.round(Math.sin(k*Math.PI/3)*72),size=it.fin?92:it.chest?84:72;
-    it.x=off;it.y=y;it.k2=k;rows.push(it);
-    var cls="lp-n s-"+it.state+(it.fin?" fin":"")+(it.chest?" chest":""),dl=(120+k*55)+"ms";
-    if(it.chest){
-     h+='<button class="'+cls+'" data-i="'+k+'" style="left:calc(50% + '+off+'px);top:'+y+'px;--d:'+dl+'" aria-label="'+esc(it.n)+'">'+chestSVG(it.done)+'</button>';
-    }else{
-     h+='<button class="'+cls+'" data-i="'+k+'" style="left:calc(50% + '+off+'px);top:'+y+'px;--d:'+dl+'" aria-label="'+esc(it.n)+(it.state==="done"?", hecha":it.state==="soon"?", llega pronto":"")+'">'+
-      '<span class="lp-face">'+icon(nodeIcon(it),"lp-ic")+'</span>'+(it.state==="done"?'<span class="lp-ok">'+icon(LIC.check)+'</span>':'')+'</button>';
-    }
-    /* ilustraciones a los lados, alternando, donde el camino se va al lado contrario */
-    if(k%4===1)deco.push({y:y,k:k,kind:deco.length%3});
-    y+=it.fin?128:it.chest?118:104;k++;
+   var y0=y,tone=dark?[.80,.72][ui%2]:[.87,.79][ui%2];
+   y+=26;
+   nodes+='<div class="rt-ban '+(ui%2?"r":"l")+'" data-u="'+ui+'" style="top:'+y+'px"><div class="rt-bant"><span>Unidad '+(ui+1)+'</span><h3>'+esc(u.t)+'</h3><p>'+esc(u.sub)+'</p><em>'+(u.avail?u.done+' de '+u.avail+(u.avail<u.n?' disponibles':''):'Llega pronto')+'</em></div><div class="rt-bana">'+(art(id,ui%2?"e":"s")||"")+'</div></div>';
+   y+=186;
+   u.items.forEach(function(it){
+    var big=it.parada==="final",ch=it.chest!=null,off=Math.round(Math.sin(k*Math.PI/2.5)*58),size=big?96:ch?84:76;
+    it.x=off;it.y=y;it.k2=k;pts.push([off,y+size/2-4,it.state]);
+    var cls="lp-n rt-n s-"+it.state+" p-"+it.parada,dl=(80+Math.min(k,8)*45)+"ms",side=off>8?"l":"r";
+    var lab=ch?"":'<span class="rt-lab '+side+'"><b>'+it.lid+'</b>'+esc(it.n)+(it.state==="soon"?'<em>Llega pronto</em>':'')+'</span>';
+    if(ch)nodes+='<button class="'+cls+' chest" data-i="'+k+'" style="left:calc(50% + '+off+'px);top:'+y+'px;--d:'+dl+'" aria-label="'+esc(it.n)+(it.done?", abierto":"")+'">'+chestSVG(it.done)+'</button>';
+    else nodes+='<button class="'+cls+'" data-i="'+k+'" style="left:calc(50% + '+off+'px);top:'+y+'px;--d:'+dl+'" aria-label="'+it.lid+' '+esc(it.n)+(it.state==="done"?", hecha":it.state==="soon"?", llega pronto":it.state==="lock"?", bloqueada":"")+'">'+nodeSVG(it)+
+     '<span class="lp-face">'+icon(it.state==="lock"||it.state==="soon"?LIC.lock:LIC[LI[it.lid]]||LIC.libro,"lp-ic")+'</span>'+(it.state==="done"?'<span class="lp-ok">'+icon(LIC.check)+'</span>':'')+lab+'</button>';
+    /* vegetación del lado contrario al nombre, lejos de la parada */
+    if(!ch&&k%2===0&&it.state!=="cur"){var dk2=DK[(k/2+ui)%DK.length],sx=side==="r"?-1:1;deco+='<div class="rt-deco" style="top:'+(y+8)+'px;left:calc(50% + '+(off+sx*96)+'px)">'+envArt(dk2)+'</div>'}
+    y+=big?132:ch?124:104;k++;
    });
+   y+=18;if(ui===cat.units.length-1)y+=110;
+   bands+='<div class="rt-band" style="top:'+y0+'px;height:'+(y-y0)+'px;background:'+mixHex(col,base,tone)+'"><b>'+(ui+1)+'</b></div>';
   });
-  y+=60;
-  /* cada ilustración va del lado contrario a donde se cargan sus nodos vecinos, para no taparlos */
-  deco.forEach(function(d){var sum=0;rows.forEach(function(r){if(Math.abs(r.y-d.y)<170)sum+=r.x});d.side=sum>0?-1:1;
-   var lim=rows.filter(function(r){return Math.abs(r.y-d.y)<170&&(d.side<0?r.x<-10:r.x>10)});d.skip=lim.length>0});
-  deco.forEach(function(d,i){
-   if(d.skip)return;var side=d.side<0?"l":"r",inner="";
-   if(d.kind===0)inner='<div class="lp-board"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">'+patIc+'</svg></div>'+art(id,"e",1);
-   else if(d.kind===1)inner=art(id,"s",1);
-   else inner='<div class="lp-board"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">'+(SIC.dia||patIc)+'</svg></div>';
-   if(!inner)return;
-   h+='<div class="lp-art '+side+'" style="top:'+(d.y-30)+'px;--d:'+(300+i*120)+'ms"><span class="lp-sh"></span>'+inner+'</div>';
-  });
-  h+='<div class="lp-rb" id="lpRb">'+rumboEl()+'</div><div class="lp-pop" id="lpPop" role="dialog"></div></div><div style="height:'+y+'px"></div></div>'+
+  /* trazo de la ruta: punteado completo y, encima, lo ya recorrido */
+  function seg(a,b){var my=(a[1]+b[1])/2;return "C"+a[0]+" "+my+" "+b[0]+" "+my+" "+b[0]+" "+b[1]}
+  var d="",dd="",lastDone=-1;pts.forEach(function(q,i){if(q[2]==="done")lastDone=i});
+  pts.forEach(function(q,i){d+=i?seg(pts[i-1],q):"M"+q[0]+" "+q[1];if(i<=lastDone+1&&lastDone>=0)dd+=i?seg(pts[i-1],q):"M"+q[0]+" "+q[1]});
+  h+=bands+'<svg class="rt-line" style="height:'+y+'px" viewBox="-280 0 560 '+y+'" aria-hidden="true"><path class="rt-l0" d="'+d+'"/><path class="rt-l1" d="'+dd+'"/></svg>'+deco+nodes;
+  h+='<div class="lp-rb rt-rb" id="lpRb">'+(typeof skinOn==="function"&&RUMBO.SKINS[id]&&skinOn(id)?skinRb(id):rumboEl())+'</div><div class="lp-pop" id="lpPop" role="dialog"></div></div><div style="height:'+y+'px"></div></div>'+
    '<button class="lp-fab" id="lpFab" aria-label="Ir a la lección actual"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg></button></div>';
   p.innerHTML=h;
   st.el=p.querySelector(".lp");st.sc=$("#lpScroll");
@@ -8138,94 +8593,98 @@ var PATH=(function(){
   $("#lpFab").onclick=function(){toCur(true)};
   placeRumbo(false);header(0,true);
  }
- function curIndex(){for(var i=0;i<st.items.length;i++)if(st.items[i].state==="cur"||(st.items[i].chest&&st.items[i].state==="open"))return i;
+ function curIndex(){for(var i=0;i<st.items.length;i++)if(st.items[i].state==="open")return i;
+  for(i=0;i<st.items.length;i++)if(st.items[i].state==="cur")return i;
   for(i=st.items.length-1;i>=0;i--)if(st.items[i].state==="done")return i;return 0}
- /* Rumbo junto a la lección actual, del lado contrario al desvío del camino */
+ /* Rumbo junto a la parada actual, del lado contrario a su nombre */
  function placeRumbo(animate){
-  var e=$("#lpRb");if(!e)return;var i=curIndex(),it=st.items[i],side=it.x>0?-1:1;
-  e.style.top=(it.y-34)+"px";e.style.left="calc(50% + "+(it.x+side*92)+"px)";
-  setFacingRb(side>0);
-  var m=it.ty==="reto"?"curious":it.ty==="veredicto"?"happy":it.state==="done"?"happy":"idle";
-  if(PZ.rb){PZ.rb.classList.toggle("p-point",it.state==="cur");mood(PZ.rb,m,animate?"jump":null)}
-  /* globo EMPEZAR/SEGUIR/ABRIR encima del nodo actual */
+  var e=$("#lpRb");if(!e)return;var i=curIndex(),it=st.items[i],side=it.x>8?1:-1;
+  e.style.top=(it.y-22)+"px";e.style.left="calc(50% + "+(it.x+side*84)+"px)";
+  if(PZ.rb)PZ.rb.classList.toggle("left",side>0);
+  var act=it.state==="cur"||it.state==="open",m=it.parada==="hexagono"?"curious":it.state==="done"||it.parada==="final"?"happy":"idle";
+  if(PZ.rb){PZ.rb.classList.toggle("p-point",act);mood(PZ.rb,m,animate?"jump":null)}
   each(document.querySelectorAll("#lpCol .lp-tag"),function(t){t.remove()});
-  if(it.state==="cur"||(it.chest&&it.state==="open")){
-   var b=document.querySelector('#lpCol .lp-n[data-i="'+i+'"]');if(b){var t=document.createElement("span");t.className="lp-tag";t.textContent=it.chest?"ABRIR":"EMPEZAR";b.appendChild(t);
-    if(!it.chest){b.insertAdjacentHTML("afterbegin",'<svg class="lp-ring" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="46"/><circle class="lp-rp" cx="50" cy="50" r="46" style="stroke-dasharray:0 290"/></svg>')}}
-  }
+  if(act){var b=document.querySelector('#lpCol .lp-n[data-i="'+i+'"]');if(b){var t=document.createElement("span");t.className="lp-tag";t.textContent=it.chest!=null?"ABRIR":(S.lp&&S.lp[st.id+":"+it.lid]!=null?"SEGUIR":"EMPEZAR");b.appendChild(t)}}
  }
- function setFacingRb(left){if(PZ.rb)PZ.rb.classList.toggle("left",!!left)}
  function header(ui,instant){
-  if(ui===st.headU)return;st.headU=ui;var u=st.units[ui],it=st.items[curIndex()],eb=$("#lpEb"),tt=$("#lpTt"),hd=$("#lpHead");if(!eb)return;
-  var li=it&&it.u===ui?it.li+1:1;
-  var set=function(){eb.textContent="UNIDAD "+(ui+1)+" · LECCIÓN "+li;tt.textContent=u.t;hd.style.setProperty("--hc",ui===0?"var(--c)":ui===1?"color-mix(in srgb, var(--c) 82%, #14323F)":"color-mix(in srgb, var(--c) 70%, #14323F)");
-   st.el.style.setProperty("--lbu",ui===0?"var(--lb)":ui===1?"var(--lb2)":"color-mix(in srgb, var(--lb2) 85%, #14323F)")};
+  if(ui===st.headU)return;st.headU=ui;var u=st.units[ui],eb=$("#lpEb"),hd=$("#lpHead");if(!eb)return;
+  var set=function(){eb.textContent="UNIDAD "+(ui+1)+" DE "+st.units.length+" · "+u.t.toUpperCase()};
   if(instant||RM()){set();return}
   hd.classList.add("sw");setTimeout(function(){set();hd.classList.remove("sw")},160);
  }
  function onScroll(){st.raf=0;var sc=st.sc;if(!sc)return;
-  $("#lpBg").style.transform="translate3d(0,"+(-sc.scrollTop*.35).toFixed(1)+"px,0)";
-  var ui=0;each(document.querySelectorAll("#lpCol .lp-sep"),function(s){if(s.offsetTop-sc.scrollTop<120)ui=+s.getAttribute("data-u")});header(ui);
+  var ui=0;each(document.querySelectorAll("#lpCol .rt-ban"),function(s){if(s.offsetTop-sc.scrollTop<150)ui=+s.getAttribute("data-u")});header(ui);
   var it=st.items[curIndex()],vy=it.y-sc.scrollTop;var fb=$("#lpFab");fb.classList.toggle("on",vy<40||vy>sc.clientHeight-80);fb.classList.toggle("up",vy<40);
  }
- function toCur(smooth){var sc=st.sc;if(!sc)return;var it=st.items[curIndex()];var top=Math.max(0,it.y-sc.clientHeight*.45);
+ function toCur(smooth){var sc=st.sc;if(!sc)return;var it=st.items[curIndex()];var top=Math.max(0,it.y-sc.clientHeight*.42);if(curIndex()===0)top=0;
   if(smooth&&!RM())sc.scrollTo({top:top,behavior:"smooth"});else sc.scrollTop=top;onScroll()}
- /* tarjeta emergente debajo del nodo */
+ /* tarjeta emergente debajo de la parada */
  function tap(i){
   var it=st.items[i],b=document.querySelector('#lpCol .lp-n[data-i="'+i+'"]'),pop=$("#lpPop"),c=byId[st.id];if(!b||!pop)return;
   restart(b,"press");
-  var h='<h3>'+esc(it.n)+'</h3>',btn="";
+  var h='<h3>'+(it.lid?it.lid+" · ":"")+esc(it.n)+'</h3>',btn="";
   if(it.state==="soon")h+='<p>Esta lección todavía no tiene contenido. Llega pronto.</p>';
-  else if(it.state==="lock")h+='<p>Se desbloquea cuando termines la lección anterior.</p>';
-  else if(it.chest){h+='<p>'+(it.done?"Ya lo abriste. El sello de "+esc(c.name)+" se gana al completar todas sus lecciones.":"Termina la unidad y ábrelo: cuenta para el sello de "+esc(c.name)+".")+'</p>';if(!it.done)btn='<button class="btn primary wide" id="lpGo">Abrir</button>'}
+  else if(it.state==="lock")h+='<p>'+(it.chest!=null?"Se abre cuando termines las lecciones de esta unidad.":"Se desbloquea cuando termines la lección anterior.")+'</p>';
+  else if(it.chest!=null){h+='<p>'+(it.done?"Ya lo abriste.":"Terminaste la unidad. Ábrelo.")+'</p>';if(!it.done)btn='<button class="btn primary wide" id="lpGo">Abrir</button>'}
   else{
-   h+='<p class="lp-meta">'+(DUR[it.ty]||"")+(it.state==="done"?" · Hecha":" · Pendiente")+'</p>';
-   if(it.k==="hace")h+='<p>'+esc(c.desc)+'</p>';
-   if(it.k==="reto")h+='<p>'+esc(c.q)+'</p>';
-   if(it.k==="veredicto")h+='<p>Di cuánto te late '+esc(c.name)+'. Cuenta para tu atlas.</p>';
-   btn='<button class="btn primary wide" id="lpGo">'+(it.state==="done"?"Repasar":"Empezar")+'</button>';
+   var keyi=it.les?(it.les.tarjetas.filter(function(t){return t.tipo==="clave"})[0]||{}).texto:null;
+   h+='<p class="lp-meta">'+(it.min?it.min+" min":"Unos minutos")+(it.state==="done"?" · Hecha":"")+'</p>';
+   if(it.state==="done"&&keyi)h+='<p>Idea clave: '+esc(keyi)+'</p>';
+   else if(!it.les&&it.lid==="1.1")h+='<p>'+esc(c.desc)+'</p>';
+   else if(!it.les&&it.lid==="2.1")h+='<p>'+esc(c.q)+'</p>';
+   btn='<button class="btn primary wide" id="lpGo">'+(it.state==="done"?"Repasar":S.lp&&S.lp[st.id+":"+it.lid]!=null?"Seguir":"Empezar")+'</button>';
   }
   pop.innerHTML='<span class="lp-arrow"></span>'+h+btn;
-  pop.style.top=(it.y+(it.fin?62:52))+"px";pop.style.setProperty("--ax",(it.x)+"px");
+  pop.style.top=(it.y+(it.parada==="final"?108:92))+"px";pop.style.setProperty("--ax",(it.x)+"px");
   pop.classList.remove("on");void pop.offsetWidth;pop.classList.add("on");
   var go=$("#lpGo");if(go)go.onclick=function(e){e.stopPropagation();closePop();run(it)};
-  var sc=st.sc,need=it.y+260-(sc.scrollTop+sc.clientHeight);if(need>0){if(RM())sc.scrollTop+=need;else sc.scrollTo({top:sc.scrollTop+need,behavior:"smooth"})}
+  var sc=st.sc,need=it.y+300-(sc.scrollTop+sc.clientHeight);if(need>0){if(RM())sc.scrollTop+=need;else sc.scrollTo({top:sc.scrollTop+need,behavior:"smooth"})}
  }
  function closePop(){var p=$("#lpPop");if(p)p.classList.remove("on")}
  /* abrir una lección */
  function run(it){
   var id=st.id,c=byId[id];
-  if(it.chest){openChest(it);return}
-  if(it.k==="reto"){openTest(id);return}
-  if(it.k==="hace"){lesson('<div class="eyebrow">'+esc(c.name)+'</div><h2>Qué haces</h2><p>'+esc(c.desc)+'</p>'+
-   (AFF[id]&&AFF[id].matches.length?'<div class="lbl-s">Coincide con lo que elegiste</div><div class="tags">'+AFF[id].matches.map(function(m){return '<span class="tag">'+esc(m)+'</span>'}).join("")+'</div>':''),
-   "Entendido",function(){var was=stSeen(id,"hace");S.st[id]=S.st[id]||{};S.st[id].hace=1;save();if(!was)complete(it)});return}
-  if(it.k==="veredicto"){var was0=S.rate[id]!=null;lesson('<div class="eyebrow">'+esc(c.name)+'</div><h2>Tu veredicto</h2><p>¿Cuánto te late? Esto cuenta para tu atlas.</p>'+rateW(id,S.rate[id]!=null?S.rate[id]:5)+'<div class="score-line" id="lpScore">'+scoreLine(id)+'</div>',
-   "Guardar",function(){if(S.rate[id]==null){var r=document.querySelector("#lpLesson input[type=range]");S.rate[id]=r?+r.value:5;save()}if(!was0)complete(it)},function(box){bindRate(box,function(){var sl=$("#lpScore");if(sl)sl.innerHTML=scoreLine(id)},true)});return}
+  if(it.chest!=null){openChest(it);return}
+  var was=it.done,fin=function(){markLesson(id,it.lid);if(!was)complete(it);else refresh(false)};
+  if(it.les){var u=st.units[it.u],last=u.items.filter(function(x){return x.lid}).pop()===it;
+   LEC.open(id,it.les,{unit:it.u,unitName:u.t,unitEnd:last&&unitFull(id,it.u)&&!(S.auto&&S.auto[id]&&S.auto[id][it.u]),resume:true},fin,function(){refresh(false)});return}
+  /* carreras sin catálogo todavía: lo que ya existía */
+  if(it.lid==="2.1"){openTest(id);return}
+  if(it.lid==="1.1"){LEC.open(id,{id:"1.1",titulo:"Qué haces",tarjetas:[{tipo:"escena",texto:c.desc},{tipo:"interes"}]},{},fin);return}
+  if(it.lid==="6.2"){LEC.open(id,{id:"6.2",titulo:"Tu veredicto",tarjetas:[{tipo:"veredicto"}]},{},fin);return}
  }
- function lesson(html,cta,onDone,bind){
+ function lesson(html,cta,onDone){
   var o=document.createElement("div");o.className="lp-lesson";o.id="lpLesson";o.setAttribute("role","dialog");o.setAttribute("aria-modal","true");
   o.innerHTML='<div class="lp-lin">'+html+'<button class="btn primary wide" id="lpLok">'+cta+'</button></div>';
-  st.el.appendChild(o);if(bind)bind(o);requestAnimationFrame(function(){o.classList.add("on")});
+  st.el.appendChild(o);requestAnimationFrame(function(){o.classList.add("on")});
+  var rbw=o.querySelector(".rb");if(rbw)wireRumbo(rbw);
   $("#lpLok").onclick=function(){onDone();o.classList.remove("on");setTimeout(function(){o.remove()},RM()?0:T.med)};
  }
  function openChest(it){
-  var id=st.id,c=byId[id],b=document.querySelector('#lpCol .lp-n[data-i="'+it.k2+'"]');
-  S.chest=S.chest||{};S.chest[id+":"+it.chest]=1;save();
+  var id=st.id,c=byId[id],b=document.querySelector('#lpCol .lp-n[data-i="'+it.k2+'"]'),u=st.units[it.u];
+  S.chest=S.chest||{};S.chest[id+":"+chestKey(it.chest)]=1;save();
   if(b){b.innerHTML=chestSVG(true);restart(b,"opened");burstAt(b)}
-  setTimeout(function(){var full=progOf(id).p>=1;lesson('<div class="lp-chestbig">'+chestSVG(true)+'</div><h2>¡Unidad completa!</h2><p>'+(full?'Con esto completaste '+esc(c.name)+'. Vuelve al mapa: ahí te espera su sello.':'Vas muy bien. Te falta tu veredicto para ganar el sello de '+esc(c.name)+'.')+'</p>',"Seguir",function(){refresh(true)})},RM()?0:500);
+  /* al cerrar la unidad 2 se gana el Rumbo de la carrera */
+  var skin=it.chest===1&&RUMBO.SKINS[id]&&!(S.skw&&S.skw[id]);
+  setTimeout(function(){
+   if(skin){S.skw=S.skw||{};S.skw[id]=1;save();
+    lesson('<div class="rt-skin">'+skinRb(id,"cheer")+'</div><h2>¡Ganaste a '+esc(RUMBO.SKINS[id].n)+'!</h2><p>Terminaste «'+esc(u.t)+'». Este Rumbo ya está en tu colección; puedes ponértelo desde tu perfil o ahora mismo.</p><button class="btn wide" id="rtUse">Usar a '+esc(RUMBO.SKINS[id].n)+'</button>',"Seguir",function(){refresh(true)});
+    var ub=$("#rtUse");if(ub)ub.onclick=function(){setSkin(id);$("#lpLok").click()};return}
+   var left=progOf(id);
+   lesson('<div class="lp-chestbig">'+chestSVG(true)+'</div><h2>¡Unidad completa!</h2><p>Terminaste «'+esc(u.t)+'». '+(left.p>=1?'Con esto completaste '+esc(c.name)+'. Vuelve al mapa: ahí te espera su sello.':'Te faltan '+(left.total-left.done)+' lecciones para el sello de '+esc(c.name)+'.')+'</p>',"Seguir",function(){refresh(true)})},RM()?0:500);
  }
  function burstAt(b){if(RM())return;var cols=["#F2B544","#FFFFFF","#7FB59A","#8FC9E8"];for(var i=0;i<12;i++){var s=document.createElement("i");s.className="lp-pt";s.style.background=cols[i%4];s.style.setProperty("--a",(i*30)+"deg");b.appendChild(s);setTimeout(function(x){return function(){x.remove()}}(s),700)}}
- /* al terminar una lección: el nodo se llena, chispas, palomita, el siguiente se activa y Rumbo salta hasta él */
+ /* al terminar una lección: la parada se llena, chispas, el siguiente se activa y Rumbo salta hasta él */
  function complete(it){
   var b=document.querySelector('#lpCol .lp-n[data-i="'+it.k2+'"]');if(b){b.classList.remove("s-cur");b.classList.add("s-done","fill");burstAt(b)}
+  if(typeof sfx==="function")sfx("ok");
   setTimeout(function(){refresh(true)},RM()?0:650);
  }
- function refresh(animate){var y=st.sc?st.sc.scrollTop:0;build(st.id);st.sc.scrollTop=y;if(animate&&PZ.rb){mood(PZ.rb,"happy","jump")}setTimeout(function(){toCur(true)},RM()?0:300)}
+ function refresh(animate){if(!st.sc||!$("#lpScroll"))return;var y=st.sc.scrollTop;build(st.id);st.sc.scrollTop=y;if(animate&&PZ.rb){mood(PZ.rb,"happy","jump")}if(animate)setTimeout(function(){toCur(true)},RM()?0:300)}
  function show(){document.body.classList.add("lp-open");toCur(false);if(PZ.rb)mood(PZ.rb,"happy","jump")}
- function react(id){var k=S.res[id];refresh(true);if(PZ.rb)mood(PZ.rb,k==="yes"?"happy":k==="mid"?"meh":"no",k==="yes"?"jump":k==="mid"?"tilt":"shake")}
- function leave(){document.body.classList.remove("lp-open");ambSync();if(st.sc&&st.onScroll)st.sc.removeEventListener("scroll",st.onScroll);cancelAnimationFrame(st.raf);st.raf=0;var l=$("#lpLesson");if(l)l.remove()}
- return {build:build,show:show,react:react,leave:leave,state:function(){},closePop:closePop};
+ function react(id){var k=S.res[id];if(!carCat(id))markLesson(id,"2.1");refresh(true);if(PZ.rb)mood(PZ.rb,k==="yes"?"happy":k==="mid"?"meh":"no",k==="yes"?"jump":k==="mid"?"tilt":"shake")}
+ function leave(){document.body.classList.remove("lp-open");ambSync();if(typeof LEC!=="undefined")LEC.close();if(st.sc&&st.onScroll)st.sc.removeEventListener("scroll",st.onScroll);cancelAnimationFrame(st.raf);st.raf=0;var l=$("#lpLesson");if(l)l.remove()}
+ return {build:build,show:show,react:react,leave:leave,state:function(){},closePop:closePop,catalog:catalog};
 })();
 
 /* ================= ambiente del mapa: nubes, olas, ballena, delfines, barcos y gaviotas =================
@@ -8292,10 +8751,7 @@ document.addEventListener("visibilitychange",ambSync);
 function picked(id){return S.pick.indexOf(id)>-1}
 function MC(){return C.filter(function(c){return S.pick.indexOf(c.id)>-1})}
 /* lecciones que hoy tienen contenido; las que "llegan pronto" no cuentan para el avance */
-var LESS=[["hace","Qué haces"],["reto","Mini reto"],["c1","Cofre de la unidad"],["veredicto","Tu veredicto"]];
-function lessDone(id,k){return k==="hace"?!!(S.st[id]&&S.st[id].hace):k==="reto"?!!S.res[id]:k==="c1"?!!(S.chest&&S.chest[id+":c1"]):S.rate[id]!=null}
-function progOf(id){var d=0;LESS.forEach(function(l){if(lessDone(id,l[0]))d++});return {done:d,total:LESS.length,p:d/LESS.length}}
-function nextLesson(id){for(var i=0;i<LESS.length;i++)if(!lessDone(id,LESS[i][0]))return LESS[i][1];return null}
+/* el avance por lección vive en ruta.js: lessDone, progOf, nextLesson */
 /* claridad: cuánto llevas explorado de tus carreras. Con menos de tres se mide contra tres, porque comparar pide al menos tres */
 function clarity(){var cs=MC(),s=0;cs.forEach(function(c){s+=progOf(c.id).p});return Math.round(s/Math.max(3,cs.length)*100)}
 
@@ -8662,7 +9118,8 @@ try{if(localStorage.getItem("vocatlas_qa"))window.__vt=function(c){return eval(c
 /* ================= perfil (pestaña Yo) y colección de Rumbos =================
    Cada carrera completa regala a su Rumbo: la mascota con el gorro y las botas de esa carrera (src/skins.js).
    El que elijas se guarda en S.skin y lo usa Rumbo en toda la app. */
-function skinOn(k){return !k||progOf(k).p>=1}
+/* el Rumbo de una carrera se gana al terminar su unidad 2 (Pruébala); en las carreras que aún no tienen esa unidad completa, al terminar lo que hay */
+function skinOn(k){return !k||unitDone(k,1)||progOf(k).p>=1}
 function skinName(k){return k?RUMBO.SKINS[k].n:"Rumbo Aviador"}
 function skinShort(k){return skinName(k).replace(/^Rumbo /,"")}
 function skinStatic(k,off){var s=RUMBO.svg("U",null,null,k||null).replace('class="rbx ','class="rbx-static ');return off?ISO.greyAll(s):s}

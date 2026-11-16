@@ -5,10 +5,7 @@
 function picked(id){return S.pick.indexOf(id)>-1}
 function MC(){return C.filter(function(c){return S.pick.indexOf(c.id)>-1})}
 /* lecciones que hoy tienen contenido; las que "llegan pronto" no cuentan para el avance */
-var LESS=[["hace","Qué haces"],["reto","Mini reto"],["c1","Cofre de la unidad"],["veredicto","Tu veredicto"]];
-function lessDone(id,k){return k==="hace"?!!(S.st[id]&&S.st[id].hace):k==="reto"?!!S.res[id]:k==="c1"?!!(S.chest&&S.chest[id+":c1"]):S.rate[id]!=null}
-function progOf(id){var d=0;LESS.forEach(function(l){if(lessDone(id,l[0]))d++});return {done:d,total:LESS.length,p:d/LESS.length}}
-function nextLesson(id){for(var i=0;i<LESS.length;i++)if(!lessDone(id,LESS[i][0]))return LESS[i][1];return null}
+/* el avance por lección vive en ruta.js: lessDone, progOf, nextLesson */
 /* claridad: cuánto llevas explorado de tus carreras. Con menos de tres se mide contra tres, porque comparar pide al menos tres */
 function clarity(){var cs=MC(),s=0;cs.forEach(function(c){s+=progOf(c.id).p});return Math.round(s/Math.max(3,cs.length)*100)}
 

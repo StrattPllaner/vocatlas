@@ -1,0 +1,1275 @@
+{
+ "id": "medicina",
+ "version": 1,
+ "estado": "completo",
+ "revision": "Pendiente de revisión por un médico. Las tarjetas con «revisar»: «medico» contienen afirmaciones clínicas o del ejercicio profesional; las de «fuente» son reglas o trámites que hay que confirmar en fuente oficial.",
+ "unidades": [
+  {
+   "id": "u1",
+   "lecciones": [
+    {
+     "id": "1.1",
+     "titulo": "Qué es y qué resuelve",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Son las 3 de la tarde. Don Luis, de 58 años, llega a tu consultorio. Dice que desde la mañana siente un dolor que le aprieta el pecho."
+      },
+      {
+       "tipo": "decision",
+       "pregunta": "¿Qué haces primero?",
+       "opciones": [
+        {
+         "texto": "Preguntarle cómo es el dolor y desde cuándo",
+         "consecuencia": "Con pocas preguntas ya sabes mucho: cuándo empezó, qué tan fuerte es y si se corre al brazo. Casi todo diagnóstico empieza escuchando.",
+         "mejor": true
+        },
+        {
+         "texto": "Mandarlo a hacerse todos los estudios",
+         "consecuencia": "Los estudios tardan y cuestan. Sin saber qué buscas, no sabes cuál pedir ni cómo leer el resultado."
+        },
+        {
+         "texto": "Darle algo para el dolor y que regrese mañana",
+         "consecuencia": "Quitar el dolor sin saber la causa puede esconder algo grave. Primero se busca el porqué."
+        }
+       ],
+       "revisar": "medico"
+      },
+      {
+       "tipo": "ordenar",
+       "pregunta": "Así trabaja un médico. Ponlo en orden.",
+       "pasos": [
+        "Escuchar al paciente",
+        "Revisarlo",
+        "Pedir los estudios que hacen falta",
+        "Decidir el tratamiento",
+        "Darle seguimiento"
+       ],
+       "revelacion": "Escuchar, revisar, estudiar, decidir y dar seguimiento. En una emergencia los pasos se enciman, pero la lógica es la misma.",
+       "revisar": "medico"
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Un médico siempre sabe con certeza qué tiene su paciente antes de tratarlo.",
+       "respuesta": false,
+       "revelacion": "Muchas veces se decide con lo que hay: síntomas, revisión y probabilidad. Luego se ajusta según cómo responde el paciente.",
+       "revisar": "medico"
+      },
+      {
+       "tipo": "clave",
+       "texto": "Medicina es decidir con información incompleta para cuidar a alguien."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "1.2",
+     "titulo": "A quién ayudas",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Cuando piensas en un médico, quizá imaginas un hospital. Pero la medicina se ejerce en lugares muy distintos. Vamos a ver seis casos."
+      },
+      {
+       "tipo": "clasificar",
+       "pregunta": "¿A qué tipo de trabajo médico corresponde?",
+       "grupos": [
+        "Consulta",
+        "Urgencias",
+        "Prevención",
+        "Investigación"
+       ],
+       "elementos": [
+        {
+         "texto": "Una niña con tos y fiebre desde ayer",
+         "grupo": 0
+        },
+        {
+         "texto": "Un señor se cayó de una escalera y no puede mover la pierna",
+         "grupo": 1
+        },
+        {
+         "texto": "Una campaña de vacunación en una primaria",
+         "grupo": 2
+        },
+        {
+         "texto": "Probar si una medicina nueva funciona mejor que la actual",
+         "grupo": 3
+        },
+        {
+         "texto": "La revisión de cada año de una persona con diabetes",
+         "grupo": 0
+        },
+        {
+         "texto": "Pláticas en una comunidad para evitar el dengue",
+         "grupo": 2
+        }
+       ],
+       "revelacion": "Atender al enfermo es solo una parte. Prevenir evita que la gente llegue al hospital, e investigar mejora los tratamientos para todos.",
+       "revisar": "medico"
+      },
+      {
+       "tipo": "dos_caminos",
+       "pregunta": "¿Qué te llama más?",
+       "a": {
+        "texto": "Atender a una persona a la vez y ver cómo mejora",
+        "dice": "Te atrae la clínica: consulta, hospital y trato directo con pacientes."
+       },
+       "b": {
+        "texto": "Cambiar la salud de miles con programas y datos",
+        "dice": "Te atrae la salud pública o la investigación: menos consultorio, más comunidad y análisis."
+       }
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Todos los médicos trabajan dentro de un hospital.",
+       "respuesta": false,
+       "revelacion": "Hay médicos en consultorios, centros de salud, escuelas, empresas, laboratorios, universidades y oficinas de gobierno."
+      },
+      {
+       "tipo": "clave",
+       "texto": "No todo es hospital: también se previene y se investiga."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "1.3",
+     "titulo": "Mitos y realidades",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Sobre Medicina se dicen muchas cosas. Algunas son ciertas y otras vienen de las series. Apuesta en cada una antes de ver la respuesta."
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Para estudiar Medicina hay que ser de puro 10.",
+       "respuesta": false,
+       "revelacion": "Un buen promedio ayuda a entrar, pero lo que sostiene la carrera es estudiar con constancia durante años."
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Todos los médicos terminan operando.",
+       "respuesta": false,
+       "revelacion": "Operar es trabajo de las especialidades quirúrgicas. Muchos médicos nunca operan: dan consulta, leen estudios, investigan o trabajan en prevención.",
+       "revisar": "medico"
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Si te impresiona la sangre, Medicina no es para ti.",
+       "respuesta": false,
+       "revelacion": "A muchos estudiantes les impresiona al principio y se acostumbran con la práctica. Además hay áreas con muy poco contacto con sangre.",
+       "revisar": "medico"
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "El ingreso de un médico es el mismo haga o no una especialidad.",
+       "respuesta": false,
+       "revelacion": "Cambia según la especialidad, el lugar y si trabaja en el sector público, en el privado o en los dos. Las cifras las vemos en la unidad 5.",
+       "revisar": "fuente"
+      },
+      {
+       "tipo": "clave",
+       "texto": "Pesa más la constancia que el promedio."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "1.4",
+     "titulo": "Carreras parecidas",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "En un hospital no solo trabajan médicos. Hay muchas carreras de salud, y cada una hace algo distinto por el paciente."
+      },
+      {
+       "tipo": "emparejar",
+       "pregunta": "Une cada carrera con lo que hace.",
+       "pares": [
+        [
+         "Medicina",
+         "Diagnostica y decide el tratamiento"
+        ],
+        [
+         "Enfermería",
+         "Cuida al paciente y aplica el tratamiento día y noche"
+        ],
+        [
+         "Fisioterapia",
+         "Ayuda a recuperar el movimiento"
+        ],
+        [
+         "Nutrición",
+         "Diseña la alimentación para prevenir y tratar"
+        ],
+        [
+         "Psicología",
+         "Atiende la salud mental y emocional"
+        ]
+       ],
+       "revelacion": "Todas cuidan la salud con tareas distintas y trabajan en equipo. El médico es una pieza de ese equipo, no el dueño de todo.",
+       "revisar": "medico"
+      },
+      {
+       "tipo": "decision",
+       "pregunta": "Te gusta la salud, pero no te ves estudiando tantos años. ¿Qué harías?",
+       "opciones": [
+        {
+         "texto": "Revisar otras carreras de salud antes de decidir",
+         "consecuencia": "Buena idea. Hay carreras del área con menos años de estudio y contacto directo con pacientes. Agrega alguna a tu mapa y compárala.",
+         "mejor": true
+        },
+        {
+         "texto": "Entrar a Medicina de todos modos",
+         "consecuencia": "Se vale, pero entra sabiendo cuánto dura. En la unidad 4 lo revisamos."
+        },
+        {
+         "texto": "Descartar toda el área de salud",
+         "consecuencia": "Quizá es pronto. Lo que no te gusta es la duración, no la salud."
+        }
+       ],
+       "revisar": "fuente"
+      },
+      {
+       "tipo": "dos_caminos",
+       "pregunta": "¿Qué parte del cuidado te atrae más?",
+       "a": {
+        "texto": "Encontrar qué tiene el paciente",
+        "dice": "Eso es diagnosticar: el centro de Medicina."
+       },
+       "b": {
+        "texto": "Acompañarlo mientras se recupera",
+        "dice": "Eso se parece más a Enfermería o a Fisioterapia. Vale la pena que las explores."
+       }
+      },
+      {
+       "tipo": "clave",
+       "texto": "Hay muchas formas de trabajar en salud sin ser médico."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "u2",
+   "lecciones": [
+    {
+     "id": "2.1",
+     "titulo": "Triaje",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Son las 2 de la mañana en urgencias. Eres la única persona de guardia y acaban de entrar cinco pacientes al mismo tiempo."
+      },
+      {
+       "tipo": "ordenar",
+       "pregunta": "¿A quién atiendes primero? Acomódalos del más urgente al menos urgente.",
+       "pasos": [
+        "Señora que no puede respirar bien",
+        "Señor de 60 años con dolor en el pecho y sudor frío",
+        "Niña con fiebre que juega con un celular",
+        "Hombre con una cortada en la mano que ya no sangra",
+        "Joven con el tobillo torcido"
+       ],
+       "exige": 2,
+       "revelacion": "Primero quien no puede respirar y quien tiene dolor de pecho: su vida corre peligro en minutos. Los otros tres pueden esperar aunque les duela.",
+       "revisar": "medico"
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "El paciente que más se queja es el más grave.",
+       "respuesta": false,
+       "revelacion": "Quien puede gritar, respira. A veces el más grave es el más callado.",
+       "revisar": "medico"
+      },
+      {
+       "tipo": "decision",
+       "pregunta": "La mamá de la niña te reclama: llegó antes que el señor. ¿Qué le dices?",
+       "opciones": [
+        {
+         "texto": "Que se atiende primero a quien corre más peligro, y que a su hija la verás pronto",
+         "consecuencia": "Explicar el porqué calma más que pedir paciencia. Y es verdad: su hija está estable.",
+         "mejor": true
+        },
+        {
+         "texto": "Que espere su turno, y sigues trabajando",
+         "consecuencia": "Es cierto que debe esperar, pero sin explicación se queda con miedo y enojo. Diez segundos ahorran un conflicto."
+        },
+        {
+         "texto": "Atiendes primero a la niña para evitar problemas",
+         "consecuencia": "El señor puede empeorar en minutos. Ceder a quien más reclama pone en riesgo a quien más lo necesita."
+        }
+       ],
+       "revisar": "medico"
+      },
+      {
+       "tipo": "clave",
+       "texto": "Lo urgente no siempre es lo que más grita."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "2.2",
+     "titulo": "Síntoma y estudio",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Un estudio no se pide «por si acaso». Cada uno contesta una pregunta distinta. Tu trabajo es saber qué pregunta tienes."
+      },
+      {
+       "tipo": "emparejar",
+       "pregunta": "¿Qué estudio ayuda más en cada caso?",
+       "pares": [
+        [
+         "Dolor que aprieta el pecho",
+         "Electrocardiograma: revisa la actividad eléctrica del corazón"
+        ],
+        [
+         "Caída con dolor y el brazo deformado",
+         "Radiografía: muestra los huesos"
+        ],
+        [
+         "Mucha sed, orina seguido y bajó de peso",
+         "Glucosa en sangre: mide el azúcar"
+        ],
+        [
+         "Cansancio y palidez desde hace semanas",
+         "Biometría hemática: cuenta las células de la sangre"
+        ]
+       ],
+       "revelacion": "Primero viene la sospecha y después el estudio. Si no sabes qué buscas, el resultado no te dice nada.",
+       "revisar": "medico"
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Entre más estudios pidas, mejor médico eres.",
+       "respuesta": false,
+       "revelacion": "Los estudios cuestan, tardan y a veces confunden. Se piden los necesarios para confirmar o descartar lo que sospechas.",
+       "revisar": "medico"
+      },
+      {
+       "tipo": "decision",
+       "pregunta": "Un joven sano llega con gripa de dos días y te pide «todos los análisis». ¿Qué haces?",
+       "opciones": [
+        {
+         "texto": "Le explicas que por ahora no hacen falta y qué señales vigilar",
+         "consecuencia": "Saber qué vigilar le da tranquilidad sin gastar de más. Si aparece una señal de alarma, entonces sí se estudia.",
+         "mejor": true
+        },
+        {
+         "texto": "Se los pides todos para que se quede tranquilo",
+         "consecuencia": "Pagó estudios que no cambiaban el tratamiento. Y un resultado dudoso puede asustarlo sin motivo."
+        },
+        {
+         "texto": "Le dices que no tiene nada y que se vaya",
+         "consecuencia": "Sí tiene algo: se siente mal y está preocupado. Sin explicación buscará a otro médico o se automedicará."
+        }
+       ],
+       "revisar": "medico"
+      },
+      {
+       "tipo": "clave",
+       "texto": "Un estudio se pide para contestar una pregunta."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "2.3",
+     "titulo": "Curar una herida",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Llega un niño con una cortada en la rodilla por caerse de la bici. No es grave, pero hay que curarla bien. Tú diriges."
+      },
+      {
+       "tipo": "ordenar",
+       "pregunta": "Ordena los pasos de la curación.",
+       "pasos": [
+        "Lavarte las manos",
+        "Ponerte guantes",
+        "Lavar la herida con agua y jabón",
+        "Cerrar o cubrir la herida",
+        "Explicar cómo cuidarla en casa"
+       ],
+       "revelacion": "Manos y guantes van antes de tocar la herida: así no le llevas microbios. Y las indicaciones del final son parte de la curación.",
+       "revisar": "medico"
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Si la herida se ve limpia, puedes saltarte el lavado de manos.",
+       "respuesta": false,
+       "revelacion": "Los microbios no se ven. Lavarse las manos es una de las medidas más sencillas para evitar infecciones en un hospital.",
+       "revisar": "medico"
+      },
+      {
+       "tipo": "decision",
+       "pregunta": "Vas con prisa: hay seis pacientes esperando. ¿Qué paso recortas?",
+       "opciones": [
+        {
+         "texto": "Ninguno: sigues el orden aunque tarde más",
+         "consecuencia": "Una infección por saltarte un paso cuesta días de tratamiento. La prisa no cambia el procedimiento.",
+         "mejor": true
+        },
+        {
+         "texto": "Las indicaciones para casa",
+         "consecuencia": "Sin indicaciones la herida puede infectarse en casa y el niño regresa peor. Ese minuto ahorra una segunda visita."
+        },
+        {
+         "texto": "Los guantes",
+         "consecuencia": "Los guantes te protegen a ti y al paciente. Quitarlos ahorra segundos y arriesga a los dos."
+        }
+       ],
+       "revisar": "medico"
+      },
+      {
+       "tipo": "clave",
+       "texto": "El orden evita infecciones."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "2.4",
+     "titulo": "Hablar con el paciente",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Doña Carmen tiene la presión alta. Hace un mes le recetaste una pastilla diaria. Hoy regresa y te dice que dejó de tomarla."
+      },
+      {
+       "tipo": "decision",
+       "pregunta": "¿Qué le dices primero?",
+       "opciones": [
+        {
+         "texto": "«¿Qué pasó? Cuénteme por qué la dejó»",
+         "consecuencia": "Te cuenta que la pastilla la mareaba y que le dio pena decírtelo. Ya tienes la causa.",
+         "mejor": true
+        },
+        {
+         "texto": "«Tiene que tomarla, es por su bien»",
+         "consecuencia": "Asiente, pero no te dice por qué la dejó. Lo más probable es que la vuelva a dejar."
+        },
+        {
+         "texto": "«Si no la toma, le puede dar un infarto»",
+         "consecuencia": "Se asusta y se pone a la defensiva. El miedo rara vez convence, y sigues sin saber la causa."
+        }
+       ],
+       "revisar": "medico"
+      },
+      {
+       "tipo": "decision",
+       "pregunta": "Ya sabes que la mareaba. ¿Ahora qué?",
+       "opciones": [
+        {
+         "texto": "Buscas con ella otra opción u otro horario",
+         "consecuencia": "Ajustar el tratamiento es parte del trabajo. Uno que la paciente sí puede seguir vale más que el ideal que abandona.",
+         "mejor": true
+        },
+        {
+         "texto": "Le dices que el mareo se aguanta",
+         "consecuencia": "Para ella no es poca cosa: por eso la dejó. Si no lo tomas en serio, no regresa."
+        },
+        {
+         "texto": "Le recetas lo mismo y le pides que ahora sí la tome",
+         "consecuencia": "Nada cambió, así que el resultado será el mismo."
+        }
+       ],
+       "revisar": "medico"
+      },
+      {
+       "tipo": "decision",
+       "pregunta": "Antes de que se vaya, ¿cómo cierras?",
+       "opciones": [
+        {
+         "texto": "Le pides que te explique con sus palabras cómo la va a tomar",
+         "consecuencia": "Así compruebas que entendió sin hacerla sentir examinada. Si algo quedó confuso, lo aclaras ahí mismo.",
+         "mejor": true
+        },
+        {
+         "texto": "Le preguntas: «¿entendió?»",
+         "consecuencia": "Casi todos contestan que sí, aunque no hayan entendido. No sabes si quedó claro."
+        },
+        {
+         "texto": "Le das la receta y la despides",
+         "consecuencia": "La receta dice qué tomar, pero no resuelve dudas. Es fácil que se confunda en casa."
+        }
+       ],
+       "revisar": "medico"
+      },
+      {
+       "tipo": "clave",
+       "texto": "Escuchar también es parte del tratamiento."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "u3",
+   "lecciones": [
+    {
+     "id": "3.1",
+     "titulo": "Un día real",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Hacia el final de la carrera llega el internado: trabajas en un hospital de tiempo completo. Arma cómo crees que es un día con guardia.",
+       "revisar": "fuente"
+      },
+      {
+       "tipo": "armar_dia",
+       "pregunta": "Coloca cada actividad en su momento del día.",
+       "bloques": [
+        "Muy temprano",
+        "Mañana",
+        "Tarde",
+        "Noche",
+        "Madrugada"
+       ],
+       "actividades": [
+        "Pase de visita: revisar a cada paciente con el equipo",
+        "Consulta y pendientes: notas, estudios y curaciones",
+        "Clase o sesión académica",
+        "Guardia: atender lo que llegue",
+        "Dormir a ratos, si se puede"
+       ],
+       "revelacion": "Los horarios cambian en cada hospital, pero el patrón se repite: empiezas muy temprano y, si te toca guardia, sigues hasta el día siguiente.",
+       "revisar": "medico"
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "En el internado tienes un horario parecido al de la prepa.",
+       "respuesta": false,
+       "revelacion": "Hay guardias de noche y en fin de semana. Tu sueño, tus comidas y tu vida social se acomodan alrededor del hospital.",
+       "revisar": "medico"
+      },
+      {
+       "tipo": "dos_caminos",
+       "pregunta": "Te toca guardia el día del cumpleaños de tu mejor amigo. ¿Cómo lo vives?",
+       "a": {
+        "texto": "Me pesa, pero lo entiendo: es parte del trato",
+        "dice": "Aceptar que te perderás algunas cosas hace más llevadera la carrera."
+       },
+       "b": {
+        "texto": "Me costaría mucho perderme esas fechas",
+        "dice": "Es válido. Piensa qué tanto: en Medicina pasará varias veces durante años."
+       }
+      },
+      {
+       "tipo": "clave",
+       "texto": "Las guardias cambian tu rutina completa."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "3.2",
+     "titulo": "Lo difícil",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Llevas 20 horas despierto en la guardia. Llega una paciente y tienes que decidir si se queda internada o se va a su casa. Estás agotado."
+      },
+      {
+       "tipo": "decision",
+       "pregunta": "¿Qué haces?",
+       "opciones": [
+        {
+         "texto": "Pides a un compañero o a tu superior que revise tu decisión",
+         "consecuencia": "Cansado te equivocas más. Pedir otra opinión no es debilidad: es cuidar a la paciente.",
+         "mejor": true
+        },
+        {
+         "texto": "Decides rápido para terminar pronto",
+         "consecuencia": "Con sueño, decidir rápido es cuando hay más errores. Y aquí el error lo paga otra persona."
+        },
+        {
+         "texto": "La dejas internada por si acaso, sin revisarla bien",
+         "consecuencia": "Parece lo seguro, pero ocupa una cama que otro puede necesitar y no resuelve qué tiene."
+        }
+       ],
+       "revisar": "medico"
+      },
+      {
+       "tipo": "clasificar",
+       "pregunta": "¿Qué tipo de dificultad es?",
+       "grupos": [
+        "De estudio",
+        "Emocional",
+        "De tiempo y dinero"
+       ],
+       "elementos": [
+        {
+         "texto": "Anatomía, Bioquímica y Farmacología: mucha memoria y poco tiempo",
+         "grupo": 0
+        },
+        {
+         "texto": "Dar una mala noticia a una familia",
+         "grupo": 1
+        },
+        {
+         "texto": "Años de estudio antes de tener un sueldo propio",
+         "grupo": 2
+        },
+        {
+         "texto": "Ver sufrir a un paciente que no mejora",
+         "grupo": 1
+        },
+        {
+         "texto": "Exámenes cada pocas semanas",
+         "grupo": 0
+        },
+        {
+         "texto": "Guardias que te dejan sin fines de semana",
+         "grupo": 2
+        }
+       ],
+       "revelacion": "La carrera pesa por tres lados a la vez. Saberlo antes no la hace fácil, pero evita que te tome por sorpresa.",
+       "revisar": "medico"
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Cuál de las tres crees que te pesaría más?",
+       "opciones": [
+        "La de estudio",
+        "La emocional",
+        "La de tiempo y dinero",
+        "Todavía no lo sé"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Es una carrera larga: se aguanta mejor con un porqué claro."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "3.3",
+     "titulo": "Historia real",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "reflexion",
+       "pregunta": "Si pudieras preguntarle algo a alguien que ya estudia Medicina, ¿qué sería?",
+       "opciones": [
+        "¿Qué fue lo más difícil?",
+        "¿Qué te sorprendió?",
+        "¿Volverías a elegirla?",
+        "¿Cómo es un día normal?"
+       ]
+      },
+      {
+       "tipo": "testimonio",
+       "estado": "pendiente",
+       "perfil": "Estudiante en internado o médico recién egresado"
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "Mientras llega esta historia, ¿a quién podrías preguntarle tú?",
+       "opciones": [
+        "A un familiar o conocido que sea médico",
+        "A un estudiante de Medicina de mi ciudad",
+        "Al médico de mi clínica",
+        "Todavía no conozco a nadie"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Una persona real te cuenta lo que ningún folleto dice."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "3.4",
+     "titulo": "¿Quién lo disfruta?",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "No hay un solo tipo de persona para Medicina, pero hay cosas que ayudan a disfrutarla. Contesta pensando en ti, no en lo que «deberías» decir."
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "Estudiar mucho, durante varios años seguidos.",
+       "escala": [
+        "No va conmigo",
+        "Va mucho conmigo"
+       ]
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "Tratar con personas en sus peores días.",
+       "escala": [
+        "No va conmigo",
+        "Va mucho conmigo"
+       ]
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "Decidir sin tener toda la información.",
+       "escala": [
+        "No va conmigo",
+        "Va mucho conmigo"
+       ]
+      },
+      {
+       "tipo": "dos_caminos",
+       "pregunta": "¿Qué te atrae más de la carrera?",
+       "a": {
+        "texto": "El cuerpo humano y cómo funciona",
+        "dice": "Te gusta la ciencia. Recuerda que en la práctica pasarás más tiempo con personas que con libros."
+       },
+       "b": {
+        "texto": "Ayudar a la gente cuando lo necesita",
+        "dice": "Te gusta el trato humano. Recuerda que para llegar ahí hay años de ciencia pesada."
+       }
+      },
+      {
+       "tipo": "clave",
+       "texto": "Te debe gustar la gente, no solo la biología."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "u4",
+   "lecciones": [
+    {
+     "id": "4.1",
+     "titulo": "Cuánto dura y qué estudias",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Medicina no se cursa igual que otras carreras: tiene etapas, y varias se viven dentro de un hospital."
+      },
+      {
+       "tipo": "ordenar",
+       "pregunta": "Ordena las etapas de la carrera.",
+       "pasos": [
+        "Ciencias básicas: aulas y laboratorios",
+        "Ciclos clínicos: clases dentro del hospital",
+        "Internado: trabajo de tiempo completo en hospital",
+        "Servicio social",
+        "Examen profesional y título"
+       ],
+       "revelacion": "Este es el orden más común en México; cada universidad lo ajusta. Después del título, quien quiere especialidad vuelve a concursar y a estudiar.",
+       "revisar": "fuente"
+      },
+      {
+       "tipo": "rango",
+       "pregunta": "¿Cuántos años crees que pasan desde que entras hasta que te titulas?",
+       "min": 3,
+       "max": 10,
+       "paso": 1,
+       "unidad": "años",
+       "dato": "medicina.duracion"
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Con el título de médico ya eres especialista.",
+       "respuesta": false,
+       "revelacion": "El título te hace médico general. La especialidad es otra etapa: se entra por concurso y toma varios años más.",
+       "revisar": "fuente"
+      },
+      {
+       "tipo": "clave",
+       "texto": "El título es apenas la mitad si quieres especialidad."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "4.2",
+     "titulo": "Cómo se entra",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Entrar a Medicina suele ser de lo más competido en una universidad. Veamos qué tanto sabes del proceso."
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "En las universidades públicas, entrar a Medicina depende solo de tu promedio de prepa.",
+       "respuesta": false,
+       "revelacion": "Lo más común es un examen de admisión; algunas escuelas también cuentan el promedio. Cada universidad publica sus reglas en su convocatoria.",
+       "revisar": "fuente"
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Hay muchos más aspirantes que lugares.",
+       "respuesta": true,
+       "revelacion": "Por eso el puntaje que se pide para Medicina suele ser de los más altos. La cifra cambia cada año y en cada universidad.",
+       "revisar": "fuente"
+      },
+      {
+       "tipo": "dato",
+       "titulo": "Aspirantes por cada lugar",
+       "dato": "medicina.aspirantes"
+      },
+      {
+       "tipo": "decision",
+       "pregunta": "Estás en quinto semestre de prepa y quieres entrar. ¿Qué haces desde hoy?",
+       "opciones": [
+        {
+         "texto": "Revisas la convocatoria y el temario, y armas un plan de estudio",
+         "consecuencia": "La convocatoria te dice fechas, requisitos y temario. Con eso estudias lo que sí viene, y con tiempo.",
+         "mejor": true
+        },
+        {
+         "texto": "Esperas a salir de la prepa para prepararte",
+         "consecuencia": "Se puede, pero compites con quienes llevan meses estudiando. Empezar antes te quita presión."
+        },
+        {
+         "texto": "Confías en tus calificaciones",
+         "consecuencia": "Un buen promedio ayuda, pero el examen pregunta temas concretos. Vale la pena revisar el temario."
+        }
+       ]
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Para hacer una especialidad médica hay que pasar un examen nacional.",
+       "respuesta": true,
+       "revelacion": "Se llama ENARM y se presenta después de titularte. También es muy competido.",
+       "revisar": "fuente"
+      },
+      {
+       "tipo": "clave",
+       "texto": "Entrar es competido: se prepara con tiempo."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "4.3",
+     "titulo": "Dónde, cuánto cuesta y becas",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "El costo de estudiar Medicina cambia mucho entre una universidad pública y una privada. Antes de ver datos, apuesta."
+      },
+      {
+       "tipo": "rango",
+       "pregunta": "¿Cuánto crees que cuesta un semestre en una universidad pública?",
+       "min": 0,
+       "max": 60000,
+       "paso": 1000,
+       "unidad": "pesos",
+       "dato": "medicina.costo_publica"
+      },
+      {
+       "tipo": "rango",
+       "pregunta": "¿Y un semestre en una universidad privada?",
+       "min": 0,
+       "max": 300000,
+       "paso": 5000,
+       "unidad": "pesos",
+       "dato": "medicina.costo_privada"
+      },
+      {
+       "tipo": "dato",
+       "titulo": "Becas para estudiar Medicina",
+       "dato": "medicina.becas"
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Una universidad cara garantiza que serás mejor médico.",
+       "respuesta": false,
+       "revelacion": "El costo no mide la calidad. Fíjate en los hospitales donde harías tus prácticas y en cómo les va a sus egresados.",
+       "revisar": "medico"
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Qué pesa más para ti al elegir escuela?",
+       "opciones": [
+        "El costo",
+        "Que esté cerca de mi casa",
+        "El prestigio",
+        "Los hospitales donde haría prácticas"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Pública o privada cambia el costo, no el esfuerzo."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "u5",
+   "lecciones": [
+    {
+     "id": "5.1",
+     "titulo": "Dónde se trabaja",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Con el título puedes trabajar en lugares muy distintos, y el día a día cambia por completo de uno a otro."
+      },
+      {
+       "tipo": "emparejar",
+       "pregunta": "Une cada lugar con cómo es trabajar ahí.",
+       "pares": [
+        [
+         "Hospital público",
+         "Muchos pacientes, casos muy variados y trabajo en equipo"
+        ],
+        [
+         "Consultorio propio",
+         "Tú pones el horario y también consigues a tus pacientes"
+        ],
+        [
+         "Salud pública",
+         "Programas de prevención para comunidades enteras"
+        ],
+        [
+         "Investigación",
+         "Estudios para probar tratamientos nuevos"
+        ],
+        [
+         "Docencia",
+         "Formas a los próximos médicos"
+        ]
+       ],
+       "revelacion": "Ningún lugar es mejor en todo: unos dan estabilidad, otros libertad y otros alcance.",
+       "revisar": "medico"
+      },
+      {
+       "tipo": "dos_caminos",
+       "pregunta": "¿Qué prefieres?",
+       "a": {
+        "texto": "Sueldo fijo y horario definido",
+        "dice": "Eso se parece a un puesto en una institución: más estabilidad y menos control sobre tu agenda."
+       },
+       "b": {
+        "texto": "Ser mi propio jefe aunque el ingreso varíe",
+        "dice": "Eso se parece al consultorio propio: más libertad, y también te toca administrarlo."
+       }
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Un médico solo puede tener un trabajo a la vez.",
+       "respuesta": false,
+       "revelacion": "Es común combinar: por ejemplo, un puesto en una institución por la mañana y consulta privada por la tarde.",
+       "revisar": "medico"
+      },
+      {
+       "tipo": "clave",
+       "texto": "Muchos médicos combinan dos trabajos."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "5.2",
+     "titulo": "Sueldo y demanda",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Hablemos de dinero sin rodeos. Antes de ver cualquier cifra, apuesta: así recuerdas mejor el dato real."
+      },
+      {
+       "tipo": "rango",
+       "pregunta": "¿Cuánto crees que gana al mes, en promedio, un profesionista de Medicina en México?",
+       "min": 5000,
+       "max": 100000,
+       "paso": 1000,
+       "unidad": "pesos",
+       "dato": "medicina.ingreso"
+      },
+      {
+       "tipo": "rango",
+       "pregunta": "De cada 100 egresados, ¿cuántos crees que trabajan en algo de su carrera?",
+       "min": 0,
+       "max": 100,
+       "paso": 5,
+       "unidad": "de cada 100",
+       "dato": "medicina.ocupacion_afin"
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Un médico general y un especialista ganan parecido.",
+       "respuesta": false,
+       "revelacion": "Con especialidad el ingreso suele ser mayor, pero llegas a él varios años después. Las cifras las mostramos cuando estén verificadas.",
+       "revisar": "fuente"
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Qué tanto pesa el sueldo en tu decisión?",
+       "escala": [
+        "No va conmigo",
+        "Va mucho conmigo"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "El ingreso sube mucho con la especialidad, pero tarda."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "5.3",
+     "titulo": "Cómo la cambia la tecnología",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Un programa de inteligencia artificial revisa una radiografía y marca una mancha sospechosa. Tú eres el médico responsable."
+      },
+      {
+       "tipo": "decision",
+       "pregunta": "¿Qué haces con ese aviso?",
+       "opciones": [
+        {
+         "texto": "Revisas la imagen tú mismo y decides",
+         "consecuencia": "El programa ayuda a no pasar cosas por alto, pero puede equivocarse. Quien firma el diagnóstico eres tú.",
+         "mejor": true
+        },
+        {
+         "texto": "Confías en el programa: ve más imágenes que tú",
+         "consecuencia": "Puede acertar muchas veces, pero no conoce al paciente ni responde por él. Sin revisar, su error se vuelve tuyo."
+        },
+        {
+         "texto": "Lo ignoras: prefieres tu criterio",
+         "consecuencia": "Ignorar una segunda mirada tampoco es prudente. Úsala como ayuda y verifica."
+        }
+       ],
+       "revisar": "medico"
+      },
+      {
+       "tipo": "dos_caminos",
+       "pregunta": "Una paciente vive a cuatro horas del hospital. ¿Le das consulta por videollamada?",
+       "a": {
+        "texto": "Sí: es mejor que no tener consulta",
+        "dice": "Te atrae usar la tecnología para llegar más lejos. Ojo: no todo se puede revisar por pantalla."
+       },
+       "b": {
+        "texto": "Prefiero verla en persona, aunque tarde",
+        "dice": "Valoras la revisión física. Ojo: para algunos pacientes, esperar significa no atenderse."
+       }
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "La tecnología hará que ya no se necesiten médicos.",
+       "respuesta": false,
+       "revelacion": "Cambia las tareas: menos papeleo y más apoyo para decidir. La responsabilidad y el trato con el paciente siguen siendo de una persona.",
+       "revisar": "medico"
+      },
+      {
+       "tipo": "clave",
+       "texto": "La tecnología ayuda a decidir; la responsabilidad sigue siendo tuya."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "5.4",
+     "titulo": "Después de titularte",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Ya tienes el título. No es el final: ahora eliges otra vez qué tipo de médico quieres ser."
+      },
+      {
+       "tipo": "emparejar",
+       "pregunta": "Une cada camino con lo que implica.",
+       "pares": [
+        [
+         "Especialidad",
+         "Varios años más de formación en un hospital"
+        ],
+        [
+         "Maestría en salud pública",
+         "Estudiar la salud de poblaciones enteras"
+        ],
+        [
+         "Investigación",
+         "Hacer estudios y publicar resultados"
+        ],
+        [
+         "Consultorio general",
+         "Empezar a atender pacientes de inmediato"
+        ]
+       ],
+       "revelacion": "Son caminos distintos y se pueden combinar con los años. Ninguno es el «correcto».",
+       "revisar": "medico"
+      },
+      {
+       "tipo": "dos_caminos",
+       "pregunta": "¿Qué harías tú?",
+       "a": {
+        "texto": "Seguir estudiando para especializarme",
+        "dice": "Más años de formación a cambio de dedicarte a lo que más te guste."
+       },
+       "b": {
+        "texto": "Empezar a trabajar cuanto antes",
+        "dice": "Ingreso propio más pronto, con un campo de trabajo más general."
+       }
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Qué área te da más curiosidad hoy?",
+       "opciones": [
+        "Niños",
+        "Cirugía",
+        "Mente y cerebro",
+        "Prevención y comunidad",
+        "Todavía no sé"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Al titularte eliges otra vez."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "u6",
+   "lecciones": [
+    {
+     "id": "6.1",
+     "titulo": "Lo que sentiste",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "reflexion",
+       "pregunta": "Antes de ver tus respuestas: ¿cómo te fue con Medicina?",
+       "opciones": [
+        "Me gustó más de lo que pensaba",
+        "Más o menos como esperaba",
+        "Me gustó menos de lo que pensaba"
+       ]
+      },
+      {
+       "tipo": "resumen"
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "Viendo tus respuestas, ¿qué pesó más?",
+       "opciones": [
+        "Lo que sentí al probarla",
+        "Lo que supe de la realidad",
+        "El camino para llegar",
+        "El futuro que ofrece"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Lo que sentiste al probarla vale más que lo que imaginabas."
+      },
+      {
+       "tipo": "interes",
+       "pregunta": "¿Te ves estudiando Medicina?"
+      }
+     ]
+    },
+    {
+     "id": "6.2",
+     "titulo": "Tu veredicto",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "reflexion",
+       "pregunta": "Si mañana tuvieras que elegir carrera, ¿Medicina estaría entre tus opciones?",
+       "opciones": [
+        "Sí, entre las primeras",
+        "Sí, pero no arriba",
+        "No creo",
+        "No lo sé"
+       ]
+      },
+      {
+       "tipo": "comparar"
+      },
+      {
+       "tipo": "dos_caminos",
+       "pregunta": "¿Qué te ayudaría más a decidir?",
+       "a": {
+        "texto": "Hablar con alguien que la estudia",
+        "dice": "Busca a un estudiante o a un médico cerca de ti y hazle tus preguntas. Una plática aclara más que diez videos."
+       },
+       "b": {
+        "texto": "Probar otra carrera y comparar",
+        "dice": "Explora otra de tu mapa. Comparar dos caminos reales aclara más que pensar en uno solo."
+       }
+      },
+      {
+       "tipo": "veredicto"
+      },
+      {
+       "tipo": "clave",
+       "texto": "Decidir «en duda» también es avanzar."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
