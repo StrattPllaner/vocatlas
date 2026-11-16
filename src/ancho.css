@@ -3,7 +3,7 @@
    el ancho que queda. Desde 1080 px cada pestaña se acomoda en dos columnas en vez de una tira angosta al centro. */
 #nav .ind{transform:translateX(calc(var(--i,0) * 100%))}
 @media (min-width:760px){
- #nav{left:calc(14px + var(--sal));top:50%;bottom:auto;transform:translateY(-50%);width:88px;flex-direction:column;padding:6px;border-radius:30px}
+ #nav{left:calc(14px + var(--sal));top:calc(28px + var(--sat));bottom:auto;transform:none;width:88px;flex-direction:column;padding:6px;border-radius:30px}
  #nav .ind{left:6px;right:6px;top:6px;bottom:auto;width:auto;height:calc((100% - 12px) / 5);transform:translateY(calc(var(--i,0) * 100%))}
  #nav button{flex:none;min-height:72px;font-size:12.5px;border-radius:24px}
  #app.enter #nav{animation:none}
@@ -18,23 +18,38 @@
  .at-row>*{width:auto!important;min-width:0}
 }
 @media (min-width:1080px){
- .vwrap{max-width:1320px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:28px;align-items:start}
+ /* dos columnas parejas; cada pestaña dice qué va en cada una para que ninguna quede con hueco */
+ .vwrap{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:28px;align-items:start;grid-auto-flow:row dense}
  .vwrap>*{grid-column:1 / -1;min-width:0}
- /* Yo: la tarjeta con Rumbo queda fija a la izquierda y lo demás corre a la derecha */
- .pf.vwrap{grid-template-columns:minmax(340px,5fr) minmax(0,7fr)}
- .pf.vwrap>.pf-hero{grid-column:1;grid-row:1 / span 6;position:sticky;top:0}
- .pf.vwrap>:not(.pf-hero){grid-column:2}
- /* Atlas: arriba el resumen; abajo, dos columnas */
+ /* Yo: la tarjeta de Rumbo se acuesta arriba (Rumbo a la izquierda, tus datos a la derecha); abajo dos columnas */
+ .pf.vwrap>.pf-hero{display:grid;grid-template-columns:minmax(300px,38%) 1fr;grid-template-rows:1fr auto;align-items:end}
+ .pf-hero .pf-stage{grid-row:1 / span 2;height:250px}
+ .pf-hero .pf-id{text-align:left;padding:0 32px;align-self:end}
+ .pf-hero .pf-id h2{font-size:40px}
+ .pf-hero .pf-stats{margin:18px 32px 26px;max-width:520px}
+ .pf-hero .pf-stats>div{justify-items:start;padding:0 18px}.pf-hero .pf-stats>div:first-child{padding-left:0}
+ .pf.vwrap>.at-sec:nth-of-type(2){grid-column:1;grid-row:2 / span 2}
+ .pf.vwrap>.pf-goal{grid-column:2;grid-row:2}
+ .pf.vwrap>.at-sec:nth-of-type(4){grid-column:2;grid-row:3}
+ .pf.vwrap .pf-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+ /* Atlas: arriba el saludo; izquierda seguir + brújula + pasaporte; derecha tus carreras */
  .at:not(.pf).vwrap>.at-next{grid-column:1;grid-row:2}
- .at:not(.pf).vwrap>.at-sec:nth-of-type(2){grid-column:2;grid-row:2 / span 2}
+ .at:not(.pf).vwrap>.at-sec:nth-of-type(2){grid-column:2;grid-row:2 / span 3}
  .at:not(.pf).vwrap>.at-sec:nth-of-type(3){grid-column:1;grid-row:3}
- /* Comparar: el duelo arriba y las tarjetas en dos columnas */
- .cx.vwrap>.cx-card{grid-column:auto}
- .cx.vwrap>.cx-card:nth-of-type(2){grid-column:2;grid-row:3 / span 3}
- .cx.vwrap>.cx-card:not(:nth-of-type(2)){grid-column:1}
- .cx-duel{max-width:760px;width:100%;margin-left:auto;margin-right:auto}
- .cx-final{max-width:560px;width:100%;margin-left:auto;margin-right:auto}
- /* Probar: el test destacado y la lista lado a lado */
- #v-probar .vwrap>.hero,#v-probar .vwrap>.group{grid-column:auto;grid-row:4}
- #v-probar .vwrap>h3.sec{grid-column:auto;grid-row:3}
+ .at:not(.pf).vwrap>.at-more{grid-column:1;grid-row:4}
+ /* Comparar: el duelo arriba a todo lo ancho; abajo las tarjetas se reparten solas en dos columnas parejas */
+ .cx.vwrap{display:block;columns:2;column-gap:28px}
+ .cx.vwrap>.cx-t,.cx.vwrap>.cx-duel{column-span:all}
+ .cx.vwrap>.cx-duel{max-width:none;column-gap:20px}
+ .cx.vwrap>.cx-card,.cx.vwrap>.cx-final{break-inside:avoid;margin:0 0 16px}
+ .cx-final{padding:20px;border-radius:24px;background:var(--c-surface);border:var(--bw,2px) solid var(--c-line);border-bottom-width:calc(var(--bw,2px) + 4px)}
+ /* Probar: izquierda el reto y el test; derecha la lista */
+ #v-probar .vwrap>h3.sec:nth-of-type(1){grid-column:1;grid-row:2}
+ #v-probar .vwrap>.hero{grid-column:1;grid-row:3}
+ #v-probar .vwrap>.pb-cards{grid-column:1;grid-row:4;margin-top:16px;display:grid;grid-template-columns:1fr}
+ #v-probar .vwrap>.pb-cards>*{width:auto;max-width:none}
+ #v-probar .vwrap>h3.sec:nth-of-type(2){grid-column:2;grid-row:2}
+ #v-probar .vwrap>.group{grid-column:2;grid-row:3 / span 3}
+ #v-probar .vwrap>.vhead+.pb-cards{grid-row:4}
+ #v-probar .vwrap>div.st:last-child{grid-column:2;grid-row:6}
 }

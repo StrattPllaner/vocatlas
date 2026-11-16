@@ -2087,50 +2087,71 @@ body.lp-open #amb{visibility:hidden}body.lp-open #amb *{animation-play-state:pau
 .din{max-width:560px;margin:0 auto;padding:24px 20px 60px;font-family:var(--ff,inherit);color:var(--c-ink,#14323F)}
 .din h1{font-size:26px;margin:0 0 6px}.din p{margin:0 0 16px;color:var(--c-ink-2,#41505A)}
 
-/* ================= ruta en espiral (rt3) ================= */
-#plaza .lp.rt3{background:radial-gradient(120% 90% at 50% 46%,#7ED3EE 0%,#47ADDD 42%,#2A89C4 100%)}
-#plaza .lp.rt3.lp-dark{background:radial-gradient(120% 90% at 50% 46%,#24608F 0%,#163B5C 50%,#0E2A44 100%)}
-.rt3::before{display:none}
-.rt3-stage{position:relative;z-index:1;flex:1;min-height:0;display:grid;place-items:center;overflow:hidden}
-.rt3-map{position:relative;width:340px;height:340px}
-.rt3-svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;display:block}
-.rt3-waves path{fill:none;stroke:#FFFFFF;stroke-width:2;stroke-linecap:round;opacity:.45}
-.rt3-sh1{fill:rgba(255,255,255,.14)}.rt3-sh2{fill:#8ED8EC;opacity:.75}
-.lp-dark .rt3-sh1{fill:rgba(120,190,230,.1)}.lp-dark .rt3-sh2{fill:#2B6F95;opacity:.8}
-.rt3-trail{fill:none;stroke:var(--c);stroke-width:4;stroke-linecap:round;stroke-dasharray:1000 1000;opacity:.85}
-.rt3-core{position:absolute;left:50%;top:51%;width:30%;aspect-ratio:1;transform:translate(-50%,-62%);pointer-events:none}
-.rt3-core svg{width:100%;height:100%;display:block;overflow:visible}
-/* paradas: botones redondos sobre el sendero (con 44 px de área para tocar) */
-.rt3-n{position:absolute;width:clamp(34px,9.5%,58px);aspect-ratio:1;transform:translate(-50%,-50%);padding:0;border:3px solid #FFFFFF;border-radius:50%;
- display:grid;place-items:center;background:var(--c);color:var(--ct);cursor:pointer;z-index:2;box-shadow:0 4px 0 var(--cd),0 6px 12px rgba(10,40,60,.25);-webkit-tap-highlight-color:transparent;transition:transform .15s ease}
-.rt3-n::after{content:"";position:absolute;inset:-8px;border-radius:50%}
-.rt3-n:active{transform:translate(-50%,-46%)}
-.rt3-n .lp-ic{width:52%;height:52%;stroke-width:3}
-.rt3-n.s-done{background:var(--c)}
-.rt3-n.s-cur{background:#FFFFFF;color:var(--cd);border-color:var(--c);border-width:4px}
-.rt3-n.s-cur::before{content:"";position:absolute;inset:-9px;border-radius:50%;border:3px solid #FFFFFF;animation:rtPulse 1.6s ease-out infinite}
-.rt3-n.s-lock{background:#EFE6D3;color:#8A7A5E;border-color:#FFFBF2;box-shadow:0 4px 0 #C9B997,0 6px 10px rgba(10,40,60,.15)}
-.rt3-n.s-soon{background:#F6EEDC;color:#9C8A68;border:2.5px dashed #B79C74;box-shadow:none}
-.rt3-n.is-final{width:clamp(44px,12%,70px)}
-.rt3-n.is-chest{border:0;background:none;box-shadow:none;width:clamp(40px,11%,64px)}
-.rt3-n.is-chest svg{width:100%;height:100%;overflow:visible}
-.rt3-n.is-chest.s-lock svg{filter:sepia(.9) saturate(.55) brightness(1.08);opacity:.8}
-.rt3-n.is-sel{outline:4px solid #FFFFFF;outline-offset:4px}
-.rt3-n.is-chest.is-sel{outline:0}.rt3-n.is-chest.is-sel svg{filter:drop-shadow(0 0 6px #FFFFFF)}
-.rt3-n.fill{animation:lpFill .5s ease}
-.rt3-n.opened svg{animation:lpOpen .5s cubic-bezier(.3,1.6,.5,1)}
-/* banderín de cada unidad */
-.rt3-u{position:absolute;transform:translate(-50%,-50%);width:22px;height:22px;border-radius:7px;display:grid;place-items:center;z-index:1;pointer-events:none;
- background:#FFFBF2;color:#14323F;font:900 12px/1 var(--ff,inherit);box-shadow:0 2px 0 rgba(20,50,63,.25)}
-.rt3-u.s-done{background:#F2B544}
-.rt3-u.s-soon,.rt3-u.s-lock{background:#F3E9D2;color:#8A7A5E}
-.rt3-rb{left:0;top:0;width:clamp(52px,15%,96px);height:auto;aspect-ratio:1;transform:translate(-50%,-108%);transition:left .7s cubic-bezier(.45,.05,.3,1),top .7s cubic-bezier(.45,.05,.3,1)}
-@media (min-width:760px){.rt3 .rt2-card{margin-bottom:16px;border-radius:24px}}
-/* lo que falta se ve discreto: puntitos de papel; el candado solo aparece en la tarjeta al tocarlos */
-.rt3-n.s-lock:not(.is-chest),.rt3-n.s-soon:not(.is-chest){width:clamp(16px,4.6%,26px);border-width:2px;box-shadow:0 2px 0 #C9B997}
-.rt3-n.s-lock:not(.is-chest) .lp-ic,.rt3-n.s-soon:not(.is-chest) .lp-ic{display:none}
-.rt3-n.s-lock:not(.is-chest)::after,.rt3-n.s-soon:not(.is-chest)::after{inset:-12px}
-.rt3-n.is-chest.s-lock{width:clamp(30px,8%,46px)}
+/* ================= ruta: sendero que baja (rt4) ================= */
+#plaza .lp.rt4{background:var(--c-bg,#F6EFE2)}
+#plaza .lp.rt4.lp-dark{background:#13283B}
+.rt4::before{display:none}
+.rt4-stage{position:relative;z-index:1;flex:1;min-height:0;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;
+ background:radial-gradient(circle at 50% 0,color-mix(in srgb,var(--c) 14%,transparent),transparent 60%)}
+.rt4-col{position:relative;margin:0 auto}
+.rt4-svg{position:absolute;left:0;top:0;overflow:visible;pointer-events:none}
+.rt4-trail{fill:none;stroke:#D8CBB2;stroke-width:7;stroke-linecap:round;stroke-dasharray:.1 17}
+.lp-dark .rt4-trail{stroke:#3A5068}
+.rt4-trail.is-done{stroke:var(--c);stroke-width:9}
+.rt4-deco{opacity:.9}.lp-dark .rt4-deco{opacity:.55}
+/* letrero de cada unidad */
+.rt4-u{position:absolute;left:0;right:0;height:72px;display:flex;align-items:center;gap:12px;padding:0 16px 0 10px;border-radius:20px;box-sizing:border-box;
+ background:var(--c);color:var(--ct);box-shadow:0 5px 0 var(--cd);z-index:1}
+.rt4-un{flex:none;width:44px;height:44px;border-radius:14px;display:grid;place-items:center;background:rgba(255,255,255,.22);font:900 21px/1 var(--ff)}
+.rt4-ut{flex:1;min-width:0;display:grid;gap:1px}
+.rt4-ut small{font:800 11.5px/1.2 var(--ff);letter-spacing:.08em;text-transform:uppercase;opacity:.82}
+.rt4-ut b{font:850 18px/1.15 var(--ff);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rt4-u em{flex:none;font:850 14px/1 var(--ff);font-style:normal;padding:7px 11px;border-radius:99px;background:rgba(255,255,255,.22)}
+.rt4-u.s-lock,.rt4-u.s-soon{background:#ECE3D0;color:#6E6250;box-shadow:0 5px 0 #D5C8AE}
+.lp-dark .rt4-u.s-lock,.lp-dark .rt4-u.s-soon{background:#22394F;color:#A9BACB;box-shadow:0 5px 0 #182B3D}
+.rt4-u.s-lock .rt4-un,.rt4-u.s-soon .rt4-un{background:rgba(0,0,0,.06)}
+/* paradas: botones redondos con volumen */
+.rt4-n{position:absolute;width:68px;height:68px;transform:translate(-50%,-50%);padding:0;border:0;border-radius:50%;cursor:pointer;z-index:2;-webkit-tap-highlight-color:transparent;
+ background:#E4DAC6;color:#8C7E66;box-shadow:0 7px 0 #CBBEA3;transition:transform .12s}
+.rt4-n::after{content:"";position:absolute;inset:-10px;border-radius:50%}
+.rt4-n:active{transform:translate(-50%,calc(-50% + 4px));box-shadow:0 3px 0 #CBBEA3}
+.rt4-face{display:grid;place-items:center;width:100%;height:100%;border-radius:50%}
+.rt4-n .lp-ic{width:30px;height:30px;stroke-width:2.6}
+.lp-dark .rt4-n{background:#2A4259;color:#7F95AA;box-shadow:0 7px 0 #1A2E41}
+.rt4-n.s-done{background:var(--c);color:var(--ct);box-shadow:0 7px 0 var(--cd)}
+.rt4-n.s-cur{width:80px;height:80px;background:var(--c);color:var(--ct);box-shadow:0 8px 0 var(--cd)}
+.rt4-n.s-cur .lp-ic{width:36px;height:36px}
+.rt4-n.s-cur::before{content:"";position:absolute;inset:-9px;border-radius:50%;border:5px solid color-mix(in srgb,var(--c) 35%,transparent);animation:rtPulse 1.8s ease-out infinite}
+.rt4-n.s-soon{background:transparent;border:3px dashed #C9B997;box-shadow:none;color:#B5A585}
+.lp-dark .rt4-n.s-soon{border-color:#3A5068;color:#4F6880}
+.rt4-n.s-done .rt4-face{background:radial-gradient(circle at 35% 28%,rgba(255,255,255,.28),transparent 55%)}
+.rt4-n.is-chest{width:78px;height:72px;background:none;box-shadow:none;border-radius:0}
+.rt4-n.is-chest svg{width:100%;height:100%;overflow:visible}
+.rt4-n.is-chest.s-lock svg{filter:grayscale(.85) brightness(1.1);opacity:.7}
+.rt4-n.is-sel:not(.is-chest){outline:4px solid var(--c);outline-offset:5px}
+.rt4-n.is-sel.s-cur{outline-color:transparent}
+.rt4-n.is-chest.is-sel svg{filter:drop-shadow(0 0 8px color-mix(in srgb,var(--c) 70%,#fff))}
+.rt4-n.fill{animation:lpFill .5s ease}.rt4-n.opened svg{animation:lpOpen .5s cubic-bezier(.3,1.6,.5,1)}
+.rt4-ok{position:absolute;right:-4px;top:-4px;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:#F2B544;color:#14323F;border:3px solid var(--c-bg,#F6EFE2)}
+.lp-dark .rt4-ok{border-color:#13283B}
+.rt4-ok .lp-ic{width:14px!important;height:14px!important;stroke-width:3.6}
+/* globito sobre la parada que sigue */
+.rt4-tip{position:absolute;transform:translate(-50%,-100%);z-index:3;padding:8px 14px;border-radius:14px;background:var(--c-surface,#fff);color:var(--cd);font:900 13px/1 var(--ff);letter-spacing:.04em;text-transform:uppercase;white-space:nowrap;
+ border:2px solid color-mix(in srgb,var(--c) 40%,#E7DCC6);pointer-events:none;animation:rt4Bob 1.6s ease-in-out infinite}
+.lp-dark .rt4-tip{background:#1E3448;color:#F3EEE4}
+.rt4-tip::after{content:"";position:absolute;left:50%;bottom:-8px;width:12px;height:12px;background:inherit;border-right:inherit;border-bottom:inherit;transform:translateX(-50%) rotate(45deg)}
+.rt4-tip[hidden]{display:none}
+@keyframes rt4Bob{50%{transform:translate(-50%,calc(-100% - 5px))}}
+/* Rumbo a un lado */
+.rt4-rb{width:74px;height:74px;transform:translate(-50%,-62%);transition:left .7s cubic-bezier(.45,.05,.3,1),top .7s cubic-bezier(.45,.05,.3,1)}
+/* la meta */
+.rt4-goal{position:absolute;left:50%;transform:translate(-50%,-30%);width:200px;display:grid;justify-items:center;gap:2px;text-align:center;color:var(--c-ink,#14323F)}
+.lp-dark .rt4-goal{color:#F3EEE4}
+.rt4-gart{width:150px;height:150px;filter:grayscale(.75) opacity(.75)}.rt4-goal.is-done .rt4-gart{filter:none}
+.rt4-gart svg{width:100%;height:100%;display:block;overflow:visible}
+.rt4-goal b{font:900 18px/1.2 var(--ff)}.rt4-goal small{font:700 13px/1.3 var(--ff);opacity:.7}
+@media (min-width:760px){.rt4 .rt2-card{margin-bottom:16px;border-radius:24px}}
+@media (prefers-reduced-motion:reduce){.rt4-n.s-cur::before,.rt4-tip{animation:none}.rt4-rb{transition:none}}
 /* ================= Probar: test de intereses y comparador ================= */
 .pb-cards{display:grid;gap:12px;margin:0 0 26px}
 .pb-card{display:flex;align-items:center;gap:14px;width:100%;text-align:left;font:inherit;color:var(--c-ink);cursor:pointer;-webkit-tap-highlight-color:transparent}
@@ -2257,7 +2278,7 @@ body.lp-open #amb{visibility:hidden}body.lp-open #amb *{animation-play-state:pau
    el ancho que queda. Desde 1080 px cada pestaña se acomoda en dos columnas en vez de una tira angosta al centro. */
 #nav .ind{transform:translateX(calc(var(--i,0) * 100%))}
 @media (min-width:760px){
- #nav{left:calc(14px + var(--sal));top:50%;bottom:auto;transform:translateY(-50%);width:88px;flex-direction:column;padding:6px;border-radius:30px}
+ #nav{left:calc(14px + var(--sal));top:calc(28px + var(--sat));bottom:auto;transform:none;width:88px;flex-direction:column;padding:6px;border-radius:30px}
  #nav .ind{left:6px;right:6px;top:6px;bottom:auto;width:auto;height:calc((100% - 12px) / 5);transform:translateY(calc(var(--i,0) * 100%))}
  #nav button{flex:none;min-height:72px;font-size:12.5px;border-radius:24px}
  #app.enter #nav{animation:none}
@@ -2272,25 +2293,40 @@ body.lp-open #amb{visibility:hidden}body.lp-open #amb *{animation-play-state:pau
  .at-row>*{width:auto!important;min-width:0}
 }
 @media (min-width:1080px){
- .vwrap{max-width:1320px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:28px;align-items:start}
+ /* dos columnas parejas; cada pestaña dice qué va en cada una para que ninguna quede con hueco */
+ .vwrap{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:28px;align-items:start;grid-auto-flow:row dense}
  .vwrap>*{grid-column:1 / -1;min-width:0}
- /* Yo: la tarjeta con Rumbo queda fija a la izquierda y lo demás corre a la derecha */
- .pf.vwrap{grid-template-columns:minmax(340px,5fr) minmax(0,7fr)}
- .pf.vwrap>.pf-hero{grid-column:1;grid-row:1 / span 6;position:sticky;top:0}
- .pf.vwrap>:not(.pf-hero){grid-column:2}
- /* Atlas: arriba el resumen; abajo, dos columnas */
+ /* Yo: la tarjeta de Rumbo se acuesta arriba (Rumbo a la izquierda, tus datos a la derecha); abajo dos columnas */
+ .pf.vwrap>.pf-hero{display:grid;grid-template-columns:minmax(300px,38%) 1fr;grid-template-rows:1fr auto;align-items:end}
+ .pf-hero .pf-stage{grid-row:1 / span 2;height:250px}
+ .pf-hero .pf-id{text-align:left;padding:0 32px;align-self:end}
+ .pf-hero .pf-id h2{font-size:40px}
+ .pf-hero .pf-stats{margin:18px 32px 26px;max-width:520px}
+ .pf-hero .pf-stats>div{justify-items:start;padding:0 18px}.pf-hero .pf-stats>div:first-child{padding-left:0}
+ .pf.vwrap>.at-sec:nth-of-type(2){grid-column:1;grid-row:2 / span 2}
+ .pf.vwrap>.pf-goal{grid-column:2;grid-row:2}
+ .pf.vwrap>.at-sec:nth-of-type(4){grid-column:2;grid-row:3}
+ .pf.vwrap .pf-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+ /* Atlas: arriba el saludo; izquierda seguir + brújula + pasaporte; derecha tus carreras */
  .at:not(.pf).vwrap>.at-next{grid-column:1;grid-row:2}
- .at:not(.pf).vwrap>.at-sec:nth-of-type(2){grid-column:2;grid-row:2 / span 2}
+ .at:not(.pf).vwrap>.at-sec:nth-of-type(2){grid-column:2;grid-row:2 / span 3}
  .at:not(.pf).vwrap>.at-sec:nth-of-type(3){grid-column:1;grid-row:3}
- /* Comparar: el duelo arriba y las tarjetas en dos columnas */
- .cx.vwrap>.cx-card{grid-column:auto}
- .cx.vwrap>.cx-card:nth-of-type(2){grid-column:2;grid-row:3 / span 3}
- .cx.vwrap>.cx-card:not(:nth-of-type(2)){grid-column:1}
- .cx-duel{max-width:760px;width:100%;margin-left:auto;margin-right:auto}
- .cx-final{max-width:560px;width:100%;margin-left:auto;margin-right:auto}
- /* Probar: el test destacado y la lista lado a lado */
- #v-probar .vwrap>.hero,#v-probar .vwrap>.group{grid-column:auto;grid-row:4}
- #v-probar .vwrap>h3.sec{grid-column:auto;grid-row:3}
+ .at:not(.pf).vwrap>.at-more{grid-column:1;grid-row:4}
+ /* Comparar: el duelo arriba a todo lo ancho; abajo las tarjetas se reparten solas en dos columnas parejas */
+ .cx.vwrap{display:block;columns:2;column-gap:28px}
+ .cx.vwrap>.cx-t,.cx.vwrap>.cx-duel{column-span:all}
+ .cx.vwrap>.cx-duel{max-width:none;column-gap:20px}
+ .cx.vwrap>.cx-card,.cx.vwrap>.cx-final{break-inside:avoid;margin:0 0 16px}
+ .cx-final{padding:20px;border-radius:24px;background:var(--c-surface);border:var(--bw,2px) solid var(--c-line);border-bottom-width:calc(var(--bw,2px) + 4px)}
+ /* Probar: izquierda el reto y el test; derecha la lista */
+ #v-probar .vwrap>h3.sec:nth-of-type(1){grid-column:1;grid-row:2}
+ #v-probar .vwrap>.hero{grid-column:1;grid-row:3}
+ #v-probar .vwrap>.pb-cards{grid-column:1;grid-row:4;margin-top:16px;display:grid;grid-template-columns:1fr}
+ #v-probar .vwrap>.pb-cards>*{width:auto;max-width:none}
+ #v-probar .vwrap>h3.sec:nth-of-type(2){grid-column:2;grid-row:2}
+ #v-probar .vwrap>.group{grid-column:2;grid-row:3 / span 3}
+ #v-probar .vwrap>.vhead+.pb-cards{grid-row:4}
+ #v-probar .vwrap>div.st:last-child{grid-column:2;grid-row:6}
 }
 /*@iso-css-fin*/
 </style>
@@ -8852,96 +8888,78 @@ var PATH=(function(){
     :'<path d="M12 34L40 20L68 34L40 48Z" fill="#E8AE55"/><path d="M12 34L40 48L40 40L12 26Z" fill="#E8AE55"/><path d="M12 26L40 12L68 26L40 40Z" fill="#F2C470"/><path d="M40 40L68 26V34L40 48Z" fill="#C98A3A"/>')+
    '<rect x="35" y="'+(open?46:42)+'" width="10" height="10" rx="2" fill="#F2C14E" stroke="#8A5A1E" stroke-width="1.4"/><circle cx="40" cy="'+(open?50:46)+'" r="1.6" fill="#8A5A1E"/></svg>'}
 
- /* ---------- la ruta es una espiral hacia el centro de la carrera ----------
-    Una sola isla redonda. El sendero entra por la playa y da vueltas hacia el centro, donde está el edificio de la carrera.
-    La isla empieza en boceto y se pinta a color por donde ya pasaste, igual que el mapa. Todo cabe en una pantalla. */
- var V=400,VH=400,KY=1,CX=200,CY=204,R0=150,R1=52,TURNS=2.15,A0=Math.PI*.5;
- /* en celular la isla se estira a lo alto para llenar la pantalla */
- function shape(){var vw=window.innerWidth,vh=window.innerHeight;KY=Math.max(.92,Math.min(1.5,(vh-230)/Math.max(200,vw-24)));VH=Math.round(400*KY);CY=Math.round(VH/2+4)}
- /* la espiral muestreada: puntos y largo acumulado */
- function spiral(){if(st.sp)return st.sp;var pts=[],L=[0],N=700,TH=TURNS*Math.PI*2;
-  for(var i=0;i<=N;i++){var t=i/N,th=t*TH,r=R0-(R0-R1)*t,a=A0+th;pts.push([CX+Math.cos(a)*r,CY+Math.sin(a)*r*.96*KY]);if(i)L.push(L[i-1]+Math.hypot(pts[i][0]-pts[i-1][0],pts[i][1]-pts[i-1][1]))}
-  st.sp={p:pts,L:L,T:L[N]};return st.sp}
- function at(f){var S=spiral(),want=f*S.T,lo=0,hi=S.L.length-1;while(hi-lo>1){var m=(lo+hi)>>1;if(S.L[m]<want)lo=m;else hi=m}return S.p[hi]}
- function pathTo(f){var S=spiral(),d="",want=f*S.T;for(var i=0;i<S.p.length&&S.L[i]<=want+.01;i+=3)d+=(i?"L":"M")+S.p[i][0].toFixed(1)+" "+S.p[i][1].toFixed(1);return d}
- /* dónde va cada parada sobre el sendero (las primeras un poco más separadas: la vuelta de afuera es más larga) */
- function posOf(k,n){return .035+.93*k/(n-1)}
- /* suelo de la isla (a color); la versión boceto sale de la misma con ISO.sketchAll */
- function ground(id){
-  var c=byId[id],r=rng(hash(id+"espiral")),grass=mixHex(c.color,"#8CC772",.66),grass2=mixHex(c.color,"#72AE5F",.6),road=pathTo(1);
-  var coast=ISO.smooth(ISO.blobPts(CX,CY,R0+30,(R0*.96+28)*KY,5,r()*6,.05,null,72)),top=ISO.smooth(ISO.blobPts(CX,CY-2,R0+12,(R0*.96+10)*KY,5,r()*6,.05,null,72));
-  var g='<path d="'+coast+'" fill="#D9B97E" transform="translate(0 9)"/><path d="'+coast+'" fill="#F1DDAE"/>'+
-   '<path d="'+top+'" fill="'+grass2+'" transform="translate(0 5)"/><path d="'+top+'" fill="'+grass+'"/>';
-  /* manchas de pasto más claro entre las vueltas */
-  for(var k=0;k<7;k++){var q=at(.06+k*.13),dx=(q[0]-CX)*.12,dy=(q[1]-CY)*.12;g+='<ellipse cx="'+(q[0]+dx).toFixed(0)+'" cy="'+(q[1]+dy).toFixed(0)+'" rx="'+(16+r()*12).toFixed(0)+'" ry="'+(7+r()*5).toFixed(0)+'" fill="'+mixHex(grass,"#FFFFFF",.18)+'"/>'}
-  /* sendero: orilla, arena y huellas al centro */
-  g+='<path d="'+road+'" fill="none" stroke="#C9A877" stroke-width="19" stroke-linecap="round" stroke-linejoin="round"/>'+
-   '<path d="'+road+'" fill="none" stroke="#EED9AE" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>'+
-   '<path d="'+road+'" fill="none" stroke="#D8BE8C" stroke-width="2" stroke-dasharray="3 9" stroke-linecap="round"/>';
-  /* vegetación en medio de las vueltas, lejos de las paradas y del centro */
-  var dec="",K=["palm","treeRound","rock","bush","treePine","flowers","palm","bush","treeRound","rock"],placed=[];
-  for(var t=0;t<160&&placed.length<9;t++){var f=r(),q2=at(f),mid=[CX+(q2[0]-CX)*(1+.17*(r()<.5?1:-1)),CY+(q2[1]-CY)*(1+.17*(r()<.5?1:-1))],dc=Math.hypot(mid[0]-CX,mid[1]-CY);
-   var de=Math.hypot(mid[0]-CX,(mid[1]-CY)/KY);if(de<R1+40||de>R0+6)continue;var ok=true;
-   for(var j=0;j<=40;j++){var s2=at(j/40);if(Math.hypot(s2[0]-mid[0],s2[1]-mid[1])<20){ok=false;break}}
-   placed.forEach(function(p){if(Math.hypot(p[0]-mid[0],p[1]-mid[1])<30)ok=false});if(ok)placed.push(mid)}
-  var hand="";placed.sort(function(a,b){return a[1]-b[1]}).forEach(function(p,i){dec+='<g transform="translate('+p[0].toFixed(1)+' '+p[1].toFixed(1)+') scale(.62)">'+ENV.one(K[i%K.length],{d:2,k:1,ph:i,flip:i%2===1})+'</g>';
-   /* en boceto: un arbolito dibujado a mano */
-   hand+='<g transform="translate('+p[0].toFixed(1)+' '+p[1].toFixed(1)+')" fill="#F7EEDB" stroke="#A88B62" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="1" cy="1" rx="8" ry="2.6" fill="#E9DCC0" stroke="none"/><path d="M0 0V-6" fill="none"/><circle cx="-4.5" cy="-9" r="5.2"/><circle cx="4.5" cy="-9.5" r="5"/><circle cx="0" cy="-14" r="6"/><path d="M-2 -15q2-2 4 0" fill="none" stroke-width=".9"/></g>'});
-  return {c:g+dec,s:ISO.sketchAll(g)+'<path d="'+coast+'" fill="none" stroke="#B79C74" stroke-width="1.6"/>'+hand}}
+ /* ---------- la ruta: un sendero que baja ----------
+    Las lecciones van una debajo de otra en zigzag suave, unidas por un sendero de puntos. Cada unidad abre con un letrero.
+    El sendero se pinta del color de la carrera hasta donde llegaste y al final espera el edificio de la carrera (la meta).
+    Se recorre deslizando hacia abajo; al entrar se acomoda en la lección que sigue. */
+ var CW=380,ROW=104,HEAD=118,TOP=26,ZZ=[0,.62,.92,.62,0,-.62,-.92,-.62];
+ function lay(cat){var y=TOP,k=0,heads=[],deco=[];CW=Math.max(300,Math.min(440,(st.sc?st.sc.clientWidth:380)-24));
+  cat.units.forEach(function(u,ui){heads.push({y:y,ui:ui});y+=HEAD;
+   u.items.forEach(function(it){var o=ZZ[k%ZZ.length];it.off=o;it.x=CW/2+o*CW*.27;it.y=y+ROW/2;
+    /* adorno del lado vacío cuando la parada va muy de lado */
+    if(Math.abs(o)>.9)deco.push({x:CW/2-Math.sign(o)*CW*.3,y:it.y+10,k:k});
+    y+=ROW;k++})});
+  return {h:y+250,heads:heads,deco:deco,end:y+110}}
+ /* curva suave que pasa por todas las paradas */
+ function curve(P){if(!P.length)return "";var d="M"+P[0][0].toFixed(1)+" "+P[0][1].toFixed(1);
+  for(var i=1;i<P.length;i++){var a=P[i-1],b=P[i],m=(b[1]-a[1])*.5;d+="C"+a[0].toFixed(1)+" "+(a[1]+m).toFixed(1)+" "+b[0].toFixed(1)+" "+(b[1]-m).toFixed(1)+" "+b[0].toFixed(1)+" "+b[1].toFixed(1)}return d}
+ var DECO=["treeRound","bush","palm","flowers","treePine","rock"];
  function build(id){
-  shape();var c=byId[id],p=$("#plaza"),dark=!!(DMQ&&DMQ.matches),cat=catalog(id),pg=progOf(id);st.id=id;st.items=cat.all;st.units=cat.units;st.sp=null;
+  var c=byId[id],p=$("#plaza"),dark=!!(DMQ&&DMQ.matches),cat=catalog(id),pg=progOf(id);st.id=id;st.items=cat.all;st.units=cat.units;
   if(typeof artDefs==="function")artDefs();
-  var col=c.color,cd=dk(col,.38),txt=lum(col)>.62?"#14323F":"#FFFFFF",n=cat.all.length;
+  var col=c.color,cd=dk(col,.38),txt=lum(col)>.62?"#14323F":"#FFFFFF";
   p.style.setProperty("--pc",col);
-  /* cuánto del sendero ya se recorrió: hasta la última parada hecha seguida */
-  var reach=-1;cat.all.forEach(function(it,k){if(it.done&&reach===k-1)reach=k});
-  var fr=reach<0?0:Math.min(1,posOf(reach,n)+.5/(n-1)),g=ground(id),road=pathTo(fr);
-  /* la parte a color se ve solo por donde ya pasaste (una franja del ancho de una vuelta sobre el sendero) */
-  var band=((R0-R1)/TURNS).toFixed(0),mask=fr>=.995?'<rect x="0" y="0" width="'+V+'" height="'+VH+'" fill="#fff"/>':
-   (fr>0?'<path d="'+road+'" fill="none" stroke="#fff" stroke-width="'+band+'" stroke-linecap="round" stroke-linejoin="round"/>':'');
-  var waves="";for(var w=0;w<10;w++){var a=w/10*6.283+.3,rr=R0+58+(w%3)*14;waves+='<path d="M'+(CX+Math.cos(a)*rr*1.12-9).toFixed(0)+' '+(CY+Math.sin(a)*rr*KY).toFixed(0)+'q4.5-4 9 0q4.5-4 9 0"/>'}
-  var svg='<svg class="rt3-svg" viewBox="0 0 '+V+' '+VH+'" aria-hidden="true"><defs>'+ENV.DEFS+ISO.skDefs()+'<mask id="rt3m" maskUnits="userSpaceOnUse" x="0" y="0" width="'+V+'" height="'+VH+'">'+mask+'</mask></defs>'+
-   '<g class="rt3-waves">'+waves+'</g>'+
-   '<ellipse cx="'+CX+'" cy="'+(CY+8)+'" rx="'+(R0+62)+'" ry="'+((R0*.96+60)*KY).toFixed(0)+'" class="rt3-sh1"/><ellipse cx="'+CX+'" cy="'+(CY+6)+'" rx="'+(R0+44)+'" ry="'+((R0*.96+42)*KY).toFixed(0)+'" class="rt3-sh2"/>'+
-   '<g>'+g.s+'</g>'+(mask?'<g mask="url(#rt3m)">'+g.c+'</g>':'')+
-   '<path d="'+pathTo(1)+'" class="rt3-trail" pathLength="1000" style="stroke-dashoffset:'+(1000*(1-fr)).toFixed(0)+'"/></svg>';
-  var h='<div class="lp rt2 rt3'+(dark?" lp-dark":"")+'" style="--c:'+col+';--cd:'+cd+';--ct:'+txt+'">'+
+  var h='<div class="lp rt2 rt4'+(dark?" lp-dark":"")+'" style="--c:'+col+';--cd:'+cd+';--ct:'+txt+'">'+
    '<header class="rt2-head"><button class="lp-back rt2-back" id="pzx" aria-label="Volver al mapa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>'+
    '<div class="rt2-t"><h2>'+esc(c.name)+'</h2><div class="rt2-pg"><div class="rt2-bar"><i style="width:'+(pg.p*100).toFixed(1)+'%"></i></div><b class="num">'+pg.done+'/'+pg.total+'</b></div></div></header>'+
-   '<div class="rt3-stage" id="lpScroll"><div class="rt3-map" id="lpCol">'+svg+
-   '<div class="rt3-core" aria-hidden="true">'+artSVG(id,pg.p)+'</div>';
-  /* marcas de unidad: un banderín con su número antes de su primera parada */
-  cat.units.forEach(function(u,ui){var it=u.items[0];if(!it)return;var f=Math.max(.004,posOf(it.k2,n)-.42/(n-1)),q=at(f);
-   h+='<span class="rt3-u s-'+u.state+'" style="left:'+(q[0]/V*100).toFixed(2)+'%;top:'+(q[1]/VH*100).toFixed(2)+'%" aria-hidden="true">'+(ui+1)+'</span>'});
-  cat.all.forEach(function(it,k){var q=at(posOf(k,n));it.x=q[0];it.y=q[1];
-   var ic=it.chest!=null?"":it.state==="done"?LIC.check:it.state==="lock"||it.state==="soon"?LIC.lock:LIC[LI[it.lid]]||LIC.libro;
-   h+='<button type="button" class="rt3-n s-'+it.state+(it.chest!=null?" is-chest":"")+(it.parada==="final"?" is-final":"")+'" data-i="'+k+'" style="left:'+(q[0]/V*100).toFixed(2)+'%;top:'+(q[1]/VH*100).toFixed(2)+'%" aria-label="'+(it.lid?it.lid+" ":"")+esc(it.n)+(it.state==="done"?", hecha":it.state==="soon"?", llega pronto":it.state==="lock"?", bloqueada":"")+'">'+
-    (it.chest!=null?chestSVG(it.done):icon(ic,"lp-ic"))+'</button>'});
-  h+='<div class="rt2-rb rt3-rb" id="lpRb">'+(typeof skinOn==="function"&&RUMBO.SKINS[id]&&skinOn(id)?skinRb(id):rumboEl())+'</div></div></div>'+
+   '<div class="rt4-stage" id="lpScroll"><div class="rt4-col" id="lpCol"></div></div>'+
    '<div class="rt2-card" id="lpPop" aria-live="polite"></div></div>';
-  p.innerHTML=h;
-  st.el=p.querySelector(".lp");st.sc=$("#lpScroll");
-  PZ.rb=p.querySelector(".rt2-rb .rb");PZ.el=null;wireRumbo(PZ.rb);
+  p.innerHTML=h;st.el=p.querySelector(".lp");st.sc=$("#lpScroll");
+  draw(id,cat,pg);
   $("#pzx").onclick=function(){leave();exitPlaza()};
-  each(p.querySelectorAll(".rt3-n"),function(b){b.onclick=function(e){e.stopPropagation();select(+b.getAttribute("data-i"),true)}});
-  fit();if(!st.rz){st.rz=1;window.addEventListener("resize",function(){if(st.sc&&st.sc.isConnected)fit()})}
-  var ci=curIndex();placeRumbo(ci,false);select(ci,false);
+  if(!st.rz){st.rz=1;var tm;window.addEventListener("resize",function(){clearTimeout(tm);tm=setTimeout(function(){if(st.sc&&st.sc.isConnected){draw(st.id,catalog(st.id),progOf(st.id));placeRumbo(curIndex(),false);select(st.sel,false)}},120)})}
+  var ci=curIndex();placeRumbo(ci,false);select(ci,false);toCur(ci,false);
  }
- /* el cuadro de la isla: lo más grande que quepa entre el encabezado y la tarjeta */
- function fit(){var s=st.sc,m=$("#lpCol");if(!s||!m)return;var w=s.clientWidth-12,h=s.clientHeight-6,z=Math.max(240,Math.min(w,h/(VH/V),820));m.style.width=z+"px";m.style.height=(z*VH/V)+"px"}
+ function draw(id,cat,pg){
+  var L=lay(cat),col=$("#lpCol"),n=cat.all.length;st.items=cat.all;
+  var P=cat.all.map(function(it){return [it.x,it.y]});
+  var all=P.concat([[CW/2,L.end]]),dn="";
+  /* cada tramo se pinta si ya saliste de la parada de arriba y la de abajo ya está abierta */
+  cat.all.forEach(function(it,k){var nx=cat.all[k+1];if((it.done||(nx&&nx.done))&&(nx?nx.state!=="lock"&&nx.state!=="soon":true))dn+=curve([all[k],all[k+1]])});
+  var deco="";L.deco.forEach(function(d,i){deco+='<g transform="translate('+d.x.toFixed(0)+' '+d.y.toFixed(0)+') scale(2.3)">'+ENV.one(DECO[(d.k+hash(id))%DECO.length],{d:2,k:1,ph:i,flip:i%2===1})+'</g>'});
+  var h='<svg class="rt4-svg" width="'+CW+'" height="'+L.h+'" viewBox="0 0 '+CW+' '+L.h+'" aria-hidden="true"><defs>'+ENV.DEFS+'</defs>'+
+   '<g class="rt4-deco">'+deco+'</g>'+
+   '<path d="'+curve(all)+'" class="rt4-trail"/>'+(dn?'<path d="'+dn+'" class="rt4-trail is-done"/>':'')+'</svg>';
+  L.heads.forEach(function(hd){var u=cat.units[hd.ui],L2=u.items.filter(function(it){return it.lid});
+   h+='<div class="rt4-u s-'+u.state+'" style="top:'+hd.y+'px"><span class="rt4-un num">'+(hd.ui+1)+'</span><div class="rt4-ut"><small>Unidad '+(hd.ui+1)+'</small><b>'+esc(u.t)+'</b></div>'+
+    (u.state==="soon"?'<em>Pronto</em>':'<em class="num">'+u.done+'/'+L2.length+'</em>')+'</div>'});
+  cat.all.forEach(function(it,k){
+   var ic=it.chest!=null?"":it.state==="soon"?LIC.lock:LIC[LI[it.lid]]||LIC.libro;
+   h+='<button type="button" class="rt3-n rt4-n s-'+it.state+(it.chest!=null?" is-chest":"")+(it.parada==="final"?" is-final":"")+'" data-i="'+k+'" style="left:'+it.x.toFixed(1)+'px;top:'+it.y.toFixed(1)+'px" aria-label="'+(it.lid?it.lid+" ":"")+esc(it.n)+(it.state==="done"?", hecha":it.state==="soon"?", llega pronto":it.state==="lock"?", bloqueada":"")+'">'+
+    (it.chest!=null?chestSVG(it.done):'<span class="rt4-face">'+icon(ic,"lp-ic")+'</span>'+(it.state==="done"?'<i class="rt4-ok">'+icon(LIC.check,"lp-ic")+'</i>':''))+'</button>'});
+  /* la meta: el edificio de la carrera */
+  h+='<div class="rt4-goal'+(pg.p>=1?" is-done":"")+'" style="top:'+L.end+'px"><div class="rt4-gart">'+artSVG(id,pg.p)+'</div><b>'+(pg.p>=1?"¡Llegaste!":"La meta")+'</b><small>'+(pg.p>=1?"Ganaste el sello de la carrera":"Termina todo para ganar su sello")+'</small></div>';
+  h+='<div class="rt2-rb rt4-rb" id="lpRb">'+(typeof skinOn==="function"&&RUMBO.SKINS[id]&&skinOn(id)?skinRb(id):rumboEl())+'</div><div class="rt4-tip" id="lpTip"></div>';
+  col.style.width=CW+"px";col.style.height=L.h+"px";col.innerHTML=h;
+  PZ.rb=col.querySelector(".rt2-rb .rb");PZ.el=null;wireRumbo(PZ.rb);
+  each(col.querySelectorAll(".rt4-n"),function(b){b.onclick=function(e){e.stopPropagation();select(+b.getAttribute("data-i"),true)}});
+ }
+ function toCur(i,smooth){var it=st.items[i],s=st.sc;if(!it||!s)return;var t=Math.max(0,it.y-s.clientHeight*.45);if(smooth&&!RM()&&s.scrollTo)s.scrollTo({top:t,behavior:"smooth"});else s.scrollTop=t}
+ function fit(){}
  function curIndex(){for(var i=0;i<st.items.length;i++)if(st.items[i].state==="open")return i;
   for(i=0;i<st.items.length;i++)if(st.items[i].state==="cur")return i;
   for(i=st.items.length-1;i>=0;i--)if(st.items[i].state==="done")return i;return 0}
- /* Rumbo de pie junto a la parada actual */
+ /* Rumbo de pie a un lado de la parada actual, del lado donde hay espacio; arriba, un globito con lo que toca */
  function placeRumbo(i,walk){var e=$("#lpRb");if(!e)return;var it=st.items[i];if(!it)return;
-  e.style.left=(it.x/V*100).toFixed(2)+"%";e.style.top=(it.y/VH*100).toFixed(2)+"%";
+  var side=it.off>.1?-1:1;e.style.left=(it.x+side*78).toFixed(1)+"px";e.style.top=(it.y+6).toFixed(1)+"px";
+  var tip=$("#lpTip");if(tip){var cur=it.state==="cur"||it.state==="open";tip.textContent=it.chest!=null?"¡Ábrelo!":S.lp&&S.lp[st.id+":"+it.lid]!=null?"Seguir":"Empieza aquí";tip.style.left=it.x.toFixed(1)+"px";tip.style.top=(it.y-52).toFixed(1)+"px";tip.hidden=!cur}
   if(PZ.rb){if(walk&&!RM()){PZ.rb.classList.add("walk");setTimeout(function(){PZ.rb&&PZ.rb.classList.remove("walk")},720)}
    mood(PZ.rb,it.parada==="hexagono"?"curious":it.state==="done"?"happy":"idle")}}
  function unitOf(i){return st.items[i].u}
  /* tarjeta de abajo con la parada elegida */
  function select(i,scroll){
   st.sel=i;var it=st.items[i],u=st.units[it.u],pop=$("#lpPop");
-  each(document.querySelectorAll(".rt3-n"),function(b){b.classList.toggle("is-sel",+b.getAttribute("data-i")===i)});
+  each(document.querySelectorAll(".rt4-n"),function(b){b.classList.toggle("is-sel",+b.getAttribute("data-i")===i)});
   var h='<div class="rt2-ci"><div class="rt2-ct"><span>Unidad '+(it.u+1)+' de '+st.units.length+' · '+esc(u.t)+'</span><h3>'+esc(it.n)+'</h3></div>',btn="",meta="";
   if(it.state==="soon")meta="Llega pronto";
   else if(it.state==="lock")meta=it.chest!=null?"Termina la unidad para abrirlo":"Termina la lección anterior";
@@ -8992,9 +9010,9 @@ var PATH=(function(){
   setTimeout(function(){refresh(true)},RM()?0:650);
  }
  function refresh(animate){if(!st.sc||!$("#lpScroll"))return;var prev=curIndex();build(st.id);
-  var ci=curIndex();if(animate&&ci!==prev){placeRumbo(prev,false);void document.body.offsetWidth;setTimeout(function(){placeRumbo(ci,true)},RM()?0:60)}
+  var ci=curIndex();if(animate&&ci!==prev){var sc=st.sc.scrollTop;placeRumbo(prev,false);toCur(prev,false);void document.body.offsetWidth;setTimeout(function(){placeRumbo(ci,true);toCur(ci,true)},RM()?0:60)}
   if(animate&&PZ.rb)setTimeout(function(){mood(PZ.rb,"happy","jump")},RM()?0:760)}
- function show(){document.body.classList.add("lp-open");fit();if(PZ.rb)mood(PZ.rb,"happy","wave")}
+ function show(){document.body.classList.add("lp-open");toCur(curIndex(),false);if(PZ.rb)mood(PZ.rb,"happy","wave")}
  function react(id){var k=S.res[id];if(!carCat(id))markLesson(id,"2.1");refresh(true);if(PZ.rb)mood(PZ.rb,k==="yes"?"happy":k==="mid"?"meh":"no",k==="yes"?"jump":k==="mid"?"tilt":"shake")}
  function leave(){document.body.classList.remove("lp-open");ambSync();if(typeof LEC!=="undefined")LEC.close();var l=$("#lpLesson");if(l)l.remove()}
  return {build:build,show:show,react:react,leave:leave,state:function(){},closePop:function(){},catalog:catalog};
