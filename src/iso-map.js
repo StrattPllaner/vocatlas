@@ -83,7 +83,7 @@ var ISOMAP=(function(I,E,G){
     /* dos versiones completas: color y boceto. Cada una va recortada con la mancha de su carrera (dentro: color, fuera: boceto) */
     var tb='translate('+f1(p[0])+' '+f1(p[1])+') scale('+sc+')';
     defs+='<g id="'+id+'f">'+mk()+'</g><g id="'+id+'g">'+I.sketchAll(mk(),[+sc,0,0,+sc])+'</g>';
-    objs.push({k:n.x+n.y,s:'<g class="poi m-b" id="poi-'+c.id+'" data-id="'+c.id+'" data-c="'+c.id+'" data-a="'+n.isle.id+'" style="--ei:'+EI[n.isle.id]+'"><g class="co" clip-path="url(#col-'+c.id+')"><g transform="'+tb+'"><g class="pp"><use href="#'+id+'f"/></g></g></g><g class="sk" clip-path="url(#skc-'+c.id+')"><g transform="'+tb+'"><g class="pp"><use href="#'+id+'g"/></g></g></g></g>'});return}
+    objs.push({k:n.x+n.y,s:'<g class="poi m-b" id="poi-'+c.id+'" data-id="'+c.id+'" data-c="'+c.id+'" data-a="'+n.isle.id+'" style="--ei:'+EI[n.isle.id]+'"><g class="vco" clip-path="url(#col-'+c.id+')"><g transform="'+tb+'"><g class="pp"><use href="#'+id+'f"/></g></g></g><g class="vbz" clip-path="url(#skc-'+c.id+')"><g transform="'+tb+'"><g class="pp"><use href="#'+id+'g"/></g></g></g></g>'});return}
    if(typeof ART!=="undefined"&&ART.has(c.id)){full=ART.get(c.id,2,v);lite=ART.get(c.id,0,v)}
    else{full=E.generic(n.isle.area.biome,c.color,G.hs(c.id));lite=full}
    defs+='<g id="'+id+'f">'+full+'</g><g id="'+id+'l">'+lite+'</g>';
@@ -105,7 +105,7 @@ var ISOMAP=(function(I,E,G){
     var p=pj([x,y],onTop?Z_TOP:0),art=E.one(kind,{d:2,k:kind==="treeRound"||kind==="treePine"||kind==="palm"?.85:1,ph:rr()*3,flip:rr()<.5}),tag="";
     var td='translate('+f1(p[0])+' '+f1(p[1])+')';
     if(opt.app){var nn=null,nd=1e9;L.nodes.forEach(function(o){var dd=Math.hypot(o.x-x,o.y-y);if(dd<nd){nd=dd;nn=o}});
-     objs.push({k:x+y,s:'<g class="m-d" data-a="'+L.id+'" data-c="'+nn.id+'" data-k="'+kind+'" style="--ei:'+EI[L.id]+'"><g class="co" clip-path="url(#col-'+nn.id+')"><g transform="'+td+'">'+art+'</g></g><g class="sk" clip-path="url(#skc-'+nn.id+')"><g transform="'+td+'">'+I.sketchAll(art)+'</g></g></g>'});continue}
+     objs.push({k:x+y,s:'<g class="m-d" data-a="'+L.id+'" data-c="'+nn.id+'" data-k="'+kind+'" style="--ei:'+EI[L.id]+'"><g class="vco" clip-path="url(#col-'+nn.id+')"><g transform="'+td+'">'+art+'</g></g><g class="vbz" clip-path="url(#skc-'+nn.id+')"><g transform="'+td+'">'+I.sketchAll(art)+'</g></g></g>'});continue}
     objs.push({k:x+y,s:'<g class="m-d" data-a="'+L.id+'" style="--ei:'+EI[L.id]+'"'+tag+' transform="'+td+'">'+art+'</g>'});
    }
   });
@@ -143,6 +143,14 @@ var ISOMAP=(function(I,E,G){
   var objsS=objs.map(function(o){return o.s}).join("");
   if(opt.app)defs+=skLand+'<g id="skroads">'+I.sketchAll(roads)+'</g>';
   defs+=I.skDefs();
+  /* app: la transparencia de cada forma suelta pasa de «opacity» a «fill-opacity» y «stroke-opacity». Se ve igual, pero el navegador
+     ya no trata cada forma como una capa de efecto aparte: el mapa tiene miles y eso encarecía cada cuadro en que algo se mueve. */
+  if(opt.app){var flat=function(x){return x.replace(/<(path|polygon|ellipse|circle|rect|line|polyline)\b([^>]*?)\sopacity="([^"]*)"([^>]*)>/g,function(m,t,a,o,b){
+    var rest=a+b,add="",ov=parseFloat(o);if(!(ov<1))return "<"+t+a+b+">";
+    if(/fill-opacity="/.test(rest))rest=rest.replace(/fill-opacity="([^"]*)"/,function(q,v){return 'fill-opacity="'+(parseFloat(v)*ov).toFixed(2)+'"'});else add+=' fill-opacity="'+o+'"';
+    if(/stroke-opacity="/.test(rest))rest=rest.replace(/stroke-opacity="([^"]*)"/,function(q,v){return 'stroke-opacity="'+(parseFloat(v)*ov).toFixed(2)+'"'});else add+=' stroke-opacity="'+o+'"';
+    var sl=/\/\s*$/.test(rest);return "<"+t+(sl?rest.replace(/\/\s*$/,""):rest)+add+(sl?"/":"")+">"})};
+   defs=flat(defs);land=flat(land);roads=flat(roads);objsS=flat(objsS);seaObjs=flat(seaObjs);top=flat(top)}
   return {amb:amb,parts:{defs:defs,sea:sea+gl,land:land,roads:roads,seaObjs:seaObjs,objs:objsS,top:top},svg:'<defs>'+defs+'</defs><g class="m-sea">'+sea+gl+'</g><g class="m-land">'+land+'</g><g class="m-roads">'+roads+'</g>'+seaObjs+'<g class="m-objs">'+objs.map(function(o){return o.s}).join("")+'</g><g class="m-top">'+top+'</g>',box:sb};
  }
 

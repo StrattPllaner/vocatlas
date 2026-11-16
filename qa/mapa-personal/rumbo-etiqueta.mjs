@@ -1,4 +1,5 @@
 import {launch,page,state,ALL} from './lib.mjs';
+// Las etiquetas fuera de pantalla no se revisan (están ocultas y su posición no se actualiza).
 const b=await launch();
 const six=['medicina','computacion','derecho','arquitectura','veterinaria','negocios'];
 // Rumbo, etiqueta y edificio: sin encimarse, en tres acercamientos
@@ -9,7 +10,7 @@ for(const sz of ['m390','desk']){
   if(z==='mid'){await p.click('#zin');await p.waitForTimeout(700)}if(z==='near'){await p.click('#zin');await p.click('#zin');await p.waitForTimeout(900)}
   const r=await p.evaluate(()=>{const out=[];const ids=JSON.parse(__vt('JSON.stringify(mapCs().map(function(c){return c.id}))'));
    for(const id of ids){__vt('(function(){var n=NODES["'+id+'"];RB.at="'+id+'";RB.x=n[0];RB.y=n[1];placeRumbo()})()');
-    const rb=document.querySelector('.rbm .rb').getBoundingClientRect(),pl=document.querySelector('.mpin[data-id="'+id+'"] .pl').getBoundingClientRect(),po=document.querySelector('#poi-'+id+' .sk, #poi-'+id+' .co');
+    if(document.querySelector('.mpin[data-id="'+id+'"]').style.visibility==='hidden')continue;const rb=document.querySelector('.rbm .rb').getBoundingClientRect(),pl=document.querySelector('.mpin[data-id="'+id+'"] .pl').getBoundingClientRect(),po=document.querySelector('#poi-'+id+' .sk, #poi-'+id+' .co');
     const bb=document.querySelector('#poi-'+id).getBoundingClientRect();
     const hit=(a,c)=>a.left<c.right&&c.left<a.right&&a.top<c.bottom&&c.top<a.bottom;
     // cuerpo de Rumbo sin los márgenes transparentes

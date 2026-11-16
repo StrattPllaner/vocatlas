@@ -49,7 +49,7 @@ var ISO=(function(){
   if(SKN>240)return SKPAT[Object.keys(SKPAT)[k==="0"?0:0]].id;
   var sp=k==="1"?5.5:4.2,nid="skp"+(SKN++).toString(36);
   SKPAT[key]={id:nid,s:'<pattern id="'+nid+'" width="'+sp+'" height="'+sp+'" patternUnits="userSpaceOnUse" patternTransform="matrix('+T.map(function(v){return v.toFixed(3)}).join(" ")+' 0 0)">'+
-   '<rect width="'+sp+'" height="'+sp+'" fill="'+skVar(k==="0"?0:1)+'"/>'+'<line x1="0" y1="'+(sp/2)+'" x2="'+sp+'" y2="'+(sp/2)+'" stroke="var(--skl,'+SKL+')" stroke-width="'+(k==="1"?.7:.85)+'" stroke-opacity="'+(k==="1"?.5:.7)+'"/></pattern>'};
+   '<rect width="'+sp+'" height="'+sp+'" fill="'+skVar(1)+'"/>'+'<line x1="0" y1="'+(sp/2)+'" x2="'+sp+'" y2="'+(sp/2)+'" stroke="var(--skl,'+SKL+')" stroke-width="'+(k==="1"?.7:.85)+'" stroke-opacity="'+(k==="1"?.5:.7)+'"/></pattern>'};
   return nid}
  function skDefs(){var s="";for(var k in SKPAT)s+=SKPAT[k].s;return s}
  function sketchAll(svg,M0){
@@ -65,7 +65,7 @@ var ISO=(function(){
    var nf=null,ns=null;
    if(fl){var l=skLum(fl[1]),t=skTone(fl[1]);
     if(op&&parseFloat(op[1])<.5&&l<.3){nf='url(#'+skPat("S",M)+')';at=at.replace(op[0],' opacity="1"')}
-    else nf=t<2?'url(#'+skPat(String(t),M)+')':skVar(t);
+    else nf=t<1?'url(#'+skPat("0",M)+')':skVar(t);
     at=at.replace(fl[0],' fill="\u0001"')}
    if(sk){
     if(w>2.2)ns=' stroke="'+skVar(Math.max(1,skTone(sk[1])))+'"';

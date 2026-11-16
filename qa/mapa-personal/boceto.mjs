@@ -19,14 +19,14 @@ for(const [sz,pick] of [['desk',ALL],['m390',['medicina','computacion','derecho'
    count[kind]=(count[kind]||0)+1;
    if(kind==='puente'||kind==='islote por descubrir')continue;
    const c=e.getAttribute('data-c');if(!c){bad.push('sin carrera: '+cls);continue}
-   const sk=e.querySelector(':scope>.sk'),co=e.querySelector(':scope>.co');
+   const sk=e.querySelector(':scope>.vbz'),co=e.querySelector(':scope>.vco');
    if(!sk||!co){bad.push(kind+' sin las dos versiones');continue}
    if(getComputedStyle(co).display!=='none')bad.push(kind+' de '+c+': versión a color visible a 0 %');
    if(getComputedStyle(sk).display==='none')bad.push(kind+' de '+c+': boceto oculto a 0 %');
    scan(sk,kind+' de '+c)}
   // suelo: una capa de boceto por carrera
   const ids=[...W.querySelectorAll('.terr')].map(e=>e.getAttribute('data-id'));
-  for(const id of ids){const g=W.querySelector('.t-gsk [data-c="'+id+'"]>.sk');if(!g){bad.push('suelo sin boceto: '+id);continue}count.suelo=(count.suelo||0)+1;scan(g,'suelo de '+id)}
+  for(const id of ids){const g=W.querySelector('.t-gsk [data-c="'+id+'"]>.vbz');if(!g){bad.push('suelo sin boceto: '+id);continue}count.suelo=(count.suelo||0)+1;scan(g,'suelo de '+id)}
   return {bad:[...new Set(bad)],count,careers:ids.length}});
  console.log(sz,'carreras',inv.careers,JSON.stringify(inv.count));
  if(inv.bad.length){fail++;console.log('  FALLA',inv.bad.slice(0,15))}
