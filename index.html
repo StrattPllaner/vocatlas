@@ -3382,7 +3382,7 @@ function isoGeo(){
  var ghosts=W.ghosts.map(function(g){var q=pj([g.x,g.y],6),ly=-1e9;g.coast.forEach(function(p){ly=Math.max(ly,pj(p,0)[1])});return {x:q[0],y:q[1],ly:ly+30,area:g.area&&AREAS[g.area.id]?g.area.id:""}});
  /* zona del mapa: las islas con carreras y los islotes por descubrir, con un margen de mar; afuera, nubes */
  var zn=fit.slice();W.ghosts.forEach(function(g){g.coast.forEach(function(p){var q=pj(p,0);zn[0]=Math.min(zn[0],q[0]);zn[1]=Math.min(zn[1],q[1]-60);zn[2]=Math.max(zn[2],q[0]);zn[3]=Math.max(zn[3],q[1]+20)})});
- zn=[zn[0]-150,zn[1]-180,zn[2]+150,zn[3]+150];
+ zn=[zn[0]-230,zn[1]-250,zn[2]+230,zn[3]+220];
  seas=[["Mar de las Preguntas",zn[0]+190,zn[3]-46],["Océano de las Posibilidades",(zn[0]+zn[2])/2,zn[1]+56]];
  ISOW={W:W,R:R,OX:OX,OY:OY,pj:pj,ZT:ZT,areas:areas,seas:seas,cells:cells,ghosts:ghosts,fit:fit,zone:zn,sig:S.pick.join(",")};
 }
@@ -9246,14 +9246,14 @@ function sprStart(){
    con el borde difuminado (el desenfoque solo cuesta al hornearlas una vez). Pocas variantes que se reusan. */
 var EDGEART={};
 function edgeArts(night){
- var C=night?{b:"#3A5674",h:"#56728F",s:"#2E4864"}:{b:"#E6EFF6",h:"#FFFFFF",s:"#CBDBE8"},r=rng(hash("orilla"));EDGEART={};
+ var C=night?{b:"#3A5674",h:"#48647F",s:"#34506D"}:{b:"#E6EFF6",h:"#FFFFFF",s:"#D5E2EC"},r=rng(hash("orilla2"));EDGEART={};
  for(var v=0;v<6;v++){var n=5+Math.floor(r()*3),balls=[];
   for(var i=0;i<n;i++){var t=i/(n-1),x=(t-.5)*220+(r()-.5)*24,R=34+r()*26+Math.sin(t*Math.PI)*22;balls.push([x,(r()-.5)*16-Math.sin(t*Math.PI)*20,R])}
   /* bolas de abajo: redondean la base para que no quede plana */
   for(var j=0;j<3;j++)balls.push([(r()-.5)*150,26+r()*12,30+r()*14]);
   var c=function(dx,dy,k,f,op){return balls.map(function(b){return '<circle cx="'+(b[0]+dx).toFixed(0)+'" cy="'+(b[1]+dy).toFixed(0)+'" r="'+(b[2]*k).toFixed(0)+'"/>'}).join("").replace(/<circle/g,'<circle fill="'+f+'"'+(op?' fill-opacity="'+op+'"':''))};
-  EDGEART["e"+v]='<rect x="-190" y="-130" width="380" height="230" fill="none"/><filter id="eblur" x="-30%" y="-40%" width="160%" height="180%"><feGaussianBlur stdDeviation="7"/></filter>'+
-   '<g filter="url(#eblur)">'+c(8,14,1,C.s)+c(0,0,1,C.b)+c(-8,-14,.62,C.h,.75)+'</g>'}
+  EDGEART["e"+v]='<rect x="-190" y="-130" width="380" height="230" fill="none"/><filter id="eblur" x="-30%" y="-40%" width="160%" height="180%"><feGaussianBlur stdDeviation="11"/></filter>'+
+   '<g filter="url(#eblur)">'+c(8,14,1,C.s)+c(0,0,1,C.b)+c(-8,-14,.62,C.h,.4)+'</g>'}
 }
 /* tiras de nubes para la neblina: se hornean las variantes y se acomodan en un lienzo que se repite a lo largo de cada orilla.
    Hay una tira horizontal (arriba y abajo) y una vertical (a los lados) */
@@ -9271,9 +9271,8 @@ function edgeStrips(night){
     [0,horiz?W:H,horiz?-W:-H].forEach(function(sh){var cx=horiz?along+sh:across,cy=horiz?across:along+sh;x.drawImage(im,cx-bw*sc/2,cy-bh*sc/2,bw*sc,bh*sc)})}
    var L=horiz?W:H,T=horiz?H:W;
    /* de afuera hacia adentro: nubes grandes en la neblina, luego medianas, y al final las que asoman sobre el mar */
-   for(var a=0;a<L;a+=150*u)put(a+(r()-.5)*60*u,T*.28+(r()-.5)*40*u,1.25+r()*.3);
-   for(a=70*u;a<L;a+=130*u)put(a+(r()-.5)*50*u,T*.5+(r()-.5)*30*u,1+r()*.25);
-   for(a=30*u;a<L;a+=120*u)put(a+(r()-.5)*40*u,T*.72+(r()-.5)*24*u,.72+r()*.25);
+   for(var a=0;a<L;a+=230*u)put(a+(r()-.5)*70*u,T*.34+(r()-.5)*50*u,1.35+r()*.35);
+   for(a=110*u;a<L;a+=270*u)if(r()<.7)put(a+(r()-.5)*80*u,T*.6+(r()-.5)*30*u,.95+r()*.3);
    return c}
   var Lh=Math.round(1800*u),T=Math.round(560*u);
   var h=strip(Lh,T,true),v=strip(T,Lh,false);
@@ -9281,20 +9280,18 @@ function edgeStrips(night){
   blob(h,function(uh){blob(strip2(Lh,T),function(ub){blob(v,function(uv){blob(strip3(T,Lh),function(ur){if(g!==SPR.egen)return;
    (SPR.eurls||[]).forEach(function(x){try{URL.revokeObjectURL(x)}catch(e){}});SPR.eurls=urls;
    cw.style.setProperty("--cwh",'url("'+uh+'")');cw.style.setProperty("--cwb",'url("'+ub+'")');cw.style.setProperty("--cwv",'url("'+uv+'")');cw.style.setProperty("--cwr",'url("'+ur+'")');
-   cw.style.setProperty("--csh",T+"px");cw.style.setProperty("--csw",T+"px");cw.style.setProperty("--cin",Math.round(T*.32)+"px");
+   cw.style.setProperty("--csh",T+"px");cw.style.setProperty("--csw",T+"px");cw.style.setProperty("--cin",Math.round(T*.06)+"px");
    requestAnimationFrame(function(){cw.classList.add("ok")})})})})});
   /* tiras con las nubes chicas del otro lado (abajo y a la derecha) */
   function strip2(W,H){r=rng(hash("tira2"+(night?1:0)));var c=document.createElement("canvas");c.width=W*D;c.height=H*D;var x=c.getContext("2d");x.scale(D,D);
    function put(along,across,k){var im=ims[list[Math.floor(r()*list.length)]],sc=k*u,bw=im.width/sprRes(),bh=im.height/sprRes();[0,W,-W].forEach(function(sh){x.drawImage(im,along+sh-bw*sc/2,across-bh*sc/2,bw*sc,bh*sc)})}
-   for(var a=0;a<W;a+=150*u)put(a+(r()-.5)*60*u,H*.72+(r()-.5)*40*u,1.25+r()*.3);
-   for(a=70*u;a<W;a+=130*u)put(a+(r()-.5)*50*u,H*.5+(r()-.5)*30*u,1+r()*.25);
-   for(a=30*u;a<W;a+=120*u)put(a+(r()-.5)*40*u,H*.28+(r()-.5)*24*u,.72+r()*.25);
+   for(var a=0;a<W;a+=230*u)put(a+(r()-.5)*70*u,H*.66+(r()-.5)*50*u,1.35+r()*.35);
+   for(a=110*u;a<W;a+=270*u)if(r()<.7)put(a+(r()-.5)*80*u,H*.4+(r()-.5)*30*u,.95+r()*.3);
    return c}
   function strip3(W,H){r=rng(hash("tira3"+(night?1:0)));var c=document.createElement("canvas");c.width=W*D;c.height=H*D;var x=c.getContext("2d");x.scale(D,D);
    function put(along,across,k){var im=ims[list[Math.floor(r()*list.length)]],sc=k*u,bw=im.width/sprRes(),bh=im.height/sprRes();[0,H,-H].forEach(function(sh){x.drawImage(im,across-bw*sc/2,along+sh-bh*sc/2,bw*sc,bh*sc)})}
-   for(var a=0;a<H;a+=150*u)put(a+(r()-.5)*60*u,W*.72+(r()-.5)*40*u,1.25+r()*.3);
-   for(a=70*u;a<H;a+=130*u)put(a+(r()-.5)*50*u,W*.5+(r()-.5)*30*u,1+r()*.25);
-   for(a=30*u;a<H;a+=120*u)put(a+(r()-.5)*40*u,W*.28+(r()-.5)*24*u,.72+r()*.25);
+   for(var a=0;a<H;a+=230*u)put(a+(r()-.5)*70*u,W*.66+(r()-.5)*50*u,1.35+r()*.35);
+   for(a=110*u;a<H;a+=270*u)if(r()<.7)put(a+(r()-.5)*80*u,W*.4+(r()-.5)*30*u,.95+r()*.3);
    return c}
  }
 }
