@@ -111,5 +111,5 @@ function openCompare(){
 function probarTop(){
  var hist=S.ip||[],last=hist[hist.length-1],ready=ipReady("30")||ipReady("60"),n=MC().length;
  var top=last?IPA.slice().sort(function(a,b){return last.s[b]-last.s[a]}).slice(0,3).map(function(a){return ipName(a)}).join(", "):"";
- return '<div class="pb-cards"><button type="button" class="ui-card pb-card" id="pbIP"><span class="pb-ic">'+ico("compass")+'</span><span class="pb-t"><b>Test de intereses</b><small>'+(last?'Tu último resultado: '+esc(top):ready?(S.ipd&&S.ipd.a?'Lo dejaste a la mitad. Síguele.':'Descubre qué tipo de actividades te atraen. De 5 a 10 minutos.'):'Listo para recibir las preguntas oficiales. Todavía no se puede contestar.')+'</small></span>'+ico("next")+'</button></div>'}
+ return '<div class="pb-cards"><button type="button" class="ui-card pb-card" id="pbIP"><span class="pb-ic">'+ico("compass")+'</span><span class="pb-t"><b>Test de intereses</b><small>'+(last?'Tu último resultado: '+esc(top):ready?(S.ipd&&S.ipd.a?'Lo dejaste a la mitad. Síguele.':'Qué tipo de actividades te atraen. 5 a 10 min.'):'Muy pronto: faltan las preguntas oficiales.')+'</small></span>'+ico("next")+'</button></div>'}
 function probarBind(v){var a=v.querySelector("#pbIP");if(a)a.onclick=openIP}

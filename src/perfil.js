@@ -86,7 +86,7 @@ function renderYo(keep){
   '<div class="pf-stats"><div><b class="num">'+clarity()+'<i>%</i></b><span>claridad</span></div><div><b class="num">'+Y.done+'<i>/'+NP+'</i></b><span>carrera'+(NP===1?"":"s")+' probada'+(NP===1?"":"s")+'</span></div><div><b class="num">'+stamps+'</b><span>sello'+(stamps===1?"":"s")+'</span></div></div></section>';
  /* 2. colección */
  h+='<section class="at-sec at-in" style="--i:1"><div class="at-sh"><h3>Tus Rumbos <span class="pf-count num">'+won+'/'+tot+'</span></h3><button type="button" class="at-link" id="pfAll">Ver todos</button></div>'+
-  '<p class="pf-lead">Completa una carrera y ganas a su Rumbo. Toca uno para ponértelo.</p>'+skGrid(skinOrder().slice(0,6))+'</section>';
+  '<p class="pf-lead">Se ganan al terminar «Pruébala». Toca uno para ponértelo.</p>'+skGrid(skinOrder().slice(0,6))+'</section>';
  /* 3. meta */
  h+='<section class="ui-card pf-goal at-in" style="--i:2"><div class="at-eb">Tu siguiente meta</div>'+Y.meta+'<div class="ui-prog is-gold" style="--v:'+(keep?Y.pr.toFixed(3):0)+'" data-v="'+Y.pr.toFixed(3)+'"><i></i></div></section>';
  /* 4. ajustes */
@@ -94,8 +94,8 @@ function renderYo(keep){
   row("edPick","map","Mis carreras",NP+" elegida"+(NP===1?"":"s")+" en tu mapa")+
   row("chg","heart","Mis temas",nt+" tema"+(nt===1?"":"s")+" elegido"+(nt===1?"":"s"))+
   row("edPerf2","user","Mi perfil y mi meta",(S.nick?esc(S.nick):"Sin apodo")+(S.grado?" · "+esc(gradoName(S.grado)):""))+
-  '<div class="pf-edo pf-tema"><span class="pf-row-ic">'+ico(TEMA.dark()?"moon":"sun")+'</span><div class="pf-row-t"><b id="yTemaLab">Día o noche</b><span>Cambia los colores de toda la app.</span><div class="ui-seg" id="yTema" role="group" aria-labelledby="yTemaLab">'+[["auto","Automático"],["light","Día"],["dark","Noche"]].map(function(o){return '<button type="button" data-t="'+o[0]+'" aria-pressed="'+(TEMA.get()===o[0])+'">'+o[1]+'</button>'}).join("")+'</div></div></div>'+
-  '<div class="pf-edo"><span class="pf-row-ic">'+ico("globe")+'</span><div class="pf-row-t"><b id="yEdoLab">Mi estado</b><span>Opcional. Solo el estado, sin ciudad ni ubicación.</span>'+edoWidget("y","yEdoLab")+'</div></div></div>'+
+  '<div class="pf-edo pf-tema"><span class="pf-row-ic">'+ico(TEMA.dark()?"moon":"sun")+'</span><div class="pf-row-t"><b id="yTemaLab">Día o noche</b><div class="ui-seg" id="yTema" role="group" aria-labelledby="yTemaLab">'+[["auto","Automático"],["light","Día"],["dark","Noche"]].map(function(o){return '<button type="button" data-t="'+o[0]+'" aria-pressed="'+(TEMA.get()===o[0])+'">'+o[1]+'</button>'}).join("")+'</div></div></div>'+
+  '<div class="pf-edo"><span class="pf-row-ic">'+ico("globe")+'</span><div class="pf-row-t"><b id="yEdoLab">Mi estado</b><span>Opcional</span>'+edoWidget("y","yEdoLab")+'</div></div></div>'+
   (Y.where?'<div class="pf-soon">'+ico("book")+'<div>'+Y.where+'</div></div>':'')+
   '<details class="priv pf-priv"><summary>Aviso de privacidad</summary>'+PRIV_FULL+'</details>'+
   '<button type="button" class="ui-btn is-block is-ghost pf-rst" id="rst">Borrar todo y empezar de cero</button></section></div>';

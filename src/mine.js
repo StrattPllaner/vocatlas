@@ -283,11 +283,11 @@ function contCareer(){
 }
 function whyOf(id){
  var parts=[],m=AFF[id].matches.length,pg=progOf(id);
- if(S.rate[id]!=null)parts.push("le pusiste "+S.rate[id]+" de 10");
- if(S.res[id])parts.push({yes:"su reto te encendió",mid:"su reto te gustó más o menos",no:"su reto no fue lo tuyo"}[S.res[id]]);
- if(m)parts.push("coincide con "+m+(m===1?" tema tuyo":" temas tuyos"));
- if(pg.p>=1)parts.push("ya la exploraste completa");
- parts=parts.slice(0,3);if(!parts.length)return "";
+ /* una razón corta, la más fuerte; no un párrafo */
+ if(S.rate[id]!=null)parts.push("le pusiste "+S.rate[id]+"/10");
+ else if(S.res[id])parts.push({yes:"su reto te encendió",mid:"su reto, más o menos",no:"su reto no fue lo tuyo"}[S.res[id]]);
+ else if(m)parts.push(m+(m===1?" tema tuyo":" temas tuyos"));
+ parts=parts.slice(0,1);if(!parts.length)return "";
  var t=parts.length>1?parts.slice(0,-1).join(", ")+" y "+parts[parts.length-1]:parts[0];
  return t.charAt(0).toUpperCase()+t.slice(1)+".";
 }
@@ -298,7 +298,7 @@ function renderAtlas(){
  var v=$("#v-atlas"),cs=MC(),cl=clarity(),nx=contCareer(),top=ranked(),CIRC=314.16;
  var h='<div class="vwrap at">';
  /* 1. saludo y claridad */
- h+='<header class="at-head at-in" style="--i:0"><div class="at-hi"><h2>'+(S.nick?"Hola, "+esc(S.nick):"Hola")+'</h2><p>La claridad es cuánto llevas explorado de tus carreras. Sube con cada lección.</p></div>'+
+ h+='<header class="at-head at-in" style="--i:0"><div class="at-hi"><h2>'+(S.nick?"Hola, "+esc(S.nick):"Hola")+'</h2><p>Sube con cada lección.</p></div>'+
   '<div class="at-ring" role="img" aria-label="Claridad vocacional: '+cl+' por ciento"><svg viewBox="0 0 120 120" aria-hidden="true"><circle class="tr" cx="60" cy="60" r="50"/><circle class="arc" id="atArc" cx="60" cy="60" r="50" stroke-dasharray="'+CIRC+'" stroke-dashoffset="'+CIRC+'"/></svg><div class="at-rn"><b class="num" id="atPct">0<i>%</i></b><span>claridad</span></div></div></header>';
  /* 2. sigue donde te quedaste */
  if(nx){var pg=progOf(nx.id);

@@ -4136,7 +4136,7 @@ function renderProbar(){
   return progOf(b.id).p-progOf(a.id).p||AFF[b.id].score-AFF[a.id].score;
  });
  var v=$("#v-probar"),done=list.filter(function(c){return S.res[c.id]}).length,next=list.filter(function(c){return !S.res[c.id]})[0];
- var h='<div class="vwrap"><div class="vhead st"><div class="eyebrow">'+done+" de "+list.length+' probadas</div><h2>Probar</h2><p>Conoce tus intereses, compara tus carreras y prueba un reto rápido.</p></div>'+probarTop()+'<h3 class="sec st">Retos rápidos</h3><p class="pb-sub st">Una situación de la carrera y tres formas de resolverla. Uno o dos minutos.</p>';
+ var h='<div class="vwrap"><div class="vhead st"><div class="eyebrow">'+done+" de "+list.length+' probadas</div><h2>Probar</h2></div>'+probarTop()+'<h3 class="sec st">Retos rápidos</h3>';
  if(next){
   var m=AFF[next.id].matches;
   h+='<div class="hero st" style="--c:'+next.color+';animation-delay:80ms"><div class="hero-top"><span class="sw lg" style="background:'+next.color+'"></span><div><div class="eyebrow">Tu siguiente reto</div><h3>'+esc(next.name)+'</h3></div></div><p>'+esc(next.desc)+"</p>"+(m.length?'<div class="tags">'+m.map(function(x){return '<span class="tag">'+esc(x)+"</span>"}).join("")+"</div>":"")+'<button class="btn primary wide" data-id="'+next.id+'">Probar ahora'+IC.arrow+"</button></div>";
@@ -4217,8 +4217,8 @@ function yoMeta(){
  if(S.edo&&S.edo!==EDO_NONE){
   var of=ofertaEn(S.edo);
   where=(of.unis.length||of.becas.length)?'':'<h3>Pronto habrá opciones en '+esc(en)+'</h3><p>Estamos reuniendo universidades y becas de tu estado con fuentes oficiales. Aquí aparecerán en cuanto estén listas.</p>';
- }else if(S.edo===EDO_NONE)where='<h3>Pronto habrá opciones</h3><p>Estamos reuniendo universidades y becas con fuentes oficiales. Si quieres verlas de tu estado, elígelo arriba.</p>';
- else where='<h3>Pronto habrá opciones en tu estado</h3><p>Elige tu estado arriba y aquí verás universidades y becas en cuanto estén listas.</p>';
+ }else if(S.edo===EDO_NONE)where='<h3>Universidades y becas</h3><p>Pronto.</p>';
+ else where='<h3>Universidades y becas</h3><p>Pronto, para tu estado.</p>';
  return {meta:meta,pr:pr,where:where,done:done};
 }
 function edoWidget(px,lab){
@@ -9011,7 +9011,7 @@ function openCompare(){
 function probarTop(){
  var hist=S.ip||[],last=hist[hist.length-1],ready=ipReady("30")||ipReady("60"),n=MC().length;
  var top=last?IPA.slice().sort(function(a,b){return last.s[b]-last.s[a]}).slice(0,3).map(function(a){return ipName(a)}).join(", "):"";
- return '<div class="pb-cards"><button type="button" class="ui-card pb-card" id="pbIP"><span class="pb-ic">'+ico("compass")+'</span><span class="pb-t"><b>Test de intereses</b><small>'+(last?'Tu último resultado: '+esc(top):ready?(S.ipd&&S.ipd.a?'Lo dejaste a la mitad. Síguele.':'Descubre qué tipo de actividades te atraen. De 5 a 10 minutos.'):'Listo para recibir las preguntas oficiales. Todavía no se puede contestar.')+'</small></span>'+ico("next")+'</button></div>'}
+ return '<div class="pb-cards"><button type="button" class="ui-card pb-card" id="pbIP"><span class="pb-ic">'+ico("compass")+'</span><span class="pb-t"><b>Test de intereses</b><small>'+(last?'Tu último resultado: '+esc(top):ready?(S.ipd&&S.ipd.a?'Lo dejaste a la mitad. Síguele.':'Qué tipo de actividades te atraen. 5 a 10 min.'):'Muy pronto: faltan las preguntas oficiales.')+'</small></span>'+ico("next")+'</button></div>'}
 function probarBind(v){var a=v.querySelector("#pbIP");if(a)a.onclick=openIP}
 
 /* ================= Comparar: dos carreras frente a frente =================
@@ -9472,11 +9472,11 @@ function contCareer(){
 }
 function whyOf(id){
  var parts=[],m=AFF[id].matches.length,pg=progOf(id);
- if(S.rate[id]!=null)parts.push("le pusiste "+S.rate[id]+" de 10");
- if(S.res[id])parts.push({yes:"su reto te encendió",mid:"su reto te gustó más o menos",no:"su reto no fue lo tuyo"}[S.res[id]]);
- if(m)parts.push("coincide con "+m+(m===1?" tema tuyo":" temas tuyos"));
- if(pg.p>=1)parts.push("ya la exploraste completa");
- parts=parts.slice(0,3);if(!parts.length)return "";
+ /* una razón corta, la más fuerte; no un párrafo */
+ if(S.rate[id]!=null)parts.push("le pusiste "+S.rate[id]+"/10");
+ else if(S.res[id])parts.push({yes:"su reto te encendió",mid:"su reto, más o menos",no:"su reto no fue lo tuyo"}[S.res[id]]);
+ else if(m)parts.push(m+(m===1?" tema tuyo":" temas tuyos"));
+ parts=parts.slice(0,1);if(!parts.length)return "";
  var t=parts.length>1?parts.slice(0,-1).join(", ")+" y "+parts[parts.length-1]:parts[0];
  return t.charAt(0).toUpperCase()+t.slice(1)+".";
 }
@@ -9487,7 +9487,7 @@ function renderAtlas(){
  var v=$("#v-atlas"),cs=MC(),cl=clarity(),nx=contCareer(),top=ranked(),CIRC=314.16;
  var h='<div class="vwrap at">';
  /* 1. saludo y claridad */
- h+='<header class="at-head at-in" style="--i:0"><div class="at-hi"><h2>'+(S.nick?"Hola, "+esc(S.nick):"Hola")+'</h2><p>La claridad es cuánto llevas explorado de tus carreras. Sube con cada lección.</p></div>'+
+ h+='<header class="at-head at-in" style="--i:0"><div class="at-hi"><h2>'+(S.nick?"Hola, "+esc(S.nick):"Hola")+'</h2><p>Sube con cada lección.</p></div>'+
   '<div class="at-ring" role="img" aria-label="Claridad vocacional: '+cl+' por ciento"><svg viewBox="0 0 120 120" aria-hidden="true"><circle class="tr" cx="60" cy="60" r="50"/><circle class="arc" id="atArc" cx="60" cy="60" r="50" stroke-dasharray="'+CIRC+'" stroke-dashoffset="'+CIRC+'"/></svg><div class="at-rn"><b class="num" id="atPct">0<i>%</i></b><span>claridad</span></div></div></header>';
  /* 2. sigue donde te quedaste */
  if(nx){var pg=progOf(nx.id);
@@ -9653,7 +9653,7 @@ function renderYo(keep){
   '<div class="pf-stats"><div><b class="num">'+clarity()+'<i>%</i></b><span>claridad</span></div><div><b class="num">'+Y.done+'<i>/'+NP+'</i></b><span>carrera'+(NP===1?"":"s")+' probada'+(NP===1?"":"s")+'</span></div><div><b class="num">'+stamps+'</b><span>sello'+(stamps===1?"":"s")+'</span></div></div></section>';
  /* 2. colección */
  h+='<section class="at-sec at-in" style="--i:1"><div class="at-sh"><h3>Tus Rumbos <span class="pf-count num">'+won+'/'+tot+'</span></h3><button type="button" class="at-link" id="pfAll">Ver todos</button></div>'+
-  '<p class="pf-lead">Completa una carrera y ganas a su Rumbo. Toca uno para ponértelo.</p>'+skGrid(skinOrder().slice(0,6))+'</section>';
+  '<p class="pf-lead">Se ganan al terminar «Pruébala». Toca uno para ponértelo.</p>'+skGrid(skinOrder().slice(0,6))+'</section>';
  /* 3. meta */
  h+='<section class="ui-card pf-goal at-in" style="--i:2"><div class="at-eb">Tu siguiente meta</div>'+Y.meta+'<div class="ui-prog is-gold" style="--v:'+(keep?Y.pr.toFixed(3):0)+'" data-v="'+Y.pr.toFixed(3)+'"><i></i></div></section>';
  /* 4. ajustes */
@@ -9661,8 +9661,8 @@ function renderYo(keep){
   row("edPick","map","Mis carreras",NP+" elegida"+(NP===1?"":"s")+" en tu mapa")+
   row("chg","heart","Mis temas",nt+" tema"+(nt===1?"":"s")+" elegido"+(nt===1?"":"s"))+
   row("edPerf2","user","Mi perfil y mi meta",(S.nick?esc(S.nick):"Sin apodo")+(S.grado?" · "+esc(gradoName(S.grado)):""))+
-  '<div class="pf-edo pf-tema"><span class="pf-row-ic">'+ico(TEMA.dark()?"moon":"sun")+'</span><div class="pf-row-t"><b id="yTemaLab">Día o noche</b><span>Cambia los colores de toda la app.</span><div class="ui-seg" id="yTema" role="group" aria-labelledby="yTemaLab">'+[["auto","Automático"],["light","Día"],["dark","Noche"]].map(function(o){return '<button type="button" data-t="'+o[0]+'" aria-pressed="'+(TEMA.get()===o[0])+'">'+o[1]+'</button>'}).join("")+'</div></div></div>'+
-  '<div class="pf-edo"><span class="pf-row-ic">'+ico("globe")+'</span><div class="pf-row-t"><b id="yEdoLab">Mi estado</b><span>Opcional. Solo el estado, sin ciudad ni ubicación.</span>'+edoWidget("y","yEdoLab")+'</div></div></div>'+
+  '<div class="pf-edo pf-tema"><span class="pf-row-ic">'+ico(TEMA.dark()?"moon":"sun")+'</span><div class="pf-row-t"><b id="yTemaLab">Día o noche</b><div class="ui-seg" id="yTema" role="group" aria-labelledby="yTemaLab">'+[["auto","Automático"],["light","Día"],["dark","Noche"]].map(function(o){return '<button type="button" data-t="'+o[0]+'" aria-pressed="'+(TEMA.get()===o[0])+'">'+o[1]+'</button>'}).join("")+'</div></div></div>'+
+  '<div class="pf-edo"><span class="pf-row-ic">'+ico("globe")+'</span><div class="pf-row-t"><b id="yEdoLab">Mi estado</b><span>Opcional</span>'+edoWidget("y","yEdoLab")+'</div></div></div>'+
   (Y.where?'<div class="pf-soon">'+ico("book")+'<div>'+Y.where+'</div></div>':'')+
   '<details class="priv pf-priv"><summary>Aviso de privacidad</summary>'+PRIV_FULL+'</details>'+
   '<button type="button" class="ui-btn is-block is-ghost pf-rst" id="rst">Borrar todo y empezar de cero</button></section></div>';
