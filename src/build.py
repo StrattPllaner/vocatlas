@@ -19,7 +19,11 @@ import hashlib
 for f in sorted(glob.glob(D+'carreras/*.json')):
     raw=open(f,'rb').read();c=json.loads(raw)
     for u in c['unidades']:
-        for l in u['lecciones']:l.pop('tarjetas',None)
+        for l in u['lecciones']:
+            # qué clase de lección es, para mostrarlo en el temario (las tarjetas se descargan aparte)
+            tp=[t['tipo'] for t in l.get('tarjetas',[])]
+            l['k']='chat' if 'chat' in tp else 'reto' if any(x in tp for x in ('bloques','patron','presupuesto','armar','componer','encuadre')) else 'voltear' if 'voltear' in tp else 'testi' if 'testimonio' in tp else 'dato' if 'rango' in tp else 'lee' if 'info' in tp else 'sobre' if tp and all(x in ('reflexion','escena','clave','interes','resumen','comparar','veredicto','dos_caminos') for x in tp) else 'juega'
+            l.pop('tarjetas',None)
     c['src']='datos/carreras/'+c['id']+'.json?v='+hashlib.sha1(raw).hexdigest()[:10]
     cat['car'][c['id']]=c
 js+='/* catálogo de contenido, copiado de datos/ por build.py; no se edita aquí */\nvar CAT='+json.dumps(cat,ensure_ascii=False,separators=(',',':'))+';\n'

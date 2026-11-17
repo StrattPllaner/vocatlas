@@ -629,6 +629,47 @@
        }
       },
       {
+       "tipo": "chat",
+       "subtitulo": "Te cuenta cómo es trabajar en Derecho",
+       "intro": [
+        "¡Hola! Junté lo que se sabe de Derecho.",
+        "Pregúntame lo que quieras."
+       ],
+       "temas": [
+        {
+         "q": "¿Qué haces en un día normal?",
+         "a": [
+          "Lee y redacta contratos, demandas y escritos",
+          "Asesora clientes",
+          "Va a juzgados o audiencias"
+         ]
+        },
+        {
+         "q": "¿Qué es lo más difícil?",
+         "a": [
+          "Se considera una carrera de dificultad media-alta.",
+          "Mucha lectura y memoria de leyes",
+          "Derecho civil y procesal son densos."
+         ]
+        },
+        {
+         "q": "¿Hay trabajo?",
+         "a": [
+          "Cerca de la mitad trabaja en algo de su carrera. Es un promedio nacional del IMCO.",
+          "Los mejores ingresos llegan con especialización."
+         ]
+        },
+        {
+         "q": "¿Qué necesito para ejercer?",
+         "a": [
+          "Título y cédula para litigar."
+         ]
+        }
+       ],
+       "minimo": 2,
+       "auto": true
+      },
+      {
        "tipo": "clave",
        "texto": "Se lee y se escribe casi todo el día."
       },

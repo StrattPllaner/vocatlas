@@ -624,6 +624,47 @@
        }
       },
       {
+       "tipo": "chat",
+       "subtitulo": "Te cuenta cómo es trabajar en Arquitectura",
+       "intro": [
+        "¡Hola! Junté lo que se sabe de Arquitectura.",
+        "Pregúntame lo que quieras."
+       ],
+       "temas": [
+        {
+         "q": "¿Qué haces en un día normal?",
+         "a": [
+          "Diseña espacios (casas, edificios, interiores) desde el boceto hasta los planos",
+          "Presenta a clientes, coordina con ingenieros y supervisa la obra."
+         ]
+        },
+        {
+         "q": "¿Qué es lo más difícil?",
+         "a": [
+          "Se considera una carrera de dificultad alta.",
+          "Talleres de proyecto con entregas que implican desveladas",
+          "Estructuras y Matemáticas sorprenden."
+         ]
+        },
+        {
+         "q": "¿Hay trabajo?",
+         "a": [
+          "Cerca de la mitad trabaja en algo de su carrera. Es un promedio nacional del IMCO.",
+          "Desempleo a la baja."
+         ]
+        },
+        {
+         "q": "¿Qué necesito para ejercer?",
+         "a": [
+          "Cédula para firmar proyectos y licencias",
+          "Los materiales y el software son caros."
+         ]
+        }
+       ],
+       "minimo": 2,
+       "auto": true
+      },
+      {
        "tipo": "clave",
        "texto": "Las entregas marcan el ritmo de la carrera."
       },

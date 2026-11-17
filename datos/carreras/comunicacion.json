@@ -1,0 +1,1069 @@
+{
+ "id": "comunicacion",
+ "version": 1,
+ "estado": "completo",
+ "generado": true,
+ "revision": "Armada automáticamente con la base de carreras de Morelos y CDMX (2026-11-17). Falta que la revise alguien de la carrera.",
+ "unidades": [
+  {
+   "id": "u1",
+   "lecciones": [
+    {
+     "id": "1.1",
+     "titulo": "Qué es y qué hace",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "¿Qué es Comunicación?",
+       "texto": "Análisis de la sociedad, la cultura, el lenguaje, las ideas y sus transformaciones. Desarrolla investigación, escritura, análisis crítico, divulgación y trabajo documental.",
+       "puntos": [
+        "Escribe, graba y edita contenido",
+        "Maneja redes de marcas o instituciones",
+        "Hace reportajes"
+       ]
+      },
+      {
+       "tipo": "decision",
+       "pregunta": "Por lo que leíste, ¿qué hace alguien de Comunicación?",
+       "opciones": [
+        {
+         "texto": "Escribe, graba y edita contenido",
+         "consecuencia": "Exacto: eso es parte del día a día en Comunicación.",
+         "mejor": true
+        },
+        {
+         "texto": "Analiza dónde invertir el dinero de una empresa o clientes, construye modelos de valuación en Excel, evalúa créditos y riesgos y prepara presentaciones para directivos.",
+         "consecuencia": "Eso lo hace alguien de Finanzas."
+        },
+        {
+         "texto": "Evalúa a pacientes (medidas, estudios, hábitos), diseña planes de alimentación y da seguimiento.",
+         "consecuencia": "Eso lo hace alguien de Nutrición."
+        }
+       ]
+      },
+      {
+       "tipo": "completar",
+       "frase": "Comunicación es una carrera del área de ___.",
+       "opciones": [
+        "Arte y comunicación",
+        "Ingenierías",
+        "Tecnología y ciencias"
+       ],
+       "correcta": 0,
+       "revelacion": "Está en Arte y comunicación. Se parece a Mercadotecnia, Diseño Gráfico y Comunicación Visual, Animación y Arte Digital."
+      },
+      {
+       "tipo": "clave",
+       "texto": "Antes de elegir, entiende qué harías cada día, no solo el nombre."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "1.2",
+     "titulo": "Dónde trabajas",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "Dónde trabaja alguien de Comunicación",
+       "texto": "Instituciones públicas y privadas, organizaciones sociales, empresas, centros de investigación, consultoría, docencia y proyectos independientes, según la especialización y experiencia."
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Alguien de Comunicación solo puede trabajar en un tipo de lugar.",
+       "respuesta": false,
+       "revelacion": "Puede trabajar en varios: instituciones públicas, privadas, organizaciones sociales."
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Dónde te ves trabajando?",
+       "opciones": [
+        "Instituciones públicas",
+        "Privadas",
+        "Organizaciones sociales",
+        "Empresas"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Una carrera abre varias puertas, no una sola."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "1.3",
+     "titulo": "Pregúntale a Rumbo",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "chat",
+       "subtitulo": "Te cuenta cómo es trabajar en Comunicación",
+       "intro": [
+        "¡Hola! Junté lo que se sabe de Comunicación.",
+        "Pregúntame lo que quieras."
+       ],
+       "temas": [
+        {
+         "q": "¿Qué haces en un día normal?",
+         "a": [
+          "Escribe, graba y edita contenido",
+          "Maneja redes de marcas o instituciones",
+          "Hace reportajes"
+         ]
+        },
+        {
+         "q": "¿Qué es lo más difícil?",
+         "a": [
+          "Se considera una carrera de dificultad media.",
+          "Teorías de la comunicación e Investigación",
+          "Mucha producción de contenido y proyectos."
+         ]
+        },
+        {
+         "q": "¿Hay trabajo?",
+         "a": [
+          "Menos de la mitad trabaja en algo de su carrera; muchos se mueven a otras áreas. Es un promedio nacional del IMCO."
+         ]
+        },
+        {
+         "q": "¿Qué necesito para ejercer?",
+         "a": [
+          "No requiere cédula."
+         ]
+        }
+       ],
+       "minimo": 2,
+       "auto": true
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Comunicación se considera una carrera de dificultad media.",
+       "respuesta": true,
+       "revelacion": "Se considera de dificultad media. Teorías de la comunicación e Investigación"
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Qué te llamó más la atención?",
+       "opciones": [
+        "¿Qué haces en un día normal?",
+        "¿Qué es lo más difícil?",
+        "¿Hay trabajo?",
+        "¿Qué necesito para ejercer?"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Preguntar a quien ya sabe ahorra muchos errores."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "1.4",
+     "titulo": "Carreras parecidas",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "Carreras cercanas a Comunicación",
+       "puntos": [
+        "Mercadotecnia: organización y dirección de recursos.",
+        "Diseño Gráfico y Comunicación Visual: creación, interpretación y comunicación mediante lenguajes visuales, escénicos.",
+        "Animación y Arte Digital: creación, interpretación y comunicación mediante lenguajes visuales, escénicos.",
+        "Relaciones Internacionales: análisis de instituciones, políticas, conflictos y problemas sociales. puede."
+       ]
+      },
+      {
+       "tipo": "emparejar",
+       "pregunta": "Une cada carrera con lo que estudia.",
+       "pares": [
+        [
+         "Mercadotecnia",
+         "Organización y dirección de recursos"
+        ],
+        [
+         "Diseño Gráfico y Comunicación Visual",
+         "Creación, interpretación y comunicación mediante lenguajes visuales, escénicos"
+        ],
+        [
+         "Animación y Arte Digital",
+         "Creación, interpretación y comunicación mediante lenguajes visuales, escénicos"
+        ],
+        [
+         "Relaciones Internacionales",
+         "Análisis de instituciones, políticas, conflictos y problemas sociales. Puede"
+        ]
+       ],
+       "revelacion": "Se cruzan en temas, pero cada una tiene su propio enfoque."
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Cuál de estas te da curiosidad?",
+       "opciones": [
+        "Mercadotecnia",
+        "Diseño Gráfico y Comunicación Visual",
+        "Animación y Arte Digital",
+        "Me quedo con Comunicación"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Si dudas entre dos, compara lo que harías cada día."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "u2",
+   "lecciones": [
+    {
+     "id": "2.1",
+     "titulo": "Mini reto",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "reflexion",
+       "pregunta": "Lanzas un jugo nuevo para estudiantes. ¿Qué cuentas primero?",
+       "opciones": [
+        "Que es natural",
+        "Que te da energía para tus clases",
+        "Que cuesta menos que un refresco"
+       ]
+      },
+      {
+       "tipo": "info",
+       "titulo": "Así lo piensa alguien de Comunicación",
+       "texto": "Elegir qué decir y a quién es el trabajo central. Se mezcla creatividad con datos de cómo reacciona la gente."
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Te gustó pensar en algo así?",
+       "escala": [
+        "Nada",
+        "Mucho"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Los retos de una carrera se parecen a lo que harías en su trabajo."
+      },
+      {
+       "tipo": "interes",
+       "pregunta": "¿Te ves resolviendo retos así?"
+      }
+     ]
+    },
+    {
+     "id": "2.2",
+     "titulo": "Lo que te piden",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "Habilidades que usarás en Comunicación",
+       "puntos": [
+        "Redacción",
+        "Creatividad",
+        "Hablar en público",
+        "Edición de video o audio"
+       ]
+      },
+      {
+       "tipo": "completar",
+       "pregunta": "Según lo que leíste, completa la frase.",
+       "frase": "Para Comunicación es clave: ___.",
+       "opciones": [
+        "Redacción",
+        "Creatividad",
+        "Matemáticas y estadística"
+       ],
+       "correcta": 0,
+       "revelacion": "Es de las habilidades que más se usan en Comunicación."
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Qué tanto se te da esto: creatividad?",
+       "escala": [
+        "Me cuesta",
+        "Se me da"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Las habilidades se entrenan; lo importante es que te guste usarlas."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "2.3",
+     "titulo": "Temas que vas a ver",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "Temas que te deben gustar",
+       "puntos": [
+        "Medios y redes",
+        "Contar historias",
+        "Actualidad"
+       ]
+      },
+      {
+       "tipo": "decision",
+       "pregunta": "¿Cuál de estos temas es más de Comunicación?",
+       "opciones": [
+        {
+         "texto": "Medios y redes",
+         "consecuencia": "Sí, es de sus temas centrales.",
+         "mejor": true
+        },
+        {
+         "texto": "Deporte",
+         "consecuencia": "Ese es más de Fisioterapia."
+        },
+        {
+         "texto": "Moda",
+         "consecuencia": "Ese es más de Moda."
+        }
+       ]
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Cuál de estos temas te gusta más?",
+       "opciones": [
+        "Medios y redes",
+        "Contar historias",
+        "Actualidad",
+        "Ninguno me late"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Si los temas te aburren, la carrera se hace muy larga."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "2.4",
+     "titulo": "Materias clave",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "voltear",
+       "pregunta": "¿Qué materias crees que llevas en cada etapa? Piénsalo y voltea.",
+       "cartas": [
+        {
+         "frente": "Semestres 1-2",
+         "reverso": "Teorías de la comunicación, Redacción, Historia de México, Fotografía"
+        },
+        {
+         "frente": "Semestres 3-4",
+         "reverso": "Periodismo, Producción de audio y video, Semiótica, Investigación"
+        },
+        {
+         "frente": "Semestres 5-6",
+         "reverso": "Comunicación organizacional, Publicidad, Medios digitales, Opinión pública"
+        },
+        {
+         "frente": "Semestres 7 en adelante",
+         "reverso": "Proyecto de medios, Prácticas"
+        }
+       ]
+      },
+      {
+       "tipo": "decision",
+       "pregunta": "¿Cuál de estas materias llevarías en Comunicación?",
+       "opciones": [
+        {
+         "texto": "Teorías de la comunicación",
+         "consecuencia": "Sí: es de las primeras materias de Comunicación.",
+         "mejor": true
+        },
+        {
+         "texto": "Contabilidad",
+         "consecuencia": "Esa es de Finanzas."
+        },
+        {
+         "texto": "Cálculo",
+         "consecuencia": "Esa es de Ciencia de datos."
+        }
+       ]
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Cuál te da más curiosidad?",
+       "opciones": [
+        "Teorías de la comunicación",
+        "Redacción",
+        "Historia de México",
+        "Fotografía"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Las primeras materias son la base; muchas veces son las más pesadas."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "u3",
+   "lecciones": [
+    {
+     "id": "3.1",
+     "titulo": "Un día real",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "Un día de trabajo en Comunicación",
+       "puntos": [
+        "Escribe, graba y edita contenido",
+        "Maneja redes de marcas o instituciones",
+        "Hace reportajes",
+        "Organiza la comunicación interna de empresas o campañas."
+       ]
+      },
+      {
+       "tipo": "decision",
+       "pregunta": "¿Qué de esto NO es parte del día de alguien de Comunicación?",
+       "opciones": [
+        {
+         "texto": "Entrena y ajusta modelos de IA (reconocimiento de imágenes, chatbots, recomendaciones), los integra en productos y evalúa que funcionen bien y de forma responsable.",
+         "consecuencia": "Exacto: eso lo hace alguien de Inteligencia artificial.",
+         "mejor": true
+        },
+        {
+         "texto": "Escribe, graba y edita contenido",
+         "consecuencia": "Esto sí lo hace: es parte de su día."
+        },
+        {
+         "texto": "Maneja redes de marcas o instituciones",
+         "consecuencia": "Esto sí lo hace: es parte de su día."
+        }
+       ]
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Te ves haciendo esto todos los días?",
+       "escala": [
+        "No va conmigo",
+        "Va mucho conmigo"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "El día a día pesa más que el título."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "3.2",
+     "titulo": "Lo difícil",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "Lo difícil de Comunicación",
+       "texto": "Se considera de dificultad media.",
+       "puntos": [
+        "Teorías de la comunicación e Investigación",
+        "Mucha producción de contenido y proyectos."
+       ]
+      },
+      {
+       "tipo": "decision",
+       "pregunta": "Según lo que leíste, ¿qué es lo que más cuesta en Comunicación?",
+       "opciones": [
+        {
+         "texto": "Teorías de la comunicación e Investigación",
+         "consecuencia": "Sí, es de lo que más cuesta en Comunicación.",
+         "mejor": true
+        },
+        {
+         "texto": "Circuitos, Electromagnetismo y Señales y sistemas.",
+         "consecuencia": "Eso es más de Ing. Electrónica."
+        },
+        {
+         "texto": "Cálculo, Estática y Mecánica de materiales",
+         "consecuencia": "Eso es más de Ing. Civil."
+        }
+       ]
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Qué tanto te preocupa esto?",
+       "escala": [
+        "Mucho",
+        "Nada"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Saber lo difícil desde antes te ayuda a prepararte."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "3.3",
+     "titulo": "Historia real",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "reflexion",
+       "pregunta": "Si pudieras preguntarle algo a alguien que ya estudia Comunicación, ¿qué sería?",
+       "opciones": [
+        "¿Qué fue lo más difícil?",
+        "¿Qué te sorprendió?",
+        "¿Volverías a elegirla?",
+        "¿Cómo es un día normal?"
+       ]
+      },
+      {
+       "tipo": "testimonio",
+       "estado": "pendiente",
+       "perfil": "Estudiante de últimos semestres o egresado de Comunicación"
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "Mientras llega esta historia, ¿a quién podrías preguntarle tú?",
+       "opciones": [
+        "A un familiar o conocido que la estudió",
+        "A un estudiante de mi ciudad",
+        "A un maestro que la conozca",
+        "Todavía no conozco a nadie"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Una persona real te cuenta lo que ningún folleto dice."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "3.4",
+     "titulo": "¿Es para ti?",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Contesta con honestidad. Nadie más ve tus respuestas."
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Me gusta crear contenido aunque sea para mí?",
+       "escala": [
+        "No va conmigo",
+        "Va mucho conmigo"
+       ]
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Escribo bien y me gusta?",
+       "escala": [
+        "No va conmigo",
+        "Va mucho conmigo"
+       ]
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Me sirve un trabajo donde nada es igual dos días?",
+       "escala": [
+        "No va conmigo",
+        "Va mucho conmigo"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Si dijiste que sí a casi todo, vale la pena seguir explorándola."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "u4",
+   "lecciones": [
+    {
+     "id": "4.1",
+     "titulo": "Cuánto dura y qué estudias",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Cada escuela arma su plan distinto, pero el orden general se parece. Vamos a verlo."
+      },
+      {
+       "tipo": "ordenar",
+       "pregunta": "Ordena lo que estudias, de lo primero a lo último.",
+       "pasos": [
+        "Teorías de la comunicación, Redacción",
+        "Periodismo, Producción de audio y video",
+        "Comunicación organizacional, Publicidad",
+        "Proyecto de medios, Prácticas"
+       ],
+       "revelacion": "Primero las bases y al final lo más especializado y las prácticas."
+      },
+      {
+       "tipo": "rango",
+       "pregunta": "¿Cuántos años crees que pasan desde que entras hasta que te titulas?",
+       "min": 3,
+       "max": 10,
+       "paso": 1,
+       "unidad": "años",
+       "dato": "comunicacion.duracion"
+      },
+      {
+       "tipo": "clave",
+       "texto": "Revisa el mapa curricular de cada escuela: cambia de una a otra."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "4.2",
+     "titulo": "Cómo se entra",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "Cómo se entra en la región",
+       "puntos": [
+        "UNAM: Concurso de selección UNAM (120 reactivos) o pase reglamentado desde CCH/ENP",
+        "UAM: Examen de selección UAM (trimestral; dos procesos al año y procesos extraordinarios)",
+        "Tec de Monterrey: PAA (Prueba de Aptitud Académica), SAT o ACT + promedio + perfil integral (ensayo, currículum)",
+        "IBERO: Examen de admisión propio + promedio de bachillerato"
+       ]
+      },
+      {
+       "tipo": "decision",
+       "pregunta": "Según lo que leíste, ¿qué pide UNAM para entrar?",
+       "opciones": [
+        {
+         "texto": "Concurso de selección UNAM (120 reactivos) o pase reglamentado desde CCH/ENP",
+         "consecuencia": "Exacto.",
+         "mejor": true
+        },
+        {
+         "texto": "Examen de selección UAM (trimestral; dos procesos al año y procesos extraordinarios)",
+         "consecuencia": "Eso lo pide UAM."
+        },
+        {
+         "texto": "PAA (Prueba de Aptitud Académica), SAT o ACT + promedio + perfil integral (ensayo, currículum)",
+         "consecuencia": "Eso lo pide Tec de Monterrey."
+        }
+       ]
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Todas las universidades usan el mismo examen.",
+       "respuesta": false,
+       "revelacion": "Cada una tiene el suyo: revisa la convocatoria de la que te interese."
+      },
+      {
+       "tipo": "clave",
+       "texto": "Conoce el examen de tu escuela desde antes."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "4.3",
+     "titulo": "Dónde, cuánto cuesta y becas",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "El costo cambia mucho entre una universidad pública y una privada. Antes de ver datos, apuesta."
+      },
+      {
+       "tipo": "rango",
+       "pregunta": "¿Cuánto crees que cuesta un semestre en una universidad pública?",
+       "min": 0,
+       "max": 60000,
+       "paso": 1000,
+       "unidad": "pesos",
+       "dato": "comunicacion.costo_publica"
+      },
+      {
+       "tipo": "rango",
+       "pregunta": "¿Y un semestre en una universidad privada?",
+       "min": 0,
+       "max": 300000,
+       "paso": 5000,
+       "unidad": "pesos",
+       "dato": "comunicacion.costo_privada"
+      },
+      {
+       "tipo": "dato",
+       "titulo": "Becas para estudiar Comunicación",
+       "dato": "comunicacion.becas"
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Una universidad cara garantiza un mejor empleo.",
+       "respuesta": false,
+       "revelacion": "Pesan más lo que aprendes, tus prácticas y tu esfuerzo."
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Qué pesa más para ti al elegir escuela?",
+       "opciones": [
+        "El costo",
+        "Que esté cerca de mi casa",
+        "El prestigio",
+        "Las prácticas que ofrece"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Además de la colegiatura, cuenta transporte y materiales."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "u5",
+   "lecciones": [
+    {
+     "id": "5.1",
+     "titulo": "Qué piden para trabajar",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "Qué te piden para trabajar",
+       "puntos": [
+        "No requiere cédula."
+       ]
+      },
+      {
+       "tipo": "decision",
+       "pregunta": "Según lo que leíste, ¿qué necesitas para ejercer Comunicación?",
+       "opciones": [
+        {
+         "texto": "No requiere cédula.",
+         "consecuencia": "Exacto.",
+         "mejor": true
+        },
+        {
+         "texto": "No requiere cédula",
+         "consecuencia": "Eso lo piden en Economía."
+        },
+        {
+         "texto": "No requiere cédula para la mayoría de puestos.",
+         "consecuencia": "Eso lo piden en Ing. Electrónica."
+        }
+       ]
+      },
+      {
+       "tipo": "dos_caminos",
+       "pregunta": "¿Cómo te ves?",
+       "a": {
+        "texto": "En una institución o empresa",
+        "dice": "Más estabilidad y un equipo de quien aprender."
+       },
+       "b": {
+        "texto": "Por tu cuenta",
+        "dice": "Más libertad, pero tienes que conseguir clientes."
+       }
+      },
+      {
+       "tipo": "clave",
+       "texto": "Saber qué te piden te ahorra sorpresas al salir."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "5.2",
+     "titulo": "Sueldo y demanda",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Hablemos de dinero sin rodeos. Antes de ver cualquier cifra, apuesta: así recuerdas mejor el dato real."
+      },
+      {
+       "tipo": "rango",
+       "pregunta": "¿Cuánto crees que gana al mes, en promedio, un profesionista de Comunicación en México?",
+       "min": 5000,
+       "max": 100000,
+       "paso": 1000,
+       "unidad": "pesos",
+       "dato": "comunicacion.ingreso"
+      },
+      {
+       "tipo": "rango",
+       "pregunta": "De cada 100 egresados, ¿cuántos crees que trabajan en algo de su carrera?",
+       "min": 0,
+       "max": 100,
+       "paso": 5,
+       "unidad": "de cada 100",
+       "dato": "comunicacion.ocupacion_afin"
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Todos los egresados de Comunicación ganan lo mismo.",
+       "respuesta": false,
+       "revelacion": "Cambia con la experiencia, el lugar, la especialidad y si trabajas por tu cuenta."
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Qué tanto pesa el sueldo en tu decisión?",
+       "escala": [
+        "No va conmigo",
+        "Va mucho conmigo"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "El promedio orienta, pero tu camino puede ser distinto."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "5.3",
+     "titulo": "Cómo les va al salir",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "chat",
+       "subtitulo": "Te cuenta cómo les va al salir",
+       "intro": [
+        "Te cuento cómo les va a quienes estudian Comunicación al salir."
+       ],
+       "temas": [
+        {
+         "q": "¿Cuántos trabajan en lo suyo?",
+         "a": [
+          "Menos de la mitad trabaja en algo de su carrera.",
+          "Es un promedio nacional del IMCO."
+         ]
+        },
+        {
+         "q": "¿Muchos hacen posgrado?",
+         "a": [
+          "Pocos hacen posgrado; la mayoría empieza a trabajar."
+         ]
+        },
+        {
+         "q": "¿Hay más hombres o mujeres?",
+         "a": [
+          "Hay casi el mismo número de hombres y mujeres.",
+          "Eso no decide nada: cualquiera puede estudiarla."
+         ]
+        },
+        {
+         "q": "¿El trabajo tiene prestaciones?",
+         "a": [
+          "La mayoría tiene un trabajo formal, con prestaciones.",
+          "Las prestaciones son cosas como seguro médico y aguinaldo."
+         ]
+        }
+       ],
+       "minimo": 2
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "La mayoría de quienes estudian Comunicación trabaja en algo de su carrera.",
+       "respuesta": false,
+       "revelacion": "Menos de la mitad trabaja en algo de su carrera. Promedio nacional del IMCO."
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Qué te importa más de tu futuro trabajo?",
+       "opciones": [
+        "Que tenga que ver con lo que estudié",
+        "Ganar bien",
+        "Tener prestaciones",
+        "Hacer algo que me guste"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Pregunta cómo les va a quienes ya salieron."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "5.4",
+     "titulo": "Después de titularte",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "Después de titularte",
+       "puntos": [
+        "Puedes especializarte con cursos, diplomados o una maestría.",
+        "También puedes trabajar desde el inicio y estudiar después.",
+        "Se combina bien con: Mercadotecnia, Diseño Gráfico y Comunicación Visual, Animación y Arte Digital."
+       ]
+      },
+      {
+       "tipo": "dos_caminos",
+       "pregunta": "¿Qué harías al terminar?",
+       "a": {
+        "texto": "Trabajar desde el inicio",
+        "dice": "Ganas experiencia y dinero; después decides si estudias más."
+       },
+       "b": {
+        "texto": "Seguir estudiando",
+        "dice": "Te especializas antes; tardas más en empezar a trabajar."
+       }
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Cómo te imaginas después de la carrera?",
+       "opciones": [
+        "Trabajando",
+        "En una maestría",
+        "Emprendiendo",
+        "No sé todavía"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Al titularte empieza otra parte del camino, no termina."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "u6",
+   "lecciones": [
+    {
+     "id": "6.1",
+     "titulo": "Lo que sentiste",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "reflexion",
+       "pregunta": "Antes de ver tus respuestas: ¿cómo te fue con Comunicación?",
+       "opciones": [
+        "Me gustó más de lo que pensaba",
+        "Más o menos como esperaba",
+        "Me gustó menos de lo que pensaba"
+       ]
+      },
+      {
+       "tipo": "resumen"
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "Viendo tus respuestas, ¿qué pesó más?",
+       "opciones": [
+        "Lo que sentí al probarla",
+        "Lo que supe de la realidad",
+        "El camino para llegar",
+        "El futuro que ofrece"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Lo que sentiste al probarla vale más que lo que imaginabas."
+      },
+      {
+       "tipo": "interes",
+       "pregunta": "¿Te ves estudiando Comunicación?"
+      }
+     ]
+    },
+    {
+     "id": "6.2",
+     "titulo": "Tu veredicto",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "reflexion",
+       "pregunta": "Si mañana tuvieras que elegir carrera, ¿Comunicación estaría entre tus opciones?",
+       "opciones": [
+        "Sí, entre las primeras",
+        "Sí, pero no arriba",
+        "No creo",
+        "No lo sé"
+       ]
+      },
+      {
+       "tipo": "comparar"
+      },
+      {
+       "tipo": "dos_caminos",
+       "pregunta": "¿Qué te ayudaría más a decidir?",
+       "a": {
+        "texto": "Hablar con alguien que la estudia",
+        "dice": "Busca a un estudiante o egresado cerca de ti y hazle tus preguntas. Una plática aclara más que diez videos."
+       },
+       "b": {
+        "texto": "Probar otra carrera y comparar",
+        "dice": "Explora otra de tu mapa. Comparar dos caminos reales aclara más que pensar en uno solo."
+       }
+      },
+      {
+       "tipo": "veredicto"
+      },
+      {
+       "tipo": "clave",
+       "texto": "Decidir «en duda» también es avanzar."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

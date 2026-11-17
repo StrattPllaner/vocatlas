@@ -603,6 +603,44 @@
        }
       },
       {
+       "tipo": "chat",
+       "subtitulo": "Te cuenta cómo es trabajar en Veterinaria",
+       "intro": [
+        "¡Hola! Junté lo que se sabe de Veterinaria.",
+        "Pregúntame lo que quieras."
+       ],
+       "temas": [
+        {
+         "q": "¿Qué haces en un día normal?",
+         "a": [
+          "Atiende mascotas en clínica, o trabaja en granjas y ranchos cuidando la salud y producción de ganado, en inspección de alimentos o en laboratorios."
+         ]
+        },
+        {
+         "q": "¿Qué es lo más difícil?",
+         "a": [
+          "Se considera una carrera de dificultad alta.",
+          "Anatomía comparada de muchas especies y prácticas con animales grandes en ranchos y granjas."
+         ]
+        },
+        {
+         "q": "¿Hay trabajo?",
+         "a": [
+          "Cerca de la mitad trabaja en algo de su carrera. Es un promedio nacional del IMCO.",
+          "Muchos ponen su propia clínica."
+         ]
+        },
+        {
+         "q": "¿Qué necesito para ejercer?",
+         "a": [
+          "Título y cédula profesional."
+         ]
+        }
+       ],
+       "minimo": 2,
+       "auto": true
+      },
+      {
        "tipo": "clave",
        "texto": "Hay más limpieza y papeleo de lo que parece."
       },

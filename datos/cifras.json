@@ -2584,5 +2584,86 @@
   "url": "https://www.gob.mx/becasbenitojuarez/articulos/beca-de-educacion-superior-jovenes-escribiendo-el-futuro",
   "consultado": "2026-11-17",
   "estado": "verificado"
+ },
+ "aeroespacial.costo_privada": {
+  "valor": null,
+  "unidad": "pesos por semestre",
+  "fuente": null,
+  "url": null,
+  "consultado": null,
+  "estado": "pendiente",
+  "fuente_sugerida": "la página de colegiaturas de cada universidad que la ofrezca"
+ },
+ "fisica.costo_privada": {
+  "valor": null,
+  "unidad": "pesos por semestre",
+  "fuente": null,
+  "url": null,
+  "consultado": null,
+  "estado": "pendiente",
+  "fuente_sugerida": "la página de colegiaturas de cada universidad que la ofrezca"
+ },
+ "finanzas.costo_publica": {
+  "valor": null,
+  "unidad": "pesos por semestre",
+  "fuente": null,
+  "url": null,
+  "consultado": null,
+  "estado": "pendiente",
+  "fuente_sugerida": "la página de colegiaturas de cada universidad que la ofrezca"
+ },
+ "electrica.costo_privada": {
+  "valor": null,
+  "unidad": "pesos por semestre",
+  "fuente": null,
+  "url": null,
+  "consultado": null,
+  "estado": "pendiente",
+  "fuente_sugerida": "la página de colegiaturas de cada universidad que la ofrezca"
+ },
+ "quimica.costo_privada": {
+  "valor": null,
+  "unidad": "pesos por semestre",
+  "fuente": null,
+  "url": null,
+  "consultado": null,
+  "estado": "pendiente",
+  "fuente_sugerida": "la página de colegiaturas de cada universidad que la ofrezca"
+ },
+ "biologia.costo_privada": {
+  "valor": null,
+  "unidad": "pesos por semestre",
+  "fuente": null,
+  "url": null,
+  "consultado": null,
+  "estado": "pendiente",
+  "fuente_sugerida": "la página de colegiaturas de cada universidad que la ofrezca"
+ },
+ "matematicas.costo_privada": {
+  "valor": null,
+  "unidad": "pesos por semestre",
+  "fuente": null,
+  "url": null,
+  "consultado": null,
+  "estado": "pendiente",
+  "fuente_sugerida": "la página de colegiaturas de cada universidad que la ofrezca"
+ },
+ "trabajosocial.costo_privada": {
+  "valor": null,
+  "unidad": "pesos por semestre",
+  "fuente": null,
+  "url": null,
+  "consultado": null,
+  "estado": "pendiente",
+  "fuente_sugerida": "la página de colegiaturas de cada universidad que la ofrezca"
+ },
+ "gastronomia.costo_publica": {
+  "valor": null,
+  "unidad": "pesos por semestre",
+  "fuente": null,
+  "url": null,
+  "consultado": null,
+  "estado": "pendiente",
+  "fuente_sugerida": "la página de colegiaturas de cada universidad que la ofrezca"
  }
 }

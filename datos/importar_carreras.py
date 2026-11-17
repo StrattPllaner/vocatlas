@@ -99,6 +99,7 @@ for app,fid in MAPA.items():
         return "{:,} a {:,}".format(*r) if r[0]!=r[1] else "{:,}".format(r[0])
     for key,L in (("costo_publica",pub),("costo_privada",pri)):
         r=rng(L)
+        if not r:CIF.setdefault(app+"."+key,pend("pesos por semestre","la página de colegiaturas de cada universidad que la ofrezca"))
         if r:CIF[app+"."+key]={"valor":txt(r),"unidad":"" if r[1]==0 else "pesos por semestre","nota":"Según "+", ".join(sorted({u["nombre"] for u in L}))+". Además cuentan transporte y materiales.","fuente":BASE+" · ver «Escuelas»","url":None,"consultado":FECHA,"estado":"confirmar"}
     CIF[app+".becas"]={"valor":"Jóvenes Escribiendo el Futuro","unidad":"beca federal para escuelas públicas, además de las de cada universidad","nota":"Revisa en su buscador si tu escuela participa. La UNAM y el IPN tienen sus propias becas por convocatoria.","fuente":"Becas Benito Juárez, gob.mx","url":"https://www.gob.mx/becasbenitojuarez/articulos/beca-de-educacion-superior-jovenes-escribiendo-el-futuro","consultado":"2026-11-17","estado":"verificado"}
 json.dump(CIF,open(D+"/cifras.json","w"),ensure_ascii=False,indent=1)

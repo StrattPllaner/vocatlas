@@ -1,0 +1,1043 @@
+{
+ "id": "fisica",
+ "version": 1,
+ "estado": "completo",
+ "generado": true,
+ "revision": "Armada automáticamente con la base de carreras de Morelos y CDMX (2026-11-17). Falta que la revise alguien de la carrera.",
+ "unidades": [
+  {
+   "id": "u1",
+   "lecciones": [
+    {
+     "id": "1.1",
+     "titulo": "Qué es y qué hace",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "¿Qué es Física?",
+       "texto": "Fundamentos científicos y cuantitativos para explicar fenómenos naturales y resolver problemas mediante experimentación, modelos, análisis de datos y trabajo de laboratorio.",
+       "puntos": [
+        "Investiga fenómenos físicos, hace simulaciones por computadora o aplica la física en tecnología, energía, medicina, datos o docencia."
+       ]
+      },
+      {
+       "tipo": "decision",
+       "pregunta": "Por lo que leíste, ¿qué hace alguien de Física?",
+       "opciones": [
+        {
+         "texto": "Investiga fenómenos físicos, hace simulaciones por computadora o aplica la física en tecnología, energía, medicina, datos o docencia.",
+         "consecuencia": "Exacto: eso es parte del día a día en Física.",
+         "mejor": true
+        },
+        {
+         "texto": "Analiza datos para entender precios, empleo, comercio o políticas: hace modelos en Excel, R o Python, escribe reportes y recomienda decisiones en bancos, gobierno…",
+         "consecuencia": "Eso lo hace alguien de Economía."
+        },
+        {
+         "texto": "Da clases de educación física, entrena equipos o atletas, diseña programas de actividad física o administra gimnasios y clubes.",
+         "consecuencia": "Eso lo hace alguien de Educación física."
+        }
+       ]
+      },
+      {
+       "tipo": "completar",
+       "frase": "Física es una carrera del área de ___.",
+       "opciones": [
+        "Tecnología y ciencias",
+        "Salud",
+        "Negocios y sociedad"
+       ],
+       "correcta": 0,
+       "revelacion": "Está en Tecnología y ciencias. Se parece a Matemáticas, Ingeniería Aeronáutica y Aeroespacial, Ingeniería Electrónica y Telecomunicaciones."
+      },
+      {
+       "tipo": "clave",
+       "texto": "Antes de elegir, entiende qué harías cada día, no solo el nombre."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "1.2",
+     "titulo": "Dónde trabajas",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "Dónde trabaja alguien de Física",
+       "texto": "Universidades, centros de investigación, laboratorios, consultoría ambiental, industria, gobierno, análisis de datos, conservación y docencia;",
+       "puntos": [
+        "Algunos puestos valoran mucho el posgrado."
+       ]
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Alguien de Física solo puede trabajar en un tipo de lugar.",
+       "respuesta": false,
+       "revelacion": "Puede trabajar en varios: universidades, centros de investigación, laboratorios."
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Dónde te ves trabajando?",
+       "opciones": [
+        "Universidades",
+        "Centros de investigación",
+        "Laboratorios",
+        "Consultoría ambiental"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Una carrera abre varias puertas, no una sola."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "1.3",
+     "titulo": "Pregúntale a Rumbo",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "chat",
+       "subtitulo": "Te cuenta cómo es trabajar en Física",
+       "intro": [
+        "¡Hola! Junté lo que se sabe de Física.",
+        "Pregúntame lo que quieras."
+       ],
+       "temas": [
+        {
+         "q": "¿Qué haces en un día normal?",
+         "a": [
+          "Investiga fenómenos físicos, hace simulaciones por computadora o aplica la física en tecnología, energía, medicina, datos o docencia."
+         ]
+        },
+        {
+         "q": "¿Qué es lo más difícil?",
+         "a": [
+          "Se considera una carrera de dificultad muy alta.",
+          "Cálculo, Mecánica clásica, Electromagnetismo y Mecánica cuántica",
+          "Alta deserción."
+         ]
+        },
+        {
+         "q": "¿Hay trabajo?",
+         "a": [
+          "IMCO no publica dato salarial propio para Física",
+          "Muchos egresados terminan en datos, finanzas o tecnología."
+         ]
+        },
+        {
+         "q": "¿Qué necesito para ejercer?",
+         "a": [
+          "No requiere cédula",
+          "La carrera científica pide doctorado."
+         ]
+        }
+       ],
+       "minimo": 2,
+       "auto": true
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Física se considera una carrera de dificultad muy alta.",
+       "respuesta": true,
+       "revelacion": "Se considera de dificultad muy alta. Cálculo, Mecánica clásica, Electromagnetismo y Mecánica cuántica"
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Qué te llamó más la atención?",
+       "opciones": [
+        "¿Qué haces en un día normal?",
+        "¿Qué es lo más difícil?",
+        "¿Hay trabajo?",
+        "¿Qué necesito para ejercer?"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Preguntar a quien ya sabe ahorra muchos errores."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "1.4",
+     "titulo": "Carreras parecidas",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "Carreras cercanas a Física",
+       "puntos": [
+        "Matemáticas: fundamentos científicos y cuantitativos para explicar fenómenos naturales y.",
+        "Ingeniería Aeronáutica y Aeroespacial: aplicación de matemáticas, ciencias y tecnología para diseñar, construir.",
+        "Ingeniería Electrónica y Telecomunicaciones: aplicación de matemáticas, ciencias y tecnología para diseñar, construir.",
+        "Ciencia de Datos: diseño y desarrollo de soluciones digitales. puede incluir programación."
+       ]
+      },
+      {
+       "tipo": "emparejar",
+       "pregunta": "Une cada carrera con lo que estudia.",
+       "pares": [
+        [
+         "Matemáticas",
+         "Fundamentos científicos y cuantitativos para explicar fenómenos naturales y"
+        ],
+        [
+         "Ingeniería Aeronáutica y Aeroespacial",
+         "Aplicación de matemáticas, ciencias y tecnología para diseñar, construir"
+        ],
+        [
+         "Ingeniería Electrónica y Telecomunicaciones",
+         "Aplicación de matemáticas, ciencias y tecnología para diseñar, construir"
+        ],
+        [
+         "Ciencia de Datos",
+         "Diseño y desarrollo de soluciones digitales. Puede incluir programación"
+        ]
+       ],
+       "revelacion": "Se cruzan en temas, pero cada una tiene su propio enfoque."
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Cuál de estas te da curiosidad?",
+       "opciones": [
+        "Matemáticas",
+        "Ingeniería Aeronáutica y Aeroespacial",
+        "Ingeniería Electrónica y Telecomunicaciones",
+        "Me quedo con Física"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Si dudas entre dos, compara lo que harías cada día."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "u2",
+   "lecciones": [
+    {
+     "id": "2.1",
+     "titulo": "Mini reto",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Por qué una cuchara metálica enfría más rápido el café? Elige tu idea.",
+       "opciones": [
+        "Conduce el calor hacia el aire",
+        "Revolver mueve el café",
+        "Es el vapor"
+       ]
+      },
+      {
+       "tipo": "info",
+       "titulo": "Así lo piensa alguien de Física",
+       "texto": "Los físicos proponen una explicación y buscan cómo ponerla a prueba. Hay mucha matemática, y a veces la respuesta es que fueron varias cosas a la vez."
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Te gustó pensar en algo así?",
+       "escala": [
+        "Nada",
+        "Mucho"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Los retos de una carrera se parecen a lo que harías en su trabajo."
+      },
+      {
+       "tipo": "interes",
+       "pregunta": "¿Te ves resolviendo retos así?"
+      }
+     ]
+    },
+    {
+     "id": "2.2",
+     "titulo": "Lo que te piden",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "Habilidades que usarás en Física",
+       "puntos": [
+        "Matemáticas avanzadas",
+        "Pensamiento abstracto",
+        "Programación",
+        "Persistencia"
+       ]
+      },
+      {
+       "tipo": "completar",
+       "pregunta": "Según lo que leíste, completa la frase.",
+       "frase": "Para Física es clave: ___.",
+       "opciones": [
+        "Matemáticas avanzadas",
+        "Curiosidad técnica",
+        "Creatividad práctica"
+       ],
+       "correcta": 0,
+       "revelacion": "Es de las habilidades que más se usan en Física."
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Qué tanto se te da esto: pensamiento abstracto?",
+       "escala": [
+        "Me cuesta",
+        "Se me da"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Las habilidades se entrenan; lo importante es que te guste usarlas."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "2.3",
+     "titulo": "Temas que vas a ver",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "Temas que te deben gustar",
+       "puntos": [
+        "Universo y naturaleza",
+        "Investigación",
+        "Tecnología de frontera"
+       ]
+      },
+      {
+       "tipo": "decision",
+       "pregunta": "¿Cuál de estos temas es más de Física?",
+       "opciones": [
+        {
+         "texto": "Universo y naturaleza",
+         "consecuencia": "Sí, es de sus temas centrales.",
+         "mejor": true
+        },
+        {
+         "texto": "Construcción",
+         "consecuencia": "Ese es más de Ing. Civil."
+        },
+        {
+         "texto": "Robots",
+         "consecuencia": "Ese es más de Mecatrónica."
+        }
+       ]
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Cuál de estos temas te gusta más?",
+       "opciones": [
+        "Universo y naturaleza",
+        "Investigación",
+        "Tecnología de frontera",
+        "Ninguno me late"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Si los temas te aburren, la carrera se hace muy larga."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "2.4",
+     "titulo": "Materias clave",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "voltear",
+       "pregunta": "¿Qué materias crees que llevas en cada etapa? Piénsalo y voltea.",
+       "cartas": [
+        {
+         "frente": "Semestres 1-2",
+         "reverso": "Cálculo, Mecánica, Álgebra, Laboratorio de física"
+        },
+        {
+         "frente": "Semestres 3-4",
+         "reverso": "Ecuaciones diferenciales, Electromagnetismo, Ondas y óptica, Termodinámica"
+        },
+        {
+         "frente": "Semestres 5-6",
+         "reverso": "Mecánica cuántica, Mecánica analítica, Física estadística, Métodos matemáticos"
+        },
+        {
+         "frente": "Semestres 7 en adelante",
+         "reverso": "Física moderna y optativas, Tesis"
+        }
+       ]
+      },
+      {
+       "tipo": "decision",
+       "pregunta": "¿Cuál de estas materias llevarías en Física?",
+       "opciones": [
+        {
+         "texto": "Cálculo",
+         "consecuencia": "Sí: es de las primeras materias de Física.",
+         "mejor": true
+        },
+        {
+         "texto": "Administración",
+         "consecuencia": "Esa es de Negocios internacionales."
+        },
+        {
+         "texto": "Dibujo y anatomía",
+         "consecuencia": "Esa es de Animación."
+        }
+       ]
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Cuál te da más curiosidad?",
+       "opciones": [
+        "Cálculo",
+        "Mecánica",
+        "Álgebra",
+        "Laboratorio de física"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Las primeras materias son la base; muchas veces son las más pesadas."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "u3",
+   "lecciones": [
+    {
+     "id": "3.1",
+     "titulo": "Un día real",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "Un día de trabajo en Física",
+       "puntos": [
+        "Investiga fenómenos físicos, hace simulaciones por computadora o aplica la física en tecnología, energía, medicina, datos o docencia."
+       ]
+      },
+      {
+       "tipo": "decision",
+       "pregunta": "¿Cuál de estas cosas sí hace alguien de Física?",
+       "opciones": [
+        {
+         "texto": "Investiga fenómenos físicos, hace simulaciones por computadora o aplica la física en tecnología, energía, medicina, datos o docencia.",
+         "consecuencia": "Sí: es parte de su día.",
+         "mejor": true
+        },
+        {
+         "texto": "Diseña prendas y colecciones, elige telas, trabaja patrones con talleres, sigue tendencias y comercializa: en marcas, retail o con su propia marca.",
+         "consecuencia": "Eso es más de Moda."
+        },
+        {
+         "texto": "Limpia y analiza grandes cantidades de datos, construye modelos que predicen (ventas, fraudes, clientes) y presenta hallazgos con gráficas para que la empresa decida.",
+         "consecuencia": "Eso es más de Ciencia de datos."
+        }
+       ]
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Te ves haciendo esto todos los días?",
+       "escala": [
+        "No va conmigo",
+        "Va mucho conmigo"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "El día a día pesa más que el título."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "3.2",
+     "titulo": "Lo difícil",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "Lo difícil de Física",
+       "texto": "Se considera de dificultad muy alta.",
+       "puntos": [
+        "Cálculo, Mecánica clásica, Electromagnetismo y Mecánica cuántica",
+        "Alta deserción."
+       ]
+      },
+      {
+       "tipo": "decision",
+       "pregunta": "Según lo que leíste, ¿qué es lo que más cuesta en Física?",
+       "opciones": [
+        {
+         "texto": "Cálculo, Mecánica clásica, Electromagnetismo y Mecánica cuántica",
+         "consecuencia": "Sí, es de lo que más cuesta en Física.",
+         "mejor": true
+        },
+        {
+         "texto": "Cálculo, Fisicoquímica, Termodinámica y Fenómenos de transporte",
+         "consecuencia": "Eso es más de Ing. Química."
+        },
+        {
+         "texto": "Estadística, Neurociencias y Metodología de la investigación sorprenden a muchos",
+         "consecuencia": "Eso es más de Psicología."
+        }
+       ]
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Qué tanto te preocupa esto?",
+       "escala": [
+        "Mucho",
+        "Nada"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Saber lo difícil desde antes te ayuda a prepararte."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "3.3",
+     "titulo": "Historia real",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "reflexion",
+       "pregunta": "Si pudieras preguntarle algo a alguien que ya estudia Física, ¿qué sería?",
+       "opciones": [
+        "¿Qué fue lo más difícil?",
+        "¿Qué te sorprendió?",
+        "¿Volverías a elegirla?",
+        "¿Cómo es un día normal?"
+       ]
+      },
+      {
+       "tipo": "testimonio",
+       "estado": "pendiente",
+       "perfil": "Estudiante de últimos semestres o egresado de Física"
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "Mientras llega esta historia, ¿a quién podrías preguntarle tú?",
+       "opciones": [
+        "A un familiar o conocido que la estudió",
+        "A un estudiante de mi ciudad",
+        "A un maestro que la conozca",
+        "Todavía no conozco a nadie"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Una persona real te cuenta lo que ningún folleto dice."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "3.4",
+     "titulo": "¿Es para ti?",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Contesta con honestidad. Nadie más ve tus respuestas."
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Me pregunto cómo funciona el universo?",
+       "escala": [
+        "No va conmigo",
+        "Va mucho conmigo"
+       ]
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Me gustan mucho física y matemáticas?",
+       "escala": [
+        "No va conmigo",
+        "Va mucho conmigo"
+       ]
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Haría doctorado?",
+       "escala": [
+        "No va conmigo",
+        "Va mucho conmigo"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Si dijiste que sí a casi todo, vale la pena seguir explorándola."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "u4",
+   "lecciones": [
+    {
+     "id": "4.1",
+     "titulo": "Cuánto dura y qué estudias",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Cada escuela arma su plan distinto, pero el orden general se parece. Vamos a verlo."
+      },
+      {
+       "tipo": "ordenar",
+       "pregunta": "Ordena lo que estudias, de lo primero a lo último.",
+       "pasos": [
+        "Cálculo, Mecánica",
+        "Ecuaciones diferenciales, Electromagnetismo",
+        "Mecánica cuántica, Mecánica analítica",
+        "Física moderna y optativas, Tesis"
+       ],
+       "revelacion": "Primero las bases y al final lo más especializado y las prácticas."
+      },
+      {
+       "tipo": "rango",
+       "pregunta": "¿Cuántos años crees que pasan desde que entras hasta que te titulas?",
+       "min": 3,
+       "max": 10,
+       "paso": 1,
+       "unidad": "años",
+       "dato": "fisica.duracion"
+      },
+      {
+       "tipo": "clave",
+       "texto": "Revisa el mapa curricular de cada escuela: cambia de una a otra."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "4.2",
+     "titulo": "Cómo se entra",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "Cómo se entra en la región",
+       "puntos": [
+        "UNAM: Concurso de selección UNAM (120 reactivos) o pase reglamentado desde CCH/ENP",
+        "IPN: Examen de admisión IPN (140 preguntas, hasta 3 horas, incluye sección de inglés)",
+        "UAM: Examen de selección UAM (trimestral; dos procesos al año y procesos extraordinarios)",
+        "UAEM: EXANI-II de CENEVAL + curso propedéutico"
+       ]
+      },
+      {
+       "tipo": "decision",
+       "pregunta": "Según lo que leíste, ¿qué pide UNAM para entrar?",
+       "opciones": [
+        {
+         "texto": "Concurso de selección UNAM (120 reactivos) o pase reglamentado desde CCH/ENP",
+         "consecuencia": "Exacto.",
+         "mejor": true
+        },
+        {
+         "texto": "Examen de admisión IPN (140 preguntas, hasta 3 horas, incluye sección de inglés)",
+         "consecuencia": "Eso lo pide IPN."
+        },
+        {
+         "texto": "Examen de selección UAM (trimestral; dos procesos al año y procesos extraordinarios)",
+         "consecuencia": "Eso lo pide UAM."
+        }
+       ]
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Todas las universidades usan el mismo examen.",
+       "respuesta": false,
+       "revelacion": "Cada una tiene el suyo: revisa la convocatoria de la que te interese."
+      },
+      {
+       "tipo": "clave",
+       "texto": "Conoce el examen de tu escuela desde antes."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "4.3",
+     "titulo": "Dónde, cuánto cuesta y becas",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "El costo cambia mucho entre una universidad pública y una privada. Antes de ver datos, apuesta."
+      },
+      {
+       "tipo": "rango",
+       "pregunta": "¿Cuánto crees que cuesta un semestre en una universidad pública?",
+       "min": 0,
+       "max": 60000,
+       "paso": 1000,
+       "unidad": "pesos",
+       "dato": "fisica.costo_publica"
+      },
+      {
+       "tipo": "rango",
+       "pregunta": "¿Y un semestre en una universidad privada?",
+       "min": 0,
+       "max": 300000,
+       "paso": 5000,
+       "unidad": "pesos",
+       "dato": "fisica.costo_privada"
+      },
+      {
+       "tipo": "dato",
+       "titulo": "Becas para estudiar Física",
+       "dato": "fisica.becas"
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Una universidad cara garantiza un mejor empleo.",
+       "respuesta": false,
+       "revelacion": "Pesan más lo que aprendes, tus prácticas y tu esfuerzo."
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Qué pesa más para ti al elegir escuela?",
+       "opciones": [
+        "El costo",
+        "Que esté cerca de mi casa",
+        "El prestigio",
+        "Las prácticas que ofrece"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Además de la colegiatura, cuenta transporte y materiales."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "u5",
+   "lecciones": [
+    {
+     "id": "5.1",
+     "titulo": "Qué piden para trabajar",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "Qué te piden para trabajar",
+       "puntos": [
+        "No requiere cédula",
+        "La carrera científica pide doctorado.",
+        "IMCO no publica dato salarial propio para Física",
+        "Muchos egresados terminan en datos, finanzas o tecnología."
+       ]
+      },
+      {
+       "tipo": "decision",
+       "pregunta": "Según lo que leíste, ¿qué necesitas para ejercer Física?",
+       "opciones": [
+        {
+         "texto": "No requiere cédula",
+         "consecuencia": "Exacto.",
+         "mejor": true
+        },
+        {
+         "texto": "Título y cédula profesional.",
+         "consecuencia": "Eso lo piden en Trabajo social."
+        },
+        {
+         "texto": "No requiere cédula",
+         "consecuencia": "Eso lo piden en Diseño gráfico."
+        }
+       ]
+      },
+      {
+       "tipo": "dos_caminos",
+       "pregunta": "¿Cómo te ves?",
+       "a": {
+        "texto": "En una institución o empresa",
+        "dice": "Más estabilidad y un equipo de quien aprender."
+       },
+       "b": {
+        "texto": "Por tu cuenta",
+        "dice": "Más libertad, pero tienes que conseguir clientes."
+       }
+      },
+      {
+       "tipo": "clave",
+       "texto": "Saber qué te piden te ahorra sorpresas al salir."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "5.2",
+     "titulo": "Sueldo y demanda",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Hablemos de dinero sin rodeos. Antes de ver cualquier cifra, apuesta: así recuerdas mejor el dato real."
+      },
+      {
+       "tipo": "rango",
+       "pregunta": "¿Cuánto crees que gana al mes, en promedio, un profesionista de Física en México?",
+       "min": 5000,
+       "max": 100000,
+       "paso": 1000,
+       "unidad": "pesos",
+       "dato": "fisica.ingreso"
+      },
+      {
+       "tipo": "rango",
+       "pregunta": "De cada 100 egresados, ¿cuántos crees que trabajan en algo de su carrera?",
+       "min": 0,
+       "max": 100,
+       "paso": 5,
+       "unidad": "de cada 100",
+       "dato": "fisica.ocupacion_afin"
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Todos los egresados de Física ganan lo mismo.",
+       "respuesta": false,
+       "revelacion": "Cambia con la experiencia, el lugar, la especialidad y si trabajas por tu cuenta."
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Qué tanto pesa el sueldo en tu decisión?",
+       "escala": [
+        "No va conmigo",
+        "Va mucho conmigo"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "El promedio orienta, pero tu camino puede ser distinto."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "5.3",
+     "titulo": "Cómo les va al salir",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "El futuro",
+       "puntos": [
+        "Pregunta a egresados cómo les fue al salir.",
+        "Revisa Compara Carreras del IMCO."
+       ]
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Qué tanto te importa encontrar trabajo rápido?",
+       "escala": [
+        "No va conmigo",
+        "Va mucho conmigo"
+       ]
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Qué te importa más de tu futuro trabajo?",
+       "opciones": [
+        "Que tenga que ver con lo que estudié",
+        "Ganar bien",
+        "Tener prestaciones",
+        "Hacer algo que me guste"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Pregunta cómo les va a quienes ya salieron."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "5.4",
+     "titulo": "Después de titularte",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "Después de titularte",
+       "puntos": [
+        "Puedes especializarte con cursos, diplomados o una maestría.",
+        "También puedes trabajar desde el inicio y estudiar después.",
+        "Se combina bien con: Matemáticas, Ingeniería Aeronáutica y Aeroespacial, Ingeniería Electrónica y Telecomunicaciones."
+       ]
+      },
+      {
+       "tipo": "dos_caminos",
+       "pregunta": "¿Qué harías al terminar?",
+       "a": {
+        "texto": "Trabajar desde el inicio",
+        "dice": "Ganas experiencia y dinero; después decides si estudias más."
+       },
+       "b": {
+        "texto": "Seguir estudiando",
+        "dice": "Te especializas antes; tardas más en empezar a trabajar."
+       }
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Cómo te imaginas después de la carrera?",
+       "opciones": [
+        "Trabajando",
+        "En una maestría",
+        "Emprendiendo",
+        "No sé todavía"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Al titularte empieza otra parte del camino, no termina."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "u6",
+   "lecciones": [
+    {
+     "id": "6.1",
+     "titulo": "Lo que sentiste",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "reflexion",
+       "pregunta": "Antes de ver tus respuestas: ¿cómo te fue con Física?",
+       "opciones": [
+        "Me gustó más de lo que pensaba",
+        "Más o menos como esperaba",
+        "Me gustó menos de lo que pensaba"
+       ]
+      },
+      {
+       "tipo": "resumen"
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "Viendo tus respuestas, ¿qué pesó más?",
+       "opciones": [
+        "Lo que sentí al probarla",
+        "Lo que supe de la realidad",
+        "El camino para llegar",
+        "El futuro que ofrece"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Lo que sentiste al probarla vale más que lo que imaginabas."
+      },
+      {
+       "tipo": "interes",
+       "pregunta": "¿Te ves estudiando Física?"
+      }
+     ]
+    },
+    {
+     "id": "6.2",
+     "titulo": "Tu veredicto",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "reflexion",
+       "pregunta": "Si mañana tuvieras que elegir carrera, ¿Física estaría entre tus opciones?",
+       "opciones": [
+        "Sí, entre las primeras",
+        "Sí, pero no arriba",
+        "No creo",
+        "No lo sé"
+       ]
+      },
+      {
+       "tipo": "comparar"
+      },
+      {
+       "tipo": "dos_caminos",
+       "pregunta": "¿Qué te ayudaría más a decidir?",
+       "a": {
+        "texto": "Hablar con alguien que la estudia",
+        "dice": "Busca a un estudiante o egresado cerca de ti y hazle tus preguntas. Una plática aclara más que diez videos."
+       },
+       "b": {
+        "texto": "Probar otra carrera y comparar",
+        "dice": "Explora otra de tu mapa. Comparar dos caminos reales aclara más que pensar en uno solo."
+       }
+      },
+      {
+       "tipo": "veredicto"
+      },
+      {
+       "tipo": "clave",
+       "texto": "Decidir «en duda» también es avanzar."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

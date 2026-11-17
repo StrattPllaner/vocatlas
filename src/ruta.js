@@ -100,33 +100,16 @@ var PATH=(function(){
     :'<path d="M12 34L40 20L68 34L40 48Z" fill="#E8AE55"/><path d="M12 34L40 48L40 40L12 26Z" fill="#E8AE55"/><path d="M12 26L40 12L68 26L40 40Z" fill="#F2C470"/><path d="M40 40L68 26V34L40 48Z" fill="#C98A3A"/>')+
    '<rect x="35" y="'+(open?46:42)+'" width="10" height="10" rx="2" fill="#F2C14E" stroke="#8A5A1E" stroke-width="1.4"/><circle cx="40" cy="'+(open?50:46)+'" r="1.6" fill="#8A5A1E"/></svg>'}
 
- /* ---------- la ruta: una carretera de montaña ----------
-    Cada unidad es un tramo que cruza la pantalla; al llegar a la orilla el camino da la vuelta y baja al siguiente,
-    como las curvas de una sierra. El cofre de la unidad está justo en la vuelta. Al final espera el edificio de la carrera.
-    Se pinta del color de la carrera hasta donde llegaste. Pocas cosas, bien puestas. */
- var CW=380,G=168,TOP=78,EDGE=30;
- function lay(cat){CW=Math.max(300,Math.min(600,(st.sc?st.sc.clientWidth:380)-16));var rows=[];
-  cat.units.forEach(function(u,ui){var y=TOP+ui*G,dir=ui%2?-1:1,L=u.items.filter(function(it){return it.chest==null}),m=L.length,x0=40,x1=CW-88;
-   L.forEach(function(it,j){var f=m>1?j/(m-1):.5,x=x0+(x1-x0)*f;if(dir<0)x=CW-x;it.x=x;it.y=y;it.kind="row";it.dir=dir});
-   u.items.forEach(function(it){if(it.chest!=null){it.x=dir>0?CW-EDGE:EDGE;it.y=y+G/2;it.kind="apex";it.dir=dir}});
-   rows.push({y:y,dir:dir,ui:ui})});
-  var last=cat.all[cat.all.length-1],end=TOP+cat.units.length*G+30;
-  return {rows:rows,end:end,h:end+230}}
- /* tramo entre dos paradas: recto en la fila, curva cerrada en la vuelta */
- /* tramo entre dos paradas (sin el punto de inicio, para encadenarlos en un solo trazo): recto en la fila, curva en la vuelta */
- function seg(a,b){var f=function(v){return v.toFixed(1)},dy=b.y-a.y;
-  if(Math.abs(dy)<30){var w=((Math.round(a.x*7+b.x*3)%5)-2)*1.1;return "Q"+f((a.x+b.x)/2)+" "+f((a.y+b.y)/2+w)+" "+f(b.x)+" "+f(b.y)}
-  if(b.kind==="apex")return "C"+f(a.x+(b.x-a.x)*.85)+" "+f(a.y)+" "+f(b.x)+" "+f(b.y-dy*.55)+" "+f(b.x)+" "+f(b.y);
-  if(a.kind==="apex")return "C"+f(a.x)+" "+f(a.y+dy*.55)+" "+f(b.x+(a.x-b.x)*.85)+" "+f(b.y)+" "+f(b.x)+" "+f(b.y);
-  /* sin cofre: vuelta completa por la orilla */
-  var sx=a.dir>0?CW-EDGE+34:EDGE-34;return "C"+f(sx)+" "+f(a.y)+" "+f(sx)+" "+f(b.y)+" "+f(b.x)+" "+f(b.y)}
- function mv(p){return "M"+p.x.toFixed(1)+" "+p.y.toFixed(1)}
+ /* ---------- el temario de la carrera ----------
+    Cada unidad es una sección con su número, de qué trata y su avance; debajo, sus lecciones con título, tipo y minutos.
+    Rumbo se asoma en la que sigue. Al final, el edificio de la carrera como meta. */
+ var KIND={chat:["Plática con Rumbo","chat"],reto:["Reto","bolt"],voltear:["Tarjetas","layers"],testi:["Historia real","quote"],dato:["Datos reales","chart"],lee:["Lectura y preguntas","book"],sobre:["Sobre ti","user"],juega:["Preguntas","check"]};
  function build(id){
   var c=byId[id],p=$("#plaza"),dark=!!(DMQ&&DMQ.matches),cat=catalog(id),pg=progOf(id);st.id=id;carCards(id,function(){});st.items=cat.all;st.units=cat.units;
   if(typeof artDefs==="function")artDefs();
   var col=c.color,cd=dk(col,.38),txt=lum(col)>.62?"#14323F":"#FFFFFF";
   p.style.setProperty("--pc",col);
-  var h='<div class="lp rt2 rt4'+(dark?" lp-dark":"")+'" style="--c:'+col+';--cd:'+cd+';--ct:'+txt+'">'+
+  var h='<div class="lp rt2 rt4 rt7'+(dark?" lp-dark":"")+'" style="--c:'+col+';--cd:'+cd+';--ct:'+txt+'">'+
    '<header class="rt2-head"><button class="lp-back rt2-back" id="pzx" aria-label="Volver al mapa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>'+
    '<div class="rt2-t"><h2>'+esc(c.name)+'</h2><div class="rt2-pg"><div class="rt2-bar"><i style="width:'+(pg.p*100).toFixed(1)+'%"></i></div><b class="num">'+pg.done+'/'+pg.total+'</b></div></div>'+(typeof escHas==="function"&&escHas(id)?'<button type="button" class="rt2-esc" id="lpEsc" aria-label="Dónde estudiar '+esc(c.name)+'">'+icon('<path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5M22 9v6"/>',"lp-ic")+'<span>Escuelas</span></button>':'')+'</header>'+
    '<div class="rt4-stage" id="lpScroll"><div class="rt4-col" id="lpCol"></div></div>'+
@@ -134,48 +117,45 @@ var PATH=(function(){
   p.innerHTML=h;st.el=p.querySelector(".lp");st.sc=$("#lpScroll");
   draw(id,cat,pg);
   $("#pzx").onclick=function(){leave();exitPlaza()};var eb=$("#lpEsc");if(eb)eb.onclick=function(){escSheet(id)};
-  if(!st.rz){st.rz=1;var tm;window.addEventListener("resize",function(){clearTimeout(tm);tm=setTimeout(function(){if(st.sc&&st.sc.isConnected){draw(st.id,catalog(st.id),progOf(st.id));placeRumbo(curIndex(),false);select(st.sel,false)}},120)})}
+  if(!st.rz){st.rz=1;var tm;window.addEventListener("resize",function(){clearTimeout(tm);tm=setTimeout(function(){if(st.sc&&st.sc.isConnected)placeRumbo(curIndex(),false)},120)})}
   var ci=curIndex();placeRumbo(ci,false);select(ci,false);toCur(ci,false);
  }
  function draw(id,cat,pg){
-  var L=lay(cat),col=$("#lpCol"),n=cat.all.length;st.items=cat.all;
-  var pts=cat.all.concat([{x:CW/2,y:L.end,kind:"row"}]),road=mv(pts[0]),dn="",on=false;
-  /* un solo trazo para todo el camino; lo recorrido se pinta encima, también de corrido */
-  for(var k=0;k<n;k++){var a=pts[k],b=pts[k+1],mid={x:a.x,y:L.end-G/2,kind:"apex"},d=k===n-1&&a.kind!=="apex"?seg(a,mid)+seg(mid,b):seg(a,b);road+=d;
-   var it=cat.all[k],nx=cat.all[k+1],ok=(it.done||(nx&&nx.done))&&(nx?nx.state!=="lock"&&nx.state!=="soon":true);
-   if(ok){if(!on){dn+=mv(a);on=true}dn+=d}else on=false}
-  var h='<svg class="rt4-svg" width="'+CW+'" height="'+L.h+'" viewBox="0 0 '+CW+' '+L.h+'" aria-hidden="true">'+
-   '<path d="'+road+'" class="rt6-edge"/><path d="'+road+'" class="rt5-road"/>'+(dn?'<path d="'+dn+'" class="rt5-done"/>':'')+'<path d="'+road+'" class="rt6-mid"/></svg>';
-  var ci=curIndex(),cur=cat.all[ci];
-  L.rows.forEach(function(r){var u=cat.units[r.ui],L2=u.items.filter(function(it){return it.lid}),first=L2[0];
-   /* el nombre va sobre el final del tramo (ahí no llega ninguna curva); si Rumbo está ahí, se pasa al inicio */
-   var right=r.dir>0;if(cur&&L2[L2.length-1]===cur)right=!right;
-   h+='<div class="rt5-u rt6-u s-'+u.state+(right?" is-r":"")+'" style="top:'+(r.y-66)+'px"><svg class="rt6-flag" viewBox="0 0 34 44" aria-hidden="true"><path class="p" d="M7 42V4"/><path class="f" d="M8 5h20l-5 7 5 7H8z"/><text x="17" y="15.5" text-anchor="middle">'+(r.ui+1)+'</text></svg><div class="rt6-ut"><b>'+esc(u.t)+'</b><em class="num">'+(u.state==="soon"?"Pronto":u.done+" de "+L2.length)+'</em></div></div>'});
-  cat.all.forEach(function(it,k){
-   var ic=it.chest!=null?"":it.state==="done"?LIC.check:LIC[LI[it.lid]]||LIC.libro;
-   h+='<button type="button" class="rt3-n rt4-n rt5-n s-'+it.state+(it.chest!=null?" is-chest":"")+'" data-i="'+k+'" style="left:'+it.x.toFixed(1)+'px;top:'+it.y.toFixed(1)+'px" aria-label="'+(it.lid?it.lid+" ":"")+esc(it.n)+(it.state==="done"?", hecha":it.state==="soon"?", llega pronto":it.state==="lock"?", bloqueada":"")+'">'+
-    (it.chest!=null?chestSVG(it.done):it.state==="soon"?"":icon(ic,"lp-ic"))+'</button>'});
-  h+='<div class="rt4-goal'+(pg.p>=1?" is-done":"")+'" style="top:'+L.end+'px"><div class="rt4-gart">'+artSVG(id,pg.p)+'</div><b>'+(pg.p>=1?"¡Llegaste!":"La meta")+'</b><small>'+(pg.p>=1?"Ganaste el sello de la carrera":"Termina todo para ganar su sello")+'</small></div>';
-  h+='<div class="rt2-rb rt4-rb rt5-rb" id="lpRb">'+(typeof skinOn==="function"&&RUMBO.SKINS[id]&&skinOn(id)?skinRb(id):rumboEl())+'</div>';
-  col.style.width=CW+"px";col.style.height=L.h+"px";col.innerHTML=h;
+  var col=$("#lpCol");st.items=cat.all;var h='';
+  cat.units.forEach(function(u,ui){var L2=u.items.filter(function(it){return it.lid}),p=L2.length?u.done/L2.length:0;
+   h+='<section class="rt7-u s-'+u.state+'"><header class="rt7-uh"><span class="rt7-un num">'+(ui+1)+'</span><div class="rt7-ut"><b>'+esc(u.t)+'</b><small>'+esc(u.sub||"")+'</small></div>'+
+    '<div class="rt7-up"><em class="num">'+(u.state==="soon"?"Pronto":u.done+" de "+L2.length)+'</em><i style="--v:'+p.toFixed(3)+'"></i></div></header><div class="rt7-list">';
+   u.items.forEach(function(it){var k=it.k2,kd=it.chest!=null?["Cofre de la unidad","gift"]:(KIND[it.les&&it.les.k]||(it.lid==="2.1"?KIND.reto:KIND.juega)),
+     ic=it.chest!=null?"":LIC[LI[it.lid]]||LIC.libro;
+    h+='<button type="button" class="rt3-n rt7-n s-'+it.state+(it.chest!=null?" is-chest":"")+'" data-i="'+k+'" aria-label="'+(it.lid?it.lid+" ":"")+esc(it.n)+(it.state==="done"?", hecha":it.state==="soon"?", llega pronto":it.state==="lock"?", todavía no":"")+'">'+
+     '<span class="rt7-ic">'+(it.chest!=null?chestSVG(it.done):icon(it.state==="done"?LIC.check:ic,"lp-ic"))+'</span>'+
+     '<span class="rt7-tx"><b>'+esc(it.n)+'</b><small>'+(it.chest!=null?(it.done?"Ya lo abriste":it.state==="open"?"Listo para abrir":"Se abre al terminar la unidad"):it.state==="soon"?"Llega pronto":esc(kd[0])+(it.min?" · "+it.min+" min":""))+'</small></span>'+
+     '<span class="rt7-st">'+(it.state==="done"?'<i class="rt7-ok">Hecha</i>':it.state==="cur"||it.state==="open"?'<i class="rt7-go">'+(it.chest!=null?"Abrir":"Sigue")+'</i>':'')+'</span></button>'});
+   h+='</div></section>'});
+  h+='<div class="rt7-goal'+(pg.p>=1?" is-done":"")+'"><div class="rt4-gart">'+artSVG(id,pg.p)+'</div><div><b>'+(pg.p>=1?"¡Llegaste!":"La meta")+'</b><small>'+(pg.p>=1?"Ganaste el sello de la carrera":"Termina todo para ganar su sello")+'</small></div></div>';
+  h+='<div class="rt2-rb rt7-rb" id="lpRb">'+(typeof skinOn==="function"&&RUMBO.SKINS[id]&&skinOn(id)?skinRb(id):rumboEl())+'</div>';
+  col.style.width="";col.style.height="";col.innerHTML=h;
   PZ.rb=col.querySelector(".rt2-rb .rb");PZ.el=null;wireRumbo(PZ.rb);
-  each(col.querySelectorAll(".rt4-n"),function(b){b.onclick=function(e){e.stopPropagation();select(+b.getAttribute("data-i"),true)}});
+  each(col.querySelectorAll(".rt7-n"),function(b){b.onclick=function(e){e.stopPropagation();var i=+b.getAttribute("data-i"),it=st.items[i];
+   /* segundo toque sobre la ya elegida: empieza */
+   if(st.sel===i&&it&&(it.state==="cur"||it.state==="open"||it.state==="done")){run(it);return}
+   select(i,true)}});
  }
- function toCur(i,smooth){var it=st.items[i],s=st.sc;if(!it||!s)return;var t=Math.max(0,it.y-s.clientHeight*.45);if(smooth&&!RM()&&s.scrollTo)s.scrollTo({top:t,behavior:"smooth"});else s.scrollTop=t}
+ function toCur(i,smooth){var s=st.sc,b=s&&s.querySelector('.rt7-n[data-i="'+i+'"]');if(!b)return;var t=Math.max(0,b.offsetTop-s.clientHeight*.38);if(smooth&&!RM()&&s.scrollTo)s.scrollTo({top:t,behavior:"smooth"});else s.scrollTop=t}
  function fit(){}
  function curIndex(){for(var i=0;i<st.items.length;i++)if(st.items[i].state==="open")return i;
   for(i=0;i<st.items.length;i++)if(st.items[i].state==="cur")return i;
   for(i=st.items.length-1;i>=0;i--)if(st.items[i].state==="done")return i;return 0}
- /* Rumbo de pie sobre la parada actual (junto al cofre, hacia adentro, cuando toca abrirlo) */
- function placeRumbo(i,walk){var e=$("#lpRb");if(!e)return;var it=st.items[i];if(!it)return;
-  var x=it.kind==="apex"?it.x+(it.dir>0?-62:62):it.x,y=it.kind==="apex"?it.y+8:it.y-22;e.style.left=x.toFixed(1)+"px";e.style.top=y.toFixed(1)+"px";
+ /* Rumbo se asoma junto a la lección que sigue */
+ function placeRumbo(i,walk){var e=$("#lpRb"),b=document.querySelector('.rt7-n[data-i="'+i+'"]');if(!e||!b)return;var it=st.items[i];
+  e.style.top=(b.offsetTop+b.offsetHeight/2)+"px";
   if(PZ.rb){if(walk&&!RM()){PZ.rb.classList.add("walk");setTimeout(function(){PZ.rb&&PZ.rb.classList.remove("walk")},720)}
-   mood(PZ.rb,it.parada==="hexagono"?"curious":it.state==="done"?"happy":"idle")}}
+   mood(PZ.rb,it&&it.state==="done"?"happy":"idle")}}
  function unitOf(i){return st.items[i].u}
  /* tarjeta de abajo con la parada elegida */
  function select(i,scroll){
   st.sel=i;var it=st.items[i],u=st.units[it.u],pop=$("#lpPop");
-  each(document.querySelectorAll(".rt4-n"),function(b){b.classList.toggle("is-sel",+b.getAttribute("data-i")===i)});
+  each(document.querySelectorAll(".rt7-n"),function(b){b.classList.toggle("is-sel",+b.getAttribute("data-i")===i)});
   var h='<div class="rt2-ci"><div class="rt2-ct"><span>Unidad '+(it.u+1)+' de '+st.units.length+' · '+esc(u.t)+'</span><h3>'+esc(it.n)+'</h3></div>',btn="",meta="";
   if(it.state==="soon")meta="Llega pronto";
   else if(it.state==="lock")meta=it.chest!=null?"Termina la unidad para abrirlo":"Termina la lección anterior";
@@ -230,7 +210,7 @@ var PATH=(function(){
  function refresh(animate){if(!st.sc||!$("#lpScroll"))return;var prev=curIndex();build(st.id);
   var ci=curIndex();if(animate&&ci!==prev){var sc=st.sc.scrollTop;placeRumbo(prev,false);toCur(prev,false);void document.body.offsetWidth;setTimeout(function(){placeRumbo(ci,true);toCur(ci,true)},RM()?0:60)}
   if(animate&&PZ.rb)setTimeout(function(){mood(PZ.rb,"happy","jump")},RM()?0:760)}
- function show(){document.body.classList.add("lp-open");if(st.sc&&Math.abs(Math.max(300,Math.min(600,st.sc.clientWidth-16))-CW)>8){draw(st.id,catalog(st.id),progOf(st.id));placeRumbo(curIndex(),false);select(st.sel<0?curIndex():st.sel,false)}toCur(curIndex(),false);if(PZ.rb)mood(PZ.rb,"happy","wave")}
+ function show(){document.body.classList.add("lp-open");placeRumbo(curIndex(),false);toCur(curIndex(),false);if(PZ.rb)mood(PZ.rb,"happy","wave")}
  function react(id){var k=S.res[id];if(!carCat(id))markLesson(id,"2.1");refresh(true);if(PZ.rb)mood(PZ.rb,k==="yes"?"happy":k==="mid"?"meh":"no",k==="yes"?"jump":k==="mid"?"tilt":"shake")}
  function leave(){document.body.classList.remove("lp-open");ambSync();if(typeof LEC!=="undefined")LEC.close();var l=$("#lpLesson");if(l)l.remove()}
  return {build:build,show:show,react:react,leave:leave,state:function(){},closePop:function(){},catalog:catalog};

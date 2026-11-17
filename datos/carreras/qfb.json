@@ -1,0 +1,1068 @@
+{
+ "id": "qfb",
+ "version": 1,
+ "estado": "completo",
+ "generado": true,
+ "revision": "Armada automáticamente con la base de carreras de Morelos y CDMX (2026-11-17). Falta que la revise alguien de la carrera.",
+ "unidades": [
+  {
+   "id": "u1",
+   "lecciones": [
+    {
+     "id": "1.1",
+     "titulo": "Qué es y qué hace",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "¿Qué es QFB?",
+       "texto": "Ciencias químicas y biológicas aplicadas al análisis, investigación, producción y control de calidad. El plan puede orientarse a medicamentos, diagnóstico, microorganismos, alimentos o procesos industriales.",
+       "puntos": [
+        "Trabaja en laboratorios clínicos (analiza sangre y muestras), en la industria farmacéutica (fabrica y controla la calidad de medicamentos), en hospitales o en regulación sanitaria."
+       ]
+      },
+      {
+       "tipo": "decision",
+       "pregunta": "Por lo que leíste, ¿qué hace alguien de QFB?",
+       "opciones": [
+        {
+         "texto": "Trabaja en laboratorios clínicos (analiza sangre y muestras), en la industria farmacéutica (fabrica y controla la calidad de medicamentos), en hospitales o en regulación sanitaria.",
+         "consecuencia": "Exacto: eso es parte del día a día en QFB.",
+         "mejor": true
+        },
+        {
+         "texto": "Diseña, opera o mejora procesos industriales que transforman materias primas en productos (combustibles, plásticos, alimentos, medicamentos), cuidando seguridad, costos y medio ambiente.",
+         "consecuencia": "Eso lo hace alguien de Ing. Química."
+        },
+        {
+         "texto": "Registra operaciones, prepara estados financieros, calcula y presenta impuestos ante el SAT, audita cuentas y asesora a empresas o personas.",
+         "consecuencia": "Eso lo hace alguien de Contaduría."
+        }
+       ]
+      },
+      {
+       "tipo": "completar",
+       "frase": "QFB es una carrera del área de ___.",
+       "opciones": [
+        "Salud",
+        "Ingenierías",
+        "Tecnología y ciencias"
+       ],
+       "correcta": 0,
+       "revelacion": "Está en Salud. Se parece a Química, Biotecnología e Ingeniería Bioquímica, Medicina (Médico Cirujano)."
+      },
+      {
+       "tipo": "clave",
+       "texto": "Antes de elegir, entiende qué harías cada día, no solo el nombre."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "1.2",
+     "titulo": "Dónde trabajas",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "Dónde trabaja alguien de QFB",
+       "texto": "Laboratorios clínicos e industriales, farmacéuticas, hospitales, alimentos, biotecnología, control de calidad, investigación, regulación y docencia."
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Alguien de QFB solo puede trabajar en un tipo de lugar.",
+       "respuesta": false,
+       "revelacion": "Puede trabajar en varios: laboratorios clínicos e industriales, farmacéuticas, hospitales."
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Dónde te ves trabajando?",
+       "opciones": [
+        "Laboratorios clínicos e industriales",
+        "Farmacéuticas",
+        "Hospitales",
+        "Alimentos"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Una carrera abre varias puertas, no una sola."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "1.3",
+     "titulo": "Pregúntale a Rumbo",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "chat",
+       "subtitulo": "Te cuenta cómo es trabajar en QFB",
+       "intro": [
+        "¡Hola! Junté lo que se sabe de QFB.",
+        "Pregúntame lo que quieras."
+       ],
+       "temas": [
+        {
+         "q": "¿Qué haces en un día normal?",
+         "a": [
+          "Trabaja en laboratorios clínicos (analiza sangre y muestras), en la industria farmacéutica (fabrica y controla la calidad de medicamentos), en hospitales o en regulación sanitaria."
+         ]
+        },
+        {
+         "q": "¿Qué es lo más difícil?",
+         "a": [
+          "Se considera una carrera de dificultad alta.",
+          "Química orgánica, Fisicoquímica y Bioquímica",
+          "Muchas horas de laboratorio."
+         ]
+        },
+        {
+         "q": "¿Hay trabajo?",
+         "a": [
+          "Cerca de la mitad trabaja en algo de su carrera. Es un promedio nacional del IMCO.",
+          "IMCO no tiene QFB por separado",
+          "Se usa el campo 'Bioquímica y biofísica' como aproximación."
+         ]
+        },
+        {
+         "q": "¿Qué necesito para ejercer?",
+         "a": [
+          "Título y cédula",
+          "Algunos puestos de responsable sanitario requieren experiencia y registro ante COFEPRIS."
+         ]
+        }
+       ],
+       "minimo": 2,
+       "auto": true
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "QFB se considera una carrera de dificultad alta.",
+       "respuesta": true,
+       "revelacion": "Se considera de dificultad alta. Química orgánica, Fisicoquímica y Bioquímica"
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Qué te llamó más la atención?",
+       "opciones": [
+        "¿Qué haces en un día normal?",
+        "¿Qué es lo más difícil?",
+        "¿Hay trabajo?",
+        "¿Qué necesito para ejercer?"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Preguntar a quien ya sabe ahorra muchos errores."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "1.4",
+     "titulo": "Carreras parecidas",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "Carreras cercanas a QFB",
+       "puntos": [
+        "Química: ciencias químicas y biológicas aplicadas al análisis, investigación.",
+        "Biotecnología e Ingeniería Bioquímica: estudio interdisciplinario de su campo profesional, con bases teóricas.",
+        "Medicina (Médico Cirujano): formación para prevenir, diagnosticar y tratar enfermedades.",
+        "Ingeniería Química: ciencias químicas y biológicas aplicadas al análisis, investigación."
+       ]
+      },
+      {
+       "tipo": "emparejar",
+       "pregunta": "Une cada carrera con lo que estudia.",
+       "pares": [
+        [
+         "Química",
+         "Ciencias químicas y biológicas aplicadas al análisis, investigación"
+        ],
+        [
+         "Biotecnología e Ingeniería Bioquímica",
+         "Estudio interdisciplinario de su campo profesional, con bases teóricas"
+        ],
+        [
+         "Medicina (Médico Cirujano)",
+         "Formación para prevenir, diagnosticar y tratar enfermedades"
+        ],
+        [
+         "Ingeniería Química",
+         "Ciencias químicas y biológicas aplicadas al análisis, investigación"
+        ]
+       ],
+       "revelacion": "Se cruzan en temas, pero cada una tiene su propio enfoque."
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Cuál de estas te da curiosidad?",
+       "opciones": [
+        "Química",
+        "Biotecnología e Ingeniería Bioquímica",
+        "Medicina (Médico Cirujano)",
+        "Me quedo con QFB"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Si dudas entre dos, compara lo que harías cada día."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "u2",
+   "lecciones": [
+    {
+     "id": "2.1",
+     "titulo": "Mini reto",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "reflexion",
+       "pregunta": "Un análisis de sangre sale con un valor muy raro. ¿Qué haces?",
+       "opciones": [
+        "Revisas la muestra y repites la prueba antes de reportarlo",
+        "Lo reportas tal cual, es lo que salió",
+        "Lo corriges a un valor normal"
+       ]
+      },
+      {
+       "tipo": "info",
+       "titulo": "Así lo piensa alguien de QFB",
+       "texto": "Un error de laboratorio cambia un diagnóstico, así que se verifica antes de reportar. QFB es precisión, química y mucho trabajo de laboratorio."
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Te gustó pensar en algo así?",
+       "escala": [
+        "Nada",
+        "Mucho"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Los retos de una carrera se parecen a lo que harías en su trabajo."
+      },
+      {
+       "tipo": "interes",
+       "pregunta": "¿Te ves resolviendo retos así?"
+      }
+     ]
+    },
+    {
+     "id": "2.2",
+     "titulo": "Lo que te piden",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "Habilidades que usarás en QFB",
+       "puntos": [
+        "Precisión en laboratorio",
+        "Orden y apego a normas",
+        "Razonamiento científico",
+        "Química sólida"
+       ]
+      },
+      {
+       "tipo": "completar",
+       "pregunta": "Según lo que leíste, completa la frase.",
+       "frase": "Para QFB es clave: ___.",
+       "opciones": [
+        "Precisión en laboratorio",
+        "Matemáticas avanzadas",
+        "Inglés (y otro idioma ideal)"
+       ],
+       "correcta": 0,
+       "revelacion": "Es de las habilidades que más se usan en QFB."
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Qué tanto se te da esto: orden y apego a normas?",
+       "escala": [
+        "Me cuesta",
+        "Se me da"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Las habilidades se entrenan; lo importante es que te guste usarlas."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "2.3",
+     "titulo": "Temas que vas a ver",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "Temas que te deben gustar",
+       "puntos": [
+        "Química y biología",
+        "Medicamentos",
+        "Laboratorio"
+       ]
+      },
+      {
+       "tipo": "decision",
+       "pregunta": "¿Cuál de estos temas es más de QFB?",
+       "opciones": [
+        {
+         "texto": "Química y biología",
+         "consecuencia": "Sí, es de sus temas centrales.",
+         "mejor": true
+        },
+        {
+         "texto": "Cocinar",
+         "consecuencia": "Ese es más de Gastronomía."
+        },
+        {
+         "texto": "Máquinas y motores",
+         "consecuencia": "Ese es más de Ing. Mecánica."
+        }
+       ]
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Cuál de estos temas te gusta más?",
+       "opciones": [
+        "Química y biología",
+        "Medicamentos",
+        "Laboratorio",
+        "Ninguno me late"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Si los temas te aburren, la carrera se hace muy larga."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "2.4",
+     "titulo": "Materias clave",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "voltear",
+       "pregunta": "¿Qué materias crees que llevas en cada etapa? Piénsalo y voltea.",
+       "cartas": [
+        {
+         "frente": "Semestres 1-2",
+         "reverso": "Química general, Cálculo, Biología celular, Física"
+        },
+        {
+         "frente": "Semestres 3-4",
+         "reverso": "Química orgánica, Química analítica, Fisicoquímica, Bioquímica"
+        },
+        {
+         "frente": "Semestres 5-6",
+         "reverso": "Microbiología, Farmacología, Tecnología farmacéutica, Análisis clínicos"
+        },
+        {
+         "frente": "Semestres 7 en adelante",
+         "reverso": "Control de calidad, Farmacia hospitalaria, Estancia en industria o laboratorio"
+        }
+       ]
+      },
+      {
+       "tipo": "decision",
+       "pregunta": "¿Cuál de estas materias llevarías en QFB?",
+       "opciones": [
+        {
+         "texto": "Química general",
+         "consecuencia": "Sí: es de las primeras materias de QFB.",
+         "mejor": true
+        },
+        {
+         "texto": "Cálculo",
+         "consecuencia": "Esa es de Ing. Mecánica."
+        },
+        {
+         "texto": "Química general",
+         "consecuencia": "Esa es de Química."
+        }
+       ]
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Cuál te da más curiosidad?",
+       "opciones": [
+        "Química general",
+        "Cálculo",
+        "Biología celular",
+        "Física"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Las primeras materias son la base; muchas veces son las más pesadas."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "u3",
+   "lecciones": [
+    {
+     "id": "3.1",
+     "titulo": "Un día real",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "Un día de trabajo en QFB",
+       "puntos": [
+        "Trabaja en laboratorios clínicos (analiza sangre y muestras), en la industria farmacéutica (fabrica y controla la calidad de medicamentos), en hospitales o en regulación sanitaria."
+       ]
+      },
+      {
+       "tipo": "decision",
+       "pregunta": "¿Cuál de estas cosas sí hace alguien de QFB?",
+       "opciones": [
+        {
+         "texto": "Trabaja en laboratorios clínicos (analiza sangre y muestras), en la industria farmacéutica (fabrica y controla la calidad de medicamentos), en hospitales o en regulación sanitaria.",
+         "consecuencia": "Sí: es parte de su día.",
+         "mejor": true
+        },
+        {
+         "texto": "Mejora procesos en fábricas, almacenes o servicios: mide tiempos, reduce costos y errores, organiza la producción, analiza datos de calidad y coordina equipos.",
+         "consecuencia": "Eso es más de Ing. Industrial."
+        },
+        {
+         "texto": "Analiza problemas públicos, diseña o evalúa programas de gobierno, asesora a legisladores o candidatos, investiga opinión pública o trabaja en organizaciones civiles.",
+         "consecuencia": "Eso es más de Ciencias políticas."
+        }
+       ]
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Te ves haciendo esto todos los días?",
+       "escala": [
+        "No va conmigo",
+        "Va mucho conmigo"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "El día a día pesa más que el título."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "3.2",
+     "titulo": "Lo difícil",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "Lo difícil de QFB",
+       "texto": "Se considera de dificultad alta.",
+       "puntos": [
+        "Química orgánica, Fisicoquímica y Bioquímica",
+        "Muchas horas de laboratorio."
+       ]
+      },
+      {
+       "tipo": "decision",
+       "pregunta": "Según lo que leíste, ¿qué es lo que más cuesta en QFB?",
+       "opciones": [
+        {
+         "texto": "Química orgánica, Fisicoquímica y Bioquímica",
+         "consecuencia": "Sí, es de lo que más cuesta en QFB.",
+         "mejor": true
+        },
+        {
+         "texto": "Mucha práctica en cocina",
+         "consecuencia": "Eso es más de Gastronomía."
+        },
+        {
+         "texto": "Cálculo, Probabilidad e Investigación de operaciones.",
+         "consecuencia": "Eso es más de Ing. Industrial."
+        }
+       ]
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Qué tanto te preocupa esto?",
+       "escala": [
+        "Mucho",
+        "Nada"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Saber lo difícil desde antes te ayuda a prepararte."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "3.3",
+     "titulo": "Historia real",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "reflexion",
+       "pregunta": "Si pudieras preguntarle algo a alguien que ya estudia QFB, ¿qué sería?",
+       "opciones": [
+        "¿Qué fue lo más difícil?",
+        "¿Qué te sorprendió?",
+        "¿Volverías a elegirla?",
+        "¿Cómo es un día normal?"
+       ]
+      },
+      {
+       "tipo": "testimonio",
+       "estado": "pendiente",
+       "perfil": "Estudiante de últimos semestres o egresado de QFB"
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "Mientras llega esta historia, ¿a quién podrías preguntarle tú?",
+       "opciones": [
+        "A un familiar o conocido que la estudió",
+        "A un estudiante de mi ciudad",
+        "A un maestro que la conozca",
+        "Todavía no conozco a nadie"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Una persona real te cuenta lo que ningún folleto dice."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "3.4",
+     "titulo": "¿Es para ti?",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Contesta con honestidad. Nadie más ve tus respuestas."
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Disfruto los experimentos de química?",
+       "escala": [
+        "No va conmigo",
+        "Va mucho conmigo"
+       ]
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Me veo en un laboratorio más que con pacientes?",
+       "escala": [
+        "No va conmigo",
+        "Va mucho conmigo"
+       ]
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Me acomodo a seguir protocolos estrictos?",
+       "escala": [
+        "No va conmigo",
+        "Va mucho conmigo"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Si dijiste que sí a casi todo, vale la pena seguir explorándola."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "u4",
+   "lecciones": [
+    {
+     "id": "4.1",
+     "titulo": "Cuánto dura y qué estudias",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Cada escuela arma su plan distinto, pero el orden general se parece. Vamos a verlo."
+      },
+      {
+       "tipo": "ordenar",
+       "pregunta": "Ordena lo que estudias, de lo primero a lo último.",
+       "pasos": [
+        "Química general, Cálculo",
+        "Química orgánica, Química analítica",
+        "Microbiología, Farmacología",
+        "Control de calidad, Farmacia hospitalaria"
+       ],
+       "revelacion": "Primero las bases y al final lo más especializado y las prácticas."
+      },
+      {
+       "tipo": "rango",
+       "pregunta": "¿Cuántos años crees que pasan desde que entras hasta que te titulas?",
+       "min": 3,
+       "max": 10,
+       "paso": 1,
+       "unidad": "años",
+       "dato": "qfb.duracion"
+      },
+      {
+       "tipo": "clave",
+       "texto": "Revisa el mapa curricular de cada escuela: cambia de una a otra."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "4.2",
+     "titulo": "Cómo se entra",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "Cómo se entra en la región",
+       "puntos": [
+        "UNAM: Concurso de selección UNAM (120 reactivos) o pase reglamentado desde CCH/ENP",
+        "IPN: Examen de admisión IPN (140 preguntas, hasta 3 horas, incluye sección de inglés)",
+        "UAM: Examen de selección UAM (trimestral; dos procesos al año y procesos extraordinarios)",
+        "UAEM: EXANI-II de CENEVAL + curso propedéutico"
+       ]
+      },
+      {
+       "tipo": "decision",
+       "pregunta": "Según lo que leíste, ¿qué pide UNAM para entrar?",
+       "opciones": [
+        {
+         "texto": "Concurso de selección UNAM (120 reactivos) o pase reglamentado desde CCH/ENP",
+         "consecuencia": "Exacto.",
+         "mejor": true
+        },
+        {
+         "texto": "Examen de admisión IPN (140 preguntas, hasta 3 horas, incluye sección de inglés)",
+         "consecuencia": "Eso lo pide IPN."
+        },
+        {
+         "texto": "Examen de selección UAM (trimestral; dos procesos al año y procesos extraordinarios)",
+         "consecuencia": "Eso lo pide UAM."
+        }
+       ]
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Todas las universidades usan el mismo examen.",
+       "respuesta": false,
+       "revelacion": "Cada una tiene el suyo: revisa la convocatoria de la que te interese."
+      },
+      {
+       "tipo": "clave",
+       "texto": "Conoce el examen de tu escuela desde antes."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "4.3",
+     "titulo": "Dónde, cuánto cuesta y becas",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "El costo cambia mucho entre una universidad pública y una privada. Antes de ver datos, apuesta."
+      },
+      {
+       "tipo": "rango",
+       "pregunta": "¿Cuánto crees que cuesta un semestre en una universidad pública?",
+       "min": 0,
+       "max": 60000,
+       "paso": 1000,
+       "unidad": "pesos",
+       "dato": "qfb.costo_publica"
+      },
+      {
+       "tipo": "rango",
+       "pregunta": "¿Y un semestre en una universidad privada?",
+       "min": 0,
+       "max": 300000,
+       "paso": 5000,
+       "unidad": "pesos",
+       "dato": "qfb.costo_privada"
+      },
+      {
+       "tipo": "dato",
+       "titulo": "Becas para estudiar QFB",
+       "dato": "qfb.becas"
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Una universidad cara garantiza un mejor empleo.",
+       "respuesta": false,
+       "revelacion": "Pesan más lo que aprendes, tus prácticas y tu esfuerzo."
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Qué pesa más para ti al elegir escuela?",
+       "opciones": [
+        "El costo",
+        "Que esté cerca de mi casa",
+        "El prestigio",
+        "Las prácticas que ofrece"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Además de la colegiatura, cuenta transporte y materiales."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "u5",
+   "lecciones": [
+    {
+     "id": "5.1",
+     "titulo": "Qué piden para trabajar",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "Qué te piden para trabajar",
+       "puntos": [
+        "Título y cédula",
+        "Algunos puestos de responsable sanitario requieren experiencia y registro ante COFEPRIS.",
+        "IMCO no tiene QFB por separado",
+        "Se usa el campo 'Bioquímica y biofísica' como aproximación."
+       ]
+      },
+      {
+       "tipo": "decision",
+       "pregunta": "Según lo que leíste, ¿qué necesitas para ejercer QFB?",
+       "opciones": [
+        {
+         "texto": "Título y cédula",
+         "consecuencia": "Exacto.",
+         "mejor": true
+        },
+        {
+         "texto": "No requiere cédula para la mayoría de puestos.",
+         "consecuencia": "Eso lo piden en Negocios."
+        },
+        {
+         "texto": "Para firmar notas técnicas de seguros se requiere certificación ante el Colegio Nacional de Actuarios / CNSF.",
+         "consecuencia": "Eso lo piden en Actuaría."
+        }
+       ]
+      },
+      {
+       "tipo": "dos_caminos",
+       "pregunta": "¿Cómo te ves?",
+       "a": {
+        "texto": "En una institución o empresa",
+        "dice": "Más estabilidad y un equipo de quien aprender."
+       },
+       "b": {
+        "texto": "Por tu cuenta",
+        "dice": "Más libertad, pero tienes que conseguir clientes."
+       }
+      },
+      {
+       "tipo": "clave",
+       "texto": "Saber qué te piden te ahorra sorpresas al salir."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "5.2",
+     "titulo": "Sueldo y demanda",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Hablemos de dinero sin rodeos. Antes de ver cualquier cifra, apuesta: así recuerdas mejor el dato real."
+      },
+      {
+       "tipo": "rango",
+       "pregunta": "¿Cuánto crees que gana al mes, en promedio, un profesionista de QFB en México?",
+       "min": 5000,
+       "max": 100000,
+       "paso": 1000,
+       "unidad": "pesos",
+       "dato": "qfb.ingreso"
+      },
+      {
+       "tipo": "rango",
+       "pregunta": "De cada 100 egresados, ¿cuántos crees que trabajan en algo de su carrera?",
+       "min": 0,
+       "max": 100,
+       "paso": 5,
+       "unidad": "de cada 100",
+       "dato": "qfb.ocupacion_afin"
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Todos los egresados de QFB ganan lo mismo.",
+       "respuesta": false,
+       "revelacion": "Cambia con la experiencia, el lugar, la especialidad y si trabajas por tu cuenta."
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Qué tanto pesa el sueldo en tu decisión?",
+       "escala": [
+        "No va conmigo",
+        "Va mucho conmigo"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "El promedio orienta, pero tu camino puede ser distinto."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "5.3",
+     "titulo": "Cómo les va al salir",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "chat",
+       "subtitulo": "Te cuenta cómo les va al salir",
+       "intro": [
+        "Te cuento cómo les va a quienes estudian QFB al salir."
+       ],
+       "temas": [
+        {
+         "q": "¿Cuántos trabajan en lo suyo?",
+         "a": [
+          "Cerca de la mitad trabaja en algo de su carrera.",
+          "Es un promedio nacional del IMCO."
+         ]
+        },
+        {
+         "q": "¿Muchos hacen posgrado?",
+         "a": [
+          "Pocos hacen posgrado; la mayoría empieza a trabajar."
+         ]
+        },
+        {
+         "q": "¿Hay más hombres o mujeres?",
+         "a": [
+          "Hay más mujeres que hombres.",
+          "Eso no decide nada: cualquiera puede estudiarla."
+         ]
+        },
+        {
+         "q": "¿El trabajo tiene prestaciones?",
+         "a": [
+          "La mayoría tiene un trabajo formal, con prestaciones.",
+          "Las prestaciones son cosas como seguro médico y aguinaldo."
+         ]
+        }
+       ],
+       "minimo": 2
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "La mayoría de quienes estudian QFB trabaja en algo de su carrera.",
+       "respuesta": false,
+       "revelacion": "Cerca de la mitad trabaja en algo de su carrera. Promedio nacional del IMCO."
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Qué te importa más de tu futuro trabajo?",
+       "opciones": [
+        "Que tenga que ver con lo que estudié",
+        "Ganar bien",
+        "Tener prestaciones",
+        "Hacer algo que me guste"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Pregunta cómo les va a quienes ya salieron."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "5.4",
+     "titulo": "Después de titularte",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "Después de titularte",
+       "puntos": [
+        "Puedes especializarte con cursos, diplomados o una maestría.",
+        "También puedes trabajar desde el inicio y estudiar después.",
+        "Se combina bien con: Química, Biotecnología e Ingeniería Bioquímica, Medicina (Médico Cirujano)."
+       ]
+      },
+      {
+       "tipo": "dos_caminos",
+       "pregunta": "¿Qué harías al terminar?",
+       "a": {
+        "texto": "Trabajar desde el inicio",
+        "dice": "Ganas experiencia y dinero; después decides si estudias más."
+       },
+       "b": {
+        "texto": "Seguir estudiando",
+        "dice": "Te especializas antes; tardas más en empezar a trabajar."
+       }
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Cómo te imaginas después de la carrera?",
+       "opciones": [
+        "Trabajando",
+        "En una maestría",
+        "Emprendiendo",
+        "No sé todavía"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Al titularte empieza otra parte del camino, no termina."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "u6",
+   "lecciones": [
+    {
+     "id": "6.1",
+     "titulo": "Lo que sentiste",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "reflexion",
+       "pregunta": "Antes de ver tus respuestas: ¿cómo te fue con QFB?",
+       "opciones": [
+        "Me gustó más de lo que pensaba",
+        "Más o menos como esperaba",
+        "Me gustó menos de lo que pensaba"
+       ]
+      },
+      {
+       "tipo": "resumen"
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "Viendo tus respuestas, ¿qué pesó más?",
+       "opciones": [
+        "Lo que sentí al probarla",
+        "Lo que supe de la realidad",
+        "El camino para llegar",
+        "El futuro que ofrece"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Lo que sentiste al probarla vale más que lo que imaginabas."
+      },
+      {
+       "tipo": "interes",
+       "pregunta": "¿Te ves estudiando QFB?"
+      }
+     ]
+    },
+    {
+     "id": "6.2",
+     "titulo": "Tu veredicto",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "reflexion",
+       "pregunta": "Si mañana tuvieras que elegir carrera, ¿QFB estaría entre tus opciones?",
+       "opciones": [
+        "Sí, entre las primeras",
+        "Sí, pero no arriba",
+        "No creo",
+        "No lo sé"
+       ]
+      },
+      {
+       "tipo": "comparar"
+      },
+      {
+       "tipo": "dos_caminos",
+       "pregunta": "¿Qué te ayudaría más a decidir?",
+       "a": {
+        "texto": "Hablar con alguien que la estudia",
+        "dice": "Busca a un estudiante o egresado cerca de ti y hazle tus preguntas. Una plática aclara más que diez videos."
+       },
+       "b": {
+        "texto": "Probar otra carrera y comparar",
+        "dice": "Explora otra de tu mapa. Comparar dos caminos reales aclara más que pensar en uno solo."
+       }
+      },
+      {
+       "tipo": "veredicto"
+      },
+      {
+       "tipo": "clave",
+       "texto": "Decidir «en duda» también es avanzar."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

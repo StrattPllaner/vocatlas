@@ -9,7 +9,7 @@
    Además lista las tarjetas que necesitan revisión de un médico o de una fuente oficial."""
 import json,glob,os,re,sys
 D=os.path.dirname(os.path.abspath(__file__));err=[];rev={}
-LECTURA={"escena","dato","testimonio","clave","comparar","resumen"}
+LECTURA={"escena","dato","testimonio","clave","comparar","resumen","info"}
 cif=json.load(open(D+"/cifras.json"));est=json.load(open(D+"/estructura.json"))
 orden=[l[0] for u in est["unidades"] for l in u["lecciones"]]
 def textos(t):

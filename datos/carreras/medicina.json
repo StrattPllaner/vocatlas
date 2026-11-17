@@ -586,6 +586,47 @@
        }
       },
       {
+       "tipo": "chat",
+       "subtitulo": "Te cuenta cómo es trabajar en Medicina",
+       "intro": [
+        "¡Hola! Junté lo que se sabe de Medicina.",
+        "Pregúntame lo que quieras."
+       ],
+       "temas": [
+        {
+         "q": "¿Qué haces en un día normal?",
+         "a": [
+          "Consulta pacientes, interroga y explora, pide estudios, interpreta resultados, receta y da seguimiento.",
+          "En hospital hace guardias, pasa visita con el equipo y llena notas clínicas.",
+          "Mucho trabajo bajo presión y con turnos largos."
+         ]
+        },
+        {
+         "q": "¿Qué es lo más difícil?",
+         "a": [
+          "Se considera una carrera de dificultad muy alta.",
+          "Los primeros dos años de ciencias básicas (Anatomía, Bioquímica, Fisiología) son el gran filtro",
+          "Luego vienen guardias de 24 a 36 horas en el internado."
+         ]
+        },
+        {
+         "q": "¿Hay trabajo?",
+         "a": [
+          "La mayoría de quienes la estudian trabaja en algo de su carrera. Es un promedio nacional del IMCO."
+         ]
+        },
+        {
+         "q": "¿Qué necesito para ejercer?",
+         "a": [
+          "Título y cédula profesional para ejercer",
+          "Para especializarse hay que aprobar el ENARM (examen nacional de residencias médicas)."
+         ]
+        }
+       ],
+       "minimo": 2,
+       "auto": true
+      },
+      {
        "tipo": "clave",
        "texto": "Las guardias cambian tu rutina completa."
       },

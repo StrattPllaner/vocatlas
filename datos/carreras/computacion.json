@@ -599,6 +599,46 @@
        }
       },
       {
+       "tipo": "chat",
+       "subtitulo": "Te cuenta cómo es trabajar en Computación",
+       "intro": [
+        "¡Hola! Junté lo que se sabe de Computación.",
+        "Pregúntame lo que quieras."
+       ],
+       "temas": [
+        {
+         "q": "¿Qué haces en un día normal?",
+         "a": [
+          "Programa aplicaciones, páginas y sistemas",
+          "Diseña bases de datos",
+          "Arregla errores"
+         ]
+        },
+        {
+         "q": "¿Qué es lo más difícil?",
+         "a": [
+          "Se considera una carrera de dificultad alta.",
+          "Programación desde el inicio, Matemáticas discretas, Estructuras de datos y Algoritmos."
+         ]
+        },
+        {
+         "q": "¿Hay trabajo?",
+         "a": [
+          "Cerca de la mitad trabaja en algo de su carrera. Es un promedio nacional del IMCO."
+         ]
+        },
+        {
+         "q": "¿Qué necesito para ejercer?",
+         "a": [
+          "No requiere cédula",
+          "Certificaciones (AWS, Google, Microsoft) y portafolio pesan mucho."
+         ]
+        }
+       ],
+       "minimo": 2,
+       "auto": true
+      },
+      {
        "tipo": "clave",
        "texto": "Se lee y corrige más código del que se escribe."
       },

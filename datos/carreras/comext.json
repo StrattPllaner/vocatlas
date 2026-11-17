@@ -1,0 +1,1066 @@
+{
+ "id": "comext",
+ "version": 1,
+ "estado": "completo",
+ "generado": true,
+ "revision": "Armada automáticamente con la base de carreras de Morelos y CDMX (2026-11-17). Falta que la revise alguien de la carrera.",
+ "unidades": [
+  {
+   "id": "u1",
+   "lecciones": [
+    {
+     "id": "1.1",
+     "titulo": "Qué es y qué hace",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "¿Qué es Negocios internacionales?",
+       "texto": "Organización y dirección de recursos, personas y procesos. Según su orientación, aborda estrategia, ventas, operaciones, talento, innovación, mercadotecnia o gestión de organizaciones.",
+       "puntos": [
+        "Coordina importaciones y exportaciones: trámites aduanales, logística de envíos, negociación con proveedores de otros países y análisis de mercados extranjeros."
+       ]
+      },
+      {
+       "tipo": "decision",
+       "pregunta": "Por lo que leíste, ¿qué hace alguien de Negocios internacionales?",
+       "opciones": [
+        {
+         "texto": "Coordina importaciones y exportaciones: trámites aduanales, logística de envíos, negociación con proveedores de otros países y análisis de mercados extranjeros.",
+         "consecuencia": "Exacto: eso es parte del día a día en Negocios internacionales.",
+         "mejor": true
+        },
+        {
+         "texto": "Investiga fenómenos físicos, hace simulaciones por computadora o aplica la física en tecnología, energía, medicina, datos o docencia.",
+         "consecuencia": "Eso lo hace alguien de Física."
+        },
+        {
+         "texto": "Analiza sustancias, desarrolla nuevos materiales o productos y controla la calidad en laboratorios de industria (alimentos, cosméticos, farmacéutica) o de investigación.",
+         "consecuencia": "Eso lo hace alguien de Química."
+        }
+       ]
+      },
+      {
+       "tipo": "completar",
+       "frase": "Negocios internacionales es una carrera del área de ___.",
+       "opciones": [
+        "Negocios y sociedad",
+        "Salud",
+        "Tecnología y ciencias"
+       ],
+       "correcta": 0,
+       "revelacion": "Está en Negocios y sociedad. Se parece a Administración de Empresas, Relaciones Internacionales, Economía."
+      },
+      {
+       "tipo": "clave",
+       "texto": "Antes de elegir, entiende qué harías cada día, no solo el nombre."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "1.2",
+     "titulo": "Dónde trabajas",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "Dónde trabaja alguien de Negocios internacionales",
+       "texto": "Instituciones públicas y privadas, organizaciones sociales, empresas, centros de investigación, consultoría, docencia y proyectos independientes, según la especialización y experiencia."
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Alguien de Negocios internacionales solo puede trabajar en un tipo de lugar.",
+       "respuesta": false,
+       "revelacion": "Puede trabajar en varios: instituciones públicas, privadas, organizaciones sociales."
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Dónde te ves trabajando?",
+       "opciones": [
+        "Instituciones públicas",
+        "Privadas",
+        "Organizaciones sociales",
+        "Empresas"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Una carrera abre varias puertas, no una sola."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "1.3",
+     "titulo": "Pregúntale a Rumbo",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "chat",
+       "subtitulo": "Te cuenta cómo es trabajar en Negocios internacionales",
+       "intro": [
+        "¡Hola! Junté lo que se sabe de Negocios internacionales.",
+        "Pregúntame lo que quieras."
+       ],
+       "temas": [
+        {
+         "q": "¿Qué haces en un día normal?",
+         "a": [
+          "Coordina importaciones y exportaciones: trámites aduanales, logística de envíos, negociación con proveedores de otros países y análisis de mercados extranjeros."
+         ]
+        },
+        {
+         "q": "¿Qué es lo más difícil?",
+         "a": [
+          "Se considera una carrera de dificultad media.",
+          "Derecho aduanero, Logística internacional y Finanzas internacionales",
+          "Inglés obligatorio."
+         ]
+        },
+        {
+         "q": "¿Hay trabajo?",
+         "a": [
+          "Cerca de la mitad trabaja en algo de su carrera. Es un promedio nacional del IMCO.",
+          "IMCO la agrupa como 'Negocios y comercio'"
+         ]
+        },
+        {
+         "q": "¿Qué necesito para ejercer?",
+         "a": [
+          "Para ser agente aduanal se requiere patente",
+          "No es necesaria para la mayoría de puestos."
+         ]
+        }
+       ],
+       "minimo": 2,
+       "auto": true
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Negocios internacionales se considera una carrera de dificultad muy alta.",
+       "respuesta": false,
+       "revelacion": "Se considera de dificultad media. Derecho aduanero, Logística internacional y Finanzas internacionales"
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Qué te llamó más la atención?",
+       "opciones": [
+        "¿Qué haces en un día normal?",
+        "¿Qué es lo más difícil?",
+        "¿Hay trabajo?",
+        "¿Qué necesito para ejercer?"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Preguntar a quien ya sabe ahorra muchos errores."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "1.4",
+     "titulo": "Carreras parecidas",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "Carreras cercanas a Negocios internacionales",
+       "puntos": [
+        "Administración de Empresas: organización y dirección de recursos.",
+        "Relaciones Internacionales: análisis de instituciones, políticas, conflictos y problemas sociales. puede.",
+        "Economía: análisis cuantitativo de decisiones económicas.",
+        "Mercadotecnia: organización y dirección de recursos."
+       ]
+      },
+      {
+       "tipo": "emparejar",
+       "pregunta": "Une cada carrera con lo que estudia.",
+       "pares": [
+        [
+         "Administración de Empresas",
+         "Organización y dirección de recursos"
+        ],
+        [
+         "Relaciones Internacionales",
+         "Análisis de instituciones, políticas, conflictos y problemas sociales. Puede"
+        ],
+        [
+         "Economía",
+         "Análisis cuantitativo de decisiones económicas"
+        ],
+        [
+         "Mercadotecnia",
+         "Organización y dirección de recursos"
+        ]
+       ],
+       "revelacion": "Se cruzan en temas, pero cada una tiene su propio enfoque."
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Cuál de estas te da curiosidad?",
+       "opciones": [
+        "Administración de Empresas",
+        "Relaciones Internacionales",
+        "Economía",
+        "Me quedo con Negocios internacionales"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Si dudas entre dos, compara lo que harías cada día."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "u2",
+   "lecciones": [
+    {
+     "id": "2.1",
+     "titulo": "Mini reto",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "reflexion",
+       "pregunta": "Un productor de aguacate de Michoacán quiere vender en Japón. ¿Qué revisas primero?",
+       "opciones": [
+        "Qué requisitos pide Japón para entrar",
+        "El diseño de la caja",
+        "Cuánto cuesta un boleto de avión"
+       ]
+      },
+      {
+       "tipo": "info",
+       "titulo": "Así lo piensa alguien de Negocios internacionales",
+       "texto": "Sin cumplir las reglas del otro país, la mercancía no entra. Es una carrera de trámites, logística, idiomas y negociación."
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Te gustó pensar en algo así?",
+       "escala": [
+        "Nada",
+        "Mucho"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Los retos de una carrera se parecen a lo que harías en su trabajo."
+      },
+      {
+       "tipo": "interes",
+       "pregunta": "¿Te ves resolviendo retos así?"
+      }
+     ]
+    },
+    {
+     "id": "2.2",
+     "titulo": "Lo que te piden",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "Habilidades que usarás en Negocios internacionales",
+       "puntos": [
+        "Inglés (y otro idioma ideal)",
+        "Negociación",
+        "Organización",
+        "Visión global"
+       ]
+      },
+      {
+       "tipo": "completar",
+       "pregunta": "Según lo que leíste, completa la frase.",
+       "frase": "Para Negocios internacionales es clave: ___.",
+       "opciones": [
+        "Inglés (y otro idioma ideal)",
+        "Abstracción",
+        "Escucha activa"
+       ],
+       "correcta": 0,
+       "revelacion": "Es de las habilidades que más se usan en Negocios internacionales."
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Qué tanto se te da esto: negociación?",
+       "escala": [
+        "Me cuesta",
+        "Se me da"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Las habilidades se entrenan; lo importante es que te guste usarlas."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "2.3",
+     "titulo": "Temas que vas a ver",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "Temas que te deben gustar",
+       "puntos": [
+        "Otros países y culturas",
+        "Comercio y logística",
+        "Viajar"
+       ]
+      },
+      {
+       "tipo": "decision",
+       "pregunta": "¿Cuál de estos temas es más de Negocios internacionales?",
+       "opciones": [
+        {
+         "texto": "Otros países y culturas",
+         "consecuencia": "Sí, es de sus temas centrales.",
+         "mejor": true
+        },
+        {
+         "texto": "Medio ambiente",
+         "consecuencia": "Ese es más de Ing. Ambiental."
+        },
+        {
+         "texto": "Aparatos electrónicos",
+         "consecuencia": "Ese es más de Ing. Electrónica."
+        }
+       ]
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Cuál de estos temas te gusta más?",
+       "opciones": [
+        "Otros países y culturas",
+        "Comercio y logística",
+        "Viajar",
+        "Ninguno me late"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Si los temas te aburren, la carrera se hace muy larga."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "2.4",
+     "titulo": "Materias clave",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "voltear",
+       "pregunta": "¿Qué materias crees que llevas en cada etapa? Piénsalo y voltea.",
+       "cartas": [
+        {
+         "frente": "Semestres 1-2",
+         "reverso": "Administración, Economía, Contabilidad, Inglés"
+        },
+        {
+         "frente": "Semestres 3-4",
+         "reverso": "Comercio internacional, Derecho mercantil, Logística"
+        },
+        {
+         "frente": "Semestres 5-6",
+         "reverso": "Aduanas y tratados (T-MEC), Finanzas internacionales, Negociación intercultural"
+        },
+        {
+         "frente": "Semestres 7 en adelante",
+         "reverso": "Plan de exportación, Prácticas"
+        }
+       ]
+      },
+      {
+       "tipo": "decision",
+       "pregunta": "¿Cuál de estas materias llevarías en Negocios internacionales?",
+       "opciones": [
+        {
+         "texto": "Administración",
+         "consecuencia": "Sí: es de las primeras materias de Negocios internacionales.",
+         "mejor": true
+        },
+        {
+         "texto": "Cálculo",
+         "consecuencia": "Esa es de Ciencia de datos."
+        },
+        {
+         "texto": "Cálculo",
+         "consecuencia": "Esa es de Ing. Electrónica."
+        }
+       ]
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Cuál te da más curiosidad?",
+       "opciones": [
+        "Administración",
+        "Economía",
+        "Contabilidad",
+        "Inglés"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Las primeras materias son la base; muchas veces son las más pesadas."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "u3",
+   "lecciones": [
+    {
+     "id": "3.1",
+     "titulo": "Un día real",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "Un día de trabajo en Negocios internacionales",
+       "puntos": [
+        "Coordina importaciones y exportaciones: trámites aduanales, logística de envíos, negociación con proveedores de otros países y análisis de mercados extranjeros."
+       ]
+      },
+      {
+       "tipo": "decision",
+       "pregunta": "¿Cuál de estas cosas sí hace alguien de Negocios internacionales?",
+       "opciones": [
+        {
+         "texto": "Coordina importaciones y exportaciones: trámites aduanales, logística de envíos, negociación con proveedores de otros países y análisis de mercados extranjeros.",
+         "consecuencia": "Sí: es parte de su día.",
+         "mejor": true
+        },
+        {
+         "texto": "Diseña, calcula o supervisa obras: edificios, puentes, carreteras, drenajes.",
+         "consecuencia": "Eso es más de Ing. Civil."
+        },
+        {
+         "texto": "Investiga fenómenos físicos, hace simulaciones por computadora o aplica la física en tecnología, energía, medicina, datos o docencia.",
+         "consecuencia": "Eso es más de Física."
+        }
+       ]
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Te ves haciendo esto todos los días?",
+       "escala": [
+        "No va conmigo",
+        "Va mucho conmigo"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "El día a día pesa más que el título."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "3.2",
+     "titulo": "Lo difícil",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "Lo difícil de Negocios internacionales",
+       "texto": "Se considera de dificultad media.",
+       "puntos": [
+        "Derecho aduanero, Logística internacional y Finanzas internacionales",
+        "Inglés obligatorio."
+       ]
+      },
+      {
+       "tipo": "decision",
+       "pregunta": "Según lo que leíste, ¿qué es lo que más cuesta en Negocios internacionales?",
+       "opciones": [
+        {
+         "texto": "Derecho aduanero, Logística internacional y Finanzas internacionales",
+         "consecuencia": "Sí, es de lo que más cuesta en Negocios internacionales.",
+         "mejor": true
+        },
+        {
+         "texto": "Talleres con muchas entregas y críticas",
+         "consecuencia": "Eso es más de Diseño gráfico."
+        },
+        {
+         "texto": "Anatomía, Fisiología y Farmacología al inicio",
+         "consecuencia": "Eso es más de Enfermería."
+        }
+       ]
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Qué tanto te preocupa esto?",
+       "escala": [
+        "Mucho",
+        "Nada"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Saber lo difícil desde antes te ayuda a prepararte."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "3.3",
+     "titulo": "Historia real",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "reflexion",
+       "pregunta": "Si pudieras preguntarle algo a alguien que ya estudia Negocios internacionales, ¿qué sería?",
+       "opciones": [
+        "¿Qué fue lo más difícil?",
+        "¿Qué te sorprendió?",
+        "¿Volverías a elegirla?",
+        "¿Cómo es un día normal?"
+       ]
+      },
+      {
+       "tipo": "testimonio",
+       "estado": "pendiente",
+       "perfil": "Estudiante de últimos semestres o egresado de Negocios internacionales"
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "Mientras llega esta historia, ¿a quién podrías preguntarle tú?",
+       "opciones": [
+        "A un familiar o conocido que la estudió",
+        "A un estudiante de mi ciudad",
+        "A un maestro que la conozca",
+        "Todavía no conozco a nadie"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Una persona real te cuenta lo que ningún folleto dice."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "3.4",
+     "titulo": "¿Es para ti?",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Contesta con honestidad. Nadie más ve tus respuestas."
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Me gustaría hablar en inglés todos los días en el trabajo?",
+       "escala": [
+        "No va conmigo",
+        "Va mucho conmigo"
+       ]
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Me interesa cómo llegan los productos de un país a otro?",
+       "escala": [
+        "No va conmigo",
+        "Va mucho conmigo"
+       ]
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Me veo negociando con extranjeros?",
+       "escala": [
+        "No va conmigo",
+        "Va mucho conmigo"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Si dijiste que sí a casi todo, vale la pena seguir explorándola."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "u4",
+   "lecciones": [
+    {
+     "id": "4.1",
+     "titulo": "Cuánto dura y qué estudias",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Cada escuela arma su plan distinto, pero el orden general se parece. Vamos a verlo."
+      },
+      {
+       "tipo": "ordenar",
+       "pregunta": "Ordena lo que estudias, de lo primero a lo último.",
+       "pasos": [
+        "Administración, Economía",
+        "Comercio internacional, Derecho mercantil",
+        "Aduanas y tratados (T-MEC), Finanzas internacionales",
+        "Plan de exportación, Prácticas"
+       ],
+       "revelacion": "Primero las bases y al final lo más especializado y las prácticas."
+      },
+      {
+       "tipo": "rango",
+       "pregunta": "¿Cuántos años crees que pasan desde que entras hasta que te titulas?",
+       "min": 3,
+       "max": 10,
+       "paso": 1,
+       "unidad": "años",
+       "dato": "comext.duracion"
+      },
+      {
+       "tipo": "clave",
+       "texto": "Revisa el mapa curricular de cada escuela: cambia de una a otra."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "4.2",
+     "titulo": "Cómo se entra",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "Cómo se entra en la región",
+       "puntos": [
+        "UNAM: Concurso de selección UNAM (120 reactivos) o pase reglamentado desde CCH/ENP",
+        "IPN: Examen de admisión IPN (140 preguntas, hasta 3 horas, incluye sección de inglés)",
+        "Tec de Monterrey: PAA (Prueba de Aptitud Académica), SAT o ACT + promedio + perfil integral (ensayo, currículum)",
+        "IBERO: Examen de admisión propio + promedio de bachillerato"
+       ]
+      },
+      {
+       "tipo": "decision",
+       "pregunta": "Según lo que leíste, ¿qué pide UNAM para entrar?",
+       "opciones": [
+        {
+         "texto": "Concurso de selección UNAM (120 reactivos) o pase reglamentado desde CCH/ENP",
+         "consecuencia": "Exacto.",
+         "mejor": true
+        },
+        {
+         "texto": "Examen de admisión IPN (140 preguntas, hasta 3 horas, incluye sección de inglés)",
+         "consecuencia": "Eso lo pide IPN."
+        },
+        {
+         "texto": "PAA (Prueba de Aptitud Académica), SAT o ACT + promedio + perfil integral (ensayo, currículum)",
+         "consecuencia": "Eso lo pide Tec de Monterrey."
+        }
+       ]
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Todas las universidades usan el mismo examen.",
+       "respuesta": false,
+       "revelacion": "Cada una tiene el suyo: revisa la convocatoria de la que te interese."
+      },
+      {
+       "tipo": "clave",
+       "texto": "Conoce el examen de tu escuela desde antes."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "4.3",
+     "titulo": "Dónde, cuánto cuesta y becas",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "El costo cambia mucho entre una universidad pública y una privada. Antes de ver datos, apuesta."
+      },
+      {
+       "tipo": "rango",
+       "pregunta": "¿Cuánto crees que cuesta un semestre en una universidad pública?",
+       "min": 0,
+       "max": 60000,
+       "paso": 1000,
+       "unidad": "pesos",
+       "dato": "comext.costo_publica"
+      },
+      {
+       "tipo": "rango",
+       "pregunta": "¿Y un semestre en una universidad privada?",
+       "min": 0,
+       "max": 300000,
+       "paso": 5000,
+       "unidad": "pesos",
+       "dato": "comext.costo_privada"
+      },
+      {
+       "tipo": "dato",
+       "titulo": "Becas para estudiar Negocios internacionales",
+       "dato": "comext.becas"
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Una universidad cara garantiza un mejor empleo.",
+       "respuesta": false,
+       "revelacion": "Pesan más lo que aprendes, tus prácticas y tu esfuerzo."
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Qué pesa más para ti al elegir escuela?",
+       "opciones": [
+        "El costo",
+        "Que esté cerca de mi casa",
+        "El prestigio",
+        "Las prácticas que ofrece"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Además de la colegiatura, cuenta transporte y materiales."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "u5",
+   "lecciones": [
+    {
+     "id": "5.1",
+     "titulo": "Qué piden para trabajar",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "Qué te piden para trabajar",
+       "puntos": [
+        "Para ser agente aduanal se requiere patente",
+        "No es necesaria para la mayoría de puestos.",
+        "IMCO la agrupa como 'Negocios y comercio'"
+       ]
+      },
+      {
+       "tipo": "decision",
+       "pregunta": "Según lo que leíste, ¿qué necesitas para ejercer Negocios internacionales?",
+       "opciones": [
+        {
+         "texto": "Para ser agente aduanal se requiere patente",
+         "consecuencia": "Exacto.",
+         "mejor": true
+        },
+        {
+         "texto": "Cédula para firmar proyectos",
+         "consecuencia": "Eso lo piden en Ing. Civil."
+        },
+        {
+         "texto": "Para escuelas públicas, concurso en USICAMM.",
+         "consecuencia": "Eso lo piden en Educación física."
+        }
+       ]
+      },
+      {
+       "tipo": "dos_caminos",
+       "pregunta": "¿Cómo te ves?",
+       "a": {
+        "texto": "En una institución o empresa",
+        "dice": "Más estabilidad y un equipo de quien aprender."
+       },
+       "b": {
+        "texto": "Por tu cuenta",
+        "dice": "Más libertad, pero tienes que conseguir clientes."
+       }
+      },
+      {
+       "tipo": "clave",
+       "texto": "Saber qué te piden te ahorra sorpresas al salir."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "5.2",
+     "titulo": "Sueldo y demanda",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Hablemos de dinero sin rodeos. Antes de ver cualquier cifra, apuesta: así recuerdas mejor el dato real."
+      },
+      {
+       "tipo": "rango",
+       "pregunta": "¿Cuánto crees que gana al mes, en promedio, un profesionista de Negocios internacionales en México?",
+       "min": 5000,
+       "max": 100000,
+       "paso": 1000,
+       "unidad": "pesos",
+       "dato": "comext.ingreso"
+      },
+      {
+       "tipo": "rango",
+       "pregunta": "De cada 100 egresados, ¿cuántos crees que trabajan en algo de su carrera?",
+       "min": 0,
+       "max": 100,
+       "paso": 5,
+       "unidad": "de cada 100",
+       "dato": "comext.ocupacion_afin"
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Todos los egresados de Negocios internacionales ganan lo mismo.",
+       "respuesta": false,
+       "revelacion": "Cambia con la experiencia, el lugar, la especialidad y si trabajas por tu cuenta."
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Qué tanto pesa el sueldo en tu decisión?",
+       "escala": [
+        "No va conmigo",
+        "Va mucho conmigo"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "El promedio orienta, pero tu camino puede ser distinto."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "5.3",
+     "titulo": "Cómo les va al salir",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "chat",
+       "subtitulo": "Te cuenta cómo les va al salir",
+       "intro": [
+        "Te cuento cómo les va a quienes estudian Negocios internacionales al salir."
+       ],
+       "temas": [
+        {
+         "q": "¿Cuántos trabajan en lo suyo?",
+         "a": [
+          "Cerca de la mitad trabaja en algo de su carrera.",
+          "Es un promedio nacional del IMCO."
+         ]
+        },
+        {
+         "q": "¿Muchos hacen posgrado?",
+         "a": [
+          "Pocos hacen posgrado; la mayoría empieza a trabajar."
+         ]
+        },
+        {
+         "q": "¿Hay más hombres o mujeres?",
+         "a": [
+          "Hay casi el mismo número de hombres y mujeres.",
+          "Eso no decide nada: cualquiera puede estudiarla."
+         ]
+        },
+        {
+         "q": "¿El trabajo tiene prestaciones?",
+         "a": [
+          "La mayoría tiene un trabajo formal, con prestaciones.",
+          "Las prestaciones son cosas como seguro médico y aguinaldo."
+         ]
+        }
+       ],
+       "minimo": 2
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "La mayoría de quienes estudian Negocios internacionales trabaja en algo de su carrera.",
+       "respuesta": false,
+       "revelacion": "Cerca de la mitad trabaja en algo de su carrera. Promedio nacional del IMCO."
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Qué te importa más de tu futuro trabajo?",
+       "opciones": [
+        "Que tenga que ver con lo que estudié",
+        "Ganar bien",
+        "Tener prestaciones",
+        "Hacer algo que me guste"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Pregunta cómo les va a quienes ya salieron."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "5.4",
+     "titulo": "Después de titularte",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "Después de titularte",
+       "puntos": [
+        "Puedes especializarte con cursos, diplomados o una maestría.",
+        "También puedes trabajar desde el inicio y estudiar después.",
+        "Se combina bien con: Administración de Empresas, Relaciones Internacionales, Economía."
+       ]
+      },
+      {
+       "tipo": "dos_caminos",
+       "pregunta": "¿Qué harías al terminar?",
+       "a": {
+        "texto": "Trabajar desde el inicio",
+        "dice": "Ganas experiencia y dinero; después decides si estudias más."
+       },
+       "b": {
+        "texto": "Seguir estudiando",
+        "dice": "Te especializas antes; tardas más en empezar a trabajar."
+       }
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Cómo te imaginas después de la carrera?",
+       "opciones": [
+        "Trabajando",
+        "En una maestría",
+        "Emprendiendo",
+        "No sé todavía"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Al titularte empieza otra parte del camino, no termina."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "u6",
+   "lecciones": [
+    {
+     "id": "6.1",
+     "titulo": "Lo que sentiste",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "reflexion",
+       "pregunta": "Antes de ver tus respuestas: ¿cómo te fue con Negocios internacionales?",
+       "opciones": [
+        "Me gustó más de lo que pensaba",
+        "Más o menos como esperaba",
+        "Me gustó menos de lo que pensaba"
+       ]
+      },
+      {
+       "tipo": "resumen"
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "Viendo tus respuestas, ¿qué pesó más?",
+       "opciones": [
+        "Lo que sentí al probarla",
+        "Lo que supe de la realidad",
+        "El camino para llegar",
+        "El futuro que ofrece"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Lo que sentiste al probarla vale más que lo que imaginabas."
+      },
+      {
+       "tipo": "interes",
+       "pregunta": "¿Te ves estudiando Negocios internacionales?"
+      }
+     ]
+    },
+    {
+     "id": "6.2",
+     "titulo": "Tu veredicto",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "reflexion",
+       "pregunta": "Si mañana tuvieras que elegir carrera, ¿Negocios internacionales estaría entre tus opciones?",
+       "opciones": [
+        "Sí, entre las primeras",
+        "Sí, pero no arriba",
+        "No creo",
+        "No lo sé"
+       ]
+      },
+      {
+       "tipo": "comparar"
+      },
+      {
+       "tipo": "dos_caminos",
+       "pregunta": "¿Qué te ayudaría más a decidir?",
+       "a": {
+        "texto": "Hablar con alguien que la estudia",
+        "dice": "Busca a un estudiante o egresado cerca de ti y hazle tus preguntas. Una plática aclara más que diez videos."
+       },
+       "b": {
+        "texto": "Probar otra carrera y comparar",
+        "dice": "Explora otra de tu mapa. Comparar dos caminos reales aclara más que pensar en uno solo."
+       }
+      },
+      {
+       "tipo": "veredicto"
+      },
+      {
+       "tipo": "clave",
+       "texto": "Decidir «en duda» también es avanzar."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

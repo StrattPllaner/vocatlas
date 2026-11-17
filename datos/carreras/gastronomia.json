@@ -1,0 +1,1062 @@
+{
+ "id": "gastronomia",
+ "version": 1,
+ "estado": "completo",
+ "generado": true,
+ "revision": "Armada automáticamente con la base de carreras de Morelos y CDMX (2026-11-17). Falta que la revise alguien de la carrera.",
+ "unidades": [
+  {
+   "id": "u1",
+   "lecciones": [
+    {
+     "id": "1.1",
+     "titulo": "Qué es y qué hace",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "¿Qué es Gastronomía?",
+       "texto": "Servicios turísticos, hospitalidad, alimentos y bebidas o gestión de destinos. Desarrolla capacidades de operación, atención al cliente, administración, creatividad y calidad del servicio.",
+       "puntos": [
+        "Cocina, crea platillos, controla costos e inventarios, dirige equipos de cocina y, si emprende, administra su propio negocio de comida."
+       ]
+      },
+      {
+       "tipo": "decision",
+       "pregunta": "Por lo que leíste, ¿qué hace alguien de Gastronomía?",
+       "opciones": [
+        {
+         "texto": "Cocina, crea platillos, controla costos e inventarios, dirige equipos de cocina y, si emprende, administra su propio negocio de comida.",
+         "consecuencia": "Exacto: eso es parte del día a día en Gastronomía.",
+         "mejor": true
+        },
+        {
+         "texto": "Crea personajes, escenarios y movimiento para series, videojuegos, publicidad o redes",
+         "consecuencia": "Eso lo hace alguien de Animación."
+        },
+        {
+         "texto": "Revisa, limpia y repara dientes, hace extracciones, endodoncias y prótesis, toma radiografías y explica tratamientos.",
+         "consecuencia": "Eso lo hace alguien de Odontología."
+        }
+       ]
+      },
+      {
+       "tipo": "completar",
+       "frase": "Gastronomía es una carrera del área de ___.",
+       "opciones": [
+        "Arte y comunicación",
+        "Tecnología y ciencias",
+        "Ingenierías"
+       ],
+       "correcta": 0,
+       "revelacion": "Está en Arte y comunicación. Se parece a Turismo y Hotelería, Nutrición, Administración de Empresas."
+      },
+      {
+       "tipo": "clave",
+       "texto": "Antes de elegir, entiende qué harías cada día, no solo el nombre."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "1.2",
+     "titulo": "Dónde trabajas",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "Dónde trabaja alguien de Gastronomía",
+       "texto": "Hoteles, restaurantes, agencias, aerolíneas, destinos turísticos, cruceros, eventos, alimentos y bebidas, consultoría y emprendimiento.",
+       "puntos": [
+        "Ciencias Sociales, Educación y Humanidades"
+       ]
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Alguien de Gastronomía solo puede trabajar en un tipo de lugar.",
+       "respuesta": false,
+       "revelacion": "Puede trabajar en varios: hoteles, restaurantes, agencias."
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Dónde te ves trabajando?",
+       "opciones": [
+        "Hoteles",
+        "Restaurantes",
+        "Agencias",
+        "Aerolíneas"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Una carrera abre varias puertas, no una sola."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "1.3",
+     "titulo": "Pregúntale a Rumbo",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "chat",
+       "subtitulo": "Te cuenta cómo es trabajar en Gastronomía",
+       "intro": [
+        "¡Hola! Junté lo que se sabe de Gastronomía.",
+        "Pregúntame lo que quieras."
+       ],
+       "temas": [
+        {
+         "q": "¿Qué haces en un día normal?",
+         "a": [
+          "Cocina, crea platillos, controla costos e inventarios, dirige equipos de cocina y, si emprende, administra su propio negocio de comida."
+         ]
+        },
+        {
+         "q": "¿Qué es lo más difícil?",
+         "a": [
+          "Se considera una carrera de dificultad media.",
+          "Mucha práctica en cocina",
+          "También Costos, Higiene y Administración de restaurantes."
+         ]
+        },
+        {
+         "q": "¿Hay trabajo?",
+         "a": [
+          "Cerca de la mitad trabaja en algo de su carrera. Es un promedio nacional del IMCO.",
+          "El éxito depende mucho de emprender."
+         ]
+        },
+        {
+         "q": "¿Qué necesito para ejercer?",
+         "a": [
+          "No requiere cédula",
+          "Los materiales y uniformes son un gasto fuerte."
+         ]
+        }
+       ],
+       "minimo": 2,
+       "auto": true
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Gastronomía se considera una carrera de dificultad muy alta.",
+       "respuesta": false,
+       "revelacion": "Se considera de dificultad media. Mucha práctica en cocina"
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Qué te llamó más la atención?",
+       "opciones": [
+        "¿Qué haces en un día normal?",
+        "¿Qué es lo más difícil?",
+        "¿Hay trabajo?",
+        "¿Qué necesito para ejercer?"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Preguntar a quien ya sabe ahorra muchos errores."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "1.4",
+     "titulo": "Carreras parecidas",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "Carreras cercanas a Gastronomía",
+       "puntos": [
+        "Turismo y Hotelería: servicios turísticos, hospitalidad, alimentos y bebidas o gestión de.",
+        "Nutrición: alimentación y metabolismo, evaluación del estado nutricional y diseño.",
+        "Administración de Empresas: organización y dirección de recursos."
+       ]
+      },
+      {
+       "tipo": "emparejar",
+       "pregunta": "Une cada carrera con lo que estudia.",
+       "pares": [
+        [
+         "Turismo y Hotelería",
+         "Servicios turísticos, hospitalidad, alimentos y bebidas o gestión de"
+        ],
+        [
+         "Nutrición",
+         "Alimentación y metabolismo, evaluación del estado nutricional y diseño"
+        ],
+        [
+         "Administración de Empresas",
+         "Organización y dirección de recursos"
+        ]
+       ],
+       "revelacion": "Se cruzan en temas, pero cada una tiene su propio enfoque."
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Cuál de estas te da curiosidad?",
+       "opciones": [
+        "Turismo y Hotelería",
+        "Nutrición",
+        "Administración de Empresas",
+        "Me quedo con Gastronomía"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Si dudas entre dos, compara lo que harías cada día."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "u2",
+   "lecciones": [
+    {
+     "id": "2.1",
+     "titulo": "Mini reto",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "reflexion",
+       "pregunta": "Tu platillo estrella sale caro y casi no deja ganancia. ¿Qué haces?",
+       "opciones": [
+        "Revisas el costo de cada ingrediente y ajustas la receta o el precio",
+        "Lo quitas del menú sin revisar",
+        "Usas ingredientes de menor calidad sin avisar"
+       ]
+      },
+      {
+       "tipo": "info",
+       "titulo": "Así lo piensa alguien de Gastronomía",
+       "texto": "Cocinar bien es la mitad: también hay que llevar costos y dirigir un equipo. Gastronomía es creatividad con mucha disciplina."
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Te gustó pensar en algo así?",
+       "escala": [
+        "Nada",
+        "Mucho"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Los retos de una carrera se parecen a lo que harías en su trabajo."
+      },
+      {
+       "tipo": "interes",
+       "pregunta": "¿Te ves resolviendo retos así?"
+      }
+     ]
+    },
+    {
+     "id": "2.2",
+     "titulo": "Lo que te piden",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "Habilidades que usarás en Gastronomía",
+       "puntos": [
+        "Creatividad",
+        "Resistencia física (muchas horas de pie)",
+        "Trabajo bajo presión",
+        "Liderazgo de equipo"
+       ]
+      },
+      {
+       "tipo": "completar",
+       "pregunta": "Según lo que leíste, completa la frase.",
+       "frase": "Para Gastronomía es clave: ___.",
+       "opciones": [
+        "Creatividad",
+        "Paciencia",
+        "Habilidad manual y paciencia"
+       ],
+       "correcta": 0,
+       "revelacion": "Es de las habilidades que más se usan en Gastronomía."
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Qué tanto se te da esto: resistencia física (muchas horas de pie)?",
+       "escala": [
+        "Me cuesta",
+        "Se me da"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Las habilidades se entrenan; lo importante es que te guste usarlas."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "2.3",
+     "titulo": "Temas que vas a ver",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "Temas que te deben gustar",
+       "puntos": [
+        "Cocinar",
+        "Emprender",
+        "Cultura"
+       ]
+      },
+      {
+       "tipo": "decision",
+       "pregunta": "¿Cuál de estos temas es más de Gastronomía?",
+       "opciones": [
+        {
+         "texto": "Cocinar",
+         "consecuencia": "Sí, es de sus temas centrales.",
+         "mejor": true
+        },
+        {
+         "texto": "Deporte",
+         "consecuencia": "Ese es más de Fisioterapia."
+        },
+        {
+         "texto": "Salud",
+         "consecuencia": "Ese es más de Enfermería."
+        }
+       ]
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Cuál de estos temas te gusta más?",
+       "opciones": [
+        "Cocinar",
+        "Emprender",
+        "Cultura",
+        "Ninguno me late"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Si los temas te aburren, la carrera se hace muy larga."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "2.4",
+     "titulo": "Materias clave",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "voltear",
+       "pregunta": "¿Qué materias crees que llevas en cada etapa? Piénsalo y voltea.",
+       "cartas": [
+        {
+         "frente": "Semestres 1-2",
+         "reverso": "Técnicas culinarias básicas, Higiene y manejo de alimentos, Panadería"
+        },
+        {
+         "frente": "Semestres 3-4",
+         "reverso": "Cocina mexicana, Cocina internacional, Repostería, Costos de alimentos"
+        },
+        {
+         "frente": "Semestres 5-6",
+         "reverso": "Administración de restaurantes, Enología y bebidas, Diseño de menús"
+        },
+        {
+         "frente": "Semestres 7 en adelante",
+         "reverso": "Prácticas en restaurante u hotel, Proyecto de negocio"
+        }
+       ]
+      },
+      {
+       "tipo": "decision",
+       "pregunta": "¿Cuál de estas materias llevarías en Gastronomía?",
+       "opciones": [
+        {
+         "texto": "Técnicas culinarias básicas",
+         "consecuencia": "Sí: es de las primeras materias de Gastronomía.",
+         "mejor": true
+        },
+        {
+         "texto": "Teoría sociológica clásica",
+         "consecuencia": "Esa es de Sociología."
+        },
+        {
+         "texto": "Bioquímica",
+         "consecuencia": "Esa es de Nutrición."
+        }
+       ]
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Cuál te da más curiosidad?",
+       "opciones": [
+        "Técnicas culinarias básicas",
+        "Higiene y manejo de alimentos",
+        "Panadería"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Las primeras materias son la base; muchas veces son las más pesadas."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "u3",
+   "lecciones": [
+    {
+     "id": "3.1",
+     "titulo": "Un día real",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "Un día de trabajo en Gastronomía",
+       "puntos": [
+        "Cocina, crea platillos, controla costos e inventarios, dirige equipos de cocina y, si emprende, administra su propio negocio de comida."
+       ]
+      },
+      {
+       "tipo": "decision",
+       "pregunta": "¿Cuál de estas cosas sí hace alguien de Gastronomía?",
+       "opciones": [
+        {
+         "texto": "Cocina, crea platillos, controla costos e inventarios, dirige equipos de cocina y, si emprende, administra su propio negocio de comida.",
+         "consecuencia": "Sí: es parte de su día.",
+         "mejor": true
+        },
+        {
+         "texto": "Diseña planes y materiales de estudio, capacita personal en empresas, orienta alumnos, evalúa programas educativos o da clases.",
+         "consecuencia": "Eso es más de Educación."
+        },
+        {
+         "texto": "Resuelve problemas con modelos matemáticos en bancos, aseguradoras, tecnología, ciencia de datos, investigación o docencia universitaria.",
+         "consecuencia": "Eso es más de Matemáticas."
+        }
+       ]
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Te ves haciendo esto todos los días?",
+       "escala": [
+        "No va conmigo",
+        "Va mucho conmigo"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "El día a día pesa más que el título."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "3.2",
+     "titulo": "Lo difícil",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "Lo difícil de Gastronomía",
+       "texto": "Se considera de dificultad media.",
+       "puntos": [
+        "Mucha práctica en cocina",
+        "También Costos, Higiene y Administración de restaurantes."
+       ]
+      },
+      {
+       "tipo": "decision",
+       "pregunta": "Según lo que leíste, ¿qué es lo que más cuesta en Gastronomía?",
+       "opciones": [
+        {
+         "texto": "Mucha práctica en cocina",
+         "consecuencia": "Sí, es de lo que más cuesta en Gastronomía.",
+         "mejor": true
+        },
+        {
+         "texto": "Circuitos, Electromagnetismo y Señales y sistemas.",
+         "consecuencia": "Eso es más de Ing. Electrónica."
+        },
+        {
+         "texto": "Cálculo, Probabilidad e Investigación de operaciones.",
+         "consecuencia": "Eso es más de Ing. Industrial."
+        }
+       ]
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Qué tanto te preocupa esto?",
+       "escala": [
+        "Mucho",
+        "Nada"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Saber lo difícil desde antes te ayuda a prepararte."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "3.3",
+     "titulo": "Historia real",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "reflexion",
+       "pregunta": "Si pudieras preguntarle algo a alguien que ya estudia Gastronomía, ¿qué sería?",
+       "opciones": [
+        "¿Qué fue lo más difícil?",
+        "¿Qué te sorprendió?",
+        "¿Volverías a elegirla?",
+        "¿Cómo es un día normal?"
+       ]
+      },
+      {
+       "tipo": "testimonio",
+       "estado": "pendiente",
+       "perfil": "Estudiante de últimos semestres o egresado de Gastronomía"
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "Mientras llega esta historia, ¿a quién podrías preguntarle tú?",
+       "opciones": [
+        "A un familiar o conocido que la estudió",
+        "A un estudiante de mi ciudad",
+        "A un maestro que la conozca",
+        "Todavía no conozco a nadie"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Una persona real te cuenta lo que ningún folleto dice."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "3.4",
+     "titulo": "¿Es para ti?",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Contesta con honestidad. Nadie más ve tus respuestas."
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Cocino por gusto aunque nadie me lo pida?",
+       "escala": [
+        "No va conmigo",
+        "Va mucho conmigo"
+       ]
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Aguanto horarios de noche y fines de semana?",
+       "escala": [
+        "No va conmigo",
+        "Va mucho conmigo"
+       ]
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Me veo con mi propio negocio de comida?",
+       "escala": [
+        "No va conmigo",
+        "Va mucho conmigo"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Si dijiste que sí a casi todo, vale la pena seguir explorándola."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "u4",
+   "lecciones": [
+    {
+     "id": "4.1",
+     "titulo": "Cuánto dura y qué estudias",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Cada escuela arma su plan distinto, pero el orden general se parece. Vamos a verlo."
+      },
+      {
+       "tipo": "ordenar",
+       "pregunta": "Ordena lo que estudias, de lo primero a lo último.",
+       "pasos": [
+        "Técnicas culinarias básicas, Higiene y manejo de alimentos",
+        "Cocina mexicana, Cocina internacional",
+        "Administración de restaurantes, Enología y bebidas",
+        "Prácticas en restaurante u hotel, Proyecto de negocio"
+       ],
+       "revelacion": "Primero las bases y al final lo más especializado y las prácticas."
+      },
+      {
+       "tipo": "rango",
+       "pregunta": "¿Cuántos años crees que pasan desde que entras hasta que te titulas?",
+       "min": 3,
+       "max": 10,
+       "paso": 1,
+       "unidad": "años",
+       "dato": "gastronomia.duracion"
+      },
+      {
+       "tipo": "clave",
+       "texto": "Revisa el mapa curricular de cada escuela: cambia de una a otra."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "4.2",
+     "titulo": "Cómo se entra",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "Cómo se entra en la región",
+       "puntos": [
+        "Anáhuac: Examen de admisión propio + promedio",
+        "UVM: Registro y examen diagnóstico; la beca depende del promedio",
+        "UNITEC: Registro y examen diagnóstico; beca según promedio"
+       ]
+      },
+      {
+       "tipo": "decision",
+       "pregunta": "Según lo que leíste, ¿qué pide Anáhuac para entrar?",
+       "opciones": [
+        {
+         "texto": "Examen de admisión propio + promedio",
+         "consecuencia": "Exacto.",
+         "mejor": true
+        },
+        {
+         "texto": "Registro y examen diagnóstico; la beca depende del promedio",
+         "consecuencia": "Eso lo pide UVM."
+        },
+        {
+         "texto": "Registro y examen diagnóstico; beca según promedio",
+         "consecuencia": "Eso lo pide UNITEC."
+        }
+       ]
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Todas las universidades usan el mismo examen.",
+       "respuesta": false,
+       "revelacion": "Cada una tiene el suyo: revisa la convocatoria de la que te interese."
+      },
+      {
+       "tipo": "clave",
+       "texto": "Conoce el examen de tu escuela desde antes."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "4.3",
+     "titulo": "Dónde, cuánto cuesta y becas",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "El costo cambia mucho entre una universidad pública y una privada. Antes de ver datos, apuesta."
+      },
+      {
+       "tipo": "rango",
+       "pregunta": "¿Cuánto crees que cuesta un semestre en una universidad pública?",
+       "min": 0,
+       "max": 60000,
+       "paso": 1000,
+       "unidad": "pesos",
+       "dato": "gastronomia.costo_publica"
+      },
+      {
+       "tipo": "rango",
+       "pregunta": "¿Y un semestre en una universidad privada?",
+       "min": 0,
+       "max": 300000,
+       "paso": 5000,
+       "unidad": "pesos",
+       "dato": "gastronomia.costo_privada"
+      },
+      {
+       "tipo": "dato",
+       "titulo": "Becas para estudiar Gastronomía",
+       "dato": "gastronomia.becas"
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Una universidad cara garantiza un mejor empleo.",
+       "respuesta": false,
+       "revelacion": "Pesan más lo que aprendes, tus prácticas y tu esfuerzo."
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Qué pesa más para ti al elegir escuela?",
+       "opciones": [
+        "El costo",
+        "Que esté cerca de mi casa",
+        "El prestigio",
+        "Las prácticas que ofrece"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Además de la colegiatura, cuenta transporte y materiales."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "u5",
+   "lecciones": [
+    {
+     "id": "5.1",
+     "titulo": "Qué piden para trabajar",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "Qué te piden para trabajar",
+       "puntos": [
+        "No requiere cédula",
+        "Los materiales y uniformes son un gasto fuerte.",
+        "El éxito depende mucho de emprender."
+       ]
+      },
+      {
+       "tipo": "decision",
+       "pregunta": "Según lo que leíste, ¿qué necesitas para ejercer Gastronomía?",
+       "opciones": [
+        {
+         "texto": "No requiere cédula",
+         "consecuencia": "Exacto.",
+         "mejor": true
+        },
+        {
+         "texto": "No requiere cédula para la mayoría de puestos",
+         "consecuencia": "Eso lo piden en Biotecnología."
+        },
+        {
+         "texto": "No requiere cédula.",
+         "consecuencia": "Eso lo piden en Inteligencia artificial."
+        }
+       ]
+      },
+      {
+       "tipo": "dos_caminos",
+       "pregunta": "¿Cómo te ves?",
+       "a": {
+        "texto": "En una institución o empresa",
+        "dice": "Más estabilidad y un equipo de quien aprender."
+       },
+       "b": {
+        "texto": "Por tu cuenta",
+        "dice": "Más libertad, pero tienes que conseguir clientes."
+       }
+      },
+      {
+       "tipo": "clave",
+       "texto": "Saber qué te piden te ahorra sorpresas al salir."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "5.2",
+     "titulo": "Sueldo y demanda",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Hablemos de dinero sin rodeos. Antes de ver cualquier cifra, apuesta: así recuerdas mejor el dato real."
+      },
+      {
+       "tipo": "rango",
+       "pregunta": "¿Cuánto crees que gana al mes, en promedio, un profesionista de Gastronomía en México?",
+       "min": 5000,
+       "max": 100000,
+       "paso": 1000,
+       "unidad": "pesos",
+       "dato": "gastronomia.ingreso"
+      },
+      {
+       "tipo": "rango",
+       "pregunta": "De cada 100 egresados, ¿cuántos crees que trabajan en algo de su carrera?",
+       "min": 0,
+       "max": 100,
+       "paso": 5,
+       "unidad": "de cada 100",
+       "dato": "gastronomia.ocupacion_afin"
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Todos los egresados de Gastronomía ganan lo mismo.",
+       "respuesta": false,
+       "revelacion": "Cambia con la experiencia, el lugar, la especialidad y si trabajas por tu cuenta."
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Qué tanto pesa el sueldo en tu decisión?",
+       "escala": [
+        "No va conmigo",
+        "Va mucho conmigo"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "El promedio orienta, pero tu camino puede ser distinto."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "5.3",
+     "titulo": "Cómo les va al salir",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "chat",
+       "subtitulo": "Te cuenta cómo les va al salir",
+       "intro": [
+        "Te cuento cómo les va a quienes estudian Gastronomía al salir."
+       ],
+       "temas": [
+        {
+         "q": "¿Cuántos trabajan en lo suyo?",
+         "a": [
+          "Cerca de la mitad trabaja en algo de su carrera.",
+          "Es un promedio nacional del IMCO."
+         ]
+        },
+        {
+         "q": "¿Muchos hacen posgrado?",
+         "a": [
+          "Pocos hacen posgrado; la mayoría empieza a trabajar."
+         ]
+        },
+        {
+         "q": "¿Hay más hombres o mujeres?",
+         "a": [
+          "Hay casi el mismo número de hombres y mujeres.",
+          "Eso no decide nada: cualquiera puede estudiarla."
+         ]
+        },
+        {
+         "q": "¿El trabajo tiene prestaciones?",
+         "a": [
+          "Una parte trabaja sin prestaciones.",
+          "Las prestaciones son cosas como seguro médico y aguinaldo."
+         ]
+        }
+       ],
+       "minimo": 2
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "La mayoría de quienes estudian Gastronomía trabaja en algo de su carrera.",
+       "respuesta": false,
+       "revelacion": "Cerca de la mitad trabaja en algo de su carrera. Promedio nacional del IMCO."
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Qué te importa más de tu futuro trabajo?",
+       "opciones": [
+        "Que tenga que ver con lo que estudié",
+        "Ganar bien",
+        "Tener prestaciones",
+        "Hacer algo que me guste"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Pregunta cómo les va a quienes ya salieron."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "5.4",
+     "titulo": "Después de titularte",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "Después de titularte",
+       "puntos": [
+        "Puedes especializarte con cursos, diplomados o una maestría.",
+        "También puedes trabajar desde el inicio y estudiar después.",
+        "Se combina bien con: Turismo y Hotelería, Nutrición, Administración de Empresas."
+       ]
+      },
+      {
+       "tipo": "dos_caminos",
+       "pregunta": "¿Qué harías al terminar?",
+       "a": {
+        "texto": "Trabajar desde el inicio",
+        "dice": "Ganas experiencia y dinero; después decides si estudias más."
+       },
+       "b": {
+        "texto": "Seguir estudiando",
+        "dice": "Te especializas antes; tardas más en empezar a trabajar."
+       }
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Cómo te imaginas después de la carrera?",
+       "opciones": [
+        "Trabajando",
+        "En una maestría",
+        "Emprendiendo",
+        "No sé todavía"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Al titularte empieza otra parte del camino, no termina."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "u6",
+   "lecciones": [
+    {
+     "id": "6.1",
+     "titulo": "Lo que sentiste",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "reflexion",
+       "pregunta": "Antes de ver tus respuestas: ¿cómo te fue con Gastronomía?",
+       "opciones": [
+        "Me gustó más de lo que pensaba",
+        "Más o menos como esperaba",
+        "Me gustó menos de lo que pensaba"
+       ]
+      },
+      {
+       "tipo": "resumen"
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "Viendo tus respuestas, ¿qué pesó más?",
+       "opciones": [
+        "Lo que sentí al probarla",
+        "Lo que supe de la realidad",
+        "El camino para llegar",
+        "El futuro que ofrece"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Lo que sentiste al probarla vale más que lo que imaginabas."
+      },
+      {
+       "tipo": "interes",
+       "pregunta": "¿Te ves estudiando Gastronomía?"
+      }
+     ]
+    },
+    {
+     "id": "6.2",
+     "titulo": "Tu veredicto",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "reflexion",
+       "pregunta": "Si mañana tuvieras que elegir carrera, ¿Gastronomía estaría entre tus opciones?",
+       "opciones": [
+        "Sí, entre las primeras",
+        "Sí, pero no arriba",
+        "No creo",
+        "No lo sé"
+       ]
+      },
+      {
+       "tipo": "comparar"
+      },
+      {
+       "tipo": "dos_caminos",
+       "pregunta": "¿Qué te ayudaría más a decidir?",
+       "a": {
+        "texto": "Hablar con alguien que la estudia",
+        "dice": "Busca a un estudiante o egresado cerca de ti y hazle tus preguntas. Una plática aclara más que diez videos."
+       },
+       "b": {
+        "texto": "Probar otra carrera y comparar",
+        "dice": "Explora otra de tu mapa. Comparar dos caminos reales aclara más que pensar en uno solo."
+       }
+      },
+      {
+       "tipo": "veredicto"
+      },
+      {
+       "tipo": "clave",
+       "texto": "Decidir «en duda» también es avanzar."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

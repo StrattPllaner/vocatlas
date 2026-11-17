@@ -24,6 +24,9 @@ Estado al 17 de noviembre de 2026. Se marca conforme avanza.
 - [x] Fase 3b: contenido de Computación, Derecho, Arquitectura y Veterinaria (21 lecciones cada una, con sus retos propios).
   - [ ] Pendiente: revisión por un profesionista de cada carrera: `docs/REVISION_COMPUTACION.md`, `docs/REVISION_DERECHO.md`, `docs/REVISION_ARQUITECTURA.md` y `docs/REVISION_VETERINARIA.md`.
   - [ ] Pendiente: 28 cifras nuevas (7 por carrera) y cuatro testimonios.
+- [x] Lecciones nuevas (17 nov): temario por unidades en lugar de camino; tarjetas de lectura, plática con Rumbo, voltear y completar.
+  - [x] Las 45 carreras sin contenido escrito tienen sus 21 lecciones armadas con la base (`datos/generar_lecciones.py`): primero enseñan y luego preguntan; las respuestas incorrectas salen de carreras de otra área.
+  - [ ] Pendiente: revisión por alguien de cada carrera (las armadas dicen «generado» en su archivo).
 - [ ] Fase 5: perfil.
 - [x] Guion de entrevista de cinco preguntas y formato de autorización: `docs/TESTIMONIOS.md`.
 - [x] Universidades de Morelos y CDMX (10, públicas y privadas) con costo, examen y fuente, desde `datos/fuentes/vocatlas_carreras.json` vía `datos/importar_carreras.py`. Se ven en «Escuelas» de cada carrera y en Yo.

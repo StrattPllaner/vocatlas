@@ -13,7 +13,7 @@ var LEC=(function(){
   var b=L.el.querySelector(".lc-body");setTimeout(function(){b.scrollTo({top:b.scrollHeight,behavior:RM()?"auto":"smooth"})},60)}
  function main(label,on){var b=L.el.querySelector("#lcGo");b.textContent=label;b.setAttribute("aria-disabled",on?"false":"true");b.disabled=!on}
  function done(label){L.phase=1;main(label||(L.i>=L.cards.length-1?"Terminar":"Seguir"),true)}
- var EB={escena:"Imagina",decision:"Tú decides",vf:"¿Verdadero o falso?",rango:"Apuesta",ordenar:"Ordena",emparejar:"Une",clasificar:"Clasifica",dos_caminos:"¿Cuál va más contigo?",armar_dia:"Arma el día",reflexion:"Sobre ti",comparar:"Tus carreras",resumen:"Tus respuestas",testimonio:"Historia real",dato:"El dato",clave:"Idea clave",interes:"Una última",autoevaluacion:"Cierre de la unidad",veredicto:"Tu veredicto",armar:"Construye",bloques:"Depura",patron:"Encuentra el patrón",presupuesto:"Reparte",encuadre:"Encuadra",componer:"Compón"};
+ var EB={info:"Lo que hay que saber",chat:"Habla con Rumbo",voltear:"Voltea y repasa",completar:"Completa",escena:"Imagina",decision:"Tú decides",vf:"¿Verdadero o falso?",rango:"Apuesta",ordenar:"Ordena",emparejar:"Une",clasificar:"Clasifica",dos_caminos:"¿Cuál va más contigo?",armar_dia:"Arma el día",reflexion:"Sobre ti",comparar:"Tus carreras",resumen:"Tus respuestas",testimonio:"Historia real",dato:"El dato",clave:"Idea clave",interes:"Una última",autoevaluacion:"Cierre de la unidad",veredicto:"Tu veredicto",armar:"Construye",bloques:"Depura",patron:"Encuentra el patrón",presupuesto:"Reparte",encuadre:"Encuadra",componer:"Compón"};
  function rb(m){return '<div class="lc-rb">'+rumboEl()+'</div>'}
  function datoHTML(key,bet,uni){var d=(CAT.cif||{})[key];
   if(!d||d.estado==="pendiente"||d.valor==null)return '<div class="lc-empty">'+rb()+'<p><b>Todavía no tenemos esta cifra verificada.</b> No la vamos a inventar.'+(d&&d.fuente_sugerida?' Puedes buscarla en '+h(d.fuente_sugerida)+'.':'')+'</p></div>'+(bet!=null?'<p class="lc-bet">Tu apuesta: <b>'+bet+'</b> '+h(uni||"")+'. La guardamos para compararla cuando llegue el dato.</p>':'');
@@ -41,6 +41,37 @@ var LEC=(function(){
 
  /* ---------- tipos de tarjeta: cada uno recibe (tarjeta, caja) y deja lista la interacción ---------- */
  var R={
+  /* lectura corta: lo que hay que saber antes de las preguntas */
+  info:function(t,box){box.innerHTML='<div class="lc-info">'+(t.titulo?'<h3>'+h(t.titulo)+'</h3>':'')+(t.texto?'<p>'+h(t.texto)+'</p>':'')+
+   (t.puntos?'<ul>'+t.puntos.map(function(p){return '<li><span class="lc-dot"></span>'+h(p)+'</li>'}).join("")+'</ul>':'')+'</div>';done("Entendido")},
+  /* plática con Rumbo: eliges qué preguntarle y te contesta; con un par de preguntas ya puedes seguir */
+  chat:function(t,box){var asked=0,busy=false,min=Math.min(t.minimo||2,t.temas.length),left=t.temas.map(function(x,i){return i});
+   box.innerHTML='<div class="lc-chat"><div class="lc-chh"><span class="lc-chav">'+rumboEl()+'</span><div><b>Rumbo</b><small>'+h(t.subtitulo||"Pregúntale lo que quieras saber")+'</small></div></div><div class="lc-log" aria-live="polite"></div><p class="lc-chq" hidden>Pregúntale:</p><div class="lc-chips"></div></div>';
+   var log=box.querySelector(".lc-log"),chips=box.querySelector(".lc-chips"),body=L.el.querySelector(".lc-body");
+   function down(){setTimeout(function(){body.scrollTo({top:body.scrollHeight,behavior:RM()?"auto":"smooth"})},30)}
+   function say(who,txt){var d=document.createElement("div");d.className="lc-msg is-"+who;d.textContent=txt;log.appendChild(d);restart(d,"in");down()}
+   function typing(on){var e=log.querySelector(".lc-typ");if(on&&!e){e=document.createElement("div");e.className="lc-msg is-rb lc-typ";e.innerHTML="<i></i><i></i><i></i>";log.appendChild(e);down()}else if(!on&&e)e.remove()}
+   function seq(msgs,k,cb){if(k>=msgs.length){cb();return}typing(true);setTimeout(function(){typing(false);say("rb",msgs[k]);seq(msgs,k+1,cb)},RM()?0:Math.min(1100,380+msgs[k].length*9))}
+   function paint(){chips.innerHTML=left.map(function(i){return '<button type="button" class="lc-chip" data-i="'+i+'">'+h(t.temas[i].q)+'</button>'}).join("");
+    box.querySelector(".lc-chq").hidden=!left.length;
+    each(chips.querySelectorAll(".lc-chip"),function(b){b.onclick=function(){if(busy)return;busy=true;var i=+b.getAttribute("data-i");left=left.filter(function(x){return x!==i});chips.innerHTML="";
+     say("me",t.temas[i].q);if(typeof sfx==="function")sfx("tap");
+     seq(t.temas[i].a,0,function(){busy=false;asked++;paint();if(asked>=min)done(left.length?"Seguir":null)})}})}
+   main("Pregunta algo a Rumbo",false);
+   seq(t.intro||[],0,paint)},
+  /* tarjetas que se voltean: piensas la respuesta y la confirmas */
+  voltear:function(t,box){var seen={};
+   box.innerHTML='<p class="lc-q">'+h(t.pregunta)+'</p><p class="lc-note">Toca cada tarjeta para voltearla.</p><div class="lc-flip">'+t.cartas.map(function(c,i){return '<button type="button" class="lc-fc" data-i="'+i+'" aria-pressed="false"><span class="f">'+h(c.frente)+'</span><span class="b">'+h(c.reverso)+'</span></button>'}).join("")+'</div>';
+   main("Voltea todas",false);
+   each(box.querySelectorAll(".lc-fc"),function(b){b.onclick=function(){var on=b.getAttribute("aria-pressed")!=="true";b.setAttribute("aria-pressed",on?"true":"false");seen[b.getAttribute("data-i")]=1;if(typeof sfx==="function")sfx("tap");
+    if(Object.keys(seen).length===t.cartas.length&&!L.phase)done()}})},
+  /* completar la frase con la palabra correcta */
+  completar:function(t,box){var pick=-1,ord=mix(t.opciones,L.id+L.les.id+L.i+"k"),parts=t.frase.split("___");
+   box.innerHTML='<p class="lc-q">'+h(t.pregunta||"Completa la frase.")+'</p><p class="lc-big lc-fill">'+h(parts[0])+'<span class="lc-gap" id="lcGap">______</span>'+h(parts[1]||"")+'</p><div class="lc-in"></div>';
+   opts(box.querySelector(".lc-in"),ord.map(function(i){return t.opciones[i]}),function(i){pick=ord[i];box.querySelector("#lcGap").textContent=t.opciones[pick];box.querySelector("#lcGap").classList.add("on");main("Comprobar",true)});
+   main("Comprobar",false);
+   L.check=function(){var ok=pick===t.correcta;each(box.querySelectorAll(".lc-opt"),function(b){var i=ord[+b.getAttribute("data-i")];if(i===t.correcta)b.classList.add("good");else if(i===pick)b.classList.add("bad")});
+    var g=box.querySelector("#lcGap");g.textContent=t.opciones[t.correcta];g.classList.add("good");fb(ok?"ok":"no",h(t.revelacion||""));done()}},
   escena:function(t,box){box.innerHTML=rb()+'<p class="lc-big">'+h(t.texto)+'</p>';done()},
   clave:function(t,box){box.innerHTML='<div class="lc-key"><span>'+ico("bulb")+'</span><p>'+h(t.texto)+'</p></div>';done()},
   decision:function(t,box){var pick=-1,ord=mix(t.opciones,L.id+L.les.id+L.i);
