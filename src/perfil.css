@@ -31,7 +31,10 @@
 .pf-sk small{font:var(--fw-m) var(--fs-xs)/1.2 var(--ff);color:var(--c-ink-2)}
 .pf-sk.is-use{border-color:var(--c-ok);background:var(--c-ok-bg)}
 .pf-sk.is-use small{color:var(--c-ok-ink);font-weight:var(--fw-sb)}
-.pf-sk.is-off{background:var(--c-sunken);border-style:dashed;border-bottom-width:var(--bw)}
+.pf-sk.is-off{background:var(--c-sunken);border-bottom-width:calc(var(--bw) + 2px)}
+/* cuánto falta para ganarlo, en lugar de un candado */
+.pf-skbar{display:block;width:62%;height:5px;margin-top:6px;border-radius:5px;background:var(--c-line);overflow:hidden;position:relative}
+.pf-skbar::after{content:"";position:absolute;inset:0;width:calc(var(--v,0) * 100%);background:var(--c-ink-2);border-radius:5px}
 .pf-sk.is-off .pf-sk-rb{opacity:.5}
 .pf-sk.is-off b{color:var(--c-ink-2)}
 .pf-bdg{position:absolute;right:6px;top:6px;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;background:var(--c-surface);color:var(--c-ink-3);border:var(--bw) solid var(--c-line)}

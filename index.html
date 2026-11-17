@@ -1833,7 +1833,10 @@ body.lp-open #amb{visibility:hidden}body.lp-open #amb *{animation-play-state:pau
 .pf-sk small{font:var(--fw-m) var(--fs-xs)/1.2 var(--ff);color:var(--c-ink-2)}
 .pf-sk.is-use{border-color:var(--c-ok);background:var(--c-ok-bg)}
 .pf-sk.is-use small{color:var(--c-ok-ink);font-weight:var(--fw-sb)}
-.pf-sk.is-off{background:var(--c-sunken);border-style:dashed;border-bottom-width:var(--bw)}
+.pf-sk.is-off{background:var(--c-sunken);border-bottom-width:calc(var(--bw) + 2px)}
+/* cuánto falta para ganarlo, en lugar de un candado */
+.pf-skbar{display:block;width:62%;height:5px;margin-top:6px;border-radius:5px;background:var(--c-line);overflow:hidden;position:relative}
+.pf-skbar::after{content:"";position:absolute;inset:0;width:calc(var(--v,0) * 100%);background:var(--c-ink-2);border-radius:5px}
 .pf-sk.is-off .pf-sk-rb{opacity:.5}
 .pf-sk.is-off b{color:var(--c-ink-2)}
 .pf-bdg{position:absolute;right:6px;top:6px;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;background:var(--c-surface);color:var(--c-ink-3);border:var(--bw) solid var(--c-line)}
@@ -2340,15 +2343,16 @@ body:not(.on-map):not(.lp-open)::before{content:"";position:fixed;left:0;right:0
  .vwrap{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:28px;align-items:start;grid-auto-flow:row dense}
  .vwrap>*{grid-column:1 / -1;min-width:0}
  /* Yo: la tarjeta de Rumbo se acuesta arriba (Rumbo a la izquierda, tus datos a la derecha); abajo dos columnas */
- .pf.vwrap>.pf-hero{display:grid;grid-template-columns:minmax(300px,38%) 1fr;grid-template-rows:1fr auto;align-items:end}
- .pf-hero .pf-stage{grid-row:1 / span 2;height:250px}
- .pf-hero .pf-id{text-align:left;padding:0 32px;align-self:end}
- .pf-hero .pf-id h2{font-size:40px}
- .pf-hero .pf-stats{margin:18px 32px 26px;max-width:520px}
- .pf-hero .pf-stats>div{justify-items:start;padding:0 18px}.pf-hero .pf-stats>div:first-child{padding-left:0}
- .pf.vwrap>.at-sec:nth-of-type(2){grid-column:1;grid-row:2 / span 2}
- .pf.vwrap>.pf-goal{grid-column:2;grid-row:2}
- .pf.vwrap>.at-sec:nth-of-type(4){grid-column:2;grid-row:3}
+ .pf.vwrap>.pf-hero{grid-column:1;grid-row:1;display:grid;grid-template-columns:minmax(220px,42%) 1fr;grid-template-rows:1fr auto;align-items:end;margin-bottom:24px}
+ .pf-hero .pf-stage{grid-row:1 / span 2;height:100%;min-height:250px}
+ .pf-hero .pf-id{text-align:left;padding:0 24px;align-self:end}
+ .pf-hero .pf-id h2{font-size:36px}
+ .pf-hero .pf-stats{margin:16px 20px 22px;grid-template-columns:repeat(3,auto);justify-content:start}
+ .pf-hero .pf-stats>div{justify-items:start;padding:0 14px}.pf-hero .pf-stats>div:first-child{padding-left:0}
+ /* la meta va junto a la tarjeta, a la misma altura */
+ .pf.vwrap>.pf-goal{grid-column:2;grid-row:1;align-self:stretch;display:flex;flex-direction:column;justify-content:center;margin-bottom:24px}
+ .pf.vwrap>.at-sec:nth-of-type(2){grid-column:1;grid-row:2}
+ .pf.vwrap>.at-sec:nth-of-type(4){grid-column:2;grid-row:2}
  .pf.vwrap .pf-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
  /* Atlas: arriba el saludo; izquierda seguir + brújula + pasaporte; derecha tus carreras */
  .at:not(.pf).vwrap>.at-next{grid-column:1;grid-row:2}
@@ -9865,8 +9869,8 @@ function skTile(k,i){
  var sub=use?"En uso":on?(k?esc(shortName(c)):"El original"):picked(k)?pg.done+" de "+pg.total:"Sin agregar";
  return '<button type="button" class="pf-sk'+(use?" is-use":"")+(on?"":" is-off")+' at-in" style="--i:'+Math.min(i,8)+'" data-k="'+k+'" aria-label="'+esc(skinName(k))+', '+(use?"en uso":on?"ganado":"por ganar")+'">'+
   '<span class="pf-sk-rb">'+skinStatic(k,!on)+'</span>'+
-  (use?'<span class="pf-bdg is-use">'+ico("check")+'</span>':on?'':'<span class="pf-bdg">'+ico("lock")+'</span>')+
-  '<b>'+esc(skinShort(k))+'</b><small>'+sub+'</small></button>';
+  (use?'<span class="pf-bdg is-use">'+ico("check")+'</span>':'')+
+  '<b>'+esc(skinShort(k))+'</b><small>'+sub+'</small>'+(!on&&pg&&picked(k)?'<i class="pf-skbar" style="--v:'+pg.p.toFixed(3)+'"></i>':'')+'</button>';
 }
 function skGrid(ks){return '<div class="pf-grid">'+ks.map(skTile).join("")+'</div>'}
 var PFSUB=null;
@@ -9887,7 +9891,7 @@ function openSkin(k){
   inMap?'<button type="button" class="ui-btn is-block" data-a="go">Ir a '+esc(shortName(c))+ico("next")+'</button>':
   '<button type="button" class="ui-btn is-block" data-a="add">Agregar a mi mapa'+ico("plus")+'</button>';
  el.innerHTML='<div class="grab"></div><div class="pf-sh-rb'+(on?"":" is-off")+'">'+(on?'<div class="rb float" data-skinfix="1" data-mood="happy">'+RUMBO.svg("U",null,null,k||null)+'<div class="burst"></div></div>':skinStatic(k,true))+'</div>'+
-  (on?'':'<div class="pf-sh-lock">'+ico("lock")+'Por ganar</div>')+
+  (on?'':'<div class="pf-sh-lock">Por ganar</div>')+
   '<h3 id="pfSkT">'+esc(skinName(k))+'</h3><p>'+txt+'</p>'+
   (!on&&inMap?'<div class="at-pr"><div class="ui-prog" style="--v:'+pg.p+'" role="img" aria-label="'+pg.done+' de '+pg.total+' lecciones"><i></i></div><span class="num">'+pg.done+'/'+pg.total+'</span></div>':'')+
   '<div class="acts">'+act+(use?'':'<button type="button" class="ui-btn is-block is-ghost" data-a="x">Cerrar</button>')+'</div>';

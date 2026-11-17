@@ -30,15 +30,16 @@ body:not(.on-map):not(.lp-open)::before{content:"";position:fixed;left:0;right:0
  .vwrap{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:28px;align-items:start;grid-auto-flow:row dense}
  .vwrap>*{grid-column:1 / -1;min-width:0}
  /* Yo: la tarjeta de Rumbo se acuesta arriba (Rumbo a la izquierda, tus datos a la derecha); abajo dos columnas */
- .pf.vwrap>.pf-hero{display:grid;grid-template-columns:minmax(300px,38%) 1fr;grid-template-rows:1fr auto;align-items:end}
- .pf-hero .pf-stage{grid-row:1 / span 2;height:250px}
- .pf-hero .pf-id{text-align:left;padding:0 32px;align-self:end}
- .pf-hero .pf-id h2{font-size:40px}
- .pf-hero .pf-stats{margin:18px 32px 26px;max-width:520px}
- .pf-hero .pf-stats>div{justify-items:start;padding:0 18px}.pf-hero .pf-stats>div:first-child{padding-left:0}
- .pf.vwrap>.at-sec:nth-of-type(2){grid-column:1;grid-row:2 / span 2}
- .pf.vwrap>.pf-goal{grid-column:2;grid-row:2}
- .pf.vwrap>.at-sec:nth-of-type(4){grid-column:2;grid-row:3}
+ .pf.vwrap>.pf-hero{grid-column:1;grid-row:1;display:grid;grid-template-columns:minmax(220px,42%) 1fr;grid-template-rows:1fr auto;align-items:end;margin-bottom:24px}
+ .pf-hero .pf-stage{grid-row:1 / span 2;height:100%;min-height:250px}
+ .pf-hero .pf-id{text-align:left;padding:0 24px;align-self:end}
+ .pf-hero .pf-id h2{font-size:36px}
+ .pf-hero .pf-stats{margin:16px 20px 22px;grid-template-columns:repeat(3,auto);justify-content:start}
+ .pf-hero .pf-stats>div{justify-items:start;padding:0 14px}.pf-hero .pf-stats>div:first-child{padding-left:0}
+ /* la meta va junto a la tarjeta, a la misma altura */
+ .pf.vwrap>.pf-goal{grid-column:2;grid-row:1;align-self:stretch;display:flex;flex-direction:column;justify-content:center;margin-bottom:24px}
+ .pf.vwrap>.at-sec:nth-of-type(2){grid-column:1;grid-row:2}
+ .pf.vwrap>.at-sec:nth-of-type(4){grid-column:2;grid-row:2}
  .pf.vwrap .pf-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
  /* Atlas: arriba el saludo; izquierda seguir + brújula + pasaporte; derecha tus carreras */
  .at:not(.pf).vwrap>.at-next{grid-column:1;grid-row:2}

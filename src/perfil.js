@@ -26,8 +26,8 @@ function skTile(k,i){
  var sub=use?"En uso":on?(k?esc(shortName(c)):"El original"):picked(k)?pg.done+" de "+pg.total:"Sin agregar";
  return '<button type="button" class="pf-sk'+(use?" is-use":"")+(on?"":" is-off")+' at-in" style="--i:'+Math.min(i,8)+'" data-k="'+k+'" aria-label="'+esc(skinName(k))+', '+(use?"en uso":on?"ganado":"por ganar")+'">'+
   '<span class="pf-sk-rb">'+skinStatic(k,!on)+'</span>'+
-  (use?'<span class="pf-bdg is-use">'+ico("check")+'</span>':on?'':'<span class="pf-bdg">'+ico("lock")+'</span>')+
-  '<b>'+esc(skinShort(k))+'</b><small>'+sub+'</small></button>';
+  (use?'<span class="pf-bdg is-use">'+ico("check")+'</span>':'')+
+  '<b>'+esc(skinShort(k))+'</b><small>'+sub+'</small>'+(!on&&pg&&picked(k)?'<i class="pf-skbar" style="--v:'+pg.p.toFixed(3)+'"></i>':'')+'</button>';
 }
 function skGrid(ks){return '<div class="pf-grid">'+ks.map(skTile).join("")+'</div>'}
 var PFSUB=null;
@@ -48,7 +48,7 @@ function openSkin(k){
   inMap?'<button type="button" class="ui-btn is-block" data-a="go">Ir a '+esc(shortName(c))+ico("next")+'</button>':
   '<button type="button" class="ui-btn is-block" data-a="add">Agregar a mi mapa'+ico("plus")+'</button>';
  el.innerHTML='<div class="grab"></div><div class="pf-sh-rb'+(on?"":" is-off")+'">'+(on?'<div class="rb float" data-skinfix="1" data-mood="happy">'+RUMBO.svg("U",null,null,k||null)+'<div class="burst"></div></div>':skinStatic(k,true))+'</div>'+
-  (on?'':'<div class="pf-sh-lock">'+ico("lock")+'Por ganar</div>')+
+  (on?'':'<div class="pf-sh-lock">Por ganar</div>')+
   '<h3 id="pfSkT">'+esc(skinName(k))+'</h3><p>'+txt+'</p>'+
   (!on&&inMap?'<div class="at-pr"><div class="ui-prog" style="--v:'+pg.p+'" role="img" aria-label="'+pg.done+' de '+pg.total+' lecciones"><i></i></div><span class="num">'+pg.done+'/'+pg.total+'</span></div>':'')+
   '<div class="acts">'+act+(use?'':'<button type="button" class="ui-btn is-block is-ghost" data-a="x">Cerrar</button>')+'</div>';
