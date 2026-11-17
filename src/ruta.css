@@ -306,3 +306,9 @@
 .rt5-n.is-chest{width:58px;height:54px;border:0}
 .rt5-n.is-sel:not(.is-chest){outline:3px solid var(--c);outline-offset:4px}
 .rt5-rb{width:64px;height:64px;transform:translate(-50%,-100%)}
+/* lecciones que aún no existen: un punto discreto sobre el camino, sin candado */
+.rt5-n.s-soon{width:16px;height:16px;border:3px solid var(--c-bg,#F6EFE2);background:#CDBF9F;box-shadow:none}
+.lp-dark .rt5-n.s-soon{background:#3A5068;border-color:#13283B}
+.rt5-n.s-soon::after{inset:-16px}
+.rt5-road{stroke-width:20}.rt5-done{stroke-width:20;opacity:1}
+.rt5-mid{stroke-dasharray:8 10;opacity:.75}
