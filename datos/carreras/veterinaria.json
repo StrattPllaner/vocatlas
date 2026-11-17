@@ -938,8 +938,7 @@
      "minutos": 4,
      "tarjetas": [
       {
-       "tipo": "escena",
-       "texto": "El costo de estudiar Veterinaria cambia mucho entre una universidad pública y una privada. Antes de ver datos, apuesta."
+       "tipo": "escuelas"
       },
       {
        "tipo": "rango",

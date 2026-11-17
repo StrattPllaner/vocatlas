@@ -199,7 +199,7 @@ def leccion_4(cid,c,n,rnd):
     cards+=[vf("Todas las universidades usan el mismo examen.",False,"Cada una tiene el suyo: revisa la convocatoria de la que te interese."),
             clave("Conoce el examen de tu escuela desde antes."),interes()]
     U.append(L("4.2","Cómo se entra",4,cards))
-    U.append(L("4.3","Dónde, cuánto cuesta y becas",4,[{"tipo":"escena","texto":"El costo cambia mucho entre una universidad pública y una privada. Antes de ver datos, apuesta."},
+    U.append(L("4.3","Dónde, cuánto cuesta y becas",4,[{"tipo":"escuelas"},
         {"tipo":"rango","pregunta":"¿Cuánto crees que cuesta un semestre en una universidad pública?","min":0,"max":60000,"paso":1000,"unidad":"pesos","dato":cid+".costo_publica"},
         {"tipo":"rango","pregunta":"¿Y un semestre en una universidad privada?","min":0,"max":300000,"paso":5000,"unidad":"pesos","dato":cid+".costo_privada"},
         {"tipo":"dato","titulo":"Becas para estudiar "+n,"dato":cid+".becas"},
@@ -264,6 +264,8 @@ for cid,fid in MAPA.items():
                 if l["id"]=="3.1":
                     l["tarjetas"]=[t for t in l["tarjetas"] if not t.get("auto")]
                     if ch:k=[t["tipo"] for t in l["tarjetas"]].index("clave");l["tarjetas"].insert(k,ch);platicas+=1
+            # «Dónde, cuánto cuesta y becas» abre con las escuelas de tu estado (en lugar de la escena)
+                if l["id"]=="4.3" and l["tarjetas"][0]["tipo"]=="escena":l["tarjetas"][0]={"tipo":"escuelas"}
         json.dump(j,open(p,"w"),ensure_ascii=False,indent=1);continue
     L1=leccion_1(cid,c,n,rnd)+leccion_2(cid,c,n,rnd)+leccion_3(cid,c,n,rnd)+leccion_4(cid,c,n,rnd)+leccion_5(cid,c,n,rnd)+leccion_6(n)
     uni=[{"id":u,"lecciones":[l for l in L1 if l["id"].startswith(str(k)+".")]} for u,k in UN]

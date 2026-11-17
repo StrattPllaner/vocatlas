@@ -31,8 +31,40 @@ var TORRE=(function(I){
    return {b:I.cyl(0,0,z,20,3,"#E8DFCC",{sideS:"#CFC3AA"})+c2.b,f:c2.f+I.cyl(0,0,z+25,18,3,"#EFE7D6",{sideS:"#D3C7AE"})+I.dome(0,0,z+28,16,"#D9A441")}
   }
  };
- var CACHE={};
- function has(id){return !!FLOORS[id]&&typeof ART!=="undefined"&&ART.has(id)}
+ /* ---------- torre de cualquier carrera: su edificio abajo, sus piezas de #art en medio y su emblema arriba;
+    lo que falte se completa con objetos de su área, en el color de la carrera ---------- */
+ var DECO={bush:1,lamp:1,flowers:1,treeRound:1,treePine:1,palm:1,rock:1,bench:1,signpost:1,crate:1,cone:1};
+ function fit(pc,z,big){var fp=pc.fp,w=Math.max(4,fp[2]-fp[0],fp[3]-fp[1]),k=Math.min(big?1.3:2.1,(big?64:52)/w);return put(pc,z,k,0,0)}
+ var OBJ={
+  libros:function(z,c){var T=I.T(c),s=I.box(-15,-10,z,30,20,6,T.s,{top:T.b,right:T.d,noGlint:true})+I.box(-14.4,-9.4,z+.7,29,19,4.6,"#F6F0E2",{noTop:true,left:"#EFE6D2",right:"#DCCFB4",noGlint:true});
+   s+=I.box(-12,-12,z+6,26,18,6,"#2F5E8E",{top:"#3A6FA3",right:"#244A70",noGlint:true})+I.box(-11.4,-11.4,z+6.7,25,17,4.6,"#F6F0E2",{noTop:true,left:"#EFE6D2",right:"#DCCFB4",noGlint:true});
+   return s+I.box(-13,-8,z+12,27,16,5.4,"#E8B33A",{top:"#F2C470",right:"#C9883A",noGlint:true})},
+  columnata:function(z,c){var q=colonnade(z+3,22,8,30,"#F6F0E2");return I.cyl(0,0,z,26,3,"#E8DFCC",{sideS:"#CFC3AA"})+q.b+q.f+I.cyl(0,0,z+33,26,5,c,{sideS:I.shade(c,.2)})},
+  globo:function(z,c){return I.cyl(0,0,z,9,3,"#8A6A4A",{sideS:"#6E5238"})+I.cyl(0,0,z+3,1.6,14,"#8A6A4A",{noGlint:true})+I.ball(0,0,z+15,17,c)},
+  engrane:function(z,c){var s=I.cyl(0,0,z,20,7,c,{sideS:I.shade(c,.22)}),i;for(i=0;i<8;i++){var a=i/8*Math.PI*2,x=Math.cos(a)*20,y=Math.sin(a)*20;if(x+y<0)s=I.box(x-3,y-3,z,6,6,7,I.shade(c,.1),{noGlint:true})+s;else s+=I.box(x-3,y-3,z,6,6,7,I.shade(c,.1),{noGlint:true})}
+   return s+I.cyl(0,0,z+7,6,2,"#E8DFCC",{sideS:"#CFC3AA"})},
+  matraz:function(z,c){return I.cyl(0,0,z,14,2,"#DCE6EC",{sideS:"#B9C6CF"})+I.ball(0,0,z+2,14,c)+I.cyl(0,0,z+26,4,14,"#E6F2F8",{sideS:"#BFD3DE"})+I.cyl(0,0,z+40,5.5,2,"#C9883A",{sideS:"#A86E28"})},
+  monitor:function(z,c){var s=I.cyl(0,0,z,8,2,"#3A4452",{sideS:"#2A323D"})+I.box(-2,-2,z+2,4,4,10,"#3A4452",{noGlint:true});s+=I.box(-18,-3,z+12,36,6,24,"#2A323D",{top:"#3A4452",noGlint:true});
+   var F=I.faceL(-18,-3,z+12,36,6);return s+I.quad(F,2,2,32,20,c,{st:false})+I.quad(F,4,14,14,2,"#FFFFFF",{st:false,op:.7})+I.quad(F,4,9,22,2,"#FFFFFF",{st:false,op:.5})},
+  trofeo:function(z,c){return I.box(-10,-10,z,20,20,6,"#6E5238",{top:"#8A6A4A",right:"#57412C",noGlint:true})+I.cyl(0,0,z+6,3,10,"#E2A72E",{noGlint:true})+I.dome(0,0,z+16,12,"#F2C14E")+I.cyl(0,0,z+16,12,2,"#F2C14E",{sideS:"#C98A1E"})},
+  planta:function(z,c){return I.cyl(0,0,z,12,9,"#C9704F",{sideS:"#A85A3D"})+(typeof ENV!=="undefined"?'<g transform="translate(0 '+f1(-z-9+ZA)+')">'+ENV.one("treeRound",{d:2,k:1.3,ph:1})+'</g>':I.ball(0,0,z+9,14,"#58B05A"))}
+ };
+ var AREA={salud:["matraz","libros","globo","trofeo"],ing:["engrane","matraz","columnata","trofeo"],tec:["monitor","globo","matraz","libros"],neg:["libros","columnata","globo","trofeo"],arte:["columnata","globo","libros","trofeo"]};
+ var BIO={salud:"jardin",ing:"industria",tec:"vidrio",neg:"ciudad",arte:"barrio"};
+ function generic(id){
+  var c=byId[id]||{color:"#3F7DA6",area:"neg"},art=typeof ART!=="undefined"&&ART.has(id),S=art?pieces(id,"s"):[],E=art?pieces(id,"e"):[];
+  var mid=S.slice(1).concat(E).filter(function(p){var f=p&&p.fp;return p&&!DECO[p.n]&&p.s&&Math.min(f[2]-f[0],f[3]-f[1])>=7}),em=E[0]&&E[0].s?E[0]:null;
+  if(em)mid=mid.filter(function(p){return p!==em});
+  var list=AREA[c.area]||AREA.neg;
+  return function(k,z){
+   if(k===0){var base=art?ART.get(id,2,"s",{noPlat:true}):(typeof ENV!=="undefined"&&ENV.generic?ENV.generic(BIO[c.area]||"ciudad",c.color,hash(id)):"");
+    return {f:'<g transform="translate(0 '+f1(-z+.9*ZA)+') scale(.9)">'+base+'</g>'}}
+   if(k===5){if(em)return {f:fit(em,z,true)};var q=colonnade(z+3,15,6,22,"#F6F0E2");return {b:I.cyl(0,0,z,20,3,"#E8DFCC",{sideS:"#CFC3AA"})+q.b,f:q.f+I.cyl(0,0,z+25,18,3,"#EFE7D6",{sideS:"#D3C7AE"})+I.dome(0,0,z+28,16,c.color)}}
+   var pc=mid[k-1];if(pc)return {f:fit(pc,z,false)};
+   return {f:OBJ[list[(k-1)%list.length]](z,c.color)}}}
+ var CACHE={},GEN={};
+ function has(id){return !!(FLOORS[id]||byId[id])&&typeof ISO!=="undefined"}
+ function floorsOf(id){return FLOORS[id]||GEN[id]||(GEN[id]=generic(id))}
 
  /* ---------- geometría: punto de la escalera en el ángulo a (grados), con un poco de perspectiva ---------- */
  function zAt(a){return FH*(a+20)/360+4}
@@ -61,7 +93,7 @@ var TORRE=(function(I){
   for(var z=z0+70;z<z1-20;z+=120){s+=I.cyl(0,0,z,r+2.5,6,"#DCCFB2",{sideS:"#BFAF8F",noTop:true,noGlint:true});
    var w=P(r*.62,r*.62,z+52);s+='<path d="M'+f1(w[0]-5)+' '+f1(w[1]+10)+'v-13a5 5 0 0 1 10 0v13z" fill="#5E6F86" stroke="#CFC0A0" stroke-width="1.6"/>'}
   return s}
- function floorSVG(id,k){var z=k*FH+FZ*FH,zt=z+DH,fl=FLOORS[id](k,zt)||{},s="",sc=function(x){return x?'<g transform="translate(0 '+f1(-zt)+') scale('+G+') translate(0 '+f1(zt)+')">'+x+'</g>':""};
+ function floorSVG(id,k){var z=k*FH+FZ*FH,zt=z+DH,fl=floorsOf(id)(k,zt)||{},s="",sc=function(x){return x?'<g transform="translate(0 '+f1(-zt)+') scale('+G+') translate(0 '+f1(zt)+')">'+x+'</g>':""};
   /* abajo: base y eje hasta el primer piso; cada piso: su disco, el eje que sube al siguiente (detrás) y su elemento */
   if(k===0)s+=I.cyl(0,0,0,DR+10,10,"#DCCFB2",{sideS:"#BFAF8F",top:"#E9DFC9"})+shaft(10,z);
   s+=I.cyl(0,0,z,DR,DH,"#E4D8BF",{sideS:"#C7B898",top:"#F1E8D5"});

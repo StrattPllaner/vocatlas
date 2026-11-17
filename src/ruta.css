@@ -518,3 +518,13 @@ img.tw-img.tw-back{opacity:.62;filter:saturate(.7)}
 /* orden de profundidad: escalera de atrás, Rumbo cuando va detrás, torre, escalera de enfrente, paradas, Rumbo al frente */
 .tw-stage .tw-back{z-index:1}.tw-stage .tw-tower{z-index:3}.tw-stage .tw-front{z-index:4}.tw-stage .tw-stops{z-index:5}
 .tw-stage .tw-rb{z-index:7}
+
+/* Escuelas en el encabezado: pastilla del color de la carrera, con cuántas opciones hay en tu estado */
+.rt2-head .rt2-esc{flex:none;flex-direction:row;gap:8px;min-height:46px;padding:6px 14px 6px 10px;border-radius:16px;background:var(--c);color:var(--ct);border:2px solid #3A3026;box-shadow:0 3px 0 #3A3026;text-align:left}
+.rt2-head .rt2-esc .lp-ic{width:24px;height:24px;stroke-width:2.2}
+.rt2-head .rt2-esc span{display:grid;gap:1px}.rt2-head .rt2-esc b{font:850 14px/1.1 var(--ff)}.rt2-head .rt2-esc small{font:700 11.5px/1.1 var(--ff);opacity:.9;white-space:nowrap}
+.rt2-head .rt2-esc:active{transform:translateY(2px);box-shadow:0 1px 0 #3A3026}
+@media (max-width:370px){.rt2-head .rt2-esc small{display:none}}
+.lc-escl{list-style:none;margin:8px 0 14px;padding:0;display:grid;gap:8px}
+.lc-escl li{display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding:10px 12px;border-radius:14px;background:var(--c-sunken,#F3EDE2)}
+.lc-escl b{font:850 15px/1.2 var(--ff)}.lc-escl small{flex-basis:100%;font:600 13px/1.3 var(--ff);color:var(--c-ink-2,#3C4D57)}

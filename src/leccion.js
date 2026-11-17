@@ -13,7 +13,7 @@ var LEC=(function(){
   var b=L.el.querySelector(".lc-body");setTimeout(function(){b.scrollTo({top:b.scrollHeight,behavior:RM()?"auto":"smooth"})},60)}
  function main(label,on){var b=L.el.querySelector("#lcGo");b.textContent=label;b.setAttribute("aria-disabled",on?"false":"true");b.disabled=!on}
  function done(label){L.phase=1;main(label||(L.i>=L.cards.length-1?"Terminar":"Seguir"),true)}
- var EB={info:"Lo que hay que saber",chat:"Habla con Rumbo",voltear:"Voltea y repasa",completar:"Completa",escena:"Imagina",decision:"Tú decides",vf:"¿Verdadero o falso?",rango:"Apuesta",ordenar:"Ordena",emparejar:"Une",clasificar:"Clasifica",dos_caminos:"¿Cuál va más contigo?",armar_dia:"Arma el día",reflexion:"Sobre ti",comparar:"Tus carreras",resumen:"Tus respuestas",testimonio:"Historia real",dato:"El dato",clave:"Idea clave",interes:"Una última",autoevaluacion:"Cierre de la unidad",veredicto:"Tu veredicto",armar:"Construye",bloques:"Depura",patron:"Encuentra el patrón",presupuesto:"Reparte",encuadre:"Encuadra",componer:"Compón"};
+ var EB={escuelas:"Dónde estudiarla",info:"Lo que hay que saber",chat:"Habla con Rumbo",voltear:"Voltea y repasa",completar:"Completa",escena:"Imagina",decision:"Tú decides",vf:"¿Verdadero o falso?",rango:"Apuesta",ordenar:"Ordena",emparejar:"Une",clasificar:"Clasifica",dos_caminos:"¿Cuál va más contigo?",armar_dia:"Arma el día",reflexion:"Sobre ti",comparar:"Tus carreras",resumen:"Tus respuestas",testimonio:"Historia real",dato:"El dato",clave:"Idea clave",interes:"Una última",autoevaluacion:"Cierre de la unidad",veredicto:"Tu veredicto",armar:"Construye",bloques:"Depura",patron:"Encuentra el patrón",presupuesto:"Reparte",encuadre:"Encuadra",componer:"Compón"};
  function rb(m){return '<div class="lc-rb">'+rumboEl()+'</div>'}
  function datoHTML(key,bet,uni){var d=(CAT.cif||{})[key];
   if(!d||d.estado==="pendiente"||d.valor==null)return '<div class="lc-empty">'+rb()+'<p><b>Todavía no tenemos esta cifra verificada.</b> No la vamos a inventar.'+(d&&d.fuente_sugerida?' Puedes buscarla en '+h(d.fuente_sugerida)+'.':'')+'</p></div>'+(bet!=null?'<p class="lc-bet">Tu apuesta: <b>'+bet+'</b> '+h(uni||"")+'. La guardamos para compararla cuando llegue el dato.</p>':'');
@@ -72,6 +72,11 @@ var LEC=(function(){
    main("Comprobar",false);
    L.check=function(){var ok=pick===t.correcta;each(box.querySelectorAll(".lc-opt"),function(b){var i=ord[+b.getAttribute("data-i")];if(i===t.correcta)b.classList.add("good");else if(i===pick)b.classList.add("bad")});
     var g=box.querySelector("#lcGap");g.textContent=t.opciones[t.correcta];g.classList.add("good");fb(ok?"ok":"no",h(t.revelacion||""));done()}},
+  /* dónde estudiarla: las escuelas de tu estado, dentro de la lección */
+  escuelas:function(t,box){var id=L.id,ok=typeof escHas==="function"&&escHas(id),mine=ok?escMine():null,d=ok?CAT.uni.car[id]:null,list=ok?d.donde.slice():[];
+   if(ok)list.sort(function(a,b){var ma=mine&&a.edo.indexOf(mine)>=0?0:1,mb=mine&&b.edo.indexOf(mine)>=0?0:1;return ma-mb});
+   box.innerHTML='<div class="lc-info lc-esc"><h3>Dónde estudiar '+h((byId[id]||{}).name||"")+'</h3>'+(ok?'<p>'+(mine?'Primero lo que hay en '+ESC_EDO[mine]+'.':'Opciones en Morelos y CDMX.')+'</p><ul class="lc-escl">'+list.slice(0,4).map(function(x){var u=escUni(x.u);return u?'<li><b>'+h(u.n)+'</b><span class="es-tag t-'+u.tipo+'">'+(u.tipo==="publica"?"Pública":"Privada")+'</span><small>'+h(x.sede)+'</small></li>':''}).join("")+'</ul><button type="button" class="ui-btn is-sec is-block" id="lcEsc">Ver todas, con costo y examen</button>':'<p>Todavía no tenemos escuelas para esta carrera. Busca su plan de estudios en la universidad de tu estado.</p>')+'</div>';
+   var bt=box.querySelector("#lcEsc");if(bt)bt.onclick=function(){escSheet(id)};done()},
   escena:function(t,box){box.innerHTML=rb()+'<p class="lc-big">'+h(t.texto)+'</p>';done()},
   clave:function(t,box){box.innerHTML='<div class="lc-key"><span>'+ico("bulb")+'</span><p>'+h(t.texto)+'</p></div>';done()},
   decision:function(t,box){var pick=-1,ord=mix(t.opciones,L.id+L.les.id+L.i);
