@@ -27,6 +27,7 @@ Estado al 17 de noviembre de 2026. Se marca conforme avanza.
 - [x] Lecciones nuevas (17 nov): temario por unidades en lugar de camino; tarjetas de lectura, plática con Rumbo, voltear y completar.
   - [x] Las 45 carreras sin contenido escrito tienen sus 21 lecciones armadas con la base (`datos/generar_lecciones.py`): primero enseñan y luego preguntan; las respuestas incorrectas salen de carreras de otra área.
   - [ ] Pendiente: revisión por alguien de cada carrera (las armadas dicen «generado» en su archivo).
+- [ ] Escalera en espiral (17 nov): prototipo con Derecho hecho (`src/torre.js`); falta tu aprobación para pasarlo a Medicina, Arquitectura y las demás. Las otras carreras siguen con el temario.
 - [ ] Fase 5: perfil.
 - [x] Guion de entrevista de cinco preguntas y formato de autorización: `docs/TESTIMONIOS.md`.
 - [x] Universidades de Morelos y CDMX (10, públicas y privadas) con costo, examen y fuente, desde `datos/fuentes/vocatlas_carreras.json` vía `datos/importar_carreras.py`. Se ven en «Escuelas» de cada carrera y en Yo.

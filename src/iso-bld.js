@@ -22,7 +22,7 @@ var ART=(function(I,E){
   while(out.length<n){var c=-1;for(i=0;i<n;i++)if(!used[i]&&inD[i]===0&&(c<0||key(i)<key(c)))c=i;
    if(c<0){for(i=0;i<n;i++)if(!used[i]&&(c<0||key(i)<key(c)))c=i}
    used[c]=1;out.push(c);adj[c].forEach(function(j){inD[j]--})}
-  if(REC)REC.push(parts.map(function(p){return {n:p[0],fp:p[1]}}));
+  if(REC)REC.push(parts.map(function(p){return {n:p[0],fp:p[1],s:p[2]}}));
   return ground+out.map(function(k){return parts[k][2]}).join("");
  }
  var NOPLAT=false;
