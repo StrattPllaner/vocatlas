@@ -115,7 +115,7 @@ var PATH=(function(){
  /* tramo entre dos paradas: recto en la fila, curva cerrada en la vuelta */
  /* tramo entre dos paradas (sin el punto de inicio, para encadenarlos en un solo trazo): recto en la fila, curva en la vuelta */
  function seg(a,b){var f=function(v){return v.toFixed(1)},dy=b.y-a.y;
-  if(Math.abs(dy)<30)return "L"+f(b.x)+" "+f(b.y);
+  if(Math.abs(dy)<30){var w=((Math.round(a.x*7+b.x*3)%5)-2)*1.1;return "Q"+f((a.x+b.x)/2)+" "+f((a.y+b.y)/2+w)+" "+f(b.x)+" "+f(b.y)}
   if(b.kind==="apex")return "C"+f(a.x+(b.x-a.x)*.85)+" "+f(a.y)+" "+f(b.x)+" "+f(b.y-dy*.55)+" "+f(b.x)+" "+f(b.y);
   if(a.kind==="apex")return "C"+f(a.x)+" "+f(a.y+dy*.55)+" "+f(b.x+(a.x-b.x)*.85)+" "+f(b.y)+" "+f(b.x)+" "+f(b.y);
   /* sin cofre: vuelta completa por la orilla */
@@ -145,12 +145,12 @@ var PATH=(function(){
    var it=cat.all[k],nx=cat.all[k+1],ok=(it.done||(nx&&nx.done))&&(nx?nx.state!=="lock"&&nx.state!=="soon":true);
    if(ok){if(!on){dn+=mv(a);on=true}dn+=d}else on=false}
   var h='<svg class="rt4-svg" width="'+CW+'" height="'+L.h+'" viewBox="0 0 '+CW+' '+L.h+'" aria-hidden="true">'+
-   '<path d="'+road+'" class="rt5-road"/><path d="'+road+'" class="rt5-mid"/>'+(dn?'<path d="'+dn+'" class="rt5-done"/>':'')+'</svg>';
+   '<path d="'+road+'" class="rt6-edge"/><path d="'+road+'" class="rt5-road"/>'+(dn?'<path d="'+dn+'" class="rt5-done"/>':'')+'<path d="'+road+'" class="rt6-mid"/></svg>';
   var ci=curIndex(),cur=cat.all[ci];
   L.rows.forEach(function(r){var u=cat.units[r.ui],L2=u.items.filter(function(it){return it.lid}),first=L2[0];
    /* el nombre va sobre el final del tramo (ahí no llega ninguna curva); si Rumbo está ahí, se pasa al inicio */
    var right=r.dir>0;if(cur&&L2[L2.length-1]===cur)right=!right;
-   h+='<div class="rt5-u s-'+u.state+(right?" is-r":"")+'" style="top:'+(r.y-62)+'px"><small>Unidad '+(r.ui+1)+'</small><b>'+esc(u.t)+'</b><em class="num">'+(u.state==="soon"?"pronto":u.done+"/"+L2.length)+'</em></div>'});
+   h+='<div class="rt5-u rt6-u s-'+u.state+(right?" is-r":"")+'" style="top:'+(r.y-66)+'px"><svg class="rt6-flag" viewBox="0 0 34 44" aria-hidden="true"><path class="p" d="M7 42V4"/><path class="f" d="M8 5h20l-5 7 5 7H8z"/><text x="17" y="15.5" text-anchor="middle">'+(r.ui+1)+'</text></svg><div class="rt6-ut"><b>'+esc(u.t)+'</b><em class="num">'+(u.state==="soon"?"Pronto":u.done+" de "+L2.length)+'</em></div></div>'});
   cat.all.forEach(function(it,k){
    var ic=it.chest!=null?"":it.state==="done"?LIC.check:LIC[LI[it.lid]]||LIC.libro;
    h+='<button type="button" class="rt3-n rt4-n rt5-n s-'+it.state+(it.chest!=null?" is-chest":"")+'" data-i="'+k+'" style="left:'+it.x.toFixed(1)+'px;top:'+it.y.toFixed(1)+'px" aria-label="'+(it.lid?it.lid+" ":"")+esc(it.n)+(it.state==="done"?", hecha":it.state==="soon"?", llega pronto":it.state==="lock"?", bloqueada":"")+'">'+

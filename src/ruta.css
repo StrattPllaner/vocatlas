@@ -312,3 +312,40 @@
 .rt5-n.s-soon::after{inset:-16px}
 .rt5-road{stroke-width:20}.rt5-done{stroke-width:20;opacity:1}
 .rt5-mid{stroke-dasharray:8 10;opacity:.75}
+/* ================= ruta ilustrada (rt6): papel, tinta y banderines, como el mapa ================= */
+.rt4{--ink:#3A3026;--paper:#F4ECDC;--paper2:#EADFC8}
+.rt4.lp-dark{--ink:#06121C;--paper:#15283A;--paper2:#1D3348}
+#plaza .lp.rt4{background-color:var(--paper);
+ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .27 0 0 0 0 .18 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E")}
+.rt4-stage{background:none}
+.rt6-edge{fill:none;stroke:var(--ink);stroke-width:23;stroke-linecap:round;stroke-linejoin:round;opacity:.85}
+.rt4 .rt5-road{stroke:var(--paper2);stroke-width:18}
+.rt4 .rt5-done{stroke:var(--c);stroke-width:18}
+.rt6-mid{fill:none;stroke:var(--ink);stroke-width:1.6;stroke-dasharray:1 8;stroke-linecap:round;opacity:.35}
+/* paradas con contorno de tinta, como pegatinas */
+.rt4 .rt5-n{border:2.5px solid var(--ink);box-shadow:0 4px 0 var(--ink);background:var(--paper);color:color-mix(in srgb,var(--ink) 55%,var(--paper))}
+.rt4 .rt5-n.s-done{background:var(--c);color:var(--ct);box-shadow:0 4px 0 var(--ink)}
+.rt4 .rt5-n.s-cur{background:#FFFDF8;color:var(--ink);border:3px solid var(--ink);box-shadow:0 5px 0 var(--ink)}
+.rt4.lp-dark .rt5-n.s-cur{background:#F4ECDC;color:#3A3026}
+.rt4 .rt5-n.s-cur::before{inset:-9px;border:3px solid var(--c);opacity:.9}
+.rt4 .rt5-n.s-soon{width:14px;height:14px;border:2px solid var(--ink);background:var(--paper);box-shadow:none;opacity:.6}
+.rt4 .rt5-n.is-chest{border:0;box-shadow:none;background:none}
+.rt4 .rt5-n.is-sel:not(.is-chest){outline:2.5px dashed var(--ink);outline-offset:5px}
+.rt4 .rt5-n.is-sel.s-cur{outline-color:transparent}
+/* banderín de cada unidad */
+.rt6-u{display:flex;align-items:flex-end;gap:6px;color:var(--ink)}
+.rt6-u.is-r{flex-direction:row-reverse}
+.lp-dark .rt6-u{color:#E9E2D3}
+.rt6-flag{width:30px;height:39px;flex:none;overflow:visible}
+.rt6-flag .p{stroke:var(--ink);stroke-width:2.6;stroke-linecap:round;fill:none}
+.lp-dark .rt6-flag .p{stroke:#E9E2D3}
+.rt6-flag .f{fill:var(--c);stroke:var(--ink);stroke-width:2;stroke-linejoin:round}
+.rt6-flag text{font:900 10.5px var(--ff);fill:var(--ct)}
+.rt6-u.s-lock .f,.rt6-u.s-soon .f{fill:var(--paper2)}.rt6-u.s-lock text,.rt6-u.s-soon text{fill:var(--ink)}
+.rt6-ut{display:grid;gap:1px;padding-bottom:2px}
+.rt6-u.is-r .rt6-ut{text-align:right}
+.rt6-ut b{font:850 17px/1.15 var(--ff);white-space:nowrap}
+.rt6-ut em{font:750 12.5px/1.2 var(--ff);font-style:normal;opacity:.6}
+.rt6-u.s-lock,.rt6-u.s-soon{opacity:.7}
+.rt4.lp-dark .rt5-n:not(.s-done):not(.s-cur):not(.is-chest){background:#22394F;color:#9DB0C2}
+.rt4.lp-dark .rt5-road{stroke:#203750}
