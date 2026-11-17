@@ -2,7 +2,10 @@
    Sale de datos/universidades.json (CAT.uni), armado por datos/importar_carreras.py desde la base con fuentes.
    Primero lo de tu estado; cada costo y requisito trae su fuente, y lo que no está confirmado lo dice. */
 var ESC_EDO={CMX:"CDMX",MOR:"Morelos",MEX:"Edomex"};
-function escHas(id){return !!(CAT.uni&&CAT.uni.car&&CAT.uni.car[id]&&CAT.uni.car[id].donde.length)}
+/* las universidades no van dentro de la página: se descargan al abrir la app (y quedan guardadas sin conexión) */
+(function(){if(!CAT.unisrc||!window.fetch)return;fetch(CAT.unisrc).then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(j){CAT.uni=j;
+ if(typeof curView!=="undefined"&&curView==="yo"&&typeof renderYo==="function")renderYo(true)}).catch(function(){})})();
+function escHas(id){return !!(CAT.uni&&CAT.uni.car&&CAT.uni.car&&CAT.uni.car[id]&&CAT.uni.car[id].donde.length)}
 function escUni(uid){var L=(CAT.uni&&CAT.uni.unis)||[];for(var i=0;i<L.length;i++)if(L[i].id===uid)return L[i];return null}
 /* tu estado, si está en la región que cubrimos */
 function escMine(){return S.edo&&ESC_EDO[S.edo]?S.edo:null}

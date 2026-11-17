@@ -352,3 +352,6 @@
 .rt2-esc{flex:none;display:flex;flex-direction:column;align-items:center;gap:2px;min-width:52px;min-height:48px;padding:4px 6px;border:0;border-radius:14px;background:transparent;color:inherit;font:750 11px/1 var(--ff);cursor:pointer}
 .rt2-esc .lp-ic{width:22px;height:22px;stroke-width:2}
 .rt2-esc:active{transform:scale(.95)}
+.lc-dato.is-txt b{font-size:24px;line-height:1.15}
+.lc-conf{display:table;margin-bottom:8px;padding:3px 10px;border-radius:99px;background:var(--c-warn-bg,#FFF1C9);color:var(--c-warn-ink,#6B4A00);font:750 12px/1.3 var(--ff);font-style:normal}
+.lc-dnota{margin:8px 0 0;font:500 14px/1.4 var(--ff);color:var(--c-ink-2,#3C4D57)}

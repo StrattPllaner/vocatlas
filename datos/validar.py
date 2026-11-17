@@ -33,6 +33,10 @@ for k,c in cif.items():
     if c.get("estado")=="pendiente":
         if c.get("valor") is not None:err.append(f"{k}: está pendiente pero trae valor")
         if not c.get("fuente_sugerida"):err.append(f"{k}: pendiente sin fuente sugerida")
+    elif c.get("estado")=="confirmar":
+        # dato de la base de carreras sin fuente oficial propia: se muestra con la etiqueta «Por confirmar»
+        for f in("valor","fuente","consultado"):
+            if c.get(f) in(None,""):err.append(f"{k}: falta {f}")
     else:
         for f in("valor","fuente","url","consultado"):
             if c.get(f) in(None,""):err.append(f"{k}: falta {f}")

@@ -12,7 +12,7 @@ js='/* cara de Rumbo, copiada de cara-rumbo.svg por build.py; no se edita a mano
 # catálogo de contenido (datos/): estructura común, carreras con contenido, cifras y la lección de muestra de las dinámicas
 import glob
 D=os.path.join(src,'..','datos')+'/'
-cat={'ip':json.load(open(D+'onet/ip.json')),'regla':json.load(open(D+'regla-intereses.json')),'est':json.load(open(D+'estructura.json')),'cif':json.load(open(D+'cifras.json')),'demo':json.load(open(D+'demo-dinamicas.json')),'uni':json.load(open(D+'universidades.json')),'car':{}}
+cat={'ip':json.load(open(D+'onet/ip.json')),'regla':json.load(open(D+'regla-intereses.json')),'est':json.load(open(D+'estructura.json')),'cif':json.load(open(D+'cifras.json')),'demo':json.load(open(D+'demo-dinamicas.json')),'unisrc':'datos/universidades.json?v='+__import__('hashlib').sha1(open(D+'universidades.json','rb').read()).hexdigest()[:10],'car':{}}
 # el texto de las lecciones no va dentro de la página: se descarga de datos/carreras/<id>.json al abrir una lección
 # (con la huella del archivo en la dirección, para que una versión nueva no salga de la copia vieja)
 import hashlib
@@ -32,6 +32,9 @@ def put(s,a,b,body,anchor,before=True):
     k=s.index(anchor);blk=a+'\n'+body+b+'\n'
     return s[:k]+blk+s[k:]
 s=put(s,'/*@iso-css*/','/*@iso-css-fin*/',css,'</style>')
+# carreras nuevas (datos/carreras-extra.json): se suman a la lista C de la app
+ex=[{k:x[k] for k in ('id','name','area','sub','color','tags','desc','q','o','r')} for x in json.load(open(D+'carreras-extra.json'))]
+s=put(s,'/*@extra*/','/*@extra-fin*/','C=C.concat('+json.dumps(ex,ensure_ascii=False,separators=(',',':'))+');\n','/*@extra*/')
 s=put(s,'/*@iso-js*/','/*@iso-js-fin*/',js,'/* ================= sistema de diseño: iconos, sonidos y catálogo #kit')
 open(p,'w').write(s)
 print('ok',len(s))

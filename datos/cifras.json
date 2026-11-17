@@ -1,12 +1,12 @@
 {
  "medicina.duracion": {
-  "valor": null,
+  "valor": "6 a 7",
   "unidad": "años",
-  "fuente": null,
+  "nota": "6 a 7 años contando internado de pregrado (1 año) y servicio social (1 año); la especialidad es aparte (3 a 6 años más).",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas)",
   "url": null,
-  "consultado": null,
-  "estado": "pendiente",
-  "fuente_sugerida": "el plan de estudios en el sitio oficial de la universidad que te interese"
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
  },
  "medicina.aspirantes": {
   "valor": null,
@@ -18,31 +18,31 @@
   "fuente_sugerida": "las estadísticas de admisión que publica cada universidad"
  },
  "medicina.costo_publica": {
-  "valor": null,
+  "valor": "Gratis a 800",
   "unidad": "pesos por semestre",
-  "fuente": null,
+  "nota": "Según IPN, UAEM, UAM, UNAM. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
   "url": null,
-  "consultado": null,
-  "estado": "pendiente",
-  "fuente_sugerida": "la convocatoria y el reglamento de pagos de la universidad pública de tu estado"
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
  },
  "medicina.costo_privada": {
-  "valor": null,
+  "valor": "37,500 a 198,720",
   "unidad": "pesos por semestre",
-  "fuente": null,
+  "nota": "Según Anáhuac, La Salle, Tec de Monterrey, UVM. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
   "url": null,
-  "consultado": null,
-  "estado": "pendiente",
-  "fuente_sugerida": "la página de colegiaturas de la universidad privada que te interese"
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
  },
  "medicina.becas": {
-  "valor": null,
-  "unidad": "",
-  "fuente": null,
-  "url": null,
-  "consultado": null,
-  "estado": "pendiente",
-  "fuente_sugerida": "los sitios oficiales de becas del gobierno y de cada universidad"
+  "valor": "Jóvenes Escribiendo el Futuro",
+  "unidad": "beca federal para escuelas públicas, además de las de cada universidad",
+  "nota": "Revisa en su buscador si tu escuela participa. La UNAM y el IPN tienen sus propias becas por convocatoria.",
+  "fuente": "Becas Benito Juárez, gob.mx",
+  "url": "https://www.gob.mx/becasbenitojuarez/articulos/beca-de-educacion-superior-jovenes-escribiendo-el-futuro",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
  },
  "medicina.ingreso": {
   "valor": "27,823",
@@ -61,13 +61,13 @@
   "estado": "verificado"
  },
  "computacion.duracion": {
-  "valor": null,
+  "valor": "4 a 4.5",
   "unidad": "años",
-  "fuente": null,
+  "nota": "4 a 4.5 años.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas)",
   "url": null,
-  "consultado": null,
-  "estado": "pendiente",
-  "fuente_sugerida": "el plan de estudios en el sitio oficial de la universidad que te interese"
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
  },
  "computacion.aspirantes": {
   "valor": null,
@@ -79,31 +79,31 @@
   "fuente_sugerida": "las estadísticas de admisión que publica cada universidad"
  },
  "computacion.costo_publica": {
-  "valor": null,
+  "valor": "Gratis a 800",
   "unidad": "pesos por semestre",
-  "fuente": null,
+  "nota": "Según IPN, UAEM, UAM, UNAM. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
   "url": null,
-  "consultado": null,
-  "estado": "pendiente",
-  "fuente_sugerida": "la convocatoria y el reglamento de pagos de la universidad pública de tu estado"
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
  },
  "computacion.costo_privada": {
-  "valor": null,
+  "valor": "17,760 a 198,720",
   "unidad": "pesos por semestre",
-  "fuente": null,
+  "nota": "Según La Salle, Tec de Monterrey, UNITEC, UVM. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
   "url": null,
-  "consultado": null,
-  "estado": "pendiente",
-  "fuente_sugerida": "la página de colegiaturas de la universidad privada que te interese"
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
  },
  "computacion.becas": {
-  "valor": null,
-  "unidad": "",
-  "fuente": null,
-  "url": null,
-  "consultado": null,
-  "estado": "pendiente",
-  "fuente_sugerida": "los sitios oficiales de becas del gobierno y de cada universidad"
+  "valor": "Jóvenes Escribiendo el Futuro",
+  "unidad": "beca federal para escuelas públicas, además de las de cada universidad",
+  "nota": "Revisa en su buscador si tu escuela participa. La UNAM y el IPN tienen sus propias becas por convocatoria.",
+  "fuente": "Becas Benito Juárez, gob.mx",
+  "url": "https://www.gob.mx/becasbenitojuarez/articulos/beca-de-educacion-superior-jovenes-escribiendo-el-futuro",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
  },
  "computacion.ingreso": {
   "valor": "24,927",
@@ -122,13 +122,13 @@
   "estado": "verificado"
  },
  "derecho.duracion": {
-  "valor": null,
+  "valor": "4 a 5",
   "unidad": "años",
-  "fuente": null,
+  "nota": "4 a 5 años.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas)",
   "url": null,
-  "consultado": null,
-  "estado": "pendiente",
-  "fuente_sugerida": "el plan de estudios en el sitio oficial de la universidad que te interese"
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
  },
  "derecho.aspirantes": {
   "valor": null,
@@ -140,31 +140,31 @@
   "fuente_sugerida": "las estadísticas de admisión que publica cada universidad"
  },
  "derecho.costo_publica": {
-  "valor": null,
+  "valor": "Gratis a 800",
   "unidad": "pesos por semestre",
-  "fuente": null,
+  "nota": "Según UAEM, UAM, UNAM. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
   "url": null,
-  "consultado": null,
-  "estado": "pendiente",
-  "fuente_sugerida": "la convocatoria y el reglamento de pagos de la universidad pública de tu estado"
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
  },
  "derecho.costo_privada": {
-  "valor": null,
+  "valor": "17,760 a 198,720",
   "unidad": "pesos por semestre",
-  "fuente": null,
+  "nota": "Según Anáhuac, IBERO, La Salle, Tec de Monterrey, UNITEC, UVM. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
   "url": null,
-  "consultado": null,
-  "estado": "pendiente",
-  "fuente_sugerida": "la página de colegiaturas de la universidad privada que te interese"
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
  },
  "derecho.becas": {
-  "valor": null,
-  "unidad": "",
-  "fuente": null,
-  "url": null,
-  "consultado": null,
-  "estado": "pendiente",
-  "fuente_sugerida": "los sitios oficiales de becas del gobierno y de cada universidad"
+  "valor": "Jóvenes Escribiendo el Futuro",
+  "unidad": "beca federal para escuelas públicas, además de las de cada universidad",
+  "nota": "Revisa en su buscador si tu escuela participa. La UNAM y el IPN tienen sus propias becas por convocatoria.",
+  "fuente": "Becas Benito Juárez, gob.mx",
+  "url": "https://www.gob.mx/becasbenitojuarez/articulos/beca-de-educacion-superior-jovenes-escribiendo-el-futuro",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
  },
  "derecho.ingreso": {
   "valor": "24,178",
@@ -183,13 +183,13 @@
   "estado": "verificado"
  },
  "arquitectura.duracion": {
-  "valor": null,
+  "valor": "5",
   "unidad": "años",
-  "fuente": null,
+  "nota": "5 años.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas)",
   "url": null,
-  "consultado": null,
-  "estado": "pendiente",
-  "fuente_sugerida": "el plan de estudios en el sitio oficial de la universidad que te interese"
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
  },
  "arquitectura.aspirantes": {
   "valor": null,
@@ -201,31 +201,31 @@
   "fuente_sugerida": "las estadísticas de admisión que publica cada universidad"
  },
  "arquitectura.costo_publica": {
-  "valor": null,
+  "valor": "Gratis a 800",
   "unidad": "pesos por semestre",
-  "fuente": null,
+  "nota": "Según IPN, UAEM, UAM, UNAM. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
   "url": null,
-  "consultado": null,
-  "estado": "pendiente",
-  "fuente_sugerida": "la convocatoria y el reglamento de pagos de la universidad pública de tu estado"
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
  },
  "arquitectura.costo_privada": {
-  "valor": null,
+  "valor": "17,760 a 198,720",
   "unidad": "pesos por semestre",
-  "fuente": null,
+  "nota": "Según Anáhuac, IBERO, La Salle, Tec de Monterrey, UNITEC, UVM. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
   "url": null,
-  "consultado": null,
-  "estado": "pendiente",
-  "fuente_sugerida": "la página de colegiaturas de la universidad privada que te interese"
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
  },
  "arquitectura.becas": {
-  "valor": null,
-  "unidad": "",
-  "fuente": null,
-  "url": null,
-  "consultado": null,
-  "estado": "pendiente",
-  "fuente_sugerida": "los sitios oficiales de becas del gobierno y de cada universidad"
+  "valor": "Jóvenes Escribiendo el Futuro",
+  "unidad": "beca federal para escuelas públicas, además de las de cada universidad",
+  "nota": "Revisa en su buscador si tu escuela participa. La UNAM y el IPN tienen sus propias becas por convocatoria.",
+  "fuente": "Becas Benito Juárez, gob.mx",
+  "url": "https://www.gob.mx/becasbenitojuarez/articulos/beca-de-educacion-superior-jovenes-escribiendo-el-futuro",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
  },
  "arquitectura.ingreso": {
   "valor": "26,822",
@@ -244,13 +244,13 @@
   "estado": "verificado"
  },
  "veterinaria.duracion": {
-  "valor": null,
+  "valor": "5",
   "unidad": "años",
-  "fuente": null,
+  "nota": "5 años más servicio social.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas)",
   "url": null,
-  "consultado": null,
-  "estado": "pendiente",
-  "fuente_sugerida": "el plan de estudios en el sitio oficial de la universidad que te interese"
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
  },
  "veterinaria.aspirantes": {
   "valor": null,
@@ -262,13 +262,13 @@
   "fuente_sugerida": "las estadísticas de admisión que publica cada universidad"
  },
  "veterinaria.costo_publica": {
-  "valor": null,
+  "valor": "Gratis a 800",
   "unidad": "pesos por semestre",
-  "fuente": null,
+  "nota": "Según UAEM, UAM, UNAM. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
   "url": null,
-  "consultado": null,
-  "estado": "pendiente",
-  "fuente_sugerida": "la convocatoria y el reglamento de pagos de la universidad pública de tu estado"
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
  },
  "veterinaria.costo_privada": {
   "valor": null,
@@ -280,13 +280,13 @@
   "fuente_sugerida": "la página de colegiaturas de la universidad privada que te interese"
  },
  "veterinaria.becas": {
-  "valor": null,
-  "unidad": "",
-  "fuente": null,
-  "url": null,
-  "consultado": null,
-  "estado": "pendiente",
-  "fuente_sugerida": "los sitios oficiales de becas del gobierno y de cada universidad"
+  "valor": "Jóvenes Escribiendo el Futuro",
+  "unidad": "beca federal para escuelas públicas, además de las de cada universidad",
+  "nota": "Revisa en su buscador si tu escuela participa. La UNAM y el IPN tienen sus propias becas por convocatoria.",
+  "fuente": "Becas Benito Juárez, gob.mx",
+  "url": "https://www.gob.mx/becasbenitojuarez/articulos/beca-de-educacion-superior-jovenes-escribiendo-el-futuro",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
  },
  "veterinaria.ingreso": {
   "valor": "19,585",
@@ -533,6 +533,2055 @@
   "unidad": "de cada 100",
   "fuente": "IMCO, Compara Carreras 2026 («Comunicación y periodismo»), promedio nacional",
   "url": "https://imco.org.mx/comparacarreras/",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "enfermeria.ingreso": {
+  "valor": "19,970",
+  "unidad": "pesos al mes",
+  "fuente": "IMCO, Compara Carreras 2026 («Enfermería general y obstetricia»), promedio nacional",
+  "url": "https://imco.org.mx/comparacarreras/",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "enfermeria.ocupacion_afin": {
+  "valor": "75",
+  "unidad": "de cada 100",
+  "fuente": "IMCO, Compara Carreras 2026 («Enfermería general y obstetricia»), promedio nacional",
+  "url": "https://imco.org.mx/comparacarreras/",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "odontologia.ingreso": {
+  "valor": "22,241",
+  "unidad": "pesos al mes",
+  "fuente": "IMCO, Compara Carreras 2026 («Estomatología y odontología general»), promedio nacional",
+  "url": "https://imco.org.mx/comparacarreras/",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "odontologia.ocupacion_afin": {
+  "valor": "73",
+  "unidad": "de cada 100",
+  "fuente": "IMCO, Compara Carreras 2026 («Estomatología y odontología general»), promedio nacional",
+  "url": "https://imco.org.mx/comparacarreras/",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "fisioterapia.ingreso": {
+  "valor": "17,141",
+  "unidad": "pesos al mes",
+  "fuente": "IMCO, Compara Carreras 2026 («Terapia y rehabilitación»), promedio nacional",
+  "url": "https://imco.org.mx/comparacarreras/",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "fisioterapia.ocupacion_afin": {
+  "valor": "68",
+  "unidad": "de cada 100",
+  "fuente": "IMCO, Compara Carreras 2026 («Terapia y rehabilitación»), promedio nacional",
+  "url": "https://imco.org.mx/comparacarreras/",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "qfb.ingreso": {
+  "valor": null,
+  "unidad": "pesos al mes",
+  "fuente": null,
+  "url": null,
+  "consultado": null,
+  "estado": "pendiente",
+  "fuente_sugerida": "Compara Carreras, del IMCO"
+ },
+ "qfb.ocupacion_afin": {
+  "valor": null,
+  "unidad": "de cada 100",
+  "fuente": null,
+  "url": null,
+  "consultado": null,
+  "estado": "pendiente",
+  "fuente_sugerida": "el Observatorio Laboral de la Secretaría del Trabajo"
+ },
+ "educfisica.ingreso": {
+  "valor": "19,139",
+  "unidad": "pesos al mes",
+  "fuente": "IMCO, Compara Carreras 2026 («Deportes»), promedio nacional",
+  "url": "https://imco.org.mx/comparacarreras/",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "educfisica.ocupacion_afin": {
+  "valor": "44",
+  "unidad": "de cada 100",
+  "fuente": "IMCO, Compara Carreras 2026 («Deportes»), promedio nacional",
+  "url": "https://imco.org.mx/comparacarreras/",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "industrial.ingreso": {
+  "valor": "24,869",
+  "unidad": "pesos al mes",
+  "fuente": "IMCO, Compara Carreras 2026 («Ingeniería industrial»), promedio nacional",
+  "url": "https://imco.org.mx/comparacarreras/",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "industrial.ocupacion_afin": {
+  "valor": "29",
+  "unidad": "de cada 100",
+  "fuente": "IMCO, Compara Carreras 2026 («Ingeniería industrial»), promedio nacional",
+  "url": "https://imco.org.mx/comparacarreras/",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "mecanica.ingreso": {
+  "valor": "24,449",
+  "unidad": "pesos al mes",
+  "fuente": "IMCO, Compara Carreras 2026 («Mecánica y profesiones afines al trabajo metálico»), promedio nacional",
+  "url": "https://imco.org.mx/comparacarreras/",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "mecanica.ocupacion_afin": {
+  "valor": "44",
+  "unidad": "de cada 100",
+  "fuente": "IMCO, Compara Carreras 2026 («Mecánica y profesiones afines al trabajo metálico»), promedio nacional",
+  "url": "https://imco.org.mx/comparacarreras/",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "electrica.ingreso": {
+  "valor": "23,837",
+  "unidad": "pesos al mes",
+  "fuente": "IMCO, Compara Carreras 2026 («Electricidad y generación de energía»), promedio nacional",
+  "url": "https://imco.org.mx/comparacarreras/",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "electrica.ocupacion_afin": {
+  "valor": "60",
+  "unidad": "de cada 100",
+  "fuente": "IMCO, Compara Carreras 2026 («Electricidad y generación de energía»), promedio nacional",
+  "url": "https://imco.org.mx/comparacarreras/",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "electronica.ingreso": {
+  "valor": "25,953",
+  "unidad": "pesos al mes",
+  "fuente": "IMCO, Compara Carreras 2026 («Electrónica automatización y aplicaciones de la mecánica-eléctrica»), promedio nacional",
+  "url": "https://imco.org.mx/comparacarreras/",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "electronica.ocupacion_afin": {
+  "valor": "51",
+  "unidad": "de cada 100",
+  "fuente": "IMCO, Compara Carreras 2026 («Electrónica automatización y aplicaciones de la mecánica-eléctrica»), promedio nacional",
+  "url": "https://imco.org.mx/comparacarreras/",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "quimicaing.ingreso": {
+  "valor": "22,633",
+  "unidad": "pesos al mes",
+  "fuente": "IMCO, Compara Carreras 2026 («Ingeniería de procesos químicos»), promedio nacional",
+  "url": "https://imco.org.mx/comparacarreras/",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "quimicaing.ocupacion_afin": {
+  "valor": "32",
+  "unidad": "de cada 100",
+  "fuente": "IMCO, Compara Carreras 2026 («Ingeniería de procesos químicos»), promedio nacional",
+  "url": "https://imco.org.mx/comparacarreras/",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "biomedica.ingreso": {
+  "valor": null,
+  "unidad": "pesos al mes",
+  "fuente": null,
+  "url": null,
+  "consultado": null,
+  "estado": "pendiente",
+  "fuente_sugerida": "Compara Carreras, del IMCO"
+ },
+ "biomedica.ocupacion_afin": {
+  "valor": null,
+  "unidad": "de cada 100",
+  "fuente": null,
+  "url": null,
+  "consultado": null,
+  "estado": "pendiente",
+  "fuente_sugerida": "el Observatorio Laboral de la Secretaría del Trabajo"
+ },
+ "ia.ingreso": {
+  "valor": null,
+  "unidad": "pesos al mes",
+  "fuente": null,
+  "url": null,
+  "consultado": null,
+  "estado": "pendiente",
+  "fuente_sugerida": "Compara Carreras, del IMCO"
+ },
+ "ia.ocupacion_afin": {
+  "valor": null,
+  "unidad": "de cada 100",
+  "fuente": null,
+  "url": null,
+  "consultado": null,
+  "estado": "pendiente",
+  "fuente_sugerida": "el Observatorio Laboral de la Secretaría del Trabajo"
+ },
+ "ciberseguridad.ingreso": {
+  "valor": null,
+  "unidad": "pesos al mes",
+  "fuente": null,
+  "url": null,
+  "consultado": null,
+  "estado": "pendiente",
+  "fuente_sugerida": "Compara Carreras, del IMCO"
+ },
+ "ciberseguridad.ocupacion_afin": {
+  "valor": null,
+  "unidad": "de cada 100",
+  "fuente": null,
+  "url": null,
+  "consultado": null,
+  "estado": "pendiente",
+  "fuente_sugerida": "el Observatorio Laboral de la Secretaría del Trabajo"
+ },
+ "quimica.ingreso": {
+  "valor": "24,940",
+  "unidad": "pesos al mes",
+  "fuente": "IMCO, Compara Carreras 2026 («Química»), promedio nacional",
+  "url": "https://imco.org.mx/comparacarreras/",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "quimica.ocupacion_afin": {
+  "valor": "47",
+  "unidad": "de cada 100",
+  "fuente": "IMCO, Compara Carreras 2026 («Química»), promedio nacional",
+  "url": "https://imco.org.mx/comparacarreras/",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "biologia.ingreso": {
+  "valor": "20,150",
+  "unidad": "pesos al mes",
+  "fuente": "IMCO, Compara Carreras 2026 («Biología»), promedio nacional",
+  "url": "https://imco.org.mx/comparacarreras/",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "biologia.ocupacion_afin": {
+  "valor": "27",
+  "unidad": "de cada 100",
+  "fuente": "IMCO, Compara Carreras 2026 («Biología»), promedio nacional",
+  "url": "https://imco.org.mx/comparacarreras/",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "matematicas.ingreso": {
+  "valor": "29,887",
+  "unidad": "pesos al mes",
+  "fuente": "IMCO, Compara Carreras 2026 («Matemáticas»), promedio nacional",
+  "url": "https://imco.org.mx/comparacarreras/",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "matematicas.ocupacion_afin": {
+  "valor": "70",
+  "unidad": "de cada 100",
+  "fuente": "IMCO, Compara Carreras 2026 («Matemáticas»), promedio nacional",
+  "url": "https://imco.org.mx/comparacarreras/",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "contaduria.ingreso": {
+  "valor": "22,192",
+  "unidad": "pesos al mes",
+  "fuente": "IMCO, Compara Carreras 2026 («Contabilidad y fiscalización»), promedio nacional",
+  "url": "https://imco.org.mx/comparacarreras/",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "contaduria.ocupacion_afin": {
+  "valor": "52",
+  "unidad": "de cada 100",
+  "fuente": "IMCO, Compara Carreras 2026 («Contabilidad y fiscalización»), promedio nacional",
+  "url": "https://imco.org.mx/comparacarreras/",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "economia.ingreso": {
+  "valor": "24,434",
+  "unidad": "pesos al mes",
+  "fuente": "IMCO, Compara Carreras 2026 («Economía»), promedio nacional",
+  "url": "https://imco.org.mx/comparacarreras/",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "economia.ocupacion_afin": {
+  "valor": "29",
+  "unidad": "de cada 100",
+  "fuente": "IMCO, Compara Carreras 2026 («Economía»), promedio nacional",
+  "url": "https://imco.org.mx/comparacarreras/",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "actuaria.ingreso": {
+  "valor": null,
+  "unidad": "pesos al mes",
+  "fuente": null,
+  "url": null,
+  "consultado": null,
+  "estado": "pendiente",
+  "fuente_sugerida": "Compara Carreras, del IMCO"
+ },
+ "actuaria.ocupacion_afin": {
+  "valor": null,
+  "unidad": "de cada 100",
+  "fuente": null,
+  "url": null,
+  "consultado": null,
+  "estado": "pendiente",
+  "fuente_sugerida": "el Observatorio Laboral de la Secretaría del Trabajo"
+ },
+ "mercadotecnia.ingreso": {
+  "valor": "24,668",
+  "unidad": "pesos al mes",
+  "fuente": "IMCO, Compara Carreras 2026 («Mercadotecnia y publicidad»), promedio nacional",
+  "url": "https://imco.org.mx/comparacarreras/",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "mercadotecnia.ocupacion_afin": {
+  "valor": "32",
+  "unidad": "de cada 100",
+  "fuente": "IMCO, Compara Carreras 2026 («Mercadotecnia y publicidad»), promedio nacional",
+  "url": "https://imco.org.mx/comparacarreras/",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "comext.ingreso": {
+  "valor": "22,628",
+  "unidad": "pesos al mes",
+  "fuente": "IMCO, Compara Carreras 2026 («Negocios y comercio»), promedio nacional",
+  "url": "https://imco.org.mx/comparacarreras/",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "comext.ocupacion_afin": {
+  "valor": "46",
+  "unidad": "de cada 100",
+  "fuente": "IMCO, Compara Carreras 2026 («Negocios y comercio»), promedio nacional",
+  "url": "https://imco.org.mx/comparacarreras/",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "turismo.ingreso": {
+  "valor": "19,413",
+  "unidad": "pesos al mes",
+  "fuente": "IMCO, Compara Carreras 2026 («Hospitalidad y turismo»), promedio nacional",
+  "url": "https://imco.org.mx/comparacarreras/",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "turismo.ocupacion_afin": {
+  "valor": "24",
+  "unidad": "de cada 100",
+  "fuente": "IMCO, Compara Carreras 2026 («Hospitalidad y turismo»), promedio nacional",
+  "url": "https://imco.org.mx/comparacarreras/",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "politicas.ingreso": {
+  "valor": "26,095",
+  "unidad": "pesos al mes",
+  "fuente": "IMCO, Compara Carreras 2026 («Ciencias políticas»), promedio nacional",
+  "url": "https://imco.org.mx/comparacarreras/",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "politicas.ocupacion_afin": {
+  "valor": "24",
+  "unidad": "de cada 100",
+  "fuente": "IMCO, Compara Carreras 2026 («Ciencias políticas»), promedio nacional",
+  "url": "https://imco.org.mx/comparacarreras/",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "rrii.ingreso": {
+  "valor": null,
+  "unidad": "pesos al mes",
+  "fuente": null,
+  "url": null,
+  "consultado": null,
+  "estado": "pendiente",
+  "fuente_sugerida": "Compara Carreras, del IMCO"
+ },
+ "rrii.ocupacion_afin": {
+  "valor": null,
+  "unidad": "de cada 100",
+  "fuente": null,
+  "url": null,
+  "consultado": null,
+  "estado": "pendiente",
+  "fuente_sugerida": "el Observatorio Laboral de la Secretaría del Trabajo"
+ },
+ "sociologia.ingreso": {
+  "valor": "17,137",
+  "unidad": "pesos al mes",
+  "fuente": "IMCO, Compara Carreras 2026 («Sociología y antropología»), promedio nacional",
+  "url": "https://imco.org.mx/comparacarreras/",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "sociologia.ocupacion_afin": {
+  "valor": "22",
+  "unidad": "de cada 100",
+  "fuente": "IMCO, Compara Carreras 2026 («Sociología y antropología»), promedio nacional",
+  "url": "https://imco.org.mx/comparacarreras/",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "trabajosocial.ingreso": {
+  "valor": "16,266",
+  "unidad": "pesos al mes",
+  "fuente": "IMCO, Compara Carreras 2026 («Trabajo y atención social»), promedio nacional",
+  "url": "https://imco.org.mx/comparacarreras/",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "trabajosocial.ocupacion_afin": {
+  "valor": "29",
+  "unidad": "de cada 100",
+  "fuente": "IMCO, Compara Carreras 2026 («Trabajo y atención social»), promedio nacional",
+  "url": "https://imco.org.mx/comparacarreras/",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "criminologia.ingreso": {
+  "valor": "18,993",
+  "unidad": "pesos al mes",
+  "fuente": "IMCO, Compara Carreras 2026 («Criminología y criminalística»), promedio nacional",
+  "url": "https://imco.org.mx/comparacarreras/",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "criminologia.ocupacion_afin": {
+  "valor": "19",
+  "unidad": "de cada 100",
+  "fuente": "IMCO, Compara Carreras 2026 («Criminología y criminalística»), promedio nacional",
+  "url": "https://imco.org.mx/comparacarreras/",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "grafico.ingreso": {
+  "valor": "23,897",
+  "unidad": "pesos al mes",
+  "fuente": "IMCO, Compara Carreras 2026 («Diseño y comunicación gráfica y editorial»), promedio nacional",
+  "url": "https://imco.org.mx/comparacarreras/",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "grafico.ocupacion_afin": {
+  "valor": "46",
+  "unidad": "de cada 100",
+  "fuente": "IMCO, Compara Carreras 2026 («Diseño y comunicación gráfica y editorial»), promedio nacional",
+  "url": "https://imco.org.mx/comparacarreras/",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "disindustrial.ingreso": {
+  "valor": "25,503",
+  "unidad": "pesos al mes",
+  "fuente": "IMCO, Compara Carreras 2026 («Diseño industrial de moda e interiores»), promedio nacional",
+  "url": "https://imco.org.mx/comparacarreras/",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "disindustrial.ocupacion_afin": {
+  "valor": "26",
+  "unidad": "de cada 100",
+  "fuente": "IMCO, Compara Carreras 2026 («Diseño industrial de moda e interiores»), promedio nacional",
+  "url": "https://imco.org.mx/comparacarreras/",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "animacion.ingreso": {
+  "valor": null,
+  "unidad": "pesos al mes",
+  "fuente": null,
+  "url": null,
+  "consultado": null,
+  "estado": "pendiente",
+  "fuente_sugerida": "Compara Carreras, del IMCO"
+ },
+ "animacion.ocupacion_afin": {
+  "valor": null,
+  "unidad": "de cada 100",
+  "fuente": null,
+  "url": null,
+  "consultado": null,
+  "estado": "pendiente",
+  "fuente_sugerida": "el Observatorio Laboral de la Secretaría del Trabajo"
+ },
+ "gastronomia.ingreso": {
+  "valor": "17,532",
+  "unidad": "pesos al mes",
+  "fuente": "IMCO, Compara Carreras 2026 («Gastronomía y servicios de alimentos»), promedio nacional",
+  "url": "https://imco.org.mx/comparacarreras/",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "gastronomia.ocupacion_afin": {
+  "valor": "49",
+  "unidad": "de cada 100",
+  "fuente": "IMCO, Compara Carreras 2026 («Gastronomía y servicios de alimentos»), promedio nacional",
+  "url": "https://imco.org.mx/comparacarreras/",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "nutricion.duracion": {
+  "valor": "4",
+  "unidad": "años",
+  "nota": "4 años más servicio social.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas)",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "nutricion.costo_publica": {
+  "valor": "Gratis a 800",
+  "unidad": "pesos por semestre",
+  "nota": "Según IPN, UAEM, UAM, UNAM. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "nutricion.costo_privada": {
+  "valor": "17,760 a 170,000",
+  "unidad": "pesos por semestre",
+  "nota": "Según Anáhuac, IBERO, UNITEC, UVM. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "nutricion.becas": {
+  "valor": "Jóvenes Escribiendo el Futuro",
+  "unidad": "beca federal para escuelas públicas, además de las de cada universidad",
+  "nota": "Revisa en su buscador si tu escuela participa. La UNAM y el IPN tienen sus propias becas por convocatoria.",
+  "fuente": "Becas Benito Juárez, gob.mx",
+  "url": "https://www.gob.mx/becasbenitojuarez/articulos/beca-de-educacion-superior-jovenes-escribiendo-el-futuro",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "psicologia.duracion": {
+  "valor": "4 a 4.5",
+  "unidad": "años",
+  "nota": "4 a 4.5 años más servicio social. Para dar terapia suele hacerse maestría.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas)",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "psicologia.costo_publica": {
+  "valor": "Gratis a 800",
+  "unidad": "pesos por semestre",
+  "nota": "Según IPN, UAEM, UAM, UNAM. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "psicologia.costo_privada": {
+  "valor": "17,760 a 198,720",
+  "unidad": "pesos por semestre",
+  "nota": "Según Anáhuac, IBERO, La Salle, Tec de Monterrey, UNITEC, UVM. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "psicologia.becas": {
+  "valor": "Jóvenes Escribiendo el Futuro",
+  "unidad": "beca federal para escuelas públicas, además de las de cada universidad",
+  "nota": "Revisa en su buscador si tu escuela participa. La UNAM y el IPN tienen sus propias becas por convocatoria.",
+  "fuente": "Becas Benito Juárez, gob.mx",
+  "url": "https://www.gob.mx/becasbenitojuarez/articulos/beca-de-educacion-superior-jovenes-escribiendo-el-futuro",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "civil.duracion": {
+  "valor": "4.5 a 5",
+  "unidad": "años",
+  "nota": "4.5 a 5 años.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas)",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "civil.costo_publica": {
+  "valor": "Gratis o cuota simbólica",
+  "unidad": "",
+  "nota": "Según IPN, UAM, UNAM. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "civil.costo_privada": {
+  "valor": "17,760 a 198,720",
+  "unidad": "pesos por semestre",
+  "nota": "Según Anáhuac, IBERO, La Salle, Tec de Monterrey, UNITEC. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "civil.becas": {
+  "valor": "Jóvenes Escribiendo el Futuro",
+  "unidad": "beca federal para escuelas públicas, además de las de cada universidad",
+  "nota": "Revisa en su buscador si tu escuela participa. La UNAM y el IPN tienen sus propias becas por convocatoria.",
+  "fuente": "Becas Benito Juárez, gob.mx",
+  "url": "https://www.gob.mx/becasbenitojuarez/articulos/beca-de-educacion-superior-jovenes-escribiendo-el-futuro",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "mecatronica.duracion": {
+  "valor": "4.5 a 5",
+  "unidad": "años",
+  "nota": "4.5 a 5 años.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas)",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "mecatronica.costo_publica": {
+  "valor": "Gratis a 800",
+  "unidad": "pesos por semestre",
+  "nota": "Según IPN, UAEM, UNAM. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "mecatronica.costo_privada": {
+  "valor": "17,760 a 198,720",
+  "unidad": "pesos por semestre",
+  "nota": "Según Anáhuac, La Salle, Tec de Monterrey, UNITEC, UVM. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "mecatronica.becas": {
+  "valor": "Jóvenes Escribiendo el Futuro",
+  "unidad": "beca federal para escuelas públicas, además de las de cada universidad",
+  "nota": "Revisa en su buscador si tu escuela participa. La UNAM y el IPN tienen sus propias becas por convocatoria.",
+  "fuente": "Becas Benito Juárez, gob.mx",
+  "url": "https://www.gob.mx/becasbenitojuarez/articulos/beca-de-educacion-superior-jovenes-escribiendo-el-futuro",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "aeroespacial.duracion": {
+  "valor": "4.5 a 5",
+  "unidad": "años",
+  "nota": "4.5 a 5 años.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas)",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "aeroespacial.costo_publica": {
+  "valor": "Gratis o cuota simbólica",
+  "unidad": "",
+  "nota": "Según IPN, UNAM. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "aeroespacial.becas": {
+  "valor": "Jóvenes Escribiendo el Futuro",
+  "unidad": "beca federal para escuelas públicas, además de las de cada universidad",
+  "nota": "Revisa en su buscador si tu escuela participa. La UNAM y el IPN tienen sus propias becas por convocatoria.",
+  "fuente": "Becas Benito Juárez, gob.mx",
+  "url": "https://www.gob.mx/becasbenitojuarez/articulos/beca-de-educacion-superior-jovenes-escribiendo-el-futuro",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "ambiental.duracion": {
+  "valor": "4.5",
+  "unidad": "años",
+  "nota": "4.5 años.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas)",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "ambiental.costo_publica": {
+  "valor": "Gratis a 800",
+  "unidad": "pesos por semestre",
+  "nota": "Según IPN, UAEM, UAM. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "ambiental.costo_privada": {
+  "valor": "180,720 a 198,720",
+  "unidad": "pesos por semestre",
+  "nota": "Según Tec de Monterrey. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "ambiental.becas": {
+  "valor": "Jóvenes Escribiendo el Futuro",
+  "unidad": "beca federal para escuelas públicas, además de las de cada universidad",
+  "nota": "Revisa en su buscador si tu escuela participa. La UNAM y el IPN tienen sus propias becas por convocatoria.",
+  "fuente": "Becas Benito Juárez, gob.mx",
+  "url": "https://www.gob.mx/becasbenitojuarez/articulos/beca-de-educacion-superior-jovenes-escribiendo-el-futuro",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "datos.duracion": {
+  "valor": "4 a 4.5",
+  "unidad": "años",
+  "nota": "4 a 4.5 años.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas)",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "datos.costo_publica": {
+  "valor": "Gratis o cuota simbólica",
+  "unidad": "",
+  "nota": "Según IPN, UNAM. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "datos.costo_privada": {
+  "valor": "180,720 a 198,720",
+  "unidad": "pesos por semestre",
+  "nota": "Según Tec de Monterrey. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "datos.becas": {
+  "valor": "Jóvenes Escribiendo el Futuro",
+  "unidad": "beca federal para escuelas públicas, además de las de cada universidad",
+  "nota": "Revisa en su buscador si tu escuela participa. La UNAM y el IPN tienen sus propias becas por convocatoria.",
+  "fuente": "Becas Benito Juárez, gob.mx",
+  "url": "https://www.gob.mx/becasbenitojuarez/articulos/beca-de-educacion-superior-jovenes-escribiendo-el-futuro",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "biotec.duracion": {
+  "valor": "4.5 a 5",
+  "unidad": "años",
+  "nota": "4.5 a 5 años.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas)",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "biotec.costo_publica": {
+  "valor": "Gratis a 800",
+  "unidad": "pesos por semestre",
+  "nota": "Según IPN, UAEM, UAM, UNAM. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "biotec.costo_privada": {
+  "valor": "180,720 a 198,720",
+  "unidad": "pesos por semestre",
+  "nota": "Según Tec de Monterrey. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "biotec.becas": {
+  "valor": "Jóvenes Escribiendo el Futuro",
+  "unidad": "beca federal para escuelas públicas, además de las de cada universidad",
+  "nota": "Revisa en su buscador si tu escuela participa. La UNAM y el IPN tienen sus propias becas por convocatoria.",
+  "fuente": "Becas Benito Juárez, gob.mx",
+  "url": "https://www.gob.mx/becasbenitojuarez/articulos/beca-de-educacion-superior-jovenes-escribiendo-el-futuro",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "fisica.duracion": {
+  "valor": "4 a 4.5",
+  "unidad": "años",
+  "nota": "4 a 4.5 años.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas)",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "fisica.costo_publica": {
+  "valor": "Gratis a 800",
+  "unidad": "pesos por semestre",
+  "nota": "Según IPN, UAEM, UAM, UNAM. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "fisica.becas": {
+  "valor": "Jóvenes Escribiendo el Futuro",
+  "unidad": "beca federal para escuelas públicas, además de las de cada universidad",
+  "nota": "Revisa en su buscador si tu escuela participa. La UNAM y el IPN tienen sus propias becas por convocatoria.",
+  "fuente": "Becas Benito Juárez, gob.mx",
+  "url": "https://www.gob.mx/becasbenitojuarez/articulos/beca-de-educacion-superior-jovenes-escribiendo-el-futuro",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "negocios.duracion": {
+  "valor": "4",
+  "unidad": "años",
+  "nota": "4 años (8 semestres) o 3 años en planes cuatrimestrales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas)",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "negocios.costo_publica": {
+  "valor": "Gratis a 800",
+  "unidad": "pesos por semestre",
+  "nota": "Según IPN, UAEM, UAM, UNAM. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "negocios.costo_privada": {
+  "valor": "17,760 a 198,720",
+  "unidad": "pesos por semestre",
+  "nota": "Según Anáhuac, IBERO, La Salle, Tec de Monterrey, UNITEC, UVM. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "negocios.becas": {
+  "valor": "Jóvenes Escribiendo el Futuro",
+  "unidad": "beca federal para escuelas públicas, además de las de cada universidad",
+  "nota": "Revisa en su buscador si tu escuela participa. La UNAM y el IPN tienen sus propias becas por convocatoria.",
+  "fuente": "Becas Benito Juárez, gob.mx",
+  "url": "https://www.gob.mx/becasbenitojuarez/articulos/beca-de-educacion-superior-jovenes-escribiendo-el-futuro",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "finanzas.duracion": {
+  "valor": "4",
+  "unidad": "años",
+  "nota": "4 años.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas)",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "finanzas.costo_privada": {
+  "valor": "37,500 a 198,720",
+  "unidad": "pesos por semestre",
+  "nota": "Según Anáhuac, IBERO, La Salle, Tec de Monterrey, UVM. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "finanzas.becas": {
+  "valor": "Jóvenes Escribiendo el Futuro",
+  "unidad": "beca federal para escuelas públicas, además de las de cada universidad",
+  "nota": "Revisa en su buscador si tu escuela participa. La UNAM y el IPN tienen sus propias becas por convocatoria.",
+  "fuente": "Becas Benito Juárez, gob.mx",
+  "url": "https://www.gob.mx/becasbenitojuarez/articulos/beca-de-educacion-superior-jovenes-escribiendo-el-futuro",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "educacion.duracion": {
+  "valor": "4",
+  "unidad": "años",
+  "nota": "4 años.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas)",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "educacion.costo_publica": {
+  "valor": "Gratis a 800",
+  "unidad": "pesos por semestre",
+  "nota": "Según UAEM, UNAM. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "educacion.costo_privada": {
+  "valor": "37,500 a 198,720",
+  "unidad": "pesos por semestre",
+  "nota": "Según Anáhuac, IBERO, La Salle, Tec de Monterrey, UVM. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "educacion.becas": {
+  "valor": "Jóvenes Escribiendo el Futuro",
+  "unidad": "beca federal para escuelas públicas, además de las de cada universidad",
+  "nota": "Revisa en su buscador si tu escuela participa. La UNAM y el IPN tienen sus propias becas por convocatoria.",
+  "fuente": "Becas Benito Juárez, gob.mx",
+  "url": "https://www.gob.mx/becasbenitojuarez/articulos/beca-de-educacion-superior-jovenes-escribiendo-el-futuro",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "moda.duracion": {
+  "valor": "4",
+  "unidad": "años",
+  "nota": "4 años.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas)",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "moda.costo_publica": {
+  "valor": "Gratis o cuota simbólica",
+  "unidad": "",
+  "nota": "Según IPN. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "moda.costo_privada": {
+  "valor": "130,000 a 170,000",
+  "unidad": "pesos por semestre",
+  "nota": "Según Anáhuac, IBERO. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "moda.becas": {
+  "valor": "Jóvenes Escribiendo el Futuro",
+  "unidad": "beca federal para escuelas públicas, además de las de cada universidad",
+  "nota": "Revisa en su buscador si tu escuela participa. La UNAM y el IPN tienen sus propias becas por convocatoria.",
+  "fuente": "Becas Benito Juárez, gob.mx",
+  "url": "https://www.gob.mx/becasbenitojuarez/articulos/beca-de-educacion-superior-jovenes-escribiendo-el-futuro",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "comunicacion.duracion": {
+  "valor": "4",
+  "unidad": "años",
+  "nota": "4 años.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas)",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "comunicacion.costo_publica": {
+  "valor": "Gratis a 800",
+  "unidad": "pesos por semestre",
+  "nota": "Según UAEM, UAM, UNAM. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "comunicacion.costo_privada": {
+  "valor": "37,500 a 198,720",
+  "unidad": "pesos por semestre",
+  "nota": "Según Anáhuac, IBERO, La Salle, Tec de Monterrey, UVM. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "comunicacion.becas": {
+  "valor": "Jóvenes Escribiendo el Futuro",
+  "unidad": "beca federal para escuelas públicas, además de las de cada universidad",
+  "nota": "Revisa en su buscador si tu escuela participa. La UNAM y el IPN tienen sus propias becas por convocatoria.",
+  "fuente": "Becas Benito Juárez, gob.mx",
+  "url": "https://www.gob.mx/becasbenitojuarez/articulos/beca-de-educacion-superior-jovenes-escribiendo-el-futuro",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "enfermeria.duracion": {
+  "valor": "4",
+  "unidad": "años",
+  "nota": "4 años más 1 año de servicio social.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas)",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "enfermeria.costo_publica": {
+  "valor": "Gratis a 800",
+  "unidad": "pesos por semestre",
+  "nota": "Según IPN, UAEM, UAM, UNAM. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "enfermeria.costo_privada": {
+  "valor": "17,760 a 22,460",
+  "unidad": "pesos por semestre",
+  "nota": "Según UNITEC. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "enfermeria.becas": {
+  "valor": "Jóvenes Escribiendo el Futuro",
+  "unidad": "beca federal para escuelas públicas, además de las de cada universidad",
+  "nota": "Revisa en su buscador si tu escuela participa. La UNAM y el IPN tienen sus propias becas por convocatoria.",
+  "fuente": "Becas Benito Juárez, gob.mx",
+  "url": "https://www.gob.mx/becasbenitojuarez/articulos/beca-de-educacion-superior-jovenes-escribiendo-el-futuro",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "odontologia.duracion": {
+  "valor": "4 a 5",
+  "unidad": "años",
+  "nota": "4 a 5 años más 1 año de servicio social.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas)",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "odontologia.costo_publica": {
+  "valor": "Gratis o cuota simbólica",
+  "unidad": "",
+  "nota": "Según UAM, UNAM. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "odontologia.costo_privada": {
+  "valor": "17,760 a 170,000",
+  "unidad": "pesos por semestre",
+  "nota": "Según Anáhuac, La Salle, UNITEC, UVM. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "odontologia.becas": {
+  "valor": "Jóvenes Escribiendo el Futuro",
+  "unidad": "beca federal para escuelas públicas, además de las de cada universidad",
+  "nota": "Revisa en su buscador si tu escuela participa. La UNAM y el IPN tienen sus propias becas por convocatoria.",
+  "fuente": "Becas Benito Juárez, gob.mx",
+  "url": "https://www.gob.mx/becasbenitojuarez/articulos/beca-de-educacion-superior-jovenes-escribiendo-el-futuro",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "fisioterapia.duracion": {
+  "valor": "4",
+  "unidad": "años",
+  "nota": "4 años más servicio social.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas)",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "fisioterapia.costo_publica": {
+  "valor": "Gratis o cuota simbólica",
+  "unidad": "",
+  "nota": "Según UNAM. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "fisioterapia.costo_privada": {
+  "valor": "17,760 a 170,000",
+  "unidad": "pesos por semestre",
+  "nota": "Según Anáhuac, La Salle, UNITEC, UVM. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "fisioterapia.becas": {
+  "valor": "Jóvenes Escribiendo el Futuro",
+  "unidad": "beca federal para escuelas públicas, además de las de cada universidad",
+  "nota": "Revisa en su buscador si tu escuela participa. La UNAM y el IPN tienen sus propias becas por convocatoria.",
+  "fuente": "Becas Benito Juárez, gob.mx",
+  "url": "https://www.gob.mx/becasbenitojuarez/articulos/beca-de-educacion-superior-jovenes-escribiendo-el-futuro",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "qfb.duracion": {
+  "valor": "4 a 5",
+  "unidad": "años",
+  "nota": "4 a 5 años.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas)",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "qfb.costo_publica": {
+  "valor": "Gratis a 800",
+  "unidad": "pesos por semestre",
+  "nota": "Según IPN, UAEM, UAM, UNAM. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "qfb.costo_privada": {
+  "valor": "37,500 a 110,000",
+  "unidad": "pesos por semestre",
+  "nota": "Según La Salle. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "qfb.becas": {
+  "valor": "Jóvenes Escribiendo el Futuro",
+  "unidad": "beca federal para escuelas públicas, además de las de cada universidad",
+  "nota": "Revisa en su buscador si tu escuela participa. La UNAM y el IPN tienen sus propias becas por convocatoria.",
+  "fuente": "Becas Benito Juárez, gob.mx",
+  "url": "https://www.gob.mx/becasbenitojuarez/articulos/beca-de-educacion-superior-jovenes-escribiendo-el-futuro",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "educfisica.duracion": {
+  "valor": "4",
+  "unidad": "años",
+  "nota": "4 años.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas)",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "educfisica.costo_publica": {
+  "valor": "800",
+  "unidad": "pesos por semestre",
+  "nota": "Según UAEM. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "educfisica.costo_privada": {
+  "valor": "37,500 a 110,000",
+  "unidad": "pesos por semestre",
+  "nota": "Según La Salle. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "educfisica.becas": {
+  "valor": "Jóvenes Escribiendo el Futuro",
+  "unidad": "beca federal para escuelas públicas, además de las de cada universidad",
+  "nota": "Revisa en su buscador si tu escuela participa. La UNAM y el IPN tienen sus propias becas por convocatoria.",
+  "fuente": "Becas Benito Juárez, gob.mx",
+  "url": "https://www.gob.mx/becasbenitojuarez/articulos/beca-de-educacion-superior-jovenes-escribiendo-el-futuro",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "industrial.duracion": {
+  "valor": "4 a 4.5",
+  "unidad": "años",
+  "nota": "4 a 4.5 años.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas)",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "industrial.costo_publica": {
+  "valor": "Gratis a 800",
+  "unidad": "pesos por semestre",
+  "nota": "Según IPN, UAEM, UAM, UNAM. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "industrial.costo_privada": {
+  "valor": "17,760 a 198,720",
+  "unidad": "pesos por semestre",
+  "nota": "Según Anáhuac, IBERO, La Salle, Tec de Monterrey, UNITEC, UVM. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "industrial.becas": {
+  "valor": "Jóvenes Escribiendo el Futuro",
+  "unidad": "beca federal para escuelas públicas, además de las de cada universidad",
+  "nota": "Revisa en su buscador si tu escuela participa. La UNAM y el IPN tienen sus propias becas por convocatoria.",
+  "fuente": "Becas Benito Juárez, gob.mx",
+  "url": "https://www.gob.mx/becasbenitojuarez/articulos/beca-de-educacion-superior-jovenes-escribiendo-el-futuro",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "mecanica.duracion": {
+  "valor": "4.5 a 5",
+  "unidad": "años",
+  "nota": "4.5 a 5 años.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas)",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "mecanica.costo_publica": {
+  "valor": "Gratis a 800",
+  "unidad": "pesos por semestre",
+  "nota": "Según IPN, UAEM, UAM, UNAM. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "mecanica.costo_privada": {
+  "valor": "17,760 a 198,720",
+  "unidad": "pesos por semestre",
+  "nota": "Según IBERO, Tec de Monterrey, UNITEC. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "mecanica.becas": {
+  "valor": "Jóvenes Escribiendo el Futuro",
+  "unidad": "beca federal para escuelas públicas, además de las de cada universidad",
+  "nota": "Revisa en su buscador si tu escuela participa. La UNAM y el IPN tienen sus propias becas por convocatoria.",
+  "fuente": "Becas Benito Juárez, gob.mx",
+  "url": "https://www.gob.mx/becasbenitojuarez/articulos/beca-de-educacion-superior-jovenes-escribiendo-el-futuro",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "electrica.duracion": {
+  "valor": "4.5 a 5",
+  "unidad": "años",
+  "nota": "4.5 a 5 años.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas)",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "electrica.costo_publica": {
+  "valor": "Gratis a 800",
+  "unidad": "pesos por semestre",
+  "nota": "Según IPN, UAEM, UAM, UNAM. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "electrica.becas": {
+  "valor": "Jóvenes Escribiendo el Futuro",
+  "unidad": "beca federal para escuelas públicas, además de las de cada universidad",
+  "nota": "Revisa en su buscador si tu escuela participa. La UNAM y el IPN tienen sus propias becas por convocatoria.",
+  "fuente": "Becas Benito Juárez, gob.mx",
+  "url": "https://www.gob.mx/becasbenitojuarez/articulos/beca-de-educacion-superior-jovenes-escribiendo-el-futuro",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "electronica.duracion": {
+  "valor": "4.5 a 5",
+  "unidad": "años",
+  "nota": "4.5 a 5 años.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas)",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "electronica.costo_publica": {
+  "valor": "Gratis a 800",
+  "unidad": "pesos por semestre",
+  "nota": "Según IPN, UAEM, UAM, UNAM. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "electronica.costo_privada": {
+  "valor": "180,720 a 198,720",
+  "unidad": "pesos por semestre",
+  "nota": "Según Tec de Monterrey. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "electronica.becas": {
+  "valor": "Jóvenes Escribiendo el Futuro",
+  "unidad": "beca federal para escuelas públicas, además de las de cada universidad",
+  "nota": "Revisa en su buscador si tu escuela participa. La UNAM y el IPN tienen sus propias becas por convocatoria.",
+  "fuente": "Becas Benito Juárez, gob.mx",
+  "url": "https://www.gob.mx/becasbenitojuarez/articulos/beca-de-educacion-superior-jovenes-escribiendo-el-futuro",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "quimicaing.duracion": {
+  "valor": "4.5 a 5",
+  "unidad": "años",
+  "nota": "4.5 a 5 años.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas)",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "quimicaing.costo_publica": {
+  "valor": "Gratis a 800",
+  "unidad": "pesos por semestre",
+  "nota": "Según IPN, UAEM, UAM, UNAM. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "quimicaing.costo_privada": {
+  "valor": "130,000 a 198,720",
+  "unidad": "pesos por semestre",
+  "nota": "Según Anáhuac, IBERO, Tec de Monterrey. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "quimicaing.becas": {
+  "valor": "Jóvenes Escribiendo el Futuro",
+  "unidad": "beca federal para escuelas públicas, además de las de cada universidad",
+  "nota": "Revisa en su buscador si tu escuela participa. La UNAM y el IPN tienen sus propias becas por convocatoria.",
+  "fuente": "Becas Benito Juárez, gob.mx",
+  "url": "https://www.gob.mx/becasbenitojuarez/articulos/beca-de-educacion-superior-jovenes-escribiendo-el-futuro",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "biomedica.duracion": {
+  "valor": "4.5 a 5",
+  "unidad": "años",
+  "nota": "4.5 a 5 años.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas)",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "biomedica.costo_publica": {
+  "valor": "Gratis o cuota simbólica",
+  "unidad": "",
+  "nota": "Según IPN, UAM, UNAM. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "biomedica.costo_privada": {
+  "valor": "37,500 a 198,720",
+  "unidad": "pesos por semestre",
+  "nota": "Según IBERO, La Salle, Tec de Monterrey. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "biomedica.becas": {
+  "valor": "Jóvenes Escribiendo el Futuro",
+  "unidad": "beca federal para escuelas públicas, además de las de cada universidad",
+  "nota": "Revisa en su buscador si tu escuela participa. La UNAM y el IPN tienen sus propias becas por convocatoria.",
+  "fuente": "Becas Benito Juárez, gob.mx",
+  "url": "https://www.gob.mx/becasbenitojuarez/articulos/beca-de-educacion-superior-jovenes-escribiendo-el-futuro",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "ia.duracion": {
+  "valor": "4 a 4.5",
+  "unidad": "años",
+  "nota": "4 a 4.5 años.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas)",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "ia.costo_publica": {
+  "valor": "Gratis a 800",
+  "unidad": "pesos por semestre",
+  "nota": "Según IPN, UAEM. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "ia.costo_privada": {
+  "valor": "180,720 a 198,720",
+  "unidad": "pesos por semestre",
+  "nota": "Según Tec de Monterrey. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "ia.becas": {
+  "valor": "Jóvenes Escribiendo el Futuro",
+  "unidad": "beca federal para escuelas públicas, además de las de cada universidad",
+  "nota": "Revisa en su buscador si tu escuela participa. La UNAM y el IPN tienen sus propias becas por convocatoria.",
+  "fuente": "Becas Benito Juárez, gob.mx",
+  "url": "https://www.gob.mx/becasbenitojuarez/articulos/beca-de-educacion-superior-jovenes-escribiendo-el-futuro",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "ciberseguridad.duracion": {
+  "valor": "4",
+  "unidad": "años",
+  "nota": "4 años.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas)",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "ciberseguridad.costo_publica": {
+  "valor": "Gratis o cuota simbólica",
+  "unidad": "",
+  "nota": "Según IPN. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "ciberseguridad.costo_privada": {
+  "valor": "17,760 a 60,000",
+  "unidad": "pesos por semestre",
+  "nota": "Según UNITEC, UVM. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "ciberseguridad.becas": {
+  "valor": "Jóvenes Escribiendo el Futuro",
+  "unidad": "beca federal para escuelas públicas, además de las de cada universidad",
+  "nota": "Revisa en su buscador si tu escuela participa. La UNAM y el IPN tienen sus propias becas por convocatoria.",
+  "fuente": "Becas Benito Juárez, gob.mx",
+  "url": "https://www.gob.mx/becasbenitojuarez/articulos/beca-de-educacion-superior-jovenes-escribiendo-el-futuro",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "quimica.duracion": {
+  "valor": "4 a 4.5",
+  "unidad": "años",
+  "nota": "4 a 4.5 años.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas)",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "quimica.costo_publica": {
+  "valor": "Gratis a 800",
+  "unidad": "pesos por semestre",
+  "nota": "Según IPN, UAEM, UAM, UNAM. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "quimica.becas": {
+  "valor": "Jóvenes Escribiendo el Futuro",
+  "unidad": "beca federal para escuelas públicas, además de las de cada universidad",
+  "nota": "Revisa en su buscador si tu escuela participa. La UNAM y el IPN tienen sus propias becas por convocatoria.",
+  "fuente": "Becas Benito Juárez, gob.mx",
+  "url": "https://www.gob.mx/becasbenitojuarez/articulos/beca-de-educacion-superior-jovenes-escribiendo-el-futuro",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "biologia.duracion": {
+  "valor": "4 a 4.5",
+  "unidad": "años",
+  "nota": "4 a 4.5 años.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas)",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "biologia.costo_publica": {
+  "valor": "Gratis a 800",
+  "unidad": "pesos por semestre",
+  "nota": "Según IPN, UAEM, UAM, UNAM. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "biologia.becas": {
+  "valor": "Jóvenes Escribiendo el Futuro",
+  "unidad": "beca federal para escuelas públicas, además de las de cada universidad",
+  "nota": "Revisa en su buscador si tu escuela participa. La UNAM y el IPN tienen sus propias becas por convocatoria.",
+  "fuente": "Becas Benito Juárez, gob.mx",
+  "url": "https://www.gob.mx/becasbenitojuarez/articulos/beca-de-educacion-superior-jovenes-escribiendo-el-futuro",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "matematicas.duracion": {
+  "valor": "4 a 4.5",
+  "unidad": "años",
+  "nota": "4 a 4.5 años.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas)",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "matematicas.costo_publica": {
+  "valor": "Gratis a 800",
+  "unidad": "pesos por semestre",
+  "nota": "Según IPN, UAEM, UAM, UNAM. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "matematicas.becas": {
+  "valor": "Jóvenes Escribiendo el Futuro",
+  "unidad": "beca federal para escuelas públicas, además de las de cada universidad",
+  "nota": "Revisa en su buscador si tu escuela participa. La UNAM y el IPN tienen sus propias becas por convocatoria.",
+  "fuente": "Becas Benito Juárez, gob.mx",
+  "url": "https://www.gob.mx/becasbenitojuarez/articulos/beca-de-educacion-superior-jovenes-escribiendo-el-futuro",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "contaduria.duracion": {
+  "valor": "4 a 4.5",
+  "unidad": "años",
+  "nota": "4 a 4.5 años.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas)",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "contaduria.costo_publica": {
+  "valor": "Gratis a 800",
+  "unidad": "pesos por semestre",
+  "nota": "Según IPN, UAEM, UNAM. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "contaduria.costo_privada": {
+  "valor": "17,760 a 198,720",
+  "unidad": "pesos por semestre",
+  "nota": "Según Anáhuac, IBERO, La Salle, Tec de Monterrey, UNITEC, UVM. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "contaduria.becas": {
+  "valor": "Jóvenes Escribiendo el Futuro",
+  "unidad": "beca federal para escuelas públicas, además de las de cada universidad",
+  "nota": "Revisa en su buscador si tu escuela participa. La UNAM y el IPN tienen sus propias becas por convocatoria.",
+  "fuente": "Becas Benito Juárez, gob.mx",
+  "url": "https://www.gob.mx/becasbenitojuarez/articulos/beca-de-educacion-superior-jovenes-escribiendo-el-futuro",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "economia.duracion": {
+  "valor": "4 a 4.5",
+  "unidad": "años",
+  "nota": "4 a 4.5 años.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas)",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "economia.costo_publica": {
+  "valor": "Gratis a 800",
+  "unidad": "pesos por semestre",
+  "nota": "Según IPN, UAEM, UAM, UNAM. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "economia.costo_privada": {
+  "valor": "130,000 a 198,720",
+  "unidad": "pesos por semestre",
+  "nota": "Según Anáhuac, IBERO, Tec de Monterrey. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "economia.becas": {
+  "valor": "Jóvenes Escribiendo el Futuro",
+  "unidad": "beca federal para escuelas públicas, además de las de cada universidad",
+  "nota": "Revisa en su buscador si tu escuela participa. La UNAM y el IPN tienen sus propias becas por convocatoria.",
+  "fuente": "Becas Benito Juárez, gob.mx",
+  "url": "https://www.gob.mx/becasbenitojuarez/articulos/beca-de-educacion-superior-jovenes-escribiendo-el-futuro",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "actuaria.duracion": {
+  "valor": "4 a 4.5",
+  "unidad": "años",
+  "nota": "4 a 4.5 años.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas)",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "actuaria.costo_publica": {
+  "valor": "Gratis o cuota simbólica",
+  "unidad": "",
+  "nota": "Según UNAM. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "actuaria.costo_privada": {
+  "valor": "37,500 a 170,000",
+  "unidad": "pesos por semestre",
+  "nota": "Según Anáhuac, La Salle. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "actuaria.becas": {
+  "valor": "Jóvenes Escribiendo el Futuro",
+  "unidad": "beca federal para escuelas públicas, además de las de cada universidad",
+  "nota": "Revisa en su buscador si tu escuela participa. La UNAM y el IPN tienen sus propias becas por convocatoria.",
+  "fuente": "Becas Benito Juárez, gob.mx",
+  "url": "https://www.gob.mx/becasbenitojuarez/articulos/beca-de-educacion-superior-jovenes-escribiendo-el-futuro",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "mercadotecnia.duracion": {
+  "valor": "4",
+  "unidad": "años",
+  "nota": "4 años.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas)",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "mercadotecnia.costo_publica": {
+  "valor": "Gratis a 800",
+  "unidad": "pesos por semestre",
+  "nota": "Según IPN, UAEM. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "mercadotecnia.costo_privada": {
+  "valor": "17,760 a 198,720",
+  "unidad": "pesos por semestre",
+  "nota": "Según Anáhuac, IBERO, La Salle, Tec de Monterrey, UNITEC, UVM. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "mercadotecnia.becas": {
+  "valor": "Jóvenes Escribiendo el Futuro",
+  "unidad": "beca federal para escuelas públicas, además de las de cada universidad",
+  "nota": "Revisa en su buscador si tu escuela participa. La UNAM y el IPN tienen sus propias becas por convocatoria.",
+  "fuente": "Becas Benito Juárez, gob.mx",
+  "url": "https://www.gob.mx/becasbenitojuarez/articulos/beca-de-educacion-superior-jovenes-escribiendo-el-futuro",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "comext.duracion": {
+  "valor": "4",
+  "unidad": "años",
+  "nota": "4 años.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas)",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "comext.costo_publica": {
+  "valor": "Gratis o cuota simbólica",
+  "unidad": "",
+  "nota": "Según IPN, UNAM. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "comext.costo_privada": {
+  "valor": "17,760 a 198,720",
+  "unidad": "pesos por semestre",
+  "nota": "Según Anáhuac, IBERO, La Salle, Tec de Monterrey, UNITEC, UVM. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "comext.becas": {
+  "valor": "Jóvenes Escribiendo el Futuro",
+  "unidad": "beca federal para escuelas públicas, además de las de cada universidad",
+  "nota": "Revisa en su buscador si tu escuela participa. La UNAM y el IPN tienen sus propias becas por convocatoria.",
+  "fuente": "Becas Benito Juárez, gob.mx",
+  "url": "https://www.gob.mx/becasbenitojuarez/articulos/beca-de-educacion-superior-jovenes-escribiendo-el-futuro",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "turismo.duracion": {
+  "valor": "4",
+  "unidad": "años",
+  "nota": "4 años.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas)",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "turismo.costo_publica": {
+  "valor": "Gratis a 800",
+  "unidad": "pesos por semestre",
+  "nota": "Según IPN, UAEM. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "turismo.costo_privada": {
+  "valor": "37,500 a 170,000",
+  "unidad": "pesos por semestre",
+  "nota": "Según Anáhuac, La Salle, UVM. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "turismo.becas": {
+  "valor": "Jóvenes Escribiendo el Futuro",
+  "unidad": "beca federal para escuelas públicas, además de las de cada universidad",
+  "nota": "Revisa en su buscador si tu escuela participa. La UNAM y el IPN tienen sus propias becas por convocatoria.",
+  "fuente": "Becas Benito Juárez, gob.mx",
+  "url": "https://www.gob.mx/becasbenitojuarez/articulos/beca-de-educacion-superior-jovenes-escribiendo-el-futuro",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "politicas.duracion": {
+  "valor": "4",
+  "unidad": "años",
+  "nota": "4 años.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas)",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "politicas.costo_publica": {
+  "valor": "Gratis a 800",
+  "unidad": "pesos por semestre",
+  "nota": "Según UAEM, UAM, UNAM. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "politicas.costo_privada": {
+  "valor": "146,765 a 198,720",
+  "unidad": "pesos por semestre",
+  "nota": "Según IBERO, Tec de Monterrey. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "politicas.becas": {
+  "valor": "Jóvenes Escribiendo el Futuro",
+  "unidad": "beca federal para escuelas públicas, además de las de cada universidad",
+  "nota": "Revisa en su buscador si tu escuela participa. La UNAM y el IPN tienen sus propias becas por convocatoria.",
+  "fuente": "Becas Benito Juárez, gob.mx",
+  "url": "https://www.gob.mx/becasbenitojuarez/articulos/beca-de-educacion-superior-jovenes-escribiendo-el-futuro",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "rrii.duracion": {
+  "valor": "4",
+  "unidad": "años",
+  "nota": "4 años.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas)",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "rrii.costo_publica": {
+  "valor": "Gratis o cuota simbólica",
+  "unidad": "",
+  "nota": "Según UNAM. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "rrii.costo_privada": {
+  "valor": "43,000 a 198,720",
+  "unidad": "pesos por semestre",
+  "nota": "Según Anáhuac, IBERO, Tec de Monterrey, UVM. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "rrii.becas": {
+  "valor": "Jóvenes Escribiendo el Futuro",
+  "unidad": "beca federal para escuelas públicas, además de las de cada universidad",
+  "nota": "Revisa en su buscador si tu escuela participa. La UNAM y el IPN tienen sus propias becas por convocatoria.",
+  "fuente": "Becas Benito Juárez, gob.mx",
+  "url": "https://www.gob.mx/becasbenitojuarez/articulos/beca-de-educacion-superior-jovenes-escribiendo-el-futuro",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "sociologia.duracion": {
+  "valor": "4 a 4.5",
+  "unidad": "años",
+  "nota": "4 a 4.5 años.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas)",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "sociologia.costo_publica": {
+  "valor": "Gratis a 800",
+  "unidad": "pesos por semestre",
+  "nota": "Según UAEM, UAM, UNAM. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "sociologia.costo_privada": {
+  "valor": "146,765 a 169,825",
+  "unidad": "pesos por semestre",
+  "nota": "Según IBERO. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "sociologia.becas": {
+  "valor": "Jóvenes Escribiendo el Futuro",
+  "unidad": "beca federal para escuelas públicas, además de las de cada universidad",
+  "nota": "Revisa en su buscador si tu escuela participa. La UNAM y el IPN tienen sus propias becas por convocatoria.",
+  "fuente": "Becas Benito Juárez, gob.mx",
+  "url": "https://www.gob.mx/becasbenitojuarez/articulos/beca-de-educacion-superior-jovenes-escribiendo-el-futuro",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "trabajosocial.duracion": {
+  "valor": "4",
+  "unidad": "años",
+  "nota": "4 años más servicio social.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas)",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "trabajosocial.costo_publica": {
+  "valor": "Gratis a 800",
+  "unidad": "pesos por semestre",
+  "nota": "Según UAEM, UNAM. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "trabajosocial.becas": {
+  "valor": "Jóvenes Escribiendo el Futuro",
+  "unidad": "beca federal para escuelas públicas, además de las de cada universidad",
+  "nota": "Revisa en su buscador si tu escuela participa. La UNAM y el IPN tienen sus propias becas por convocatoria.",
+  "fuente": "Becas Benito Juárez, gob.mx",
+  "url": "https://www.gob.mx/becasbenitojuarez/articulos/beca-de-educacion-superior-jovenes-escribiendo-el-futuro",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "criminologia.duracion": {
+  "valor": "4",
+  "unidad": "años",
+  "nota": "4 años.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas)",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "criminologia.costo_publica": {
+  "valor": "Gratis a 800",
+  "unidad": "pesos por semestre",
+  "nota": "Según UAEM, UNAM. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "criminologia.costo_privada": {
+  "valor": "17,760 a 60,000",
+  "unidad": "pesos por semestre",
+  "nota": "Según UNITEC, UVM. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "criminologia.becas": {
+  "valor": "Jóvenes Escribiendo el Futuro",
+  "unidad": "beca federal para escuelas públicas, además de las de cada universidad",
+  "nota": "Revisa en su buscador si tu escuela participa. La UNAM y el IPN tienen sus propias becas por convocatoria.",
+  "fuente": "Becas Benito Juárez, gob.mx",
+  "url": "https://www.gob.mx/becasbenitojuarez/articulos/beca-de-educacion-superior-jovenes-escribiendo-el-futuro",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "grafico.duracion": {
+  "valor": "4",
+  "unidad": "años",
+  "nota": "4 años.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas)",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "grafico.costo_publica": {
+  "valor": "Gratis a 800",
+  "unidad": "pesos por semestre",
+  "nota": "Según UAEM, UAM, UNAM. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "grafico.costo_privada": {
+  "valor": "17,760 a 170,000",
+  "unidad": "pesos por semestre",
+  "nota": "Según Anáhuac, IBERO, La Salle, UNITEC, UVM. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "grafico.becas": {
+  "valor": "Jóvenes Escribiendo el Futuro",
+  "unidad": "beca federal para escuelas públicas, además de las de cada universidad",
+  "nota": "Revisa en su buscador si tu escuela participa. La UNAM y el IPN tienen sus propias becas por convocatoria.",
+  "fuente": "Becas Benito Juárez, gob.mx",
+  "url": "https://www.gob.mx/becasbenitojuarez/articulos/beca-de-educacion-superior-jovenes-escribiendo-el-futuro",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "disindustrial.duracion": {
+  "valor": "4 a 4.5",
+  "unidad": "años",
+  "nota": "4 a 4.5 años.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas)",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "disindustrial.costo_publica": {
+  "valor": "Gratis o cuota simbólica",
+  "unidad": "",
+  "nota": "Según UAM, UNAM. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "disindustrial.costo_privada": {
+  "valor": "43,000 a 198,720",
+  "unidad": "pesos por semestre",
+  "nota": "Según Anáhuac, IBERO, Tec de Monterrey, UVM. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "disindustrial.becas": {
+  "valor": "Jóvenes Escribiendo el Futuro",
+  "unidad": "beca federal para escuelas públicas, además de las de cada universidad",
+  "nota": "Revisa en su buscador si tu escuela participa. La UNAM y el IPN tienen sus propias becas por convocatoria.",
+  "fuente": "Becas Benito Juárez, gob.mx",
+  "url": "https://www.gob.mx/becasbenitojuarez/articulos/beca-de-educacion-superior-jovenes-escribiendo-el-futuro",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "animacion.duracion": {
+  "valor": "4",
+  "unidad": "años",
+  "nota": "4 años.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas)",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "animacion.costo_publica": {
+  "valor": "Gratis o cuota simbólica",
+  "unidad": "",
+  "nota": "Según UAM, UNAM. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "animacion.costo_privada": {
+  "valor": "17,760 a 198,720",
+  "unidad": "pesos por semestre",
+  "nota": "Según Tec de Monterrey, UNITEC. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "animacion.becas": {
+  "valor": "Jóvenes Escribiendo el Futuro",
+  "unidad": "beca federal para escuelas públicas, además de las de cada universidad",
+  "nota": "Revisa en su buscador si tu escuela participa. La UNAM y el IPN tienen sus propias becas por convocatoria.",
+  "fuente": "Becas Benito Juárez, gob.mx",
+  "url": "https://www.gob.mx/becasbenitojuarez/articulos/beca-de-educacion-superior-jovenes-escribiendo-el-futuro",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "gastronomia.duracion": {
+  "valor": "3.5 a 4",
+  "unidad": "años",
+  "nota": "3.5 a 4 años.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas)",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "gastronomia.costo_privada": {
+  "valor": "17,760 a 170,000",
+  "unidad": "pesos por semestre",
+  "nota": "Según Anáhuac, UNITEC, UVM. Además cuentan transporte y materiales.",
+  "fuente": "Base de carreras de Morelos y CDMX (planes de estudio de UNAM, IPN y privadas) · ver «Escuelas»",
+  "url": null,
+  "consultado": "2026-11-17",
+  "estado": "confirmar"
+ },
+ "gastronomia.becas": {
+  "valor": "Jóvenes Escribiendo el Futuro",
+  "unidad": "beca federal para escuelas públicas, además de las de cada universidad",
+  "nota": "Revisa en su buscador si tu escuela participa. La UNAM y el IPN tienen sus propias becas por convocatoria.",
+  "fuente": "Becas Benito Juárez, gob.mx",
+  "url": "https://www.gob.mx/becasbenitojuarez/articulos/beca-de-educacion-superior-jovenes-escribiendo-el-futuro",
   "consultado": "2026-11-17",
   "estado": "verificado"
  }

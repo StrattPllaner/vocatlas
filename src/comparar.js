@@ -25,7 +25,7 @@ function cmpHex(A,B){var R=78,cx=110,cy=100,ang=function(i){return -Math.PI/2+i*
 function cmpBar(lab,va,vb,max,fmt,A,B){var w=function(v){return v==null?0:Math.max(4,v/max*100)},t=function(v){return v==null?"—":fmt(v)};
  var win=va!=null&&vb!=null&&va!==vb?(va>vb?"a":"b"):"";
  return '<div class="cx-row"><b class="cx-v'+(win==="a"?" w":"")+'">'+t(va)+'</b><div class="cx-l"><i style="width:'+w(va)+'%;background:'+A.color+'"></i></div><span>'+lab+'</span><div class="cx-r"><i style="width:'+w(vb)+'%;background:'+B.color+'"></i></div><b class="cx-v'+(win==="b"?" w":"")+'">'+t(vb)+'</b></div>'}
-function cmpDato(id,k){var d=(CAT.cif||{})[id+"."+k];return d&&d.estado!=="pendiente"&&d.valor!=null?'<b class="num">'+esc(String(d.valor))+'</b><small>'+esc(d.unidad||"")+'</small>':'<em class="cx-pend">Pendiente</em>'}
+function cmpDato(id,k){var d=(CAT.cif||{})[id+"."+k];return d&&d.estado!=="pendiente"&&d.valor!=null?'<b class="num">'+esc(String(d.valor))+'</b><small>'+esc(d.unidad||"")+(d.estado==="confirmar"?' · por confirmar':'')+'</small>':'<em class="cx-pend">Pendiente</em>'}
 function renderComparar(){
  artDefs();var v=$("#v-comparar"),P=cmpPair();
  if(!P){v.innerHTML='<div class="vwrap cx"><div class="cx-empty">'+rumboEl()+'<h2>Comparar</h2><p>Necesitas al menos dos carreras en tu mapa.</p><button type="button" class="ui-btn is-block" id="cxAdd">Agregar carrera</button></div></div>';

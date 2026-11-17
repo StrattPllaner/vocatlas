@@ -1,4 +1,21 @@
 {
+ "becas": [
+  {
+   "n": "Jóvenes Escribiendo el Futuro",
+   "quien": "Federal, para estudiantes de escuelas públicas que participan",
+   "url": "https://www.gob.mx/becasbenitojuarez/articulos/beca-de-educacion-superior-jovenes-escribiendo-el-futuro"
+  },
+  {
+   "n": "Becas UNAM",
+   "quien": "Manutención y otras, por convocatoria",
+   "url": "https://www.becas.unam.mx"
+  },
+  {
+   "n": "Becas IPN",
+   "quien": "Beca institucional y becas externas, por convocatoria",
+   "url": "https://www.ipn.mx/daes/servicios/becas/"
+  }
+ ],
  "region": [
   "CMX",
   "MOR"
@@ -1601,6 +1618,1685 @@
      "conf": "media",
      "edo": [
       "MOR"
+     ]
+    }
+   ],
+   "morelos": true
+  },
+  "enfermeria": {
+   "nombre": "Enfermería",
+   "donde": [
+    {
+     "u": "unam",
+     "sede": "ENEO (CU), FES Zaragoza y FES Iztacala",
+     "prog": "Enfermería / Enfermería y Obstetricia",
+     "conf": "alta",
+     "edo": [
+      "CMX",
+      "MEX"
+     ]
+    },
+    {
+     "u": "ipn",
+     "sede": "ESEO y CICS",
+     "prog": "Enfermería / Enfermería y Obstetricia",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "uam",
+     "sede": "Xochimilco",
+     "prog": "Enfermería",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "uaem",
+     "sede": "Facultad de Enfermería, Cuernavaca",
+     "prog": "Enfermería",
+     "conf": "alta",
+     "edo": [
+      "MOR"
+     ]
+    },
+    {
+     "u": "unitec",
+     "sede": "Varios campus",
+     "prog": "Enfermería",
+     "conf": "media",
+     "edo": [
+      "CMX"
+     ]
+    }
+   ],
+   "morelos": true
+  },
+  "odontologia": {
+   "nombre": "Odontología (Cirujano Dentista)",
+   "donde": [
+    {
+     "u": "unam",
+     "sede": "Facultad de Odontología (CU), FES Zaragoza y FES Iztacala",
+     "prog": "Cirujano Dentista",
+     "conf": "alta",
+     "edo": [
+      "CMX",
+      "MEX"
+     ]
+    },
+    {
+     "u": "uam",
+     "sede": "Xochimilco",
+     "prog": "Estomatología",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "anahuac",
+     "sede": "Norte",
+     "prog": "Cirujano Dentista",
+     "conf": "media",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "lasalle",
+     "sede": "CDMX",
+     "prog": "Medicina Dental",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "uvm",
+     "sede": "Algunos campus CDMX",
+     "prog": "Cirujano Dentista",
+     "conf": "media",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "unitec",
+     "sede": "Varios campus",
+     "prog": "Cirujano Dentista",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    }
+   ],
+   "morelos": false
+  },
+  "fisioterapia": {
+   "nombre": "Fisioterapia",
+   "donde": [
+    {
+     "u": "unam",
+     "sede": "Facultad de Medicina (CU)",
+     "prog": "Fisioterapia",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "anahuac",
+     "sede": "Norte",
+     "prog": "Fisioterapia",
+     "conf": "media",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "lasalle",
+     "sede": "CDMX",
+     "prog": "Fisioterapia y Promoción para la Salud",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "uvm",
+     "sede": "CDMX y Cuernavaca",
+     "prog": "Fisioterapia",
+     "conf": "alta",
+     "edo": [
+      "CMX",
+      "MOR"
+     ]
+    },
+    {
+     "u": "unitec",
+     "sede": "Varios campus",
+     "prog": "Fisioterapia",
+     "conf": "media",
+     "edo": [
+      "CMX"
+     ]
+    }
+   ],
+   "morelos": true
+  },
+  "qfb": {
+   "nombre": "Químico Farmacéutico Biólogo (QFB)",
+   "donde": [
+    {
+     "u": "unam",
+     "sede": "Facultad de Química (CU), FES Zaragoza y FES Cuautitlán",
+     "prog": "Química Farmacéutico Biológica",
+     "conf": "alta",
+     "edo": [
+      "CMX",
+      "MEX"
+     ]
+    },
+    {
+     "u": "ipn",
+     "sede": "ENCB",
+     "prog": "Químico Farmacéutico Industrial / Químico Bacteriólogo Parasitólogo",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "uam",
+     "sede": "Xochimilco",
+     "prog": "Química Farmacéutica Biológica",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "uaem",
+     "sede": "Cuernavaca",
+     "prog": "Farmacia",
+     "conf": "alta",
+     "edo": [
+      "MOR"
+     ]
+    },
+    {
+     "u": "lasalle",
+     "sede": "CDMX",
+     "prog": "Químico Farmacéutico Biólogo",
+     "conf": "media",
+     "edo": [
+      "CMX"
+     ]
+    }
+   ],
+   "morelos": true
+  },
+  "educfisica": {
+   "nombre": "Educación Física y Ciencias del Deporte",
+   "donde": [
+    {
+     "u": "uaem",
+     "sede": "Cuernavaca",
+     "prog": "Educación Física / Ciencias Aplicadas al Deporte",
+     "conf": "alta",
+     "edo": [
+      "MOR"
+     ]
+    },
+    {
+     "u": "lasalle",
+     "sede": "CDMX",
+     "prog": "Ciencias del Deporte",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    }
+   ],
+   "morelos": true
+  },
+  "industrial": {
+   "nombre": "Ingeniería Industrial",
+   "donde": [
+    {
+     "u": "unam",
+     "sede": "Facultad de Ingeniería (CU); FES Aragón y Cuautitlán (Edomex)",
+     "prog": "Ingeniería Industrial",
+     "conf": "alta",
+     "edo": [
+      "CMX",
+      "MEX"
+     ]
+    },
+    {
+     "u": "ipn",
+     "sede": "UPIICSA",
+     "prog": "Ingeniería Industrial",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "uam",
+     "sede": "Azcapotzalco",
+     "prog": "Ingeniería Industrial",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "uaem",
+     "sede": "Cuernavaca",
+     "prog": "Ingeniería Industrial / Industrial y de Sistemas",
+     "conf": "alta",
+     "edo": [
+      "MOR"
+     ]
+    },
+    {
+     "u": "tec",
+     "sede": "CDMX (Cuernavaca solo primeros 2 semestres)",
+     "prog": "Ingeniería Industrial y de Sistemas",
+     "conf": "alta",
+     "edo": [
+      "CMX",
+      "MOR"
+     ]
+    },
+    {
+     "u": "ibero",
+     "sede": "Santa Fe",
+     "prog": "Ingeniería Industrial",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "anahuac",
+     "sede": "Norte y Sur",
+     "prog": "Ingeniería Industrial para la Dirección",
+     "conf": "media",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "lasalle",
+     "sede": "CDMX y Cuernavaca",
+     "prog": "Ingeniería Industrial",
+     "conf": "alta",
+     "edo": [
+      "CMX",
+      "MOR"
+     ]
+    },
+    {
+     "u": "uvm",
+     "sede": "CDMX y Cuernavaca",
+     "prog": "Ingeniería Industrial y de Sistemas",
+     "conf": "alta",
+     "edo": [
+      "CMX",
+      "MOR"
+     ]
+    },
+    {
+     "u": "unitec",
+     "sede": "Varios campus",
+     "prog": "Ingeniería Industrial y de Sistemas",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    }
+   ],
+   "morelos": true
+  },
+  "mecanica": {
+   "nombre": "Ingeniería Mecánica",
+   "donde": [
+    {
+     "u": "unam",
+     "sede": "Facultad de Ingeniería (CU); FES Cuautitlán y Aragón (Edomex)",
+     "prog": "Ingeniería Mecánica / Mecánica Eléctrica",
+     "conf": "alta",
+     "edo": [
+      "CMX",
+      "MEX"
+     ]
+    },
+    {
+     "u": "ipn",
+     "sede": "ESIME Zacatenco y Azcapotzalco",
+     "prog": "Ingeniería Mecánica",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "uam",
+     "sede": "Azcapotzalco",
+     "prog": "Ingeniería Mecánica / Metalúrgica",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "uaem",
+     "sede": "Cuernavaca",
+     "prog": "Ingeniería Mecánica",
+     "conf": "alta",
+     "edo": [
+      "MOR"
+     ]
+    },
+    {
+     "u": "tec",
+     "sede": "CDMX (Cuernavaca solo primeros 2 semestres)",
+     "prog": "Ingeniería Mecánica",
+     "conf": "alta",
+     "edo": [
+      "CMX",
+      "MOR"
+     ]
+    },
+    {
+     "u": "ibero",
+     "sede": "Santa Fe",
+     "prog": "Ingeniería Mecánica y Eléctrica",
+     "conf": "media",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "unitec",
+     "sede": "Varios campus",
+     "prog": "Ingeniería Mecánica",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    }
+   ],
+   "morelos": true
+  },
+  "electrica": {
+   "nombre": "Ingeniería Eléctrica",
+   "donde": [
+    {
+     "u": "unam",
+     "sede": "Facultad de Ingeniería (CU)",
+     "prog": "Ingeniería Eléctrica Electrónica",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "ipn",
+     "sede": "ESIME Zacatenco",
+     "prog": "Ingeniería Eléctrica",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "uam",
+     "sede": "Azcapotzalco",
+     "prog": "Ingeniería Eléctrica",
+     "conf": "media",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "uaem",
+     "sede": "Cuernavaca",
+     "prog": "Ingeniería Eléctrica",
+     "conf": "alta",
+     "edo": [
+      "MOR"
+     ]
+    }
+   ],
+   "morelos": true
+  },
+  "electronica": {
+   "nombre": "Ingeniería Electrónica y Telecomunicaciones",
+   "donde": [
+    {
+     "u": "unam",
+     "sede": "Facultad de Ingeniería (CU)",
+     "prog": "Ingeniería Eléctrica Electrónica / Ingeniería en Telecomunicaciones",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "ipn",
+     "sede": "ESIME Zacatenco y Culhuacán",
+     "prog": "Ingeniería en Comunicaciones y Electrónica",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "uam",
+     "sede": "Azcapotzalco e Iztapalapa",
+     "prog": "Ingeniería Electrónica",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "uaem",
+     "sede": "Cuernavaca",
+     "prog": "Licenciatura en Tecnología (Electrónica)",
+     "conf": "alta",
+     "edo": [
+      "MOR"
+     ]
+    },
+    {
+     "u": "tec",
+     "sede": "CDMX (Cuernavaca solo primeros 2 semestres)",
+     "prog": "Ingeniería en Electrónica y Semiconductores",
+     "conf": "alta",
+     "edo": [
+      "CMX",
+      "MOR"
+     ]
+    }
+   ],
+   "morelos": true
+  },
+  "quimicaing": {
+   "nombre": "Ingeniería Química",
+   "donde": [
+    {
+     "u": "unam",
+     "sede": "Facultad de Química (CU); FES Zaragoza y Cuautitlán",
+     "prog": "Ingeniería Química",
+     "conf": "alta",
+     "edo": [
+      "CMX",
+      "MEX"
+     ]
+    },
+    {
+     "u": "ipn",
+     "sede": "ESIQIE Zacatenco",
+     "prog": "Ingeniería Química Industrial / Química Petrolera",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "uam",
+     "sede": "Azcapotzalco e Iztapalapa",
+     "prog": "Ingeniería Química",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "uaem",
+     "sede": "Cuernavaca",
+     "prog": "Ingeniería Química / Químico Industrial",
+     "conf": "alta",
+     "edo": [
+      "MOR"
+     ]
+    },
+    {
+     "u": "tec",
+     "sede": "CDMX (Cuernavaca solo primeros 2 semestres)",
+     "prog": "Ingeniería Química",
+     "conf": "alta",
+     "edo": [
+      "CMX",
+      "MOR"
+     ]
+    },
+    {
+     "u": "ibero",
+     "sede": "Santa Fe",
+     "prog": "Ingeniería Química",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "anahuac",
+     "sede": "Sur",
+     "prog": "Ingeniería Química",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    }
+   ],
+   "morelos": true
+  },
+  "biomedica": {
+   "nombre": "Ingeniería Biomédica",
+   "donde": [
+    {
+     "u": "unam",
+     "sede": "Facultad de Ingeniería (CU)",
+     "prog": "Ingeniería en Sistemas Biomédicos",
+     "conf": "media",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "ipn",
+     "sede": "UPIBI",
+     "prog": "Ingeniería Biomédica",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "uam",
+     "sede": "Iztapalapa",
+     "prog": "Ingeniería Biomédica",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "tec",
+     "sede": "CDMX (Cuernavaca solo primeros 2 semestres)",
+     "prog": "Ingeniería Biomédica",
+     "conf": "alta",
+     "edo": [
+      "CMX",
+      "MOR"
+     ]
+    },
+    {
+     "u": "ibero",
+     "sede": "Santa Fe",
+     "prog": "Ingeniería Biomédica",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "lasalle",
+     "sede": "CDMX",
+     "prog": "Ingeniería Biomédica",
+     "conf": "media",
+     "edo": [
+      "CMX"
+     ]
+    }
+   ],
+   "morelos": false
+  },
+  "ia": {
+   "nombre": "Ingeniería en Inteligencia Artificial",
+   "donde": [
+    {
+     "u": "ipn",
+     "sede": "ESCOM",
+     "prog": "Ingeniería en Inteligencia Artificial",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "uaem",
+     "sede": "Cuernavaca",
+     "prog": "Ingeniería en Inteligencia Artificial",
+     "conf": "alta",
+     "edo": [
+      "MOR"
+     ]
+    },
+    {
+     "u": "tec",
+     "sede": "CDMX y Santa Fe (Cuernavaca solo primeros 2 semestres)",
+     "prog": "Ingeniería en Inteligencia Artificial y Ciencia de Datos",
+     "conf": "alta",
+     "edo": [
+      "CMX",
+      "MOR"
+     ]
+    }
+   ],
+   "morelos": true
+  },
+  "ciberseguridad": {
+   "nombre": "Ingeniería en Ciberseguridad",
+   "donde": [
+    {
+     "u": "uvm",
+     "sede": "CDMX",
+     "prog": "Ingeniería en Ciberseguridad",
+     "conf": "media",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "unitec",
+     "sede": "Varios campus",
+     "prog": "Ingeniería en Ciberseguridad",
+     "conf": "media",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "ipn",
+     "sede": "ESCOM",
+     "prog": "Ingeniería en Sistemas Computacionales (con optativas de seguridad)",
+     "conf": "media",
+     "edo": [
+      "CMX"
+     ]
+    }
+   ],
+   "morelos": false
+  },
+  "quimica": {
+   "nombre": "Química",
+   "donde": [
+    {
+     "u": "unam",
+     "sede": "Facultad de Química (CU)",
+     "prog": "Química / Química de Alimentos",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "ipn",
+     "sede": "ENCB y ESIQIE",
+     "prog": "Químico Bacteriólogo Parasitólogo / Ingeniería Química Industrial",
+     "conf": "media",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "uam",
+     "sede": "Iztapalapa",
+     "prog": "Química",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "uaem",
+     "sede": "Cuernavaca",
+     "prog": "Licenciatura en Diseño Molecular y Nanoquímica / Químico Industrial",
+     "conf": "alta",
+     "edo": [
+      "MOR"
+     ]
+    }
+   ],
+   "morelos": true
+  },
+  "biologia": {
+   "nombre": "Biología",
+   "donde": [
+    {
+     "u": "unam",
+     "sede": "Facultad de Ciencias (CU), FES Zaragoza y FES Iztacala",
+     "prog": "Biología",
+     "conf": "alta",
+     "edo": [
+      "CMX",
+      "MEX"
+     ]
+    },
+    {
+     "u": "unam",
+     "sede": "Centro de Ciencias Genómicas, Cuernavaca (Morelos)",
+     "prog": "Ciencias Genómicas (afín)",
+     "conf": "alta",
+     "edo": [
+      "MOR"
+     ]
+    },
+    {
+     "u": "ipn",
+     "sede": "ENCB",
+     "prog": "Biología",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "uam",
+     "sede": "Iztapalapa, Xochimilco y Lerma",
+     "prog": "Biología / Biología Experimental / Biología Ambiental",
+     "conf": "alta",
+     "edo": [
+      "CMX",
+      "MEX"
+     ]
+    },
+    {
+     "u": "uaem",
+     "sede": "Cuernavaca",
+     "prog": "Biología",
+     "conf": "alta",
+     "edo": [
+      "MOR"
+     ]
+    }
+   ],
+   "morelos": true
+  },
+  "matematicas": {
+   "nombre": "Matemáticas",
+   "donde": [
+    {
+     "u": "unam",
+     "sede": "Facultad de Ciencias (CU)",
+     "prog": "Matemáticas / Matemáticas Aplicadas",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "ipn",
+     "sede": "ESFM Zacatenco",
+     "prog": "Licenciatura en Física y Matemáticas / Matemática Algorítmica",
+     "conf": "media",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "uam",
+     "sede": "Iztapalapa y Cuajimalpa",
+     "prog": "Matemáticas / Matemáticas Aplicadas",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "uaem",
+     "sede": "Cuernavaca",
+     "prog": "Licenciatura en Ciencias (Matemáticas)",
+     "conf": "media",
+     "edo": [
+      "MOR"
+     ]
+    }
+   ],
+   "morelos": true
+  },
+  "contaduria": {
+   "nombre": "Contaduría Pública",
+   "donde": [
+    {
+     "u": "unam",
+     "sede": "FCA (CU) y FES Cuautitlán",
+     "prog": "Contaduría",
+     "conf": "alta",
+     "edo": [
+      "CMX",
+      "MEX"
+     ]
+    },
+    {
+     "u": "ipn",
+     "sede": "ESCA Santo Tomás y Tepepan",
+     "prog": "Contador Público",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "uaem",
+     "sede": "Cuernavaca y en línea",
+     "prog": "Contaduría / Contador Público",
+     "conf": "alta",
+     "edo": [
+      "MOR"
+     ]
+    },
+    {
+     "u": "tec",
+     "sede": "CDMX, Santa Fe (Cuernavaca solo primeros 3 semestres)",
+     "prog": "Contaduría Pública y Finanzas",
+     "conf": "alta",
+     "edo": [
+      "CMX",
+      "MOR"
+     ]
+    },
+    {
+     "u": "ibero",
+     "sede": "Santa Fe",
+     "prog": "Contaduría y Gestión Empresarial / Finanzas",
+     "conf": "media",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "anahuac",
+     "sede": "Norte y Sur",
+     "prog": "Finanzas y Contaduría Pública",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "lasalle",
+     "sede": "CDMX y Cuernavaca",
+     "prog": "Contaduría y Finanzas",
+     "conf": "alta",
+     "edo": [
+      "CMX",
+      "MOR"
+     ]
+    },
+    {
+     "u": "uvm",
+     "sede": "CDMX",
+     "prog": "Contaduría",
+     "conf": "media",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "unitec",
+     "sede": "Varios campus",
+     "prog": "Contaduría Pública",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    }
+   ],
+   "morelos": true
+  },
+  "economia": {
+   "nombre": "Economía",
+   "donde": [
+    {
+     "u": "unam",
+     "sede": "Facultad de Economía (CU); FES Acatlán y Aragón (Edomex)",
+     "prog": "Economía",
+     "conf": "alta",
+     "edo": [
+      "CMX",
+      "MEX"
+     ]
+    },
+    {
+     "u": "ipn",
+     "sede": "Escuela Superior de Economía",
+     "prog": "Economía",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "uam",
+     "sede": "Azcapotzalco, Iztapalapa y Xochimilco",
+     "prog": "Economía",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "uaem",
+     "sede": "Cuernavaca",
+     "prog": "Economía",
+     "conf": "alta",
+     "edo": [
+      "MOR"
+     ]
+    },
+    {
+     "u": "tec",
+     "sede": "CDMX y Santa Fe",
+     "prog": "Economía",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "ibero",
+     "sede": "Santa Fe",
+     "prog": "Economía",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "anahuac",
+     "sede": "Norte",
+     "prog": "Economía",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    }
+   ],
+   "morelos": true
+  },
+  "actuaria": {
+   "nombre": "Actuaría",
+   "donde": [
+    {
+     "u": "unam",
+     "sede": "Facultad de Ciencias (CU); FES Acatlán (Edomex)",
+     "prog": "Actuaría",
+     "conf": "alta",
+     "edo": [
+      "CMX",
+      "MEX"
+     ]
+    },
+    {
+     "u": "anahuac",
+     "sede": "Sur y Norte",
+     "prog": "Actuaría",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "lasalle",
+     "sede": "CDMX",
+     "prog": "Actuaría",
+     "conf": "media",
+     "edo": [
+      "CMX"
+     ]
+    }
+   ],
+   "morelos": false
+  },
+  "mercadotecnia": {
+   "nombre": "Mercadotecnia",
+   "donde": [
+    {
+     "u": "ipn",
+     "sede": "ESCA",
+     "prog": "Relaciones Comerciales",
+     "conf": "media",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "uaem",
+     "sede": "Cuernavaca",
+     "prog": "Mercadotecnia y Medios Digitales",
+     "conf": "alta",
+     "edo": [
+      "MOR"
+     ]
+    },
+    {
+     "u": "tec",
+     "sede": "CDMX y Santa Fe (Cuernavaca solo primeros 3 semestres)",
+     "prog": "Mercadotecnia",
+     "conf": "alta",
+     "edo": [
+      "CMX",
+      "MOR"
+     ]
+    },
+    {
+     "u": "ibero",
+     "sede": "Santa Fe",
+     "prog": "Mercadotecnia",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "anahuac",
+     "sede": "Norte y Sur",
+     "prog": "Mercadotecnia Estratégica",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "lasalle",
+     "sede": "CDMX y Cuernavaca",
+     "prog": "Mercadotecnia",
+     "conf": "alta",
+     "edo": [
+      "CMX",
+      "MOR"
+     ]
+    },
+    {
+     "u": "uvm",
+     "sede": "CDMX y Cuernavaca",
+     "prog": "Mercadotecnia",
+     "conf": "alta",
+     "edo": [
+      "CMX",
+      "MOR"
+     ]
+    },
+    {
+     "u": "unitec",
+     "sede": "Varios campus",
+     "prog": "Mercadotecnia",
+     "conf": "media",
+     "edo": [
+      "CMX"
+     ]
+    }
+   ],
+   "morelos": true
+  },
+  "comext": {
+   "nombre": "Negocios y Comercio Internacional",
+   "donde": [
+    {
+     "u": "unam",
+     "sede": "FCA (CU)",
+     "prog": "Negocios Internacionales",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "ipn",
+     "sede": "ESCA Santo Tomás y Tepepan",
+     "prog": "Negocios Internacionales",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "tec",
+     "sede": "CDMX y Santa Fe (Cuernavaca solo primeros 3 semestres)",
+     "prog": "Negocios Internacionales",
+     "conf": "alta",
+     "edo": [
+      "CMX",
+      "MOR"
+     ]
+    },
+    {
+     "u": "ibero",
+     "sede": "Santa Fe",
+     "prog": "Negocios Globales",
+     "conf": "media",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "anahuac",
+     "sede": "Norte y Sur",
+     "prog": "Negocios Internacionales",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "lasalle",
+     "sede": "CDMX y Cuernavaca",
+     "prog": "Comercio y Negocios Internacionales",
+     "conf": "alta",
+     "edo": [
+      "CMX",
+      "MOR"
+     ]
+    },
+    {
+     "u": "uvm",
+     "sede": "CDMX y Cuernavaca",
+     "prog": "Administración de Negocios Internacionales",
+     "conf": "alta",
+     "edo": [
+      "CMX",
+      "MOR"
+     ]
+    },
+    {
+     "u": "unitec",
+     "sede": "Varios campus",
+     "prog": "Comercio Internacional",
+     "conf": "media",
+     "edo": [
+      "CMX"
+     ]
+    }
+   ],
+   "morelos": true
+  },
+  "turismo": {
+   "nombre": "Turismo y Hotelería",
+   "donde": [
+    {
+     "u": "ipn",
+     "sede": "Escuela Superior de Turismo",
+     "prog": "Turismo",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "uaem",
+     "sede": "Cuernavaca",
+     "prog": "Turismo",
+     "conf": "alta",
+     "edo": [
+      "MOR"
+     ]
+    },
+    {
+     "u": "anahuac",
+     "sede": "Norte",
+     "prog": "Turismo / Dirección de Hoteles",
+     "conf": "media",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "lasalle",
+     "sede": "Cuernavaca",
+     "prog": "Administración de Empresas Turísticas",
+     "conf": "alta",
+     "edo": [
+      "MOR"
+     ]
+    },
+    {
+     "u": "uvm",
+     "sede": "Cuernavaca",
+     "prog": "Gestión e Innovación Hotelera y Turística",
+     "conf": "alta",
+     "edo": [
+      "MOR"
+     ]
+    }
+   ],
+   "morelos": true
+  },
+  "politicas": {
+   "nombre": "Ciencias Políticas y Administración Pública",
+   "donde": [
+    {
+     "u": "unam",
+     "sede": "FCPyS (CU); FES Acatlán (Edomex)",
+     "prog": "Ciencias Políticas y Administración Pública",
+     "conf": "alta",
+     "edo": [
+      "CMX",
+      "MEX"
+     ]
+    },
+    {
+     "u": "uam",
+     "sede": "Iztapalapa / Xochimilco / Lerma",
+     "prog": "Ciencia Política / Política y Gestión Social / Ciencias Políticas",
+     "conf": "alta",
+     "edo": [
+      "CMX",
+      "MEX"
+     ]
+    },
+    {
+     "u": "uaem",
+     "sede": "Cuernavaca",
+     "prog": "Ciencias Políticas / Administración Pública",
+     "conf": "alta",
+     "edo": [
+      "MOR"
+     ]
+    },
+    {
+     "u": "ibero",
+     "sede": "Santa Fe",
+     "prog": "Ciencias Políticas y Administración Pública",
+     "conf": "media",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "tec",
+     "sede": "CDMX y Santa Fe",
+     "prog": "Gobierno y Transformación Pública",
+     "conf": "media",
+     "edo": [
+      "CMX"
+     ]
+    }
+   ],
+   "morelos": true
+  },
+  "rrii": {
+   "nombre": "Relaciones Internacionales",
+   "donde": [
+    {
+     "u": "unam",
+     "sede": "FCPyS (CU); FES Acatlán y Aragón (Edomex)",
+     "prog": "Relaciones Internacionales",
+     "conf": "alta",
+     "edo": [
+      "CMX",
+      "MEX"
+     ]
+    },
+    {
+     "u": "tec",
+     "sede": "CDMX y Santa Fe",
+     "prog": "Relaciones Internacionales",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "ibero",
+     "sede": "Santa Fe",
+     "prog": "Relaciones Internacionales",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "anahuac",
+     "sede": "Norte",
+     "prog": "Relaciones Internacionales",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "uvm",
+     "sede": "Cuernavaca",
+     "prog": "Relaciones Internacionales",
+     "conf": "alta",
+     "edo": [
+      "MOR"
+     ]
+    }
+   ],
+   "morelos": true
+  },
+  "sociologia": {
+   "nombre": "Sociología y Antropología",
+   "donde": [
+    {
+     "u": "unam",
+     "sede": "FCPyS (CU); FES Acatlán (Edomex)",
+     "prog": "Sociología",
+     "conf": "alta",
+     "edo": [
+      "CMX",
+      "MEX"
+     ]
+    },
+    {
+     "u": "uam",
+     "sede": "Azcapotzalco, Iztapalapa y Xochimilco",
+     "prog": "Sociología / Antropología Social",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "uaem",
+     "sede": "Cuernavaca",
+     "prog": "Sociología / Antropología Social",
+     "conf": "alta",
+     "edo": [
+      "MOR"
+     ]
+    },
+    {
+     "u": "ibero",
+     "sede": "Santa Fe",
+     "prog": "Sociología",
+     "conf": "media",
+     "edo": [
+      "CMX"
+     ]
+    }
+   ],
+   "morelos": true
+  },
+  "trabajosocial": {
+   "nombre": "Trabajo Social",
+   "donde": [
+    {
+     "u": "unam",
+     "sede": "Escuela Nacional de Trabajo Social (CU)",
+     "prog": "Trabajo Social",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "uaem",
+     "sede": "Cuernavaca",
+     "prog": "Trabajo Social",
+     "conf": "alta",
+     "edo": [
+      "MOR"
+     ]
+    }
+   ],
+   "morelos": true
+  },
+  "criminologia": {
+   "nombre": "Criminología y Criminalística",
+   "donde": [
+    {
+     "u": "unam",
+     "sede": "Facultad de Medicina (CU)",
+     "prog": "Ciencia Forense (afín)",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "uaem",
+     "sede": "Cuernavaca",
+     "prog": "Seguridad Ciudadana (afín)",
+     "conf": "media",
+     "edo": [
+      "MOR"
+     ]
+    },
+    {
+     "u": "uvm",
+     "sede": "CDMX",
+     "prog": "Criminología",
+     "conf": "media",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "unitec",
+     "sede": "Varios campus",
+     "prog": "Criminología",
+     "conf": "media",
+     "edo": [
+      "CMX"
+     ]
+    }
+   ],
+   "morelos": true
+  },
+  "grafico": {
+   "nombre": "Diseño Gráfico y Comunicación Visual",
+   "donde": [
+    {
+     "u": "unam",
+     "sede": "Facultad de Artes y Diseño (Xochimilco); FES Acatlán y Cuautitlán (Edomex)",
+     "prog": "Diseño y Comunicación Visual / Diseño Gráfico",
+     "conf": "alta",
+     "edo": [
+      "CMX",
+      "MEX"
+     ]
+    },
+    {
+     "u": "uam",
+     "sede": "Azcapotzalco y Xochimilco",
+     "prog": "Diseño de la Comunicación Gráfica",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "uaem",
+     "sede": "Cuernavaca",
+     "prog": "Diseño",
+     "conf": "alta",
+     "edo": [
+      "MOR"
+     ]
+    },
+    {
+     "u": "ibero",
+     "sede": "Santa Fe",
+     "prog": "Diseño Gráfico",
+     "conf": "media",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "anahuac",
+     "sede": "Norte",
+     "prog": "Diseño Gráfico",
+     "conf": "media",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "lasalle",
+     "sede": "CDMX y Cuernavaca",
+     "prog": "Diseño Gráfico y Digital",
+     "conf": "alta",
+     "edo": [
+      "CMX",
+      "MOR"
+     ]
+    },
+    {
+     "u": "uvm",
+     "sede": "CDMX y Cuernavaca",
+     "prog": "Diseño y Comunicación Gráfica",
+     "conf": "alta",
+     "edo": [
+      "CMX",
+      "MOR"
+     ]
+    },
+    {
+     "u": "unitec",
+     "sede": "Varios campus",
+     "prog": "Diseño Gráfico",
+     "conf": "media",
+     "edo": [
+      "CMX"
+     ]
+    }
+   ],
+   "morelos": true
+  },
+  "disindustrial": {
+   "nombre": "Diseño Industrial",
+   "donde": [
+    {
+     "u": "unam",
+     "sede": "Facultad de Arquitectura (CU)",
+     "prog": "Diseño Industrial",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "uam",
+     "sede": "Azcapotzalco y Xochimilco",
+     "prog": "Diseño Industrial",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "tec",
+     "sede": "CDMX y Santa Fe",
+     "prog": "Diseño Industrial",
+     "conf": "media",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "ibero",
+     "sede": "Santa Fe",
+     "prog": "Diseño Industrial",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "anahuac",
+     "sede": "Norte",
+     "prog": "Diseño Industrial",
+     "conf": "media",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "uvm",
+     "sede": "Cuernavaca",
+     "prog": "Diseño Industrial",
+     "conf": "alta",
+     "edo": [
+      "MOR"
+     ]
+    }
+   ],
+   "morelos": true
+  },
+  "animacion": {
+   "nombre": "Animación y Arte Digital",
+   "donde": [
+    {
+     "u": "uam",
+     "sede": "Lerma (Edomex)",
+     "prog": "Arte y Comunicación Digitales",
+     "conf": "alta",
+     "edo": [
+      "MEX"
+     ]
+    },
+    {
+     "u": "tec",
+     "sede": "CDMX y Santa Fe",
+     "prog": "Arte Digital",
+     "conf": "media",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "unitec",
+     "sede": "Varios campus",
+     "prog": "Diseño, Animación y Arte Digital",
+     "conf": "media",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "unam",
+     "sede": "Facultad de Artes y Diseño",
+     "prog": "Diseño y Comunicación Visual (orientación audiovisual)",
+     "conf": "media",
+     "edo": [
+      "CMX"
+     ]
+    }
+   ],
+   "morelos": false
+  },
+  "gastronomia": {
+   "nombre": "Gastronomía",
+   "donde": [
+    {
+     "u": "anahuac",
+     "sede": "Norte y Sur (convenio Le Cordon Bleu)",
+     "prog": "Gastronomía",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "uvm",
+     "sede": "Cuernavaca",
+     "prog": "Innovación Culinaria",
+     "conf": "alta",
+     "edo": [
+      "MOR"
+     ]
+    },
+    {
+     "u": "unitec",
+     "sede": "Varios campus",
+     "prog": "Gastronomía",
+     "conf": "media",
+     "edo": [
+      "CMX"
      ]
     }
    ],

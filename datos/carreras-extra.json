@@ -1,0 +1,529 @@
+[
+ {
+"id": "enfermeria",
+"fid": "enfermeria",
+"name": "Enfermería",
+"area": "salud",
+"color": "#5FB08E",
+"tags": "salud cuerpo ayudar",
+"desc": "Cuidas a pacientes de forma directa: signos vitales, medicamentos, curaciones y orientación a familias.",
+"q": "Un paciente recién operado dice que le duele más que hace una hora. ¿Qué haces primero?",
+"o": [
+"Tomarle signos vitales y revisar la herida",
+"Darle su medicina para el dolor de una vez",
+"Avisar al médico sin revisarlo"
+],
+"r": "Primero se revisa y se mide: así le dices al médico qué cambió. Enfermería es observar de cerca, decidir rápido y estar con el paciente día y noche.",
+"sub": "Cuidados"
+},
+ {
+"id": "odontologia",
+"fid": "odontologia",
+"name": "Odontología",
+"area": "salud",
+"color": "#7CC4B0",
+"tags": "salud cuerpo ayudar dibujo",
+"desc": "Revisas, limpias y reparas dientes, y explicas cada tratamiento a tus pacientes.",
+"q": "Una niña llega con miedo y no quiere abrir la boca. ¿Cómo empiezas?",
+"o": [
+"Le enseñas los instrumentos y le explicas qué vas a hacer",
+"Le pides a su mamá que la detenga",
+"La revisas rápido para no alargarlo"
+],
+"r": "Con calma y explicando se gana la confianza. Odontología pide manos precisas, trabajo fino de cerca y mucho trato con personas nerviosas.",
+"sub": "Clínica"
+},
+ {
+"id": "fisioterapia",
+"fid": "fisioterapia",
+"name": "Fisioterapia",
+"area": "salud",
+"color": "#6DBA7A",
+"tags": "salud cuerpo deportes ayudar",
+"desc": "Ayudas a recuperar el movimiento con ejercicio y terapias a deportistas, adultos mayores y pacientes.",
+"q": "Un futbolista quiere volver a jugar la próxima semana tras una lesión de rodilla. ¿Qué le dices?",
+"o": [
+"Primero evaluamos cómo está y avanzamos por etapas",
+"Que sí, si ya no le duele",
+"Que deje el futbol para siempre"
+],
+"r": "Se evalúa y se avanza por etapas: volver antes de tiempo puede lesionarlo peor. Es una carrera de mucho contacto, constancia y motivar a otros.",
+"sub": "Bienestar"
+},
+ {
+"id": "qfb",
+"fid": "qfb",
+"name": "QFB",
+"area": "salud",
+"color": "#4FA3A0",
+"tags": "quimica salud bio",
+"desc": "Analizas muestras en laboratorios clínicos y cuidas la calidad de los medicamentos.",
+"q": "Un análisis de sangre sale con un valor muy raro. ¿Qué haces?",
+"o": [
+"Revisas la muestra y repites la prueba antes de reportarlo",
+"Lo reportas tal cual, es lo que salió",
+"Lo corriges a un valor normal"
+],
+"r": "Un error de laboratorio cambia un diagnóstico, así que se verifica antes de reportar. QFB es precisión, química y mucho trabajo de laboratorio.",
+"sub": "Clínica"
+},
+ {
+"id": "educfisica",
+"fid": "educacion-fisica",
+"name": "Educación física",
+"area": "salud",
+"color": "#94C96E",
+"tags": "deportes cuerpo ensenar ayudar",
+"desc": "Das clases, entrenas equipos o diseñas programas de actividad física.",
+"q": "En tu clase hay alumnos que odian el deporte. ¿Qué haces?",
+"o": [
+"Buscas actividades donde todos puedan participar",
+"Los pones a correr hasta que les guste",
+"Los dejas sentados"
+],
+"r": "Se trata de que todos se muevan, no solo los buenos. La carrera mezcla cuerpo humano, enseñanza y entrenamiento.",
+"sub": "Bienestar"
+},
+ {
+"id": "industrial",
+"fid": "ingenieria-industrial",
+"name": "Ing. Industrial",
+"area": "ing",
+"color": "#E0743F",
+"tags": "mate negocios lider construccion",
+"desc": "Mejoras procesos en fábricas y servicios para que salgan más rápido, con menos errores y menos costo.",
+"q": "En una tienda la fila para pagar es enorme. ¿Qué haces primero?",
+"o": [
+"Mides cuánto tarda cada cliente y dónde se atora",
+"Contratas más cajeros de inmediato",
+"Pones música para que la espera se sienta corta"
+],
+"r": "Primero se mide y luego se decide. Ingeniería Industrial es encontrar dónde se pierde tiempo o dinero y arreglarlo con datos.",
+"sub": "Máquinas"
+},
+ {
+"id": "mecanica",
+"fid": "ingenieria-mecanica",
+"name": "Ing. Mecánica",
+"area": "ing",
+"color": "#C9653F",
+"tags": "fisica mate autos robots construccion",
+"desc": "Diseñas, pruebas y mantienes máquinas: motores, bombas y líneas de producción.",
+"q": "Una máquina de la fábrica vibra más de lo normal. ¿Qué revisas primero?",
+"o": [
+"Piezas sueltas o gastadas y su lubricación",
+"La pintas de nuevo",
+"La apagas para siempre"
+],
+"r": "Se busca la causa antes de que se rompa algo peor. Mecánica junta física, diseño en computadora y trabajo en planta.",
+"sub": "Máquinas"
+},
+ {
+"id": "electrica",
+"fid": "ingenieria-electrica",
+"name": "Ing. Eléctrica",
+"area": "ing",
+"color": "#F0A040",
+"tags": "fisica mate energia construccion",
+"desc": "Diseñas y mantienes instalaciones y redes eléctricas, de un edificio a un parque solar.",
+"q": "Al prender varios aparatos, se bota la pastilla de una casa. ¿Qué piensas?",
+"o": [
+"Que se pide más corriente de la que aguanta el circuito",
+"Que la pastilla está mal y hay que quitarla",
+"Que es mala suerte"
+],
+"r": "La protección hace su trabajo: hay que repartir la carga o rediseñar el circuito. Eléctrica es física aplicada y mucha seguridad.",
+"sub": "Energía"
+},
+ {
+"id": "electronica",
+"fid": "ingenieria-electronica",
+"name": "Ing. Electrónica",
+"area": "ing",
+"color": "#D9823A",
+"tags": "robots code fisica mate",
+"desc": "Diseñas circuitos y dispositivos, programas microcontroladores e instalas redes de telecomunicaciones.",
+"q": "Tu circuito no enciende el foco que debería. ¿Por dónde empiezas?",
+"o": [
+"Mides el voltaje en cada punto hasta ver dónde se pierde",
+"Cambias todas las piezas",
+"Compras otro circuito"
+],
+"r": "Se mide paso a paso hasta encontrar la falla. Electrónica mezcla física, matemáticas y algo de programación.",
+"sub": "Máquinas"
+},
+ {
+"id": "quimicaing",
+"fid": "ingenieria-quimica",
+"name": "Ing. Química",
+"area": "ing",
+"color": "#E8875A",
+"tags": "quimica mate ambiente",
+"desc": "Diseñas y mejoras procesos que convierten materias primas en productos, cuidando la seguridad y el ambiente.",
+"q": "Una planta de refrescos quiere producir el doble. ¿Qué revisas?",
+"o": [
+"Si los equipos, la energía y el agua alcanzan para el doble",
+"Solo compras el doble de ingredientes",
+"Pides que trabajen más rápido"
+],
+"r": "Escalar un proceso cambia todo: equipos, calor, agua y residuos. Ingeniería Química es química con números y fábrica.",
+"sub": "Energía"
+},
+ {
+"id": "biomedica",
+"fid": "biomedica",
+"name": "Biomédica",
+"area": "ing",
+"color": "#D96A5A",
+"tags": "salud robots fisica cuerpo",
+"desc": "Mantienes y diseñas equipo médico, de monitores a tomógrafos.",
+"q": "Un monitor de un hospital marca datos raros en todos los pacientes. ¿Qué haces?",
+"o": [
+"Revisas y calibras el equipo antes de que lo usen",
+"Avisas a los médicos que ignoren el monitor",
+"Lo apagas y te vas"
+],
+"r": "Un equipo mal calibrado puede engañar a todo un hospital. Biomédica junta ingeniería y salud.",
+"sub": "Construcción"
+},
+ {
+"id": "ia",
+"fid": "inteligencia-artificial",
+"name": "Inteligencia artificial",
+"area": "tec",
+"color": "#4F8CC9",
+"tags": "ia code mate robots",
+"desc": "Entrenas y ajustas modelos de IA y revisas que funcionen bien y de forma justa.",
+"q": "Tu modelo reconoce perros en fotos, pero falla con perros negros. ¿Qué haces?",
+"o": [
+"Revisas si había pocas fotos de perros negros al entrenarlo",
+"Le subes la velocidad al modelo",
+"Dices que es culpa de las fotos"
+],
+"r": "Un modelo aprende de los datos que le das: si faltan casos, falla en ellos. IA es matemáticas, programación y mucho cuidado con los datos.",
+"sub": "Software"
+},
+ {
+"id": "ciberseguridad",
+"fid": "ciberseguridad",
+"name": "Ciberseguridad",
+"area": "tec",
+"color": "#3E6FA8",
+"tags": "seguridad code ia",
+"desc": "Proteges sistemas: vigilas ataques, buscas fallas con permiso y respondes a incidentes.",
+"q": "Un empleado recibe un correo de su «banco» pidiendo su contraseña. ¿Qué haces?",
+"o": [
+"Lo revisas como posible engaño y avisas al equipo",
+"Le dices que conteste rápido",
+"Lo ignoras"
+],
+"r": "Muchos ataques entran por engaños a personas, no por la computadora. Ciberseguridad es pensar como atacante para defender.",
+"sub": "Software"
+},
+ {
+"id": "quimica",
+"fid": "quimica",
+"name": "Química",
+"area": "tec",
+"color": "#5DA0C9",
+"tags": "quimica bio ambiente",
+"desc": "Analizas sustancias, creas materiales y controlas la calidad en laboratorios.",
+"q": "Un champú nuevo irrita la piel de algunas personas. ¿Qué haces?",
+"o": [
+"Analizas sus ingredientes y pruebas cuál causa la reacción",
+"Le cambias el olor",
+"Lo vendes igual"
+],
+"r": "Se aísla la causa con pruebas controladas. Química es laboratorio, paciencia y mucha precisión.",
+"sub": "Ciencias"
+},
+ {
+"id": "biologia",
+"fid": "biologia",
+"name": "Biología",
+"area": "tec",
+"color": "#5BA88A",
+"tags": "bio animales ambiente naturaleza mar",
+"desc": "Estudias seres vivos en campo o laboratorio: especies, muestras y conservación.",
+"q": "Las ranas de un lago están desapareciendo. ¿Qué haces primero?",
+"o": [
+"Tomas muestras de agua y cuentas cuántas quedan",
+"Traes ranas de otro lugar",
+"Cierras el lago"
+],
+"r": "Primero se observa y se mide para entender la causa. Biología es mucho trabajo de campo, datos y paciencia.",
+"sub": "Ciencias"
+},
+ {
+"id": "matematicas",
+"fid": "matematicas",
+"name": "Matemáticas",
+"area": "tec",
+"color": "#6E86C6",
+"tags": "mate code fisica",
+"desc": "Resuelves problemas con modelos matemáticos en bancos, tecnología, ciencia o docencia.",
+"q": "Te piden saber cuántas personas caben en un estadio sin contarlas una por una. ¿Cómo empiezas?",
+"o": [
+"Cuentas una sección y multiplicas por las secciones",
+"Adivinas un número redondo",
+"Dices que no se puede"
+],
+"r": "Estimar con un modelo sencillo es pensar como matemático. La carrera es demostrar, abstraer y resolver problemas.",
+"sub": "Ciencias"
+},
+ {
+"id": "contaduria",
+"fid": "contaduria",
+"name": "Contaduría",
+"area": "neg",
+"color": "#C9A23F",
+"tags": "negocios mate",
+"desc": "Llevas las cuentas de empresas y personas, preparas impuestos y revisas que todo cuadre.",
+"q": "Una tiendita vende mucho pero nunca le alcanza el dinero. ¿Qué revisas primero?",
+"o": [
+"Cuánto gasta y en qué, mes por mes",
+"Que suba todos los precios",
+"Que pida un préstamo"
+],
+"r": "Sin ordenar los números no se sabe dónde se va el dinero. Contaduría es orden, precisión y conocer las reglas de impuestos.",
+"sub": "Empresa"
+},
+ {
+"id": "economia",
+"fid": "economia",
+"name": "Economía",
+"area": "neg",
+"color": "#B98F48",
+"tags": "negocios mate escribir",
+"desc": "Analizas datos para entender precios, empleo y comercio, y recomiendas decisiones.",
+"q": "El precio de la tortilla sube en tu ciudad. ¿Qué investigas primero?",
+"o": [
+"Si subió el maíz, el gas o el transporte",
+"A quién culpar en redes",
+"Nada, siempre suben"
+],
+"r": "Se buscan las causas con datos. Economía usa matemáticas, estadística y mucha lectura sobre cómo decide la gente.",
+"sub": "Empresa"
+},
+ {
+"id": "actuaria",
+"fid": "actuaria",
+"name": "Actuaría",
+"area": "neg",
+"color": "#A88A3A",
+"tags": "mate negocios code",
+"desc": "Calculas riesgos con estadística: cuánto debe costar un seguro o cuánto ahorrar para el futuro.",
+"q": "Una aseguradora quiere cobrar lo mismo a todos por el seguro de auto. ¿Qué opinas?",
+"o": [
+"Que conviene ver qué tan probable es un choque en cada caso",
+"Que es lo más justo",
+"Que mejor no venda seguros"
+],
+"r": "El precio de un seguro sale de calcular riesgos. Actuaría es probabilidad y estadística aplicadas al dinero.",
+"sub": "Empresa"
+},
+ {
+"id": "mercadotecnia",
+"fid": "mercadotecnia",
+"name": "Mercadotecnia",
+"area": "neg",
+"color": "#E0A83C",
+"tags": "marketing negocios diseno escribir",
+"desc": "Investigas qué quiere la gente, creas campañas y mides si funcionaron.",
+"q": "Una cafetería nueva no tiene clientes. ¿Qué haces primero?",
+"o": [
+"Preguntas a la gente de la zona qué busca",
+"Pagas anuncios en todas partes",
+"Bajas los precios a la mitad"
+],
+"r": "Primero se entiende al cliente; luego se decide el mensaje. Mercadotecnia es investigar, crear y medir.",
+"sub": "Empresa"
+},
+ {
+"id": "comext",
+"fid": "negocios-internacionales",
+"name": "Negocios internacionales",
+"area": "neg",
+"color": "#C98B3C",
+"tags": "negocios idiomas viajar",
+"desc": "Coordinas importaciones y exportaciones: trámites, envíos y negociación con otros países.",
+"q": "Un productor de aguacate de Michoacán quiere vender en Japón. ¿Qué revisas primero?",
+"o": [
+"Qué requisitos pide Japón para entrar",
+"El diseño de la caja",
+"Cuánto cuesta un boleto de avión"
+],
+"r": "Sin cumplir las reglas del otro país, la mercancía no entra. Es una carrera de trámites, logística, idiomas y negociación.",
+"sub": "Empresa"
+},
+ {
+"id": "turismo",
+"fid": "turismo",
+"name": "Turismo",
+"area": "neg",
+"color": "#E3B04A",
+"tags": "negocios ayudar viajar",
+"desc": "Operas hoteles, agencias y destinos: atiendes huéspedes, organizas eventos y resuelves imprevistos.",
+"q": "Llega un grupo de turistas y su reservación no aparece. ¿Qué haces?",
+"o": [
+"Los atiendes con calma y buscas una solución mientras esperan",
+"Les dices que no es tu culpa",
+"Los mandas a otro hotel sin ayudarlos"
+],
+"r": "Resolver imprevistos con buena cara es el trabajo diario. Turismo es servicio, organización y mucho trato con personas.",
+"sub": "Empresa"
+},
+ {
+"id": "politicas",
+"fid": "ciencias-politicas",
+"name": "Ciencias políticas",
+"area": "neg",
+"color": "#B4794F",
+"tags": "leyes escribir ayudar lider",
+"desc": "Analizas problemas públicos y diseñas o evalúas programas de gobierno.",
+"q": "Tu municipio quiere reducir los accidentes en una avenida. ¿Qué propones primero?",
+"o": [
+"Revisar dónde y por qué ocurren los accidentes",
+"Poner más policías sin revisar nada",
+"Cerrar la avenida"
+],
+"r": "Una buena política pública empieza por entender el problema con datos. La carrera mezcla análisis, lectura y gobierno.",
+"sub": "Gobierno"
+},
+ {
+"id": "rrii",
+"fid": "relaciones-internacionales",
+"name": "Relaciones internacionales",
+"area": "neg",
+"color": "#A9805C",
+"tags": "idiomas leyes escribir viajar",
+"desc": "Analizas lo que pasa en otros países y cómo afecta a México.",
+"q": "Otro país pone un impuesto a los productos mexicanos. ¿Qué haces primero?",
+"o": [
+"Analizas a quién afecta y qué acuerdos hay entre los dos países",
+"Pides cortar relaciones",
+"Lo ignoras"
+],
+"r": "Se entiende el problema y luego se negocia. Es una carrera de mucha lectura, idiomas y diplomacia.",
+"sub": "Gobierno"
+},
+ {
+"id": "sociologia",
+"fid": "sociologia",
+"name": "Sociología",
+"area": "neg",
+"color": "#9F8A6A",
+"tags": "ayudar escribir mente",
+"desc": "Investigas problemas sociales con encuestas, entrevistas y datos.",
+"q": "Muchos jóvenes de tu colonia dejan la escuela. ¿Cómo lo investigas?",
+"o": [
+"Platicas con ellos y sus familias y buscas datos",
+"Supones que no les gusta estudiar",
+"Publicas tu opinión en redes"
+],
+"r": "Se escucha a la gente y se buscan datos antes de concluir. Sociología es investigar cómo vivimos juntos.",
+"sub": "Sociedad"
+},
+ {
+"id": "trabajosocial",
+"fid": "trabajo-social",
+"name": "Trabajo social",
+"area": "neg",
+"color": "#C08A6A",
+"tags": "ayudar mente",
+"desc": "Acompañas a familias y personas vulnerables y gestionas apoyos y programas.",
+"q": "Una familia no puede pagar el tratamiento de su hijo. ¿Qué haces?",
+"o": [
+"Revisas su situación y los conectas con apoyos que existen",
+"Les prestas tu dinero",
+"Les dices que no hay nada que hacer"
+],
+"r": "Se conoce bien el caso y se buscan los apoyos adecuados. Trabajo social es escuchar, gestionar y no rendirse.",
+"sub": "Sociedad"
+},
+ {
+"id": "criminologia",
+"fid": "criminologia",
+"name": "Criminología",
+"area": "neg",
+"color": "#8E6F5A",
+"tags": "leyes mente seguridad",
+"desc": "Analizas escenas, elaboras peritajes y trabajas en prevención del delito.",
+"q": "Llegas a una escena donde robaron una casa. ¿Qué haces primero?",
+"o": [
+"Proteges el lugar para que nadie mueva nada",
+"Buscas al culpable entre los vecinos",
+"Limpias para ver mejor"
+],
+"r": "Una escena alterada pierde pruebas. Criminología es método, observación y mucho cuidado con los detalles.",
+"sub": "Gobierno"
+},
+ {
+"id": "grafico",
+"fid": "diseno-grafico",
+"name": "Diseño gráfico",
+"area": "arte",
+"color": "#C76BA0",
+"tags": "diseno dibujo marketing",
+"desc": "Creas logotipos, campañas, empaques y contenido digital para clientes.",
+"q": "Un cliente quiere que su logo sea «más moderno», sin decir cómo. ¿Qué haces?",
+"o": [
+"Le preguntas qué marcas admira y a quién le quiere hablar",
+"Le haces diez logos al azar",
+"Le dices que su logo ya está bien"
+],
+"r": "Diseñar es resolver lo que el cliente necesita, no solo lo que pide. Hay creatividad, pero también correcciones y fechas de entrega.",
+"sub": "Diseño"
+},
+ {
+"id": "disindustrial",
+"fid": "diseno-industrial",
+"name": "Diseño industrial",
+"area": "arte",
+"color": "#B06AAE",
+"tags": "diseno dibujo construccion",
+"desc": "Diseñas objetos que se fabrican en serie: muebles, empaques, juguetes.",
+"q": "Diseñas una silla para un salón de clases. ¿Qué piensas primero?",
+"o": [
+"Quién la usa, cuánto aguanta y cómo se apila",
+"Que se vea muy original",
+"Que sea de un material caro"
+],
+"r": "Un objeto bien diseñado funciona, se fabrica y dura. La carrera junta dibujo, modelado en 3D y prototipos.",
+"sub": "Diseño"
+},
+ {
+"id": "animacion",
+"fid": "animacion",
+"name": "Animación",
+"area": "arte",
+"color": "#D07A9C",
+"tags": "dibujo cine videojuegos diseno",
+"desc": "Creas personajes, escenarios y movimiento para series, videojuegos y publicidad.",
+"q": "Tu personaje camina, pero se ve rígido. ¿Qué revisas?",
+"o": [
+"Cómo se mueven los brazos y el peso del cuerpo al pisar",
+"Le cambias el color",
+"Lo haces caminar más rápido"
+],
+"r": "El movimiento creíble sale de observar cómo se mueve la gente. Animación es dibujo, paciencia y muchas horas de detalle.",
+"sub": "Medios"
+},
+ {
+"id": "gastronomia",
+"fid": "gastronomia",
+"name": "Gastronomía",
+"area": "arte",
+"color": "#E07A5F",
+"tags": "cocina negocios diseno",
+"desc": "Cocinas, creas platillos, controlas costos y diriges equipos de cocina.",
+"q": "Tu platillo estrella sale caro y casi no deja ganancia. ¿Qué haces?",
+"o": [
+"Revisas el costo de cada ingrediente y ajustas la receta o el precio",
+"Lo quitas del menú sin revisar",
+"Usas ingredientes de menor calidad sin avisar"
+],
+"r": "Cocinar bien es la mitad: también hay que llevar costos y dirigir un equipo. Gastronomía es creatividad con mucha disciplina.",
+"sub": "Escena"
+}
+]

@@ -23,8 +23,11 @@ var ISOFIX=(function(){
   arte:{subs:["Diseño","Medios","Escena"],tags:"diseno dibujo cine foto musica teatro escribir moda",n:["Diseño gráfico","Diseño industrial","Música","Teatro","Danza","Artes visuales","Fotografía","Animación","Periodismo","Letras","Diseño de interiores","Producción musical","Publicidad","Ilustración","Arte digital","Escenografía","Traducción","Conservación de arte","Diseño de modas","Locución"]}
  };
  var PAL={salud:["#3F9C7A","#4BAAA3","#8CC7A1","#5FB28E"],ing:["#E8603C","#F2894F","#D8574A","#EBA45A"],tec:["#3F7DA6","#5BA3D0","#2D6A8A","#6FA8DC"],neg:["#A8793A","#F2B544","#D98E3B","#EAD06B"],arte:["#B88AA8","#D98C9C","#9E86BF","#7C5C8E"]};
+ /* las carreras que la app suma a C (datos/carreras-extra.json) también van al mapa */
+ function extras(){if(typeof C==="undefined")return [];var have={};REAL.forEach(function(r){have[r.id]=1});
+  return C.filter(function(c){return !have[c.id]}).map(function(c){return {id:c.id,name:c.name,area:c.area,sub:c.sub||MORE[c.area].subs[0],color:c.color,tags:String(c.tags||"").split(" "),short:c.name.replace(/^Ing\. /,"")}})}
  function catalog(n){
-  if(n<=20)return REAL.slice(0,n);
+  if(n<=20)return REAL.slice(0,n).concat(n===20?extras():[]);
   var out=REAL.slice(),k=0,ids=["salud","ing","tec","neg","arte"];
   while(out.length<n){var a=ids[k%5],m=MORE[a],i=Math.floor(k/5);if(i>=m.n.length)break;var tg=m.tags.split(" ");
    out.push({id:a+"_"+i,name:m.n[i],area:a,sub:m.subs[i%m.subs.length],color:PAL[a][i%4],tags:[tg[i%tg.length],tg[(i*3+1)%tg.length],tg[(i*5+2)%tg.length]]});k++}

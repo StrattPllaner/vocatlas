@@ -29,4 +29,7 @@ Estado al 17 de noviembre de 2026. Se marca conforme avanza.
 - [x] Universidades de Morelos y CDMX (10, públicas y privadas) con costo, examen y fuente, desde `datos/fuentes/vocatlas_carreras.json` vía `datos/importar_carreras.py`. Se ven en «Escuelas» de cada carrera y en Yo.
   - [x] Sueldo promedio y cuántos ejercen su carrera (IMCO 2026, promedio nacional) para 15 carreras del mapa.
   - [ ] Pendiente: confirmar los costos y requisitos marcados «por confirmar» (confianza media en la base).
-  - [ ] Pendiente: duración, costos por carrera y becas siguen pendientes en las lecciones; la base trae la duración en texto, sin fuente.
+  - [x] Duración y costo por carrera desde la base («Por confirmar» en la app); becas con fuente oficial (Jóvenes Escribiendo el Futuro, UNAM, IPN).
+  - [x] 31 carreras nuevas de la base en `datos/carreras-extra.json` (descripción, temas y mini reto escritos para la app; edificio genérico de su zona; lecciones «Llega pronto»).
+  - [ ] Pendiente: edificio propio, Rumbo y lecciones de las 31 carreras nuevas; sumarlas a la regla del test de intereses.
+  - [ ] Pendiente: el peso es 329 KB comprimidos (límite 320); si hace falta, los mini retos de las carreras nuevas pueden descargarse aparte.

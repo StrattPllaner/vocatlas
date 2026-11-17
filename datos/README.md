@@ -52,4 +52,6 @@ python3 datos/validar.py
 python3 src/build.py
 ```
 
-Lo marcado con confianza «media» en la base se muestra con la etiqueta «Por confirmar».
+Lo marcado con confianza «media» en la base se muestra con la etiqueta «Por confirmar». La duración y el costo por carrera también: salen de la base sin fuente oficial propia (estado `confirmar` en `cifras.json`, que el validador acepta sin enlace).
+
+- `carreras-extra.json`: las 31 carreras de la base que no estaban en la app, con su equivalente en la base (`fid`), subzona del mapa, temas, descripción y mini reto.

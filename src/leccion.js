@@ -17,7 +17,7 @@ var LEC=(function(){
  function rb(m){return '<div class="lc-rb">'+rumboEl()+'</div>'}
  function datoHTML(key,bet,uni){var d=(CAT.cif||{})[key];
   if(!d||d.estado==="pendiente"||d.valor==null)return '<div class="lc-empty">'+rb()+'<p><b>Todavía no tenemos esta cifra verificada.</b> No la vamos a inventar.'+(d&&d.fuente_sugerida?' Puedes buscarla en '+h(d.fuente_sugerida)+'.':'')+'</p></div>'+(bet!=null?'<p class="lc-bet">Tu apuesta: <b>'+bet+'</b> '+h(uni||"")+'. La guardamos para compararla cuando llegue el dato.</p>':'');
-  return '<div class="lc-dato"><b class="num">'+h(String(d.valor))+'</b> <span>'+h(d.unidad||"")+'</span><small>Fuente: '+(d.url?'<a href="'+h(d.url)+'" target="_blank" rel="noopener">'+h(d.fuente)+'</a>':h(d.fuente))+' · consultado el '+h(d.consultado||"")+'</small></div>'+(bet!=null?'<p class="lc-bet">Tu apuesta: <b>'+bet+'</b> '+h(uni||"")+'.</p>':'')}
+  return '<div class="lc-dato'+(d.estado==="confirmar"?' is-conf':'')+(String(d.valor).length>14?' is-txt':'')+'">'+(d.estado==="confirmar"?'<em class="lc-conf">Por confirmar</em>':'')+'<b class="num">'+h(String(d.valor))+'</b> <span>'+h(d.unidad||"")+'</span>'+(d.nota?'<p class="lc-dnota">'+h(d.nota)+'</p>':'')+'<small>Fuente: '+(d.url?'<a href="'+h(d.url)+'" target="_blank" rel="noopener">'+h(d.fuente)+'</a>':h(d.fuente))+' · consultado el '+h(d.consultado||"")+'</small></div>'+(bet!=null?'<p class="lc-bet">Tu apuesta: <b>'+bet+'</b> '+h(uni||"")+'.</p>':'')}
  /* interacción común: elegir una pieza y luego un lugar */
  function pairUI(box,left,right,order,opts){
   /* left: textos fijos; right: textos; order: orden en que se muestran los de la derecha. Devuelve {get,lock,mark} */
