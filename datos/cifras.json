@@ -61,5 +61,257 @@
   "consultado": null,
   "estado": "pendiente",
   "fuente_sugerida": "el Observatorio Laboral, de la Secretaría del Trabajo"
+ },
+ "computacion.duracion": {
+  "valor": null,
+  "unidad": "años",
+  "fuente": null,
+  "url": null,
+  "consultado": null,
+  "estado": "pendiente",
+  "fuente_sugerida": "el plan de estudios en el sitio oficial de la universidad que te interese"
+ },
+ "computacion.aspirantes": {
+  "valor": null,
+  "unidad": "aspirantes por lugar",
+  "fuente": null,
+  "url": null,
+  "consultado": null,
+  "estado": "pendiente",
+  "fuente_sugerida": "las estadísticas de admisión que publica cada universidad"
+ },
+ "computacion.costo_publica": {
+  "valor": null,
+  "unidad": "pesos por semestre",
+  "fuente": null,
+  "url": null,
+  "consultado": null,
+  "estado": "pendiente",
+  "fuente_sugerida": "la convocatoria y el reglamento de pagos de la universidad pública de tu estado"
+ },
+ "computacion.costo_privada": {
+  "valor": null,
+  "unidad": "pesos por semestre",
+  "fuente": null,
+  "url": null,
+  "consultado": null,
+  "estado": "pendiente",
+  "fuente_sugerida": "la página de colegiaturas de la universidad privada que te interese"
+ },
+ "computacion.becas": {
+  "valor": null,
+  "unidad": "",
+  "fuente": null,
+  "url": null,
+  "consultado": null,
+  "estado": "pendiente",
+  "fuente_sugerida": "los sitios oficiales de becas del gobierno y de cada universidad"
+ },
+ "computacion.ingreso": {
+  "valor": null,
+  "unidad": "pesos al mes",
+  "fuente": null,
+  "url": null,
+  "consultado": null,
+  "estado": "pendiente",
+  "fuente_sugerida": "Compara Carreras, del IMCO"
+ },
+ "computacion.ocupacion_afin": {
+  "valor": null,
+  "unidad": "de cada 100",
+  "fuente": null,
+  "url": null,
+  "consultado": null,
+  "estado": "pendiente",
+  "fuente_sugerida": "el Observatorio Laboral de la Secretaría del Trabajo"
+ },
+ "derecho.duracion": {
+  "valor": null,
+  "unidad": "años",
+  "fuente": null,
+  "url": null,
+  "consultado": null,
+  "estado": "pendiente",
+  "fuente_sugerida": "el plan de estudios en el sitio oficial de la universidad que te interese"
+ },
+ "derecho.aspirantes": {
+  "valor": null,
+  "unidad": "aspirantes por lugar",
+  "fuente": null,
+  "url": null,
+  "consultado": null,
+  "estado": "pendiente",
+  "fuente_sugerida": "las estadísticas de admisión que publica cada universidad"
+ },
+ "derecho.costo_publica": {
+  "valor": null,
+  "unidad": "pesos por semestre",
+  "fuente": null,
+  "url": null,
+  "consultado": null,
+  "estado": "pendiente",
+  "fuente_sugerida": "la convocatoria y el reglamento de pagos de la universidad pública de tu estado"
+ },
+ "derecho.costo_privada": {
+  "valor": null,
+  "unidad": "pesos por semestre",
+  "fuente": null,
+  "url": null,
+  "consultado": null,
+  "estado": "pendiente",
+  "fuente_sugerida": "la página de colegiaturas de la universidad privada que te interese"
+ },
+ "derecho.becas": {
+  "valor": null,
+  "unidad": "",
+  "fuente": null,
+  "url": null,
+  "consultado": null,
+  "estado": "pendiente",
+  "fuente_sugerida": "los sitios oficiales de becas del gobierno y de cada universidad"
+ },
+ "derecho.ingreso": {
+  "valor": null,
+  "unidad": "pesos al mes",
+  "fuente": null,
+  "url": null,
+  "consultado": null,
+  "estado": "pendiente",
+  "fuente_sugerida": "Compara Carreras, del IMCO"
+ },
+ "derecho.ocupacion_afin": {
+  "valor": null,
+  "unidad": "de cada 100",
+  "fuente": null,
+  "url": null,
+  "consultado": null,
+  "estado": "pendiente",
+  "fuente_sugerida": "el Observatorio Laboral de la Secretaría del Trabajo"
+ },
+ "arquitectura.duracion": {
+  "valor": null,
+  "unidad": "años",
+  "fuente": null,
+  "url": null,
+  "consultado": null,
+  "estado": "pendiente",
+  "fuente_sugerida": "el plan de estudios en el sitio oficial de la universidad que te interese"
+ },
+ "arquitectura.aspirantes": {
+  "valor": null,
+  "unidad": "aspirantes por lugar",
+  "fuente": null,
+  "url": null,
+  "consultado": null,
+  "estado": "pendiente",
+  "fuente_sugerida": "las estadísticas de admisión que publica cada universidad"
+ },
+ "arquitectura.costo_publica": {
+  "valor": null,
+  "unidad": "pesos por semestre",
+  "fuente": null,
+  "url": null,
+  "consultado": null,
+  "estado": "pendiente",
+  "fuente_sugerida": "la convocatoria y el reglamento de pagos de la universidad pública de tu estado"
+ },
+ "arquitectura.costo_privada": {
+  "valor": null,
+  "unidad": "pesos por semestre",
+  "fuente": null,
+  "url": null,
+  "consultado": null,
+  "estado": "pendiente",
+  "fuente_sugerida": "la página de colegiaturas de la universidad privada que te interese"
+ },
+ "arquitectura.becas": {
+  "valor": null,
+  "unidad": "",
+  "fuente": null,
+  "url": null,
+  "consultado": null,
+  "estado": "pendiente",
+  "fuente_sugerida": "los sitios oficiales de becas del gobierno y de cada universidad"
+ },
+ "arquitectura.ingreso": {
+  "valor": null,
+  "unidad": "pesos al mes",
+  "fuente": null,
+  "url": null,
+  "consultado": null,
+  "estado": "pendiente",
+  "fuente_sugerida": "Compara Carreras, del IMCO"
+ },
+ "arquitectura.ocupacion_afin": {
+  "valor": null,
+  "unidad": "de cada 100",
+  "fuente": null,
+  "url": null,
+  "consultado": null,
+  "estado": "pendiente",
+  "fuente_sugerida": "el Observatorio Laboral de la Secretaría del Trabajo"
+ },
+ "veterinaria.duracion": {
+  "valor": null,
+  "unidad": "años",
+  "fuente": null,
+  "url": null,
+  "consultado": null,
+  "estado": "pendiente",
+  "fuente_sugerida": "el plan de estudios en el sitio oficial de la universidad que te interese"
+ },
+ "veterinaria.aspirantes": {
+  "valor": null,
+  "unidad": "aspirantes por lugar",
+  "fuente": null,
+  "url": null,
+  "consultado": null,
+  "estado": "pendiente",
+  "fuente_sugerida": "las estadísticas de admisión que publica cada universidad"
+ },
+ "veterinaria.costo_publica": {
+  "valor": null,
+  "unidad": "pesos por semestre",
+  "fuente": null,
+  "url": null,
+  "consultado": null,
+  "estado": "pendiente",
+  "fuente_sugerida": "la convocatoria y el reglamento de pagos de la universidad pública de tu estado"
+ },
+ "veterinaria.costo_privada": {
+  "valor": null,
+  "unidad": "pesos por semestre",
+  "fuente": null,
+  "url": null,
+  "consultado": null,
+  "estado": "pendiente",
+  "fuente_sugerida": "la página de colegiaturas de la universidad privada que te interese"
+ },
+ "veterinaria.becas": {
+  "valor": null,
+  "unidad": "",
+  "fuente": null,
+  "url": null,
+  "consultado": null,
+  "estado": "pendiente",
+  "fuente_sugerida": "los sitios oficiales de becas del gobierno y de cada universidad"
+ },
+ "veterinaria.ingreso": {
+  "valor": null,
+  "unidad": "pesos al mes",
+  "fuente": null,
+  "url": null,
+  "consultado": null,
+  "estado": "pendiente",
+  "fuente_sugerida": "Compara Carreras, del IMCO"
+ },
+ "veterinaria.ocupacion_afin": {
+  "valor": null,
+  "unidad": "de cada 100",
+  "fuente": null,
+  "url": null,
+  "consultado": null,
+  "estado": "pendiente",
+  "fuente_sugerida": "el Observatorio Laboral de la Secretaría del Trabajo"
  }
 }

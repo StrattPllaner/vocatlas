@@ -1,6 +1,6 @@
 # Plan de Vocatlas
 
-Estado al 15 de noviembre de 2026. Se marca conforme avanza.
+Estado al 16 de noviembre de 2026. Se marca conforme avanza.
 
 - [x] Fase 1: `CURRICULO.md` y revisión de la licencia del test.
 - [x] Fase 2: sin barra superior, carga nueva, boceto y acuarela, ambiente animado.
@@ -12,7 +12,7 @@ Estado al 15 de noviembre de 2026. Se marca conforme avanza.
   - [x] Tarjetas que necesitan revisión marcadas en el catálogo; lista para el médico en `docs/REVISION_MEDICINA.md` (29 para el médico, 9 para fuente oficial).
   - [ ] Pendiente: las 7 cifras de Medicina siguen sin verificar (la app muestra el estado vacío).
   - [ ] Pendiente: testimonio de Medicina (falta la entrevista).
-  - [ ] Pendiente: el catálogo va dentro de `index.html`; con cinco carreras completas habrá que cargarlo aparte para no pasar el límite de peso.
+  - [x] El texto de las lecciones ya no va dentro de `index.html`: se descarga de `datos/carreras/` al abrir una carrera y queda guardado para usarse sin conexión.
 - [x] Fase 4: Probar con el test de intereses (versiones de 30 y 60, una pregunta por pantalla, resultados, carreras sugeridas con «Agregar», historial, créditos y avisos), retos rápidos y comparador.
   - [ ] Pendiente tuyo: crear la clave en services.onetcenter.org y correr `ONET_API_KEY=… python3 datos/onet/cargar.py`. Hasta entonces el test avisa que no tiene preguntas y no deja empezar.
   - [ ] Pendiente: probar el test con las preguntas reales; solo se probó con un banco de prueba que vive en el script de QA.
@@ -21,7 +21,9 @@ Estado al 15 de noviembre de 2026. Se marca conforme avanza.
 - [x] Arreglos pedidos el 16 de noviembre: mapa fluido (cámara que no redibuja y piezas horneadas como imagen), límite de nubes, anillos de agua junto con su isla, ruta de lecciones como viaje entre islas, Comparar como pestaña propia, trajes de tela, caminado con pasos cruzados, 75 % en proceso, orilla superior al hacer scroll, menos texto.
   - [ ] Pendiente: medir en un iPhone y en Safari de verdad (solo se midió en WebKit sin tarjeta gráfica).
 - [ ] Pausa: prueba de Medicina y del test con estudiantes.
-- [ ] Fase 3b: contenido de Computación, Derecho, Arquitectura y Veterinaria.
+- [x] Fase 3b: contenido de Computación, Derecho, Arquitectura y Veterinaria (21 lecciones cada una, con sus retos propios).
+  - [ ] Pendiente: revisión por un profesionista de cada carrera: `docs/REVISION_COMPUTACION.md`, `docs/REVISION_DERECHO.md`, `docs/REVISION_ARQUITECTURA.md` y `docs/REVISION_VETERINARIA.md`.
+  - [ ] Pendiente: 28 cifras nuevas (7 por carrera) y cuatro testimonios.
 - [ ] Fase 5: perfil.
 - [x] Guion de entrevista de cinco preguntas y formato de autorización: `docs/TESTIMONIOS.md`.
 - [ ] Universidades de ejemplo: pública nacional, pública estatal (falta confirmar el estado) y privada.

@@ -385,3 +385,5 @@ try{if(localStorage.getItem("vocatlas_qa"))window.__vt=function(c){return eval(c
  document.body.classList.toggle("on-map",typeof curView!=="undefined"&&curView==="map");
  if(c===last)return;last=c;for(var k=0;k<m.length;k++)m[k].setAttribute("content",c)}
  setInterval(sync,700);document.addEventListener("visibilitychange",sync);setTimeout(sync,50)})();
+/* las lecciones de las carreras de tu mapa se descargan solas al rato, para que funcionen sin conexión */
+window.addEventListener("load",function(){setTimeout(function(){if(typeof carPrefetch==="function")carPrefetch()},2500)});

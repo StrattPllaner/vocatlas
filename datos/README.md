@@ -1,9 +1,9 @@
 # Catálogo de contenido
 
-Todo el contenido de las lecciones vive aquí, separado del código. `src/build.py` lo copia dentro de `index.html`.
+Todo el contenido de las lecciones vive aquí, separado del código. `src/build.py` copia dentro de `index.html` la estructura, las cifras y los títulos; el texto de cada lección se descarga de `carreras/<id>.json` al abrir la carrera.
 
 - `estructura.json`: las 6 unidades y 21 lecciones comunes a todas las carreras, con el tipo de parada de cada una.
-- `carreras/<id>.json`: el contenido de una carrera. Hoy solo existe `medicina.json`; las otras 19 usan la estructura y muestran «Llega pronto» en lo que no tienen.
+- `carreras/<id>.json`: el contenido de una carrera. Hoy existen Medicina, Computación, Derecho, Arquitectura y Veterinaria; las otras 15 usan la estructura y muestran «Llega pronto» en lo que no tienen.
 - `cifras.json`: cada cifra con valor, unidad, fuente, enlace y fecha de consulta. Una tarjeta nunca trae un número escrito: apunta a su cifra. Si está pendiente, la app muestra un estado vacío.
 - `demo-dinamicas.json`: una lección de muestra con las seis dinámicas nuevas. Se ve en `index.html#din`.
 
@@ -19,7 +19,7 @@ El validador revisa: de 5 a 8 tarjetas por lección, máximo 40 palabras por tex
 
 ## Revisión
 
-Una tarjeta con `"revisar": "medico"` tiene una afirmación clínica o del ejercicio profesional; con `"revisar": "fuente"`, una regla o trámite que se confirma en fuente oficial. La lista completa para enseñarle al médico está en `docs/REVISION_MEDICINA.md`. Cuando una tarjeta quede revisada, se le quita la marca.
+Una tarjeta con `"revisar": "medico"` tiene una afirmación clínica o del ejercicio profesional; con `"revisar": "fuente"`, una regla o trámite que se confirma en fuente oficial. Cada carrera tiene su lista para el profesionista que la revise en `docs/REVISION_<CARRERA>.md`. Cuando una tarjeta quede revisada, se le quita la marca.
 
 ## Tipos de tarjeta
 

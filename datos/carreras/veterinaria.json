@@ -1,0 +1,1281 @@
+{
+ "id": "veterinaria",
+ "version": 1,
+ "estado": "completo",
+ "revision": "Pendiente de revisión por un veterinario. Las tarjetas con «revisar»: «veterinario» contienen afirmaciones clínicas o del ejercicio profesional; las de «fuente» son reglas o trámites que hay que confirmar en fuente oficial.",
+ "unidades": [
+  {
+   "id": "u1",
+   "lecciones": [
+    {
+     "id": "1.1",
+     "titulo": "Qué es y qué resuelve",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Llega don Toño con Canela, su perrita. No come desde ayer y casi no se mueve. Él está muy nervioso."
+      },
+      {
+       "tipo": "decision",
+       "pregunta": "¿Qué haces primero?",
+       "opciones": [
+        {
+         "texto": "Le preguntas a don Toño qué ha cambiado y la revisas",
+         "consecuencia": "Tu paciente no habla: el dueño te cuenta qué comió, qué hizo y desde cuándo. Con eso y la revisión empiezas.",
+         "mejor": true
+        },
+        {
+         "texto": "Le pides de una vez todos los análisis",
+         "consecuencia": "Los estudios ayudan, pero sin saber qué buscas no sabes cuál pedir. Y a la familia le cuestan."
+        },
+        {
+         "texto": "Le das algo para que coma",
+         "consecuencia": "Si no sabes por qué no come, podrías empeorarla. Primero se busca la causa."
+        }
+       ],
+       "revisar": "veterinario"
+      },
+      {
+       "tipo": "ordenar",
+       "pregunta": "Así trabaja un veterinario. Ponlo en orden.",
+       "pasos": [
+        "Escuchar al dueño",
+        "Revisar al animal",
+        "Pedir los estudios necesarios",
+        "Decidir el tratamiento",
+        "Dar seguimiento"
+       ],
+       "revelacion": "Se parece a la medicina de personas, con una diferencia: tu paciente no te puede decir qué le duele.",
+       "revisar": "veterinario"
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Un veterinario solo tiene que entender a los animales.",
+       "respuesta": false,
+       "revelacion": "También tiene que hablar con los dueños: explicar, calmar y llegar a acuerdos sobre el tratamiento.",
+       "revisar": "veterinario"
+      },
+      {
+       "tipo": "clave",
+       "texto": "Atiendes al animal y también a la persona que lo trae."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "1.2",
+     "titulo": "A quién ayudas",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "No todo es perros y gatos. La leche que tomas y la carne que comes también pasaron por un veterinario."
+      },
+      {
+       "tipo": "clasificar",
+       "pregunta": "¿En qué área trabajarías?",
+       "grupos": [
+        "Mascotas",
+        "Granja",
+        "Fauna silvestre",
+        "Alimentos"
+       ],
+       "elementos": [
+        {
+         "texto": "Vacunar a un gato",
+         "grupo": 0
+        },
+        {
+         "texto": "Revisar la salud de un hato de vacas",
+         "grupo": 1
+        },
+        {
+         "texto": "Atender a un venado herido en una reserva",
+         "grupo": 2
+        },
+        {
+         "texto": "Revisar que la carne de un rastro sea segura",
+         "grupo": 3
+        },
+        {
+         "texto": "Operar a un perro atropellado",
+         "grupo": 0
+        },
+        {
+         "texto": "Cuidar que la leche no lleve enfermedades",
+         "grupo": 3
+        }
+       ],
+       "revelacion": "Muchos veterinarios cuidan animales de producción y alimentos. De ahí depende lo que comes todos los días.",
+       "revisar": "veterinario"
+      },
+      {
+       "tipo": "dos_caminos",
+       "pregunta": "¿Qué te llama más?",
+       "a": {
+        "texto": "Cuidar a un animal y a su familia",
+        "dice": "Te atrae la clínica de pequeñas especies: consulta, cirugía y trato con dueños."
+       },
+       "b": {
+        "texto": "Cuidar a cientos de animales a la vez",
+        "dice": "Te atrae la producción: ranchos, granjas y la salud de todo un grupo."
+       }
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Los veterinarios también ayudan a evitar enfermedades que pasan de animales a personas.",
+       "respuesta": true,
+       "revelacion": "Algunas enfermedades pasan de animales a personas. Vigilarlas es parte del trabajo veterinario en salud pública.",
+       "revisar": "veterinario"
+      },
+      {
+       "tipo": "clave",
+       "texto": "No todo es perros y gatos: también es lo que comemos."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "1.3",
+     "titulo": "Mitos y realidades",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Sobre Veterinaria hay ideas muy bonitas y otras no tanto. Vamos a ver cuáles son ciertas."
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Veterinaria es jugar con perritos.",
+       "respuesta": false,
+       "revelacion": "Hay momentos tiernos, pero también cirugías, animales agresivos, sangre, olores y malas noticias.",
+       "revisar": "veterinario"
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Solo se atienden mascotas.",
+       "respuesta": false,
+       "revelacion": "También ganado, aves, peces, fauna silvestre y animales de laboratorio.",
+       "revisar": "veterinario"
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Con amar a los animales basta.",
+       "respuesta": false,
+       "revelacion": "Ayuda mucho, pero también necesitas ciencia: química, anatomía, farmacología y mucho estudio.",
+       "revisar": "veterinario"
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Es una medicina más fácil que la de personas.",
+       "respuesta": false,
+       "revelacion": "Estudias varias especies, cada una con su anatomía y sus enfermedades. Es mucho que aprender.",
+       "revisar": "veterinario"
+      },
+      {
+       "tipo": "clave",
+       "texto": "Amar a los animales ayuda, pero no alcanza."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "1.4",
+     "titulo": "Carreras parecidas",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Si te gustan los animales o la salud, hay varias carreras cerca de Veterinaria."
+      },
+      {
+       "tipo": "emparejar",
+       "pregunta": "Une cada carrera con lo que hace.",
+       "pares": [
+        [
+         "Veterinaria",
+         "Previene y cura enfermedades en animales"
+        ],
+        [
+         "Zootecnia",
+         "Mejora la crianza y la producción de animales"
+        ],
+        [
+         "Biología",
+         "Estudia a los seres vivos y su ambiente"
+        ],
+        [
+         "Agronomía",
+         "Mejora los cultivos y el uso del campo"
+        ],
+        [
+         "Medicina",
+         "Cuida la salud de las personas"
+        ]
+       ],
+       "revelacion": "Algunas escuelas juntan Veterinaria y Zootecnia en una sola carrera. Revisa el plan de estudios.",
+       "revisar": "fuente"
+      },
+      {
+       "tipo": "decision",
+       "pregunta": "Te gustan los animales, pero no te ves operando ni dando inyecciones. ¿Qué revisas?",
+       "opciones": [
+        {
+         "texto": "Biología o Zootecnia",
+         "consecuencia": "Trabajan con animales desde la investigación o la crianza, sin tanta clínica.",
+         "mejor": true
+        },
+        {
+         "texto": "Medicina",
+         "consecuencia": "También tiene inyecciones y cirugías, y con personas."
+        },
+        {
+         "texto": "Nada, mejor descartas el tema",
+         "consecuencia": "Antes de descartarlo, prueba las carreras parecidas."
+        }
+       ]
+      },
+      {
+       "tipo": "dos_caminos",
+       "pregunta": "¿Qué te atrae más?",
+       "a": {
+        "texto": "Curar animales enfermos",
+        "dice": "Te va Veterinaria: diagnóstico, tratamiento y cirugía."
+       },
+       "b": {
+        "texto": "Estudiar cómo viven los animales",
+        "dice": "Te va Biología: comportamiento, ecosistemas e investigación."
+       }
+      },
+      {
+       "tipo": "clave",
+       "texto": "El veterinario cura y también cuida la producción de alimentos."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "u2",
+   "lecciones": [
+    {
+     "id": "2.1",
+     "titulo": "Triaje",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Sábado en la tarde. Eres quien está de guardia en la clínica y en la sala de espera hay cinco pacientes."
+      },
+      {
+       "tipo": "ordenar",
+       "pregunta": "¿A quién atiendes primero? Acomódalos del más urgente al menos urgente.",
+       "pasos": [
+        "Perro atropellado que respira con dificultad",
+        "Perro que jadea mucho tras estar al sol en un coche",
+        "Gato macho que intenta orinar y no puede",
+        "Cachorro con diarrea desde hoy, pero activo",
+        "Gato que viene a su vacuna"
+       ],
+       "exige": 2,
+       "revelacion": "Primero quien no respira bien y el golpe de calor: pueden morir pronto. Un gato que no orina también es urgente, aunque se vea tranquilo.",
+       "revisar": "veterinario"
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Un gato que se ve tranquilo no puede estar grave.",
+       "respuesta": false,
+       "revelacion": "Los gatos esconden el dolor. A veces el más callado es el que más necesita ayuda.",
+       "revisar": "veterinario"
+      },
+      {
+       "tipo": "decision",
+       "pregunta": "El dueño del cachorro reclama: llegó antes. ¿Qué le dices?",
+       "opciones": [
+        {
+         "texto": "Que se atiende primero a quien corre más peligro, y que su cachorro sigue en la lista",
+         "consecuencia": "Explicar el porqué calma más que pedir paciencia.",
+         "mejor": true
+        },
+        {
+         "texto": "Que espere su turno, sin más",
+         "consecuencia": "Es cierto, pero sin explicación se queda con enojo y miedo."
+        },
+        {
+         "texto": "Atiendes primero al cachorro para evitar problemas",
+         "consecuencia": "El perro atropellado puede empeorar en minutos."
+        }
+       ],
+       "revisar": "veterinario"
+      },
+      {
+       "tipo": "clave",
+       "texto": "Cada especie avisa distinto que está grave."
+      },
+      {
+       "tipo": "interes",
+       "pregunta": "¿Te ves tomando decisiones así?"
+      }
+     ]
+    },
+    {
+     "id": "2.2",
+     "titulo": "Síntoma y estudio",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Tu paciente no te puede decir qué le duele. Los estudios hablan por él."
+      },
+      {
+       "tipo": "emparejar",
+       "pregunta": "Une cada caso con el estudio que más ayuda.",
+       "pares": [
+        [
+         "Perro que cojea después de una caída",
+         "Radiografía"
+        ],
+        [
+         "Gata cansada y con encías pálidas",
+         "Análisis de sangre"
+        ],
+        [
+         "Cachorro con diarrea y panza inflamada",
+         "Análisis de heces"
+        ],
+        [
+         "Perra con la panza crecida",
+         "Ultrasonido"
+        ]
+       ],
+       "revelacion": "Cada estudio ve una cosa distinta. Elegir bien ahorra tiempo y dinero a la familia.",
+       "revisar": "veterinario"
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Lo mejor es pedir todos los estudios para no fallar.",
+       "respuesta": false,
+       "revelacion": "Cuestan y a veces requieren sedar al animal. Se piden los que ayudan a decidir.",
+       "revisar": "veterinario"
+      },
+      {
+       "tipo": "decision",
+       "pregunta": "La radiografía sale normal, pero el perro sigue cojeando. ¿Qué haces?",
+       "opciones": [
+        {
+         "texto": "Lo revisas otra vez y piensas en otras causas",
+         "consecuencia": "Un estudio normal no quiere decir que no tenga nada. Se busca con otra herramienta.",
+         "mejor": true
+        },
+        {
+         "texto": "Le dices al dueño que no tiene nada",
+         "consecuencia": "Si sigue cojeando, algo pasa. Mandarlo a casa sin respuesta puede empeorar el problema."
+        },
+        {
+         "texto": "Repites la misma radiografía",
+         "consecuencia": "Si no se ve la causa, repetir lo mismo casi nunca ayuda."
+        }
+       ],
+       "revisar": "veterinario"
+      },
+      {
+       "tipo": "clave",
+       "texto": "Sin palabras del paciente, los estudios hablan por él."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "2.3",
+     "titulo": "Hablar con el dueño",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Max, un perro de una familia, necesita una cirugía. Cuesta más de lo que la familia puede pagar ahora."
+      },
+      {
+       "tipo": "decision",
+       "pregunta": "¿Qué les dices primero?",
+       "opciones": [
+        {
+         "texto": "Les explicas qué tiene Max y cuáles son las opciones",
+         "consecuencia": "Con información clara pueden decidir. A veces hay tratamientos más sencillos o pagos en partes.",
+         "mejor": true
+        },
+        {
+         "texto": "Que sin la cirugía no hay nada que hacer",
+         "consecuencia": "Si hay otras opciones, la familia merece conocerlas."
+        },
+        {
+         "texto": "Les bajas el precio sin decir nada",
+         "consecuencia": "Es generoso, pero no siempre se puede. Mejor hablar con claridad."
+        }
+       ],
+       "revisar": "veterinario"
+      },
+      {
+       "tipo": "decision",
+       "pregunta": "La familia pregunta qué harías tú si fuera tu perro. ¿Qué respondes?",
+       "opciones": [
+        {
+         "texto": "Les das tu opinión y aclaras que la decisión es suya",
+         "consecuencia": "Tu experiencia les ayuda, pero ellos conocen su situación.",
+         "mejor": true
+        },
+        {
+         "texto": "Que no puedes opinar",
+         "consecuencia": "Quieren tu consejo. Callar puede dejarlos más perdidos."
+        },
+        {
+         "texto": "Les dices que operen sí o sí",
+         "consecuencia": "Presionar a una familia puede llevarla a una deuda que no puede pagar."
+        }
+       ],
+       "revisar": "veterinario"
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Hablar de dinero con los dueños es parte del trabajo.",
+       "respuesta": true,
+       "revelacion": "Es incómodo, pero necesario. Ser claro con los costos evita malentendidos y cuida al animal.",
+       "revisar": "veterinario"
+      },
+      {
+       "tipo": "clave",
+       "texto": "Ser honesto con los costos es parte del cuidado."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "2.4",
+     "titulo": "Algo pasa en la granja",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "En una granja, las gallinas ponen menos huevo cada semana. El dueño te llama preocupado."
+      },
+      {
+       "tipo": "patron",
+       "area": "Tecnología y ciencias",
+       "pregunta": "Huevos por día, semana con semana. Si nada cambia, ¿cuántos esperas la próxima?",
+       "serie": [
+        90,
+        82,
+        74,
+        66
+       ],
+       "etiquetas": [
+        "Sem 1",
+        "Sem 2",
+        "Sem 3",
+        "Sem 4",
+        "Sem 5"
+       ],
+       "opciones": [
+        58,
+        66,
+        80
+       ],
+       "correcta": 0,
+       "revelacion": "Baja lo mismo cada semana. No es mala suerte: algo cambió en la granja y sigue pasando."
+      },
+      {
+       "tipo": "clasificar",
+       "pregunta": "¿Qué revisas primero?",
+       "grupos": [
+        "Revisar ya",
+        "Después"
+       ],
+       "elementos": [
+        {
+         "texto": "El alimento: si cambió de marca",
+         "grupo": 0
+        },
+        {
+         "texto": "El agua: si llega limpia y suficiente",
+         "grupo": 0
+        },
+        {
+         "texto": "Las horas de luz en el gallinero",
+         "grupo": 0
+        },
+        {
+         "texto": "La temperatura dentro del gallinero",
+         "grupo": 0
+        },
+        {
+         "texto": "El color de la pintura del gallinero",
+         "grupo": 1
+        },
+        {
+         "texto": "El precio del huevo en el mercado",
+         "grupo": 1
+        }
+       ],
+       "revelacion": "Alimento, agua, luz y temperatura cambian cuánto ponen las gallinas. Se revisa lo que afecta a todo el grupo.",
+       "revisar": "veterinario"
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "En una granja se atiende a cada gallina por separado.",
+       "respuesta": false,
+       "revelacion": "Se cuida al grupo: lo que le pasa a una puede pasarle a todas. Por eso se previene.",
+       "revisar": "veterinario"
+      },
+      {
+       "tipo": "clave",
+       "texto": "En producción se cuida al grupo, no solo al individuo."
+      },
+      {
+       "tipo": "interes",
+       "pregunta": "¿Te ves resolviendo algo así en el campo?"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "u3",
+   "lecciones": [
+    {
+     "id": "3.1",
+     "titulo": "Un día real",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Así es un día de Luis, veterinario en una clínica de pequeñas especies."
+      },
+      {
+       "tipo": "armar_dia",
+       "pregunta": "Coloca cada actividad en su momento del día.",
+       "bloques": [
+        "Temprano",
+        "Media mañana",
+        "Mediodía",
+        "Tarde",
+        "Antes de cerrar"
+       ],
+       "actividades": [
+        "Revisar a los pacientes que pasaron la noche",
+        "Consultas y vacunas",
+        "Una cirugía programada",
+        "Atender una urgencia que llegó sin avisar",
+        "Limpiar, anotar y llamar a los dueños"
+       ],
+       "revelacion": "Los horarios cambian en cada clínica, pero el patrón se repite: hay más limpieza, papeleo y llamadas de lo que parece.",
+       "revisar": "veterinario"
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Un veterinario de clínica pasa el día jugando con los animales.",
+       "respuesta": false,
+       "revelacion": "Pasa el día revisando, operando, limpiando y hablando con dueños. Los momentos tiernos existen, pero son pocos.",
+       "revisar": "veterinario"
+      },
+      {
+       "tipo": "dos_caminos",
+       "pregunta": "¿Qué día prefieres?",
+       "a": {
+        "texto": "En una clínica de la ciudad",
+        "dice": "Mascotas, dueños y un horario más o menos fijo."
+       },
+       "b": {
+        "texto": "En el campo, entre ranchos",
+        "dice": "Ganado, caminos y madrugadas. Mucho trabajo al aire libre."
+       }
+      },
+      {
+       "tipo": "clave",
+       "texto": "Hay más limpieza y papeleo de lo que parece."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "3.2",
+     "titulo": "Lo difícil",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Una perrita muy enferma ya no va a mejorar. Su familia te pregunta si hay que dormirla."
+      },
+      {
+       "tipo": "decision",
+       "pregunta": "¿Qué haces?",
+       "opciones": [
+        {
+         "texto": "Les explicas con calma la situación y los acompañas en la decisión",
+         "consecuencia": "Es de los momentos más duros. Tu papel es informar con honestidad y cuidar que el animal no sufra.",
+         "mejor": true
+        },
+        {
+         "texto": "Les dices qué tienen que hacer, sin más",
+         "consecuencia": "La decisión es de la familia. Necesitan tiempo y claridad, no órdenes."
+        },
+        {
+         "texto": "Les dices que todavía hay esperanza",
+         "consecuencia": "Si no es cierto, alargas el sufrimiento del animal y de la familia."
+        }
+       ],
+       "revisar": "veterinario"
+      },
+      {
+       "tipo": "clasificar",
+       "pregunta": "¿Qué tan común es en la carrera?",
+       "grupos": [
+        "Muy común",
+        "A veces"
+       ],
+       "elementos": [
+        {
+         "texto": "Ver animales sufrir",
+         "grupo": 0
+        },
+        {
+         "texto": "Dueños que no pueden pagar el tratamiento",
+         "grupo": 0
+        },
+        {
+         "texto": "Materias pesadas como Anatomía comparada y Farmacología",
+         "grupo": 0
+        },
+        {
+         "texto": "Mordidas y rasguños",
+         "grupo": 1
+        },
+        {
+         "texto": "Trabajo en campo con lodo, frío o calor",
+         "grupo": 1
+        },
+        {
+         "texto": "Tener que dormir a un animal",
+         "grupo": 1
+        }
+       ],
+       "revelacion": "Vas a ver animales sufrir y no siempre podrás salvarlos. Saberlo antes ayuda a decidir.",
+       "revisar": "veterinario"
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Qué tanto te afectaría dar una mala noticia a una familia?",
+       "escala": [
+        "Mucho",
+        "Lo podría manejar"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Vas a ver animales sufrir y no siempre podrás salvarlos."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "3.3",
+     "titulo": "Historia real",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "reflexion",
+       "pregunta": "Si pudieras preguntarle algo a alguien que ya estudia Veterinaria, ¿qué sería?",
+       "opciones": [
+        "¿Qué fue lo más difícil?",
+        "¿Qué te sorprendió?",
+        "¿Volverías a elegirla?",
+        "¿Cómo es un día normal?"
+       ]
+      },
+      {
+       "tipo": "testimonio",
+       "estado": "pendiente",
+       "perfil": "Estudiante en prácticas o veterinario de clínica o de campo"
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "Mientras llega esta historia, ¿a quién podrías preguntarle tú?",
+       "opciones": [
+        "A un familiar o conocido que sea veterinario o veterinaria",
+        "A un estudiante de Veterinaria de mi ciudad",
+        "A un maestro que conozca la carrera",
+        "Todavía no conozco a nadie"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Una persona real te cuenta lo que ningún folleto dice."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "3.4",
+     "titulo": "¿Quién lo disfruta?",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Querer a los animales es el inicio. Veamos qué más hace falta."
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Aguantas olores fuertes, sangre y suciedad?",
+       "escala": [
+        "No va conmigo",
+        "Va mucho conmigo"
+       ]
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Te ves trabajando en un rancho o en el campo?",
+       "escala": [
+        "No va conmigo",
+        "Va mucho conmigo"
+       ]
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Te interesan los animales también cuando no son tiernos?",
+       "escala": [
+        "No va conmigo",
+        "Va mucho conmigo"
+       ]
+      },
+      {
+       "tipo": "dos_caminos",
+       "pregunta": "¿Qué te emociona más?",
+       "a": {
+        "texto": "Ver que un animal se recupera",
+        "dice": "Te va la clínica: diagnóstico, tratamiento y seguimiento."
+       },
+       "b": {
+        "texto": "Que un rancho entero esté sano",
+        "dice": "Te va la producción: prevención y salud de grupos grandes."
+       }
+      },
+      {
+       "tipo": "clave",
+       "texto": "Te deben interesar los animales también cuando no son tiernos."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "u4",
+   "lecciones": [
+    {
+     "id": "4.1",
+     "titulo": "Cuánto dura y qué estudias",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "En Veterinaria no estudias un solo animal. Aprendes de varias especies a la vez."
+      },
+      {
+       "tipo": "ordenar",
+       "pregunta": "Ordena las etapas de la carrera.",
+       "pasos": [
+        "Ciencias básicas: anatomía, química y biología",
+        "Medicina y producción por especie",
+        "Prácticas clínicas y de campo",
+        "Servicio social",
+        "Titulación"
+       ],
+       "revelacion": "Cada escuela lo arma distinto, pero casi siempre hay prácticas en clínica y en granjas o ranchos.",
+       "revisar": "fuente"
+      },
+      {
+       "tipo": "rango",
+       "pregunta": "¿Cuántos años crees que pasan desde que entras hasta que te titulas?",
+       "min": 3,
+       "max": 10,
+       "paso": 1,
+       "unidad": "años",
+       "dato": "veterinaria.duracion"
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Solo estudias perros y gatos.",
+       "respuesta": false,
+       "revelacion": "También estudias vacas, cerdos, aves, caballos y otras especies. Cada una tiene su anatomía.",
+       "revisar": "fuente"
+      },
+      {
+       "tipo": "clave",
+       "texto": "Estudias varias especies, no una sola."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "4.2",
+     "titulo": "Cómo se entra",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Veterinaria tiene muchos aspirantes en varias universidades. Veamos qué cuenta."
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "En el examen de admisión suelen pesar biología y química.",
+       "respuesta": true,
+       "revelacion": "Son la base de la carrera. Cada universidad publica su temario en la convocatoria.",
+       "revisar": "fuente"
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Necesitas experiencia con animales para entrar.",
+       "respuesta": false,
+       "revelacion": "No es requisito. Pero convivir con animales antes te ayuda a confirmar si te gusta.",
+       "revisar": "fuente"
+      },
+      {
+       "tipo": "dato",
+       "titulo": "Aspirantes por cada lugar",
+       "dato": "veterinaria.aspirantes"
+      },
+      {
+       "tipo": "decision",
+       "pregunta": "Estás en quinto semestre de prepa. ¿Qué haces desde hoy?",
+       "opciones": [
+        {
+         "texto": "Repasas biología y química, y pides ver una clínica por dentro",
+         "consecuencia": "Así preparas el examen y ves el trabajo real antes de elegir.",
+         "mejor": true
+        },
+        {
+         "texto": "Adoptas una mascota",
+         "consecuencia": "Es lindo, pero no te prepara para el examen ni te enseña la clínica."
+        },
+        {
+         "texto": "Esperas a terminar la prepa",
+         "consecuencia": "Se puede, pero empezar antes te quita presión."
+        }
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Biología y química de prepa sí se usan."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "4.3",
+     "titulo": "Dónde, cuánto cuesta y becas",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "El costo de estudiar Veterinaria cambia mucho entre una universidad pública y una privada. Antes de ver datos, apuesta."
+      },
+      {
+       "tipo": "rango",
+       "pregunta": "¿Cuánto crees que cuesta un semestre en una universidad pública?",
+       "min": 0,
+       "max": 60000,
+       "paso": 1000,
+       "unidad": "pesos",
+       "dato": "veterinaria.costo_publica"
+      },
+      {
+       "tipo": "rango",
+       "pregunta": "¿Y un semestre en una universidad privada?",
+       "min": 0,
+       "max": 300000,
+       "paso": 5000,
+       "unidad": "pesos",
+       "dato": "veterinaria.costo_privada"
+      },
+      {
+       "tipo": "dato",
+       "titulo": "Becas para estudiar Veterinaria",
+       "dato": "veterinaria.becas"
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Todas las escuelas de Veterinaria tienen hospital y prácticas de campo.",
+       "respuesta": false,
+       "revelacion": "No todas. Fíjate si la escuela tiene hospital veterinario y convenios con ranchos o granjas.",
+       "revisar": "veterinario"
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Qué pesa más para ti al elegir escuela?",
+       "opciones": [
+        "El costo",
+        "Que esté cerca de mi casa",
+        "El hospital veterinario",
+        "Las prácticas de campo"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Fíjate si la escuela tiene hospital y prácticas de campo."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "u5",
+   "lecciones": [
+    {
+     "id": "5.1",
+     "titulo": "Dónde se trabaja",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "La clínica de mascotas es solo una parte. Hay veterinarios en lugares que tal vez no imaginas."
+      },
+      {
+       "tipo": "emparejar",
+       "pregunta": "Une cada lugar con lo que harías ahí.",
+       "pares": [
+        [
+         "Clínica",
+         "Atender mascotas y a sus familias"
+        ],
+        [
+         "Rancho",
+         "Cuidar la salud y la producción del ganado"
+        ],
+        [
+         "Rastro",
+         "Revisar que la carne sea segura"
+        ],
+        [
+         "Laboratorio",
+         "Hacer análisis y probar medicinas"
+        ],
+        [
+         "Zoológico",
+         "Cuidar animales silvestres en cautiverio"
+        ]
+       ],
+       "revelacion": "También hay trabajo en gobierno, en empresas que hacen alimento o medicinas y en la vigilancia de enfermedades.",
+       "revisar": "veterinario"
+      },
+      {
+       "tipo": "dos_caminos",
+       "pregunta": "¿Dónde te ves?",
+       "a": {
+        "texto": "Con mascotas en la ciudad",
+        "dice": "Más trato con familias y un ambiente de consultorio."
+       },
+       "b": {
+        "texto": "En el campo o la industria",
+        "dice": "Más grupos de animales, más prevención y más trabajo al aire libre."
+       }
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Casi todos los veterinarios trabajan con mascotas.",
+       "respuesta": false,
+       "revelacion": "Muchos trabajan en producción de alimentos, laboratorio o gobierno. La clínica es solo una opción.",
+       "revisar": "veterinario"
+      },
+      {
+       "tipo": "clave",
+       "texto": "La clínica de mascotas es solo una parte del empleo."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "5.2",
+     "titulo": "Sueldo y demanda",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Hablemos de dinero sin rodeos. Antes de ver cualquier cifra, apuesta: así recuerdas mejor el dato real."
+      },
+      {
+       "tipo": "rango",
+       "pregunta": "¿Cuánto crees que gana al mes, en promedio, un profesionista de Veterinaria en México?",
+       "min": 5000,
+       "max": 100000,
+       "paso": 1000,
+       "unidad": "pesos",
+       "dato": "veterinaria.ingreso"
+      },
+      {
+       "tipo": "rango",
+       "pregunta": "De cada 100 egresados, ¿cuántos crees que trabajan en algo de su carrera?",
+       "min": 0,
+       "max": 100,
+       "paso": 5,
+       "unidad": "de cada 100",
+       "dato": "veterinaria.ocupacion_afin"
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Todos los veterinarios ganan parecido.",
+       "respuesta": false,
+       "revelacion": "Varía mucho según la rama, el lugar y si tienes clínica propia. Las cifras las mostramos cuando estén verificadas.",
+       "revisar": "veterinario"
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Qué tanto pesa el sueldo en tu decisión?",
+       "escala": [
+        "No va conmigo",
+        "Va mucho conmigo"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "El ingreso varía mucho según la rama."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "5.3",
+     "titulo": "Cómo la cambia la tecnología",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Hoy hay collares con sensores, consultas por video y programas que leen radiografías."
+      },
+      {
+       "tipo": "decision",
+       "pregunta": "Un collar con sensor avisa que una vaca casi no se movió hoy. ¿Qué haces?",
+       "opciones": [
+        {
+         "texto": "Vas a revisarla en persona",
+         "consecuencia": "El sensor avisa antes, pero el diagnóstico se hace revisando al animal.",
+         "mejor": true
+        },
+        {
+         "texto": "Le das medicina por si acaso",
+         "consecuencia": "Sin revisar, puedes tratar algo que no tiene o dejar pasar lo que sí."
+        },
+        {
+         "texto": "No haces nada, puede ser un error",
+         "consecuencia": "Puede serlo, pero ignorar el aviso es perder la ventaja de detectar antes."
+        }
+       ],
+       "revisar": "veterinario"
+      },
+      {
+       "tipo": "dos_caminos",
+       "pregunta": "¿Qué te llama más?",
+       "a": {
+        "texto": "Usar la tecnología para detectar antes",
+        "dice": "Te va la medicina de datos: sensores, alertas y prevención."
+       },
+       "b": {
+        "texto": "La revisión en persona",
+        "dice": "Te va la clínica clásica: tus manos y tu ojo con el animal."
+       }
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Una consulta por video puede reemplazar todas las revisiones.",
+       "respuesta": false,
+       "revelacion": "Sirve para dudas y seguimiento, pero muchas cosas solo se notan tocando y viendo al animal.",
+       "revisar": "veterinario"
+      },
+      {
+       "tipo": "clave",
+       "texto": "Los datos ayudan a detectar antes; revisar al animal sigue siendo a mano."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "5.4",
+     "titulo": "Después de titularte",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Ya te titulaste. ¿Qué sigue? Hay varios caminos."
+      },
+      {
+       "tipo": "emparejar",
+       "pregunta": "Une cada camino con lo que implica.",
+       "pares": [
+        [
+         "Especialidad",
+         "Volverte experto en una especie o en cirugía"
+        ],
+        [
+         "Maestría",
+         "Estudiar producción, salud pública o investigación"
+        ],
+        [
+         "Clínica propia",
+         "Atender pacientes y administrar un negocio"
+        ],
+        [
+         "Gobierno",
+         "Vigilar enfermedades y la seguridad de los alimentos"
+        ]
+       ],
+       "revelacion": "Muchos combinan trabajo y estudio durante años. Las especialidades cambian según la escuela.",
+       "revisar": "veterinario"
+      },
+      {
+       "tipo": "dos_caminos",
+       "pregunta": "¿Qué te llama más?",
+       "a": {
+        "texto": "Especializarte en algo",
+        "dice": "Te va saber mucho de un tema: caballos, fauna silvestre o cirugía."
+       },
+       "b": {
+        "texto": "Tu propia clínica",
+        "dice": "Te va emprender: además de curar, vas a tener que llevar un negocio."
+       }
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Cómo te imaginas después de la carrera?",
+       "opciones": [
+        "En una especialidad",
+        "En una clínica",
+        "En el campo o la industria",
+        "Con mi propia clínica"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Poner tu clínica pide saber de negocio."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "u6",
+   "lecciones": [
+    {
+     "id": "6.1",
+     "titulo": "Lo que sentiste",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "reflexion",
+       "pregunta": "Antes de ver tus respuestas: ¿cómo te fue con Veterinaria?",
+       "opciones": [
+        "Me gustó más de lo que pensaba",
+        "Más o menos como esperaba",
+        "Me gustó menos de lo que pensaba"
+       ]
+      },
+      {
+       "tipo": "resumen"
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "Viendo tus respuestas, ¿qué pesó más?",
+       "opciones": [
+        "Lo que sentí al probarla",
+        "Lo que supe de la realidad",
+        "El camino para llegar",
+        "El futuro que ofrece"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Lo que sentiste al probarla vale más que lo que imaginabas."
+      },
+      {
+       "tipo": "interes",
+       "pregunta": "¿Te ves estudiando Veterinaria?"
+      }
+     ]
+    },
+    {
+     "id": "6.2",
+     "titulo": "Tu veredicto",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "reflexion",
+       "pregunta": "Si mañana tuvieras que elegir carrera, ¿Veterinaria estaría entre tus opciones?",
+       "opciones": [
+        "Sí, entre las primeras",
+        "Sí, pero no arriba",
+        "No creo",
+        "No lo sé"
+       ]
+      },
+      {
+       "tipo": "comparar"
+      },
+      {
+       "tipo": "dos_caminos",
+       "pregunta": "¿Qué te ayudaría más a decidir?",
+       "a": {
+        "texto": "Hablar con alguien que la estudia",
+        "dice": "Busca a un estudiante o a un veterinario o una veterinaria cerca de ti y hazle tus preguntas. Una plática aclara más que diez videos."
+       },
+       "b": {
+        "texto": "Probar otra carrera y comparar",
+        "dice": "Explora otra de tu mapa. Comparar dos caminos reales aclara más que pensar en uno solo."
+       }
+      },
+      {
+       "tipo": "veredicto"
+      },
+      {
+       "tipo": "clave",
+       "texto": "Decidir «en duda» también es avanzar."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

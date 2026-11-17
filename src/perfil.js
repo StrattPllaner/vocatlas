@@ -97,8 +97,7 @@ function renderYo(keep){
   '<div class="pf-edo pf-tema"><span class="pf-row-ic">'+ico(TEMA.dark()?"moon":"sun")+'</span><div class="pf-row-t"><b id="yTemaLab">Día o noche</b><div class="ui-seg" id="yTema" role="group" aria-labelledby="yTemaLab">'+[["auto","Automático"],["light","Día"],["dark","Noche"]].map(function(o){return '<button type="button" data-t="'+o[0]+'" aria-pressed="'+(TEMA.get()===o[0])+'">'+o[1]+'</button>'}).join("")+'</div></div></div>'+
   '<div class="pf-edo"><span class="pf-row-ic">'+ico("globe")+'</span><div class="pf-row-t"><b id="yEdoLab">Mi estado</b><span>Opcional</span>'+edoWidget("y","yEdoLab")+'</div></div></div>'+
   (Y.where?'<div class="pf-soon">'+ico("book")+'<div>'+Y.where+'</div></div>':'')+
-  '<details class="priv pf-priv"><summary>Aviso de privacidad</summary>'+PRIV_FULL+'</details>'+
-  '<button type="button" class="ui-btn is-block is-ghost pf-rst" id="rst">Borrar todo y empezar de cero</button></section></div>';
+  '<details class="priv pf-priv"><summary>Aviso de privacidad</summary>'+PRIV_FULL+'</details>'+'</section></div>';
  v.innerHTML=h;if(keep)v.scrollTop=sc;
  wireRumbo(v.querySelector(".pf-stage .rb"));
  if(!keep)requestAnimationFrame(function(){requestAnimationFrame(function(){var p=v.querySelector(".pf-goal .ui-prog");if(p)p.style.setProperty("--v",p.getAttribute("data-v"))})});
@@ -109,13 +108,4 @@ function renderYo(keep){
  $("#chg").onclick=function(){appToQuiz()};
  $("#pfAll").onclick=openSkins;
  [].forEach.call(v.querySelectorAll("#yTema button"),function(b){b.onclick=function(){var was=TEMA.dark();TEMA.set(b.getAttribute("data-t"));if(was!==TEMA.dark())themeChanged();renderYo(true)}});
- $("#rst").onclick=function(){
-  var el=document.createElement("div");el.className="ui-modal";el.setAttribute("role","alertdialog");el.setAttribute("aria-modal","true");el.setAttribute("aria-labelledby","rstT");
-  el.innerHTML=rumboEl()+'<h3 id="rstT">¿Borrar todo?</h3><p>Se borran tus carreras, tu avance, tus sellos y tus Rumbos de este dispositivo. No se puede deshacer.</p><div class="acts"><button type="button" class="ui-btn is-block is-danger" data-a="ok">Sí, borrar todo</button><button type="button" class="ui-btn is-block is-sec" data-a="no">No, conservar</button></div>';
-  el.querySelector(".rb").setAttribute("data-mood","sad");
-  var close=uiLayer(el,true);
-  el.querySelector("[data-a=no]").onclick=close;
-  el.querySelector("[data-a=ok]").onclick=function(){close();S=blankState();save();RUMBO.skin(null);hudP=0;MAPSIG=null;ISOW=null;var a=$("#app");stopWalk();a.classList.remove("on");startApp(-1)};
-  setTimeout(function(){uiFocus(el.querySelector("[data-a=no]"))},60);
- };
 }

@@ -4,6 +4,14 @@
    Las carreras que todavía no tienen catálogo conservan lo que ya existía (qué haces, mini reto y veredicto) y el resto
    de sus paradas dice «llega pronto». Usa el contenedor #plaza y sus transiciones. */
 
+/* ---------- texto de las lecciones ----------
+   La página trae solo los títulos; las tarjetas de cada carrera se descargan al abrir una lección y quedan guardadas
+   (también sin conexión, por el service worker). Las carreras de tu mapa se descargan solas al rato de abrir la app. */
+var CARDS={};
+function carCards(id,cb){var c=carCat(id);if(!c){cb(null);return}if(CARDS[id]){cb(CARDS[id]);return}
+ fetch(c.src).then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(j){CARDS[id]=j;cb(j)}).catch(function(){cb(null)})}
+function carFind(full,lid){for(var u=0;u<full.unidades.length;u++)for(var l=0;l<full.unidades[u].lecciones.length;l++)if(full.unidades[u].lecciones[l].id===lid)return full.unidades[u].lecciones[l];return null}
+function carPrefetch(){(S.pick||[]).forEach(function(id,i){if(carCat(id)&&!CARDS[id])setTimeout(function(){carCards(id,function(){})},4000+i*700)})}
 /* ---------- avance por lección (lo usa toda la app) ---------- */
 function carCat(id){return (CAT.car||{})[id]||null}
 function carLes(id,lid){var c=carCat(id);if(!c)return null;for(var u=0;u<c.unidades.length;u++)for(var l=0;l<c.unidades[u].lecciones.length;l++)if(c.unidades[u].lecciones[l].id===lid)return c.unidades[u].lecciones[l];return null}
@@ -112,7 +120,7 @@ var PATH=(function(){
   /* sin cofre: vuelta completa por la orilla */
   var sx=a.dir>0?CW-EDGE+4:EDGE-4;return "M"+f(a.x)+" "+f(a.y)+"C"+f(sx+ (a.dir>0?30:-30))+" "+f(a.y)+" "+f(sx+(a.dir>0?30:-30))+" "+f(b.y)+" "+f(b.x)+" "+f(b.y)}
  function build(id){
-  var c=byId[id],p=$("#plaza"),dark=!!(DMQ&&DMQ.matches),cat=catalog(id),pg=progOf(id);st.id=id;st.items=cat.all;st.units=cat.units;
+  var c=byId[id],p=$("#plaza"),dark=!!(DMQ&&DMQ.matches),cat=catalog(id),pg=progOf(id);st.id=id;carCards(id,function(){});st.items=cat.all;st.units=cat.units;
   if(typeof artDefs==="function")artDefs();
   var col=c.color,cd=dk(col,.38),txt=lum(col)>.62?"#14323F":"#FFFFFF";
   p.style.setProperty("--pc",col);
@@ -184,7 +192,9 @@ var PATH=(function(){
   if(it.chest!=null){openChest(it);return}
   var was=it.done,fin=function(){markLesson(id,it.lid);if(!was)complete(it);else refresh(false)};
   if(it.les){var u=st.units[it.u],last=u.items.filter(function(x){return x.lid}).pop()===it;
-   LEC.open(id,it.les,{unit:it.u,unitName:u.t,unitEnd:last&&unitFull(id,it.u)&&!(S.auto&&S.auto[id]&&S.auto[id][it.u]),resume:true},fin,function(){refresh(false)});return}
+   carCards(id,function(full){var les=full&&carFind(full,it.lid);
+    if(!les){toast("No se pudo abrir la lección. Revisa tu conexión e intenta otra vez.");return}
+   LEC.open(id,les,{unit:it.u,unitName:u.t,unitEnd:last&&unitFull(id,it.u)&&!(S.auto&&S.auto[id]&&S.auto[id][it.u]),resume:true},fin,function(){refresh(false)})});return}
   /* carreras sin catálogo todavía: lo que ya existía */
   if(it.lid==="2.1"){openTest(id);return}
   if(it.lid==="1.1"){LEC.open(id,{id:"1.1",titulo:"Qué haces",tarjetas:[{tipo:"escena",texto:c.desc},{tipo:"interes"}]},{},fin);return}

@@ -69,6 +69,5 @@
 .pf-soon h3{margin:0 0 2px;font:var(--fw-sb) var(--fs-md)/1.25 var(--ff);color:var(--c-ink)}
 .pf-soon p{margin:0;font:var(--fw-r) var(--fs-sm)/var(--lh-body) var(--ff);color:var(--c-ink-2)}
 .pf-priv{margin-top:var(--sp-3);padding:0 var(--sp-4);border-radius:var(--r-4);border:var(--bw) solid var(--c-line);background:var(--c-surface);font-family:var(--ff)}
-.ui-btn.pf-rst{margin-top:var(--sp-4);--fg:var(--c-err-ink)}
 .pf-tag{display:inline-block;margin:2px 0 6px;padding:5px 12px;border-radius:var(--r-full);background:var(--c-info-bg);color:var(--c-info-ink);font:var(--fw-sb) var(--fs-xs)/1 var(--ff)}
 @media (min-width:700px){.pf-grid{grid-template-columns:repeat(6,minmax(0,1fr))}.pf-sub .pf-grid{grid-template-columns:repeat(auto-fill,minmax(132px,1fr))}.pf-stage{height:236px}.pf-stage .rb{width:170px;height:170px}}

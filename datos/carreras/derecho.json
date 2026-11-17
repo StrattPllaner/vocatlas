@@ -1,0 +1,1307 @@
+{
+ "id": "derecho",
+ "version": 1,
+ "estado": "completo",
+ "revision": "Pendiente de revisión por un abogado. Las tarjetas con «revisar»: «abogado» describen el ejercicio de la profesión; las de «fuente» son reglas o trámites que hay que confirmar en fuente oficial.",
+ "unidades": [
+  {
+   "id": "u1",
+   "lecciones": [
+    {
+     "id": "1.1",
+     "titulo": "Qué es y qué resuelve",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "A tu vecina Rosa no le quieren devolver el depósito del departamento que rentaba. Dejó todo limpio y en orden. Te pide consejo."
+      },
+      {
+       "tipo": "decision",
+       "pregunta": "¿Qué le recomiendas primero?",
+       "opciones": [
+        {
+         "texto": "Leer juntas el contrato de renta",
+         "consecuencia": "El contrato dice qué prometió cada quien. Sin leerlo no sabes si tiene la razón ni qué puede pedir.",
+         "mejor": true
+        },
+        {
+         "texto": "Demandar al dueño de inmediato",
+         "consecuencia": "Un juicio tarda y cuesta. Casi siempre conviene intentar antes un acuerdo."
+        },
+        {
+         "texto": "Olvidarse del dinero",
+         "consecuencia": "Si tiene derecho a recuperarlo, vale la pena intentarlo. Para eso existen las reglas."
+        }
+       ],
+       "revisar": "abogado"
+      },
+      {
+       "tipo": "ordenar",
+       "pregunta": "Así se suele resolver un conflicto. Ponlo en orden.",
+       "pasos": [
+        "Entender qué pasó",
+        "Revisar qué dicen el contrato y la ley",
+        "Hablar con la otra parte",
+        "Negociar un acuerdo",
+        "Si no hay acuerdo, ir ante un juez"
+       ],
+       "revelacion": "El juicio es el último paso, no el primero. Mucho del trabajo es evitar llegar ahí.",
+       "revisar": "abogado"
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Un abogado se dedica sobre todo a pelear en juicios.",
+       "respuesta": false,
+       "revelacion": "Muchos abogados casi nunca pisan un juzgado: redactan contratos, asesoran empresas o resuelven con acuerdos.",
+       "revisar": "abogado"
+      },
+      {
+       "tipo": "clave",
+       "texto": "El derecho resuelve conflictos con reglas; el juicio es el último recurso."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "1.2",
+     "titulo": "A quién ayudas",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "El derecho tiene muchas ramas. Cada una atiende problemas distintos y casi nadie las ejerce todas."
+      },
+      {
+       "tipo": "clasificar",
+       "pregunta": "¿A qué rama pertenece cada caso?",
+       "grupos": [
+        "Penal",
+        "Civil",
+        "Familiar",
+        "Laboral",
+        "Mercantil"
+       ],
+       "elementos": [
+        {
+         "texto": "Robaron una tienda y detuvieron a un sospechoso",
+         "grupo": 0
+        },
+        {
+         "texto": "Un vecino construyó una barda en tu terreno",
+         "grupo": 1
+        },
+        {
+         "texto": "Una pareja se divorcia y hay que decidir quién cuida a los hijos",
+         "grupo": 2
+        },
+        {
+         "texto": "Despidieron a alguien sin pagarle lo que le toca",
+         "grupo": 3
+        },
+        {
+         "texto": "Una empresa no pagó la mercancía que recibió",
+         "grupo": 4
+        },
+        {
+         "texto": "Un cliente no devuelve un préstamo que firmó",
+         "grupo": 1
+        }
+       ],
+       "revelacion": "Hay ramas para casi cualquier problema de la vida diaria. Al final de la carrera, cada quien elige en cuál especializarse.",
+       "revisar": "abogado"
+      },
+      {
+       "tipo": "dos_caminos",
+       "pregunta": "¿Qué te llama más?",
+       "a": {
+        "texto": "Ayudar a personas en problemas",
+        "dice": "Te atraen el derecho familiar, laboral o penal: casos de gente con nombre y apellido."
+       },
+       "b": {
+        "texto": "Que una empresa o un gobierno funcione bien",
+        "dice": "Te atraen el derecho mercantil, fiscal o administrativo: contratos, reglas y prevención."
+       }
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Un abogado penalista puede llevar igual de bien un divorcio.",
+       "respuesta": false,
+       "revelacion": "Puede hacerlo, pero cada rama tiene sus propias leyes y trámites. Por eso la mayoría se especializa.",
+       "revisar": "abogado"
+      },
+      {
+       "tipo": "clave",
+       "texto": "Hay muchas ramas y casi nadie las ejerce todas."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "1.3",
+     "titulo": "Mitos y realidades",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Las series muestran a los abogados gritando en un juicio. ¿Qué tanto se parece a la realidad?"
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Estudiar Derecho es memorizar leyes.",
+       "respuesta": false,
+       "revelacion": "Las leyes cambian. Lo que se aprende es a encontrarlas, leerlas con cuidado y aplicarlas a un caso.",
+       "revisar": "abogado"
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Todo es pelear en juicios como en las series.",
+       "respuesta": false,
+       "revelacion": "En México muchos juicios se llevan por escrito, y gran parte del trabajo es leer, redactar y negociar.",
+       "revisar": "abogado"
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Para ejercer como abogado se necesita cédula profesional.",
+       "respuesta": true,
+       "revelacion": "Se obtiene al titularte. Cada trámite y requisito se confirma con la autoridad oficial.",
+       "revisar": "fuente"
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Hay que ser muy bueno para discutir.",
+       "respuesta": false,
+       "revelacion": "Ayuda saber argumentar, pero escribir claro y escuchar con atención pesan igual o más.",
+       "revisar": "abogado"
+      },
+      {
+       "tipo": "clave",
+       "texto": "Se trata de leer con cuidado y argumentar por escrito."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "1.4",
+     "titulo": "Carreras parecidas",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Si te interesa la justicia o cómo funcionan las reglas, Derecho no es la única opción."
+      },
+      {
+       "tipo": "emparejar",
+       "pregunta": "Une cada carrera con lo que hace.",
+       "pares": [
+        [
+         "Derecho",
+         "Aplica las leyes para resolver conflictos"
+        ],
+        [
+         "Ciencias políticas",
+         "Estudia cómo se gana y se usa el poder"
+        ],
+        [
+         "Criminología",
+         "Estudia por qué ocurren los delitos y cómo prevenirlos"
+        ],
+        [
+         "Relaciones internacionales",
+         "Estudia los acuerdos entre países"
+        ],
+        [
+         "Trabajo social",
+         "Acompaña a personas y comunidades con problemas"
+        ]
+       ],
+       "revelacion": "Todas tocan la justicia o el gobierno desde lugares distintos. Algunas se combinan con Derecho en una maestría.",
+       "revisar": "abogado"
+      },
+      {
+       "tipo": "decision",
+       "pregunta": "Te interesa la justicia, pero no te ves leyendo expedientes. ¿Qué haces?",
+       "opciones": [
+        {
+         "texto": "Revisas también Criminología o Trabajo social",
+         "consecuencia": "Tienen otra forma de trabajar por la justicia: más campo y menos papeles.",
+         "mejor": true
+        },
+        {
+         "texto": "Entras a Derecho de todos modos",
+         "consecuencia": "Puede funcionar, pero leer y redactar es casi todo el trabajo."
+        },
+        {
+         "texto": "Descartas el tema por completo",
+         "consecuencia": "Antes de descartarlo, prueba las carreras parecidas."
+        }
+       ]
+      },
+      {
+       "tipo": "dos_caminos",
+       "pregunta": "¿Qué te atrae más?",
+       "a": {
+        "texto": "Resolver casos concretos",
+        "dice": "Te va Derecho: cada asunto tiene hechos, reglas y una solución."
+       },
+       "b": {
+        "texto": "Entender el sistema completo",
+        "dice": "Te van Ciencias políticas o Relaciones internacionales: más panorama y menos casos."
+       }
+      },
+      {
+       "tipo": "clave",
+       "texto": "Si te atrae la justicia, hay más de un camino."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "u2",
+   "lecciones": [
+    {
+     "id": "2.1",
+     "titulo": "Analizar un caso",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Beto compró un celular usado por internet. Semanas después le avisan que tiene reporte de robo y se lo quitan."
+      },
+      {
+       "tipo": "ordenar",
+       "pregunta": "¿En qué orden analizas el caso?",
+       "pasos": [
+        "Reunir los hechos: qué pasó, cuándo y entre quiénes",
+        "Buscar las pruebas: mensajes, pagos, recibos",
+        "Encontrar la regla que aplica",
+        "Aplicar la regla a los hechos",
+        "Llegar a una conclusión"
+       ],
+       "revelacion": "Hechos, pruebas, regla, aplicación y conclusión. Si te saltas los hechos, la mejor ley no te sirve.",
+       "revisar": "abogado"
+      },
+      {
+       "tipo": "decision",
+       "pregunta": "Beto no tiene recibo, pero sí los mensajes con el vendedor. ¿Sirven?",
+       "opciones": [
+        {
+         "texto": "Sí, pueden servir como prueba de la compra",
+         "consecuencia": "Mensajes y comprobantes de pago pueden demostrar el trato, aunque no haya papel firmado.",
+         "mejor": true
+        },
+        {
+         "texto": "No, solo vale un contrato firmado",
+         "consecuencia": "En muchos casos un acuerdo existe aunque no esté por escrito. Lo difícil es probarlo."
+        },
+        {
+         "texto": "No importa, ya perdió el celular",
+         "consecuencia": "Perdió el celular, pero tal vez pueda reclamarle el dinero al vendedor."
+        }
+       ],
+       "revisar": "abogado"
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Comprar algo robado sin saberlo te protege de perderlo.",
+       "respuesta": false,
+       "revelacion": "Normalmente el objeto regresa a su dueño. Lo que puedes hacer es reclamar a quien te lo vendió.",
+       "revisar": "abogado"
+      },
+      {
+       "tipo": "clave",
+       "texto": "Primero los hechos, luego la regla, al final la conclusión."
+      },
+      {
+       "tipo": "interes",
+       "pregunta": "¿Te ves analizando casos así?"
+      }
+     ]
+    },
+    {
+     "id": "2.2",
+     "titulo": "Negociar",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Representas a Rosa, la vecina del depósito. El dueño acepta platicar antes de ir a juicio."
+      },
+      {
+       "tipo": "presupuesto",
+       "area": "Negocios y sociedad",
+       "pregunta": "Solo tienes tiempo para usar 6 puntos de argumentos. ¿Cuáles eliges?",
+       "limite": 6,
+       "partidas": [
+        {
+         "texto": "Las fotos del departamento al entregarlo",
+         "costo": 2,
+         "clase": "pruebas"
+        },
+        {
+         "texto": "La cláusula del contrato sobre el depósito",
+         "costo": 2,
+         "clase": "pruebas"
+        },
+        {
+         "texto": "Ofrecer un acuerdo rápido sin juicio",
+         "costo": 2,
+         "clase": "acuerdo"
+        },
+        {
+         "texto": "Decirle que es un abusivo",
+         "costo": 1,
+         "clase": "emociones"
+        },
+        {
+         "texto": "Amenazar con publicarlo en redes",
+         "costo": 2,
+         "clase": "emociones"
+        },
+        {
+         "texto": "Contar lo mucho que Rosa necesita el dinero",
+         "costo": 1,
+         "clase": "emociones"
+        }
+       ],
+       "revelacion": "Las pruebas y una salida rápida convencen más que los insultos o las amenazas. Negociar es dar razones para aceptar."
+      },
+      {
+       "tipo": "decision",
+       "pregunta": "El dueño ofrece devolver la mitad. ¿Qué haces?",
+       "opciones": [
+        {
+         "texto": "Le preguntas a Rosa qué prefiere",
+         "consecuencia": "La decisión es de tu cliente. Tú le explicas los riesgos y lo que tardaría un juicio.",
+         "mejor": true
+        },
+        {
+         "texto": "Aceptas tú, para terminar rápido",
+         "consecuencia": "No puedes decidir por tu cliente. Es su dinero y su caso."
+        },
+        {
+         "texto": "Rechazas y amenazas con demandar",
+         "consecuencia": "Puede funcionar, pero también puede romper el diálogo y alargar todo."
+        }
+       ],
+       "revisar": "abogado"
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "En una negociación, ganar es que el otro pierda todo.",
+       "respuesta": false,
+       "revelacion": "Un buen acuerdo deja a ambas partes con algo. Eso hace que se cumpla.",
+       "revisar": "abogado"
+      },
+      {
+       "tipo": "clave",
+       "texto": "Un buen acuerdo evita un mal juicio."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "2.3",
+     "titulo": "Redactar sin huecos",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Una palabra mal puesta en un contrato puede terminar en un juicio de años. Vamos a probarlo."
+      },
+      {
+       "tipo": "decision",
+       "pregunta": "¿Cuál cláusula no se presta a dos lecturas?",
+       "opciones": [
+        {
+         "texto": "«El inquilino pagará la renta a más tardar el día cinco de cada mes, por transferencia a la cuenta indicada.»",
+         "consecuencia": "Dice quién, qué, cuándo y cómo. No deja huecos.",
+         "mejor": true
+        },
+        {
+         "texto": "«El inquilino pagará la renta a principios de mes.»",
+         "consecuencia": "¿Qué es «a principios»? ¿El día uno, el diez? Esa duda puede terminar en pleito."
+        },
+        {
+         "texto": "«La renta se paga puntualmente.»",
+         "consecuencia": "No dice quién paga, cuándo ni cómo. Cada parte podría entender algo distinto."
+        }
+       ],
+       "revisar": "abogado"
+      },
+      {
+       "tipo": "clasificar",
+       "pregunta": "¿La frase es clara o ambigua?",
+       "grupos": [
+        "Clara",
+        "Ambigua"
+       ],
+       "elementos": [
+        {
+         "texto": "Entregar el auto limpio",
+         "grupo": 1
+        },
+        {
+         "texto": "Entregar el auto el lunes a las diez en el domicilio del dueño",
+         "grupo": 0
+        },
+        {
+         "texto": "Pagar en un plazo razonable",
+         "grupo": 1
+        },
+        {
+         "texto": "Pagar en un plazo de treinta días naturales",
+         "grupo": 0
+        },
+        {
+         "texto": "Hacer reparaciones menores",
+         "grupo": 1
+        },
+        {
+         "texto": "Cambiar la llave del baño si gotea",
+         "grupo": 0
+        }
+       ],
+       "revelacion": "«Limpio», «razonable» y «menores» significan cosas distintas para cada quien. Por eso los abogados escriben con tanto detalle.",
+       "revisar": "abogado"
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Mientras más largo sea un contrato, mejor protege.",
+       "respuesta": false,
+       "revelacion": "Lo que protege es que sea claro. Un contrato largo y confuso puede ser peor.",
+       "revisar": "abogado"
+      },
+      {
+       "tipo": "clave",
+       "texto": "Una palabra ambigua puede costar un juicio."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "2.4",
+     "titulo": "Los dos lados",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Acusan a Daniel de romper el vidrio de una tienda. Una cámara grabó a alguien con una sudadera como la suya."
+      },
+      {
+       "tipo": "clasificar",
+       "pregunta": "¿A quién le sirve cada prueba?",
+       "grupos": [
+        "A la acusación",
+        "A la defensa"
+       ],
+       "elementos": [
+        {
+         "texto": "El video de la cámara",
+         "grupo": 0
+        },
+        {
+         "texto": "Un amigo dice que Daniel estaba con él en otro lugar",
+         "grupo": 1
+        },
+        {
+         "texto": "Daniel tiene una sudadera igual",
+         "grupo": 0
+        },
+        {
+         "texto": "En el video no se ve la cara",
+         "grupo": 1
+        },
+        {
+         "texto": "El ticket de un cine a la misma hora",
+         "grupo": 1
+        },
+        {
+         "texto": "Un vecino lo vio correr cerca",
+         "grupo": 0
+        }
+       ],
+       "revelacion": "Las mismas pruebas se ven distinto desde cada lado. El juez decide con todas, no solo con las de una parte.",
+       "revisar": "abogado"
+      },
+      {
+       "tipo": "decision",
+       "pregunta": "Te toca defender a Daniel, aunque crees que sí lo hizo. ¿Qué haces?",
+       "opciones": [
+        {
+         "texto": "Lo defiendes bien: todos tienen derecho a una defensa",
+         "consecuencia": "Defender no es aprobar lo que hizo. Es cuidar que el proceso sea justo y que se respeten sus derechos.",
+         "mejor": true
+        },
+        {
+         "texto": "Lo defiendes de mala gana",
+         "consecuencia": "Tu cliente merece una defensa seria. Si no puedes darla, lo correcto es decirlo."
+        },
+        {
+         "texto": "Mientes para que salga libre",
+         "consecuencia": "Mentir ante un juez es una falta grave. Se defiende con pruebas y argumentos, nunca con engaños."
+        }
+       ],
+       "revisar": "abogado"
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Si defiendes a alguien es porque estás de acuerdo con lo que hizo.",
+       "respuesta": false,
+       "revelacion": "La defensa es un derecho de todas las personas. Sin ella, cualquier acusación sería una condena.",
+       "revisar": "abogado"
+      },
+      {
+       "tipo": "clave",
+       "texto": "Defender a alguien no es estar de acuerdo con lo que hizo."
+      },
+      {
+       "tipo": "interes",
+       "pregunta": "¿Te ves defendiendo una postura así?"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "u3",
+   "lecciones": [
+    {
+     "id": "3.1",
+     "titulo": "Un día real",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Así es un día de Andrea, pasante en un despacho. Todavía estudia, pero ya trabaja en casos reales."
+      },
+      {
+       "tipo": "armar_dia",
+       "pregunta": "Coloca cada actividad en su momento del día.",
+       "bloques": [
+        "Temprano",
+        "Media mañana",
+        "Mediodía",
+        "Tarde",
+        "Noche"
+       ],
+       "actividades": [
+        "Ir al juzgado a revisar cómo va un expediente",
+        "Redactar un escrito para entregar",
+        "Atender a un cliente que llega preocupado",
+        "Revisar leyes y casos parecidos",
+        "Leer para la clase del día siguiente"
+       ],
+       "revelacion": "Los horarios cambian en cada despacho, pero el patrón se repite: casi todo el día se lee y se escribe, con salidas al juzgado.",
+       "revisar": "abogado"
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Un pasante pasa casi todo el día en audiencias.",
+       "respuesta": false,
+       "revelacion": "Pasa mucho tiempo en trámites, filas y escritos. Las audiencias son una parte pequeña.",
+       "revisar": "abogado"
+      },
+      {
+       "tipo": "dos_caminos",
+       "pregunta": "¿Qué parte del día te gusta más?",
+       "a": {
+        "texto": "Atender clientes y salir al juzgado",
+        "dice": "Te va el litigio: trato con personas, movimiento y presión."
+       },
+       "b": {
+        "texto": "Investigar y redactar con calma",
+        "dice": "Te va la parte de consultoría o contratos: análisis, lectura y precisión."
+       }
+      },
+      {
+       "tipo": "clave",
+       "texto": "Se lee y se escribe casi todo el día."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "3.2",
+     "titulo": "Lo difícil",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Llevas meses con un caso. El juzgado tarda y tu cliente te llama todos los días, cada vez más enojado."
+      },
+      {
+       "tipo": "decision",
+       "pregunta": "¿Qué le dices?",
+       "opciones": [
+        {
+         "texto": "Le explicas en qué etapa va y qué sigue",
+         "consecuencia": "Saber dónde está su caso le baja la angustia, aunque no puedas acelerar al juzgado.",
+         "mejor": true
+        },
+        {
+         "texto": "Le prometes que se resuelve la próxima semana",
+         "consecuencia": "Si no pasa, pierdes su confianza. No prometas lo que no depende de ti."
+        },
+        {
+         "texto": "Dejas de contestarle",
+         "consecuencia": "Un cliente sin noticias imagina lo peor. Una llamada corta evita un problema mayor."
+        }
+       ],
+       "revisar": "abogado"
+      },
+      {
+       "tipo": "clasificar",
+       "pregunta": "¿Qué tan común es en la carrera?",
+       "grupos": [
+        "Muy común",
+        "A veces"
+       ],
+       "elementos": [
+        {
+         "texto": "Leer muchísimas páginas cada semana",
+         "grupo": 0
+        },
+        {
+         "texto": "Materias pesadas como Derecho procesal y Amparo",
+         "grupo": 0
+        },
+        {
+         "texto": "Trámites que tardan meses",
+         "grupo": 0
+        },
+        {
+         "texto": "Empezar como pasante con poco sueldo",
+         "grupo": 0
+        },
+        {
+         "texto": "Clientes en crisis o muy enojados",
+         "grupo": 1
+        },
+        {
+         "texto": "Perder un caso aunque hayas hecho todo bien",
+         "grupo": 1
+        }
+       ],
+       "revelacion": "Mucho de esto no depende de ti. Lo que sí está en tus manos es el orden, la paciencia y la claridad.",
+       "revisar": "abogado"
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Qué tanto disfrutas leer textos largos con atención?",
+       "escala": [
+        "Me cuesta mucho",
+        "Lo disfruto"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Se avanza con paciencia y orden."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "3.3",
+     "titulo": "Historia real",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "reflexion",
+       "pregunta": "Si pudieras preguntarle algo a alguien que ya estudia Derecho, ¿qué sería?",
+       "opciones": [
+        "¿Qué fue lo más difícil?",
+        "¿Qué te sorprendió?",
+        "¿Volverías a elegirla?",
+        "¿Cómo es un día normal?"
+       ]
+      },
+      {
+       "tipo": "testimonio",
+       "estado": "pendiente",
+       "perfil": "Pasante o abogada recién titulada"
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "Mientras llega esta historia, ¿a quién podrías preguntarle tú?",
+       "opciones": [
+        "A un familiar o conocido que sea abogado o abogada",
+        "A un estudiante de Derecho de mi ciudad",
+        "A un maestro que conozca la carrera",
+        "Todavía no conozco a nadie"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Una persona real te cuenta lo que ningún folleto dice."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "3.4",
+     "titulo": "¿Quién lo disfruta?",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Derecho no es para quien más grita, sino para quien mejor lee y argumenta. Piensa en ti."
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Te gusta leer con lupa y encontrar detalles que otros no ven?",
+       "escala": [
+        "No va conmigo",
+        "Va mucho conmigo"
+       ]
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Te incomoda ver una injusticia y quedarte sin hacer nada?",
+       "escala": [
+        "No va conmigo",
+        "Va mucho conmigo"
+       ]
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Podrías defender una postura que no es la tuya?",
+       "escala": [
+        "No va conmigo",
+        "Va mucho conmigo"
+       ]
+      },
+      {
+       "tipo": "dos_caminos",
+       "pregunta": "¿Qué te emociona más?",
+       "a": {
+        "texto": "Ganar una discusión con buenos argumentos",
+        "dice": "Te va el litigio: armar el caso y convencer a un juez."
+       },
+       "b": {
+        "texto": "Prevenir el problema antes de que pase",
+        "dice": "Te va la asesoría: contratos bien hechos y consejos a tiempo."
+       }
+      },
+      {
+       "tipo": "clave",
+       "texto": "Lo disfruta quien goza armar un buen argumento."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "u4",
+   "lecciones": [
+    {
+     "id": "4.1",
+     "titulo": "Cuánto dura y qué estudias",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Antes de ejercer hay un camino largo. Veamos cómo se arma."
+      },
+      {
+       "tipo": "ordenar",
+       "pregunta": "Ordena las etapas de la carrera.",
+       "pasos": [
+        "Materias base: constitucional, civil y penal",
+        "Materias de cómo se lleva un juicio",
+        "Materias de especialidad",
+        "Prácticas y servicio social",
+        "Titulación"
+       ],
+       "revelacion": "Cada escuela lo arma distinto, pero casi siempre las prácticas en un despacho o juzgado llegan a la mitad de la carrera.",
+       "revisar": "fuente"
+      },
+      {
+       "tipo": "rango",
+       "pregunta": "¿Cuántos años crees que pasan desde que entras hasta que te titulas?",
+       "min": 3,
+       "max": 10,
+       "paso": 1,
+       "unidad": "años",
+       "dato": "derecho.duracion"
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Las prácticas en un despacho enseñan tanto como las clases.",
+       "respuesta": true,
+       "revelacion": "Ahí ves cómo se lleva un caso de verdad: plazos, trámites y clientes.",
+       "revisar": "abogado"
+      },
+      {
+       "tipo": "clave",
+       "texto": "Las prácticas en un despacho o juzgado enseñan tanto como las clases."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "4.2",
+     "titulo": "Cómo se entra",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Derecho es de las carreras con más aspirantes en muchas universidades. Veamos qué cuenta."
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "En el examen de admisión pesan la lectura y la redacción.",
+       "respuesta": true,
+       "revelacion": "Entender textos y escribir bien es la base de la carrera. Cada universidad publica su temario.",
+       "revisar": "fuente"
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Hay que saberse leyes antes de entrar.",
+       "respuesta": false,
+       "revelacion": "Nadie te pide eso. Lo que ayuda es leer mucho y entender lo que lees.",
+       "revisar": "fuente"
+      },
+      {
+       "tipo": "dato",
+       "titulo": "Aspirantes por cada lugar",
+       "dato": "derecho.aspirantes"
+      },
+      {
+       "tipo": "decision",
+       "pregunta": "Estás en quinto semestre de prepa. ¿Qué haces desde hoy?",
+       "opciones": [
+        {
+         "texto": "Lees noticias y libros, y practicas escribir opiniones",
+         "consecuencia": "Leer y escribir con frecuencia es la mejor preparación para el examen y para la carrera.",
+         "mejor": true
+        },
+        {
+         "texto": "Ves series de abogados",
+         "consecuencia": "Entretienen, pero muestran poco de cómo es el trabajo real."
+        },
+        {
+         "texto": "Te memorizas la Constitución",
+         "consecuencia": "No hace falta. Mejor entiende cómo se organiza y para qué sirve."
+        }
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Leer mucho desde hoy es la mejor preparación."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "4.3",
+     "titulo": "Dónde, cuánto cuesta y becas",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "El costo de estudiar Derecho cambia mucho entre una universidad pública y una privada. Antes de ver datos, apuesta."
+      },
+      {
+       "tipo": "rango",
+       "pregunta": "¿Cuánto crees que cuesta un semestre en una universidad pública?",
+       "min": 0,
+       "max": 60000,
+       "paso": 1000,
+       "unidad": "pesos",
+       "dato": "derecho.costo_publica"
+      },
+      {
+       "tipo": "rango",
+       "pregunta": "¿Y un semestre en una universidad privada?",
+       "min": 0,
+       "max": 300000,
+       "paso": 5000,
+       "unidad": "pesos",
+       "dato": "derecho.costo_privada"
+      },
+      {
+       "tipo": "dato",
+       "titulo": "Becas para estudiar Derecho",
+       "dato": "derecho.becas"
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Cualquier escuela que ofrece Derecho tiene validez oficial.",
+       "respuesta": false,
+       "revelacion": "Revisa que el programa tenga reconocimiento oficial. Sin él, puede haber problemas para tramitar tu cédula.",
+       "revisar": "fuente"
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Qué pesa más para ti al elegir escuela?",
+       "opciones": [
+        "El costo",
+        "Que esté cerca de mi casa",
+        "El prestigio",
+        "Las prácticas que ofrece"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Hay muchas escuelas: revisa que el programa tenga reconocimiento oficial."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "u5",
+   "lecciones": [
+    {
+     "id": "5.1",
+     "titulo": "Dónde se trabaja",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Litigar en juzgados es solo una de las salidas. Hay muchas más."
+      },
+      {
+       "tipo": "emparejar",
+       "pregunta": "Une cada lugar con lo que harías ahí.",
+       "pares": [
+        [
+         "Despacho",
+         "Llevar casos de clientes"
+        ],
+        [
+         "Juzgado",
+         "Ayudar a preparar las decisiones de un juez"
+        ],
+        [
+         "Fiscalía",
+         "Investigar delitos y acusar"
+        ],
+        [
+         "Notaría",
+         "Dar certeza a compraventas y testamentos"
+        ],
+        [
+         "Empresa",
+         "Revisar contratos y cuidar que se cumplan las reglas"
+        ]
+       ],
+       "revelacion": "Cada lugar pide habilidades distintas. Muchos abogados cambian de uno a otro a lo largo de su vida.",
+       "revisar": "abogado"
+      },
+      {
+       "tipo": "dos_caminos",
+       "pregunta": "¿Dónde te ves?",
+       "a": {
+        "texto": "En el sector público",
+        "dice": "Juzgados, fiscalías y gobierno: servicio a la sociedad y, en muchos casos, concursos para entrar."
+       },
+       "b": {
+        "texto": "En el sector privado",
+        "dice": "Despachos y empresas: más competencia y la posibilidad de tener clientes propios."
+       }
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Cualquier abogado puede ser notario.",
+       "respuesta": false,
+       "revelacion": "Ser notario pide requisitos adicionales y, en muchos estados, un examen. Se confirma en la ley de cada estado.",
+       "revisar": "fuente"
+      },
+      {
+       "tipo": "clave",
+       "texto": "Litigar es solo una de las salidas."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "5.2",
+     "titulo": "Sueldo y demanda",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Hablemos de dinero sin rodeos. Antes de ver cualquier cifra, apuesta: así recuerdas mejor el dato real."
+      },
+      {
+       "tipo": "rango",
+       "pregunta": "¿Cuánto crees que gana al mes, en promedio, un profesionista de Derecho en México?",
+       "min": 5000,
+       "max": 100000,
+       "paso": 1000,
+       "unidad": "pesos",
+       "dato": "derecho.ingreso"
+      },
+      {
+       "tipo": "rango",
+       "pregunta": "De cada 100 egresados, ¿cuántos crees que trabajan en algo de su carrera?",
+       "min": 0,
+       "max": 100,
+       "paso": 5,
+       "unidad": "de cada 100",
+       "dato": "derecho.ocupacion_afin"
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Todos los abogados ganan parecido al salir de la carrera.",
+       "respuesta": false,
+       "revelacion": "Depende mucho de la rama, del lugar y de la experiencia. Al principio, muchos pasantes ganan poco.",
+       "revisar": "abogado"
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Qué tanto pesa el sueldo en tu decisión?",
+       "escala": [
+        "No va conmigo",
+        "Va mucho conmigo"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Es una carrera con muchos egresados: especializarte te distingue."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "5.3",
+     "titulo": "Cómo la cambia la tecnología",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Hoy hay juicios en línea y programas que encuentran casos parecidos en segundos. ¿Qué cambia?"
+      },
+      {
+       "tipo": "decision",
+       "pregunta": "Un programa de IA te sugiere argumentos para un caso. ¿Qué haces?",
+       "opciones": [
+        {
+         "texto": "Revisas cada fuente antes de usarla",
+         "consecuencia": "La IA puede inventar leyes o casos que no existen. Un abogado responde por lo que firma.",
+         "mejor": true
+        },
+        {
+         "texto": "Los copias en tu escrito",
+         "consecuencia": "Si una cita es falsa, el error es tuyo y puede afectar a tu cliente."
+        },
+        {
+         "texto": "No la usas nunca",
+         "consecuencia": "Puedes elegirlo, pero buscar textos rápido ya es parte del trabajo en muchos despachos."
+        }
+       ],
+       "revisar": "abogado"
+      },
+      {
+       "tipo": "dos_caminos",
+       "pregunta": "¿Cómo prefieres trabajar?",
+       "a": {
+        "texto": "Con herramientas digitales",
+        "dice": "Ahorran tiempo en búsquedas y trámites. Te deja más tiempo para pensar el caso."
+       },
+       "b": {
+        "texto": "Con el expediente en la mano",
+        "dice": "También sirve: leer a fondo te hace ver lo que una búsqueda rápida no encuentra."
+       }
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Pronto una computadora va a decidir los juicios.",
+       "respuesta": false,
+       "revelacion": "Las herramientas ayudan a buscar y ordenar. Decidir qué es justo sigue siendo una tarea de personas.",
+       "revisar": "abogado"
+      },
+      {
+       "tipo": "clave",
+       "texto": "La máquina encuentra textos; decidir qué es justo sigue siendo humano."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "5.4",
+     "titulo": "Después de titularte",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Ya te titulaste. En Derecho hay varios caminos y algunos piden más exámenes."
+      },
+      {
+       "tipo": "emparejar",
+       "pregunta": "Une cada camino con lo que implica.",
+       "pares": [
+        [
+         "Maestría",
+         "Especializarte en una rama, como fiscal o penal"
+        ],
+        [
+         "Carrera judicial",
+         "Concursar para trabajar en juzgados y subir de puesto"
+        ],
+        [
+         "Notaría",
+         "Cumplir requisitos y presentar exámenes"
+        ],
+        [
+         "Despacho propio",
+         "Conseguir clientes y administrar un negocio"
+        ]
+       ],
+       "revelacion": "Varios caminos piden concursos o exámenes adicionales. Las reglas cambian según el estado y la institución.",
+       "revisar": "fuente"
+      },
+      {
+       "tipo": "dos_caminos",
+       "pregunta": "¿Qué te llama más?",
+       "a": {
+        "texto": "Una carrera dentro de una institución",
+        "dice": "Te va el servicio público: estabilidad y crecer por concursos."
+       },
+       "b": {
+        "texto": "Tu propio despacho",
+        "dice": "Te va emprender: libertad, pero tienes que conseguir clientes."
+       }
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Cómo te imaginas después de la carrera?",
+       "opciones": [
+        "En una maestría",
+        "En un juzgado o fiscalía",
+        "En un despacho o empresa",
+        "Con mi propio despacho"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Varios caminos piden concursos o exámenes adicionales."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "u6",
+   "lecciones": [
+    {
+     "id": "6.1",
+     "titulo": "Lo que sentiste",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "reflexion",
+       "pregunta": "Antes de ver tus respuestas: ¿cómo te fue con Derecho?",
+       "opciones": [
+        "Me gustó más de lo que pensaba",
+        "Más o menos como esperaba",
+        "Me gustó menos de lo que pensaba"
+       ]
+      },
+      {
+       "tipo": "resumen"
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "Viendo tus respuestas, ¿qué pesó más?",
+       "opciones": [
+        "Lo que sentí al probarla",
+        "Lo que supe de la realidad",
+        "El camino para llegar",
+        "El futuro que ofrece"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Lo que sentiste al probarla vale más que lo que imaginabas."
+      },
+      {
+       "tipo": "interes",
+       "pregunta": "¿Te ves estudiando Derecho?"
+      }
+     ]
+    },
+    {
+     "id": "6.2",
+     "titulo": "Tu veredicto",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "reflexion",
+       "pregunta": "Si mañana tuvieras que elegir carrera, ¿Derecho estaría entre tus opciones?",
+       "opciones": [
+        "Sí, entre las primeras",
+        "Sí, pero no arriba",
+        "No creo",
+        "No lo sé"
+       ]
+      },
+      {
+       "tipo": "comparar"
+      },
+      {
+       "tipo": "dos_caminos",
+       "pregunta": "¿Qué te ayudaría más a decidir?",
+       "a": {
+        "texto": "Hablar con alguien que la estudia",
+        "dice": "Busca a un estudiante o a un abogado o una abogada cerca de ti y hazle tus preguntas. Una plática aclara más que diez videos."
+       },
+       "b": {
+        "texto": "Probar otra carrera y comparar",
+        "dice": "Explora otra de tu mapa. Comparar dos caminos reales aclara más que pensar en uno solo."
+       }
+      },
+      {
+       "tipo": "veredicto"
+      },
+      {
+       "tipo": "clave",
+       "texto": "Decidir «en duda» también es avanzar."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

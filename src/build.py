@@ -13,8 +13,15 @@ js='/* cara de Rumbo, copiada de cara-rumbo.svg por build.py; no se edita a mano
 import glob
 D=os.path.join(src,'..','datos')+'/'
 cat={'ip':json.load(open(D+'onet/ip.json')),'regla':json.load(open(D+'regla-intereses.json')),'est':json.load(open(D+'estructura.json')),'cif':json.load(open(D+'cifras.json')),'demo':json.load(open(D+'demo-dinamicas.json')),'car':{}}
+# el texto de las lecciones no va dentro de la página: se descarga de datos/carreras/<id>.json al abrir una lección
+# (con la huella del archivo en la dirección, para que una versión nueva no salga de la copia vieja)
+import hashlib
 for f in sorted(glob.glob(D+'carreras/*.json')):
-    c=json.load(open(f));cat['car'][c['id']]=c
+    raw=open(f,'rb').read();c=json.loads(raw)
+    for u in c['unidades']:
+        for l in u['lecciones']:l.pop('tarjetas',None)
+    c['src']='datos/carreras/'+c['id']+'.json?v='+hashlib.sha1(raw).hexdigest()[:10]
+    cat['car'][c['id']]=c
 js+='/* catálogo de contenido, copiado de datos/ por build.py; no se edita aquí */\nvar CAT='+json.dumps(cat,ensure_ascii=False,separators=(',',':'))+';\n'
 js+=open(src+'rumbo.js').read().replace('/*@skins*/',open(src+'skins.js').read())+'\n'
 js+=''.join(open(src+f).read()+'\n' for f in ['iso-lib.js','iso-gen.js','iso-env-old.js','iso-env.js','iso-bld.js','iso-bld2.js','iso-bld3.js','iso-map.js','iso-fix.js','iso-art.js','rumbo-page.js','leccion.js','ruta.js','intereses.js','comparar.js','sprite.js','amb.js','mine.js','perfil.js'])

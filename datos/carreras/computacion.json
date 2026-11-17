@@ -1,0 +1,1277 @@
+{
+ "id": "computacion",
+ "version": 1,
+ "estado": "completo",
+ "revision": "Pendiente de revisión por un profesionista de Computación. Las tarjetas con «revisar»: «programador» describen el trabajo o la carrera; las de «fuente» son reglas o trámites que hay que confirmar en fuente oficial.",
+ "unidades": [
+  {
+   "id": "u1",
+   "lecciones": [
+    {
+     "id": "1.1",
+     "titulo": "Qué es y qué resuelve",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Doña Lupe tiene una tiendita y quiere vender por internet. Te pide ayuda. Tú sabes programar."
+      },
+      {
+       "tipo": "decision",
+       "pregunta": "¿Qué haces primero?",
+       "opciones": [
+        {
+         "texto": "Le preguntas qué vende, a quién y cómo cobra",
+         "consecuencia": "Antes de escribir una línea hay que entender el problema. Tal vez no necesita una app: con un catálogo y pagos en línea le alcanza.",
+         "mejor": true
+        },
+        {
+         "texto": "Empiezas a programar la app esa misma tarde",
+         "consecuencia": "Si programas sin entender el problema, es fácil que hagas algo que nadie va a usar."
+        },
+        {
+         "texto": "Eliges el lenguaje de programación más moderno",
+         "consecuencia": "El lenguaje es una herramienta. Primero importa qué necesita doña Lupe."
+        }
+       ],
+       "revisar": "programador"
+      },
+      {
+       "tipo": "ordenar",
+       "pregunta": "Así se hace un programa. Ponlo en orden.",
+       "pasos": [
+        "Entender el problema",
+        "Diseñar la solución",
+        "Programar",
+        "Probar",
+        "Mejorar con lo que dicen los usuarios"
+       ],
+       "revelacion": "Entender, diseñar, programar, probar y mejorar. Programar es solo una parte, y no la primera.",
+       "revisar": "programador"
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Estudiar Computación es aprender a usar programas como Word o Excel.",
+       "respuesta": false,
+       "revelacion": "Se aprende a crear programas, no solo a usarlos: cómo piensa una computadora, cómo se guardan los datos y cómo se resuelven problemas con código.",
+       "revisar": "programador"
+      },
+      {
+       "tipo": "clave",
+       "texto": "Programar es la última parte: primero se entiende el problema."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "1.2",
+     "titulo": "A quién ayudas",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Abre tu celular. Casi todo lo que ves ahí lo hizo alguien que estudió algo parecido a Computación."
+      },
+      {
+       "tipo": "clasificar",
+       "pregunta": "¿Qué tipo de software es?",
+       "grupos": [
+        "Apps y web",
+        "Juegos",
+        "Datos e IA",
+        "Seguridad"
+       ],
+       "elementos": [
+        {
+         "texto": "La app de tu banco",
+         "grupo": 0
+        },
+        {
+         "texto": "Un juego de carreras para celular",
+         "grupo": 1
+        },
+        {
+         "texto": "Un sistema que recomienda canciones",
+         "grupo": 2
+        },
+        {
+         "texto": "Proteger la red de un hospital de un ataque",
+         "grupo": 3
+        },
+        {
+         "texto": "La página de inscripción de tu escuela",
+         "grupo": 0
+        },
+        {
+         "texto": "Detectar compras raras con una tarjeta robada",
+         "grupo": 2
+        }
+       ],
+       "revelacion": "Hay software en bancos, hospitales, escuelas y fábricas. Casi cualquier industria necesita gente que lo haga y lo cuide.",
+       "revisar": "programador"
+      },
+      {
+       "tipo": "dos_caminos",
+       "pregunta": "¿Qué te llama más?",
+       "a": {
+        "texto": "Hacer algo que la gente use todos los días",
+        "dice": "Te atrae el desarrollo de apps y sitios: pensar en el usuario y ver tu trabajo en manos de otros."
+       },
+       "b": {
+        "texto": "Que todo funcione rápido y seguro por dentro",
+        "dice": "Te atrae la parte de sistemas: servidores, redes, seguridad y datos que nadie ve pero todos usan."
+       }
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Solo las empresas de tecnología contratan gente de Computación.",
+       "respuesta": false,
+       "revelacion": "También contratan bancos, tiendas, gobierno, hospitales y fábricas. Hoy casi todas las empresas tienen software propio.",
+       "revisar": "programador"
+      },
+      {
+       "tipo": "clave",
+       "texto": "Casi todas las industrias necesitan software."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "1.3",
+     "titulo": "Mitos y realidades",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Sobre Computación se dicen muchas cosas. Algunas son ciertas y otras no tanto. Vamos a ver."
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Computación es jugar videojuegos todo el día.",
+       "respuesta": false,
+       "revelacion": "Hacer un videojuego es una rama, y es trabajo pesado: matemáticas, física y muchas pruebas. Jugar no es lo mismo que crearlos.",
+       "revisar": "programador"
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Hay que ser un genio de las matemáticas.",
+       "respuesta": false,
+       "revelacion": "Sí hay bastantes matemáticas y hay que esforzarse, pero se aprenden con práctica. La constancia pesa más que el talento.",
+       "revisar": "programador"
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Se trabaja solo, sin hablar con nadie.",
+       "respuesta": false,
+       "revelacion": "Casi siempre se trabaja en equipo: se revisa el código de otros, se platica con clientes y se explican ideas.",
+       "revisar": "programador"
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Si ya sabes usar bien la compu, ya tienes la mitad de la carrera.",
+       "respuesta": false,
+       "revelacion": "Usarla bien ayuda, pero la carrera es entender cómo funciona por dentro y crear cosas nuevas.",
+       "revisar": "programador"
+      },
+      {
+       "tipo": "clave",
+       "texto": "Se trabaja en equipo y se aprende toda la vida."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "1.4",
+     "titulo": "Carreras parecidas",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Ingeniería en software, Sistemas, Computación… Los nombres se parecen. ¿En qué cambian?"
+      },
+      {
+       "tipo": "emparejar",
+       "pregunta": "Une cada carrera con lo que más hace.",
+       "pares": [
+        [
+         "Ciencias de la computación",
+         "Estudia la teoría: algoritmos y cómo resolver problemas"
+        ],
+        [
+         "Ingeniería en software",
+         "Construye programas grandes en equipo"
+        ],
+        [
+         "Sistemas computacionales",
+         "Conecta redes, servidores y programas de una empresa"
+        ],
+        [
+         "Ciencia de datos",
+         "Encuentra patrones en muchos datos"
+        ],
+        [
+         "Mecatrónica",
+         "Junta mecánica, electrónica y programación en máquinas"
+        ]
+       ],
+       "revelacion": "Se cruzan mucho y cada escuela les pone nombre distinto. Lo que importa es el plan de estudios.",
+       "revisar": "fuente"
+      },
+      {
+       "tipo": "decision",
+       "pregunta": "Dos escuelas ofrecen carreras con nombres parecidos. ¿Cómo decides?",
+       "opciones": [
+        {
+         "texto": "Comparas las materias de cada plan de estudios",
+         "consecuencia": "Las materias dicen qué vas a aprender de verdad. El nombre puede engañar.",
+         "mejor": true
+        },
+        {
+         "texto": "Eliges la que tenga el nombre más moderno",
+         "consecuencia": "Un nombre llamativo no garantiza que el plan sea mejor."
+        },
+        {
+         "texto": "Eliges la que dice «Ingeniería»",
+         "consecuencia": "Algunas licenciaturas tienen más programación que ciertas ingenierías. Hay que ver las materias."
+        }
+       ]
+      },
+      {
+       "tipo": "dos_caminos",
+       "pregunta": "¿Qué te atrae más?",
+       "a": {
+        "texto": "Construir cosas que funcionen",
+        "dice": "Te van las carreras de software y sistemas: hacer, probar y entregar."
+       },
+       "b": {
+        "texto": "Entender por qué funcionan",
+        "dice": "Te van Ciencias de la computación o Ciencia de datos: más teoría y análisis."
+       }
+      },
+      {
+       "tipo": "clave",
+       "texto": "Los nombres cambian por escuela: revisa el plan de estudios."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "u2",
+   "lecciones": [
+    {
+     "id": "2.1",
+     "titulo": "Depurar un programa",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Este robot debe llegar a la bandera. Alguien ya escribió el programa, pero el robot termina en el agua."
+      },
+      {
+       "tipo": "bloques",
+       "area": "Tecnología y ciencias",
+       "pregunta": "Sigue el programa paso a paso. Toca el bloque que está mal.",
+       "bloques": [
+        "Avanzar 2",
+        "Girar a la derecha",
+        "Avanzar 3",
+        "Girar a la derecha",
+        "Avanzar 1"
+       ],
+       "falla": 3,
+       "opciones": [
+        "Girar a la izquierda",
+        "Avanzar 2",
+        "Quitar el bloque"
+       ],
+       "correcta": 0,
+       "revelacion": "El segundo giro era a la izquierda. El error estaba en un solo bloque, pero se notó tres pasos después."
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Un buen programador casi no comete errores.",
+       "respuesta": false,
+       "revelacion": "Todos se equivocan todo el día. Lo que cambia es qué tan rápido encuentran el error.",
+       "revisar": "programador"
+      },
+      {
+       "tipo": "decision",
+       "pregunta": "Tu programa falla y no sabes por qué. ¿Qué haces?",
+       "opciones": [
+        {
+         "texto": "Lo pruebas por partes hasta ver dónde se desvía",
+         "consecuencia": "Así se encuentra casi cualquier error: dividir y revisar cada pedazo.",
+         "mejor": true
+        },
+        {
+         "texto": "Lo borras todo y empiezas de nuevo",
+         "consecuencia": "A veces sirve, pero casi siempre repites el mismo error sin saber cuál era."
+        },
+        {
+         "texto": "Cambias cosas al azar a ver si se arregla",
+         "consecuencia": "Puede funcionar por suerte, pero no aprendes qué pasó y puede volver a fallar."
+        }
+       ],
+       "revisar": "programador"
+      },
+      {
+       "tipo": "clave",
+       "texto": "Depurar es buscar con método, no adivinar."
+      },
+      {
+       "tipo": "interes",
+       "pregunta": "¿Te ves buscando errores así?"
+      }
+     ]
+    },
+    {
+     "id": "2.2",
+     "titulo": "Instrucciones exactas",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Una computadora no adivina. Imagina que le explicas a un robot cómo preparar un sándwich."
+      },
+      {
+       "tipo": "ordenar",
+       "pregunta": "Pon los pasos en orden para que el robot no se equivoque.",
+       "pasos": [
+        "Saca dos rebanadas de pan",
+        "Unta mayonesa en una rebanada",
+        "Pon el jamón encima",
+        "Pon el queso encima del jamón",
+        "Tapa con la otra rebanada"
+       ],
+       "revelacion": "Si cambias un paso de lugar, el robot hace un desastre. Un algoritmo es eso: pasos claros y en orden.",
+       "revisar": "programador"
+      },
+      {
+       "tipo": "decision",
+       "pregunta": "Le dices al robot: «pon el jamón». ¿Qué puede salir mal?",
+       "opciones": [
+        {
+         "texto": "No sabe cuánto jamón ni dónde ponerlo",
+         "consecuencia": "Exacto. Para una persona es obvio; para una máquina hay que decirlo todo.",
+         "mejor": true
+        },
+        {
+         "texto": "Nada, la instrucción es clara",
+         "consecuencia": "Para ti sí. El robot podría poner el paquete entero, sin abrir, encima del pan."
+        },
+        {
+         "texto": "Se tarda más",
+         "consecuencia": "El problema no es el tiempo: es que la instrucción tiene huecos."
+        }
+       ]
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "La computadora hace lo que quisiste decir, aunque no lo escribas igual.",
+       "respuesta": false,
+       "revelacion": "Hace exactamente lo que escribiste. Por eso un error pequeño puede cambiar todo el resultado.",
+       "revisar": "programador"
+      },
+      {
+       "tipo": "clave",
+       "texto": "La computadora hace lo que dices, no lo que quieres."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "2.3",
+     "titulo": "Buscar rápido",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Tu amiga pensó un número del 1 al 100. Solo puedes preguntar si es mayor o menor. Gana quien adivine con menos preguntas."
+      },
+      {
+       "tipo": "decision",
+       "pregunta": "¿Con qué número empiezas?",
+       "opciones": [
+        {
+         "texto": "Con el 50",
+         "consecuencia": "Cada respuesta descarta la mitad. Con esta estrategia siempre adivinas en pocas preguntas.",
+         "mejor": true
+        },
+        {
+         "texto": "Con el 1, y luego subes de uno en uno",
+         "consecuencia": "Funciona, pero en el peor caso haces muchísimas preguntas."
+        },
+        {
+         "texto": "Con un número al azar",
+         "consecuencia": "A veces tienes suerte, pero no siempre. Una estrategia gana a la suerte."
+        }
+       ],
+       "revisar": "programador"
+      },
+      {
+       "tipo": "patron",
+       "area": "Tecnología y ciencias",
+       "pregunta": "Cada pregunta parte la lista a la mitad. ¿Cuántos números quedan después de la cuarta?",
+       "serie": [
+        100,
+        50,
+        25,
+        13
+       ],
+       "etiquetas": [
+        "Inicio",
+        "1.ª",
+        "2.ª",
+        "3.ª",
+        "4.ª"
+       ],
+       "opciones": [
+        7,
+        10,
+        12
+       ],
+       "correcta": 0,
+       "revelacion": "Cada vez quedan como la mitad. Por eso con unas cuantas preguntas encuentras el número, aunque la lista sea enorme."
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Una computadora más rápida siempre gana a un mejor método.",
+       "respuesta": false,
+       "revelacion": "Un buen método puede ahorrar más tiempo que cualquier computadora nueva. Eso se estudia en la materia de algoritmos.",
+       "revisar": "programador"
+      },
+      {
+       "tipo": "clave",
+       "texto": "Una buena estrategia vale más que una máquina rápida."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "2.4",
+     "titulo": "Diseñar para alguien",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "La cafetería de tu escuela quiere una app para pedir comida. Solo hay tiempo para hacer algunas funciones antes de que empiece el ciclo."
+      },
+      {
+       "tipo": "presupuesto",
+       "area": "Tecnología y ciencias",
+       "pregunta": "Tienes 10 semanas de trabajo. Elige qué funciones hacer.",
+       "limite": 10,
+       "partidas": [
+        {
+         "texto": "Ver el menú del día",
+         "costo": 2,
+         "clase": "lo básico"
+        },
+        {
+         "texto": "Pedir y pagar en línea",
+         "costo": 5,
+         "clase": "lo básico"
+        },
+        {
+         "texto": "Avisar cuando tu pedido está listo",
+         "costo": 2,
+         "clase": "lo básico"
+        },
+        {
+         "texto": "Puntos por cada compra",
+         "costo": 3,
+         "clase": "extras"
+        },
+        {
+         "texto": "Modo oscuro",
+         "costo": 1,
+         "clase": "extras"
+        },
+        {
+         "texto": "Chat con la cafetería",
+         "costo": 3,
+         "clase": "extras"
+        }
+       ],
+       "revelacion": "Nunca alcanza para todo. Lo que se entrega primero es lo que más necesitan los usuarios; lo demás llega después."
+      },
+      {
+       "tipo": "decision",
+       "pregunta": "Un compañero quiere agregar videojuegos dentro de la app. ¿Qué le dices?",
+       "opciones": [
+        {
+         "texto": "Primero preguntamos a los alumnos qué necesitan",
+         "consecuencia": "Así decides con datos y no con gustos. Tal vez nadie lo pide.",
+         "mejor": true
+        },
+        {
+         "texto": "Que sí, se ve muy padre",
+         "consecuencia": "Puede gustar, pero se come tiempo que hacía falta para lo básico."
+        },
+        {
+         "texto": "Que no, porque es tu proyecto",
+         "consecuencia": "Las ideas se discuten con argumentos, no con quién manda."
+        }
+       ]
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Una buena app tiene todas las funciones posibles.",
+       "respuesta": false,
+       "revelacion": "Muchas funciones confunden. Las mejores apps hacen pocas cosas y las hacen bien.",
+       "revisar": "programador"
+      },
+      {
+       "tipo": "clave",
+       "texto": "Decidir qué no hacer también es ingeniería."
+      },
+      {
+       "tipo": "interes",
+       "pregunta": "¿Te ves diseñando apps para otros?"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "u3",
+   "lecciones": [
+    {
+     "id": "3.1",
+     "titulo": "Un día real",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Así es un día de Mariana, desarrolladora en una empresa de software. No todo es escribir código."
+      },
+      {
+       "tipo": "armar_dia",
+       "pregunta": "Coloca cada actividad en su momento del día.",
+       "bloques": [
+        "Al empezar",
+        "Media mañana",
+        "Después de comer",
+        "Tarde",
+        "Antes de irse"
+       ],
+       "actividades": [
+        "Junta corta con el equipo: qué hizo ayer y qué hará hoy",
+        "Programar una función nueva",
+        "Revisar el código de un compañero",
+        "Resolver un error que reportó un cliente",
+        "Dejar notas de lo que avanzó"
+       ],
+       "revelacion": "Los horarios cambian en cada empresa, pero se repite el patrón: poco tiempo para escribir código nuevo y mucho para leer, revisar y corregir.",
+       "revisar": "programador"
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Un programador pasa casi todo el día escribiendo código nuevo.",
+       "respuesta": false,
+       "revelacion": "Pasa mucho tiempo leyendo código de otros, probando y corrigiendo. Escribir es solo una parte.",
+       "revisar": "programador"
+      },
+      {
+       "tipo": "dos_caminos",
+       "pregunta": "¿Qué día prefieres?",
+       "a": {
+        "texto": "En oficina con tu equipo",
+        "dice": "Muchas empresas trabajan en oficina: platicas en persona y aprendes rápido de otros."
+       },
+       "b": {
+        "texto": "Desde tu casa",
+        "dice": "Hay trabajos a distancia, incluso para empresas de otros países. Pide disciplina y saber organizarte."
+       }
+      },
+      {
+       "tipo": "clave",
+       "texto": "Se lee y corrige más código del que se escribe."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "3.2",
+     "titulo": "Lo difícil",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Llevas tres horas buscando por qué tu programa no funciona. Mañana es la entrega."
+      },
+      {
+       "tipo": "decision",
+       "pregunta": "¿Qué haces?",
+       "opciones": [
+        {
+         "texto": "Pides ayuda y explicas el problema en voz alta",
+         "consecuencia": "Explicarle el problema a alguien, aunque no sepa programar, muchas veces te hace ver el error.",
+         "mejor": true
+        },
+        {
+         "texto": "Sigues solo hasta la madrugada",
+         "consecuencia": "A veces sale, pero cansado cometes más errores. Pedir ayuda no es rendirse."
+        },
+        {
+         "texto": "Lo dejas así y entregas",
+         "consecuencia": "Entregar algo que falla termina costando más tiempo después."
+        }
+       ],
+       "revisar": "programador"
+      },
+      {
+       "tipo": "clasificar",
+       "pregunta": "¿Qué tan común es en la carrera?",
+       "grupos": [
+        "Muy común",
+        "A veces"
+       ],
+       "elementos": [
+        {
+         "texto": "Errores que tardas horas en encontrar",
+         "grupo": 0
+        },
+        {
+         "texto": "Materias pesadas como Cálculo y Matemáticas discretas",
+         "grupo": 0
+        },
+        {
+         "texto": "Muchas horas sentado frente a la pantalla",
+         "grupo": 0
+        },
+        {
+         "texto": "Aprender una herramienta nueva cada año",
+         "grupo": 0
+        },
+        {
+         "texto": "Desvelarse por una entrega",
+         "grupo": 1
+        },
+        {
+         "texto": "Trabajar en fin de semana",
+         "grupo": 1
+        }
+       ],
+       "revelacion": "La frustración es parte del trabajo. Lo que ayuda es tener método, descansar y pedir ayuda a tiempo.",
+       "revisar": "programador"
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Qué tanto aguantas equivocarte muchas veces seguidas?",
+       "escala": [
+        "Me desespera mucho",
+        "Me da curiosidad"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "La frustración es parte del trabajo diario."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "3.3",
+     "titulo": "Historia real",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "reflexion",
+       "pregunta": "Si pudieras preguntarle algo a alguien que ya estudia Computación, ¿qué sería?",
+       "opciones": [
+        "¿Qué fue lo más difícil?",
+        "¿Qué te sorprendió?",
+        "¿Volverías a elegirla?",
+        "¿Cómo es un día normal?"
+       ]
+      },
+      {
+       "tipo": "testimonio",
+       "estado": "pendiente",
+       "perfil": "Estudiante de últimos semestres o egresada en su primer empleo"
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "Mientras llega esta historia, ¿a quién podrías preguntarle tú?",
+       "opciones": [
+        "A un familiar o conocido que sea programador o programadora",
+        "A un estudiante de Computación de mi ciudad",
+        "A un maestro que conozca la carrera",
+        "Todavía no conozco a nadie"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Una persona real te cuenta lo que ningún folleto dice."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "3.4",
+     "titulo": "¿Quién lo disfruta?",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "No hace falta haber programado antes. Lo que sí ayuda es cómo te gusta pensar."
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Te gustan los acertijos y los retos de lógica?",
+       "escala": [
+        "No va conmigo",
+        "Va mucho conmigo"
+       ]
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Aprendes cosas por tu cuenta, viendo tutoriales o probando?",
+       "escala": [
+        "No va conmigo",
+        "Va mucho conmigo"
+       ]
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Te da curiosidad saber cómo funciona algo por dentro?",
+       "escala": [
+        "No va conmigo",
+        "Va mucho conmigo"
+       ]
+      },
+      {
+       "tipo": "dos_caminos",
+       "pregunta": "¿Qué te emociona más?",
+       "a": {
+        "texto": "Que algo por fin funcione",
+        "dice": "Esa sensación es el día a día de quien programa: muchos intentos y un momento de «¡ya salió!»."
+       },
+       "b": {
+        "texto": "Que alguien use lo que hiciste",
+        "dice": "Te va el lado del producto: pensar en usuarios y ver cómo tu trabajo les sirve."
+       }
+      },
+      {
+       "tipo": "clave",
+       "texto": "Se disfruta si te gusta entender cómo funciona algo."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "u4",
+   "lecciones": [
+    {
+     "id": "4.1",
+     "titulo": "Cuánto dura y qué estudias",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Mucha gente entra pensando que va a programar desde el primer día. El camino es un poco distinto."
+      },
+      {
+       "tipo": "ordenar",
+       "pregunta": "Ordena las etapas de la carrera.",
+       "pasos": [
+        "Matemáticas y fundamentos de programación",
+        "Estructuras de datos y algoritmos",
+        "Bases de datos, redes y sistemas operativos",
+        "Materias de especialidad: web, datos, seguridad o IA",
+        "Proyecto final, prácticas y servicio social"
+       ],
+       "revelacion": "Los primeros semestres tienen mucha matemática. La especialización llega al final, y cada plan de estudios la arma distinto.",
+       "revisar": "fuente"
+      },
+      {
+       "tipo": "rango",
+       "pregunta": "¿Cuántos años crees que pasan desde que entras hasta que te titulas?",
+       "min": 3,
+       "max": 10,
+       "paso": 1,
+       "unidad": "años",
+       "dato": "computacion.duracion"
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "En el primer semestre ya haces apps y videojuegos.",
+       "respuesta": false,
+       "revelacion": "Al principio aprendes las bases: lógica, matemáticas y programas sencillos. Los proyectos grandes llegan después.",
+       "revisar": "fuente"
+      },
+      {
+       "tipo": "clave",
+       "texto": "Los primeros semestres son más matemáticas que programación."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "4.2",
+     "titulo": "Cómo se entra",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Para entrar a Computación no te piden saber programar. Veamos qué sí cuenta."
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Necesitas saber programar antes de entrar.",
+       "respuesta": false,
+       "revelacion": "La carrera empieza desde cero. Saber algo ayuda, pero no es requisito.",
+       "revisar": "fuente"
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "En el examen de admisión las matemáticas suelen pesar mucho.",
+       "respuesta": true,
+       "revelacion": "Por eso conviene repasar álgebra y razonamiento. Cada universidad publica su temario en la convocatoria.",
+       "revisar": "fuente"
+      },
+      {
+       "tipo": "dato",
+       "titulo": "Aspirantes por cada lugar",
+       "dato": "computacion.aspirantes"
+      },
+      {
+       "tipo": "decision",
+       "pregunta": "Estás en quinto semestre de prepa. ¿Qué haces desde hoy?",
+       "opciones": [
+        {
+         "texto": "Repasas matemáticas y pruebas un curso gratis de programación",
+         "consecuencia": "Así llegas con bases y confirmas si te gusta antes de elegir.",
+         "mejor": true
+        },
+        {
+         "texto": "Nada, total enseñan desde cero",
+         "consecuencia": "Es cierto que empiezan de cero, pero el examen sí pide matemáticas."
+        },
+        {
+         "texto": "Compras una computadora muy cara",
+         "consecuencia": "No hace falta. Para empezar a aprender sirve casi cualquier equipo."
+        }
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Se puede empezar de cero."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "4.3",
+     "titulo": "Dónde, cuánto cuesta y becas",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "El costo de estudiar Computación cambia mucho entre una universidad pública y una privada. Antes de ver datos, apuesta."
+      },
+      {
+       "tipo": "rango",
+       "pregunta": "¿Cuánto crees que cuesta un semestre en una universidad pública?",
+       "min": 0,
+       "max": 60000,
+       "paso": 1000,
+       "unidad": "pesos",
+       "dato": "computacion.costo_publica"
+      },
+      {
+       "tipo": "rango",
+       "pregunta": "¿Y un semestre en una universidad privada?",
+       "min": 0,
+       "max": 300000,
+       "paso": 5000,
+       "unidad": "pesos",
+       "dato": "computacion.costo_privada"
+      },
+      {
+       "tipo": "dato",
+       "titulo": "Becas para estudiar Computación",
+       "dato": "computacion.becas"
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Para trabajar en Computación lo único que cuenta es el título.",
+       "respuesta": false,
+       "revelacion": "El título ayuda, pero también pesan mucho tus proyectos: lo que puedes enseñar que hiciste.",
+       "revisar": "programador"
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Qué pesa más para ti al elegir escuela?",
+       "opciones": [
+        "El costo",
+        "Que esté cerca de mi casa",
+        "El prestigio",
+        "Las prácticas en empresas"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "El portafolio de proyectos pesa junto con el título."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "u5",
+   "lecciones": [
+    {
+     "id": "5.1",
+     "titulo": "Dónde se trabaja",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Al terminar, no todos terminan en una empresa de tecnología. Hay más lugares de los que crees."
+      },
+      {
+       "tipo": "emparejar",
+       "pregunta": "Une cada lugar con lo que harías ahí.",
+       "pares": [
+        [
+         "Empresa de software",
+         "Hacer programas que otras empresas usan"
+        ],
+        [
+         "Banco",
+         "Cuidar que las cuentas y los pagos funcionen seguros"
+        ],
+        [
+         "Startup",
+         "Crear un producto nuevo con un equipo pequeño"
+        ],
+        [
+         "Gobierno",
+         "Hacer los trámites en línea para la gente"
+        ],
+        [
+         "Por tu cuenta",
+         "Hacer páginas y sistemas para tus propios clientes"
+        ]
+       ],
+       "revelacion": "Hay trabajo en casi cualquier sector, y algunos se pueden hacer a distancia para empresas de otras ciudades o países.",
+       "revisar": "programador"
+      },
+      {
+       "tipo": "dos_caminos",
+       "pregunta": "¿Dónde te ves?",
+       "a": {
+        "texto": "En una empresa grande",
+        "dice": "Más estabilidad, procesos ordenados y gente de quien aprender."
+       },
+       "b": {
+        "texto": "En algo pequeño o propio",
+        "dice": "Más libertad y riesgo: haces de todo un poco y aprendes rápido."
+       }
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Para trabajar para una empresa de otro país hay que mudarse.",
+       "respuesta": false,
+       "revelacion": "Muchas contratan a distancia. El inglés se vuelve muy importante.",
+       "revisar": "programador"
+      },
+      {
+       "tipo": "clave",
+       "texto": "Se puede trabajar para otro país desde tu ciudad."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "5.2",
+     "titulo": "Sueldo y demanda",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Hablemos de dinero sin rodeos. Antes de ver cualquier cifra, apuesta: así recuerdas mejor el dato real."
+      },
+      {
+       "tipo": "rango",
+       "pregunta": "¿Cuánto crees que gana al mes, en promedio, un profesionista de Computación en México?",
+       "min": 5000,
+       "max": 100000,
+       "paso": 1000,
+       "unidad": "pesos",
+       "dato": "computacion.ingreso"
+      },
+      {
+       "tipo": "rango",
+       "pregunta": "De cada 100 egresados, ¿cuántos crees que trabajan en algo de su carrera?",
+       "min": 0,
+       "max": 100,
+       "paso": 5,
+       "unidad": "de cada 100",
+       "dato": "computacion.ocupacion_afin"
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "Con el título asegurado ya no hace falta seguir aprendiendo.",
+       "respuesta": false,
+       "revelacion": "Las herramientas cambian rápido. Quien deja de aprender se queda atrás en pocos años.",
+       "revisar": "programador"
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Qué tanto pesa el sueldo en tu decisión?",
+       "escala": [
+        "No va conmigo",
+        "Va mucho conmigo"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "La demanda es alta, pero piden demostrar lo que sabes hacer."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "5.3",
+     "titulo": "Cómo la cambia la tecnología",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Hoy hay asistentes de inteligencia artificial que escriben código. ¿Eso cambia la carrera?"
+      },
+      {
+       "tipo": "decision",
+       "pregunta": "Un asistente de IA te da el código de una tarea en segundos. ¿Qué haces?",
+       "opciones": [
+        {
+         "texto": "Lo revisas y lo pruebas antes de usarlo",
+         "consecuencia": "La IA ayuda, pero también se equivoca. Tienes que entender lo que entregas.",
+         "mejor": true
+        },
+        {
+         "texto": "Lo entregas tal cual",
+         "consecuencia": "Si falla, el error es tuyo. Y no aprendiste nada."
+        },
+        {
+         "texto": "No lo usas nunca",
+         "consecuencia": "Puedes elegirlo, pero muchas empresas ya trabajan con estas herramientas."
+        }
+       ],
+       "revisar": "programador"
+      },
+      {
+       "tipo": "dos_caminos",
+       "pregunta": "¿Cómo prefieres trabajar?",
+       "a": {
+        "texto": "Con IA para avanzar más rápido",
+        "dice": "Bien, si revisas todo. La herramienta acelera; el criterio sigue siendo tuyo."
+       },
+       "b": {
+        "texto": "Entendiendo cada línea tú",
+        "dice": "También sirve: quien entiende a fondo detecta los errores que la IA no ve."
+       }
+      },
+      {
+       "tipo": "vf",
+       "afirmacion": "La IA va a hacer que ya no se necesite gente que programe.",
+       "respuesta": false,
+       "revelacion": "Cambia el trabajo, no lo borra: se programa distinto y se pide más criterio. Nadie sabe bien cómo será en diez años.",
+       "revisar": "programador"
+      },
+      {
+       "tipo": "clave",
+       "texto": "Cambian las herramientas; entender el problema sigue siendo tuyo."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    },
+    {
+     "id": "5.4",
+     "titulo": "Después de titularte",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Ya te titulaste. ¿Y luego? En Computación casi nadie deja de estudiar."
+      },
+      {
+       "tipo": "emparejar",
+       "pregunta": "Une cada camino con lo que implica.",
+       "pares": [
+        [
+         "Maestría",
+         "Profundizar en un tema, como IA o seguridad"
+        ],
+        [
+         "Certificaciones",
+         "Cursos cortos que prueban que dominas una herramienta"
+        ],
+        [
+         "Emprender",
+         "Crear tu propio producto o empresa"
+        ],
+        [
+         "Especializarte",
+         "Volverte experto en datos, seguridad o videojuegos"
+        ]
+       ],
+       "revelacion": "No hay un solo camino. Muchos combinan trabajo con cursos durante años.",
+       "revisar": "programador"
+      },
+      {
+       "tipo": "dos_caminos",
+       "pregunta": "¿Qué te llama más?",
+       "a": {
+        "texto": "Ser experto en un tema",
+        "dice": "Te va especializarte: saber mucho de algo concreto te vuelve difícil de reemplazar."
+       },
+       "b": {
+        "texto": "Crear algo tuyo",
+        "dice": "Te va emprender: más riesgo, pero lo que construyes es tuyo."
+       }
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Cómo te imaginas aprendiendo después de la carrera?",
+       "opciones": [
+        "En una maestría",
+        "Con cursos en línea",
+        "En el trabajo, con mi equipo",
+        "Prefiero no seguir estudiando"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Aquí se estudia siempre, con o sin posgrado."
+      },
+      {
+       "tipo": "interes"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "u6",
+   "lecciones": [
+    {
+     "id": "6.1",
+     "titulo": "Lo que sentiste",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "reflexion",
+       "pregunta": "Antes de ver tus respuestas: ¿cómo te fue con Computación?",
+       "opciones": [
+        "Me gustó más de lo que pensaba",
+        "Más o menos como esperaba",
+        "Me gustó menos de lo que pensaba"
+       ]
+      },
+      {
+       "tipo": "resumen"
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "Viendo tus respuestas, ¿qué pesó más?",
+       "opciones": [
+        "Lo que sentí al probarla",
+        "Lo que supe de la realidad",
+        "El camino para llegar",
+        "El futuro que ofrece"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Lo que sentiste al probarla vale más que lo que imaginabas."
+      },
+      {
+       "tipo": "interes",
+       "pregunta": "¿Te ves estudiando Computación?"
+      }
+     ]
+    },
+    {
+     "id": "6.2",
+     "titulo": "Tu veredicto",
+     "minutos": 3,
+     "tarjetas": [
+      {
+       "tipo": "reflexion",
+       "pregunta": "Si mañana tuvieras que elegir carrera, ¿Computación estaría entre tus opciones?",
+       "opciones": [
+        "Sí, entre las primeras",
+        "Sí, pero no arriba",
+        "No creo",
+        "No lo sé"
+       ]
+      },
+      {
+       "tipo": "comparar"
+      },
+      {
+       "tipo": "dos_caminos",
+       "pregunta": "¿Qué te ayudaría más a decidir?",
+       "a": {
+        "texto": "Hablar con alguien que la estudia",
+        "dice": "Busca a un estudiante o a alguien que trabaje programando cerca de ti y hazle tus preguntas. Una plática aclara más que diez videos."
+       },
+       "b": {
+        "texto": "Probar otra carrera y comparar",
+        "dice": "Explora otra de tu mapa. Comparar dos caminos reales aclara más que pensar en uno solo."
+       }
+      },
+      {
+       "tipo": "veredicto"
+      },
+      {
+       "tipo": "clave",
+       "texto": "Decidir «en duda» también es avanzar."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
