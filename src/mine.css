@@ -270,3 +270,6 @@
 #v-map.in-r,#v-map.in-l,#v-map.out{animation:none!important}
 /* al entrar, el mapa solo aparece (sin escalar): escalar la capa entera obligaba a redibujarla */
 #mapwrap.mreveal{animation:fadeIn var(--t-long) var(--soft) both}
+/* espuma de la ballena y los delfines, estela de los barcos */
+.amb-rip{position:absolute;left:30%;width:40%;height:12%;margin-top:-6%;border-radius:50%;border:2px solid rgba(255,255,255,.8);box-shadow:0 0 0 3px rgba(255,255,255,.18);opacity:0;will-change:transform,opacity;pointer-events:none}
+.amb-boat .amb-rip{border-width:1.5px;border-color:rgba(255,255,255,.65)}
