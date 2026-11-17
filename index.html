@@ -2152,6 +2152,33 @@ body.lp-open #amb{visibility:hidden}body.lp-open #amb *{animation-play-state:pau
 .rt4-goal b{font:900 18px/1.2 var(--ff)}.rt4-goal small{font:700 13px/1.3 var(--ff);opacity:.7}
 @media (min-width:760px){.rt4 .rt2-card{margin-bottom:16px;border-radius:24px}}
 @media (prefers-reduced-motion:reduce){.rt4-n.s-cur::before,.rt4-tip{animation:none}.rt4-rb{transition:none}}
+/* ================= ruta como carretera de montaña (rt5) ================= */
+.rt5-road{fill:none;stroke:#E6DAC2;stroke-width:22;stroke-linecap:round;stroke-linejoin:round}
+.rt5-mid{fill:none;stroke:#FFFFFF;stroke-width:2.2;stroke-dasharray:7 9;stroke-linecap:round;opacity:.9}
+.rt5-done{fill:none;stroke:var(--c);stroke-width:22;stroke-linecap:round;stroke-linejoin:round;opacity:.9}
+.lp-dark .rt5-road{stroke:#24394E}.lp-dark .rt5-mid{stroke:#4A6178}
+.rt5-tree{fill:#F7EEDB;stroke:#B49B76;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round}
+.rt5-tree ellipse{fill:#E6D9BD;stroke:none}.rt5-tree path{fill:none}
+.lp-dark .rt5-tree{fill:#1D3247;stroke:#4E6780}.lp-dark .rt5-tree ellipse{fill:#182B3D}
+.rt5-u{position:absolute;left:18px;display:grid;grid-template-columns:auto auto;align-items:baseline;column-gap:8px;row-gap:0;max-width:calc(100% - 36px);color:var(--c-ink,#14323F)}
+.rt5-u.is-r{left:auto;right:18px;text-align:right;justify-content:end}
+.rt5-u small{grid-column:1 / -1;font:800 11px/1.2 var(--ff);letter-spacing:.09em;text-transform:uppercase;color:var(--cd)}
+.rt5-u b{font:850 17px/1.2 var(--ff);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rt5-u em{font:800 12.5px/1 var(--ff);font-style:normal;opacity:.55}
+.rt5-u.s-lock,.rt5-u.s-soon{opacity:.55}.rt5-u.s-lock small,.rt5-u.s-soon small{color:inherit}
+.lp-dark .rt5-u{color:#E8EEF3}.lp-dark .rt5-u small{color:color-mix(in srgb,var(--c) 70%,#fff)}
+.rt5-n{width:46px;height:46px;box-shadow:0 5px 0 #CBBEA3;border:3px solid var(--c-bg,#F6EFE2)}
+.lp-dark .rt5-n{border-color:#13283B}
+.rt5-n .lp-ic{width:20px;height:20px}
+.rt5-n.s-done{box-shadow:0 5px 0 var(--cd)}
+.rt5-n.s-cur{width:56px;height:56px;background:var(--c-surface,#fff);color:var(--cd);border:4px solid var(--c);box-shadow:0 5px 0 var(--cd)}
+.lp-dark .rt5-n.s-cur{background:#1E3448;color:#fff}
+.rt5-n.s-cur .lp-ic{width:26px;height:26px}
+.rt5-n.s-cur::before{inset:-10px;border-width:3px}
+.rt5-n.s-soon{border:2.5px dashed #C9B997}
+.rt5-n.is-chest{width:58px;height:54px;border:0}
+.rt5-n.is-sel:not(.is-chest){outline:3px solid var(--c);outline-offset:4px}
+.rt5-rb{width:64px;height:64px;transform:translate(-50%,-100%)}
 /* ================= Probar: test de intereses y comparador ================= */
 .pb-cards{display:grid;gap:12px;margin:0 0 26px}
 .pb-card{display:flex;align-items:center;gap:14px;width:100%;text-align:left;font:inherit;color:var(--c-ink);cursor:pointer;-webkit-tap-highlight-color:transparent}
@@ -2277,6 +2304,15 @@ body.lp-open #amb{visibility:hidden}body.lp-open #amb *{animation-play-state:pau
    Como en Strattpllaner: la barra de abajo pasa a ser un riel vertical a la izquierda y el contenido usa todo
    el ancho que queda. Desde 1080 px cada pestaña se acomoda en dos columnas en vez de una tira angosta al centro. */
 #nav .ind{transform:translateX(calc(var(--i,0) * 100%))}
+/* en celular, lo que se desliza hacia arriba se esconde bajo una franja del color de fondo y no se mezcla con la hora */
+body:not(.on-map):not(.lp-open)::before{content:"";position:fixed;left:0;right:0;top:0;height:var(--sat);background:var(--c-bg);z-index:60;pointer-events:none}
+/* controles del mapa: todo junto arriba a la derecha. «Carrera» al lado de «ver todo»; acercar y alejar en una sola pieza
+   debajo, y en pantallas táctiles no se muestran (ahí se pellizca). */
+#zfit{order:-1;margin-bottom:6px}
+#zin{border-radius:16px 16px 0 0}
+#zout{border-radius:0 0 16px 16px;margin-top:-8px;box-shadow:none;border-top:1px solid rgba(20,50,63,.1)}
+.addc{left:auto;bottom:auto;right:calc(68px + var(--sar));top:calc(12px + var(--sat));min-height:48px;padding:0 16px 0 12px;border-radius:16px;font-size:14.5px}
+@media (hover:none) and (pointer:coarse){#zin,#zout{display:none}}
 @media (min-width:760px){
  #nav{left:calc(14px + var(--sal));top:calc(28px + var(--sat));bottom:auto;transform:none;width:88px;flex-direction:column;padding:6px;border-radius:30px}
  #nav .ind{left:6px;right:6px;top:6px;bottom:auto;width:auto;height:calc((100% - 12px) / 5);transform:translateY(calc(var(--i,0) * 100%))}
@@ -2285,8 +2321,7 @@ body.lp-open #amb{visibility:hidden}body.lp-open #amb *{animation-play-state:pau
  .view{padding:calc(28px + var(--sat)) calc(32px + var(--sar)) calc(40px + var(--sab)) calc(134px + var(--sal))}
  .vwrap{max-width:none}
  /* mapa: los controles de la izquierda se hacen a un lado del riel */
- .clar{left:calc(14px + var(--sal))}
- .addc{left:calc(118px + var(--sal));bottom:calc(20px + var(--sab))}
+ .clar{left:calc(118px + var(--sal))}
  .pf-grid{grid-template-columns:repeat(auto-fill,minmax(128px,1fr))}
  /* las tiras que se deslizan de lado se vuelven cuadrícula: nada queda cortado en la orilla */
  .at-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));overflow:visible;margin:0;padding:2px 0 var(--sp-2)}
@@ -2429,7 +2464,7 @@ body.lp-open #amb{visibility:hidden}body.lp-open #amb *{animation-play-state:pau
         </div>
         <div class="hint glass" id="hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11V5.5a1.5 1.5 0 0 1 3 0V10m0-1.5a1.5 1.5 0 0 1 3 0V11m0-1a1.5 1.5 0 0 1 3 0v4.5A6.5 6.5 0 0 1 11.5 21h-.6a6 6 0 0 1-4.6-2.2L3.6 15.4a1.5 1.5 0 0 1 2.3-1.9L9 16"/></svg><span id="hintTx">Toca un edificio y Rumbo te lleva caminando. Arrastra para moverte y pellizca para acercar.</span></div>
                 <div class="walkbar glass" id="walkbar" aria-live="polite"><span class="sw" id="wsw"></span><span class="wt" id="wtx"></span><button type="button" class="btn sm" id="wskip">Ir directo</button></div>
-        <button type="button" id="addCar" class="addc glass"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>Agregar carrera</button>
+        <button type="button" id="addCar" class="addc glass" aria-label="Agregar carrera"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>Carrera</button>
       </div>
     </section>
     <section id="v-probar" class="view"></section>
@@ -8888,22 +8923,25 @@ var PATH=(function(){
     :'<path d="M12 34L40 20L68 34L40 48Z" fill="#E8AE55"/><path d="M12 34L40 48L40 40L12 26Z" fill="#E8AE55"/><path d="M12 26L40 12L68 26L40 40Z" fill="#F2C470"/><path d="M40 40L68 26V34L40 48Z" fill="#C98A3A"/>')+
    '<rect x="35" y="'+(open?46:42)+'" width="10" height="10" rx="2" fill="#F2C14E" stroke="#8A5A1E" stroke-width="1.4"/><circle cx="40" cy="'+(open?50:46)+'" r="1.6" fill="#8A5A1E"/></svg>'}
 
- /* ---------- la ruta: un sendero que baja ----------
-    Las lecciones van una debajo de otra en zigzag suave, unidas por un sendero de puntos. Cada unidad abre con un letrero.
-    El sendero se pinta del color de la carrera hasta donde llegaste y al final espera el edificio de la carrera (la meta).
-    Se recorre deslizando hacia abajo; al entrar se acomoda en la lección que sigue. */
- var CW=380,ROW=104,HEAD=118,TOP=26,ZZ=[0,.62,.92,.62,0,-.62,-.92,-.62];
- function lay(cat){var y=TOP,k=0,heads=[],deco=[];CW=Math.max(300,Math.min(440,(st.sc?st.sc.clientWidth:380)-24));
-  cat.units.forEach(function(u,ui){heads.push({y:y,ui:ui});y+=HEAD;
-   u.items.forEach(function(it){var o=ZZ[k%ZZ.length];it.off=o;it.x=CW/2+o*CW*.27;it.y=y+ROW/2;
-    /* adorno del lado vacío cuando la parada va muy de lado */
-    if(Math.abs(o)>.9)deco.push({x:CW/2-Math.sign(o)*CW*.3,y:it.y+10,k:k});
-    y+=ROW;k++})});
-  return {h:y+250,heads:heads,deco:deco,end:y+110}}
- /* curva suave que pasa por todas las paradas */
- function curve(P){if(!P.length)return "";var d="M"+P[0][0].toFixed(1)+" "+P[0][1].toFixed(1);
-  for(var i=1;i<P.length;i++){var a=P[i-1],b=P[i],m=(b[1]-a[1])*.5;d+="C"+a[0].toFixed(1)+" "+(a[1]+m).toFixed(1)+" "+b[0].toFixed(1)+" "+(b[1]-m).toFixed(1)+" "+b[0].toFixed(1)+" "+b[1].toFixed(1)}return d}
- var DECO=["treeRound","bush","palm","flowers","treePine","rock"];
+ /* ---------- la ruta: una carretera de montaña ----------
+    Cada unidad es un tramo que cruza la pantalla; al llegar a la orilla el camino da la vuelta y baja al siguiente,
+    como las curvas de una sierra. El cofre de la unidad está justo en la vuelta. Al final espera el edificio de la carrera.
+    Se pinta del color de la carrera hasta donde llegaste. Pocas cosas, bien puestas. */
+ var CW=380,G=196,TOP=78,EDGE=30;
+ function lay(cat){CW=Math.max(300,Math.min(520,(st.sc?st.sc.clientWidth:380)-16));var rows=[];
+  cat.units.forEach(function(u,ui){var y=TOP+ui*G,dir=ui%2?-1:1,L=u.items.filter(function(it){return it.chest==null}),m=L.length,x0=40,x1=CW-88;
+   L.forEach(function(it,j){var f=m>1?j/(m-1):.5,x=x0+(x1-x0)*f;if(dir<0)x=CW-x;it.x=x;it.y=y+Math.sin(f*Math.PI)*-8;it.kind="row";it.dir=dir});
+   u.items.forEach(function(it){if(it.chest!=null){it.x=dir>0?CW-EDGE:EDGE;it.y=y+G/2;it.kind="apex";it.dir=dir}});
+   rows.push({y:y,dir:dir,ui:ui})});
+  var last=cat.all[cat.all.length-1],end=TOP+cat.units.length*G+30;
+  return {rows:rows,end:end,h:end+230}}
+ /* tramo entre dos paradas: recto en la fila, curva cerrada en la vuelta */
+ function seg(a,b){var f=function(v){return v.toFixed(1)},dy=b.y-a.y;
+  if(Math.abs(dy)<30)return "M"+f(a.x)+" "+f(a.y)+"Q"+f((a.x+b.x)/2)+" "+f((a.y+b.y)/2-6)+" "+f(b.x)+" "+f(b.y);
+  if(b.kind==="apex")return "M"+f(a.x)+" "+f(a.y)+"C"+f(a.x+(b.x-a.x)*.85)+" "+f(a.y)+" "+f(b.x)+" "+f(b.y-dy*.55)+" "+f(b.x)+" "+f(b.y);
+  if(a.kind==="apex")return "M"+f(a.x)+" "+f(a.y)+"C"+f(a.x)+" "+f(a.y+dy*.55)+" "+f(b.x+(a.x-b.x)*.85)+" "+f(b.y)+" "+f(b.x)+" "+f(b.y);
+  /* sin cofre: vuelta completa por la orilla */
+  var sx=a.dir>0?CW-EDGE+4:EDGE-4;return "M"+f(a.x)+" "+f(a.y)+"C"+f(sx+ (a.dir>0?30:-30))+" "+f(a.y)+" "+f(sx+(a.dir>0?30:-30))+" "+f(b.y)+" "+f(b.x)+" "+f(b.y)}
  function build(id){
   var c=byId[id],p=$("#plaza"),dark=!!(DMQ&&DMQ.matches),cat=catalog(id),pg=progOf(id);st.id=id;st.items=cat.all;st.units=cat.units;
   if(typeof artDefs==="function")artDefs();
@@ -8922,24 +8960,26 @@ var PATH=(function(){
  }
  function draw(id,cat,pg){
   var L=lay(cat),col=$("#lpCol"),n=cat.all.length;st.items=cat.all;
-  var P=cat.all.map(function(it){return [it.x,it.y]});
-  var all=P.concat([[CW/2,L.end]]),dn="";
-  /* cada tramo se pinta si ya saliste de la parada de arriba y la de abajo ya está abierta */
-  cat.all.forEach(function(it,k){var nx=cat.all[k+1];if((it.done||(nx&&nx.done))&&(nx?nx.state!=="lock"&&nx.state!=="soon":true))dn+=curve([all[k],all[k+1]])});
-  var deco="";L.deco.forEach(function(d,i){deco+='<g transform="translate('+d.x.toFixed(0)+' '+d.y.toFixed(0)+') scale(2.3)">'+ENV.one(DECO[(d.k+hash(id))%DECO.length],{d:2,k:1,ph:i,flip:i%2===1})+'</g>'});
-  var h='<svg class="rt4-svg" width="'+CW+'" height="'+L.h+'" viewBox="0 0 '+CW+' '+L.h+'" aria-hidden="true"><defs>'+ENV.DEFS+'</defs>'+
-   '<g class="rt4-deco">'+deco+'</g>'+
-   '<path d="'+curve(all)+'" class="rt4-trail"/>'+(dn?'<path d="'+dn+'" class="rt4-trail is-done"/>':'')+'</svg>';
-  L.heads.forEach(function(hd){var u=cat.units[hd.ui],L2=u.items.filter(function(it){return it.lid});
-   h+='<div class="rt4-u s-'+u.state+'" style="top:'+hd.y+'px"><span class="rt4-un num">'+(hd.ui+1)+'</span><div class="rt4-ut"><small>Unidad '+(hd.ui+1)+'</small><b>'+esc(u.t)+'</b></div>'+
-    (u.state==="soon"?'<em>Pronto</em>':'<em class="num">'+u.done+'/'+L2.length+'</em>')+'</div>'});
+  var pts=cat.all.map(function(it){return it}).concat([{x:CW/2,y:L.end,kind:"row"}]),road="",dn="";
+  /* la meta se alcanza bajando desde la última vuelta */
+  for(var k=0;k<n;k++){var a=pts[k],b=pts[k+1],d=k===n-1&&a.kind!=="apex"?seg(a,{x:a.x,y:L.end-G/2,kind:"apex"})+seg({x:a.x,y:L.end-G/2,kind:"apex"},b):seg(a,b);road+=d;
+   var it=cat.all[k],nx=cat.all[k+1];if((it.done||(nx&&nx.done))&&(nx?nx.state!=="lock"&&nx.state!=="soon":true))dn+=d}
+  /* un arbolito dibujado a mano dentro de cada vuelta */
+  var trees="";L.rows.forEach(function(r,i){if(i===L.rows.length-1)return;var x=r.dir>0?CW-EDGE-58:EDGE+58,y=r.y+G/2+4;
+   trees+='<g transform="translate('+x+' '+y+')" class="rt5-tree"><ellipse cx="1" cy="1" rx="9" ry="2.8"/><path d="M0 0V-7"/><circle cx="-5" cy="-10" r="5.6"/><circle cx="5" cy="-10.5" r="5.4"/><circle cx="0" cy="-15.5" r="6.4"/></g>'});
+  var h='<svg class="rt4-svg" width="'+CW+'" height="'+L.h+'" viewBox="0 0 '+CW+' '+L.h+'" aria-hidden="true">'+trees+
+   '<path d="'+road+'" class="rt5-road"/><path d="'+road+'" class="rt5-mid"/>'+(dn?'<path d="'+dn+'" class="rt5-done"/>':'')+'</svg>';
+  var ci=curIndex(),cur=cat.all[ci];
+  L.rows.forEach(function(r){var u=cat.units[r.ui],L2=u.items.filter(function(it){return it.lid}),first=L2[0];
+   /* el nombre va sobre el final del tramo (ahí no llega ninguna curva); si Rumbo está ahí, se pasa al inicio */
+   var right=r.dir>0;if(cur&&L2[L2.length-1]===cur)right=!right;
+   h+='<div class="rt5-u s-'+u.state+(right?" is-r":"")+'" style="top:'+(r.y-62)+'px"><small>Unidad '+(r.ui+1)+'</small><b>'+esc(u.t)+'</b><em class="num">'+(u.state==="soon"?"pronto":u.done+"/"+L2.length)+'</em></div>'});
   cat.all.forEach(function(it,k){
-   var ic=it.chest!=null?"":it.state==="soon"?LIC.lock:LIC[LI[it.lid]]||LIC.libro;
-   h+='<button type="button" class="rt3-n rt4-n s-'+it.state+(it.chest!=null?" is-chest":"")+(it.parada==="final"?" is-final":"")+'" data-i="'+k+'" style="left:'+it.x.toFixed(1)+'px;top:'+it.y.toFixed(1)+'px" aria-label="'+(it.lid?it.lid+" ":"")+esc(it.n)+(it.state==="done"?", hecha":it.state==="soon"?", llega pronto":it.state==="lock"?", bloqueada":"")+'">'+
-    (it.chest!=null?chestSVG(it.done):'<span class="rt4-face">'+icon(ic,"lp-ic")+'</span>'+(it.state==="done"?'<i class="rt4-ok">'+icon(LIC.check,"lp-ic")+'</i>':''))+'</button>'});
-  /* la meta: el edificio de la carrera */
+   var ic=it.chest!=null?"":it.state==="done"?LIC.check:it.state==="soon"?LIC.lock:LIC[LI[it.lid]]||LIC.libro;
+   h+='<button type="button" class="rt3-n rt4-n rt5-n s-'+it.state+(it.chest!=null?" is-chest":"")+'" data-i="'+k+'" style="left:'+it.x.toFixed(1)+'px;top:'+it.y.toFixed(1)+'px" aria-label="'+(it.lid?it.lid+" ":"")+esc(it.n)+(it.state==="done"?", hecha":it.state==="soon"?", llega pronto":it.state==="lock"?", bloqueada":"")+'">'+
+    (it.chest!=null?chestSVG(it.done):icon(ic,"lp-ic"))+'</button>'});
   h+='<div class="rt4-goal'+(pg.p>=1?" is-done":"")+'" style="top:'+L.end+'px"><div class="rt4-gart">'+artSVG(id,pg.p)+'</div><b>'+(pg.p>=1?"¡Llegaste!":"La meta")+'</b><small>'+(pg.p>=1?"Ganaste el sello de la carrera":"Termina todo para ganar su sello")+'</small></div>';
-  h+='<div class="rt2-rb rt4-rb" id="lpRb">'+(typeof skinOn==="function"&&RUMBO.SKINS[id]&&skinOn(id)?skinRb(id):rumboEl())+'</div><div class="rt4-tip" id="lpTip"></div>';
+  h+='<div class="rt2-rb rt4-rb rt5-rb" id="lpRb">'+(typeof skinOn==="function"&&RUMBO.SKINS[id]&&skinOn(id)?skinRb(id):rumboEl())+'</div>';
   col.style.width=CW+"px";col.style.height=L.h+"px";col.innerHTML=h;
   PZ.rb=col.querySelector(".rt2-rb .rb");PZ.el=null;wireRumbo(PZ.rb);
   each(col.querySelectorAll(".rt4-n"),function(b){b.onclick=function(e){e.stopPropagation();select(+b.getAttribute("data-i"),true)}});
@@ -8949,10 +8989,9 @@ var PATH=(function(){
  function curIndex(){for(var i=0;i<st.items.length;i++)if(st.items[i].state==="open")return i;
   for(i=0;i<st.items.length;i++)if(st.items[i].state==="cur")return i;
   for(i=st.items.length-1;i>=0;i--)if(st.items[i].state==="done")return i;return 0}
- /* Rumbo de pie a un lado de la parada actual, del lado donde hay espacio; arriba, un globito con lo que toca */
+ /* Rumbo de pie sobre la parada actual (junto al cofre, hacia adentro, cuando toca abrirlo) */
  function placeRumbo(i,walk){var e=$("#lpRb");if(!e)return;var it=st.items[i];if(!it)return;
-  var side=it.off>.1?-1:1;e.style.left=(it.x+side*78).toFixed(1)+"px";e.style.top=(it.y+6).toFixed(1)+"px";
-  var tip=$("#lpTip");if(tip){var cur=it.state==="cur"||it.state==="open";tip.textContent=it.chest!=null?"¡Ábrelo!":S.lp&&S.lp[st.id+":"+it.lid]!=null?"Seguir":"Empieza aquí";tip.style.left=it.x.toFixed(1)+"px";tip.style.top=(it.y-52).toFixed(1)+"px";tip.hidden=!cur}
+  var x=it.kind==="apex"?it.x+(it.dir>0?-62:62):it.x,y=it.kind==="apex"?it.y+8:it.y-22;e.style.left=x.toFixed(1)+"px";e.style.top=y.toFixed(1)+"px";
   if(PZ.rb){if(walk&&!RM()){PZ.rb.classList.add("walk");setTimeout(function(){PZ.rb&&PZ.rb.classList.remove("walk")},720)}
    mood(PZ.rb,it.parada==="hexagono"?"curious":it.state==="done"?"happy":"idle")}}
  function unitOf(i){return st.items[i].u}
@@ -9749,6 +9788,16 @@ function openReport(){
 }
 /* solo para las pruebas automáticas (qa/): con la marca vocatlas_qa se puede inspeccionar el estado interno */
 try{if(localStorage.getItem("vocatlas_qa"))window.__vt=function(c){return eval(c)}}catch(e){}
+/* barra de la hora del celular: toma el color de lo que hay arriba (mar del mapa, ruta o fondo de la pestaña)
+   para que no quede una franja clara encima de un mapa oscuro */
+(function(){var last="";function sync(){var m=document.querySelectorAll('meta[name="theme-color"]');if(!m.length)return;
+ var d=typeof TEMA!=="undefined"&&TEMA.dark(),c;
+ if(document.body.classList.contains("lp-open"))c=document.querySelector("#plaza .lp-dark")?"#13283B":"#F6EFE2";
+ else if(typeof curView!=="undefined"&&curView==="map")c=(d||document.querySelector(".gm.is-night"))?"#1F4D76":"#3CA9E0";
+ else c=d?"#0D2129":"#F6EFE2";
+ document.body.classList.toggle("on-map",typeof curView!=="undefined"&&curView==="map");
+ if(c===last)return;last=c;for(var k=0;k<m.length;k++)m[k].setAttribute("content",c)}
+ setInterval(sync,700);document.addEventListener("visibilitychange",sync);setTimeout(sync,50)})();
 
 /* ================= perfil (pestaña Yo) y colección de Rumbos =================
    Cada carrera completa regala a su Rumbo: la mascota con el gorro y las botas de esa carrera (src/skins.js).

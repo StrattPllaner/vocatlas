@@ -2,6 +2,15 @@
    Como en Strattpllaner: la barra de abajo pasa a ser un riel vertical a la izquierda y el contenido usa todo
    el ancho que queda. Desde 1080 px cada pestaña se acomoda en dos columnas en vez de una tira angosta al centro. */
 #nav .ind{transform:translateX(calc(var(--i,0) * 100%))}
+/* en celular, lo que se desliza hacia arriba se esconde bajo una franja del color de fondo y no se mezcla con la hora */
+body:not(.on-map):not(.lp-open)::before{content:"";position:fixed;left:0;right:0;top:0;height:var(--sat);background:var(--c-bg);z-index:60;pointer-events:none}
+/* controles del mapa: todo junto arriba a la derecha. «Carrera» al lado de «ver todo»; acercar y alejar en una sola pieza
+   debajo, y en pantallas táctiles no se muestran (ahí se pellizca). */
+#zfit{order:-1;margin-bottom:6px}
+#zin{border-radius:16px 16px 0 0}
+#zout{border-radius:0 0 16px 16px;margin-top:-8px;box-shadow:none;border-top:1px solid rgba(20,50,63,.1)}
+.addc{left:auto;bottom:auto;right:calc(68px + var(--sar));top:calc(12px + var(--sat));min-height:48px;padding:0 16px 0 12px;border-radius:16px;font-size:14.5px}
+@media (hover:none) and (pointer:coarse){#zin,#zout{display:none}}
 @media (min-width:760px){
  #nav{left:calc(14px + var(--sal));top:calc(28px + var(--sat));bottom:auto;transform:none;width:88px;flex-direction:column;padding:6px;border-radius:30px}
  #nav .ind{left:6px;right:6px;top:6px;bottom:auto;width:auto;height:calc((100% - 12px) / 5);transform:translateY(calc(var(--i,0) * 100%))}
@@ -10,8 +19,7 @@
  .view{padding:calc(28px + var(--sat)) calc(32px + var(--sar)) calc(40px + var(--sab)) calc(134px + var(--sal))}
  .vwrap{max-width:none}
  /* mapa: los controles de la izquierda se hacen a un lado del riel */
- .clar{left:calc(14px + var(--sal))}
- .addc{left:calc(118px + var(--sal));bottom:calc(20px + var(--sab))}
+ .clar{left:calc(118px + var(--sal))}
  .pf-grid{grid-template-columns:repeat(auto-fill,minmax(128px,1fr))}
  /* las tiras que se deslizan de lado se vuelven cuadrícula: nada queda cortado en la orilla */
  .at-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));overflow:visible;margin:0;padding:2px 0 var(--sp-2)}

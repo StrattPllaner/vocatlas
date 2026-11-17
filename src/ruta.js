@@ -92,22 +92,25 @@ var PATH=(function(){
     :'<path d="M12 34L40 20L68 34L40 48Z" fill="#E8AE55"/><path d="M12 34L40 48L40 40L12 26Z" fill="#E8AE55"/><path d="M12 26L40 12L68 26L40 40Z" fill="#F2C470"/><path d="M40 40L68 26V34L40 48Z" fill="#C98A3A"/>')+
    '<rect x="35" y="'+(open?46:42)+'" width="10" height="10" rx="2" fill="#F2C14E" stroke="#8A5A1E" stroke-width="1.4"/><circle cx="40" cy="'+(open?50:46)+'" r="1.6" fill="#8A5A1E"/></svg>'}
 
- /* ---------- la ruta: un sendero que baja ----------
-    Las lecciones van una debajo de otra en zigzag suave, unidas por un sendero de puntos. Cada unidad abre con un letrero.
-    El sendero se pinta del color de la carrera hasta donde llegaste y al final espera el edificio de la carrera (la meta).
-    Se recorre deslizando hacia abajo; al entrar se acomoda en la lección que sigue. */
- var CW=380,ROW=104,HEAD=118,TOP=26,ZZ=[0,.62,.92,.62,0,-.62,-.92,-.62];
- function lay(cat){var y=TOP,k=0,heads=[],deco=[];CW=Math.max(300,Math.min(440,(st.sc?st.sc.clientWidth:380)-24));
-  cat.units.forEach(function(u,ui){heads.push({y:y,ui:ui});y+=HEAD;
-   u.items.forEach(function(it){var o=ZZ[k%ZZ.length];it.off=o;it.x=CW/2+o*CW*.27;it.y=y+ROW/2;
-    /* adorno del lado vacío cuando la parada va muy de lado */
-    if(Math.abs(o)>.9)deco.push({x:CW/2-Math.sign(o)*CW*.3,y:it.y+10,k:k});
-    y+=ROW;k++})});
-  return {h:y+250,heads:heads,deco:deco,end:y+110}}
- /* curva suave que pasa por todas las paradas */
- function curve(P){if(!P.length)return "";var d="M"+P[0][0].toFixed(1)+" "+P[0][1].toFixed(1);
-  for(var i=1;i<P.length;i++){var a=P[i-1],b=P[i],m=(b[1]-a[1])*.5;d+="C"+a[0].toFixed(1)+" "+(a[1]+m).toFixed(1)+" "+b[0].toFixed(1)+" "+(b[1]-m).toFixed(1)+" "+b[0].toFixed(1)+" "+b[1].toFixed(1)}return d}
- var DECO=["treeRound","bush","palm","flowers","treePine","rock"];
+ /* ---------- la ruta: una carretera de montaña ----------
+    Cada unidad es un tramo que cruza la pantalla; al llegar a la orilla el camino da la vuelta y baja al siguiente,
+    como las curvas de una sierra. El cofre de la unidad está justo en la vuelta. Al final espera el edificio de la carrera.
+    Se pinta del color de la carrera hasta donde llegaste. Pocas cosas, bien puestas. */
+ var CW=380,G=196,TOP=78,EDGE=30;
+ function lay(cat){CW=Math.max(300,Math.min(520,(st.sc?st.sc.clientWidth:380)-16));var rows=[];
+  cat.units.forEach(function(u,ui){var y=TOP+ui*G,dir=ui%2?-1:1,L=u.items.filter(function(it){return it.chest==null}),m=L.length,x0=40,x1=CW-88;
+   L.forEach(function(it,j){var f=m>1?j/(m-1):.5,x=x0+(x1-x0)*f;if(dir<0)x=CW-x;it.x=x;it.y=y+Math.sin(f*Math.PI)*-8;it.kind="row";it.dir=dir});
+   u.items.forEach(function(it){if(it.chest!=null){it.x=dir>0?CW-EDGE:EDGE;it.y=y+G/2;it.kind="apex";it.dir=dir}});
+   rows.push({y:y,dir:dir,ui:ui})});
+  var last=cat.all[cat.all.length-1],end=TOP+cat.units.length*G+30;
+  return {rows:rows,end:end,h:end+230}}
+ /* tramo entre dos paradas: recto en la fila, curva cerrada en la vuelta */
+ function seg(a,b){var f=function(v){return v.toFixed(1)},dy=b.y-a.y;
+  if(Math.abs(dy)<30)return "M"+f(a.x)+" "+f(a.y)+"Q"+f((a.x+b.x)/2)+" "+f((a.y+b.y)/2-6)+" "+f(b.x)+" "+f(b.y);
+  if(b.kind==="apex")return "M"+f(a.x)+" "+f(a.y)+"C"+f(a.x+(b.x-a.x)*.85)+" "+f(a.y)+" "+f(b.x)+" "+f(b.y-dy*.55)+" "+f(b.x)+" "+f(b.y);
+  if(a.kind==="apex")return "M"+f(a.x)+" "+f(a.y)+"C"+f(a.x)+" "+f(a.y+dy*.55)+" "+f(b.x+(a.x-b.x)*.85)+" "+f(b.y)+" "+f(b.x)+" "+f(b.y);
+  /* sin cofre: vuelta completa por la orilla */
+  var sx=a.dir>0?CW-EDGE+4:EDGE-4;return "M"+f(a.x)+" "+f(a.y)+"C"+f(sx+ (a.dir>0?30:-30))+" "+f(a.y)+" "+f(sx+(a.dir>0?30:-30))+" "+f(b.y)+" "+f(b.x)+" "+f(b.y)}
  function build(id){
   var c=byId[id],p=$("#plaza"),dark=!!(DMQ&&DMQ.matches),cat=catalog(id),pg=progOf(id);st.id=id;st.items=cat.all;st.units=cat.units;
   if(typeof artDefs==="function")artDefs();
@@ -126,24 +129,26 @@ var PATH=(function(){
  }
  function draw(id,cat,pg){
   var L=lay(cat),col=$("#lpCol"),n=cat.all.length;st.items=cat.all;
-  var P=cat.all.map(function(it){return [it.x,it.y]});
-  var all=P.concat([[CW/2,L.end]]),dn="";
-  /* cada tramo se pinta si ya saliste de la parada de arriba y la de abajo ya está abierta */
-  cat.all.forEach(function(it,k){var nx=cat.all[k+1];if((it.done||(nx&&nx.done))&&(nx?nx.state!=="lock"&&nx.state!=="soon":true))dn+=curve([all[k],all[k+1]])});
-  var deco="";L.deco.forEach(function(d,i){deco+='<g transform="translate('+d.x.toFixed(0)+' '+d.y.toFixed(0)+') scale(2.3)">'+ENV.one(DECO[(d.k+hash(id))%DECO.length],{d:2,k:1,ph:i,flip:i%2===1})+'</g>'});
-  var h='<svg class="rt4-svg" width="'+CW+'" height="'+L.h+'" viewBox="0 0 '+CW+' '+L.h+'" aria-hidden="true"><defs>'+ENV.DEFS+'</defs>'+
-   '<g class="rt4-deco">'+deco+'</g>'+
-   '<path d="'+curve(all)+'" class="rt4-trail"/>'+(dn?'<path d="'+dn+'" class="rt4-trail is-done"/>':'')+'</svg>';
-  L.heads.forEach(function(hd){var u=cat.units[hd.ui],L2=u.items.filter(function(it){return it.lid});
-   h+='<div class="rt4-u s-'+u.state+'" style="top:'+hd.y+'px"><span class="rt4-un num">'+(hd.ui+1)+'</span><div class="rt4-ut"><small>Unidad '+(hd.ui+1)+'</small><b>'+esc(u.t)+'</b></div>'+
-    (u.state==="soon"?'<em>Pronto</em>':'<em class="num">'+u.done+'/'+L2.length+'</em>')+'</div>'});
+  var pts=cat.all.map(function(it){return it}).concat([{x:CW/2,y:L.end,kind:"row"}]),road="",dn="";
+  /* la meta se alcanza bajando desde la última vuelta */
+  for(var k=0;k<n;k++){var a=pts[k],b=pts[k+1],d=k===n-1&&a.kind!=="apex"?seg(a,{x:a.x,y:L.end-G/2,kind:"apex"})+seg({x:a.x,y:L.end-G/2,kind:"apex"},b):seg(a,b);road+=d;
+   var it=cat.all[k],nx=cat.all[k+1];if((it.done||(nx&&nx.done))&&(nx?nx.state!=="lock"&&nx.state!=="soon":true))dn+=d}
+  /* un arbolito dibujado a mano dentro de cada vuelta */
+  var trees="";L.rows.forEach(function(r,i){if(i===L.rows.length-1)return;var x=r.dir>0?CW-EDGE-58:EDGE+58,y=r.y+G/2+4;
+   trees+='<g transform="translate('+x+' '+y+')" class="rt5-tree"><ellipse cx="1" cy="1" rx="9" ry="2.8"/><path d="M0 0V-7"/><circle cx="-5" cy="-10" r="5.6"/><circle cx="5" cy="-10.5" r="5.4"/><circle cx="0" cy="-15.5" r="6.4"/></g>'});
+  var h='<svg class="rt4-svg" width="'+CW+'" height="'+L.h+'" viewBox="0 0 '+CW+' '+L.h+'" aria-hidden="true">'+trees+
+   '<path d="'+road+'" class="rt5-road"/><path d="'+road+'" class="rt5-mid"/>'+(dn?'<path d="'+dn+'" class="rt5-done"/>':'')+'</svg>';
+  var ci=curIndex(),cur=cat.all[ci];
+  L.rows.forEach(function(r){var u=cat.units[r.ui],L2=u.items.filter(function(it){return it.lid}),first=L2[0];
+   /* el nombre va sobre el final del tramo (ahí no llega ninguna curva); si Rumbo está ahí, se pasa al inicio */
+   var right=r.dir>0;if(cur&&L2[L2.length-1]===cur)right=!right;
+   h+='<div class="rt5-u s-'+u.state+(right?" is-r":"")+'" style="top:'+(r.y-62)+'px"><small>Unidad '+(r.ui+1)+'</small><b>'+esc(u.t)+'</b><em class="num">'+(u.state==="soon"?"pronto":u.done+"/"+L2.length)+'</em></div>'});
   cat.all.forEach(function(it,k){
-   var ic=it.chest!=null?"":it.state==="soon"?LIC.lock:LIC[LI[it.lid]]||LIC.libro;
-   h+='<button type="button" class="rt3-n rt4-n s-'+it.state+(it.chest!=null?" is-chest":"")+(it.parada==="final"?" is-final":"")+'" data-i="'+k+'" style="left:'+it.x.toFixed(1)+'px;top:'+it.y.toFixed(1)+'px" aria-label="'+(it.lid?it.lid+" ":"")+esc(it.n)+(it.state==="done"?", hecha":it.state==="soon"?", llega pronto":it.state==="lock"?", bloqueada":"")+'">'+
-    (it.chest!=null?chestSVG(it.done):'<span class="rt4-face">'+icon(ic,"lp-ic")+'</span>'+(it.state==="done"?'<i class="rt4-ok">'+icon(LIC.check,"lp-ic")+'</i>':''))+'</button>'});
-  /* la meta: el edificio de la carrera */
+   var ic=it.chest!=null?"":it.state==="done"?LIC.check:it.state==="soon"?LIC.lock:LIC[LI[it.lid]]||LIC.libro;
+   h+='<button type="button" class="rt3-n rt4-n rt5-n s-'+it.state+(it.chest!=null?" is-chest":"")+'" data-i="'+k+'" style="left:'+it.x.toFixed(1)+'px;top:'+it.y.toFixed(1)+'px" aria-label="'+(it.lid?it.lid+" ":"")+esc(it.n)+(it.state==="done"?", hecha":it.state==="soon"?", llega pronto":it.state==="lock"?", bloqueada":"")+'">'+
+    (it.chest!=null?chestSVG(it.done):icon(ic,"lp-ic"))+'</button>'});
   h+='<div class="rt4-goal'+(pg.p>=1?" is-done":"")+'" style="top:'+L.end+'px"><div class="rt4-gart">'+artSVG(id,pg.p)+'</div><b>'+(pg.p>=1?"¡Llegaste!":"La meta")+'</b><small>'+(pg.p>=1?"Ganaste el sello de la carrera":"Termina todo para ganar su sello")+'</small></div>';
-  h+='<div class="rt2-rb rt4-rb" id="lpRb">'+(typeof skinOn==="function"&&RUMBO.SKINS[id]&&skinOn(id)?skinRb(id):rumboEl())+'</div><div class="rt4-tip" id="lpTip"></div>';
+  h+='<div class="rt2-rb rt4-rb rt5-rb" id="lpRb">'+(typeof skinOn==="function"&&RUMBO.SKINS[id]&&skinOn(id)?skinRb(id):rumboEl())+'</div>';
   col.style.width=CW+"px";col.style.height=L.h+"px";col.innerHTML=h;
   PZ.rb=col.querySelector(".rt2-rb .rb");PZ.el=null;wireRumbo(PZ.rb);
   each(col.querySelectorAll(".rt4-n"),function(b){b.onclick=function(e){e.stopPropagation();select(+b.getAttribute("data-i"),true)}});
@@ -153,10 +158,9 @@ var PATH=(function(){
  function curIndex(){for(var i=0;i<st.items.length;i++)if(st.items[i].state==="open")return i;
   for(i=0;i<st.items.length;i++)if(st.items[i].state==="cur")return i;
   for(i=st.items.length-1;i>=0;i--)if(st.items[i].state==="done")return i;return 0}
- /* Rumbo de pie a un lado de la parada actual, del lado donde hay espacio; arriba, un globito con lo que toca */
+ /* Rumbo de pie sobre la parada actual (junto al cofre, hacia adentro, cuando toca abrirlo) */
  function placeRumbo(i,walk){var e=$("#lpRb");if(!e)return;var it=st.items[i];if(!it)return;
-  var side=it.off>.1?-1:1;e.style.left=(it.x+side*78).toFixed(1)+"px";e.style.top=(it.y+6).toFixed(1)+"px";
-  var tip=$("#lpTip");if(tip){var cur=it.state==="cur"||it.state==="open";tip.textContent=it.chest!=null?"¡Ábrelo!":S.lp&&S.lp[st.id+":"+it.lid]!=null?"Seguir":"Empieza aquí";tip.style.left=it.x.toFixed(1)+"px";tip.style.top=(it.y-52).toFixed(1)+"px";tip.hidden=!cur}
+  var x=it.kind==="apex"?it.x+(it.dir>0?-62:62):it.x,y=it.kind==="apex"?it.y+8:it.y-22;e.style.left=x.toFixed(1)+"px";e.style.top=y.toFixed(1)+"px";
   if(PZ.rb){if(walk&&!RM()){PZ.rb.classList.add("walk");setTimeout(function(){PZ.rb&&PZ.rb.classList.remove("walk")},720)}
    mood(PZ.rb,it.parada==="hexagono"?"curious":it.state==="done"?"happy":"idle")}}
  function unitOf(i){return st.items[i].u}

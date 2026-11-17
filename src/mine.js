@@ -375,3 +375,13 @@ function openReport(){
 }
 /* solo para las pruebas automáticas (qa/): con la marca vocatlas_qa se puede inspeccionar el estado interno */
 try{if(localStorage.getItem("vocatlas_qa"))window.__vt=function(c){return eval(c)}}catch(e){}
+/* barra de la hora del celular: toma el color de lo que hay arriba (mar del mapa, ruta o fondo de la pestaña)
+   para que no quede una franja clara encima de un mapa oscuro */
+(function(){var last="";function sync(){var m=document.querySelectorAll('meta[name="theme-color"]');if(!m.length)return;
+ var d=typeof TEMA!=="undefined"&&TEMA.dark(),c;
+ if(document.body.classList.contains("lp-open"))c=document.querySelector("#plaza .lp-dark")?"#13283B":"#F6EFE2";
+ else if(typeof curView!=="undefined"&&curView==="map")c=(d||document.querySelector(".gm.is-night"))?"#1F4D76":"#3CA9E0";
+ else c=d?"#0D2129":"#F6EFE2";
+ document.body.classList.toggle("on-map",typeof curView!=="undefined"&&curView==="map");
+ if(c===last)return;last=c;for(var k=0;k<m.length;k++)m[k].setAttribute("content",c)}
+ setInterval(sync,700);document.addEventListener("visibilitychange",sync);setTimeout(sync,50)})();
