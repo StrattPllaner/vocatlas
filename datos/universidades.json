@@ -1,0 +1,1610 @@
+{
+ "region": [
+  "CMX",
+  "MOR"
+ ],
+ "corte": "2026-11-17",
+ "fuente": "Vocatlas - base de carreras Morelos y CDMX",
+ "nota": "Costos y requisitos cambian cada año: confírmalos siempre en el sitio oficial de cada universidad.",
+ "unis": [
+  {
+   "id": "unam",
+   "n": "UNAM",
+   "nc": "Universidad Nacional Autónoma de México",
+   "tipo": "publica",
+   "sedes": [
+    {
+     "n": "Ciudad Universitaria (CU) y facultades",
+     "edo": "CMX",
+     "nota": ""
+    },
+    {
+     "n": "FES Zaragoza",
+     "edo": "CMX",
+     "nota": ""
+    },
+    {
+     "n": "FES Acatlán, Aragón, Cuautitlán e Iztacala",
+     "edo": "MEX",
+     "nota": ""
+    },
+    {
+     "n": "Centro de Ciencias Genómicas (campus Morelos)",
+     "edo": "MOR",
+     "nota": ""
+    }
+   ],
+   "costo": {
+    "txt": "Cuota simbólica. Los gastos reales son transporte, materiales y prácticas.",
+    "fuente": "UNAM",
+    "conf": "alta"
+   },
+   "adm": {
+    "examen": "Concurso de selección UNAM (120 reactivos) o pase reglamentado desde CCH/ENP",
+    "txt": "No hay un puntaje fijo; el corte depende de la demanda de cada carrera y plantel. En 2026, 20,923 alumnos entraron por concurso y 28,151 por pase reglamentado.",
+    "fuente": "https://www.yucatan.com.mx/mexico/2026/08/29/unam-donde-y-como-ver-los-resultados-del-examen-de-control-presencial.html",
+    "conf": "alta"
+   },
+   "url": "https://www.dgae.unam.mx"
+  },
+  {
+   "id": "ipn",
+   "n": "IPN",
+   "nc": "Instituto Politécnico Nacional",
+   "tipo": "publica",
+   "sedes": [
+    {
+     "n": "Escuelas de nivel superior (Zacatenco, Santo Tomás, Tepepan, Ticomán, Culhuacán, Azcapotzalco, etc.)",
+     "edo": "CMX",
+     "nota": ""
+    }
+   ],
+   "costo": {
+    "txt": "Educación pública gratuita; puede haber cuotas voluntarias y gastos de materiales.",
+    "fuente": "IPN",
+    "conf": "alta"
+   },
+   "adm": {
+    "examen": "Examen de admisión IPN (140 preguntas, hasta 3 horas, incluye sección de inglés)",
+    "txt": "Convocatorias en agosto y febrero. En 2026 el examen para escuelas de la CDMX pasó a ser presencial.",
+    "fuente": "https://mextudia.com/?p=139473",
+    "conf": "alta"
+   },
+   "url": "https://www.ipn.mx/oferta-educativa/educacion-superior/"
+  },
+  {
+   "id": "uam",
+   "n": "UAM",
+   "nc": "Universidad Autónoma Metropolitana",
+   "tipo": "publica",
+   "sedes": [
+    {
+     "n": "Azcapotzalco",
+     "edo": "CMX",
+     "nota": ""
+    },
+    {
+     "n": "Cuajimalpa",
+     "edo": "CMX",
+     "nota": ""
+    },
+    {
+     "n": "Iztapalapa",
+     "edo": "CMX",
+     "nota": ""
+    },
+    {
+     "n": "Xochimilco",
+     "edo": "CMX",
+     "nota": ""
+    },
+    {
+     "n": "Lerma",
+     "edo": "MEX",
+     "nota": ""
+    }
+   ],
+   "costo": {
+    "txt": "Cuotas bajas por trimestre (universidad pública). Confirmar monto en la convocatoria vigente.",
+    "fuente": "UAM",
+    "conf": "media"
+   },
+   "adm": {
+    "examen": "Examen de selección UAM (trimestral; dos procesos al año y procesos extraordinarios)",
+    "txt": "Hay un pase para alumnos de Colegio de Bachilleres y CONALEP en algunas licenciaturas.",
+    "fuente": "https://www.infobae.com/mexico/2026/04/21/pase-uam-2026-cuantos-lugares-hay-por-carrera-para-bachilleres-y-conalep/",
+    "conf": "alta"
+   },
+   "url": "https://www.uam.mx/licenciaturas/licenciaturas_por_unidad.html"
+  },
+  {
+   "id": "uaem",
+   "n": "UAEM",
+   "nc": "Universidad Autónoma del Estado de Morelos",
+   "tipo": "publica",
+   "sedes": [
+    {
+     "n": "Campus Norte (Chamilpa), Cuernavaca",
+     "edo": "MOR",
+     "nota": ""
+    },
+    {
+     "n": "Campus Oriente (Cuautla)",
+     "edo": "MOR",
+     "nota": ""
+    },
+    {
+     "n": "Campus Sur (Jojutla)",
+     "edo": "MOR",
+     "nota": ""
+    }
+   ],
+   "costo": {
+    "txt": "Referencia publicada: inscripción ~$380 y colegiatura semestral ~$420. El año de esta cifra no está confirmado; revisar la convocatoria vigente.",
+    "fuente": "https://mextudia.com/universidades/uaem/",
+    "conf": "media"
+   },
+   "adm": {
+    "examen": "EXANI-II de CENEVAL + curso propedéutico",
+    "txt": "Convocatoria 2026 publicada el 28 de enero con examen el 6 de junio; unos 15 mil aspirantes compiten por más de 9 mil lugares en 65 programas.",
+    "fuente": "https://mextudia.com/convocatorias/uaem/?amp=1",
+    "conf": "alta"
+   },
+   "url": "https://www.uaem.mx"
+  },
+  {
+   "id": "tec",
+   "n": "Tec de Monterrey",
+   "nc": "Instituto Tecnológico y de Estudios Superiores de Monterrey",
+   "tipo": "privada",
+   "sedes": [
+    {
+     "n": "Campus Ciudad de México (Tlalpan)",
+     "edo": "CMX",
+     "nota": ""
+    },
+    {
+     "n": "Campus Santa Fe",
+     "edo": "CMX",
+     "nota": ""
+    },
+    {
+     "n": "Campus Estado de México",
+     "edo": "MEX",
+     "nota": ""
+    },
+    {
+     "n": "Campus Cuernavaca",
+     "edo": "MOR",
+     "nota": "Solo ofrece los primeros semestres (2 en ingenierías y humanidades, 3 en negocios); para terminar la carrera hay que trasladarse a otro campus."
+    }
+   ],
+   "costo": {
+    "txt": "Agosto-diciembre 2026: $180,720 por semestre en carreras estándar y $198,720 en Médico Cirujano, pagable en 5 parcialidades. Hay becas por mérito y necesidad.",
+    "fuente": "El Imparcial, 17 de julio de 2026, citando el portal oficial de colegiaturas del Tec (tec.mx)",
+    "conf": "alta"
+   },
+   "adm": {
+    "examen": "PAA (Prueba de Aptitud Académica), SAT o ACT + promedio + perfil integral (ensayo, currículum)",
+    "txt": "Algunas carreras como Médico Cirujano tienen cupo limitado.",
+    "fuente": "https://tec.mx/es/search?page=47",
+    "conf": "alta"
+   },
+   "url": "https://tec.mx/en/cuernavaca-campus"
+  },
+  {
+   "id": "ibero",
+   "n": "IBERO",
+   "nc": "Universidad Iberoamericana Ciudad de México",
+   "tipo": "privada",
+   "sedes": [
+    {
+     "n": "Santa Fe",
+     "edo": "CMX",
+     "nota": ""
+    }
+   ],
+   "costo": {
+    "txt": "Se cobra por horas inscritas; un semestre típico de 20 a 24 horas cuesta entre $146,765 y $169,825 (tabla 2026). No cobra inscripción aparte.",
+    "fuente": "https://portaladmin.ibero.mx/uploads/precios_de_colegiaturas_ibero_licenciauras_2026_29d9d96083.pdf",
+    "conf": "alta"
+   },
+   "adm": {
+    "examen": "Examen de admisión propio + promedio de bachillerato",
+    "txt": "Hay programa de becas y apoyos por estudio socioeconómico.",
+    "fuente": "https://ibero.mx/es-MX/admision-para-licenciaturas",
+    "conf": "media"
+   },
+   "url": "https://ibero.mx"
+  },
+  {
+   "id": "anahuac",
+   "n": "Anáhuac",
+   "nc": "Universidad Anáhuac México",
+   "tipo": "privada",
+   "sedes": [
+    {
+     "n": "Campus Sur",
+     "edo": "CMX",
+     "nota": ""
+    },
+    {
+     "n": "Campus Norte (Huixquilucan)",
+     "edo": "MEX",
+     "nota": ""
+    }
+   ],
+   "costo": {
+    "txt": "Se cobra por crédito más inscripción semestral (inscripción de $23,720 a $32,125 según créditos). Rango estimado por semestre; confirmar con el simulador de la universidad.",
+    "fuente": "https://anahuac.mx/mexico/finanzas/sites/default/files/inline-files/Cuotas-licenciaturas-semestrales.pdf",
+    "conf": "media"
+   },
+   "adm": {
+    "examen": "Examen de admisión propio + promedio",
+    "txt": "",
+    "fuente": "https://www.anahuac.mx/mexico/licenciaturas/oferta-academica",
+    "conf": "media"
+   },
+   "url": "https://www.anahuac.mx/mexico/licenciaturas/oferta-academica"
+  },
+  {
+   "id": "lasalle",
+   "n": "La Salle",
+   "nc": "Universidad La Salle (CDMX y Cuernavaca)",
+   "tipo": "privada",
+   "sedes": [
+    {
+     "n": "La Salle México (Condesa)",
+     "edo": "CMX",
+     "nota": ""
+    },
+    {
+     "n": "La Salle Cuernavaca",
+     "edo": "MOR",
+     "nota": ""
+    }
+   ],
+   "costo": {
+    "txt": "CDMX: aprox. $80,000 a $110,000 por semestre. Cuernavaca: aprox. $37,500 por semestre (inscripción + 4 mensualidades de $7,500).",
+    "fuente": "https://cuantomecuesta.com/mx/universidad-privada/ ; https://mextudia.com/universidades/la-salle/cuernavaca/?amp=1",
+    "conf": "media"
+   },
+   "adm": {
+    "examen": "Examen de admisión propio + promedio",
+    "txt": "",
+    "fuente": "https://lasalle.mx",
+    "conf": "media"
+   },
+   "url": "https://lasalle.mx"
+  },
+  {
+   "id": "uvm",
+   "n": "UVM",
+   "nc": "Universidad del Valle de México",
+   "tipo": "privada",
+   "sedes": [
+    {
+     "n": "Campus en CDMX (13 campus, p. ej. Coyoacán, Tlalpan, San Rafael)",
+     "edo": "CMX",
+     "nota": ""
+    },
+    {
+     "n": "Campus Cuernavaca (Temixco)",
+     "edo": "MOR",
+     "nota": ""
+    }
+   ],
+   "costo": {
+    "txt": "Ejemplo 2026: Psicología cuesta unos $43,056 por semestre. Cuernavaca reporta un costo anual cercano a $97,710. Medicina es bastante más cara. Las becas por promedio cambian mucho el precio final.",
+    "fuente": "https://expansion.mx/carrera/2026/08/24/carrera-cuesta-2-millones-tardas-ocho-anos-recuperar ; https://mextudia.com/universidades/uvm/cuernavaca",
+    "conf": "media"
+   },
+   "adm": {
+    "examen": "Registro y examen diagnóstico; la beca depende del promedio",
+    "txt": "",
+    "fuente": "https://uvm.mx",
+    "conf": "media"
+   },
+   "url": "https://uvm.mx"
+  },
+  {
+   "id": "unitec",
+   "n": "UNITEC",
+   "nc": "Universidad Tecnológica de México",
+   "tipo": "privada",
+   "sedes": [
+    {
+     "n": "Campus Sur, Marina, Cuitláhuac, Azcapotzalco, Iztapalapa (y otros en Edomex)",
+     "edo": "CMX",
+     "nota": ""
+    }
+   ],
+   "costo": {
+    "txt": "Pago mensual sin inscripción; la mayoría de carreras presenciales rondan $4,440 a $5,615 al mes (cuatrimestres de 4 meses). Cirujano Dentista ronda $11,290 al mes.",
+    "fuente": "https://universidadesdemexico.mx/noticias/costo-estudiar-linea-unitec ; https://mextudia.com/universidades/unitec/ingenieria-civil/.",
+    "conf": "media"
+   },
+   "adm": {
+    "examen": "Registro y examen diagnóstico; beca según promedio",
+    "txt": "No tiene campus en Morelos.",
+    "fuente": "https://www.unitec.mx",
+    "conf": "media"
+   },
+   "url": "https://www.unitec.mx"
+  }
+ ],
+ "car": {
+  "medicina": {
+   "nombre": "Medicina (Médico Cirujano)",
+   "donde": [
+    {
+     "u": "unam",
+     "sede": "Facultad de Medicina (CU)",
+     "prog": "Médico Cirujano",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "unam",
+     "sede": "FES Zaragoza (CDMX) y FES Iztacala (Edomex)",
+     "prog": "Médico Cirujano",
+     "conf": "alta",
+     "edo": [
+      "CMX",
+      "MEX"
+     ]
+    },
+    {
+     "u": "ipn",
+     "sede": "Escuela Superior de Medicina y ENMyH",
+     "prog": "Médico Cirujano y Partero / Médico Cirujano y Homeópata",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "uam",
+     "sede": "Xochimilco",
+     "prog": "Medicina",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "uaem",
+     "sede": "Facultad de Medicina, Cuernavaca",
+     "prog": "Médico Cirujano / Médico Cirujano Rural",
+     "conf": "alta",
+     "edo": [
+      "MOR"
+     ]
+    },
+    {
+     "u": "tec",
+     "sede": "Campus Ciudad de México",
+     "prog": "Médico Cirujano",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "anahuac",
+     "sede": "Norte y Sur",
+     "prog": "Médico Cirujano",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "lasalle",
+     "sede": "CDMX (Facultad Mexicana de Medicina)",
+     "prog": "Médico Cirujano",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "uvm",
+     "sede": "Algunos campus CDMX",
+     "prog": "Médico Cirujano",
+     "conf": "media",
+     "edo": [
+      "CMX"
+     ]
+    }
+   ],
+   "morelos": true
+  },
+  "nutricion": {
+   "nombre": "Nutrición",
+   "donde": [
+    {
+     "u": "unam",
+     "sede": "FES Zaragoza",
+     "prog": "Nutriología",
+     "conf": "media",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "ipn",
+     "sede": "Escuela Superior de Medicina / CICS",
+     "prog": "Nutrición",
+     "conf": "media",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "uam",
+     "sede": "Xochimilco",
+     "prog": "Nutrición Humana",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "uaem",
+     "sede": "Cuernavaca",
+     "prog": "Nutrición",
+     "conf": "alta",
+     "edo": [
+      "MOR"
+     ]
+    },
+    {
+     "u": "ibero",
+     "sede": "Santa Fe",
+     "prog": "Nutrición y Ciencia de los Alimentos",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "anahuac",
+     "sede": "Norte",
+     "prog": "Nutrición",
+     "conf": "media",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "uvm",
+     "sede": "CDMX y Cuernavaca",
+     "prog": "Nutrición",
+     "conf": "alta",
+     "edo": [
+      "CMX",
+      "MOR"
+     ]
+    },
+    {
+     "u": "unitec",
+     "sede": "Varios campus",
+     "prog": "Nutrición",
+     "conf": "media",
+     "edo": [
+      "CMX"
+     ]
+    }
+   ],
+   "morelos": true
+  },
+  "psicologia": {
+   "nombre": "Psicología",
+   "donde": [
+    {
+     "u": "unam",
+     "sede": "Facultad de Psicología (CU), FES Zaragoza y FES Iztacala",
+     "prog": "Psicología",
+     "conf": "alta",
+     "edo": [
+      "CMX",
+      "MEX"
+     ]
+    },
+    {
+     "u": "ipn",
+     "sede": "CICS",
+     "prog": "Psicología",
+     "conf": "media",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "uam",
+     "sede": "Xochimilco / Iztapalapa / Lerma",
+     "prog": "Psicología / Psicología Social / Psicología Biomédica",
+     "conf": "alta",
+     "edo": [
+      "CMX",
+      "MEX"
+     ]
+    },
+    {
+     "u": "uaem",
+     "sede": "Cuernavaca",
+     "prog": "Psicología (también en línea)",
+     "conf": "alta",
+     "edo": [
+      "MOR"
+     ]
+    },
+    {
+     "u": "tec",
+     "sede": "CDMX y Santa Fe",
+     "prog": "Psicología Clínica y de la Salud",
+     "conf": "media",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "ibero",
+     "sede": "Santa Fe",
+     "prog": "Psicología",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "anahuac",
+     "sede": "Norte y Sur",
+     "prog": "Psicología",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "lasalle",
+     "sede": "CDMX y Cuernavaca",
+     "prog": "Psicología",
+     "conf": "alta",
+     "edo": [
+      "CMX",
+      "MOR"
+     ]
+    },
+    {
+     "u": "uvm",
+     "sede": "CDMX",
+     "prog": "Psicología",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "unitec",
+     "sede": "Varios campus",
+     "prog": "Psicología",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    }
+   ],
+   "morelos": true
+  },
+  "veterinaria": {
+   "nombre": "Medicina Veterinaria y Zootecnia",
+   "donde": [
+    {
+     "u": "unam",
+     "sede": "FMVZ (CU) y FES Cuautitlán",
+     "prog": "Medicina Veterinaria y Zootecnia",
+     "conf": "alta",
+     "edo": [
+      "CMX",
+      "MEX"
+     ]
+    },
+    {
+     "u": "uam",
+     "sede": "Xochimilco",
+     "prog": "Medicina Veterinaria y Zootecnia",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "uaem",
+     "sede": "Cuernavaca",
+     "prog": "Ingeniería en Producción Animal (afín)",
+     "conf": "media",
+     "edo": [
+      "MOR"
+     ]
+    }
+   ],
+   "morelos": true
+  },
+  "civil": {
+   "nombre": "Ingeniería Civil",
+   "donde": [
+    {
+     "u": "unam",
+     "sede": "Facultad de Ingeniería (CU); FES Acatlán y Aragón (Edomex)",
+     "prog": "Ingeniería Civil",
+     "conf": "alta",
+     "edo": [
+      "CMX",
+      "MEX"
+     ]
+    },
+    {
+     "u": "ipn",
+     "sede": "ESIA Zacatenco",
+     "prog": "Ingeniería Civil",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "uam",
+     "sede": "Azcapotzalco",
+     "prog": "Ingeniería Civil",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "tec",
+     "sede": "CDMX (Cuernavaca solo primeros 2 semestres)",
+     "prog": "Ingeniería Civil",
+     "conf": "alta",
+     "edo": [
+      "CMX",
+      "MOR"
+     ]
+    },
+    {
+     "u": "ibero",
+     "sede": "Santa Fe",
+     "prog": "Ingeniería Civil",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "anahuac",
+     "sede": "Norte",
+     "prog": "Ingeniería Civil",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "lasalle",
+     "sede": "CDMX y Cuernavaca",
+     "prog": "Ingeniería Civil",
+     "conf": "alta",
+     "edo": [
+      "CMX",
+      "MOR"
+     ]
+    },
+    {
+     "u": "unitec",
+     "sede": "Varios campus",
+     "prog": "Ingeniería Civil",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    }
+   ],
+   "morelos": true
+  },
+  "mecatronica": {
+   "nombre": "Ingeniería Mecatrónica",
+   "donde": [
+    {
+     "u": "unam",
+     "sede": "Facultad de Ingeniería (CU)",
+     "prog": "Ingeniería Mecatrónica",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "ipn",
+     "sede": "UPIITA y UPIIH",
+     "prog": "Ingeniería Mecatrónica / Biónica",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "uaem",
+     "sede": "Cuernavaca",
+     "prog": "Ingeniería en Robótica y Sistemas de Manufactura Industrial",
+     "conf": "alta",
+     "edo": [
+      "MOR"
+     ]
+    },
+    {
+     "u": "tec",
+     "sede": "CDMX (Cuernavaca solo primeros 2 semestres)",
+     "prog": "Ingeniería Mecatrónica / Robótica y Sistemas Inteligentes",
+     "conf": "alta",
+     "edo": [
+      "CMX",
+      "MOR"
+     ]
+    },
+    {
+     "u": "anahuac",
+     "sede": "Sur",
+     "prog": "Ingeniería Mecatrónica",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "lasalle",
+     "sede": "CDMX y Cuernavaca",
+     "prog": "Ingeniería Mecatrónica",
+     "conf": "alta",
+     "edo": [
+      "CMX",
+      "MOR"
+     ]
+    },
+    {
+     "u": "uvm",
+     "sede": "CDMX y Cuernavaca",
+     "prog": "Ingeniería Mecatrónica",
+     "conf": "alta",
+     "edo": [
+      "CMX",
+      "MOR"
+     ]
+    },
+    {
+     "u": "unitec",
+     "sede": "Varios campus",
+     "prog": "Ingeniería Mecatrónica",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    }
+   ],
+   "morelos": true
+  },
+  "aeroespacial": {
+   "nombre": "Ingeniería Aeronáutica y Aeroespacial",
+   "donde": [
+    {
+     "u": "unam",
+     "sede": "Facultad de Ingeniería (CU)",
+     "prog": "Ingeniería Aeroespacial",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "ipn",
+     "sede": "ESIME Ticomán",
+     "prog": "Ingeniería Aeronáutica",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    }
+   ],
+   "morelos": false
+  },
+  "ambiental": {
+   "nombre": "Ingeniería Ambiental y Desarrollo Sustentable",
+   "donde": [
+    {
+     "u": "ipn",
+     "sede": "UPIBI",
+     "prog": "Ingeniería Ambiental",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "uam",
+     "sede": "Azcapotzalco",
+     "prog": "Ingeniería Ambiental",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "uaem",
+     "sede": "Cuernavaca",
+     "prog": "Desarrollo Sustentable",
+     "conf": "alta",
+     "edo": [
+      "MOR"
+     ]
+    },
+    {
+     "u": "tec",
+     "sede": "CDMX (Cuernavaca solo primeros 2 semestres)",
+     "prog": "Ingeniería en Desarrollo Sustentable",
+     "conf": "alta",
+     "edo": [
+      "CMX",
+      "MOR"
+     ]
+    }
+   ],
+   "morelos": true
+  },
+  "computacion": {
+   "nombre": "Ingeniería en Sistemas Computacionales / Computación",
+   "donde": [
+    {
+     "u": "unam",
+     "sede": "Facultad de Ingeniería (CU); FES Aragón y Acatlán (Edomex)",
+     "prog": "Ingeniería en Computación / Matemáticas Aplicadas y Computación",
+     "conf": "alta",
+     "edo": [
+      "CMX",
+      "MEX"
+     ]
+    },
+    {
+     "u": "unam",
+     "sede": "Facultad de Ciencias (CU)",
+     "prog": "Ciencias de la Computación",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "ipn",
+     "sede": "ESCOM y UPIICSA",
+     "prog": "Ingeniería en Sistemas Computacionales / Informática",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "uam",
+     "sede": "Azcapotzalco, Cuajimalpa e Iztapalapa",
+     "prog": "Ingeniería en Computación / Computación",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "uaem",
+     "sede": "Cuernavaca",
+     "prog": "Informática",
+     "conf": "alta",
+     "edo": [
+      "MOR"
+     ]
+    },
+    {
+     "u": "tec",
+     "sede": "CDMX y Santa Fe (Cuernavaca solo primeros 2 semestres)",
+     "prog": "Ingeniería en Tecnologías Computacionales",
+     "conf": "alta",
+     "edo": [
+      "CMX",
+      "MOR"
+     ]
+    },
+    {
+     "u": "lasalle",
+     "sede": "CDMX",
+     "prog": "Ingeniería en Cibernética y Sistemas Computacionales",
+     "conf": "media",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "uvm",
+     "sede": "CDMX",
+     "prog": "Ingeniería en Sistemas Computacionales",
+     "conf": "media",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "unitec",
+     "sede": "Varios campus",
+     "prog": "Ingeniería en Sistemas Computacionales",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    }
+   ],
+   "morelos": true
+  },
+  "datos": {
+   "nombre": "Ciencia de Datos",
+   "donde": [
+    {
+     "u": "unam",
+     "sede": "Facultad de Ciencias / IIMAS (CU)",
+     "prog": "Ciencia de Datos",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "ipn",
+     "sede": "ESCOM",
+     "prog": "Licenciatura en Ciencia de Datos",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "tec",
+     "sede": "CDMX y Santa Fe (Cuernavaca solo primeros 2 semestres)",
+     "prog": "Ingeniería en Inteligencia Artificial y Ciencia de Datos",
+     "conf": "alta",
+     "edo": [
+      "CMX",
+      "MOR"
+     ]
+    }
+   ],
+   "morelos": false
+  },
+  "biotec": {
+   "nombre": "Biotecnología e Ingeniería Bioquímica",
+   "donde": [
+    {
+     "u": "unam",
+     "sede": "Centro de Ciencias Genómicas, Cuernavaca (Morelos)",
+     "prog": "Ciencias Genómicas",
+     "conf": "alta",
+     "edo": [
+      "MOR"
+     ]
+    },
+    {
+     "u": "ipn",
+     "sede": "UPIBI y ENCB",
+     "prog": "Ingeniería Biotecnológica / Ingeniería Bioquímica",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "uam",
+     "sede": "Cuajimalpa / Iztapalapa / Azcapotzalco",
+     "prog": "Ingeniería Biológica / Ingeniería Bioquímica Industrial",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "uaem",
+     "sede": "Cuernavaca",
+     "prog": "Licenciatura en Ciencias (Bioquímica y Biología Molecular)",
+     "conf": "alta",
+     "edo": [
+      "MOR"
+     ]
+    },
+    {
+     "u": "tec",
+     "sede": "CDMX (Cuernavaca solo primeros 2 semestres)",
+     "prog": "Ingeniería en Biotecnología",
+     "conf": "alta",
+     "edo": [
+      "CMX",
+      "MOR"
+     ]
+    }
+   ],
+   "morelos": true
+  },
+  "fisica": {
+   "nombre": "Física",
+   "donde": [
+    {
+     "u": "unam",
+     "sede": "Facultad de Ciencias (CU)",
+     "prog": "Física / Física Biomédica",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "ipn",
+     "sede": "ESFM Zacatenco",
+     "prog": "Licenciatura en Física y Matemáticas",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "uam",
+     "sede": "Iztapalapa",
+     "prog": "Física",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "uaem",
+     "sede": "Cuernavaca",
+     "prog": "Licenciatura en Ciencias (Física) / Licenciatura en Tecnología",
+     "conf": "media",
+     "edo": [
+      "MOR"
+     ]
+    }
+   ],
+   "morelos": true
+  },
+  "derecho": {
+   "nombre": "Derecho",
+   "donde": [
+    {
+     "u": "unam",
+     "sede": "Facultad de Derecho (CU); FES Acatlán y Aragón (Edomex)",
+     "prog": "Derecho",
+     "conf": "alta",
+     "edo": [
+      "CMX",
+      "MEX"
+     ]
+    },
+    {
+     "u": "uam",
+     "sede": "Azcapotzalco y Cuajimalpa",
+     "prog": "Derecho",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "uaem",
+     "sede": "Cuernavaca, sedes regionales y en línea",
+     "prog": "Derecho",
+     "conf": "alta",
+     "edo": [
+      "MOR"
+     ]
+    },
+    {
+     "u": "tec",
+     "sede": "CDMX y Santa Fe",
+     "prog": "Derecho",
+     "conf": "media",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "ibero",
+     "sede": "Santa Fe",
+     "prog": "Derecho",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "anahuac",
+     "sede": "Norte y Sur",
+     "prog": "Derecho",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "lasalle",
+     "sede": "CDMX y Cuernavaca",
+     "prog": "Derecho",
+     "conf": "alta",
+     "edo": [
+      "CMX",
+      "MOR"
+     ]
+    },
+    {
+     "u": "uvm",
+     "sede": "CDMX y Cuernavaca",
+     "prog": "Derecho",
+     "conf": "alta",
+     "edo": [
+      "CMX",
+      "MOR"
+     ]
+    },
+    {
+     "u": "unitec",
+     "sede": "Varios campus",
+     "prog": "Derecho",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    }
+   ],
+   "morelos": true
+  },
+  "negocios": {
+   "nombre": "Administración de Empresas",
+   "donde": [
+    {
+     "u": "unam",
+     "sede": "Facultad de Contaduría y Administración (CU)",
+     "prog": "Administración",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "ipn",
+     "sede": "ESCA / UPIICSA",
+     "prog": "Administración y Desarrollo Empresarial / Administración Industrial",
+     "conf": "media",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "uam",
+     "sede": "Azcapotzalco, Cuajimalpa, Iztapalapa y Xochimilco",
+     "prog": "Administración",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "uaem",
+     "sede": "Cuernavaca, Cuautla y en línea",
+     "prog": "Administración / Administración de Organizaciones",
+     "conf": "alta",
+     "edo": [
+      "MOR"
+     ]
+    },
+    {
+     "u": "tec",
+     "sede": "CDMX, Santa Fe (Cuernavaca solo primeros 3 semestres)",
+     "prog": "Estrategia y Transformación de Negocios",
+     "conf": "alta",
+     "edo": [
+      "CMX",
+      "MOR"
+     ]
+    },
+    {
+     "u": "ibero",
+     "sede": "Santa Fe",
+     "prog": "Administración de Empresas",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "anahuac",
+     "sede": "Norte y Sur",
+     "prog": "Dirección y Administración de Empresas",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "lasalle",
+     "sede": "CDMX y Cuernavaca",
+     "prog": "Administración",
+     "conf": "alta",
+     "edo": [
+      "CMX",
+      "MOR"
+     ]
+    },
+    {
+     "u": "uvm",
+     "sede": "CDMX y Cuernavaca",
+     "prog": "Administración de Empresas",
+     "conf": "alta",
+     "edo": [
+      "CMX",
+      "MOR"
+     ]
+    },
+    {
+     "u": "unitec",
+     "sede": "Varios campus",
+     "prog": "Administración de Empresas",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    }
+   ],
+   "morelos": true
+  },
+  "finanzas": {
+   "nombre": "Finanzas",
+   "donde": [
+    {
+     "u": "tec",
+     "sede": "CDMX y Santa Fe (Cuernavaca solo primeros 3 semestres)",
+     "prog": "Finanzas",
+     "conf": "alta",
+     "edo": [
+      "CMX",
+      "MOR"
+     ]
+    },
+    {
+     "u": "ibero",
+     "sede": "Santa Fe",
+     "prog": "Finanzas",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "anahuac",
+     "sede": "Norte y Sur",
+     "prog": "Finanzas Corporativas y Banca / Dirección Financiera",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "lasalle",
+     "sede": "CDMX",
+     "prog": "Ingeniería Económica y Financiera",
+     "conf": "media",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "uvm",
+     "sede": "CDMX",
+     "prog": "Finanzas",
+     "conf": "media",
+     "edo": [
+      "CMX"
+     ]
+    }
+   ],
+   "morelos": false
+  },
+  "educacion": {
+   "nombre": "Pedagogía y Ciencias de la Educación",
+   "donde": [
+    {
+     "u": "unam",
+     "sede": "Facultad de Filosofía y Letras (CU); FES Acatlán y Aragón (Edomex)",
+     "prog": "Pedagogía",
+     "conf": "alta",
+     "edo": [
+      "CMX",
+      "MEX"
+     ]
+    },
+    {
+     "u": "uaem",
+     "sede": "Cuernavaca",
+     "prog": "Pedagogía / Ciencias de la Educación",
+     "conf": "alta",
+     "edo": [
+      "MOR"
+     ]
+    },
+    {
+     "u": "tec",
+     "sede": "CDMX (Cuernavaca solo primeros 2 semestres)",
+     "prog": "Innovación y Transformación Educativa",
+     "conf": "alta",
+     "edo": [
+      "CMX",
+      "MOR"
+     ]
+    },
+    {
+     "u": "ibero",
+     "sede": "Santa Fe",
+     "prog": "Pedagogía",
+     "conf": "media",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "anahuac",
+     "sede": "Norte",
+     "prog": "Pedagogía",
+     "conf": "media",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "lasalle",
+     "sede": "CDMX",
+     "prog": "Educación Primaria / Educación Preescolar",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "uvm",
+     "sede": "CDMX",
+     "prog": "Educación",
+     "conf": "media",
+     "edo": [
+      "CMX"
+     ]
+    }
+   ],
+   "morelos": true
+  },
+  "arquitectura": {
+   "nombre": "Arquitectura",
+   "donde": [
+    {
+     "u": "unam",
+     "sede": "Facultad de Arquitectura (CU); FES Acatlán y Aragón (Edomex)",
+     "prog": "Arquitectura",
+     "conf": "alta",
+     "edo": [
+      "CMX",
+      "MEX"
+     ]
+    },
+    {
+     "u": "ipn",
+     "sede": "ESIA Tecamachalco",
+     "prog": "Ingeniero Arquitecto",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "uam",
+     "sede": "Azcapotzalco y Xochimilco",
+     "prog": "Arquitectura",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "uaem",
+     "sede": "Cuernavaca",
+     "prog": "Arquitectura / Ingeniero Arquitecto",
+     "conf": "alta",
+     "edo": [
+      "MOR"
+     ]
+    },
+    {
+     "u": "tec",
+     "sede": "CDMX y Santa Fe",
+     "prog": "Arquitectura",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "ibero",
+     "sede": "Santa Fe",
+     "prog": "Arquitectura",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "anahuac",
+     "sede": "Norte y Sur",
+     "prog": "Arquitectura",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "lasalle",
+     "sede": "CDMX y Cuernavaca",
+     "prog": "Arquitectura",
+     "conf": "alta",
+     "edo": [
+      "CMX",
+      "MOR"
+     ]
+    },
+    {
+     "u": "uvm",
+     "sede": "CDMX y Cuernavaca",
+     "prog": "Arquitectura",
+     "conf": "alta",
+     "edo": [
+      "CMX",
+      "MOR"
+     ]
+    },
+    {
+     "u": "unitec",
+     "sede": "Varios campus",
+     "prog": "Arquitectura",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    }
+   ],
+   "morelos": true
+  },
+  "moda": {
+   "nombre": "Diseño de Modas y Textil",
+   "donde": [
+    {
+     "u": "ibero",
+     "sede": "Santa Fe",
+     "prog": "Diseño Textil y de Moda",
+     "conf": "media",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "anahuac",
+     "sede": "Norte",
+     "prog": "Diseño de Moda",
+     "conf": "media",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "ipn",
+     "sede": "ESIT",
+     "prog": "Ingeniería Textil (afín)",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    }
+   ],
+   "morelos": false
+  },
+  "comunicacion": {
+   "nombre": "Ciencias de la Comunicación",
+   "donde": [
+    {
+     "u": "unam",
+     "sede": "FCPyS (CU); FES Acatlán y Aragón (Edomex)",
+     "prog": "Ciencias de la Comunicación / Comunicación y Periodismo",
+     "conf": "alta",
+     "edo": [
+      "CMX",
+      "MEX"
+     ]
+    },
+    {
+     "u": "uam",
+     "sede": "Cuajimalpa y Xochimilco",
+     "prog": "Ciencias de la Comunicación / Comunicación Social",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "tec",
+     "sede": "CDMX y Santa Fe (Cuernavaca solo primeros 2 semestres)",
+     "prog": "Comunicación y Producción Digital",
+     "conf": "alta",
+     "edo": [
+      "CMX",
+      "MOR"
+     ]
+    },
+    {
+     "u": "ibero",
+     "sede": "Santa Fe",
+     "prog": "Comunicación",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "anahuac",
+     "sede": "Norte y Sur",
+     "prog": "Comunicación",
+     "conf": "alta",
+     "edo": [
+      "CMX"
+     ]
+    },
+    {
+     "u": "lasalle",
+     "sede": "CDMX y Cuernavaca",
+     "prog": "Ciencias de la Comunicación",
+     "conf": "alta",
+     "edo": [
+      "CMX",
+      "MOR"
+     ]
+    },
+    {
+     "u": "uvm",
+     "sede": "CDMX y Cuernavaca",
+     "prog": "Comunicación y Medios Digitales",
+     "conf": "alta",
+     "edo": [
+      "CMX",
+      "MOR"
+     ]
+    },
+    {
+     "u": "uaem",
+     "sede": "Cuernavaca",
+     "prog": "Comunicación y Gestión Interculturales / Relaciones Públicas",
+     "conf": "media",
+     "edo": [
+      "MOR"
+     ]
+    }
+   ],
+   "morelos": true
+  }
+ }
+}

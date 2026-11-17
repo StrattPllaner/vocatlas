@@ -74,3 +74,21 @@
 .pf-priv{margin-top:var(--sp-3);padding:0 var(--sp-4);border-radius:var(--r-4);border:var(--bw) solid var(--c-line);background:var(--c-surface);font-family:var(--ff)}
 .pf-tag{display:inline-block;margin:2px 0 6px;padding:5px 12px;border-radius:var(--r-full);background:var(--c-info-bg);color:var(--c-info-ink);font:var(--fw-sb) var(--fs-xs)/1 var(--ff)}
 @media (min-width:700px){.pf-grid{grid-template-columns:repeat(6,minmax(0,1fr))}.pf-sub .pf-grid{grid-template-columns:repeat(auto-fill,minmax(132px,1fr))}.pf-stage{height:236px}.pf-stage .rb{width:170px;height:170px}}
+/* dónde estudiar */
+.es-sheet{max-height:86vh;overflow:auto}
+.es-lead{margin:2px 0 12px;color:var(--c-ink-2);font:var(--fw-m) var(--fs-sm)/1.4 var(--ff)}
+.es-list{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.es-it{padding:12px 14px;border-radius:16px;background:var(--c-surface);border:var(--bw) solid var(--c-line)}
+.es-it.is-near{border-color:var(--c-sel-line);background:var(--c-sel)}
+.es-top{display:flex;align-items:center;flex-wrap:wrap;gap:6px}
+.es-top b{font:var(--fw-b) 16px/1.2 var(--ff);margin-right:2px}
+.es-tag{padding:3px 8px;border-radius:99px;font:750 11.5px/1 var(--ff);background:var(--c-sunken);color:var(--c-ink-2)}
+.es-tag.t-publica{background:#DDEFE6;color:#245C43}.es-tag.t-privada{background:#E6E3F3;color:#463C7A}
+.es-tag.t-conf{background:var(--c-warn-bg);color:var(--c-warn-ink)}
+.es-prog{margin:6px 0 0;font:var(--fw-sb) 14.5px/1.3 var(--ff);color:var(--c-ink)}
+.es-sede{margin:2px 0 0;font:var(--fw-m) 13px/1.35 var(--ff);color:var(--c-ink-2)}
+.es-more{margin-top:8px}.es-more summary{cursor:pointer;font:750 13.5px/1.2 var(--ff);color:var(--c-info-edge);min-height:32px;display:flex;align-items:center}
+.es-more p{margin:6px 0;font:var(--fw-r) 13.5px/1.45 var(--ff);color:var(--c-ink-2)}.es-more small{color:var(--c-ink-3)}
+.es-more a{color:var(--c-info-edge)}
+.es-site{display:inline-block;margin-top:4px;font:750 13.5px var(--ff)}
+.es-note{margin:14px 0 4px;font:var(--fw-m) 12.5px/1.4 var(--ff);color:var(--c-ink-3)}

@@ -349,3 +349,6 @@
 .rt6-u.s-lock,.rt6-u.s-soon{opacity:.7}
 .rt4.lp-dark .rt5-n:not(.s-done):not(.s-cur):not(.is-chest){background:#22394F;color:#9DB0C2}
 .rt4.lp-dark .rt5-road{stroke:#203750}
+.rt2-esc{flex:none;display:flex;flex-direction:column;align-items:center;gap:2px;min-width:52px;min-height:48px;padding:4px 6px;border:0;border-radius:14px;background:transparent;color:inherit;font:750 11px/1 var(--ff);cursor:pointer}
+.rt2-esc .lp-ic{width:22px;height:22px;stroke-width:2}
+.rt2-esc:active{transform:scale(.95)}

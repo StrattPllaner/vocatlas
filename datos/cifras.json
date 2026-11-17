@@ -45,22 +45,20 @@
   "fuente_sugerida": "los sitios oficiales de becas del gobierno y de cada universidad"
  },
  "medicina.ingreso": {
-  "valor": null,
+  "valor": "27,823",
   "unidad": "pesos al mes",
-  "fuente": null,
-  "url": null,
-  "consultado": null,
-  "estado": "pendiente",
-  "fuente_sugerida": "Compara Carreras, del IMCO"
+  "fuente": "IMCO, Compara Carreras 2026 («Medicina general»), promedio nacional",
+  "url": "https://imco.org.mx/comparacarreras/",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
  },
  "medicina.ocupacion_afin": {
-  "valor": null,
+  "valor": "81",
   "unidad": "de cada 100",
-  "fuente": null,
-  "url": null,
-  "consultado": null,
-  "estado": "pendiente",
-  "fuente_sugerida": "el Observatorio Laboral, de la Secretaría del Trabajo"
+  "fuente": "IMCO, Compara Carreras 2026 («Medicina general»), promedio nacional",
+  "url": "https://imco.org.mx/comparacarreras/",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
  },
  "computacion.duracion": {
   "valor": null,
@@ -108,22 +106,20 @@
   "fuente_sugerida": "los sitios oficiales de becas del gobierno y de cada universidad"
  },
  "computacion.ingreso": {
-  "valor": null,
+  "valor": "24,927",
   "unidad": "pesos al mes",
-  "fuente": null,
-  "url": null,
-  "consultado": null,
-  "estado": "pendiente",
-  "fuente_sugerida": "Compara Carreras, del IMCO"
+  "fuente": "IMCO, Compara Carreras 2026 («Desarrollo de software»), promedio nacional",
+  "url": "https://imco.org.mx/comparacarreras/",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
  },
  "computacion.ocupacion_afin": {
-  "valor": null,
+  "valor": "45",
   "unidad": "de cada 100",
-  "fuente": null,
-  "url": null,
-  "consultado": null,
-  "estado": "pendiente",
-  "fuente_sugerida": "el Observatorio Laboral de la Secretaría del Trabajo"
+  "fuente": "IMCO, Compara Carreras 2026 («Desarrollo de software»), promedio nacional",
+  "url": "https://imco.org.mx/comparacarreras/",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
  },
  "derecho.duracion": {
   "valor": null,
@@ -171,22 +167,20 @@
   "fuente_sugerida": "los sitios oficiales de becas del gobierno y de cada universidad"
  },
  "derecho.ingreso": {
-  "valor": null,
+  "valor": "24,178",
   "unidad": "pesos al mes",
-  "fuente": null,
-  "url": null,
-  "consultado": null,
-  "estado": "pendiente",
-  "fuente_sugerida": "Compara Carreras, del IMCO"
+  "fuente": "IMCO, Compara Carreras 2026 («Derecho»), promedio nacional",
+  "url": "https://imco.org.mx/comparacarreras/",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
  },
  "derecho.ocupacion_afin": {
-  "valor": null,
+  "valor": "53",
   "unidad": "de cada 100",
-  "fuente": null,
-  "url": null,
-  "consultado": null,
-  "estado": "pendiente",
-  "fuente_sugerida": "el Observatorio Laboral de la Secretaría del Trabajo"
+  "fuente": "IMCO, Compara Carreras 2026 («Derecho»), promedio nacional",
+  "url": "https://imco.org.mx/comparacarreras/",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
  },
  "arquitectura.duracion": {
   "valor": null,
@@ -234,22 +228,20 @@
   "fuente_sugerida": "los sitios oficiales de becas del gobierno y de cada universidad"
  },
  "arquitectura.ingreso": {
-  "valor": null,
+  "valor": "26,822",
   "unidad": "pesos al mes",
-  "fuente": null,
-  "url": null,
-  "consultado": null,
-  "estado": "pendiente",
-  "fuente_sugerida": "Compara Carreras, del IMCO"
+  "fuente": "IMCO, Compara Carreras 2026 («Arquitectura y urbanismo»), promedio nacional",
+  "url": "https://imco.org.mx/comparacarreras/",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
  },
  "arquitectura.ocupacion_afin": {
-  "valor": null,
+  "valor": "60",
   "unidad": "de cada 100",
-  "fuente": null,
-  "url": null,
-  "consultado": null,
-  "estado": "pendiente",
-  "fuente_sugerida": "el Observatorio Laboral de la Secretaría del Trabajo"
+  "fuente": "IMCO, Compara Carreras 2026 («Arquitectura y urbanismo»), promedio nacional",
+  "url": "https://imco.org.mx/comparacarreras/",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
  },
  "veterinaria.duracion": {
   "valor": null,
@@ -297,6 +289,70 @@
   "fuente_sugerida": "los sitios oficiales de becas del gobierno y de cada universidad"
  },
  "veterinaria.ingreso": {
+  "valor": "19,585",
+  "unidad": "pesos al mes",
+  "fuente": "IMCO, Compara Carreras 2026 («Veterinaria»), promedio nacional",
+  "url": "https://imco.org.mx/comparacarreras/",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "veterinaria.ocupacion_afin": {
+  "valor": "49",
+  "unidad": "de cada 100",
+  "fuente": "IMCO, Compara Carreras 2026 («Veterinaria»), promedio nacional",
+  "url": "https://imco.org.mx/comparacarreras/",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "nutricion.ingreso": {
+  "valor": "17,773",
+  "unidad": "pesos al mes",
+  "fuente": "IMCO, Compara Carreras 2026 («Nutrición»), promedio nacional",
+  "url": "https://imco.org.mx/comparacarreras/",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "nutricion.ocupacion_afin": {
+  "valor": "44",
+  "unidad": "de cada 100",
+  "fuente": "IMCO, Compara Carreras 2026 («Nutrición»), promedio nacional",
+  "url": "https://imco.org.mx/comparacarreras/",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "psicologia.ingreso": {
+  "valor": "18,813",
+  "unidad": "pesos al mes",
+  "fuente": "IMCO, Compara Carreras 2026 («Psicología»), promedio nacional",
+  "url": "https://imco.org.mx/comparacarreras/",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "psicologia.ocupacion_afin": {
+  "valor": "50",
+  "unidad": "de cada 100",
+  "fuente": "IMCO, Compara Carreras 2026 («Psicología»), promedio nacional",
+  "url": "https://imco.org.mx/comparacarreras/",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "civil.ingreso": {
+  "valor": "25,603",
+  "unidad": "pesos al mes",
+  "fuente": "IMCO, Compara Carreras 2026 («Construcción e ingeniería civil»), promedio nacional",
+  "url": "https://imco.org.mx/comparacarreras/",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "civil.ocupacion_afin": {
+  "valor": "50",
+  "unidad": "de cada 100",
+  "fuente": "IMCO, Compara Carreras 2026 («Construcción e ingeniería civil»), promedio nacional",
+  "url": "https://imco.org.mx/comparacarreras/",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "mecatronica.ingreso": {
   "valor": null,
   "unidad": "pesos al mes",
   "fuente": null,
@@ -305,7 +361,7 @@
   "estado": "pendiente",
   "fuente_sugerida": "Compara Carreras, del IMCO"
  },
- "veterinaria.ocupacion_afin": {
+ "mecatronica.ocupacion_afin": {
   "valor": null,
   "unidad": "de cada 100",
   "fuente": null,
@@ -313,5 +369,171 @@
   "consultado": null,
   "estado": "pendiente",
   "fuente_sugerida": "el Observatorio Laboral de la Secretaría del Trabajo"
+ },
+ "aeroespacial.ingreso": {
+  "valor": "20,700",
+  "unidad": "pesos al mes",
+  "fuente": "IMCO, Compara Carreras 2026 («Vehículos barcos y aeronaves motorizadas»), promedio nacional",
+  "url": "https://imco.org.mx/comparacarreras/",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "aeroespacial.ocupacion_afin": {
+  "valor": "44",
+  "unidad": "de cada 100",
+  "fuente": "IMCO, Compara Carreras 2026 («Vehículos barcos y aeronaves motorizadas»), promedio nacional",
+  "url": "https://imco.org.mx/comparacarreras/",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "ambiental.ingreso": {
+  "valor": "19,496",
+  "unidad": "pesos al mes",
+  "fuente": "IMCO, Compara Carreras 2026 («Tecnología para la protección del medio ambiente»), promedio nacional",
+  "url": "https://imco.org.mx/comparacarreras/",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "ambiental.ocupacion_afin": {
+  "valor": "25",
+  "unidad": "de cada 100",
+  "fuente": "IMCO, Compara Carreras 2026 («Tecnología para la protección del medio ambiente»), promedio nacional",
+  "url": "https://imco.org.mx/comparacarreras/",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "datos.ingreso": {
+  "valor": null,
+  "unidad": "pesos al mes",
+  "fuente": null,
+  "url": null,
+  "consultado": null,
+  "estado": "pendiente",
+  "fuente_sugerida": "Compara Carreras, del IMCO"
+ },
+ "datos.ocupacion_afin": {
+  "valor": null,
+  "unidad": "de cada 100",
+  "fuente": null,
+  "url": null,
+  "consultado": null,
+  "estado": "pendiente",
+  "fuente_sugerida": "el Observatorio Laboral de la Secretaría del Trabajo"
+ },
+ "biotec.ingreso": {
+  "valor": null,
+  "unidad": "pesos al mes",
+  "fuente": null,
+  "url": null,
+  "consultado": null,
+  "estado": "pendiente",
+  "fuente_sugerida": "Compara Carreras, del IMCO"
+ },
+ "biotec.ocupacion_afin": {
+  "valor": null,
+  "unidad": "de cada 100",
+  "fuente": null,
+  "url": null,
+  "consultado": null,
+  "estado": "pendiente",
+  "fuente_sugerida": "el Observatorio Laboral de la Secretaría del Trabajo"
+ },
+ "fisica.ingreso": {
+  "valor": null,
+  "unidad": "pesos al mes",
+  "fuente": null,
+  "url": null,
+  "consultado": null,
+  "estado": "pendiente",
+  "fuente_sugerida": "Compara Carreras, del IMCO"
+ },
+ "fisica.ocupacion_afin": {
+  "valor": null,
+  "unidad": "de cada 100",
+  "fuente": null,
+  "url": null,
+  "consultado": null,
+  "estado": "pendiente",
+  "fuente_sugerida": "el Observatorio Laboral de la Secretaría del Trabajo"
+ },
+ "negocios.ingreso": {
+  "valor": "23,576",
+  "unidad": "pesos al mes",
+  "fuente": "IMCO, Compara Carreras 2026 («Administración de empresas»), promedio nacional",
+  "url": "https://imco.org.mx/comparacarreras/",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "negocios.ocupacion_afin": {
+  "valor": "38",
+  "unidad": "de cada 100",
+  "fuente": "IMCO, Compara Carreras 2026 («Administración de empresas»), promedio nacional",
+  "url": "https://imco.org.mx/comparacarreras/",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "finanzas.ingreso": {
+  "valor": "27,290",
+  "unidad": "pesos al mes",
+  "fuente": "IMCO, Compara Carreras 2026 («Finanzas banca y seguros»), promedio nacional",
+  "url": "https://imco.org.mx/comparacarreras/",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "finanzas.ocupacion_afin": {
+  "valor": "44",
+  "unidad": "de cada 100",
+  "fuente": "IMCO, Compara Carreras 2026 («Finanzas banca y seguros»), promedio nacional",
+  "url": "https://imco.org.mx/comparacarreras/",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "educacion.ingreso": {
+  "valor": "15,934",
+  "unidad": "pesos al mes",
+  "fuente": "IMCO, Compara Carreras 2026 («Diseño curricular y pedagogía»), promedio nacional",
+  "url": "https://imco.org.mx/comparacarreras/",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "educacion.ocupacion_afin": {
+  "valor": "10",
+  "unidad": "de cada 100",
+  "fuente": "IMCO, Compara Carreras 2026 («Diseño curricular y pedagogía»), promedio nacional",
+  "url": "https://imco.org.mx/comparacarreras/",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "moda.ingreso": {
+  "valor": "25,503",
+  "unidad": "pesos al mes",
+  "fuente": "IMCO, Compara Carreras 2026 («Diseño industrial de moda e interiores»), promedio nacional",
+  "url": "https://imco.org.mx/comparacarreras/",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "moda.ocupacion_afin": {
+  "valor": "26",
+  "unidad": "de cada 100",
+  "fuente": "IMCO, Compara Carreras 2026 («Diseño industrial de moda e interiores»), promedio nacional",
+  "url": "https://imco.org.mx/comparacarreras/",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "comunicacion.ingreso": {
+  "valor": "24,898",
+  "unidad": "pesos al mes",
+  "fuente": "IMCO, Compara Carreras 2026 («Comunicación y periodismo»), promedio nacional",
+  "url": "https://imco.org.mx/comparacarreras/",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
+ },
+ "comunicacion.ocupacion_afin": {
+  "valor": "21",
+  "unidad": "de cada 100",
+  "fuente": "IMCO, Compara Carreras 2026 («Comunicación y periodismo»), promedio nacional",
+  "url": "https://imco.org.mx/comparacarreras/",
+  "consultado": "2026-11-17",
+  "estado": "verificado"
  }
 }

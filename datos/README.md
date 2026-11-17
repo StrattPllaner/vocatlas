@@ -40,3 +40,16 @@ python3 src/build.py
 Antes de publicar con las preguntas dentro de la app, espera la respuesta de O*NET sobre si se pueden guardar (ver `docs/CORREO_ONET.md`).
 
 - `regla-intereses.json`: la ocupación de referencia y el código de intereses de cada carrera. Explicada en `docs/REGLA_INTERESES.md`.
+
+## Universidades y sueldos (Morelos y CDMX)
+
+- `fuentes/vocatlas_carreras.json`: la base original, con fuente y nivel de confianza en cada dato.
+- `importar_carreras.py`: la convierte. Llena en `cifras.json` el sueldo promedio y cuántos ejercen su carrera (solo IMCO, solo si el campo corresponde a la carrera) y escribe `universidades.json` (universidades, costo, admisión y dónde se estudia cada carrera de la app).
+
+```
+python3 datos/importar_carreras.py
+python3 datos/validar.py
+python3 src/build.py
+```
+
+Lo marcado con confianza «media» en la base se muestra con la etiqueta «Por confirmar».

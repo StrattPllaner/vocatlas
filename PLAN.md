@@ -1,6 +1,6 @@
 # Plan de Vocatlas
 
-Estado al 16 de noviembre de 2026. Se marca conforme avanza.
+Estado al 17 de noviembre de 2026. Se marca conforme avanza.
 
 - [x] Fase 1: `CURRICULO.md` y revisión de la licencia del test.
 - [x] Fase 2: sin barra superior, carga nueva, boceto y acuarela, ambiente animado.
@@ -26,4 +26,7 @@ Estado al 16 de noviembre de 2026. Se marca conforme avanza.
   - [ ] Pendiente: 28 cifras nuevas (7 por carrera) y cuatro testimonios.
 - [ ] Fase 5: perfil.
 - [x] Guion de entrevista de cinco preguntas y formato de autorización: `docs/TESTIMONIOS.md`.
-- [ ] Universidades de ejemplo: pública nacional, pública estatal (falta confirmar el estado) y privada.
+- [x] Universidades de Morelos y CDMX (10, públicas y privadas) con costo, examen y fuente, desde `datos/fuentes/vocatlas_carreras.json` vía `datos/importar_carreras.py`. Se ven en «Escuelas» de cada carrera y en Yo.
+  - [x] Sueldo promedio y cuántos ejercen su carrera (IMCO 2026, promedio nacional) para 15 carreras del mapa.
+  - [ ] Pendiente: confirmar los costos y requisitos marcados «por confirmar» (confianza media en la base).
+  - [ ] Pendiente: duración, costos por carrera y becas siguen pendientes en las lecciones; la base trae la duración en texto, sin fuente.

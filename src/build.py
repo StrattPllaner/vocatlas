@@ -12,7 +12,7 @@ js='/* cara de Rumbo, copiada de cara-rumbo.svg por build.py; no se edita a mano
 # catálogo de contenido (datos/): estructura común, carreras con contenido, cifras y la lección de muestra de las dinámicas
 import glob
 D=os.path.join(src,'..','datos')+'/'
-cat={'ip':json.load(open(D+'onet/ip.json')),'regla':json.load(open(D+'regla-intereses.json')),'est':json.load(open(D+'estructura.json')),'cif':json.load(open(D+'cifras.json')),'demo':json.load(open(D+'demo-dinamicas.json')),'car':{}}
+cat={'ip':json.load(open(D+'onet/ip.json')),'regla':json.load(open(D+'regla-intereses.json')),'est':json.load(open(D+'estructura.json')),'cif':json.load(open(D+'cifras.json')),'demo':json.load(open(D+'demo-dinamicas.json')),'uni':json.load(open(D+'universidades.json')),'car':{}}
 # el texto de las lecciones no va dentro de la página: se descarga de datos/carreras/<id>.json al abrir una lección
 # (con la huella del archivo en la dirección, para que una versión nueva no salga de la copia vieja)
 import hashlib
@@ -24,7 +24,7 @@ for f in sorted(glob.glob(D+'carreras/*.json')):
     cat['car'][c['id']]=c
 js+='/* catálogo de contenido, copiado de datos/ por build.py; no se edita aquí */\nvar CAT='+json.dumps(cat,ensure_ascii=False,separators=(',',':'))+';\n'
 js+=open(src+'rumbo.js').read().replace('/*@skins*/',open(src+'skins.js').read())+'\n'
-js+=''.join(open(src+f).read()+'\n' for f in ['iso-lib.js','iso-gen.js','iso-env-old.js','iso-env.js','iso-bld.js','iso-bld2.js','iso-bld3.js','iso-map.js','iso-fix.js','iso-art.js','rumbo-page.js','leccion.js','ruta.js','intereses.js','comparar.js','sprite.js','amb.js','mine.js','perfil.js'])
+js+=''.join(open(src+f).read()+'\n' for f in ['iso-lib.js','iso-gen.js','iso-env-old.js','iso-env.js','iso-bld.js','iso-bld2.js','iso-bld3.js','iso-map.js','iso-fix.js','iso-art.js','rumbo-page.js','leccion.js','ruta.js','intereses.js','comparar.js','sprite.js','amb.js','mine.js','escuelas.js','perfil.js'])
 css=open(src+'iso.css').read()+open(src+'mine.css').read()+open(src+'perfil.css').read()+open(src+'ruta.css').read()+open(src+'intereses.css').read()+open(src+'comparar.css').read()+open(src+'ancho.css').read()
 def put(s,a,b,body,anchor,before=True):
     if a in s:

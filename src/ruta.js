@@ -128,12 +128,12 @@ var PATH=(function(){
   p.style.setProperty("--pc",col);
   var h='<div class="lp rt2 rt4'+(dark?" lp-dark":"")+'" style="--c:'+col+';--cd:'+cd+';--ct:'+txt+'">'+
    '<header class="rt2-head"><button class="lp-back rt2-back" id="pzx" aria-label="Volver al mapa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>'+
-   '<div class="rt2-t"><h2>'+esc(c.name)+'</h2><div class="rt2-pg"><div class="rt2-bar"><i style="width:'+(pg.p*100).toFixed(1)+'%"></i></div><b class="num">'+pg.done+'/'+pg.total+'</b></div></div></header>'+
+   '<div class="rt2-t"><h2>'+esc(c.name)+'</h2><div class="rt2-pg"><div class="rt2-bar"><i style="width:'+(pg.p*100).toFixed(1)+'%"></i></div><b class="num">'+pg.done+'/'+pg.total+'</b></div></div>'+(typeof escHas==="function"&&escHas(id)?'<button type="button" class="rt2-esc" id="lpEsc" aria-label="Dónde estudiar '+esc(c.name)+'">'+icon('<path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5M22 9v6"/>',"lp-ic")+'<span>Escuelas</span></button>':'')+'</header>'+
    '<div class="rt4-stage" id="lpScroll"><div class="rt4-col" id="lpCol"></div></div>'+
    '<div class="rt2-card" id="lpPop" aria-live="polite"></div></div>';
   p.innerHTML=h;st.el=p.querySelector(".lp");st.sc=$("#lpScroll");
   draw(id,cat,pg);
-  $("#pzx").onclick=function(){leave();exitPlaza()};
+  $("#pzx").onclick=function(){leave();exitPlaza()};var eb=$("#lpEsc");if(eb)eb.onclick=function(){escSheet(id)};
   if(!st.rz){st.rz=1;var tm;window.addEventListener("resize",function(){clearTimeout(tm);tm=setTimeout(function(){if(st.sc&&st.sc.isConnected){draw(st.id,catalog(st.id),progOf(st.id));placeRumbo(curIndex(),false);select(st.sel,false)}},120)})}
   var ci=curIndex();placeRumbo(ci,false);select(ci,false);toCur(ci,false);
  }
