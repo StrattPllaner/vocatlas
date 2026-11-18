@@ -27,8 +27,9 @@ Estado al 17 de noviembre de 2026. Se marca conforme avanza.
 - [x] Lecciones nuevas (17 nov): temario por unidades en lugar de camino; tarjetas de lectura, plática con Rumbo, voltear y completar.
   - [x] Las 45 carreras sin contenido escrito tienen sus 21 lecciones armadas con la base (`datos/generar_lecciones.py`): primero enseñan y luego preguntan; las respuestas incorrectas salen de carreras de otra área.
   - [ ] Pendiente: revisión por alguien de cada carrera (las armadas dicen «generado» en su archivo).
-- [x] Escalera en espiral (17 nov) en todas las carreras (`src/torre.js`): Derecho hecha a mano; las demás con su edificio, sus piezas de #art y objetos de su área.
-  - [ ] Pendiente: torres hechas a mano para las carreras más vistas (Medicina, Arquitectura…) y piezas propias para las 31 carreras nuevas.
+- [x] Espiral de lecciones (18 nov, `src/torre.js`): los símbolos de la carrera flotan uno por unidad, el camino los rodea y las lecciones son botones flotando; la espiral gira para dejar la lección actual al frente. Se quitó la torre.
+  - [ ] Pendiente: símbolos propios para las 31 carreras nuevas (hoy usan objetos de su área).
+- [x] Logo de la app (18 nov): Rumbo aviador en todos los íconos (`media/logo.jpg` es el original).
 - [ ] Fase 5: perfil.
 - [x] Guion de entrevista de cinco preguntas y formato de autorización: `docs/TESTIMONIOS.md`.
 - [x] Universidades de Morelos y CDMX (10, públicas y privadas) con costo, examen y fuente, desde `datos/fuentes/vocatlas_carreras.json` vía `datos/importar_carreras.py`. Se ven en «Escuelas» de cada carrera y en Yo.

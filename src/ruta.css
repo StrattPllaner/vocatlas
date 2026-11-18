@@ -451,7 +451,7 @@
 .tw-clouds i:nth-child(3){bottom:48%;left:-160px;animation-delay:-31s;opacity:.45}.tw-clouds i:nth-child(4){bottom:64%;left:-160px;animation-delay:-8s;opacity:.3;transform:scale(.7)}
 .lp-dark .tw-clouds i{background:#2A4566}
 @keyframes twCloud{to{transform:translateX(calc(100vw + 340px))}}
-.tw-stage{position:absolute;left:50%;transform:translateX(-50%);contain:layout paint}
+.tw-stage{position:absolute;left:50%;transform:translateX(-50%);contain:layout;z-index:0}
 .tw-l{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
 svg.tw-l{display:block;will-change:transform}
 img.tw-img{display:block;pointer-events:none;user-select:none}
@@ -528,3 +528,27 @@ img.tw-img.tw-back{opacity:.62;filter:saturate(.7)}
 .lc-escl{list-style:none;margin:8px 0 14px;padding:0;display:grid;gap:8px}
 .lc-escl li{display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding:10px 12px;border-radius:14px;background:var(--c-sunken,#F3EDE2)}
 .lc-escl b{font:850 15px/1.2 var(--ff)}.lc-escl small{flex-basis:100%;font:600 13px/1.3 var(--ff);color:var(--c-ink-2,#3C4D57)}
+/* ================= espiral giratoria (reemplaza la torre) ================= */
+.tw-stage .tw-pb{z-index:1}.tw-stage .tw-pf{z-index:4}
+.tw-path{fill:none;stroke-linecap:round;stroke-linejoin:round}
+.tw-path.is-rest{stroke:#3A3026;stroke-width:3.2;stroke-dasharray:.1 11;opacity:.55}
+.tw-path.is-done{stroke:var(--c);stroke-width:6;stroke-dasharray:.1 11}
+.tw-pb .tw-path{opacity:.3}.tw-pb .tw-path.is-done{opacity:.45}
+.lp-dark .tw-path.is-rest{stroke:#DCE6EE}
+.tw-sym{position:absolute;z-index:3;pointer-events:none;will-change:transform;animation:twBob 5.5s ease-in-out infinite}
+.tw-sym>svg{display:block;width:100%;height:100%;overflow:visible}
+@keyframes twBob{50%{transform:translateY(-7px)}}
+.tw-sym{margin-top:-30px}
+.tw-stage .tw-ul{position:absolute;left:0;top:0;margin:0;padding:2px 8px;font-size:10.5px;will-change:transform;transition:opacity .25s}
+.tw-starw{animation-duration:4s}
+.tw-starw .tw-star.is-on{filter:drop-shadow(0 0 12px rgba(255,214,102,.9))}
+.tw-stage .tw-n{left:0;top:0;transform:none;transform-origin:50% 62%;will-change:transform;transition:opacity .25s}
+.tw-stage .tw-n.is-back{opacity:.55}
+.tw-stage .tw-n.is-back.is-sel{opacity:1}
+.tw-stage .tw-rb{margin:-60px 0 0 -32px}
+.tw-sym.flash .tw-col{animation:twFlash 1.4s ease}
+@media (prefers-reduced-motion:reduce){.tw-sym{animation:none}}
+
+/* en la espiral el globo va debajo del botón, para no tapar el símbolo de la unidad */
+.tw-stage .tw-globe{transform:translate(-50%,0)}
+.tw-stage .tw-globe::after{bottom:auto;top:-9px;border-right:0;border-bottom:0;border-left:2px solid #3A3026;border-top:2px solid #3A3026}

@@ -131,9 +131,10 @@ var PATH=(function(){
  function ringOf(it){var c=CARDS[st.id],i=S.lp&&S.lp[st.id+":"+it.lid];if(c==null||i==null)return 0;var l=carFind(c,it.lid);return l?Math.round(i/l.tarjetas.length*100):0}
  function drawTower(id,cat,pg){
   var mastered=pg.p>=1;
-  st.tw=TORRE.build({id:id,host:$("#lpCol"),units:cat.units,all:cat.all,pg:pg,mastered:mastered&&!!(S.twm&&S.twm[id]),
+  st.items=cat.all;
+  st.tw=TORRE.build({id:id,host:$("#lpCol"),units:cat.units,all:cat.all,pg:pg,mastered:mastered&&!!(S.twm&&S.twm[id]),cur:curIndex(),
    rb:(typeof skinOn==="function"&&RUMBO.SKINS[id]&&skinOn(id)?skinRb(id):rumboEl()),nodeHTML:towerNode});
-  st.items=cat.all;setTimeout(function(){if(st.tw&&st.tw.host.isConnected)TORRE.bakeAll(st.tw.host)},60);
+  st.tw.onRender=globeFollow;
   PZ.rb=st.tw.rb.querySelector(".rb");PZ.el=null;wireRumbo(PZ.rb);
   each(st.tw.host.querySelectorAll(".tw-n"),function(b){b.onclick=function(e){e.stopPropagation();select(+b.getAttribute("data-i"),true)}});
   /* el piso de una unidad recién terminada destella una vez */
@@ -162,18 +163,22 @@ var PATH=(function(){
    if(st.sel===i&&it&&(it.state==="cur"||it.state==="open"||it.state==="done")){run(it);return}
    select(i,true)}});
  }
- function toCur(i,smooth){if(st.tower){var it=st.items[i];if(it&&st.tw)TORRE.scrollTo(st.tw,it.py,smooth);return}var s=st.sc,b=s&&s.querySelector('.rt7-n[data-i="'+i+'"]');if(!b)return;var t=Math.max(0,b.offsetTop-s.clientHeight*.38);if(smooth&&!RM()&&s.scrollTo)s.scrollTo({top:t,behavior:"smooth"});else s.scrollTop=t}
+ function toCur(i,smooth){if(st.tower){var q=st.tw&&TORRE.pos(st.tw,i);if(q)TORRE.scrollTo(st.tw,q.y,smooth);return}var s=st.sc,b=s&&s.querySelector('.rt7-n[data-i="'+i+'"]');if(!b)return;var t=Math.max(0,b.offsetTop-s.clientHeight*.38);if(smooth&&!RM()&&s.scrollTo)s.scrollTo({top:t,behavior:"smooth"});else s.scrollTop=t}
  function fit(){}
  function curIndex(){for(var i=0;i<st.items.length;i++)if(st.items[i].state==="open")return i;
   for(i=0;i<st.items.length;i++)if(st.items[i].state==="cur")return i;
   for(i=st.items.length-1;i>=0;i--)if(st.items[i].state==="done")return i;return 0}
- /* en la torre: Rumbo de pie sobre la parada; si ya estaba en otra, sube saltando por la escalera */
- function towerRumbo(i,walk){var T=st.tw,it=st.items[i];if(!T||!it)return;T.lift=it.sz*.42;
-  var a=it.a;if(st.twMaster){a=it.a;st.twMaster=false;var gl0=$("#twGlobe");if(gl0)gl0.hidden=true;var top=6*360-30;TORRE.standAt(T,st.twA!=null?st.twA:a,T.lift);
-   setTimeout(function(){TORRE.hop(T,a,top,function(){var s2=T.host.querySelector(".tw-star");if(s2)s2.classList.add("is-on","light");if(PZ.rb)mood(PZ.rb,"happy","jump");if(typeof sfx==="function")sfx("ok")})},500);st.twA=top;return}
-  if(walk&&st.twA!=null&&st.twA!==a){var from=st.twA,gl=$("#twGlobe");st.twA=a;if(gl)gl.hidden=true;TORRE.hop(T,from,a,function(){if(PZ.rb)mood(PZ.rb,"happy","jump");towerSelect(st.sel>=0?st.sel:i)})}
-  else{st.twA=a;TORRE.standAt(T,a,T.lift)}
+ /* en la espiral: Rumbo está en la parada actual, al frente; al avanzar, la espiral gira y sube con él */
+ function towerRumbo(i,walk){var T=st.tw,it=st.items[i];if(!T||!it)return;
+  if(st.twMaster){st.twMaster=false;var gl0=$("#twGlobe");if(gl0)gl0.hidden=true;TORRE.place(T,i);
+   setTimeout(function(){TORRE.climbTop(T,i,function(){var s2=T.host.querySelector(".tw-star");if(s2)s2.classList.add("is-on","light");if(PZ.rb)mood(PZ.rb,"happy","jump");if(typeof sfx==="function")sfx("ok")})},500);return}
+  if(walk&&T.cur!=null&&T.cur>=0&&T.cur!==i){var gl=$("#twGlobe");if(gl)gl.hidden=true;TORRE.hop(T,T.cur,i,function(){if(PZ.rb)mood(PZ.rb,"happy","jump");towerSelect(i)})}
+  else TORRE.place(T,i);
   if(PZ.rb)mood(PZ.rb,it.state==="done"?"happy":"idle")}
+ /* el globo acompaña a su botón mientras la espiral gira */
+ function globeFollow(){var g=$("#twGlobe");if(!g||g.hidden||st.sel==null)return;var q=TORRE.pos(st.tw,st.sel);if(!q)return;
+  var sw=g.parentNode.clientWidth,gw=g.offsetWidth||180,x=Math.max(gw/2+6,Math.min(sw-gw/2-6,q.x));
+  g.style.setProperty("--ax",Math.max(-(gw/2-20),Math.min(gw/2-20,q.x-x))+"px");g.style.left=x+"px";g.style.top=(q.y+q.sz*.5+14)+"px"}
  /* Rumbo se asoma junto a la lección que sigue */
  function placeRumbo(i,walk){if(st.tower){towerRumbo(i,walk);return}var e=$("#lpRb"),b=document.querySelector('.rt7-n[data-i="'+i+'"]');if(!e||!b)return;var it=st.items[i];
   e.style.top=(b.offsetTop+b.offsetHeight/2)+"px";
@@ -203,10 +208,12 @@ var PATH=(function(){
   else if(it.state==="lock")meta=it.chest!=null?"Termina la unidad para abrirlo":"Termina la lección anterior";
   else if(it.chest!=null){if(!it.done)lab="Abrir";else meta="Ya lo abriste"}
   else lab=it.state==="done"?"Repasar":S.lp&&S.lp[st.id+":"+it.lid]!=null?"Seguir":"Empezar";
+  if(!lab&&it.state==="done"){g.hidden=true;TORRE.focus(st.tw,i);return}
   g.innerHTML='<b>'+esc(it.n)+'</b><small>'+(meta||((it.min?it.min+" min":"Unos minutos")+(it.state==="done"?" · Hecha":"")))+'</small>'+(lab?'<button type="button" class="ui-btn tw-go" id="lpGo">'+lab+'</button>':'');
-  if(!lab&&it.state==="done"){g.hidden=true;return}
-  g.hidden=false;var sw=g.parentNode.clientWidth,gw=g.offsetWidth||180,x=Math.max(gw/2+6,Math.min(sw-gw/2-6,it.px));g.style.setProperty("--ax",Math.max(-(gw/2-20),Math.min(gw/2-20,it.px-x))+"px");g.style.left=x+"px";g.style.top=(it.py-it.sz*.62-(it.state==="cur"||it.k2===curIndex()?58:4))+"px";g.classList.toggle("is-lock",!lab);
+  g.classList.toggle("is-lock",!lab);g.hidden=false;globeFollow();
   var go=$("#lpGo");if(go)go.onclick=function(e){e.stopPropagation();run(it)};
+  /* la espiral gira para traer ese botón al frente */
+  TORRE.focus(st.tw,i);
  }
  /* cuántas opciones hay en tu estado (o en toda la región) */
  function escCount(id){var d=CAT.uni.car[id],m=escMine(),n=m?d.donde.filter(function(x){return x.edo.indexOf(m)>=0}).length:d.donde.length;return m?(n?n+" en "+ESC_EDO[m]:"Ver en CDMX"):n+" opciones"}
@@ -254,17 +261,15 @@ var PATH=(function(){
  }
  /* en la torre no se redibuja la escena: solo cambia lo que avanzó (paradas, pisos, encabezado y estrella) */
  function towerRefresh(animate){var prev=curIndex(),id=st.id,cat=catalog(id),pg=progOf(id),T=st.tw;
-  cat.all.forEach(function(it,k){var o=st.items[k];it.a=o.a;it.px=o.px;it.py=o.py;it.sz=o.sz;it.d=o.d;
+  cat.all.forEach(function(it,k){var o=st.items[k];it.a=o.a;it.px=o.px;it.py=o.py;it.sz=o.sz;it.d=o.d;T.items[k]=it;
    var b=T.host.querySelector('.tw-n[data-i="'+k+'"]'),cl="rt3-n tw-n s-"+it.state+(it.chest!=null?" is-chest":"");
    /* solo se toca la parada que cambió de estado (o su cofre al abrirse) */
    if(b&&(b.__cl!==cl||it.chest!=null&&b.__op!==it.done)){b.className=cl+(b.classList.contains("is-sel")?" is-sel":"");b.innerHTML=towerNode(it);b.__cl=cl;b.__op=it.done}});
   st.items=cat.all;st.units=cat.units;
   cat.units.forEach(function(u,ui){var L2=u.items.filter(function(it){return it.lid}),p=L2.length?u.done/L2.length:0,g=T.host.querySelector('.tw-floor[data-f="'+ui+'"]');
    if(g){var was=g.classList.contains("is-done");g.classList.toggle("is-done",p>=1);g.querySelector(".tw-col").style.opacity=p>=1?1:(p*.8).toFixed(2);
-    S.twf=S.twf||{};if(p>=1&&!was&&!S.twf[id+":"+ui]){S.twf[id+":"+ui]=1;save();g.classList.remove("flash");void g.getBBox;setTimeout(function(){g.classList.add("flash")},animate?700:0)}}});
-  var tsv=T.host.querySelector("svg.tw-tower");
-  if(T.host.querySelector(".tw-floor.flash")||pg.p>=1)TORRE.live(tsv,pg.p>=1?3600:1800);
-  else{clearTimeout(st.twBk);st.twBk=setTimeout(function(){var go=function(){TORRE.bake(tsv)};if(window.requestIdleCallback)requestIdleCallback(go,{timeout:2000});else go()},2600)}
+    S.twf=S.twf||{};if(p>=1&&!was&&!S.twf[id+":"+ui]){S.twf[id+":"+ui]=1;save();g.classList.remove("flash");setTimeout(function(){g.classList.add("flash")},animate?700:0)}}});
+  var r=-1;cat.all.forEach(function(it,j){if(it.done&&r===j-1)r=j});T.doneA=r<0?T.a0:cat.all[r].a+(cat.all[r+1]?(cat.all[r+1].a-cat.all[r].a)/2:0);
   var bar=st.el.querySelector(".rt2-bar i");if(bar)bar.style.width=(pg.p*100).toFixed(1)+"%";
   var nb=st.el.querySelector(".rt2-pg b");if(nb)nb.textContent=pg.done+" de "+pg.total+" lecciones";
   var cu=cat.units.filter(function(u){return u.state==="cur"})[0]||cat.units.filter(function(u){return u.state!=="done"})[0]||cat.units[cat.units.length-1],ut=st.el.querySelector(".rt8-unit");
