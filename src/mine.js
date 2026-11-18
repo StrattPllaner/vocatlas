@@ -26,27 +26,30 @@ function tween(dur,fn,done){
 }
 
 /* ---------- ilustraciones pequeñas: una sola copia de cada una (color y gris) y se reutilizan con <use> ---------- */
-var ARTOK=false;
+var ARTOK=false,ARTD={};
+/* las ilustraciones se preparan cuando hacen falta (primero las de tus carreras); las demás, poco a poco en ratos libres */
+function artMk(c){var BIO={salud:"jardin",ing:"industria",tec:"vidrio",neg:"ciudad",arte:"barrio"};
+ return typeof ART!=="undefined"&&ART.has(c.id)?ART.get(c.id,0,ART.pick(c.id)):(typeof ENV!=="undefined"&&ENV.generic?ENV.generic(BIO[c.area]||"ciudad",c.color,hash(c.id)):'<circle cx="0" cy="-30" r="34" fill="'+c.color+'"/>')}
+function artDef(id){if(ARTD[id])return;var c=byId[id];if(!c)return;artDefs();ARTD[id]=1;var m=artMk(c),host=document.getElementById("artDefsIn");
+ var g=document.createElementNS(NS,"g");g.innerHTML='<g id="ad-'+id+'">'+m+'</g><g id="ad-'+id+'-g">'+(typeof ISO!=="undefined"?ISO.sketchAll(m):m)+'</g>';while(g.firstChild)host.appendChild(g.firstChild)}
 function artDefs(){
  if(ARTOK)return;ARTOK=true;isoDefs();
- var h="";
- C.forEach(function(c){
-  /* sin edificio propio: el genérico de su zona (jardín, industria, vidrio, ciudad o barrio) */
-  var BIO={salud:"jardin",ing:"industria",tec:"vidrio",neg:"ciudad",arte:"barrio"};
-  var mk=function(){return typeof ART!=="undefined"&&ART.has(c.id)?ART.get(c.id,0,ART.pick(c.id)):(typeof ENV!=="undefined"&&ENV.generic?ENV.generic(BIO[c.area]||"ciudad",c.color,hash(c.id)):'<circle cx="0" cy="-30" r="34" fill="'+c.color+'"/>')};
-  h+='<g id="ad-'+c.id+'">'+mk()+'</g><g id="ad-'+c.id+'-g">'+(typeof ISO!=="undefined"?ISO.sketchAll(mk()):mk())+'</g>';
- });
- var d=document.createElement("div");d.innerHTML='<svg id="artSprite" width="0" height="0" style="position:absolute" aria-hidden="true"><defs>'+h+(typeof ISO!=="undefined"?ISO.skDefs():"")+'</defs></svg>';
+ var d=document.createElement("div");d.innerHTML='<svg id="artSprite" width="0" height="0" style="position:absolute" aria-hidden="true"><defs id="artDefsIn">'+(typeof ISO!=="undefined"?ISO.skDefs():"")+'</defs></svg>';
  document.body.appendChild(d.firstChild);
- setTimeout(artBake,RM()?100:900);
+ /* tus carreras ya; el resto en ratos libres */
+ (S.pick||[]).forEach(artDef);
+ var rest=C.map(function(c){return c.id}).filter(function(id){return !ARTD[id]});
+ (function more(){var t0=performance.now();while(rest.length&&performance.now()-t0<6)artDef(rest.shift());if(rest.length){if(window.requestIdleCallback)requestIdleCallback(more,{timeout:2000});else setTimeout(more,120)}})();
+ setTimeout(artBake,RM()?100:1500);
 }
 /* p: avance de 0 a 1; mezcla gris y color igual que el mapa */
 /* las ilustraciones de las pestañas también se hornean como imagen (las vectoriales trababan al cambiar de pestaña) */
 var ARTIMG={};
-function artBake(){if(typeof sprMake!=="function")return;var night=!!(DMQ&&DMQ.matches),k=night?"n":"d";
- C.forEach(function(c){["",'-g'].forEach(function(v){var key=c.id+v+k,src=document.getElementById("ad-"+c.id+v);if(!src||ARTIMG[key])return;ARTIMG[key]=1;
+function artBake(ids){if(typeof sprMake!=="function")return;var night=!!(DMQ&&DMQ.matches),k=night?"n":"d";
+ /* como imagen solo tus carreras (las demás se dibujan con <use> hasta que se necesiten) */
+ (ids||S.pick||[]).map(function(id){return byId[id]}).filter(Boolean).forEach(function(c){artDef(c.id);["",'-g'].forEach(function(v){var key=c.id+v+k,src=document.getElementById("ad-"+c.id+v);if(!src||ARTIMG[key])return;ARTIMG[key]=1;
   sprMake(src.innerHTML,night,function(o){if(!o){delete ARTIMG[key];return}ARTIMG[key]=o;each(document.querySelectorAll('.ar use[href="#ad-'+c.id+v+'"]'),function(u){u.outerHTML=sprImg(o).replace("<image ",'<image'+(u.getAttribute("opacity")?' opacity="'+u.getAttribute("opacity")+'"':'')+' ')})})})})}
-function artUse(id,v,op){var o=ARTIMG[id+v+((DMQ&&DMQ.matches)?"n":"d")];var a=op!=null?' opacity="'+op+'"':'';return o&&o.u?sprImg(o).replace("<image ",'<image'+a+' '):'<use href="#ad-'+id+v+'"'+a+'/>'}
+function artUse(id,v,op){artDef(id);var o=ARTIMG[id+v+((DMQ&&DMQ.matches)?"n":"d")];var a=op!=null?' opacity="'+op+'"':'';return o&&o.u?sprImg(o).replace("<image ",'<image'+a+' '):'<use href="#ad-'+id+v+'"'+a+'/>'}
 function artSVG(id,p){
  p=p==null?1:p;
  return '<svg class="ar" viewBox="-58 -84 116 116" aria-hidden="true">'+(p<1?artUse(id,"-g"):'')+(p>0?artUse(id,"",p<1?p.toFixed(2):null):'')+'</svg>';

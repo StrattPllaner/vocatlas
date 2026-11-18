@@ -27,7 +27,8 @@ Estado al 17 de noviembre de 2026. Se marca conforme avanza.
 - [x] Lecciones nuevas (17 nov): temario por unidades en lugar de camino; tarjetas de lectura, plática con Rumbo, voltear y completar.
   - [x] Las 45 carreras sin contenido escrito tienen sus 21 lecciones armadas con la base (`datos/generar_lecciones.py`): primero enseñan y luego preguntan; las respuestas incorrectas salen de carreras de otra área.
   - [ ] Pendiente: revisión por alguien de cada carrera (las armadas dicen «generado» en su archivo).
-- [x] Espiral de lecciones (18 nov, `src/torre.js`): los símbolos de la carrera flotan uno por unidad, el camino los rodea y las lecciones son botones flotando; la espiral gira para dejar la lección actual al frente. Se quitó la torre.
+- [x] Espiral de lecciones (18 nov, `src/torre.js`): símbolos 3D grandes y limpios (uno por unidad, el de la carrera primero), rampa en espiral de caracol, lecciones como botones flotando, la espiral gira para dejar la actual al frente, la isla de la carrera abajo en boceto que se pinta al avanzar, y Rumbo en su avioneta.
+- [x] Lag al abrir la app (18 nov): las imágenes del mapa se hacen de una en una y las ilustraciones de carreras solo cuando hacen falta.
   - [ ] Pendiente: símbolos propios para las 31 carreras nuevas (hoy usan objetos de su área).
 - [x] Logo de la app (18 nov): Rumbo aviador en todos los íconos (`media/logo.jpg` es el original).
 - [ ] Fase 5: perfil.

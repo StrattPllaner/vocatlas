@@ -20,19 +20,24 @@ function sprNight(ctx,w,h){var im=ctx.getImageData(0,0,w,h),d=im.data;for(var i=
 /* las imágenes horneadas se guardan en el teléfono (Cache Storage): la siguiente vez que abres la app no se vuelven a dibujar */
 var SPRC={p:null};
 function sprCache(){if(SPRC.p)return SPRC.p;SPRC.p=(window.caches&&window.isSecureContext)?caches.open("vocatlas-spr-1").catch(function(){return null}):Promise.resolve(null);return SPRC.p}
+/* las imágenes se dibujan de una en una, con una pausa entre cada una: así el arranque no se traba */
+var SQ=[],SQB=false;
+function sNext(){if(!SQ.length){SQB=false;return}SQB=true;var f=SQ.shift();f(function(){if(window.requestIdleCallback)requestIdleCallback(sNext,{timeout:120});else setTimeout(sNext,24)})}
+function sQueue(f){SQ.push(f);if(!SQB)sNext()}
 function sprMake(art,night,cb){
  var key=(night?"n":"d")+art;if(SPR.cache[key]){cb(SPR.cache[key]);return}
  var bx=sprBox(art);if(!bx){cb(null);return}
  var R=sprRes(),W=Math.max(1,Math.round(bx[2]*R)),H=Math.max(1,Math.round(bx[3]*R));
  var ck="/spr/"+hash(key).toString(36)+"-"+key.length.toString(36)+"-"+W+"x"+H;
  function keep(bl){var u=URL.createObjectURL(bl),o={u:u,b:bx};SPR.cache[key]=o;cb(o)}
- function draw(c){
+ function draw(c){sQueue(function(next){draw1(c,next)})}
+ function draw1(c,next){var fired=false,nx=function(){if(!fired){fired=true;next()}};
   var svg='<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="'+W+'" height="'+H+'" viewBox="'+bx.join(" ")+'"><defs>'+ENV.DEFS+ISO.skDefs()+'</defs>'+sprTheme(art,night)+'</svg>';
   var img=new Image(),url=URL.createObjectURL(new Blob([sprTheme(svg,night)],{type:"image/svg+xml"}));
   img.onload=function(){URL.revokeObjectURL(url);try{
     var cv=document.createElement("canvas");cv.width=W;cv.height=H;var x=cv.getContext("2d");x.drawImage(img,0,0,W,H);if(night)sprNight(x,W,H);
-    cv.toBlob(function(bl){if(!bl){cb(null);return}keep(bl);if(c)try{c.put(ck,new Response(bl,{headers:{"Content-Type":"image/png"}})).catch(function(){})}catch(e){}},"image/png")}catch(e){cb(null)}};
-  img.onerror=function(){URL.revokeObjectURL(url);cb(null)};
+    cv.toBlob(function(bl){nx();if(!bl){cb(null);return}keep(bl);if(c)try{c.put(ck,new Response(bl,{headers:{"Content-Type":"image/png"}})).catch(function(){})}catch(e){}},"image/png")}catch(e){nx();cb(null)}};
+  img.onerror=function(){URL.revokeObjectURL(url);nx();cb(null)};
   img.src=url;
  }
  sprCache().then(function(c){if(!c){draw(null);return}
