@@ -221,3 +221,19 @@ body.lp-open #amb{visibility:hidden}body.lp-open #amb *{animation-play-state:pau
 .ia-inkc svg{display:block;width:100%;height:auto}
 .ia-inkc figcaption{font-size:12px;font-weight:700;color:#fff;padding:2px 0 5px}
 @media (max-width:620px){.ia-inkc{grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* ---------- #art: símbolos de las carreras ---------- */
+.sy-area{margin:28px 0 10px;padding-left:12px;border-left:6px solid var(--ac)}
+.sy-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,560px),1fr));gap:14px}
+.sy-car{padding:12px;border-radius:16px;background:#FFFDF8;border:1.5px solid #E6DCC8}
+.sy-car>b{display:block;margin-bottom:8px;font-size:16px}
+.sy-props{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.sy-prop{display:grid;gap:6px;padding:8px;border-radius:12px;border:2px solid transparent;min-width:0}
+.sy-prop.is-on{border-color:#2E7D55;background:#EEF7F1}
+.sy-prop small{font-weight:700;color:#5A6A74}
+.sy-row{display:flex;flex-wrap:wrap;align-items:flex-end;gap:10px;padding:8px;border-radius:10px;min-width:0}
+.sy-row.is-light{background:#F6EFE2}.sy-row.is-dark{background:#13283B}.sy-row.is-sil{background:#FFFFFF;border:1px solid #E6DCC8}
+.sy-pick{min-height:40px;border-radius:10px;border:2px solid #3A3026;background:#fff;font-weight:800;cursor:pointer}
+.sy-pick[aria-pressed=true]{background:#2E7D55;color:#fff;border-color:#2E7D55}
+.sy-all{display:flex;flex-wrap:wrap;gap:10px;padding:12px;border-radius:12px;margin-top:8px}
+.sy-all.is-light{background:#F6EFE2}.sy-all.is-dark{background:#13283B}
+@media (max-width:600px){.sy-grid{grid-template-columns:1fr}}
