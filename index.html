@@ -8776,7 +8776,7 @@ var SIMB=(function(){
   biomedica:{n:"Corazón con pulso|Monitor de signos",a:[D("M50 86C20 66 8 50 10 34C12 18 30 10 42 18C46 21 48 24 50 28C52 24 54 21 58 18C70 10 88 18 90 34C92 50 80 66 50 86Z",RE),X("M14 46H34L40 34L48 60L56 40L60 46H86",WH,4)],
    b:[D(rr(10,16,80,58,10),"#5B6670"),D(rr(36,74,28,8,3),GY),D(rr(26,82,48,8,4),GY),X(rr(18,24,64,42,4),"#13283B"),X("M22 46H38L44 34L52 58L58 42L62 46H78","#5BE07A",3)]},
   civil:{n:"Casco de obra|Puente",a:[D("M14 66Q14 24 50 20Q86 24 86 66Z",YE),D(rr(6,62,88,12,6),YE),X("M50 22V60","#D4A624",4),X(rr(38,40,24,10,3),WH)],
-   b:[L("M10 70Q50 14 90 70",7,RE),D(rr(4,60,92,12,4),"#B23A2E"),L("M30 60V44M50 60V36M70 60V44",4,RE),D(rr(6,72,10,18,3),GY),D(rr(84,72,10,18,3),GY),D(rr(0,88,100,8,3),BL)]},
+   b:[D(rr(0,62,100,10,3),"#B23A2E"),D(rr(18,20,10,64,3),RE),D(rr(72,20,10,64,3),RE),L("M4 62Q23 40 23 22Q50 58 77 22Q77 40 96 62",3,"#7A2A22"),D(rr(0,82,100,10,4),BL)]},
   mecatronica:{n:"Brazo robótico|Engrane con circuito",a:[D(rr(14,78,40,12,4),GY),L("M34 78V54L64 30",11,OR),D(ci(34,54,9),BK),D(ci(64,30,9),BK),L("M70 26L82 16M70 34L84 38",6,ST)],
    b:[D(gear(50,50,42,34,8),ST),D(rr(32,32,36,36,4),GR),X("M40 40h8v8h12M60 40v6M40 60h20",GO,2.5),X(ci(48,48,3),GO)]},
   aeroespacial:{n:"Cohete|Avión",a:[D("M44 76L50 98L56 76Z",OR),D("M50 6C66 18 70 40 68 62H32C30 40 34 18 50 6Z",WH),D(pg([[32,52],[18,72],[18,84],[32,72]]),RE),D(pg([[68,52],[82,72],[82,84],[68,72]]),RE),D(rr(38,62,24,10,3),GY),D(ci(50,34,8),GL),D("M50 6C58 12 62 18 64 24H36C38 18 42 12 50 6Z",RE)],
@@ -8785,7 +8785,7 @@ var SIMB=(function(){
    b:[D(pg([[46,40],[54,40],[58,92],[42,92]]),WH),D(ci(50,38,7),ST),D(rr(46,4,8,32,4),WH),D(rr(46,4,8,34,4),WH,"rotate(120 50 38)"),D(rr(46,4,8,34,4),WH,"rotate(240 50 38)"),D(rr(30,90,40,6,3),GR)]},
   industrial:{n:"Engrane con flecha|Fábrica",a:[D(gear(48,52,36,28,8),ST),X(ci(48,52,12),"#6B7884"),L("M80 30A40 40 0 0 0 30 14",5,OR),D(pg([[22,8],[34,22],[38,6]]),OR)],
    b:[D("M6 90V48L28 60V48L50 60V48L72 60V20H86V90Z","#B5583F"),X(rr(16,68,12,10,2),YE),X(rr(38,68,12,10,2),YE),X(rr(60,68,12,10,2),YE),D(ci(84,12,6),"#C9D0D6"),D(ci(92,6,4),"#C9D0D6")]},
-  mecanica:{n:"Llave inglesa|Tuerca",a:[D("M24 10C12 14 8 28 14 38L48 72C52 84 64 94 78 90L68 80L72 70L82 74L92 84C96 70 86 56 72 52L38 18C34 10 30 8 24 10Z",ST)],
+  mecanica:{n:"Llave inglesa|Tuerca",a:[D("M44 5L44 20L56 20L56 5A18 18 0 1 1 44 5Z",ST,"rotate(-40 50 50)"),D(rr(43,34,14,60,7),ST,"rotate(-40 50 50)"),X(ci(50,84,3),"#7C8792",0,"rotate(-40 50 50)")],
    b:[D(pg([[50,8],[86,29],[86,71],[50,92],[14,71],[14,29]]),ST),X(ci(50,50,16),"#5B6670"),X("M38 46A12 12 0 0 1 52 38","#8994A0",3)]},
   electrica:{n:"Rayo|Clavija",a:[D(pg([[58,4],[20,54],[46,54],[36,96],[82,40],[54,40],[66,4]]),YE)],
    b:[D(rr(22,38,56,40,12),WH),D(rr(34,10,8,30,3),GO),D(rr(58,10,8,30,3),GO),L("M50 78v16",8,BK)]},
@@ -8826,18 +8826,18 @@ var SIMB=(function(){
   actuaria:{n:"Dado|Campana de Gauss",a:[D(rr(14,14,72,72,14),WH),X(ci(32,32,6),BK),X(ci(68,32,6),BK),X(ci(50,50,6),RE),X(ci(32,68,6),BK),X(ci(68,68,6),BK)],
    b:[D("M6 86C24 86 30 20 50 20C70 20 76 86 94 86Z",BL),X("M50 24V84",WH,3),X("M30 60V84M70 60V84","#2C5E91",2.5)]},
   mercadotecnia:{n:"Megáfono|Etiqueta de precio",a:[D(pg([[14,38],[34,38],[80,14],[80,86],[34,62],[14,62]]),RE),D(rr(14,38,20,24,3),WH),D(rr(26,62,14,24,4),GY),X("M86 40Q94 50 86 60",OR,4)],
-   b:[D(pg([[8,40],[40,8],[90,8],[90,58],[58,90]]),YE),X(ci(72,26,7),WH),L("M72 26Q86 10 96 18",2,GY)]},
+   b:[D(pg([[8,40],[40,8],[90,8],[90,58],[58,90]]),YE),X(ci(72,26,7),WH),X("M34 58l18-18M42 66l18-18","#C99A1E",4)]},
   comext:{n:"Barco con contenedores|Contenedor",a:[D("M6 58H94L82 84H18Z",RE),D(rr(20,36,20,22,2),OR),D(rr(42,36,20,22,2),BL),D(rr(42,20,20,16,2),GR),D(rr(64,36,16,22,2),YE),D(rr(0,84,100,8,4),BL)],
    b:[D(rr(8,24,84,52,6),OR),X("M22 32v36M36 32v36M50 32v36M64 32v36M78 32v36","#B85E1A",3.5)]},
   turismo:{n:"Maleta|Palmera",a:[D(rr(16,26,68,62,10),OR),L("M38 26V16H62V26",6,BR),X("M34 26V88M66 26V88",BR,4),D(ci(28,92,4),BK),D(ci(72,92,4),BK)],
    b:[D(el(50,92,30,6),YE),L("M50 92C50 70 52 50 58 36",8,BR),D("M58 36C46 22 26 22 14 30C30 30 44 32 58 36Z",GR),D("M58 36C64 20 80 12 94 16C80 24 68 30 58 36Z",GR),D("M58 36C70 30 86 36 92 50C78 44 66 40 58 36Z",GR),D("M58 36C48 30 36 34 26 48C38 42 48 38 58 36Z",GR)]},
   politicas:{n:"Edificio de gobierno|Urna de votación",a:[D(rr(8,82,84,10,3),GY),D(rr(14,46,72,8,3),WH),D("M24 46C24 28 36 18 50 18C64 18 76 28 76 46Z",ST),L("M50 18V6",3,GY),D(rr(18,54,8,28,2),WH),D(rr(36,54,8,28,2),WH),D(rr(56,54,8,28,2),WH),D(rr(74,54,8,28,2),WH)],
    b:[D(rr(34,10,32,36,4),WH,"rotate(8 50 28)"),X("M42 22l6 6 10-12",GR,4,"rotate(8 50 28)"),D(rr(14,40,72,52,8),BL),X(rr(30,48,40,6,3),"#1F4E7A")]},
-  rrii:{n:"Globo con bandera|Dos banderas",a:[D(ci(44,56,34),BL),D("M18 44Q30 52 26 64Q34 72 40 64Q50 60 46 48Q40 40 30 40Z",GR),D("M54 30Q64 36 70 46Q60 52 58 44Q52 40 54 30Z",GR),L("M74 30V6",4,GY),D(pg([[76,6],[96,12],[76,20]]),RE)],
-   b:[L("M20 92V10M80 92V10",5,GY),D(pg([[22,12],[52,18],[44,28],[52,38],[22,44]]),RE),D(pg([[78,12],[48,18],[56,28],[48,38],[78,44]]),BL)]},
+  rrii:{n:"Globo con bandera|Pasaporte",a:[D(ci(44,56,34),BL),D("M18 44Q30 52 26 64Q34 72 40 64Q50 60 46 48Q40 40 30 40Z",GR),D("M54 30Q64 36 70 46Q60 52 58 44Q52 40 54 30Z",GR),L("M74 30V6",4,GY),D(pg([[76,6],[96,12],[76,20]]),RE)],
+   b:[D(rr(20,8,60,84,8),NA),X(ci(50,42,15),GO,0),X(ci(50,42,10),NA),X("M35 42h30M50 27v30",GO,2),X("M32 70h36M38 80h24",GO,3)]},
   sociologia:{n:"Grupo de personas|Burbujas de diálogo",a:[D(ci(20,40,10),OR),D("M4 78C4 64 12 56 20 56C26 56 30 58 32 62V78Z",OR),D(ci(80,40,10),GR),D("M96 78C96 64 88 56 80 56C74 56 70 58 68 62V78Z",GR),D(ci(50,26,13),BL),D("M28 70C28 54 38 44 50 44C62 44 72 54 72 70Z",BL)],
    b:[D("M6 18C6 12 10 8 16 8H56C62 8 66 12 66 18V42C66 48 62 52 56 52H28L16 62V52C10 52 6 48 6 42Z",BL),D("M94 44C94 38 90 34 84 34H50C44 34 40 38 40 44V66C40 72 44 76 50 76H72L84 88V76C90 76 94 72 94 66Z",OR),X("M18 24h36M18 36h24",WH,4),X("M52 50h30M52 60h20",WH,4)]},
-  trabajosocial:{n:"Manos con corazón|Casa con corazón",a:[D("M6 70C16 70 24 74 30 82H70C76 74 84 70 94 70V90H6Z",SK),D("M50 64C30 50 22 40 24 30C26 20 38 16 44 22L50 28L56 22C62 16 74 20 76 30C78 40 70 50 50 64Z",RE)],
+  trabajosocial:{n:"Mano con corazón|Casa con corazón",a:[D("M8 66C20 60 34 62 46 70H62C68 70 70 76 64 78H44M8 66V88C30 92 56 94 78 84L94 72C96 66 90 62 84 66L66 74",SK),D("M8 64C20 58 34 60 46 68H62C70 68 72 78 64 80H48L64 82L84 68C90 62 98 68 94 74L78 88C56 96 30 94 8 90Z",SK),D("M54 54C36 42 30 34 32 26C34 18 44 16 49 22L54 27L59 22C64 16 74 18 76 26C78 34 72 42 54 54Z",RE)],
    b:[D(pg([[50,8],[92,44],[8,44]]),RE),D(rr(18,40,64,50,4),CR),D("M50 78C38 70 32 64 34 56C36 50 44 48 48 54L50 56L52 54C56 48 64 50 66 56C68 64 62 70 50 78Z",RE)]},
   criminologia:{n:"Lupa con huella|Placa",a:[L("M62 62L88 88",10,BK),D(ci(40,40,32),ST),D(ci(40,40,24),GL),X("M30 30Q40 22 50 30M26 40Q40 28 54 40M28 50Q40 40 52 50M34 58Q40 54 46 58",NA,2.5)],
    b:[D(star(50,50,44,30,7),GO),D(ci(50,50,18),"#F3CB5E"),X(star(50,50,12,6,5),"#B8861C")]},
@@ -8853,7 +8853,7 @@ var SIMB=(function(){
    b:[D(rr(44,4,12,52,6),WO,"rotate(35 50 50)"),D(rr(41,54,18,12,3),ST,"rotate(35 50 50)"),D("M41 66H59C60 80 54 92 50 96C46 92 40 80 41 66Z",RE,"rotate(35 50 50)")]},
   disindustrial:{n:"Silla|Lámpara de escritorio",a:[D(rr(28,6,44,44,10),WO),D(pg([[16,50],[84,50],[92,64],[8,64]]),WO),L("M14 64L12 92M86 64L88 92",6,"#8F5E30"),L("M30 64V84M70 64V84",5,"#8F5E30")],
    b:[D(el(44,88,30,7),BK),L("M40 84L30 52L58 30",6,ST),D(ci(30,52,6),GY),D(ci(58,30,6),GY),D("M56 18C66 6 88 10 92 28L66 44C58 38 52 28 56 18Z",YE),D(el(80,38,8,5),"#FFF3B0","rotate(-30 80 38)")]},
-  animacion:{n:"Pelota rebotando|Folioscopio",a:[D(el(22,34,7,6),"#F3B9B0"),D(el(40,58,9,7),"#EE8F80"),D(el(70,84,24,6),"#D9D2C3"),D(ci(68,56,22),RE),X("M50 46Q68 40 86 52","#FFFFFF",4),X("M48 62Q68 70 88 60","#FFFFFF",4)],
+  animacion:{n:"Pelota rebotando|Folioscopio",a:[L("M8 34h20M4 50h22M8 66h20",5,"#C9C2B4"),D(ci(62,50,30),RE),X("M40 32Q62 50 84 40","#FFFFFF",5),X("M40 66Q62 52 86 62","#FFFFFF",5)],
    b:[D(rr(10,36,64,52,6),"#E6E1D6","rotate(-14 42 62)"),D(rr(18,26,64,52,6),"#EEE9DE","rotate(-6 50 52)"),D(rr(26,18,64,52,6),WH),D(ci(58,40,10),RE),X("M40 58h36","#9AA3AC",3)]},
   gastronomia:{n:"Gorro de chef|Sartén",a:[D("M24 64C10 62 6 40 20 34C20 18 40 12 50 22C60 12 80 18 80 34C94 40 90 62 76 64Z",WH),D(rr(24,62,52,24,4),WH),X("M38 66V84M50 66V84M62 66V84","#C9C6BC",3)],
    b:[L("M70 46L94 30",9,BR),D(ci(40,56,32),BK),D("M26 50C26 40 40 36 48 42C58 40 62 52 56 60C52 70 34 70 30 62C26 58 26 54 26 50Z",WH),D(ci(42,52,8),YE)]}
@@ -8866,14 +8866,14 @@ var SIMB=(function(){
       recortado a la propia pieza), un reflejo suave en la misma esquina para todas y un contorno delgado de su color
     · las piezas de tubo con su brillo y su sombra a lo largo */
  var UID=0;
- function grad(c){var k=c.replace("#","");return '<linearGradient id="sg'+k+'" gradientUnits="userSpaceOnUse" x1="10" y1="4" x2="88" y2="98"><stop offset="0" stop-color="'+ISO.tint(c,.3)+'"/><stop offset=".5" stop-color="'+c+'"/><stop offset="1" stop-color="'+ISO.shade(c,.22)+'"/></linearGradient>'}
+ function grad(c){var k=c.replace("#","");return '<radialGradient id="sg'+k+'" cx=".34" cy=".28" r=".85" fx=".3" fy=".22"><stop offset="0" stop-color="'+ISO.tint(c,.5)+'"/><stop offset=".38" stop-color="'+ISO.tint(c,.08)+'"/><stop offset=".78" stop-color="'+c+'"/><stop offset="1" stop-color="'+ISO.shade(c,.3)+'"/></radialGradient>'}
  function draw(id,v,silo){var P=partsOf(id,v);if(!P)return "";var sil=P.filter(function(p){return p.d||p.l}),tr=function(p){return p.t?' transform="'+p.t+'"':''},g="",cols={},u=++UID;
   var shape=function(p,fill,stroke,sw,extra){return p.d?'<path d="'+p.d+'"'+tr(p)+' fill="'+fill+'"'+(stroke?' stroke="'+stroke+'" stroke-width="'+sw+'" stroke-linejoin="round"':'')+(extra||'')+'/>':'<path d="'+p.l+'"'+tr(p)+' fill="none" stroke="'+fill+'" stroke-width="'+(p.w+(sw||0))+'" stroke-linecap="round" stroke-linejoin="round"'+(extra||'')+'/>'};
   if(silo)return sil.map(function(p){return shape(p,"#111")}).join("");
   sil.forEach(function(p){cols[p.c]=1});
   g+='<defs>'+Object.keys(cols).map(grad).join("")+'<radialGradient id="ss'+u+'" gradientUnits="userSpaceOnUse" cx="28" cy="22" r="62"><stop offset="0" stop-color="#FFFFFF" stop-opacity=".5"/><stop offset=".4" stop-color="#FFFFFF" stop-opacity=".12"/><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/></radialGradient></defs>';
   /* grosor en capas */
-  for(var k=4;k>=1;k--){var dx=(k*.95).toFixed(2),dy=(k*.85).toFixed(2);g+='<g transform="translate('+dx+' '+dy+')">'+sil.map(function(p){var c=ISO.shade(p.c,.36+k*.04);return shape(p,c,p.d?c:null,1.6)}).join("")+'</g>'}
+  for(var k=8;k>=1;k--){var dx=(k*.95).toFixed(2),dy=(k*.82).toFixed(2);g+='<g transform="translate('+dx+' '+dy+')">'+sil.map(function(p){var c=ISO.shade(p.c,.24+k*.035);return shape(p,c,p.d?c:null,1.6)}).join("")+'</g>'}
   sil.forEach(function(p,i){var dk=ISO.shade(p.c,.4),lt=ISO.tint(p.c,.62),sh=ISO.shade(p.c,.3),gr="url(#sg"+p.c.replace("#","")+")";
    if(p.d){var cid="sk"+u+"_"+i;
     g+='<clipPath id="'+cid+'"><path d="'+p.d+'"'+tr(p)+'/></clipPath>';
