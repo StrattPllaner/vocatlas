@@ -136,16 +136,10 @@ var SIMB=(function(){
   var tr=function(p){return p.t?' transform="'+p.t+'"':''};
   var shape=function(p,fill,stroke,sw){return p.d?'<path d="'+p.d+'"'+tr(p)+' fill="'+fill+'"'+(stroke?' stroke="'+stroke+'" stroke-width="'+sw+'" stroke-linejoin="round"':'')+'/>':'<path d="'+p.l+'"'+tr(p)+' fill="none" stroke="'+fill+'" stroke-width="'+(p.w+(sw||0))+'" stroke-linecap="round" stroke-linejoin="round"/>'};
   if(silo)return sil.map(function(p){return shape(p,"#111")}).join("");
-  /* 1) volumen: la silueta en el tono oscuro, desplazada abajo a la derecha */
-  g+='<g transform="translate(3.5 3.5)">'+sil.map(function(p){return shape(p,T.k,p.d?T.k:null,p.d?4:4)}).join("")+'</g>';
-  /* 2) contorno: la silueta un poco más gruesa en el tono más oscuro */
-  g+=sil.map(function(p){return shape(p,T.d,p.d?T.d:null,5)}).join("");
-  /* 3) base */
+  /* limpio: el grosor (la silueta en tono oscuro, desplazada) y encima la base con un contorno delgado del mismo color oscurecido */
+  g+='<g transform="translate(3 3)">'+sil.map(function(p){return shape(p,T.k,p.d?T.k:null,3)}).join("")+'</g>';
+  g+=sil.map(function(p){return shape(p,T.d,p.d?T.d:null,3)}).join("");
   g+=sil.map(function(p){return shape(p,T.b)}).join("");
-  /* 4) luz arriba a la izquierda, recortada a la silueta */
-  g+='<clipPath id="'+cid+'">'+sil.map(function(p){return p.d?'<path d="'+p.d+'"'+tr(p)+'/>':''}).join("")+'</clipPath>';
-  g+='<path d="M-20 -20H62Q40 30 -20 60Z" fill="'+T.l+'" opacity=".55" clip-path="url(#'+cid+')"/>';
-  sil.forEach(function(p){if(p.l)g+='<path d="'+p.l+'"'+tr(p)+' fill="none" stroke="'+T.l+'" stroke-width="'+(p.w*.3)+'" stroke-linecap="round" opacity=".7" transform="translate(-'+(p.w*.18)+' -'+(p.w*.18)+')'+(p.t?" "+p.t:"")+'"/>'});
   /* 5) detalles */
   P.forEach(function(p){if(!p.x)return;var c=T[p.c]||p.c;g+=p.w?'<path d="'+p.x+'"'+tr(p)+' fill="none" stroke="'+c+'" stroke-width="'+p.w+'" stroke-linecap="round" stroke-linejoin="round"/>':'<path d="'+p.x+'"'+tr(p)+' fill="'+c+'"/>'});
   return g}
@@ -154,6 +148,37 @@ var SIMB=(function(){
  /* elección guardada en el dispositivo; mientras no elijas, la primera */
  var PICK={};try{PICK=JSON.parse(localStorage.getItem("vocatlas_simbolos")||"{}")||{}}catch(e){}
  function pick(id,v){if(v){PICK[id]=v;try{localStorage.setItem("vocatlas_simbolos",JSON.stringify(PICK))}catch(e){}}return PICK[id]||"a"}
+ /* seis símbolos por carrera, uno por unidad: el suyo primero y luego objetos de su mundo */
+ var SIX={
+  medicina:"medicina.a medicina.b biomedica.a enfermeria.b qfb.a biologia.a",enfermeria:"enfermeria.a enfermeria.b medicina.b biomedica.a qfb.a qfb.b",
+  odontologia:"odontologia.a odontologia.b enfermeria.b qfb.b medicina.b biologia.a",nutricion:"nutricion.a nutricion.b ambiental.a fisioterapia.b biomedica.a gastronomia.a",
+  psicologia:"psicologia.a psicologia.b sociologia.b sociologia.a trabajosocial.a educacion.a",veterinaria:"veterinaria.a veterinaria.b medicina.a enfermeria.b biologia.a qfb.a",
+  fisioterapia:"fisioterapia.a fisioterapia.b educfisica.a biomedica.a educfisica.b medicina.b",qfb:"qfb.a qfb.b quimica.b biologia.a quimica.a enfermeria.b",
+  educfisica:"educfisica.a educfisica.b fisioterapia.b fisioterapia.a biomedica.a educacion.a",biomedica:"biomedica.a biomedica.b electronica.a medicina.a mecatronica.a mecatronica.b",
+  civil:"civil.a civil.b mecanica.a arquitectura.a industrial.a mecanica.b",mecatronica:"mecatronica.a mecatronica.b electronica.a ia.a mecanica.a electrica.a",
+  aeroespacial:"aeroespacial.a aeroespacial.b fisica.a mecanica.b electronica.a rrii.a",ambiental:"ambiental.a ambiental.b turismo.b electrica.a quimicaing.a biologia.b",
+  industrial:"industrial.a industrial.b civil.a contaduria.a economia.a mecanica.b",mecanica:"mecanica.a mecanica.b industrial.a civil.a mecatronica.a aeroespacial.b",
+  electrica:"electrica.a electrica.b electronica.a ambiental.b civil.a electronica.b",electronica:"electronica.a electronica.b electrica.b electrica.a computacion.a ia.a",
+  quimicaing:"quimicaing.a quimicaing.b industrial.b quimica.a quimica.b civil.a",computacion:"computacion.a computacion.b electronica.a ia.a ciberseguridad.b datos.a",
+  datos:"datos.a datos.b computacion.b contaduria.a actuaria.b actuaria.a",biotec:"biotec.a biotec.b biologia.a biologia.b quimica.a quimicaing.a",
+  fisica:"fisica.a fisica.b aeroespacial.a electrica.a matematicas.a quimica.b",ia:"ia.a ia.b electronica.a computacion.b computacion.a datos.a",
+  ciberseguridad:"ciberseguridad.a ciberseguridad.b computacion.a computacion.b criminologia.a electronica.a",quimica:"quimica.a quimica.b quimicaing.a biologia.a fisica.a biotec.a",
+  biologia:"biologia.a biologia.b biotec.a ambiental.a veterinaria.a biotec.b",matematicas:"matematicas.a matematicas.b contaduria.a actuaria.a actuaria.b arquitectura.a",
+  derecho:"derecho.a derecho.b politicas.a criminologia.a politicas.b educacion.b",negocios:"negocios.a negocios.b economia.a finanzas.a mercadotecnia.a sociologia.b",
+  finanzas:"finanzas.a finanzas.b economia.b economia.a contaduria.a datos.b",educacion:"educacion.a educacion.b nutricion.a sociologia.a sociologia.b contaduria.a",
+  contaduria:"contaduria.a contaduria.b finanzas.a economia.b negocios.a datos.b",economia:"economia.a economia.b finanzas.a politicas.a rrii.a actuaria.b",
+  actuaria:"actuaria.a actuaria.b contaduria.a matematicas.a datos.a ciberseguridad.a",mercadotecnia:"mercadotecnia.a mercadotecnia.b sociologia.b economia.a comunicacion.a grafico.b",
+  comext:"comext.a comext.b rrii.a aeroespacial.b economia.b turismo.a",turismo:"turismo.a turismo.b aeroespacial.b comext.a rrii.a gastronomia.a",
+  politicas:"politicas.a politicas.b derecho.a mercadotecnia.a rrii.a sociologia.a",rrii:"rrii.a rrii.b aeroespacial.b politicas.a sociologia.b comext.a",
+  sociologia:"sociologia.a sociologia.b trabajosocial.b datos.a educacion.a politicas.a",trabajosocial:"trabajosocial.a trabajosocial.b sociologia.a sociologia.b medicina.b politicas.a",
+  criminologia:"criminologia.a criminologia.b derecho.a derecho.b ciberseguridad.a psicologia.a",arquitectura:"arquitectura.a arquitectura.b civil.a disindustrial.a disindustrial.b grafico.a",
+  moda:"moda.a moda.b grafico.b mercadotecnia.b cine.b grafico.a",comunicacion:"comunicacion.a comunicacion.b mercadotecnia.a cine.b sociologia.b computacion.b",
+  cine:"cine.a cine.b comunicacion.a animacion.a animacion.b comunicacion.b",grafico:"grafico.a grafico.b computacion.b mercadotecnia.b comunicacion.b arquitectura.a",
+  disindustrial:"disindustrial.a disindustrial.b arquitectura.a industrial.a mecanica.a grafico.b",animacion:"animacion.a animacion.b grafico.b cine.a cine.b computacion.b",
+  gastronomia:"gastronomia.a gastronomia.b nutricion.a nutricion.b ambiental.a mercadotecnia.b"};
+ function six(id){return (SIX[id]||"").split(" ").filter(Boolean).map(function(k){var q=k.split(".");return {id:q[0],v:q[1]}})}
+ /* símbolo k (0 a 5) de la carrera id, en el color del área de id */
+ function unit(id,k,size,o){var q=six(id)[k];if(!q)return "";o=o||{};var c=byId[id]||{area:"neg"};return icon(q.id,q.v,size,{col:o.col||AREAC[c.area],silo:o.silo})}
  function names(id){var s=S[id];return s?s.n.split("|"):[]}
- return {icon:icon,pick:pick,names:names,list:list,has:function(id){return !!S[id]},AREAC:AREAC,variants:function(id){var s=S[id];return s?["a","b"].filter(function(v){return s[v]}):[]}};
+ return {icon:icon,six:six,unit:unit,pick:pick,names:names,list:list,has:function(id){return !!S[id]},AREAC:AREAC,variants:function(id){var s=S[id];return s?["a","b"].filter(function(v){return s[v]}):[]}};
 })();

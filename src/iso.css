@@ -223,7 +223,8 @@ body.lp-open #amb{visibility:hidden}body.lp-open #amb *{animation-play-state:pau
 @media (max-width:620px){.ia-inkc{grid-template-columns:repeat(2,minmax(0,1fr))}}
 /* ---------- #art: símbolos de las carreras ---------- */
 .sy-area{margin:28px 0 10px;padding-left:12px;border-left:6px solid var(--ac)}
-.sy-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,560px),1fr));gap:14px}
+.sy-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,470px),1fr));gap:14px}
+.sy-car .sy-row{margin-top:6px;justify-content:space-between}.sy-row.is-small{justify-content:flex-start;gap:14px}
 .sy-car{padding:12px;border-radius:16px;background:#FFFDF8;border:1.5px solid #E6DCC8}
 .sy-car>b{display:block;margin-bottom:8px;font-size:16px}
 .sy-props{display:grid;grid-template-columns:1fr 1fr;gap:10px}

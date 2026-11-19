@@ -37,20 +37,15 @@ function renderArt(){
  function svg(inner,px,cls){return '<svg class="'+(cls||"")+'" viewBox="'+VB+'" style="height:'+px+'px" aria-hidden="true">'+inner+'</svg>'}
  h+='<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>'+E.DEFS+'</defs></svg>';
  h+='<header class="ia-h"><h1>Ilustración del mapa</h1><p>Elige para cada carrera la versión que más te guste: la <b>estructura</b> (el lugar donde se ejerce) o el <b>emblema</b> (su objeto a escala gigante). Tu elección se guarda en este dispositivo y el mapa de abajo la usa. Si no eliges, se usa la estructura. Donde hay versión 2, puedes volver a la versión 1 con el selector de cada tarjeta; si no eliges, se usa la versión 2.</p></header>';
- /* ---------- símbolos de las carreras: propuestas para validar ---------- */
+ /* ---------- símbolos de las carreras: seis por carrera, uno por unidad ---------- */
  if(typeof SIMB!=="undefined"){var AR=[["salud","Salud"],["ing","Ingenierías"],["tec","Tecnología y ciencias"],["neg","Negocios y sociedad"],["arte","Arte y comunicación"]];
-  h+='<section id="iaSimb"><h2>Símbolos de las carreras</h2><p class="ia-n">Un objeto por carrera, sin escenario, en el color de su área. Cada propuesta a 32, 64 y 128 px sobre fondo claro y oscuro, con su silueta en negro. Toca <b>Elegir</b> en la que prefieras; se guarda en este dispositivo. Abajo, todos los elegidos juntos a 48 px.</p>';
+  h+='<section id="iaSimb"><h2>Símbolos de las carreras</h2><p class="ia-n">Seis por carrera, uno por unidad de su espiral, en el color de su área. Cada fila: a 64 px en fondo claro y oscuro, y a 32 px.</p>';
   AR.forEach(function(a){var L=SIMB.list().filter(function(c){return c.area===a[0]});if(!L.length)return;
    h+='<h3 class="sy-area" style="--ac:'+SIMB.AREAC[a[0]]+'">'+a[1]+'</h3><div class="sy-grid">';
-   L.forEach(function(c){var nm=SIMB.names(c.id),ch=SIMB.pick(c.id);
-    h+='<div class="sy-car"><b>'+esc(c.name)+'</b><div class="sy-props">'+SIMB.variants(c.id).map(function(v,i){
-     return '<div class="sy-prop'+(ch===v?" is-on":"")+'" data-c="'+c.id+'" data-v="'+v+'"><small>'+esc(nm[i]||"")+'</small>'+
-      '<div class="sy-row is-light">'+SIMB.icon(c.id,v,32)+SIMB.icon(c.id,v,64)+SIMB.icon(c.id,v,128)+'</div>'+
-      '<div class="sy-row is-dark">'+SIMB.icon(c.id,v,32)+SIMB.icon(c.id,v,64)+SIMB.icon(c.id,v,128)+'</div>'+
-      '<div class="sy-row is-sil">'+SIMB.icon(c.id,v,64,{silo:true})+'</div>'+
-      '<button type="button" class="sy-pick" aria-pressed="'+(ch===v)+'">'+(ch===v?"Elegido":"Elegir")+'</button></div>'}).join("")+'</div></div>'});
+   L.forEach(function(c){var r=function(sz){var o="";for(var k=0;k<6;k++)o+=SIMB.unit(c.id,k,sz);return o};
+    h+='<div class="sy-car"><b>'+esc(c.name)+'</b><div class="sy-row is-light">'+r(64)+'</div><div class="sy-row is-dark">'+r(64)+'</div><div class="sy-row is-light is-small">'+r(32)+'</div></div>'});
    h+='</div>'});
-  h+='<h3>Todos los elegidos a 48 px</h3><div class="sy-all is-light" id="syAll"></div><div class="sy-all is-dark" id="syAll2"></div></section>'}
+  h+='</section>'}
  /* ---------- comparación por carrera ---------- */
  if(typeof TORRE!=="undefined"){h+='<section><h2>Torre de la carrera</h2><p class="ia-n">Cada carrera tiene su torre: su edificio abajo, sus piezas en los pisos de en medio y su emblema arriba; lo que falte se completa con objetos de su área. Derecho tiene la suya hecha a mano. En boceto, a medio pintar y terminada.</p>'+["derecho","medicina","arquitectura"].map(function(id){return '<h3 class="ia-n">'+esc(byId[id].name)+'</h3><div class="tw-prevs">'+[[0,'En boceto'],[.5,'A medio pintar'],[1,'Terminada']].map(function(x){return '<figure>'+TORRE.preview(id,x[0])+'<figcaption>'+x[1]+'</figcaption></figure>'}).join('')+'</div>'}).join('')+'</section>'}
  h+='<section><h2>Estructura o emblema</h2><div class="ia-cards">';
@@ -99,9 +94,7 @@ function renderArt(){
   '<div class="ia-ctl"><div class="ia-seg" role="group" aria-label="Cantidad de carreras"><button type="button" data-n="20" aria-pressed="true">20 carreras</button><button type="button" data-n="50">50</button><button type="button" data-n="120">120</button></div><div class="ia-seg" role="group" aria-label="Zoom"><button type="button" data-z="fit">Lejos</button><button type="button" data-z=".45">Medio</button><button type="button" data-z=".9">Cerca</button></div><button type="button" class="ia-night" aria-pressed="false">Noche</button></div>'+
   '<div class="ia-map" id="iaMap"></div><p class="ia-n" id="iaStat"></p></section>';
  var el=document.createElement("div");el.id="art";el.className="ia";el.innerHTML=h;document.body.appendChild(el);
- if(typeof SIMB!=="undefined"){var fillAll=function(){var o=SIMB.list().map(function(c){return '<span title="'+esc(c.name)+'">'+SIMB.icon(c.id,SIMB.pick(c.id),48)+'</span>'}).join("");var a=document.getElementById("syAll"),b=document.getElementById("syAll2");if(a)a.innerHTML=o;if(b)b.innerHTML=o};fillAll();
-  [].forEach.call(el.querySelectorAll(".sy-pick"),function(bt){bt.onclick=function(){var pr=bt.closest(".sy-prop"),id=pr.getAttribute("data-c"),v=pr.getAttribute("data-v");SIMB.pick(id,v);
-   [].forEach.call(el.querySelectorAll('.sy-prop[data-c="'+id+'"]'),function(x){var on=x.getAttribute("data-v")===v;x.classList.toggle("is-on",on);var b2=x.querySelector(".sy-pick");b2.setAttribute("aria-pressed",on);b2.textContent=on?"Elegido":"Elegir"});fillAll()}})}
+
  /* se dibuja por partes para no trabar la página */
  (function(){var cat=ISOFIX.catalog(20),host=document.getElementById("iaInk"),i=0;
   function one(){if(i>=cat.length)return;var c=cat[i++],d=document.createElement("div");d.className="ia-inkrow";d.innerHTML='<h3>'+c.name+'</h3><div class="ia-inkc">'+inkStrip(c)+'</div>';host.appendChild(d);setTimeout(one,30)}
