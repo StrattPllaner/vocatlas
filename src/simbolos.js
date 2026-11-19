@@ -114,28 +114,42 @@ var SIMB=(function(){
   grafico:{n:"Pluma vectorial|Pincel",a:[D("M50 6L80 46L58 92H42L20 46Z",NA),X(ci(50,52,7),WH),X("M50 10V44",WH,3),D(rr(40,84,20,10,2),GY)],
    b:[D(rr(44,4,12,52,6),WO,"rotate(35 50 50)"),D(rr(41,54,18,12,3),ST,"rotate(35 50 50)"),D("M41 66H59C60 80 54 92 50 96C46 92 40 80 41 66Z",RE,"rotate(35 50 50)")]},
   disindustrial:{n:"Silla|Lámpara de escritorio",a:[D(rr(28,6,44,44,10),WO),D(pg([[16,50],[84,50],[92,64],[8,64]]),WO),L("M14 64L12 92M86 64L88 92",6,"#8F5E30"),L("M30 64V84M70 64V84",5,"#8F5E30")],
-   b:[D(el(50,88,30,6),BK),L("M50 86L36 54L62 28",6,ST),D(ci(36,54,5),GY),D(pg([[56,14],[84,28],[74,48],[48,30]]),YE),X(ci(62,28,4),"#B8861C")]},
-  animacion:{n:"Pelota rebotando|Folioscopio",a:[D(rr(6,14,88,70,10),BK),X(rr(14,22,72,54,4),"#13283B"),X(ci(30,36,6),"#7A3A3A"),X(ci(50,62,7),"#A3443A"),D(ci(72,40,8),RE),X("M18 70H82",WH,2)],
-   b:[D(rr(10,36,64,52,6),"#E6E1D6","rotate(-14 42 62)"),D(rr(18,26,64,52,6),"#EEE9DE","rotate(-6 50 52)"),D(rr(26,18,64,52,6),WH),D(ci(58,40,10),RE),X("M40 58h36","#9AA3AC",3)]},
+   b:[D(el(44,88,30,7),BK),L("M40 84L30 52L58 30",6,ST),D(ci(30,52,6),GY),D(ci(58,30,6),GY),D("M56 18C66 6 88 10 92 28L66 44C58 38 52 28 56 18Z",YE),D(el(80,38,8,5),"#FFF3B0","rotate(-30 80 38)")]},
+  animacion:{n:"Pelota rebotando|Folioscopio",a:[D(el(22,34,7,6),"#F3B9B0"),D(el(40,58,9,7),"#EE8F80"),D(el(70,84,24,6),"#D9D2C3"),D(ci(68,56,22),RE),X("M50 46Q68 40 86 52","#FFFFFF",4),X("M48 62Q68 70 88 60","#FFFFFF",4)],
+   b:[D(rr(10,36,64,52,6),"#E6E1D6","rotate(-14 42 62)"),D(rr(18,26,64,52,6),"#EEE9DE","rotate(-6 50 52)"),D(rr(26,18,64,52,6),WH),D(ci(58,40,10),RE),X("M40 58h36","#9AA3AC",3)]}
   gastronomia:{n:"Gorro de chef|Sartén",a:[D("M24 64C10 62 6 40 20 34C20 18 40 12 50 22C60 12 80 18 80 34C94 40 90 62 76 64Z",WH),D(rr(24,62,52,24,4),WH),X("M38 66V84M50 66V84M62 66V84","#C9C6BC",3)],
    b:[L("M70 46L94 30",9,BR),D(ci(40,56,32),BK),D("M26 50C26 40 40 36 48 42C58 40 62 52 56 60C52 70 34 70 30 62C26 58 26 54 26 50Z",WH),D(ci(42,52,8),YE)]}
  };
  function list(){return C.filter(function(c){return S[c.id]})}
  function partsOf(id,v){var s=S[id];return s?(s[v]||s.a):null}
- /* 3D simulado: grosor desplazado, degradado de luz por color, contorno delgado del mismo color oscurecido y brillo suave */
- function grad(c){var k=c.replace("#","");return '<linearGradient id="sg'+k+'" gradientUnits="userSpaceOnUse" x1="8" y1="6" x2="92" y2="96"><stop offset="0" stop-color="'+ISO.tint(c,.38)+'"/><stop offset=".55" stop-color="'+c+'"/><stop offset="1" stop-color="'+ISO.shade(c,.24)+'"/></linearGradient>'}
- function draw(id,v,silo){var P=partsOf(id,v);if(!P)return "";var sil=P.filter(function(p){return p.d||p.l}),tr=function(p){return p.t?' transform="'+p.t+'"':''},g="",cols={};
-  var shape=function(p,fill,stroke,sw){return p.d?'<path d="'+p.d+'"'+tr(p)+' fill="'+fill+'"'+(stroke?' stroke="'+stroke+'" stroke-width="'+sw+'" stroke-linejoin="round"':'')+'/>':'<path d="'+p.l+'"'+tr(p)+' fill="none" stroke="'+fill+'" stroke-width="'+(p.w+(sw||0))+'" stroke-linecap="round" stroke-linejoin="round"/>'};
+ /* 3D simulado, sin filtros (barato de dibujar):
+    · grosor en cuatro capas hacia abajo a la derecha, cada una un poco más oscura
+    · cada pieza con degradado de su color, bisel (borde claro arriba a la izquierda y oscuro abajo a la derecha,
+      recortado a la propia pieza), un reflejo suave en la misma esquina para todas y un contorno delgado de su color
+    · las piezas de tubo con su brillo y su sombra a lo largo */
+ var UID=0;
+ function grad(c){var k=c.replace("#","");return '<linearGradient id="sg'+k+'" gradientUnits="userSpaceOnUse" x1="10" y1="4" x2="88" y2="98"><stop offset="0" stop-color="'+ISO.tint(c,.3)+'"/><stop offset=".5" stop-color="'+c+'"/><stop offset="1" stop-color="'+ISO.shade(c,.22)+'"/></linearGradient>'}
+ function draw(id,v,silo){var P=partsOf(id,v);if(!P)return "";var sil=P.filter(function(p){return p.d||p.l}),tr=function(p){return p.t?' transform="'+p.t+'"':''},g="",cols={},u=++UID;
+  var shape=function(p,fill,stroke,sw,extra){return p.d?'<path d="'+p.d+'"'+tr(p)+' fill="'+fill+'"'+(stroke?' stroke="'+stroke+'" stroke-width="'+sw+'" stroke-linejoin="round"':'')+(extra||'')+'/>':'<path d="'+p.l+'"'+tr(p)+' fill="none" stroke="'+fill+'" stroke-width="'+(p.w+(sw||0))+'" stroke-linecap="round" stroke-linejoin="round"'+(extra||'')+'/>'};
   if(silo)return sil.map(function(p){return shape(p,"#111")}).join("");
   sil.forEach(function(p){cols[p.c]=1});
-  g+='<defs>'+Object.keys(cols).map(grad).join("")+'<linearGradient id="sgw" x1="0" y1="0" x2=".7" y2=".8"><stop offset="0" stop-color="#FFFFFF" stop-opacity=".55"/><stop offset=".45" stop-color="#FFFFFF" stop-opacity="0"/></linearGradient></defs>';
-  /* grosor: cada pieza en su tono oscuro, desplazada abajo a la derecha */
-  g+='<g transform="translate(3.5 3)">'+sil.map(function(p){var k=ISO.shade(p.c,.45);return shape(p,k,p.d?k:null,2)}).join("")+'</g>';
-  /* cada pieza con su degradado, su contorno y su brillo, en orden */
-  sil.forEach(function(p){var dk=ISO.shade(p.c,.38),u="url(#sg"+p.c.replace("#","")+")";
-   if(p.d){g+='<path d="'+p.d+'"'+tr(p)+' fill="'+u+'" stroke="'+dk+'" stroke-width="2" stroke-linejoin="round"/><path d="'+p.d+'"'+tr(p)+' fill="url(#sgw)"/>'}
-   else{g+='<path d="'+p.l+'"'+tr(p)+' fill="none" stroke="'+dk+'" stroke-width="'+(p.w+2.5)+'" stroke-linecap="round" stroke-linejoin="round"/><path d="'+p.l+'"'+tr(p)+' fill="none" stroke="'+u+'" stroke-width="'+p.w+'" stroke-linecap="round" stroke-linejoin="round"/>'}});
-  P.forEach(function(p){if(!p.x)return;g+=p.w?'<path d="'+p.x+'"'+tr(p)+' fill="none" stroke="'+p.c+'" stroke-width="'+p.w+'" stroke-linecap="round" stroke-linejoin="round"/>':'<path d="'+p.x+'"'+tr(p)+' fill="'+p.c+'"/>'});
+  g+='<defs>'+Object.keys(cols).map(grad).join("")+'<radialGradient id="ss'+u+'" gradientUnits="userSpaceOnUse" cx="28" cy="22" r="62"><stop offset="0" stop-color="#FFFFFF" stop-opacity=".5"/><stop offset=".4" stop-color="#FFFFFF" stop-opacity=".12"/><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/></radialGradient></defs>';
+  /* grosor en capas */
+  for(var k=4;k>=1;k--){var dx=(k*.95).toFixed(2),dy=(k*.85).toFixed(2);g+='<g transform="translate('+dx+' '+dy+')">'+sil.map(function(p){var c=ISO.shade(p.c,.36+k*.04);return shape(p,c,p.d?c:null,1.6)}).join("")+'</g>'}
+  sil.forEach(function(p,i){var dk=ISO.shade(p.c,.4),lt=ISO.tint(p.c,.62),sh=ISO.shade(p.c,.3),gr="url(#sg"+p.c.replace("#","")+")";
+   if(p.d){var cid="sk"+u+"_"+i;
+    g+='<clipPath id="'+cid+'"><path d="'+p.d+'"'+tr(p)+'/></clipPath>';
+    g+='<path d="'+p.d+'"'+tr(p)+' fill="'+gr+'"/>';
+    g+='<g clip-path="url(#'+cid+')"><g transform="translate(-2.4 -2.2)"><path d="'+p.d+'"'+tr(p)+' fill="none" stroke="'+sh+'" stroke-width="5" stroke-linejoin="round" opacity=".55"/></g>'+
+     '<g transform="translate(2.2 2.4)"><path d="'+p.d+'"'+tr(p)+' fill="none" stroke="'+lt+'" stroke-width="4.5" stroke-linejoin="round" opacity=".85"/></g>'+
+     '<rect x="-10" y="-10" width="124" height="124" fill="url(#ss'+u+')"/></g>';
+    g+='<path d="'+p.d+'"'+tr(p)+' fill="none" stroke="'+dk+'" stroke-width="1.8" stroke-linejoin="round"/>'}
+   else{var w=p.w,o=(w*.2).toFixed(2);
+    g+=shape(p,dk,null,2.4);g+=shape(p,gr);
+    g+='<g transform="translate('+o+' '+o+')"><path d="'+p.l+'"'+tr(p)+' fill="none" stroke="'+sh+'" stroke-width="'+(w*.34).toFixed(2)+'" stroke-linecap="round" stroke-linejoin="round" opacity=".7"/></g>';
+    g+='<g transform="translate(-'+o+' -'+o+')"><path d="'+p.l+'"'+tr(p)+' fill="none" stroke="'+lt+'" stroke-width="'+(w*.3).toFixed(2)+'" stroke-linecap="round" stroke-linejoin="round" opacity=".9"/></g>'}});
+  /* detalles: con un borde fino para que los claros no se pierdan */
+  P.forEach(function(p){if(!p.x)return;g+=p.w?'<path d="'+p.x+'"'+tr(p)+' fill="none" stroke="'+p.c+'" stroke-width="'+p.w+'" stroke-linecap="round" stroke-linejoin="round"/>':'<path d="'+p.x+'"'+tr(p)+' fill="'+p.c+'" stroke="'+ISO.shade(p.c,.25)+'" stroke-width=".8" stroke-linejoin="round"/>'});
   return g}
  function icon(id,v,size,o){o=o||{};return '<svg class="sy" width="'+size+'" height="'+size+'" viewBox="-6 -6 114 114" aria-hidden="true">'+draw(id,v,o.silo)+'</svg>'}
  var PICK={};try{PICK=JSON.parse(localStorage.getItem("vocatlas_simbolos")||"{}")||{}}catch(e){}

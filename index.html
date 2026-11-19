@@ -8860,20 +8860,34 @@ var SIMB=(function(){
  };
  function list(){return C.filter(function(c){return S[c.id]})}
  function partsOf(id,v){var s=S[id];return s?(s[v]||s.a):null}
- /* 3D simulado: grosor desplazado, degradado de luz por color, contorno delgado del mismo color oscurecido y brillo suave */
- function grad(c){var k=c.replace("#","");return '<linearGradient id="sg'+k+'" gradientUnits="userSpaceOnUse" x1="8" y1="6" x2="92" y2="96"><stop offset="0" stop-color="'+ISO.tint(c,.38)+'"/><stop offset=".55" stop-color="'+c+'"/><stop offset="1" stop-color="'+ISO.shade(c,.24)+'"/></linearGradient>'}
- function draw(id,v,silo){var P=partsOf(id,v);if(!P)return "";var sil=P.filter(function(p){return p.d||p.l}),tr=function(p){return p.t?' transform="'+p.t+'"':''},g="",cols={};
-  var shape=function(p,fill,stroke,sw){return p.d?'<path d="'+p.d+'"'+tr(p)+' fill="'+fill+'"'+(stroke?' stroke="'+stroke+'" stroke-width="'+sw+'" stroke-linejoin="round"':'')+'/>':'<path d="'+p.l+'"'+tr(p)+' fill="none" stroke="'+fill+'" stroke-width="'+(p.w+(sw||0))+'" stroke-linecap="round" stroke-linejoin="round"/>'};
+ /* 3D simulado, sin filtros (barato de dibujar):
+    · grosor en cuatro capas hacia abajo a la derecha, cada una un poco más oscura
+    · cada pieza con degradado de su color, bisel (borde claro arriba a la izquierda y oscuro abajo a la derecha,
+      recortado a la propia pieza), un reflejo suave en la misma esquina para todas y un contorno delgado de su color
+    · las piezas de tubo con su brillo y su sombra a lo largo */
+ var UID=0;
+ function grad(c){var k=c.replace("#","");return '<linearGradient id="sg'+k+'" gradientUnits="userSpaceOnUse" x1="10" y1="4" x2="88" y2="98"><stop offset="0" stop-color="'+ISO.tint(c,.3)+'"/><stop offset=".5" stop-color="'+c+'"/><stop offset="1" stop-color="'+ISO.shade(c,.22)+'"/></linearGradient>'}
+ function draw(id,v,silo){var P=partsOf(id,v);if(!P)return "";var sil=P.filter(function(p){return p.d||p.l}),tr=function(p){return p.t?' transform="'+p.t+'"':''},g="",cols={},u=++UID;
+  var shape=function(p,fill,stroke,sw,extra){return p.d?'<path d="'+p.d+'"'+tr(p)+' fill="'+fill+'"'+(stroke?' stroke="'+stroke+'" stroke-width="'+sw+'" stroke-linejoin="round"':'')+(extra||'')+'/>':'<path d="'+p.l+'"'+tr(p)+' fill="none" stroke="'+fill+'" stroke-width="'+(p.w+(sw||0))+'" stroke-linecap="round" stroke-linejoin="round"'+(extra||'')+'/>'};
   if(silo)return sil.map(function(p){return shape(p,"#111")}).join("");
   sil.forEach(function(p){cols[p.c]=1});
-  g+='<defs>'+Object.keys(cols).map(grad).join("")+'<linearGradient id="sgw" x1="0" y1="0" x2=".7" y2=".8"><stop offset="0" stop-color="#FFFFFF" stop-opacity=".55"/><stop offset=".45" stop-color="#FFFFFF" stop-opacity="0"/></linearGradient></defs>';
-  /* grosor: cada pieza en su tono oscuro, desplazada abajo a la derecha */
-  g+='<g transform="translate(3.5 3)">'+sil.map(function(p){var k=ISO.shade(p.c,.45);return shape(p,k,p.d?k:null,2)}).join("")+'</g>';
-  /* cada pieza con su degradado, su contorno y su brillo, en orden */
-  sil.forEach(function(p){var dk=ISO.shade(p.c,.38),u="url(#sg"+p.c.replace("#","")+")";
-   if(p.d){g+='<path d="'+p.d+'"'+tr(p)+' fill="'+u+'" stroke="'+dk+'" stroke-width="2" stroke-linejoin="round"/><path d="'+p.d+'"'+tr(p)+' fill="url(#sgw)"/>'}
-   else{g+='<path d="'+p.l+'"'+tr(p)+' fill="none" stroke="'+dk+'" stroke-width="'+(p.w+2.5)+'" stroke-linecap="round" stroke-linejoin="round"/><path d="'+p.l+'"'+tr(p)+' fill="none" stroke="'+u+'" stroke-width="'+p.w+'" stroke-linecap="round" stroke-linejoin="round"/>'}});
-  P.forEach(function(p){if(!p.x)return;g+=p.w?'<path d="'+p.x+'"'+tr(p)+' fill="none" stroke="'+p.c+'" stroke-width="'+p.w+'" stroke-linecap="round" stroke-linejoin="round"/>':'<path d="'+p.x+'"'+tr(p)+' fill="'+p.c+'"/>'});
+  g+='<defs>'+Object.keys(cols).map(grad).join("")+'<radialGradient id="ss'+u+'" gradientUnits="userSpaceOnUse" cx="28" cy="22" r="62"><stop offset="0" stop-color="#FFFFFF" stop-opacity=".5"/><stop offset=".4" stop-color="#FFFFFF" stop-opacity=".12"/><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/></radialGradient></defs>';
+  /* grosor en capas */
+  for(var k=4;k>=1;k--){var dx=(k*.95).toFixed(2),dy=(k*.85).toFixed(2);g+='<g transform="translate('+dx+' '+dy+')">'+sil.map(function(p){var c=ISO.shade(p.c,.36+k*.04);return shape(p,c,p.d?c:null,1.6)}).join("")+'</g>'}
+  sil.forEach(function(p,i){var dk=ISO.shade(p.c,.4),lt=ISO.tint(p.c,.62),sh=ISO.shade(p.c,.3),gr="url(#sg"+p.c.replace("#","")+")";
+   if(p.d){var cid="sk"+u+"_"+i;
+    g+='<clipPath id="'+cid+'"><path d="'+p.d+'"'+tr(p)+'/></clipPath>';
+    g+='<path d="'+p.d+'"'+tr(p)+' fill="'+gr+'"/>';
+    g+='<g clip-path="url(#'+cid+')"><g transform="translate(-2.4 -2.2)"><path d="'+p.d+'"'+tr(p)+' fill="none" stroke="'+sh+'" stroke-width="5" stroke-linejoin="round" opacity=".55"/></g>'+
+     '<g transform="translate(2.2 2.4)"><path d="'+p.d+'"'+tr(p)+' fill="none" stroke="'+lt+'" stroke-width="4.5" stroke-linejoin="round" opacity=".85"/></g>'+
+     '<rect x="-10" y="-10" width="124" height="124" fill="url(#ss'+u+')"/></g>';
+    g+='<path d="'+p.d+'"'+tr(p)+' fill="none" stroke="'+dk+'" stroke-width="1.8" stroke-linejoin="round"/>'}
+   else{var w=p.w,o=(w*.2).toFixed(2);
+    g+=shape(p,dk,null,2.4);g+=shape(p,gr);
+    g+='<g transform="translate('+o+' '+o+')"><path d="'+p.l+'"'+tr(p)+' fill="none" stroke="'+sh+'" stroke-width="'+(w*.34).toFixed(2)+'" stroke-linecap="round" stroke-linejoin="round" opacity=".7"/></g>';
+    g+='<g transform="translate(-'+o+' -'+o+')"><path d="'+p.l+'"'+tr(p)+' fill="none" stroke="'+lt+'" stroke-width="'+(w*.3).toFixed(2)+'" stroke-linecap="round" stroke-linejoin="round" opacity=".9"/></g>'}});
+  /* detalles: con un borde fino para que los claros no se pierdan */
+  P.forEach(function(p){if(!p.x)return;g+=p.w?'<path d="'+p.x+'"'+tr(p)+' fill="none" stroke="'+p.c+'" stroke-width="'+p.w+'" stroke-linecap="round" stroke-linejoin="round"/>':'<path d="'+p.x+'"'+tr(p)+' fill="'+p.c+'" stroke="'+ISO.shade(p.c,.25)+'" stroke-width=".8" stroke-linejoin="round"/>'});
   return g}
  function icon(id,v,size,o){o=o||{};return '<svg class="sy" width="'+size+'" height="'+size+'" viewBox="-6 -6 114 114" aria-hidden="true">'+draw(id,v,o.silo)+'</svg>'}
  var PICK={};try{PICK=JSON.parse(localStorage.getItem("vocatlas_simbolos")||"{}")||{}}catch(e){}
