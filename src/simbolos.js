@@ -122,6 +122,43 @@ var SIMB=(function(){
   gastronomia:{n:"Gorro de chef|Sartén",a:[D("M24 64C10 62 6 40 20 34C20 18 40 12 50 22C60 12 80 18 80 34C94 40 90 62 76 64Z",WH),D(rr(24,62,52,24,4),WH),X("M36 64Q34 50 38 38M50 64Q50 46 52 30M64 64Q66 50 62 38",'#D6D2C7',2),X("M28 70H72",'#D6D2C7',2),X("M34 72V84M42 72V84M50 72V84M58 72V84M66 72V84",'#CFCBC0',1.6),X("M22 40Q20 30 30 26",'#FFFFFF',3)],
    b:[L("M70 46L94 30",9,BR),D(ci(40,56,32),BK),D("M26 50C26 40 40 36 48 42C58 40 62 52 56 60C52 70 34 70 30 62C26 58 26 54 26 50Z",WH),D(ci(42,52,8),YE)]}
  };
+
+ /* ---------- objetos propios de cada carrera (salud) ---------- */
+ var O={
+  termometro:[D(rr(42,6,16,64,8),"#EDF6FA"),D(ci(50,78,14),RE),X(rr(46.5,30,7,46,3.5),RE),X("M58 18h6M58 28h6M58 38h6M58 48h6M58 58h6","#7A8894",2)],
+  bata:[D("M24 18L40 10H60L76 18L90 40V90H62V44H38V90H10V40Z",WH),D("M40 10L50 34L60 10Z","#CFE3EC"),X("M50 34V90","#C9CCC6",2),X("M40 10L36 30L46 40M60 10L64 30L54 40","#C9CCC6",2.5),D(rr(62,52,16,14,2),"#E6ECEF"),X("M66 48V60",BL,3),X(ci(50,56,2),"#9AA3AC"),X(ci(50,70,2),"#9AA3AC")],
+  suero:[L("M50 4V14",3,GY),D("M26 14H74V58C74 72 64 80 50 80C36 80 26 72 26 58Z",GL),D("M28 40H72V58C72 70 62 78 50 78C38 78 28 70 28 58Z","#F2D36B"),X(rr(36,22,28,10,2),WH),L("M50 80V96",3,GY),X("M40 46h4M40 54h4M40 62h4","#C9A23A",1.6)],
+  curita:[D(rr(6,34,88,32,16),"#E8B98C","rotate(-35 50 50)"),D(rr(34,36,32,28,4),"#F6E2CC","rotate(-35 50 50)"),X("M16 44h1M22 52h1M16 58h1M78 44h1M84 52h1M78 58h1","#B8875C",3,"rotate(-35 50 50)")],
+  cubrebocas:[L("M18 34C4 34 4 62 18 62M82 34C96 34 96 62 82 62",3,"#7FB2E3"),D("M18 30Q50 20 82 30V64Q50 82 18 64Z","#BFE0F5"),X("M20 40Q50 32 80 40M20 50Q50 44 80 50M20 60Q50 56 80 60","#8FC4E6",2)],
+  espejo:[D(rr(44,46,12,50,6),ST,"rotate(30 50 50)"),D(ci(50,24,20),GY,"rotate(30 50 50)"),D(ci(50,24,15),"#DDF1FA","rotate(30 50 50)"),X("M40 18Q44 12 52 12","#FFFFFF",3,"rotate(30 50 50)")],
+  pasta:[D("M14 40H72L86 46V54L72 60H14C10 60 8 56 8 50C8 44 10 40 14 40Z",WH),D(rr(84,42,12,16,3),BL),X(rr(24,44,34,12,2),BL),X("M28 50h26","#FFFFFF",2.5),D("M10 32C4 28 6 18 14 20C18 12 30 14 30 22C38 20 40 30 32 34C26 38 14 36 10 32Z","#E9F6FC")],
+  sonrisa:[D("M8 34Q50 20 92 34Q86 80 50 84Q14 80 8 34Z","#C9475A"),D("M14 38Q50 28 86 38V50Q50 44 14 50Z","#FAF7F0"),D("M20 64Q50 58 80 64Q72 76 50 78Q28 76 20 64Z","#FAF7F0"),X("M30 34V48M42 32V46M58 32V46M70 34V48","#D9D2C2",1.5),X("M16 44H84",ST,2.5),X(rr(24,40,6,6,1),ST),X(rr(36,38,6,6,1),ST),X(rr(52,38,6,6,1),ST),X(rr(64,40,6,6,1),ST)],
+  bascula:[D(rr(10,22,80,64,14),WH),D(rr(30,30,40,22,6),"#2B3540"),X("M38 42h24","#5BE07A",4),X(rr(18,62,24,14,4),"#C9CED3"),X(rr(58,62,24,14,4),"#C9CED3")],
+  cinta:[D(ci(38,46,30),YE),D(ci(38,46,10),"#B88A20"),D("M60 64H96V80H58Z",YE),X("M64 64v6M70 64v4M76 64v6M82 64v4M88 64v6","#5B4A20",1.6),X("M22 30a20 20 0 0 1 20-6","#FFF1B0",3)],
+  zanahoria:[D("M30 30C40 22 56 26 62 36L26 92C22 96 16 92 18 86Z",OR),D("M58 30C56 18 62 8 70 6C70 16 66 24 62 30Z",GR),D("M60 34C68 24 80 22 90 26C84 34 74 38 64 38Z",GR),D("M54 28C48 18 50 8 56 4C60 12 58 22 56 30Z","#3E9A4B"),X("M36 50l8 3M30 62l8 3M26 74l7 3M42 40l6 2","#C9661E",2)],
+  vaso:[D("M22 14H78L70 90H30Z",GL),D("M26 44H74L70 88H30Z","#7FC8F0"),X("M30 20L36 84",WH,4),D(el(50,44,24,3.5),"#BDE6F8")],
+  divan:[D("M8 60C8 46 20 44 26 52L30 58H86C92 58 94 64 94 70V78H8Z","#8E4A3A"),D(rr(4,46,22,32,10),"#A85A48"),D(rr(30,52,62,12,6),"#B86A56"),L("M14 78V90M86 78V90",5,BR),X("M44 64v8M60 64v8M76 64v8","#6E3528",2)],
+  libreta:[D(rr(18,8,62,84,6),"#F2C94C"),D(rr(26,14,50,72,3),WH),X("M34 28h34M34 40h34M34 52h34M34 64h22","#9AA3AC",2.5),L("M86 20L58 78",7,BL),D(pg([[56,80],[60,72],[66,76]]),"#F2D3A0"),X("M18 20h-6M18 34h-6M18 48h-6M18 62h-6M18 76h-6",GY,3)],
+  pensamiento:[D("M24 50C10 50 8 30 22 28C22 14 40 10 48 18C54 6 76 8 78 22C92 22 94 42 82 46C84 58 68 62 60 56C54 64 36 62 34 54C30 56 26 54 24 50Z",WH),D(ci(30,70,8),WH),D(ci(20,84,5),WH),X("M40 34Q48 28 58 34",GY,2.5)],
+  perro:[D("M18 22C10 22 8 40 12 56C14 62 20 62 22 56L24 44Z","#8A5A36"),D("M82 22C90 22 92 40 88 56C86 62 80 62 78 56L76 44Z","#8A5A36"),D("M50 18C30 18 22 34 22 52C22 74 34 88 50 88C66 88 78 74 78 52C78 34 70 18 50 18Z","#D9A06A"),D(el(50,70,16,12),"#F2D6B3"),D(el(50,62,7,5),BK),X(ci(38,48,4),BK),X(ci(62,48,4),BK),X(ci(39,47,1.3),WH),X(ci(63,47,1.3),WH),X("M50 66V74M42 76Q50 82 58 76",BK,2),D(el(50,84,6,5),"#E9677A")],
+  gato:[D(pg([[20,40],[24,8],[44,26]]),"#9AA3AC"),D(pg([[80,40],[76,8],[56,26]]),"#9AA3AC"),X(pg([[26,32],[27,16],[38,26]]),PK),X(pg([[74,32],[73,16],[62,26]]),PK),D("M50 22C28 22 16 38 16 56C16 76 32 88 50 88C68 88 84 76 84 56C84 38 72 22 50 22Z","#B4BDC6"),X(el(36,52,6,7),"#9BD58A"),X(el(64,52,6,7),"#9BD58A"),X(el(36,52,2,6),BK),X(el(64,52,2,6),BK),D(pg([[45,64],[55,64],[50,70]]),PK),X("M50 70Q46 76 40 74M50 70Q54 76 60 74M8 62L30 64M8 72L30 68M92 62L70 64M92 72L70 68","#5B6670",1.6)],
+  collar:[L(el(50,40,36,18),9,RE),X("M16 40Q50 62 84 40","#B23A2E",2),D(ci(50,72,16),GO),L("M50 56V58",4,GO),X(star(50,72,8,4,5),"#B8861C")],
+  muleta:[L("M30 12H66",8,ST),L("M48 12L44 92",7,ST),L("M34 50H58",6,ST),D(rr(26,6,44,12,6),"#3A4048"),D(rr(30,46,32,10,4),"#3A4048"),D(rr(38,86,14,10,3),"#3A4048")],
+  columna:[D(rr(36,4,28,12,5),CR),D(rr(34,20,32,12,5),CR),D(rr(32,36,36,12,5),CR),D(rr(30,52,40,12,5),CR),D(rr(30,68,40,12,5),CR),D("M34 84H66L60 96H40Z",CR),X("M42 16h16M42 32h16M42 48h16M42 64h16M42 80h16","#E59AA6",3)],
+  liga:[D("M10 30C10 20 22 18 30 24L76 60C86 66 92 76 86 84C80 90 70 86 66 80L22 44C14 40 10 36 10 30Z","#4FB6A8"),X("M20 30L74 72","#8ADBD1",3),D(rr(4,22,18,18,6),"#2B3540"),D(rr(80,74,18,18,6),"#2B3540")],
+  camilla:[D(rr(6,40,88,14,6),"#5FB4D9"),D(rr(6,30,24,12,5),WH),L("M16 54V82M84 54V82M16 70H84",5,ST),D(ci(16,86,5),BK),D(ci(84,86,5),BK)],
+  blister:[D(rr(12,14,76,72,10),"#D5DCE2"),D(el(32,32,10,8),WH),D(el(68,32,10,8),"#F2A94C"),D(el(32,58,10,8),WH),D(el(68,58,10,8),WH),X("M50 18V82M16 46H84","#B4BEC7",1.6)],
+  gotero:[D(rr(36,4,28,24,12),RE),D(rr(42,26,16,8,2),"#3A4048"),D("M44 34H56V74L50 86L44 74Z",GL),X("M46 54H54V74L50 82L46 74Z","#8FC4E6"),D("M44 92C44 88 50 84 50 84C50 84 56 88 56 92C56 95 53 97 50 97C47 97 44 95 44 92Z","#8FC4E6")],
+  mortero:[L("M56 50L84 8",9,"#C9C2B4"),D("M10 48H90C90 72 72 86 50 86C28 86 10 72 10 48Z","#E9E3D6"),D(el(50,48,40,8),"#B8AF9E"),D(rr(34,84,32,8,3),"#D5CEC0"),X("M18 56Q30 72 50 76","#FFFFFF",3)],
+  cronometro:[D(rr(42,4,16,10,3),ST),D(rr(70,14,10,10,3),ST,"rotate(40 75 19)"),D(ci(50,56,38),ST),D(ci(50,56,30),WH),X("M50 56V36M50 56L62 64",BK,4),X("M50 30v4M76 56h-4M50 82v-4M24 56h4",GY,3),X("M50 56m-26 0a26 26 0 0 1 26-26",RE,3)],
+  trofeo:[D("M28 10H72V36C72 52 62 62 50 62C38 62 28 52 28 36Z",GO),L("M28 18H16V28C16 38 24 42 30 42M72 18H84V28C84 38 76 42 70 42",5,GO),D(rr(44,60,12,14,2),GO),D(rr(30,74,40,16,4),"#6B4A2A"),X(rr(38,78,24,8,2),"#F3CB5E"),X(star(50,32,10,5,5),"#FFF1B0")],
+  tenis:[D("M8 60C8 44 22 36 38 40L60 50C72 54 88 56 92 66V78H8Z",WH),D(rr(4,76,92,12,6),"#E2683E"),D("M34 40C40 30 54 30 58 40V52H34Z",BL),X("M38 44l12 4M36 52l14 4M40 36l10 4",WH,2),X("M60 60C72 62 84 66 90 72",BL,3)],
+  cono:[D("M40 10H60L80 82H20Z",OR),D("M33 36H67L71 50H29Z",WH),D("M26 62H74L77 72H23Z",WH),D(rr(8,80,84,12,4),OR)],
+  protesis:[D(rr(36,4,28,30,10),"#B4BDC6"),L("M50 34V74",8,ST),D(ci(50,40,7),"#5B6670"),D("M30 74H64C78 74 86 80 86 88V92H30Z","#3A4048"),X("M46 52h8M46 62h8","#7C8792",2)],
+  rayosx:[D(rr(10,6,80,88,8),"#1E2B38"),X("M50 14V86","#CFE3EC",5),X("M30 26Q50 34 70 26M28 38Q50 46 72 38M28 50Q50 58 72 50M30 62Q50 70 70 62M34 74Q50 80 66 74","#CFE3EC",3),X(rr(10,6,80,8,4),"#3A4C5E")]
+ };
+ /* los objetos nuevos se dibujan igual que los de cada carrera */
+ Object.keys(O).forEach(function(k){S["o_"+k]={n:k,a:O[k]}});
  function list(){return C.filter(function(c){return S[c.id]})}
  function partsOf(id,v){var s=S[id];return s?(s[v]||s.a):null}
  /* 3D simulado, sin filtros (barato de dibujar):
@@ -168,11 +205,11 @@ var SIMB=(function(){
  function pick(id,v){if(v){PICK[id]=v;try{localStorage.setItem("vocatlas_simbolos",JSON.stringify(PICK))}catch(e){}}return PICK[id]||"a"}
  /* seis símbolos por carrera, uno por unidad: el suyo primero y luego objetos de su mundo */
  var SIX={
-  medicina:"medicina.a medicina.b biomedica.a enfermeria.b qfb.a biologia.a",enfermeria:"enfermeria.a enfermeria.b medicina.b biomedica.a qfb.a qfb.b",
-  odontologia:"odontologia.a odontologia.b enfermeria.b qfb.b medicina.b biologia.a",nutricion:"nutricion.a nutricion.b ambiental.a fisioterapia.b biomedica.a gastronomia.a",
-  psicologia:"psicologia.a psicologia.b sociologia.b sociologia.a trabajosocial.a educacion.a",veterinaria:"veterinaria.a veterinaria.b medicina.a enfermeria.b biologia.a qfb.a",
-  fisioterapia:"fisioterapia.a fisioterapia.b educfisica.a biomedica.a educfisica.b medicina.b",qfb:"qfb.a qfb.b quimica.b biologia.a quimica.a enfermeria.b",
-  educfisica:"educfisica.a educfisica.b fisioterapia.b fisioterapia.a biomedica.a educacion.a",biomedica:"biomedica.a biomedica.b electronica.a medicina.a mecatronica.a mecatronica.b",
+  medicina:"medicina.a medicina.b biomedica.a o_termometro.a o_bata.a enfermeria.b",enfermeria:"enfermeria.a o_suero.a o_curita.a o_cubrebocas.a o_termometro.a enfermeria.b",
+  odontologia:"odontologia.a odontologia.b o_espejo.a o_pasta.a o_sonrisa.a o_cubrebocas.a",nutricion:"nutricion.a nutricion.b o_bascula.a o_cinta.a o_zanahoria.a o_vaso.a",
+  psicologia:"psicologia.a psicologia.b o_divan.a o_libreta.a o_pensamiento.a sociologia.b",veterinaria:"veterinaria.a veterinaria.b o_perro.a o_gato.a o_collar.a medicina.a",
+  fisioterapia:"fisioterapia.a fisioterapia.b o_muleta.a o_columna.a o_liga.a o_camilla.a",qfb:"qfb.a qfb.b o_blister.a o_gotero.a o_mortero.a quimica.b",
+  educfisica:"educfisica.a educfisica.b o_cronometro.a o_trofeo.a o_tenis.a o_cono.a",biomedica:"biomedica.a biomedica.b o_protesis.a o_rayosx.a mecatronica.b electronica.a",
   civil:"civil.a civil.b mecanica.a arquitectura.a industrial.a mecanica.b",mecatronica:"mecatronica.a mecatronica.b electronica.a ia.a mecanica.a electrica.a",
   aeroespacial:"aeroespacial.a aeroespacial.b fisica.a mecanica.b electronica.a rrii.a",ambiental:"ambiental.a ambiental.b turismo.b electrica.a quimicaing.a biologia.b",
   industrial:"industrial.a industrial.b civil.a contaduria.a economia.a mecanica.b",mecanica:"mecanica.a mecanica.b industrial.a civil.a mecatronica.a aeroespacial.b",
