@@ -8963,7 +8963,9 @@ var SIMB=(function(){
   /* detalles: con un borde fino para que los claros no se pierdan */
   P.forEach(function(p){if(!p.x)return;g+=p.w?'<path d="'+p.x+'"'+tr(p)+' fill="none" stroke="'+p.c+'" stroke-width="'+p.w+'" stroke-linecap="round" stroke-linejoin="round"/>':'<path d="'+p.x+'"'+tr(p)+' fill="'+p.c+'" stroke="'+ISO.shade(p.c,.25)+'" stroke-width=".8" stroke-linejoin="round"/>'});
   return g}
- function icon(id,v,size,o){o=o||{};return '<svg class="sy" width="'+size+'" height="'+size+'" viewBox="-6 -6 114 114" aria-hidden="true">'+draw(id,v,o.silo)+'</svg>'}
+ /* los símbolos se ven como imágenes 3D pre-renderizadas (media/sym); el dibujo vectorial queda para la silueta */
+ function icon(id,v,size,o){o=o||{};if(o.silo)return '<svg class="sy" width="'+size+'" height="'+size+'" viewBox="-6 -6 114 114" aria-hidden="true">'+draw(id,v,true)+'</svg>';
+  return '<img class="sy" src="media/sym/'+id+'.'+(v||"a")+'.webp" width="'+size+'" height="'+size+'" alt="" loading="lazy" decoding="async">'}
  var PICK={};try{PICK=JSON.parse(localStorage.getItem("vocatlas_simbolos")||"{}")||{}}catch(e){}
  function pick(id,v){if(v){PICK[id]=v;try{localStorage.setItem("vocatlas_simbolos",JSON.stringify(PICK))}catch(e){}}return PICK[id]||"a"}
  /* seis símbolos por carrera, uno por unidad: el suyo primero y luego objetos de su mundo */
@@ -8999,7 +9001,7 @@ var SIMB=(function(){
  function unit(id,k,size,o){var q=six(id)[k];if(!q)return "";o=o||{};var c=byId[id]||{area:"neg"};return icon(q.id,q.v,size,{col:o.col||AREAC[c.area],silo:o.silo})}
 
  function names(id){var s=S[id];return s?s.n.split("|"):[]}
- return {icon:icon,six:six,unit:unit,pick:pick,names:names,list:list,has:function(id){return !!S[id]},AREAC:AREAC,variants:function(id){var s=S[id];return s?["a","b"].filter(function(v){return s[v]}):[]}};
+ return {parts:function(id,v){return partsOf(id,v)},mat:mat,icon:icon,six:six,unit:unit,pick:pick,names:names,list:list,has:function(id){return !!S[id]},AREAC:AREAC,variants:function(id){var s=S[id];return s?["a","b"].filter(function(v){return s[v]}):[]}};
 })();
 
 /* ================= página interna #art =================
@@ -9043,7 +9045,7 @@ function renderArt(){
  h+='<header class="ia-h"><h1>Ilustración del mapa</h1><p>Elige para cada carrera la versión que más te guste: la <b>estructura</b> (el lugar donde se ejerce) o el <b>emblema</b> (su objeto a escala gigante). Tu elección se guarda en este dispositivo y el mapa de abajo la usa. Si no eliges, se usa la estructura. Donde hay versión 2, puedes volver a la versión 1 con el selector de cada tarjeta; si no eliges, se usa la versión 2.</p></header>';
  /* ---------- símbolos de las carreras: seis por carrera, uno por unidad ---------- */
  if(typeof SIMB!=="undefined"){var AR=[["salud","Salud"],["ing","Ingenierías"],["tec","Tecnología y ciencias"],["neg","Negocios y sociedad"],["arte","Arte y comunicación"]];
-  h+='<section id="iaSimb"><h2>Símbolos de las carreras</h2><p class="ia-n">Seis por carrera, uno por unidad de su espiral, en el color de su área. Cada fila: a 64 px en fondo claro y oscuro, y a 32 px.</p>';
+  h+='<section id="iaSimb"><h2>Símbolos de las carreras</h2><p class="ia-n">Seis por carrera, uno por unidad de su espiral, en 3D con sus colores y materiales reales. Cada fila: a 64 px en fondo claro y oscuro, y a 32 px.</p>';
   AR.forEach(function(a){var L=SIMB.list().filter(function(c){return c.area===a[0]});if(!L.length)return;
    h+='<h3 class="sy-area" style="--ac:'+SIMB.AREAC[a[0]]+'">'+a[1]+'</h3><div class="sy-grid">';
    L.forEach(function(c){var r=function(sz){var o="";for(var k=0;k<6;k++)o+=SIMB.unit(c.id,k,sz);return o};

@@ -225,7 +225,9 @@ var SIMB=(function(){
   /* detalles: con un borde fino para que los claros no se pierdan */
   P.forEach(function(p){if(!p.x)return;g+=p.w?'<path d="'+p.x+'"'+tr(p)+' fill="none" stroke="'+p.c+'" stroke-width="'+p.w+'" stroke-linecap="round" stroke-linejoin="round"/>':'<path d="'+p.x+'"'+tr(p)+' fill="'+p.c+'" stroke="'+ISO.shade(p.c,.25)+'" stroke-width=".8" stroke-linejoin="round"/>'});
   return g}
- function icon(id,v,size,o){o=o||{};return '<svg class="sy" width="'+size+'" height="'+size+'" viewBox="-6 -6 114 114" aria-hidden="true">'+draw(id,v,o.silo)+'</svg>'}
+ /* los símbolos se ven como imágenes 3D pre-renderizadas (media/sym); el dibujo vectorial queda para la silueta */
+ function icon(id,v,size,o){o=o||{};if(o.silo)return '<svg class="sy" width="'+size+'" height="'+size+'" viewBox="-6 -6 114 114" aria-hidden="true">'+draw(id,v,true)+'</svg>';
+  return '<img class="sy" src="media/sym/'+id+'.'+(v||"a")+'.webp" width="'+size+'" height="'+size+'" alt="" loading="lazy" decoding="async">'}
  var PICK={};try{PICK=JSON.parse(localStorage.getItem("vocatlas_simbolos")||"{}")||{}}catch(e){}
  function pick(id,v){if(v){PICK[id]=v;try{localStorage.setItem("vocatlas_simbolos",JSON.stringify(PICK))}catch(e){}}return PICK[id]||"a"}
  /* seis símbolos por carrera, uno por unidad: el suyo primero y luego objetos de su mundo */
@@ -261,5 +263,5 @@ var SIMB=(function(){
  function unit(id,k,size,o){var q=six(id)[k];if(!q)return "";o=o||{};var c=byId[id]||{area:"neg"};return icon(q.id,q.v,size,{col:o.col||AREAC[c.area],silo:o.silo})}
 
  function names(id){var s=S[id];return s?s.n.split("|"):[]}
- return {icon:icon,six:six,unit:unit,pick:pick,names:names,list:list,has:function(id){return !!S[id]},AREAC:AREAC,variants:function(id){var s=S[id];return s?["a","b"].filter(function(v){return s[v]}):[]}};
+ return {parts:function(id,v){return partsOf(id,v)},mat:mat,icon:icon,six:six,unit:unit,pick:pick,names:names,list:list,has:function(id){return !!S[id]},AREAC:AREAC,variants:function(id){var s=S[id];return s?["a","b"].filter(function(v){return s[v]}):[]}};
 })();

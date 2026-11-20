@@ -39,7 +39,7 @@ function renderArt(){
  h+='<header class="ia-h"><h1>Ilustración del mapa</h1><p>Elige para cada carrera la versión que más te guste: la <b>estructura</b> (el lugar donde se ejerce) o el <b>emblema</b> (su objeto a escala gigante). Tu elección se guarda en este dispositivo y el mapa de abajo la usa. Si no eliges, se usa la estructura. Donde hay versión 2, puedes volver a la versión 1 con el selector de cada tarjeta; si no eliges, se usa la versión 2.</p></header>';
  /* ---------- símbolos de las carreras: seis por carrera, uno por unidad ---------- */
  if(typeof SIMB!=="undefined"){var AR=[["salud","Salud"],["ing","Ingenierías"],["tec","Tecnología y ciencias"],["neg","Negocios y sociedad"],["arte","Arte y comunicación"]];
-  h+='<section id="iaSimb"><h2>Símbolos de las carreras</h2><p class="ia-n">Seis por carrera, uno por unidad de su espiral, en el color de su área. Cada fila: a 64 px en fondo claro y oscuro, y a 32 px.</p>';
+  h+='<section id="iaSimb"><h2>Símbolos de las carreras</h2><p class="ia-n">Seis por carrera, uno por unidad de su espiral, en 3D con sus colores y materiales reales. Cada fila: a 64 px en fondo claro y oscuro, y a 32 px.</p>';
   AR.forEach(function(a){var L=SIMB.list().filter(function(c){return c.area===a[0]});if(!L.length)return;
    h+='<h3 class="sy-area" style="--ac:'+SIMB.AREAC[a[0]]+'">'+a[1]+'</h3><div class="sy-grid">';
    L.forEach(function(c){var r=function(sz){var o="";for(var k=0;k<6;k++)o+=SIMB.unit(c.id,k,sz);return o};
