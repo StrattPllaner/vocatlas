@@ -13,7 +13,7 @@ var LEC=(function(){
   var b=L.el.querySelector(".lc-body");setTimeout(function(){b.scrollTo({top:b.scrollHeight,behavior:RM()?"auto":"smooth"})},60)}
  function main(label,on){var b=L.el.querySelector("#lcGo");b.textContent=label;b.setAttribute("aria-disabled",on?"false":"true");b.disabled=!on}
  function done(label){L.phase=1;main(label||(L.i>=L.cards.length-1?"Terminar":"Seguir"),true)}
- var EB={escuelas:"Dónde estudiarla",info:"Lo que hay que saber",chat:"Habla con Rumbo",voltear:"Voltea y repasa",completar:"Completa",escena:"Imagina",decision:"Tú decides",vf:"¿Verdadero o falso?",rango:"Apuesta",ordenar:"Ordena",emparejar:"Une",clasificar:"Clasifica",dos_caminos:"¿Cuál va más contigo?",armar_dia:"Arma el día",reflexion:"Sobre ti",comparar:"Tus carreras",resumen:"Tus respuestas",testimonio:"Historia real",dato:"El dato",clave:"Idea clave",interes:"Una última",autoevaluacion:"Cierre de la unidad",veredicto:"Tu veredicto",armar:"Construye",bloques:"Depura",patron:"Encuentra el patrón",presupuesto:"Reparte",encuadre:"Encuadra",componer:"Compón"};
+ var EB={ficha:"La carrera en 30 segundos",pregunta:"Tú decides",teves:"Una última",resultado:"Resultado",escuelas:"Dónde estudiarla",info:"Lo que hay que saber",chat:"Habla con Rumbo",voltear:"Voltea y repasa",completar:"Completa",escena:"Imagina",decision:"Tú decides",vf:"¿Verdadero o falso?",rango:"Apuesta",ordenar:"Ordena",emparejar:"Une",clasificar:"Clasifica",dos_caminos:"¿Cuál va más contigo?",armar_dia:"Arma el día",reflexion:"Sobre ti",comparar:"Tus carreras",resumen:"Tus respuestas",testimonio:"Historia real",dato:"El dato",clave:"Idea clave",interes:"Una última",autoevaluacion:"Cierre de la unidad",veredicto:"Tu veredicto",armar:"Construye",bloques:"Depura",patron:"Encuentra el patrón",presupuesto:"Reparte",encuadre:"Encuadra",componer:"Compón"};
  function rb(m){return '<div class="lc-rb">'+rumboEl()+'</div>'}
  function datoHTML(key,bet,uni){var d=(CAT.cif||{})[key];
   if(!d||d.estado==="pendiente"||d.valor==null)return '<div class="lc-empty">'+rb()+'<p><b>Todavía no tenemos esta cifra verificada.</b> No la vamos a inventar.'+(d&&d.fuente_sugerida?' Puedes buscarla en '+h(d.fuente_sugerida)+'.':'')+'</p></div>'+(bet!=null?'<p class="lc-bet">Tu apuesta: <b>'+bet+'</b> '+h(uni||"")+'. La guardamos para compararla cuando llegue el dato.</p>':'');
@@ -39,10 +39,28 @@ var LEC=(function(){
  function opts(box,list,onPick,cls){box.innerHTML='<div class="lc-opts '+(cls||"")+'" role="radiogroup">'+list.map(function(t,i){return '<button type="button" class="lc-opt" role="radio" aria-checked="false" data-i="'+i+'">'+h(t)+'</button>'}).join("")+'</div>';
   each(box.querySelectorAll(".lc-opt"),function(b){b.onclick=function(){if(L.phase)return;each(box.querySelectorAll(".lc-opt"),function(x){x.setAttribute("aria-checked",x===b?"true":"false")});onPick(+b.getAttribute("data-i"),b)}})}
 
+ /* fórmula como en el pizarrón: «{arriba|abajo}» es una fracción; « ;; » separa dos fórmulas en la misma línea */
+ function fml(s){return '<div class="lc-fml" role="math" aria-label="'+h(s.replace(/\{([^{}|]*)\|([^{}]*)\}/g,"$1 entre $2").replace(/ ;; /g,", "))+'">'+s.split(" ;; ").map(function(g){
+   return '<span class="lc-fg">'+g.split(/(\{[^{}]*\})/).map(function(x){var m=/^\{([^{}|]*)\|([^{}]*)\}$/.exec(x);return m?'<span class="lc-frac"><span>'+h(m[1])+'</span><span>'+h(m[2])+'</span></span>':h(x)}).join("")+'</span>'}).join("")+'</div>'}
+ function partes(P){return (P||[]).map(function(x){return x.f!=null?fml(x.f):'<p>'+h(x.t)+'</p>'}).join("")}
+ /* ---------- formato 2: repaso de lo que fallaste y examen ---------- */
+ function repOf(id){S.rep=S.rep||{};return S.rep[id]=S.rep[id]||{}}
+ function qCopy(t,key,vez){var b=vez%2===1&&t.repaso?t.repaso:t,o={tipo:"pregunta",pregunta:b.pregunta,opciones:b.opciones,correcta:b.correcta,explicacion:b.explicacion,formula:b.formula||t.formula,_key:key,_vez:vez};return o}
+ /* arma las tarjetas de una lección de formato 2: primero regresan las que fallaste en lecciones anteriores
+    (otro orden de opciones y, si existe, la versión reescrita); en el examen, las que fallaste ahí vuelven reescritas en su lugar */
+ function v2Cards(id,les,v2){var R0=repOf(id),pos=v2.order.indexOf(les.id),pre=[];
+  Object.keys(R0).forEach(function(k){var p=k.split(":"),lid=p[0],i=+p[1];if(lid===les.id||v2.order.indexOf(lid)<0||v2.order.indexOf(lid)>pos)return;
+   var src=carFind(v2.full,lid),t=src&&src.tarjetas[i];if(!t||t.tipo!=="pregunta"){delete R0[k];return}var q=qCopy(t,k,R0[k].n||1);q._rep=1;pre.push(q)});
+  var cards=les.tarjetas.map(function(t,i){if(t.tipo!=="pregunta")return t;var k=les.id+":"+i;return qCopy(t,k,R0[k]?R0[k].n||1:0)});
+  if(pre.length)pre.unshift({tipo:"info",titulo:"Repaso",partes:[{t:(pre.length===1?"Antes de seguir, regresa una pregunta que fallaste.":"Antes de seguir, regresan "+pre.length+" preguntas que fallaste.")+" Viene en otro orden, así que léela con calma."}]});
+  if(les.examen)cards.push({tipo:"resultado"});
+  return pre.concat(cards)}
+
+ var FICHA_L={ingreso:"Sueldo promedio",duracion:"Duración",costo_publica:"Escuela pública",costo_privada:"Escuela privada",costo_tec:"Toda la carrera en el Tec",enarm:"Examen para especializarte",ocupacion_afin:"Trabajan en lo suyo"};
  /* ---------- tipos de tarjeta: cada uno recibe (tarjeta, caja) y deja lista la interacción ---------- */
  var R={
   /* lectura corta: lo que hay que saber antes de las preguntas */
-  info:function(t,box){box.innerHTML='<div class="lc-info">'+(t.titulo?'<h3>'+h(t.titulo)+'</h3>':'')+(t.texto?'<p>'+h(t.texto)+'</p>':'')+
+  info:function(t,box){box.innerHTML='<div class="lc-info">'+(t.titulo?'<h3>'+h(t.titulo)+'</h3>':'')+(t.texto?'<p>'+h(t.texto)+'</p>':'')+partes(t.partes)+
    (t.puntos?'<ul>'+t.puntos.map(function(p){return '<li><span class="lc-dot"></span>'+h(p)+'</li>'}).join("")+'</ul>':'')+'</div>';done("Entendido")},
   /* plática con Rumbo: eliges qué preguntarle y te contesta; con un par de preguntas ya puedes seguir */
   chat:function(t,box){var asked=0,busy=false,min=Math.min(t.minimo||2,t.temas.length),left=t.temas.map(function(x,i){return i});
@@ -77,6 +95,36 @@ var LEC=(function(){
    if(ok)list.sort(function(a,b){var ma=mine&&a.edo.indexOf(mine)>=0?0:1,mb=mine&&b.edo.indexOf(mine)>=0?0:1;return ma-mb});
    box.innerHTML='<div class="lc-info lc-esc"><h3>Dónde estudiar '+h((byId[id]||{}).name||"")+'</h3>'+(ok?'<p>'+(mine?'Primero lo que hay en '+ESC_EDO[mine]+'.':'Opciones en Morelos y CDMX.')+'</p><ul class="lc-escl">'+list.slice(0,4).map(function(x){var u=escUni(x.u);return u?'<li><b>'+h(u.n)+'</b><span class="es-tag t-'+u.tipo+'">'+(u.tipo==="publica"?"Pública":"Privada")+'</span><small>'+h(x.sede)+'</small></li>':''}).join("")+'</ul><button type="button" class="ui-btn is-sec is-block" id="lcEsc">Ver todas, con costo y examen</button>':'<p>Todavía no tenemos escuelas para esta carrera. Busca su plan de estudios en la universidad de tu estado.</p>')+'</div>';
    var bt=box.querySelector("#lcEsc");if(bt)bt.onclick=function(){escSheet(id)};done()},
+  /* la tarjeta de entrada: qué hace, y sus cifras con fuente (las pendientes no se muestran) */
+  ficha:function(t,box){var id=L.id,cs=(t.cifras||[]).map(function(k){var d=CAT.cif[k];if(d)d._k=k;return d}).filter(function(d){return d&&d.estado!=="pendiente"&&d.valor!=null}),src=[];
+   cs.forEach(function(d){var f=String(d.fuente).split(" · ")[0],k=f+(d.url||"");if(!src.some(function(x){return x.k===k}))src.push({k:k,f:f,d:d})});
+   box.innerHTML='<div class="lc-info lc-ficha"><h3>'+h((byId[id]||{}).name||"")+'</h3><p>'+h(t.texto)+'</p>'+(cs.length?'<div class="lc-fgrid">'+cs.map(function(d){return '<div class="lc-ft'+(String(d.valor).length>12?' is-long':'')+'">'+(d.estado==="confirmar"?'<em class="lc-conf">Por confirmar</em>':'')+'<i class="lc-fl">'+h(FICHA_L[d._k.split(".").pop()]||"")+'</i><b class="num">'+h(String(d.valor))+'</b><span>'+h(d.unidad||"")+'</span></div>'}).join("")+'</div>':'')+
+    (src.length?'<small class="lc-fsrc">Fuentes: '+src.map(function(x){return x.d.url?'<a href="'+h(x.d.url)+'" target="_blank" rel="noopener">'+h(x.f)+'</a>':h(x.f)}).join(" · ")+'</small>':'')+
+    (typeof escHas==="function"&&escHas(id)?'<button type="button" class="ui-btn is-sec is-block" id="lcEsc">Dónde estudiarla</button>':'')+'</div>';
+   var bt=box.querySelector("#lcEsc");if(bt)bt.onclick=function(){escSheet(id)};done()},
+  /* caso con tres respuestas y una correcta; en formato 2 cuenta para el repaso y para el examen */
+  pregunta:function(t,box){var pick=-1,ord=mix(t.opciones,L.id+L.les.id+(t._key||L.i)+"v"+(t._vez||0));
+   if(t._rep)L.el.querySelector(".lc-eb").textContent="Repaso";else if(L.les.examen){var n=0,k=0;L.cards.forEach(function(c,j){if(c.tipo==="pregunta"&&!c._rep){n++;if(j<=L.i)k++}});L.el.querySelector(".lc-eb").textContent="Examen final · "+k+" de "+n}
+   box.innerHTML='<p class="lc-q">'+h(t.pregunta)+'</p><div class="lc-in"></div>';
+   opts(box.querySelector(".lc-in"),ord.map(function(i){return t.opciones[i]}),function(i){pick=ord[i];main("Comprobar",true)});
+   main("Comprobar",false);
+   L.check=function(){var ok=pick===t.correcta;
+    each(box.querySelectorAll(".lc-opt"),function(b){var i=ord[+b.getAttribute("data-i")];if(i===t.correcta)b.classList.add("good");else if(i===pick)b.classList.add("bad")});
+    if(t._key){var R0=repOf(L.id);if(ok)delete R0[t._key];else R0[t._key]={n:(R0[t._key]?R0[t._key].n||1:0)+1};save()}
+    if(L.les.examen&&!t._rep){L.sc=L.sc||{ok:0,n:0};L.sc.n++;if(ok)L.sc.ok++}
+    var ex=(t.explicacion?h(t.explicacion):"")+(t.formula?fml(t.formula):"");
+    fb(ok?"ok":"no",(ok?'<b>¡Bien!</b> ':'<b>La correcta: '+h(t.opciones[t.correcta])+'.</b> ')+ex+(!ok&&!L.les.examen?'<small>Esta pregunta va a regresar al principio de la siguiente lección.</small>':''));done()}},
+  /* cierre de cada lección: ¿te ves resolviendo esto?, del 1 al 5 */
+  teves:function(t,box){var id=L.id,lid=L.les.id;box.innerHTML='<p class="lc-big">¿Te ves resolviendo esto?</p><div class="lc-in"></div><p class="lc-note">Tu respuesta se guarda para tu veredicto.</p>';
+   main("Terminar",false);
+   scale(box.querySelector(".lc-in"),["Nada","Totalmente"],function(n){var k=n>=4?"yes":n===3?"mid":"no";S.tev=S.tev||{};S.tev[id]=S.tev[id]||{};S.tev[id][lid]=n;S.int=S.int||{};S.int[id]=S.int[id]||{};S.int[id][lid]=k;if(!S.res[id])S.res[id]=k;save();
+    main(L.i>=L.cards.length-1?"Terminar":"Seguir",true);L.check=function(){next()}})},
+  /* resultado del examen: con 7 de 10 apruebas y decides tu veredicto; si no, lo repites */
+  resultado:function(t,box){var sc=L.sc||{ok:0,n:0},need=L.les.aprobar||7,pass=sc.ok>=need;L.pass=pass;
+   box.innerHTML=rb()+'<p class="lc-big">'+(pass?'¡Aprobaste!':'Esta vez no')+'</p><div class="lc-dato lc-score"><b class="num">'+sc.ok+' de '+sc.n+'</b> <span>correctas</span></div><p class="lc-note">'+(pass?'Ya terminaste la carrera. Falta lo más importante: tu veredicto.':'Necesitas '+need+' para aprobar. Las que fallaste regresan con otras palabras cuando lo intentes de nuevo.')+'</p>';
+   if(typeof sfx==="function")sfx(pass?"ok":"no");
+   if(pass){if(typeof markLesson==="function")markLesson(L.id,L.les.id);if(L.cards[L.cards.length-1].tipo!=="veredicto"){L.cards.push({tipo:"veredicto"});var sg=L.el.querySelector(".lc-seg");if(sg)sg.appendChild(document.createElement("i"))}L.phase=1;main("Seguir",true)}
+   else{L.phase=0;main("Intentar de nuevo",true);L.check=function(){close()}}},
   escena:function(t,box){box.innerHTML=rb()+'<p class="lc-big">'+h(t.texto)+'</p>';done()},
   clave:function(t,box){box.innerHTML='<div class="lc-key"><span>'+ico("bulb")+'</span><p>'+h(t.texto)+'</p></div>';done()},
   decision:function(t,box){var pick=-1,ord=mix(t.opciones,L.id+L.les.id+L.i);
@@ -227,7 +275,7 @@ var LEC=(function(){
  function close(){if(!L)return;var el=L.el;el.classList.remove("on");setTimeout(function(){el.remove()},RM()?0:260);var l=L;L=null;if(l.onClose)l.onClose()}
  /* abre una lección. ctx: {unit, unitName, unitEnd, color, resume} */
  function open(id,les,ctx,onDone,onClose){
-  var c=byId[id]||{name:"",color:"#3F7DA6"},cards=les.tarjetas.slice();ctx=ctx||{};
+  ctx=ctx||{};var c=byId[id]||{name:"",color:"#3F7DA6"},cards=ctx.v2?v2Cards(id,les,ctx.v2):les.tarjetas.slice();
   if(ctx.unitEnd)cards.push({tipo:"autoevaluacion"});
   var el=document.createElement("div");el.className="lc";el.setAttribute("role","dialog");el.setAttribute("aria-modal","true");el.setAttribute("aria-label",les.titulo);
   var col=ctx.color||c.color;el.style.setProperty("--c",col);el.style.setProperty("--cd",dk(col,.38));el.style.setProperty("--ct",lum(col)>.62?"#14323F":"#FFFFFF");

@@ -40,3 +40,7 @@ Estado al 17 de noviembre de 2026. Se marca conforme avanza.
   - [x] 31 carreras nuevas de la base en `datos/carreras-extra.json` (descripción, temas y mini reto escritos para la app; edificio genérico de su zona; lecciones «Llega pronto»).
   - [ ] Pendiente: edificio propio, Rumbo y lecciones de las 31 carreras nuevas; sumarlas a la regla del test de intereses.
   - [ ] Pendiente: el peso es 329 KB comprimidos (límite 320); si hace falta, los mini retos de las carreras nuevas pueden descargarse aparte.
+- [x] Formato 2 de lecciones (20 nov): Medicina, Derecho, Psicología y Administración con tarjeta de entrada, 7 lecciones (explicación + casos de 3 opciones + «¿te ves resolviendo esto?» 1 a 5), examen final de 10 (se aprueba con 7), repaso de lo fallado y fórmulas como en el pizarrón. Texto en `datos/fuentes/lecciones/`, se importa con `datos/importar_lecciones.py`. «Negocios» ahora se llama «Administración».
+  - [ ] Pendiente: versiones reescritas para el repaso (hoy solo hay una, la del corazón en Medicina; las demás regresan con las opciones en otro orden).
+  - [ ] Pendiente: Contaduría y las demás carreras en el formato nuevo.
+  - [ ] Pendiente: `qa/mapa-personal/medicina-completa.mjs` juega las 21 lecciones viejas; hay que actualizarlo.

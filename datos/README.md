@@ -7,6 +7,20 @@ Todo el contenido de las lecciones vive aquí, separado del código. `src/build.
 - `cifras.json`: cada cifra con valor, unidad, fuente, enlace y fecha de consulta. Una tarjeta nunca trae un número escrito: apunta a su cifra. Si está pendiente, la app muestra un estado vacío.
 - `demo-dinamicas.json`: una lección de muestra con las seis dinámicas nuevas. Se ve en `index.html#din`.
 
+## Lecciones de formato 2 (explicación, preguntas y examen)
+
+Medicina, Derecho, Psicología y Administración (`negocios`) ya usan el formato nuevo: tarjeta de entrada con sus cifras, 7 lecciones (explicación rápida + casos de 3 opciones con una correcta + «¿te ves resolviendo esto?» del 1 al 5) y un examen final de 10 preguntas que se aprueba con 7.
+
+- El texto se escribe en `fuentes/lecciones/<id>.lec`, igual que en el chat («Lección 1: …», «Pregunta 1. … A: … B: … C: … Correcta: B. …», fórmulas entre `$$`, «**Examen final**»). Una versión reescrita para el repaso se agrega con «Repaso de la lección 1, pregunta 1. …».
+- La entrada, las cifras, la frase de Rumbo y cómo se agrupan las lecciones en unidades van en `fuentes/lecciones/meta.json`.
+- Repaso: la pregunta que el alumno falla regresa al principio de la siguiente lección (con su versión reescrita si existe; si no, con otro orden de opciones) hasta que la contesta bien. En el examen, las que falló vuelven en su lugar al repetirlo.
+
+```
+python3 datos/importar_lecciones.py   # .lec → carreras/<id>.json
+python3 datos/validar.py
+python3 src/build.py
+```
+
 ## Antes de publicar
 
 ```

@@ -1,264 +1,169 @@
 {
  "id": "medicina",
- "version": 1,
+ "version": 2,
+ "formato": 2,
  "estado": "completo",
- "revision": "Pendiente de revisión por un médico. Las tarjetas con «revisar»: «medico» contienen afirmaciones clínicas o del ejercicio profesional; las de «fuente» son reglas o trámites que hay que confirmar en fuente oficial.",
+ "revision": "Pendiente de revisión por un profesionista de la carrera. Generado con datos/importar_lecciones.py desde datos/fuentes/lecciones/medicina.lec; no se edita a mano.",
  "unidades": [
   {
    "id": "u1",
+   "titulo": "El cuerpo",
+   "sub": "Corazón y signos vitales",
    "lecciones": [
     {
-     "id": "1.1",
-     "titulo": "Qué es y qué resuelve",
-     "minutos": 3,
+     "id": "0",
+     "titulo": "Conócela",
+     "minutos": 1,
      "tarjetas": [
       {
+       "tipo": "ficha",
+       "texto": "Medicina forma médicos generales que diagnostican y tratan enfermedades. En el Tec dura 13 semestres y en la UAEM de Morelos, que es pública, 12. Para especializarte presentas el ENARM, y solo una parte de los aspirantes consigue lugar.",
+       "cifras": [
+        "medicina.ingreso",
+        "medicina.costo_tec",
+        "medicina.costo_publica",
+        "medicina.enarm"
+       ]
+      },
+      {
        "tipo": "escena",
-       "texto": "Son las 3 de la tarde. Don Luis, de 58 años, llega a tu consultorio. Dice que desde la mañana siente un dolor que le aprieta el pecho."
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "¿Qué haces primero?",
-       "opciones": [
-        {
-         "texto": "Preguntarle cómo es el dolor y desde cuándo",
-         "consecuencia": "Con pocas preguntas ya sabes mucho: cuándo empezó, qué tan fuerte es y si se corre al brazo. Casi todo diagnóstico empieza escuchando.",
-         "mejor": true
-        },
-        {
-         "texto": "Mandarlo a hacerse todos los estudios",
-         "consecuencia": "Los estudios tardan y cuestan. Sin saber qué buscas, no sabes cuál pedir ni cómo leer el resultado."
-        },
-        {
-         "texto": "Darle algo para el dolor y que regrese mañana",
-         "consecuencia": "Quitar el dolor sin saber la causa puede esconder algo grave. Primero se busca el porqué."
-        }
-       ],
-       "revisar": "medico"
-      },
-      {
-       "tipo": "ordenar",
-       "pregunta": "Así trabaja un médico. Ponlo en orden.",
-       "pasos": [
-        "Escuchar al paciente",
-        "Revisarlo",
-        "Pedir los estudios que hacen falta",
-        "Decidir el tratamiento",
-        "Darle seguimiento"
-       ],
-       "revelacion": "Escuchar, revisar, estudiar, decidir y dar seguimiento. En una emergencia los pasos se enciman, pero la lógica es la misma.",
-       "revisar": "medico"
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Un médico siempre sabe con certeza qué tiene su paciente antes de tratarlo.",
-       "respuesta": false,
-       "revelacion": "Muchas veces se decide con lo que hay: síntomas, revisión y probabilidad. Luego se ajusta según cómo responde el paciente.",
-       "revisar": "medico"
-      },
-      {
-       "tipo": "clave",
-       "texto": "Medicina es decidir con información incompleta para cuidar a alguien."
-      },
-      {
-       "tipo": "interes"
+       "texto": "Ahora vas a ver si piensas como médico."
       }
      ]
     },
     {
-     "id": "1.2",
-     "titulo": "A quién ayudas",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Cuando piensas en un médico, quizá imaginas un hospital. Pero la medicina se ejerce en lugares muy distintos. Vamos a ver seis casos."
-      },
-      {
-       "tipo": "clasificar",
-       "pregunta": "¿A qué tipo de trabajo médico corresponde?",
-       "grupos": [
-        "Consulta",
-        "Urgencias",
-        "Prevención",
-        "Investigación"
-       ],
-       "elementos": [
-        {
-         "texto": "Una niña con tos y fiebre desde ayer",
-         "grupo": 0
-        },
-        {
-         "texto": "Un señor se cayó de una escalera y no puede mover la pierna",
-         "grupo": 1
-        },
-        {
-         "texto": "Una campaña de vacunación en una primaria",
-         "grupo": 2
-        },
-        {
-         "texto": "Probar si una medicina nueva funciona mejor que la actual",
-         "grupo": 3
-        },
-        {
-         "texto": "La revisión de cada año de una persona con diabetes",
-         "grupo": 0
-        },
-        {
-         "texto": "Pláticas en una comunidad para evitar el dengue",
-         "grupo": 2
-        }
-       ],
-       "revelacion": "Atender al enfermo es solo una parte. Prevenir evita que la gente llegue al hospital, e investigar mejora los tratamientos para todos.",
-       "revisar": "medico"
-      },
-      {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Qué te llama más?",
-       "a": {
-        "texto": "Atender a una persona a la vez y ver cómo mejora",
-        "dice": "Te atrae la clínica: consulta, hospital y trato directo con pacientes."
-       },
-       "b": {
-        "texto": "Cambiar la salud de miles con programas y datos",
-        "dice": "Te atrae la salud pública o la investigación: menos consultorio, más comunidad y análisis."
-       }
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Todos los médicos trabajan dentro de un hospital.",
-       "respuesta": false,
-       "revelacion": "Hay médicos en consultorios, centros de salud, escuelas, empresas, laboratorios, universidades y oficinas de gobierno."
-      },
-      {
-       "tipo": "clave",
-       "texto": "No todo es hospital: también se previene y se investiga."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "1.3",
-     "titulo": "Mitos y realidades",
+     "id": "1",
+     "titulo": "El corazón y la circulación",
      "minutos": 4,
      "tarjetas": [
       {
-       "tipo": "escena",
-       "texto": "Sobre Medicina se dicen muchas cosas. Algunas son ciertas y otras vienen de las series. Apuesta en cada una antes de ver la respuesta."
+       "tipo": "info",
+       "titulo": "El corazón y la circulación",
+       "partes": [
+        {
+         "t": "El corazón tiene dos lados que trabajan como dos bombas. El lado derecho recibe la sangre que ya usó el cuerpo, sin oxígeno, y la manda a los pulmones. El lado izquierdo recibe la sangre con oxígeno que viene de los pulmones y la empuja a todo el cuerpo. Por eso el lado izquierdo tiene el músculo más grueso: empuja más lejos. Las arterias sacan sangre del corazón y las venas la regresan. Hay una excepción: la arteria pulmonar sale del corazón, pero lleva sangre sin oxígeno hacia los pulmones. Si un lado del corazón falla, la sangre se atora justo antes de ese lado. El corazón también se alimenta de sus propias arterias, las coronarias. Si una se tapa, esa parte del músculo se muere: eso es un infarto. Se siente como presión fuerte en el pecho que puede irse al brazo izquierdo o a la mandíbula, con sudor frío. Cada minuto que pasa se pierde más músculo."
+        }
+       ]
       },
       {
-       "tipo": "vf",
-       "afirmacion": "Para estudiar Medicina hay que ser de puro 10.",
-       "respuesta": false,
-       "revelacion": "Un buen promedio ayuda a entrar, pero lo que sostiene la carrera es estudiar con constancia durante años."
+       "tipo": "pregunta",
+       "pregunta": "¿Qué parte del corazón empuja la sangre a todo el cuerpo?",
+       "opciones": [
+        "El lado derecho",
+        "El lado izquierdo",
+        "Los dos por igual"
+       ],
+       "correcta": 1,
+       "explicacion": "El lado izquierdo recibe la sangre de los pulmones y la manda al cuerpo, por eso es más grueso.",
+       "repaso": {
+        "pregunta": "Un atleta tiene el músculo del corazón más grueso de un lado porque ese lado hace el trabajo más pesado. ¿Cuál es ese lado y por qué?",
+        "opciones": [
+         "El derecho, porque manda la sangre a los pulmones",
+         "Los dos son iguales",
+         "El izquierdo, porque reparte la sangre a todo el cuerpo"
+        ],
+        "correcta": 2,
+        "explicacion": "Es el lado que empuja la sangre más lejos, a todo el cuerpo."
+       }
       },
       {
-       "tipo": "vf",
-       "afirmacion": "Todos los médicos terminan operando.",
-       "respuesta": false,
-       "revelacion": "Operar es trabajo de las especialidades quirúrgicas. Muchos médicos nunca operan: dan consulta, leen estudios, investigan o trabajan en prevención.",
-       "revisar": "medico"
+       "tipo": "pregunta",
+       "pregunta": "En un examen te preguntan qué lleva la arteria pulmonar.",
+       "opciones": [
+        "Sangre con oxígeno hacia el cuerpo",
+        "Sangre sin oxígeno hacia los pulmones",
+        "Sangre con oxígeno hacia los pulmones"
+       ],
+       "correcta": 1,
+       "explicacion": "Es la excepción: es arteria porque sale del corazón, no porque lleve oxígeno."
       },
       {
-       "tipo": "vf",
-       "afirmacion": "Si te impresiona la sangre, Medicina no es para ti.",
-       "respuesta": false,
-       "revelacion": "A muchos estudiantes les impresiona al principio y se acostumbran con la práctica. Además hay áreas con muy poco contacto con sangre.",
-       "revisar": "medico"
+       "tipo": "pregunta",
+       "pregunta": "A un paciente le falla el lado izquierdo del corazón. ¿Dónde se le acumula primero el líquido y qué síntoma tendría?",
+       "opciones": [
+        "En los pulmones, y le falta el aire",
+        "En las piernas, y se le hinchan",
+        "En el estómago, y vomita"
+       ],
+       "correcta": 0,
+       "explicacion": "La sangre se atora antes del lado que falla, y antes del lado izquierdo están los pulmones."
       },
       {
-       "tipo": "vf",
-       "afirmacion": "El ingreso de un médico es el mismo haga o no una especialidad.",
-       "respuesta": false,
-       "revelacion": "Cambia según la especialidad, el lugar y si trabaja en el sector público, en el privado o en los dos. Las cifras las vemos en la unidad 5.",
-       "revisar": "fuente"
+       "tipo": "pregunta",
+       "pregunta": "Un señor de 58 años lleva 30 minutos con presión en el pecho que se le va a la mandíbula, y está sudando frío. Dice que seguro es gastritis.",
+       "opciones": [
+        "Le das un antiácido y esperas",
+        "Lo tratas como un posible infarto y lo mandas al hospital de inmediato",
+        "Le dices que descanse y regrese mañana"
+       ],
+       "correcta": 1,
+       "explicacion": "Tiene los síntomas típicos de infarto, y con cada minuto se muere más músculo."
       },
       {
-       "tipo": "clave",
-       "texto": "Pesa más la constancia que el promedio."
-      },
-      {
-       "tipo": "interes"
+       "tipo": "teves"
       }
      ]
     },
     {
-     "id": "1.4",
-     "titulo": "Carreras parecidas",
+     "id": "2",
+     "titulo": "Signos vitales",
      "minutos": 4,
      "tarjetas": [
       {
-       "tipo": "escena",
-       "texto": "En un hospital no solo trabajan médicos. Hay muchas carreras de salud, y cada una hace algo distinto por el paciente."
-      },
-      {
-       "tipo": "emparejar",
-       "pregunta": "Une cada carrera con lo que hace.",
-       "pares": [
-        [
-         "Medicina",
-         "Diagnostica y decide el tratamiento"
-        ],
-        [
-         "Enfermería",
-         "Cuida al paciente y aplica el tratamiento día y noche"
-        ],
-        [
-         "Fisioterapia",
-         "Ayuda a recuperar el movimiento"
-        ],
-        [
-         "Nutrición",
-         "Diseña la alimentación para prevenir y tratar"
-        ],
-        [
-         "Psicología",
-         "Atiende la salud mental y emocional"
-        ]
-       ],
-       "revelacion": "Todas cuidan la salud con tareas distintas y trabajan en equipo. El médico es una pieza de ese equipo, no el dueño de todo.",
-       "revisar": "medico"
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "Te gusta la salud, pero no te ves estudiando tantos años. ¿Qué harías?",
-       "opciones": [
+       "tipo": "info",
+       "titulo": "Signos vitales",
+       "partes": [
         {
-         "texto": "Revisar otras carreras de salud antes de decidir",
-         "consecuencia": "Buena idea. Hay carreras del área con menos años de estudio y contacto directo con pacientes. Agrega alguna a tu mapa y compárala.",
-         "mejor": true
-        },
-        {
-         "texto": "Entrar a Medicina de todos modos",
-         "consecuencia": "Se vale, pero entra sabiendo cuánto dura. En la unidad 4 lo revisamos."
-        },
-        {
-         "texto": "Descartar toda el área de salud",
-         "consecuencia": "Quizá es pronto. Lo que no te gusta es la duración, no la salud."
+         "t": "Los signos vitales te dicen en segundos qué tan grave está alguien. En un adulto en reposo el pulso normal va de 60 a 100 latidos por minuto, aunque los deportistas pueden tenerlo más bajo y estar sanos. La respiración normal va de 12 a 20 por minuto. La temperatura normal ronda los 36.5 a 37.5 grados, y fiebre es de 38 hacia arriba. Lo ideal en la presión es 120/80 o menos, y si sale 140/90 o más en varias mediciones distintas, es presión alta. La saturación de oxígeno normal va de 95 a 100%, y menos de 90 es grave. Un solo número raro no siempre significa algo; varios números raros juntos casi siempre sí."
         }
+       ]
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Una paciente tiene pulso de 118, temperatura de 38.6 y 24 respiraciones por minuto. ¿Qué está fuera de lo normal?",
+       "opciones": [
+        "Solo la temperatura",
+        "El pulso, la temperatura y la respiración",
+        "Nada, son cifras normales"
        ],
-       "revisar": "fuente"
+       "correcta": 1,
+       "explicacion": "Los tres están arriba del rango, y juntos sugieren que el cuerpo está luchando contra algo serio, como una infección."
       },
       {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Qué parte del cuidado te atrae más?",
-       "a": {
-        "texto": "Encontrar qué tiene el paciente",
-        "dice": "Eso es diagnosticar: el centro de Medicina."
-       },
-       "b": {
-        "texto": "Acompañarlo mientras se recupera",
-        "dice": "Eso se parece más a Enfermería o a Fisioterapia. Vale la pena que las explores."
-       }
+       "tipo": "pregunta",
+       "pregunta": "Un corredor de 25 años tiene pulso de 52 en reposo y se siente perfecto.",
+       "opciones": [
+        "Es una emergencia",
+        "Puede ser normal en alguien muy entrenado",
+        "Hay que darle medicina para subirlo"
+       ],
+       "correcta": 1,
+       "explicacion": "Un pulso bajo sin síntomas en un deportista es esperable."
       },
       {
-       "tipo": "clave",
-       "texto": "Hay muchas formas de trabajar en salud sin ser médico."
+       "tipo": "pregunta",
+       "pregunta": "Un paciente con dificultad para respirar tiene una saturación de 87%.",
+       "opciones": [
+        "Es normal",
+        "Es grave y necesita oxígeno ya",
+        "Hay que volver a medirla mañana"
+       ],
+       "correcta": 1,
+       "explicacion": "Está debajo de 90, el límite que marca gravedad."
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "A una señora le sale la presión en 150/95 en una sola consulta, sin ningún síntoma.",
+       "opciones": [
+        "Le diagnosticas presión alta para toda la vida",
+        "La vuelves a medir en otras consultas antes de concluir",
+        "No le das importancia"
+       ],
+       "correcta": 1,
+       "explicacion": "El diagnóstico pide varias mediciones altas; una sola puede salir por nervios, pero tampoco se ignora."
+      },
+      {
+       "tipo": "teves"
       }
      ]
     }
@@ -266,268 +171,133 @@
   },
   {
    "id": "u2",
+   "titulo": "Pensar como médico",
+   "sub": "Diagnóstico y medicinas",
    "lecciones": [
     {
-     "id": "2.1",
-     "titulo": "Triaje",
+     "id": "3",
+     "titulo": "Pensar como médico",
      "minutos": 4,
      "tarjetas": [
       {
-       "tipo": "escena",
-       "texto": "Son las 2 de la mañana en urgencias. Eres la única persona de guardia y acaban de entrar cinco pacientes al mismo tiempo."
-      },
-      {
-       "tipo": "ordenar",
-       "pregunta": "¿A quién atiendes primero? Acomódalos del más urgente al menos urgente.",
-       "pasos": [
-        "Señora que no puede respirar bien",
-        "Señor de 60 años con dolor en el pecho y sudor frío",
-        "Niña con fiebre que juega con un celular",
-        "Hombre con una cortada en la mano que ya no sangra",
-        "Joven con el tobillo torcido"
-       ],
-       "exige": 2,
-       "revelacion": "Primero quien no puede respirar y quien tiene dolor de pecho: su vida corre peligro en minutos. Los otros tres pueden esperar aunque les duela.",
-       "revisar": "medico"
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "El paciente que más se queja es el más grave.",
-       "respuesta": false,
-       "revelacion": "Quien puede gritar, respira. A veces el más grave es el más callado.",
-       "revisar": "medico"
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "La mamá de la niña te reclama: llegó antes que el señor. ¿Qué le dices?",
-       "opciones": [
+       "tipo": "info",
+       "titulo": "Pensar como médico",
+       "partes": [
         {
-         "texto": "Que se atiende primero a quien corre más peligro, y que a su hija la verás pronto",
-         "consecuencia": "Explicar el porqué calma más que pedir paciencia. Y es verdad: su hija está estable.",
-         "mejor": true
-        },
-        {
-         "texto": "Que espere su turno, y sigues trabajando",
-         "consecuencia": "Es cierto que debe esperar, pero sin explicación se queda con miedo y enojo. Diez segundos ahorran un conflicto."
-        },
-        {
-         "texto": "Atiendes primero a la niña para evitar problemas",
-         "consecuencia": "El señor puede empeorar en minutos. Ceder a quien más reclama pone en riesgo a quien más lo necesita."
+         "t": "El diagnóstico casi siempre sale de la entrevista, que se llama historia clínica. Preguntas qué le pasa, desde cuándo, cómo empezó, dónde duele, cómo es el dolor, qué lo mejora o empeora, qué enfermedades tiene, qué medicinas toma y si es alérgico a algo. Luego haces una lista de lo que podría ser y descartas primero lo más peligroso, aunque no sea lo más probable. También existen las señales de alarma: síntomas que te dicen que algo es grave. Una de ellas es un dolor de cabeza de golpe que la persona describe como \"el peor de su vida\", porque puede ser un sangrado en el cerebro."
         }
+       ]
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Llega un paciente con dolor de cabeza. ¿Cuál pregunta te da más información al inicio?",
+       "opciones": [
+        "Si le gusta el café",
+        "Cuándo empezó, cómo empezó y cómo es el dolor",
+        "Si ya tomó algo"
        ],
-       "revisar": "medico"
+       "correcta": 1,
+       "explicacion": "La forma en que empezó un dolor separa lo leve de lo grave."
       },
       {
-       "tipo": "clave",
-       "texto": "Lo urgente no siempre es lo que más grita."
+       "tipo": "pregunta",
+       "pregunta": "Una mujer dice que el dolor de cabeza le llegó de golpe hace una hora y que es el peor de su vida.",
+       "opciones": [
+        "Le das un analgésico y la mandas a casa",
+        "La mandas a urgencias para que le hagan estudios de la cabeza",
+        "Le pides que regrese si sigue mañana"
+       ],
+       "correcta": 1,
+       "explicacion": "Es justo la señal de alarma de la explicación."
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "Un hombre de 60 años con diabetes tiene dolor en la boca del estómago. Puede ser gastritis o un infarto. ¿Qué descartas primero?",
+       "opciones": [
+        "El infarto, porque es lo más peligroso",
+        "La gastritis, porque es lo más común",
+        "Ninguno, esperas"
+       ],
+       "correcta": 0,
+       "explicacion": "Primero se descarta lo que puede matar, aunque lo común sea otra cosa."
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
-     "id": "2.2",
-     "titulo": "Síntoma y estudio",
+     "id": "4",
+     "titulo": "Medicinas y dosis",
      "minutos": 4,
      "tarjetas": [
       {
-       "tipo": "escena",
-       "texto": "Un estudio no se pide «por si acaso». Cada uno contesta una pregunta distinta. Tu trabajo es saber qué pregunta tienes."
-      },
-      {
-       "tipo": "emparejar",
-       "pregunta": "¿Qué estudio ayuda más en cada caso?",
-       "pares": [
-        [
-         "Dolor que aprieta el pecho",
-         "Electrocardiograma: revisa la actividad eléctrica del corazón"
-        ],
-        [
-         "Caída con dolor y el brazo deformado",
-         "Radiografía: muestra los huesos"
-        ],
-        [
-         "Mucha sed, orina seguido y bajó de peso",
-         "Glucosa en sangre: mide el azúcar"
-        ],
-        [
-         "Cansancio y palidez desde hace semanas",
-         "Biometría hemática: cuenta las células de la sangre"
-        ]
-       ],
-       "revelacion": "Primero viene la sospecha y después el estudio. Si no sabes qué buscas, el resultado no te dice nada.",
-       "revisar": "medico"
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Entre más estudios pidas, mejor médico eres.",
-       "respuesta": false,
-       "revelacion": "Los estudios cuestan, tardan y a veces confunden. Se piden los necesarios para confirmar o descartar lo que sospechas.",
-       "revisar": "medico"
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "Un joven sano llega con gripa de dos días y te pide «todos los análisis». ¿Qué haces?",
-       "opciones": [
+       "tipo": "info",
+       "titulo": "Medicinas y dosis",
+       "partes": [
         {
-         "texto": "Le explicas que por ahora no hacen falta y qué señales vigilar",
-         "consecuencia": "Saber qué vigilar le da tranquilidad sin gastar de más. Si aparece una señal de alarma, entonces sí se estudia.",
-         "mejor": true
+         "t": "Los adultos suelen tomar una dosis fija, pero en niños la dosis se calcula con su peso:"
         },
         {
-         "texto": "Se los pides todos para que se quede tranquilo",
-         "consecuencia": "Pagó estudios que no cambiaban el tratamiento. Y un resultado dudoso puede asustarlo sin motivo."
+         "f": "dosis = peso en kg × mg por kg"
         },
         {
-         "texto": "Le dices que no tiene nada y que se vaya",
-         "consecuencia": "Sí tiene algo: se siente mal y está preocupado. Sin explicación buscará a otro médico o se automedicará."
+         "t": "Muchas medicinas para niños vienen en jarabe, con una cantidad de medicina por cada tantos mililitros. Para saber cuánto jarabe dar:"
+        },
+        {
+         "f": "mililitros = {dosis que necesitas|mg que trae el jarabe} × ml del jarabe"
+        },
+        {
+         "t": "El hígado y los riñones eliminan las medicinas del cuerpo. Si alguno no funciona bien, la medicina se acumula y puede intoxicar, así que se baja o se ajusta la dosis. Y los antibióticos solo sirven contra bacterias, no contra virus. En estos ejercicios la medicina es inventada; en la vida real la dosis sale de la guía del medicamento."
         }
-       ],
-       "revisar": "medico"
+       ]
       },
       {
-       "tipo": "clave",
-       "texto": "Un estudio se pide para contestar una pregunta."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "2.3",
-     "titulo": "Curar una herida",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Llega un niño con una cortada en la rodilla por caerse de la bici. No es grave, pero hay que curarla bien. Tú diriges."
-      },
-      {
-       "tipo": "ordenar",
-       "pregunta": "Ordena los pasos de la curación.",
-       "pasos": [
-        "Lavarte las manos",
-        "Ponerte guantes",
-        "Lavar la herida con agua y jabón",
-        "Cerrar o cubrir la herida",
-        "Explicar cómo cuidarla en casa"
-       ],
-       "revelacion": "Manos y guantes van antes de tocar la herida: así no le llevas microbios. Y las indicaciones del final son parte de la curación.",
-       "revisar": "medico"
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Si la herida se ve limpia, puedes saltarte el lavado de manos.",
-       "respuesta": false,
-       "revelacion": "Los microbios no se ven. Lavarse las manos es una de las medidas más sencillas para evitar infecciones en un hospital.",
-       "revisar": "medico"
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "Vas con prisa: hay seis pacientes esperando. ¿Qué paso recortas?",
+       "tipo": "pregunta",
+       "pregunta": "La medicina Rumbocilina se da a 10 mg por kg. Un niño pesa 20 kg. ¿Cuánto le das?",
        "opciones": [
-        {
-         "texto": "Ninguno: sigues el orden aunque tarde más",
-         "consecuencia": "Una infección por saltarte un paso cuesta días de tratamiento. La prisa no cambia el procedimiento.",
-         "mejor": true
-        },
-        {
-         "texto": "Las indicaciones para casa",
-         "consecuencia": "Sin indicaciones la herida puede infectarse en casa y el niño regresa peor. Ese minuto ahorra una segunda visita."
-        },
-        {
-         "texto": "Los guantes",
-         "consecuencia": "Los guantes te protegen a ti y al paciente. Quitarlos ahorra segundos y arriesga a los dos."
-        }
+        "20 mg",
+        "200 mg",
+        "2,000 mg"
        ],
-       "revisar": "medico"
+       "correcta": 1,
+       "formula": "20 × 10 = 200 mg"
       },
       {
-       "tipo": "clave",
-       "texto": "El orden evita infecciones."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "2.4",
-     "titulo": "Hablar con el paciente",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Doña Carmen tiene la presión alta. Hace un mes le recetaste una pastilla diaria. Hoy regresa y te dice que dejó de tomarla."
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "¿Qué le dices primero?",
+       "tipo": "pregunta",
+       "pregunta": "El jarabe de Rumbocilina trae 100 mg en cada 5 ml. ¿Cuántos mililitros le das al niño que necesita 200 mg?",
        "opciones": [
-        {
-         "texto": "«¿Qué pasó? Cuénteme por qué la dejó»",
-         "consecuencia": "Te cuenta que la pastilla la mareaba y que le dio pena decírtelo. Ya tienes la causa.",
-         "mejor": true
-        },
-        {
-         "texto": "«Tiene que tomarla, es por su bien»",
-         "consecuencia": "Asiente, pero no te dice por qué la dejó. Lo más probable es que la vuelva a dejar."
-        },
-        {
-         "texto": "«Si no la toma, le puede dar un infarto»",
-         "consecuencia": "Se asusta y se pone a la defensiva. El miedo rara vez convence, y sigues sin saber la causa."
-        }
+        "5 ml",
+        "10 ml",
+        "20 ml"
        ],
-       "revisar": "medico"
+       "correcta": 1,
+       "formula": "{200|100} × 5 = 10 ml"
       },
       {
-       "tipo": "decision",
-       "pregunta": "Ya sabes que la mareaba. ¿Ahora qué?",
+       "tipo": "pregunta",
+       "pregunta": "Un paciente tiene los riñones dañados y necesita una medicina que el riñón elimina.",
        "opciones": [
-        {
-         "texto": "Buscas con ella otra opción u otro horario",
-         "consecuencia": "Ajustar el tratamiento es parte del trabajo. Uno que la paciente sí puede seguir vale más que el ideal que abandona.",
-         "mejor": true
-        },
-        {
-         "texto": "Le dices que el mareo se aguanta",
-         "consecuencia": "Para ella no es poca cosa: por eso la dejó. Si no lo tomas en serio, no regresa."
-        },
-        {
-         "texto": "Le recetas lo mismo y le pides que ahora sí la tome",
-         "consecuencia": "Nada cambió, así que el resultado será el mismo."
-        }
+        "Le das la dosis normal",
+        "Le ajustas o bajas la dosis",
+        "Le das el doble para que funcione"
        ],
-       "revisar": "medico"
+       "correcta": 1,
+       "explicacion": "Si el riñón no la saca, la medicina se acumula."
       },
       {
-       "tipo": "decision",
-       "pregunta": "Antes de que se vaya, ¿cómo cierras?",
+       "tipo": "pregunta",
+       "pregunta": "Un joven lleva tres días con moco transparente, estornudos y sin fiebre, y pide antibiótico.",
        "opciones": [
-        {
-         "texto": "Le pides que te explique con sus palabras cómo la va a tomar",
-         "consecuencia": "Así compruebas que entendió sin hacerla sentir examinada. Si algo quedó confuso, lo aclaras ahí mismo.",
-         "mejor": true
-        },
-        {
-         "texto": "Le preguntas: «¿entendió?»",
-         "consecuencia": "Casi todos contestan que sí, aunque no hayan entendido. No sabes si quedó claro."
-        },
-        {
-         "texto": "Le das la receta y la despides",
-         "consecuencia": "La receta dice qué tomar, pero no resuelve dudas. Es fácil que se confunda en casa."
-        }
+        "Se lo das para que se cure más rápido",
+        "No se lo das porque es un virus, y le recomiendas reposo y líquidos",
+        "Le das antibiótico y antigripal juntos"
        ],
-       "revisar": "medico"
+       "correcta": 1,
+       "explicacion": "Es un resfriado por virus, y contra virus el antibiótico no hace nada."
       },
       {
-       "tipo": "clave",
-       "texto": "Escuchar también es parte del tratamiento."
-      },
-      {
-       "tipo": "interes"
+       "tipo": "teves"
       }
      ]
     }
@@ -535,281 +305,173 @@
   },
   {
    "id": "u3",
+   "titulo": "En la práctica",
+   "sub": "Urgencias, comunidad y ética",
    "lecciones": [
     {
-     "id": "3.1",
-     "titulo": "Un día real",
+     "id": "5",
+     "titulo": "Urgencias",
      "minutos": 4,
      "tarjetas": [
       {
-       "tipo": "escena",
-       "texto": "Hacia el final de la carrera llega el internado: trabajas en un hospital de tiempo completo. Arma cómo crees que es un día con guardia.",
-       "revisar": "fuente"
-      },
-      {
-       "tipo": "armar_dia",
-       "pregunta": "Coloca cada actividad en su momento del día.",
-       "bloques": [
-        "Muy temprano",
-        "Mañana",
-        "Tarde",
-        "Noche",
-        "Madrugada"
-       ],
-       "actividades": [
-        "Pase de visita: revisar a cada paciente con el equipo",
-        "Consulta y pendientes: notas, estudios y curaciones",
-        "Clase o sesión académica",
-        "Guardia: atender lo que llegue",
-        "Dormir a ratos, si se puede"
-       ],
-       "revelacion": "Los horarios cambian en cada hospital, pero el patrón se repite: empiezas muy temprano y, si te toca guardia, sigues hasta el día siguiente.",
-       "revisar": "medico"
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "En el internado tienes un horario parecido al de la prepa.",
-       "respuesta": false,
-       "revelacion": "Hay guardias de noche y en fin de semana. Tu sueño, tus comidas y tu vida social se acomodan alrededor del hospital.",
-       "revisar": "medico"
-      },
-      {
-       "tipo": "dos_caminos",
-       "pregunta": "Te toca guardia el día del cumpleaños de tu mejor amigo. ¿Cómo lo vives?",
-       "a": {
-        "texto": "Me pesa, pero lo entiendo: es parte del trato",
-        "dice": "Aceptar que te perderás algunas cosas hace más llevadera la carrera."
-       },
-       "b": {
-        "texto": "Me costaría mucho perderme esas fechas",
-        "dice": "Es válido. Piensa qué tanto: en Medicina pasará varias veces durante años."
-       }
-      },
-      {
-       "tipo": "chat",
-       "subtitulo": "Te cuenta cómo es trabajar en Medicina",
-       "intro": [
-        "¡Hola! Junté lo que se sabe de Medicina.",
-        "Pregúntame lo que quieras."
-       ],
-       "temas": [
+       "tipo": "info",
+       "titulo": "Urgencias",
+       "partes": [
         {
-         "q": "¿Qué haces en un día normal?",
-         "a": [
-          "Consulta pacientes, interroga y explora, pide estudios, interpreta resultados, receta y da seguimiento.",
-          "En hospital hace guardias, pasa visita con el equipo y llena notas clínicas.",
-          "Mucho trabajo bajo presión y con turnos largos."
-         ]
-        },
-        {
-         "q": "¿Qué es lo más difícil?",
-         "a": [
-          "Se considera una carrera de dificultad muy alta.",
-          "Los primeros dos años de ciencias básicas (Anatomía, Bioquímica, Fisiología) son el gran filtro",
-          "Luego vienen guardias de 24 a 36 horas en el internado."
-         ]
-        },
-        {
-         "q": "¿Hay trabajo?",
-         "a": [
-          "La mayoría de quienes la estudian trabaja en algo de su carrera. Es un promedio nacional del IMCO."
-         ]
-        },
-        {
-         "q": "¿Qué necesito para ejercer?",
-         "a": [
-          "Título y cédula profesional para ejercer",
-          "Para especializarse hay que aprobar el ENARM (examen nacional de residencias médicas)."
-         ]
+         "t": "En urgencias no se atiende primero al que llegó antes ni al que grita más, sino al que tiene más riesgo de morir. A esto se le llama triage. Para revisar a un paciente grave el orden siempre es el mismo: primero la vía aérea, que el aire pueda entrar; luego la respiración; luego la circulación, o sea la sangre y el pulso. En una persona inconsciente boca arriba, la lengua se va hacia atrás y tapa la garganta, y se escucha como un ronquido fuerte. Se destapa inclinando la cabeza hacia atrás y levantando la barbilla. Si alguien no responde y no respira, se hace RCP: compresiones en el centro del pecho de 5 a 6 cm de profundidad, a un ritmo de 100 a 120 por minuto."
         }
+       ]
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Llegan tres pacientes al mismo tiempo: uno con un dedo roto que grita de dolor, un señor que casi no puede respirar y tiene saturación de 85%, y un niño con fiebre de 38 que está jugando. ¿A quién atiendes primero?",
+       "opciones": [
+        "Al del dedo, porque es el que más sufre",
+        "Al señor que no puede respirar",
+        "Al niño, porque es menor"
        ],
-       "minimo": 2,
-       "auto": true
+       "correcta": 1,
+       "explicacion": "Tiene problema de respiración y la saturación baja, así que es el de mayor riesgo."
       },
       {
-       "tipo": "clave",
-       "texto": "Las guardias cambian tu rutina completa."
+       "tipo": "pregunta",
+       "pregunta": "Encuentras a un hombre inconsciente boca arriba que hace un ronquido muy fuerte. ¿Qué haces primero?",
+       "opciones": [
+        "Le inclinas la cabeza hacia atrás y le levantas la barbilla",
+        "Le das agua",
+        "Lo sientas de golpe"
+       ],
+       "correcta": 0,
+       "explicacion": "El ronquido indica que la lengua le tapa la vía aérea, que es lo primero en el orden."
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "Un compañero está haciendo RCP a un ritmo de 60 compresiones por minuto.",
+       "opciones": [
+        "Está bien",
+        "Va muy lento y debe subir a 100 a 120 por minuto",
+        "Va muy rápido"
+       ],
+       "correcta": 1,
+       "explicacion": "A ese ritmo no le llega suficiente sangre al cerebro."
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
-     "id": "3.2",
-     "titulo": "Lo difícil",
+     "id": "6",
+     "titulo": "Medicina en la comunidad",
      "minutos": 4,
      "tarjetas": [
       {
-       "tipo": "escena",
-       "texto": "Llevas 20 horas despierto en la guardia. Llega una paciente y tienes que decidir si se queda internada o se va a su casa. Estás agotado."
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "¿Qué haces?",
-       "opciones": [
+       "tipo": "info",
+       "titulo": "Medicina en la comunidad",
+       "partes": [
         {
-         "texto": "Pides a un compañero o a tu superior que revise tu decisión",
-         "consecuencia": "Cansado te equivocas más. Pedir otra opinión no es debilidad: es cuidar a la paciente.",
-         "mejor": true
-        },
-        {
-         "texto": "Decides rápido para terminar pronto",
-         "consecuencia": "Con sueño, decidir rápido es cuando hay más errores. Y aquí el error lo paga otra persona."
-        },
-        {
-         "texto": "La dejas internada por si acaso, sin revisarla bien",
-         "consecuencia": "Parece lo seguro, pero ocupa una cama que otro puede necesitar y no resuelve qué tiene."
+         "t": "En el servicio social te toca cuidar a un pueblo entero, no solo a cada paciente. Las enfermedades se contagian por varias vías: por comida o agua sucia, por el aire o por animales como el mosquito. Cuando muchas personas se enferman de lo mismo en el mismo lugar y al mismo tiempo, es un brote, y hay que buscar qué tienen en común. Con diarrea, el peligro es la deshidratación. Si la persona está despierta y puede tomar líquidos, se le da suero oral. Si tiene los ojos hundidos, llora sin lágrimas, está muy adormilada o no puede tomar, es grave y va al hospital por suero en la vena."
         }
-       ],
-       "revisar": "medico"
-      },
-      {
-       "tipo": "clasificar",
-       "pregunta": "¿Qué tipo de dificultad es?",
-       "grupos": [
-        "De estudio",
-        "Emocional",
-        "De tiempo y dinero"
-       ],
-       "elementos": [
-        {
-         "texto": "Anatomía, Bioquímica y Farmacología: mucha memoria y poco tiempo",
-         "grupo": 0
-        },
-        {
-         "texto": "Dar una mala noticia a una familia",
-         "grupo": 1
-        },
-        {
-         "texto": "Años de estudio antes de tener un sueldo propio",
-         "grupo": 2
-        },
-        {
-         "texto": "Ver sufrir a un paciente que no mejora",
-         "grupo": 1
-        },
-        {
-         "texto": "Exámenes cada pocas semanas",
-         "grupo": 0
-        },
-        {
-         "texto": "Guardias que te dejan sin fines de semana",
-         "grupo": 2
-        }
-       ],
-       "revelacion": "La carrera pesa por tres lados a la vez. Saberlo antes no la hace fácil, pero evita que te tome por sorpresa.",
-       "revisar": "medico"
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Cuál de las tres crees que te pesaría más?",
-       "opciones": [
-        "La de estudio",
-        "La emocional",
-        "La de tiempo y dinero",
-        "Todavía no lo sé"
        ]
       },
       {
-       "tipo": "clave",
-       "texto": "Es una carrera larga: se aguanta mejor con un porqué claro."
+       "tipo": "pregunta",
+       "pregunta": "Quince personas tienen diarrea un día después de una boda, y todas comieron la misma ensalada de pollo.",
+       "opciones": [
+        "Es casualidad",
+        "Es un brote y la ensalada es la sospechosa",
+        "Es un virus por el aire"
+       ],
+       "correcta": 1,
+       "explicacion": "Es mucha gente, mismo lugar, mismo momento y algo en común."
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "Después de la temporada de lluvias suben los casos de dengue en el pueblo. ¿Qué medida ayuda más?",
+       "opciones": [
+        "Dar antibióticos a todos",
+        "Eliminar el agua estancada donde se reproduce el mosquito",
+        "Cerrar las escuelas"
+       ],
+       "correcta": 1,
+       "explicacion": "El dengue lo transmite un mosquito, así que se ataca su criadero."
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Un niño con diarrea tiene los ojos hundidos, llora sin lágrimas, está muy dormido y no quiere tomar nada.",
+       "opciones": [
+        "Le das suero oral en casa",
+        "Lo mandas al hospital para ponerle suero en la vena",
+        "Le das un remedio para cortar la diarrea"
+       ],
+       "correcta": 1,
+       "explicacion": "Tiene las señales graves y no puede tomar, así que el suero oral no basta."
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
-     "id": "3.3",
-     "titulo": "Historia real",
-     "minutos": 3,
+     "id": "7",
+     "titulo": "Decisiones difíciles",
+     "minutos": 4,
      "tarjetas": [
       {
-       "tipo": "reflexion",
-       "pregunta": "Si pudieras preguntarle algo a alguien que ya estudia Medicina, ¿qué sería?",
+       "tipo": "info",
+       "titulo": "Decisiones difíciles",
+       "partes": [
+        {
+         "t": "La medicina tiene cuatro reglas éticas. Autonomía: el paciente decide sobre su cuerpo si está consciente y entiende. Hacer el bien: buscar siempre lo mejor para el paciente. No hacer daño: evitar riesgos innecesarios. Justicia: repartir los recursos según la necesidad médica, no según el dinero o las influencias. Antes de un procedimiento, el paciente debe entender los riesgos y dar su consentimiento. Si alguien está inconsciente, sin familia y con su vida en riesgo, el médico actúa por su bien. Los errores se reconocen y se avisan de inmediato."
+        }
+       ]
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Un adulto consciente, que entiende perfectamente los riesgos, se niega a una transfusión por sus creencias.",
        "opciones": [
-        "¿Qué fue lo más difícil?",
-        "¿Qué te sorprendió?",
-        "¿Volverías a elegirla?",
-        "¿Cómo es un día normal?"
-       ]
+        "Lo obligas porque le salvaría la vida",
+        "Le explicas otra vez los riesgos, respetas su decisión, buscas alternativas y lo anotas en su expediente",
+        "Dejas de atenderlo"
+       ],
+       "correcta": 1,
+       "explicacion": "Por autonomía, él decide, y tú sigues cuidándolo con lo que acepte."
       },
       {
-       "tipo": "testimonio",
-       "estado": "pendiente",
-       "perfil": "Estudiante en internado o médico recién egresado"
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "Mientras llega esta historia, ¿a quién podrías preguntarle tú?",
+       "tipo": "pregunta",
+       "pregunta": "Llega una mujer inconsciente, sin identificación ni familia, que necesita cirugía urgente para no morir.",
        "opciones": [
-        "A un familiar o conocido que sea médico",
-        "A un estudiante de Medicina de mi ciudad",
-        "Al médico de mi clínica",
-        "Todavía no conozco a nadie"
-       ]
+        "Esperas a que llegue alguien que firme",
+        "La operan, porque es una urgencia y se actúa por su bien",
+        "La mandas a otro hospital"
+       ],
+       "correcta": 1,
+       "explicacion": "No puede decidir, nadie puede decidir por ella y esperar la mataría."
       },
       {
-       "tipo": "clave",
-       "texto": "Una persona real te cuenta lo que ningún folleto dice."
+       "tipo": "pregunta",
+       "pregunta": "Queda una sola cama de terapia intensiva. Un paciente está grave y tiene buenas probabilidades de salvarse si entra. El otro está estable, pero es amigo del director.",
+       "opciones": [
+        "Le das la cama al amigo del director",
+        "Se la das al paciente grave que más se beneficia",
+        "Lo decides con una moneda"
+       ],
+       "correcta": 1,
+       "explicacion": "Por justicia, la cama va según la necesidad médica."
       },
       {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "3.4",
-     "titulo": "¿Quién lo disfruta?",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "No hay un solo tipo de persona para Medicina, pero hay cosas que ayudan a disfrutarla. Contesta pensando en ti, no en lo que «deberías» decir."
+       "tipo": "pregunta",
+       "pregunta": "Te das cuenta de que le pusiste a un paciente el doble de la dosis indicada. Todavía no tiene síntomas.",
+       "opciones": [
+        "No dices nada porque está bien",
+        "Avisas de inmediato a tu superior para vigilarlo y actuar a tiempo",
+        "Le bajas la siguiente dosis sin decir nada"
+       ],
+       "correcta": 1,
+       "explicacion": "Puede tener efectos más tarde y el equipo necesita saberlo."
       },
       {
-       "tipo": "reflexion",
-       "pregunta": "Estudiar mucho, durante varios años seguidos.",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "Tratar con personas en sus peores días.",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "Decidir sin tener toda la información.",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Qué te atrae más de la carrera?",
-       "a": {
-        "texto": "El cuerpo humano y cómo funciona",
-        "dice": "Te gusta la ciencia. Recuerda que en la práctica pasarás más tiempo con personas que con libros."
-       },
-       "b": {
-        "texto": "Ayudar a la gente cuando lo necesita",
-        "dice": "Te gusta el trato humano. Recuerda que para llegar ahí hay años de ciencia pesada."
-       }
-      },
-      {
-       "tipo": "clave",
-       "texto": "Te debe gustar la gente, no solo la biología."
-      },
-      {
-       "tipo": "interes"
+       "tipo": "teves"
       }
      ]
     }
@@ -817,495 +479,129 @@
   },
   {
    "id": "u4",
+   "titulo": "Examen final",
+   "sub": "10 preguntas · apruebas con 7",
    "lecciones": [
     {
-     "id": "4.1",
-     "titulo": "Cuánto dura y qué estudias",
-     "minutos": 3,
+     "id": "ex",
+     "titulo": "Examen final",
+     "minutos": 6,
+     "examen": true,
+     "aprobar": 7,
      "tarjetas": [
       {
-       "tipo": "escena",
-       "texto": "Medicina no se cursa igual que otras carreras: tiene etapas, y varias se viven dentro de un hospital."
-      },
-      {
-       "tipo": "ordenar",
-       "pregunta": "Ordena las etapas de la carrera.",
-       "pasos": [
-        "Ciencias básicas: aulas y laboratorios",
-        "Ciclos clínicos: clases dentro del hospital",
-        "Internado: trabajo de tiempo completo en hospital",
-        "Servicio social",
-        "Examen profesional y título"
-       ],
-       "revelacion": "Este es el orden más común en México; cada universidad lo ajusta. Después del título, quien quiere especialidad vuelve a concursar y a estudiar.",
-       "revisar": "fuente"
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Cuántos años crees que pasan desde que entras hasta que te titulas?",
-       "min": 3,
-       "max": 10,
-       "paso": 1,
-       "unidad": "años",
-       "dato": "medicina.duracion"
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Con el título de médico ya eres especialista.",
-       "respuesta": false,
-       "revelacion": "El título te hace médico general. La especialidad es otra etapa: se entra por concurso y toma varios años más.",
-       "revisar": "fuente"
-      },
-      {
-       "tipo": "clave",
-       "texto": "El título es apenas la mitad si quieres especialidad."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "4.2",
-     "titulo": "Cómo se entra",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Entrar a Medicina suele ser de lo más competido en una universidad. Veamos qué tanto sabes del proceso."
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "En las universidades públicas, entrar a Medicina depende solo de tu promedio de prepa.",
-       "respuesta": false,
-       "revelacion": "Lo más común es un examen de admisión; algunas escuelas también cuentan el promedio. Cada universidad publica sus reglas en su convocatoria.",
-       "revisar": "fuente"
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Hay muchos más aspirantes que lugares.",
-       "respuesta": true,
-       "revelacion": "Por eso el puntaje que se pide para Medicina suele ser de los más altos. La cifra cambia cada año y en cada universidad.",
-       "revisar": "fuente"
-      },
-      {
-       "tipo": "dato",
-       "titulo": "Aspirantes por cada lugar",
-       "dato": "medicina.aspirantes"
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "Estás en quinto semestre de prepa y quieres entrar. ¿Qué haces desde hoy?",
-       "opciones": [
+       "tipo": "info",
+       "titulo": "Examen final",
+       "partes": [
         {
-         "texto": "Revisas la convocatoria y el temario, y armas un plan de estudio",
-         "consecuencia": "La convocatoria te dice fechas, requisitos y temario. Con eso estudias lo que sí viene, y con tiempo.",
-         "mejor": true
-        },
-        {
-         "texto": "Esperas a salir de la prepa para prepararte",
-         "consecuencia": "Se puede, pero compites con quienes llevan meses estudiando. Empezar antes te quita presión."
-        },
-        {
-         "texto": "Confías en tus calificaciones",
-         "consecuencia": "Un buen promedio ayuda, pero el examen pregunta temas concretos. Vale la pena revisar el temario."
+         "t": "Son 10 casos nuevos que mezclan todas las lecciones. Apruebas con 7. Si no, lo repites y las que fallaste regresan con otras palabras."
         }
        ]
       },
       {
-       "tipo": "vf",
-       "afirmacion": "Para hacer una especialidad médica hay que pasar un examen nacional.",
-       "respuesta": true,
-       "revelacion": "Se llama ENARM y se presenta después de titularte. También es muy competido.",
-       "revisar": "fuente"
-      },
-      {
-       "tipo": "clave",
-       "texto": "Entrar es competido: se prepara con tiempo."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "4.3",
-     "titulo": "Dónde, cuánto cuesta y becas",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "escuelas"
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Cuánto crees que cuesta un semestre en una universidad pública?",
-       "min": 0,
-       "max": 60000,
-       "paso": 1000,
-       "unidad": "pesos",
-       "dato": "medicina.costo_publica"
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Y un semestre en una universidad privada?",
-       "min": 0,
-       "max": 300000,
-       "paso": 5000,
-       "unidad": "pesos",
-       "dato": "medicina.costo_privada"
-      },
-      {
-       "tipo": "dato",
-       "titulo": "Becas para estudiar Medicina",
-       "dato": "medicina.becas"
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Una universidad cara garantiza que serás mejor médico.",
-       "respuesta": false,
-       "revelacion": "El costo no mide la calidad. Fíjate en los hospitales donde harías tus prácticas y en cómo les va a sus egresados.",
-       "revisar": "medico"
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué pesa más para ti al elegir escuela?",
+       "tipo": "pregunta",
+       "pregunta": "A un paciente le falla el lado derecho del corazón. ¿Qué síntoma esperas?",
        "opciones": [
-        "El costo",
-        "Que esté cerca de mi casa",
-        "El prestigio",
-        "Los hospitales donde haría prácticas"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Pública o privada cambia el costo, no el esfuerzo."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "u5",
-   "lecciones": [
-    {
-     "id": "5.1",
-     "titulo": "Dónde se trabaja",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Con el título puedes trabajar en lugares muy distintos, y el día a día cambia por completo de uno a otro."
-      },
-      {
-       "tipo": "emparejar",
-       "pregunta": "Une cada lugar con cómo es trabajar ahí.",
-       "pares": [
-        [
-         "Hospital público",
-         "Muchos pacientes, casos muy variados y trabajo en equipo"
-        ],
-        [
-         "Consultorio propio",
-         "Tú pones el horario y también consigues a tus pacientes"
-        ],
-        [
-         "Salud pública",
-         "Programas de prevención para comunidades enteras"
-        ],
-        [
-         "Investigación",
-         "Estudios para probar tratamientos nuevos"
-        ],
-        [
-         "Docencia",
-         "Formas a los próximos médicos"
-        ]
+        "Le falta el aire porque se llenan los pulmones",
+        "Se le hinchan las piernas porque la sangre del cuerpo se atora antes de llegar al corazón",
+        "No pasa nada"
        ],
-       "revelacion": "Ningún lugar es mejor en todo: unos dan estabilidad, otros libertad y otros alcance.",
-       "revisar": "medico"
+       "correcta": 1,
+       "explicacion": "Antes del lado derecho está la sangre que regresa del cuerpo."
       },
       {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Qué prefieres?",
-       "a": {
-        "texto": "Sueldo fijo y horario definido",
-        "dice": "Eso se parece a un puesto en una institución: más estabilidad y menos control sobre tu agenda."
-       },
-       "b": {
-        "texto": "Ser mi propio jefe aunque el ingreso varíe",
-        "dice": "Eso se parece al consultorio propio: más libertad, y también te toca administrarlo."
-       }
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Un médico solo puede tener un trabajo a la vez.",
-       "respuesta": false,
-       "revelacion": "Es común combinar: por ejemplo, un puesto en una institución por la mañana y consulta privada por la tarde.",
-       "revisar": "medico"
-      },
-      {
-       "tipo": "clave",
-       "texto": "Muchos médicos combinan dos trabajos."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "5.2",
-     "titulo": "Sueldo y demanda",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Hablemos de dinero sin rodeos. Antes de ver cualquier cifra, apuesta: así recuerdas mejor el dato real."
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Cuánto crees que gana al mes, en promedio, un profesionista de Medicina en México?",
-       "min": 5000,
-       "max": 100000,
-       "paso": 1000,
-       "unidad": "pesos",
-       "dato": "medicina.ingreso"
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "De cada 100 egresados, ¿cuántos crees que trabajan en algo de su carrera?",
-       "min": 0,
-       "max": 100,
-       "paso": 5,
-       "unidad": "de cada 100",
-       "dato": "medicina.ocupacion_afin"
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Un médico general y un especialista ganan parecido.",
-       "respuesta": false,
-       "revelacion": "Con especialidad el ingreso suele ser mayor, pero llegas a él varios años después. Las cifras las mostramos cuando estén verificadas.",
-       "revisar": "fuente"
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué tanto pesa el sueldo en tu decisión?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "El ingreso sube mucho con la especialidad, pero tarda."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "5.3",
-     "titulo": "Cómo la cambia la tecnología",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Un programa de inteligencia artificial revisa una radiografía y marca una mancha sospechosa. Tú eres el médico responsable."
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "¿Qué haces con ese aviso?",
+       "tipo": "pregunta",
+       "pregunta": "Un joven muy adormilado después de tomar muchas pastillas respira 8 veces por minuto.",
        "opciones": [
-        {
-         "texto": "Revisas la imagen tú mismo y decides",
-         "consecuencia": "El programa ayuda a no pasar cosas por alto, pero puede equivocarse. Quien firma el diagnóstico eres tú.",
-         "mejor": true
-        },
-        {
-         "texto": "Confías en el programa: ve más imágenes que tú",
-         "consecuencia": "Puede acertar muchas veces, pero no conoce al paciente ni responde por él. Sin revisar, su error se vuelve tuyo."
-        },
-        {
-         "texto": "Lo ignoras: prefieres tu criterio",
-         "consecuencia": "Ignorar una segunda mirada tampoco es prudente. Úsala como ayuda y verifica."
-        }
+        "Es normal porque está dormido",
+        "Es peligrosamente bajo y es una urgencia",
+        "Está alto"
        ],
-       "revisar": "medico"
+       "correcta": 1,
+       "explicacion": "Lo normal es de 12 a 20 por minuto."
       },
       {
-       "tipo": "dos_caminos",
-       "pregunta": "Una paciente vive a cuatro horas del hospital. ¿Le das consulta por videollamada?",
-       "a": {
-        "texto": "Sí: es mejor que no tener consulta",
-        "dice": "Te atrae usar la tecnología para llegar más lejos. Ojo: no todo se puede revisar por pantalla."
-       },
-       "b": {
-        "texto": "Prefiero verla en persona, aunque tarde",
-        "dice": "Valoras la revisión física. Ojo: para algunos pacientes, esperar significa no atenderse."
-       }
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "La tecnología hará que ya no se necesiten médicos.",
-       "respuesta": false,
-       "revelacion": "Cambia las tareas: menos papeleo y más apoyo para decidir. La responsabilidad y el trato con el paciente siguen siendo de una persona.",
-       "revisar": "medico"
-      },
-      {
-       "tipo": "clave",
-       "texto": "La tecnología ayuda a decidir; la responsabilidad sigue siendo tuya."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "5.4",
-     "titulo": "Después de titularte",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Ya tienes el título. No es el final: ahora eliges otra vez qué tipo de médico quieres ser."
-      },
-      {
-       "tipo": "emparejar",
-       "pregunta": "Une cada camino con lo que implica.",
-       "pares": [
-        [
-         "Especialidad",
-         "Varios años más de formación en un hospital"
-        ],
-        [
-         "Maestría en salud pública",
-         "Estudiar la salud de poblaciones enteras"
-        ],
-        [
-         "Investigación",
-         "Hacer estudios y publicar resultados"
-        ],
-        [
-         "Consultorio general",
-         "Empezar a atender pacientes de inmediato"
-        ]
+       "tipo": "pregunta",
+       "pregunta": "Una niña tiene 37.8 grados de temperatura.",
+       "opciones": [
+        "Tiene fiebre alta",
+        "Todavía no cuenta como fiebre, pero hay que vigilarla",
+        "Está en hipotermia"
        ],
-       "revelacion": "Son caminos distintos y se pueden combinar con los años. Ninguno es el «correcto».",
-       "revisar": "medico"
+       "correcta": 1,
+       "explicacion": "La fiebre empieza en 38."
       },
       {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Qué harías tú?",
-       "a": {
-        "texto": "Seguir estudiando para especializarme",
-        "dice": "Más años de formación a cambio de dedicarte a lo que más te guste."
-       },
-       "b": {
-        "texto": "Empezar a trabajar cuanto antes",
-        "dice": "Ingreso propio más pronto, con un campo de trabajo más general."
-       }
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué área te da más curiosidad hoy?",
+       "tipo": "pregunta",
+       "pregunta": "Antes de recetarle cualquier medicina a un paciente nuevo, ¿qué pregunta no puede faltar?",
        "opciones": [
-        "Niños",
-        "Cirugía",
-        "Mente y cerebro",
-        "Prevención y comunidad",
-        "Todavía no sé"
-       ]
+        "Si es alérgico a algo",
+        "A qué se dedica",
+        "Si tiene seguro"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "clave",
-       "texto": "Al titularte eliges otra vez."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "u6",
-   "lecciones": [
-    {
-     "id": "6.1",
-     "titulo": "Lo que sentiste",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Antes de ver tus respuestas: ¿cómo te fue con Medicina?",
+       "tipo": "pregunta",
+       "pregunta": "Un joven tiene dolor de panza. Puede ser una apendicitis o una infección leve del estómago. ¿Qué descartas primero?",
        "opciones": [
-        "Me gustó más de lo que pensaba",
-        "Más o menos como esperaba",
-        "Me gustó menos de lo que pensaba"
-       ]
+        "La infección, porque es más común",
+        "La apendicitis, porque es más peligrosa",
+        "Ninguna"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "resumen"
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "Viendo tus respuestas, ¿qué pesó más?",
+       "tipo": "pregunta",
+       "pregunta": "Un niño de 15 kg necesita Rumbocilina a 10 mg por kg, y el jarabe trae 100 mg en 5 ml. ¿Cuántos mililitros le das?",
        "opciones": [
-        "Lo que sentí al probarla",
-        "Lo que supe de la realidad",
-        "El camino para llegar",
-        "El futuro que ofrece"
-       ]
+        "7.5 ml",
+        "15 ml",
+        "5 ml"
+       ],
+       "correcta": 0,
+       "formula": "15 × 10 = 150 mg ;; {150|100} × 5 = 7.5 ml"
       },
       {
-       "tipo": "clave",
-       "texto": "Lo que sentiste al probarla vale más que lo que imaginabas."
-      },
-      {
-       "tipo": "interes",
-       "pregunta": "¿Te ves estudiando Medicina?"
-      }
-     ]
-    },
-    {
-     "id": "6.2",
-     "titulo": "Tu veredicto",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Si mañana tuvieras que elegir carrera, ¿Medicina estaría entre tus opciones?",
+       "tipo": "pregunta",
+       "pregunta": "Un paciente tiene el hígado dañado y necesita una medicina que se elimina por el hígado.",
        "opciones": [
-        "Sí, entre las primeras",
-        "Sí, pero no arriba",
-        "No creo",
-        "No lo sé"
-       ]
+        "Le das la dosis normal",
+        "Se ajusta la dosis",
+        "Le das el doble"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "comparar"
+       "tipo": "pregunta",
+       "pregunta": "Llegan a urgencias un hombre que platica normal con una herida que sangra poco y una mujer inconsciente que ronca fuerte. ¿A quién atiendes primero?",
+       "opciones": [
+        "A la mujer",
+        "Al hombre, porque llegó primero",
+        "A los dos al mismo tiempo sin orden"
+       ],
+       "correcta": 0,
+       "explicacion": "Su vía aérea está tapada, y eso va primero."
       },
       {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Qué te ayudaría más a decidir?",
-       "a": {
-        "texto": "Hablar con alguien que la estudia",
-        "dice": "Busca a un estudiante o a un médico cerca de ti y hazle tus preguntas. Una plática aclara más que diez videos."
-       },
-       "b": {
-        "texto": "Probar otra carrera y comparar",
-        "dice": "Explora otra de tu mapa. Comparar dos caminos reales aclara más que pensar en uno solo."
-       }
+       "tipo": "pregunta",
+       "pregunta": "En una colonia, varias familias tienen diarrea, y todas compran agua de la misma pipa.",
+       "opciones": [
+        "Es casualidad",
+        "Es un brote y la pipa es la sospechosa",
+        "Es contagio por el aire"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "veredicto"
-      },
-      {
-       "tipo": "clave",
-       "texto": "Decidir «en duda» también es avanzar."
+       "tipo": "pregunta",
+       "pregunta": "Un hombre de 30 años, consciente y bien informado, no acepta una cirugía que le recomiendas.",
+       "opciones": [
+        "Lo operas igual",
+        "Respetas su decisión, le explicas los riesgos y lo anotas en su expediente",
+        "Dejas de atenderlo"
+       ],
+       "correcta": 1
       }
      ]
     }

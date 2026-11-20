@@ -572,3 +572,23 @@ img.tw-img.tw-back{opacity:.62;filter:saturate(.7)}
 .tw-prop{transform-box:fill-box;transform-origin:center;animation:twProp .18s linear infinite}
 @keyframes twProp{50%{transform:scaleY(.15)}}
 @media (prefers-reduced-motion:reduce){.tw-prop{animation:none}}
+/* ---------- formato 2: fórmulas, tarjeta de entrada y examen ---------- */
+.lc-fml{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:6px 22px;margin:4px 0 14px;padding:14px 12px;border-radius:16px;background:var(--c-bg,#F6F1E6);font:600 18px/1.3 "Cambria Math","STIX Two Math","Times New Roman",Georgia,serif;color:var(--c-ink,#14323F);overflow-x:auto}
+.lc-fg{display:inline-flex;align-items:center;flex-wrap:wrap;justify-content:center;white-space:pre-wrap;text-align:center}
+.lc-frac{display:inline-flex;flex-direction:column;align-items:stretch;vertical-align:middle;margin:0 5px;text-align:center}
+.lc-frac>span{padding:1px 4px;line-height:1.25}
+.lc-frac>span:first-child{border-bottom:1.6px solid currentColor}
+.lc-fb .lc-fml{margin:10px 0 2px;background:rgba(255,255,255,.55)}
+.lc-info .lc-fml+p{margin-top:2px}
+.lc-fgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:6px 0 12px}
+.lc-ft{position:relative;padding:12px 12px 11px;border-radius:16px;background:var(--c-bg,#F6F1E6);display:flex;flex-direction:column;gap:3px;min-width:0}
+.lc-ft b{font:900 21px/1.1 var(--ff);color:var(--c-ink,#14323F);overflow-wrap:anywhere}
+.lc-ft.is-long b{font-size:16.5px}
+.lc-ft span{font:600 12.5px/1.3 var(--ff);color:var(--c-ink-3,#5A6A74)}
+.lc-ft .lc-conf{position:static;align-self:flex-start;margin-bottom:2px}
+.lc-fsrc{display:block;margin:0 0 12px;font-size:12px;line-height:1.45;color:var(--c-ink-3,#5A6A74)}
+.lc-fsrc a{color:inherit}
+.lc-score{text-align:center}
+.lc-score b{font-size:42px}
+@media (max-width:370px){.lc-fml{font-size:16px;gap:6px 14px}.lc-ft b{font-size:18px}}
+.lc-fl{font:800 11.5px/1.2 var(--ff);font-style:normal;letter-spacing:.04em;text-transform:uppercase;color:var(--c-ink-3,#5A6A74)}

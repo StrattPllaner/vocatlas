@@ -15,17 +15,20 @@ function carPrefetch(){(S.pick||[]).forEach(function(id,i){if(carCat(id)&&!CARDS
 /* ---------- avance por lección (lo usa toda la app) ---------- */
 function carCat(id){return (CAT.car||{})[id]||null}
 function carLes(id,lid){var c=carCat(id);if(!c)return null;for(var u=0;u<c.unidades.length;u++)for(var l=0;l<c.unidades[u].lecciones.length;l++)if(c.unidades[u].lecciones[l].id===lid)return c.unidades[u].lecciones[l];return null}
+/* la estructura de una carrera: la común (CAT.est) o la suya propia (formato 2: entrada, 7 lecciones y examen) */
+function estOf(id){var c=carCat(id);if(!c||c.formato!==2)return CAT.est;if(!c._est)c._est={unidades:c.unidades.map(function(u){return {titulo:u.titulo,sub:u.sub,lecciones:u.lecciones.map(function(l){return [l.id,l.titulo,l.examen?"final":l.id==="0"?"brujula":"sello"]})}})};return c._est}
+function isV2(id){var c=carCat(id);return !!(c&&c.formato===2)}
 var LEGACY={"1.1":1,"2.1":1,"6.2":1};
 function lessHas(id,lid){return carCat(id)?!!carLes(id,lid):!!LEGACY[lid]}
 function lessDone(id,lid){
  if(S.les&&S.les[id]&&S.les[id][lid])return true;
  if(carCat(id))return false;
  return lid==="1.1"?!!(S.st[id]&&S.st[id].hace):lid==="2.1"?!!S.res[id]:lid==="6.2"?S.rate[id]!=null:false}
-function lessList(id){var o=[];CAT.est.unidades.forEach(function(u,ui){u.lecciones.forEach(function(l){if(lessHas(id,l[0])){var cl=carLes(id,l[0]);o.push([l[0],cl?cl.titulo:(l[0]==="1.1"?"Qué haces":l[0]==="2.1"?"Mini reto":l[1]),ui])}})});return o}
+function lessList(id){var o=[];estOf(id).unidades.forEach(function(u,ui){u.lecciones.forEach(function(l){if(lessHas(id,l[0])){var cl=carLes(id,l[0]);o.push([l[0],cl?cl.titulo:(l[0]==="1.1"?"Qué haces":l[0]==="2.1"?"Mini reto":l[1]),ui])}})});return o}
 function progOf(id){var L=lessList(id),d=0;L.forEach(function(l){if(lessDone(id,l[0]))d++});return {done:d,total:L.length,p:L.length?d/L.length:0}}
 function nextLesson(id){var L=lessList(id);for(var i=0;i<L.length;i++)if(!lessDone(id,L[i][0]))return L[i][1];return null}
-function unitFull(id,ui){return CAT.est.unidades[ui].lecciones.every(function(l){return lessHas(id,l[0])})}
-function unitDone(id,ui){return unitFull(id,ui)&&CAT.est.unidades[ui].lecciones.every(function(l){return lessDone(id,l[0])})}
+function unitFull(id,ui){return estOf(id).unidades[ui].lecciones.every(function(l){return lessHas(id,l[0])})}
+function unitDone(id,ui){return unitFull(id,ui)&&estOf(id).unidades[ui].lecciones.every(function(l){return lessDone(id,l[0])})}
 function markLesson(id,lid){S.les=S.les||{};S.les[id]=S.les[id]||{};S.les[id][lid]=1;
  /* lo que el resto de la app ya leía: «qué haces», la reacción al reto y la calificación */
  if(lid==="1.1"){S.st[id]=S.st[id]||{};S.st[id].hace=1}
@@ -62,7 +65,7 @@ var PATH=(function(){
   cofre:'<path d="M4 10h16v9H4zM4 10l2-5h12l2 5M12 10v4"/>',
   check:'<path d="M5 12.5l4.5 4.5L19 7.5"/>',lock:'<rect x="5" y="11" width="14" height="10" rx="2.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/>'
  };
- var LI={"1.1":"libro","1.2":"gente","1.3":"mito","1.4":"par","2.1":"reto","2.2":"reto","2.3":"reto","2.4":"reto","3.1":"dia","3.2":"dificil","3.3":"testi","3.4":"brujula","4.1":"etapas","4.2":"puerta","4.3":"donde","5.1":"lugar","5.2":"gana","5.3":"chip","5.4":"flecha","6.1":"repaso","6.2":"veredicto"};
+ var LI={"1.1":"libro","1.2":"gente","1.3":"mito","1.4":"par","2.1":"reto","2.2":"reto","2.3":"reto","2.4":"reto","3.1":"dia","3.2":"dificil","3.3":"testi","3.4":"brujula","4.1":"etapas","4.2":"puerta","4.3":"donde","5.1":"lugar","5.2":"gana","5.3":"chip","5.4":"flecha","6.1":"repaso","6.2":"veredicto","0":"brujula","ex":"veredicto"};
  /* forma de cada parada: la misma silueta dos veces (la de abajo, más oscura, le da volumen) */
  var SH={
   sello:'<circle cx="40" cy="38" r="33"/>',
@@ -80,7 +83,7 @@ var PATH=(function(){
 
  /* la ruta de la carrera: unidades, paradas y su estado */
  function catalog(id){
-  var U=CAT.est.unidades.map(function(u,ui){
+  var U=estOf(id).unidades.map(function(u,ui){
    var items=u.lecciones.map(function(l,li){var cl=carLes(id,l[0]);return {lid:l[0],n:cl?cl.titulo:(carCat(id)?l[1]:(l[0]==="1.1"?"Qué haces":l[0]==="2.1"?"Mini reto":l[1])),parada:l[2],les:cl,u:ui,li:li,min:cl?cl.minutos:null}});
    if(unitFull(id,ui))items.push({chest:ui,n:"Cofre de la unidad",u:ui,li:items.length,parada:"cofre"});
    return {t:u.titulo,sub:u.sub,items:items,n:u.lecciones.length}});
@@ -103,7 +106,7 @@ var PATH=(function(){
  /* ---------- el temario de la carrera ----------
     Cada unidad es una sección con su número, de qué trata y su avance; debajo, sus lecciones con título, tipo y minutos.
     Rumbo se asoma en la que sigue. Al final, el edificio de la carrera como meta. */
- var KIND={chat:["Plática con Rumbo","chat"],reto:["Reto","bolt"],voltear:["Tarjetas","layers"],testi:["Historia real","quote"],dato:["Datos reales","chart"],lee:["Lectura y preguntas","book"],sobre:["Sobre ti","user"],juega:["Preguntas","check"]};
+ var KIND={chat:["Plática con Rumbo","chat"],reto:["Reto","bolt"],voltear:["Tarjetas","layers"],testi:["Historia real","quote"],dato:["Datos reales","chart"],lee:["Lectura y preguntas","book"],sobre:["Sobre ti","user"],juega:["Preguntas","check"],examen:["Examen · apruebas con 7","check"]};
  function build(id){
   var c=byId[id],p=$("#plaza"),dark=!!(DMQ&&DMQ.matches),cat=catalog(id),pg=progOf(id);st.id=id;carCards(id,function(){});st.items=cat.all;st.units=cat.units;
   if(typeof artDefs==="function")artDefs();
@@ -226,7 +229,8 @@ var PATH=(function(){
   if(it.les){var u=st.units[it.u],last=u.items.filter(function(x){return x.lid}).pop()===it;
    carCards(id,function(full){var les=full&&carFind(full,it.lid);
     if(!les){toast("No se pudo abrir la lección. Revisa tu conexión e intenta otra vez.");return}
-   LEC.open(id,les,{unit:it.u,unitName:u.t,unitEnd:last&&unitFull(id,it.u)&&!(S.auto&&S.auto[id]&&S.auto[id][it.u]),resume:true},fin,function(){refresh(false)})});return}
+   var v2=isV2(id)?{full:full,order:lessList(id).map(function(x){return x[0]})}:null;
+   LEC.open(id,les,{unit:it.u,unitName:u.t,unitEnd:!v2&&last&&unitFull(id,it.u)&&!(S.auto&&S.auto[id]&&S.auto[id][it.u]),resume:!v2,v2:v2},fin,function(){refresh(false)})});return}
   /* carreras sin catálogo todavía: lo que ya existía */
   if(it.lid==="2.1"){openTest(id);return}
   if(it.lid==="1.1"){LEC.open(id,{id:"1.1",titulo:"Qué haces",tarjetas:[{tipo:"escena",texto:c.desc},{tipo:"interes"}]},{},fin);return}

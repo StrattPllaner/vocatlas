@@ -96,7 +96,7 @@ var TORRE=(function(I){
  function build(o){
   var id=o.id,host=o.host,A=[];
   o.units.forEach(function(u,ui){var an=angles(ui,u.items.length);u.items.forEach(function(it,j){it.a=an[j];A.push(it)})});
-  var a0=-30,a1=6*360+20,xs=R*1.414*(1+PF)+40,ytop=-(zAt(a1)+150),ybot=150,Wd=xs*2,Hd=ybot-ytop;
+  var nf=Math.max(1,Math.min(6,o.units.length)),a0=-30,a1=nf*360+20,xs=R*1.414*(1+PF)+40,ytop=-(zAt(a1)+150),ybot=150,Wd=xs*2,Hd=ybot-ytop;
   var vw=host.clientWidth||360,k=Math.max(.92,Math.min(1.6,(vw-12)/Wd)),Wp=Wd*k,Hp=Hd*k,padT=150,padB=40;
   var toPx=function(p){if(p.length)p={x:p[0],y:p[1]};return {x:(p.x+xs)*k,y:(p.y-ytop)*k}};
   var C=CACHE[id]||(CACHE[id]=[0,1,2,3,4,5].map(function(f){var col=symSVG(id,f);return {c:col,s:I.sketchAll(col)}}));
@@ -107,7 +107,7 @@ var TORRE=(function(I){
    '<div class="tw-isle" style="left:'+f1(ic.x-iw/2)+'px;top:'+f1(ic.y-iw*.62)+'px;width:'+f1(iw)+'px;height:'+f1(iw)+'px">'+(typeof artSVG==="function"?artSVG(id,o.pg.p):"")+'</div>'+
    '<svg class="tw-l tw-pb" viewBox="'+(-xs)+' '+ytop+' '+Wd+' '+Hd+'" aria-hidden="true"><path class="tw-rib is-rest"/><path class="tw-rib is-done"/></svg>';
   var sw=230*k,sh=230*k;
-  for(var f=0;f<6;f++){var u=o.units[f]||{done:0},L2=u.items?u.items.filter(function(it){return it.lid}):[],p=L2.length?u.done/L2.length:0,c=toPx(P(0,0,symZ(f)));
+  for(var f=0;f<nf;f++){var u=o.units[f]||{done:0},L2=u.items?u.items.filter(function(it){return it.lid}):[],p=L2.length?u.done/L2.length:0,c=toPx(P(0,0,symZ(f)));
    h+='<div class="tw-sym tw-floor'+(p>=1?" is-done":"")+'" data-f="'+f+'" style="left:'+f1(c.x-sw/2)+'px;top:'+f1(c.y-sh*.72)+'px;width:'+f1(sw)+'px;height:'+f1(sh)+'px;animation-delay:-'+(f*.9)+'s">'+
     '<svg viewBox="-115 -165 230 230" aria-hidden="true"><defs>'+I.skDefs()+'</defs><g class="tw-sk">'+C[f].s+'</g><g class="tw-col" style="opacity:'+(p>=1?1:(.15+p*.7).toFixed(2))+'">'+C[f].c+'</g></svg></div>';
    h+='<span class="tw-ul s-'+(u.state||"lock")+'" data-u="'+f+'">'+(f+1)+' · '+esc(u.t||"")+'</span>'}

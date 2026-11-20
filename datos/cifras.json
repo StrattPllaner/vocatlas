@@ -2665,5 +2665,22 @@
   "consultado": null,
   "estado": "pendiente",
   "fuente_sugerida": "la página de colegiaturas de cada universidad que la ofrezca"
+ },
+ "medicina.costo_tec": {
+  "valor": "2,666,755",
+  "unidad": "pesos por toda la carrera en el Tec (13 semestres)",
+  "nota": "Cálculo del IMCO con la colegiatura del Tec de 205,135 pesos por semestre.",
+  "fuente": "Expansión, con datos del IMCO (agosto de 2026)",
+  "url": "https://expansion.mx/carrera/2026/08/24/carrera-cuesta-2-millones-tardas-ocho-anos-recuperar",
+  "consultado": "2026-11-20",
+  "estado": "verificado"
+ },
+ "medicina.enarm": {
+  "valor": "15,779 de 44,911",
+  "unidad": "aspirantes consiguieron lugar para especializarse (ENARM 2025)",
+  "fuente": "Tecnológico de Monterrey, Conecta, con cifras del ENARM 2025",
+  "url": "https://conecta.tec.mx/en/news/national/health/tec-medical-graduates-highest-acceptance-rate-residency-programs",
+  "consultado": "2026-11-20",
+  "estado": "verificado"
  }
 }

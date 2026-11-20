@@ -1,224 +1,174 @@
 {
  "id": "negocios",
- "version": 1,
+ "version": 2,
+ "formato": 2,
  "estado": "completo",
- "generado": true,
- "revision": "Armada automáticamente con la base de carreras de Morelos y CDMX (2026-11-17). Falta que la revise alguien de la carrera.",
+ "revision": "Pendiente de revisión por un profesionista de la carrera. Generado con datos/importar_lecciones.py desde datos/fuentes/lecciones/negocios.lec; no se edita a mano.",
  "unidades": [
   {
    "id": "u1",
+   "titulo": "Tu cafetería",
+   "sub": "Las funciones y las cuentas",
    "lecciones": [
     {
-     "id": "1.1",
-     "titulo": "Qué es y qué hace",
-     "minutos": 3,
+     "id": "0",
+     "titulo": "Conócela",
+     "minutos": 1,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "¿Qué es Negocios?",
-       "texto": "Organización y dirección de recursos, personas y procesos. Según su orientación, aborda estrategia, ventas, operaciones, talento, innovación, mercadotecnia o gestión de organizaciones.",
-       "puntos": [
-        "Coordina equipos y procesos: hace presupuestos, revisa indicadores, organiza compras o personal, presenta reportes y toma decisiones para que el negocio funcione y crezca."
+       "tipo": "ficha",
+       "texto": "Un administrador hace que una empresa funcione y gane dinero: decide qué hacer, organiza a la gente, cuida el dinero y revisa que todo salga como se planeó. Puede trabajar en cualquier empresa, desde una tiendita hasta una multinacional, o abrir su propio negocio. La carrera dura alrededor de 4 años.",
+       "cifras": [
+        "negocios.ingreso",
+        "negocios.duracion",
+        "negocios.costo_publica",
+        "negocios.costo_privada"
        ]
       },
       {
-       "tipo": "decision",
-       "pregunta": "Por lo que leíste, ¿qué hace alguien de Negocios?",
-       "opciones": [
-        {
-         "texto": "Coordina equipos y procesos: hace presupuestos, revisa indicadores, organiza compras o personal, presenta reportes y toma decisiones para que el negocio funcione y crezca.",
-         "consecuencia": "Exacto: eso es parte del día a día en Negocios.",
-         "mejor": true
-        },
-        {
-         "texto": "Consulta pacientes, interroga y explora, pide estudios, interpreta resultados, receta y da seguimiento.",
-         "consecuencia": "Eso lo hace alguien de Medicina."
-        },
-        {
-         "texto": "Crea personajes, escenarios y movimiento para series, videojuegos, publicidad o redes",
-         "consecuencia": "Eso lo hace alguien de Animación."
-        }
-       ]
-      },
-      {
-       "tipo": "completar",
-       "frase": "Negocios es una carrera del área de ___.",
-       "opciones": [
-        "Negocios y sociedad",
-        "Tecnología y ciencias",
-        "Ingenierías"
-       ],
-       "correcta": 0,
-       "revelacion": "Está en Negocios y sociedad. Se parece a Contaduría Pública, Mercadotecnia, Negocios y Comercio Internacional."
-      },
-      {
-       "tipo": "clave",
-       "texto": "Antes de elegir, entiende qué harías cada día, no solo el nombre."
-      },
-      {
-       "tipo": "interes"
+       "tipo": "escena",
+       "texto": "Hoy eres el gerente de una cafetería. Vamos a ver cómo la manejas."
       }
      ]
     },
     {
-     "id": "1.2",
-     "titulo": "Dónde trabajas",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Dónde trabaja alguien de Negocios",
-       "texto": "Instituciones públicas y privadas, organizaciones sociales, empresas, centros de investigación, consultoría, docencia y proyectos independientes, según la especialización y experiencia."
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Alguien de Negocios solo puede trabajar en un tipo de lugar.",
-       "respuesta": false,
-       "revelacion": "Puede trabajar en varios: instituciones públicas, privadas, organizaciones sociales."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Dónde te ves trabajando?",
-       "opciones": [
-        "Instituciones públicas",
-        "Privadas",
-        "Organizaciones sociales",
-        "Empresas"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Una carrera abre varias puertas, no una sola."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "1.3",
-     "titulo": "Pregúntale a Rumbo",
+     "id": "1",
+     "titulo": "Las cuatro funciones del administrador",
      "minutos": 4,
      "tarjetas": [
       {
-       "tipo": "chat",
-       "subtitulo": "Te cuenta cómo es trabajar en Negocios",
-       "intro": [
-        "¡Hola! Junté lo que se sabe de Negocios.",
-        "Pregúntame lo que quieras."
-       ],
-       "temas": [
+       "tipo": "info",
+       "titulo": "Las cuatro funciones del administrador",
+       "partes": [
         {
-         "q": "¿Qué haces en un día normal?",
-         "a": [
-          "Coordina equipos y procesos: hace presupuestos, revisa indicadores, organiza compras o personal, presenta reportes y toma decisiones para que el negocio funcione y crezca."
-         ]
+         "t": "Todo administrador hace cuatro cosas, siempre en ciclo. Planear es decidir a dónde quieres llegar y cómo. Organizar es repartir tareas, personas y recursos. Dirigir es guiar y motivar al equipo. Controlar es medir los resultados y corregir lo que no salió bien."
         },
         {
-         "q": "¿Qué es lo más difícil?",
-         "a": [
-          "Se considera una carrera de dificultad media.",
-          "Contabilidad, Matemáticas financieras y Estadística son lo más pesado",
-          "El resto es lectura, proyectos y trabajo en equipo."
-         ]
-        },
-        {
-         "q": "¿Hay trabajo?",
-         "a": [
-          "Menos de la mitad trabaja en algo de su carrera; muchos se mueven a otras áreas. Es un promedio nacional del IMCO.",
-          "Sueldo cerca del promedio.",
-          "Destacan quienes se especializan (finanzas, datos, operaciones)."
-         ]
-        },
-        {
-         "q": "¿Qué necesito para ejercer?",
-         "a": [
-          "No requiere cédula para la mayoría de puestos."
-         ]
+         "t": "Un buen objetivo no dice \"vender más\", sino algo medible y con fecha, por ejemplo \"vender 20% más café en los próximos tres meses\". Si no se puede medir, no se puede controlar."
         }
-       ],
-       "minimo": 2,
-       "auto": true
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Negocios se considera una carrera de dificultad muy alta.",
-       "respuesta": false,
-       "revelacion": "Se considera de dificultad media. Contabilidad, Matemáticas financieras y Estadística son lo más pesado"
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué te llamó más la atención?",
-       "opciones": [
-        "¿Qué haces en un día normal?",
-        "¿Qué es lo más difícil?",
-        "¿Hay trabajo?",
-        "¿Qué necesito para ejercer?"
        ]
       },
       {
-       "tipo": "clave",
-       "texto": "Preguntar a quien ya sabe ahorra muchos errores."
+       "tipo": "pregunta",
+       "pregunta": "Revisas las ventas del mes, ves que bajaron y cambias el horario de los empleados para corregirlo. ¿Qué función hiciste?",
+       "opciones": [
+        "Planear",
+        "Controlar",
+        "Dirigir"
+       ],
+       "correcta": 1,
+       "explicacion": "Mediste el resultado y corregiste."
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál es el mejor objetivo para la cafetería?",
+       "opciones": [
+        "\"Que nos vaya bien este año\"",
+        "\"Aumentar las ventas de pan 15% antes de diciembre\"",
+        "\"Vender mucho más\""
+       ],
+       "correcta": 1,
+       "explicacion": "Es el único que se puede medir y tiene fecha."
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Decides que Ana atiende la caja, Luis prepara bebidas y Sofía hace inventario. ¿Qué función es?",
+       "opciones": [
+        "Organizar",
+        "Controlar",
+        "Planear"
+       ],
+       "correcta": 0,
+       "explicacion": "Repartiste tareas y personas."
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Tu meta era vender 1,000 cafés en el mes y vendiste 700, pero nadie lo revisó hasta fin de año. ¿Qué función falló?",
+       "opciones": [
+        "Dirigir",
+        "Controlar",
+        "Organizar"
+       ],
+       "correcta": 1,
+       "explicacion": "Si nadie mide a tiempo, no hay manera de corregir."
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
-     "id": "1.4",
-     "titulo": "Carreras parecidas",
-     "minutos": 3,
+     "id": "2",
+     "titulo": "¿El negocio gana o pierde?",
+     "minutos": 4,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Carreras cercanas a Negocios",
-       "puntos": [
-        "Contaduría Pública: registro, análisis y presentación de información financiera, impuestos, auditoría.",
-        "Mercadotecnia: organización y dirección de recursos.",
-        "Negocios y Comercio Internacional: organización y dirección de recursos.",
-        "Finanzas: análisis cuantitativo de decisiones económicas."
+       "titulo": "¿El negocio gana o pierde?",
+       "partes": [
+        {
+         "t": "La utilidad es lo que queda después de pagar todo:"
+        },
+        {
+         "f": "utilidad = ingresos − costos"
+        },
+        {
+         "t": "Hay dos tipos de costos. Los fijos se pagan aunque no vendas nada, como la renta o los sueldos. Los variables suben con cada venta, como el café, el vaso y la leche de cada bebida."
+        },
+        {
+         "t": "El punto de equilibrio es cuántas unidades necesitas vender para no ganar ni perder:"
+        },
+        {
+         "f": "punto de equilibrio = {costos fijos|precio − costo variable}"
+        }
        ]
       },
       {
-       "tipo": "emparejar",
-       "pregunta": "Une cada carrera con lo que estudia.",
-       "pares": [
-        [
-         "Contaduría Pública",
-         "Registro, análisis y presentación de información financiera, impuestos, auditoría"
-        ],
-        [
-         "Mercadotecnia",
-         "Organización y dirección de recursos"
-        ],
-        [
-         "Negocios y Comercio Internacional",
-         "Organización y dirección de recursos"
-        ],
-        [
-         "Finanzas",
-         "Análisis cuantitativo de decisiones económicas"
-        ]
-       ],
-       "revelacion": "Se cruzan en temas, pero cada una tiene su propio enfoque."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Cuál de estas te da curiosidad?",
+       "tipo": "pregunta",
+       "pregunta": "La cafetería vendió 80,000 pesos en el mes y gastó 65,000. ¿Cuál fue la utilidad?",
        "opciones": [
-        "Contaduría Pública",
-        "Mercadotecnia",
-        "Negocios y Comercio Internacional",
-        "Me quedo con Negocios"
-       ]
+        "145,000 pesos",
+        "15,000 pesos",
+        "65,000 pesos"
+       ],
+       "correcta": 1,
+       "formula": "80,000 − 65,000 = 15,000"
       },
       {
-       "tipo": "clave",
-       "texto": "Si dudas entre dos, compara lo que harías cada día."
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál de estos es un costo fijo?",
+       "opciones": [
+        "La renta del local",
+        "Los vasos de cada café",
+        "La leche de cada bebida"
+       ],
+       "correcta": 0,
+       "explicacion": "La renta se paga aunque no vendas nada."
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "Tus costos fijos son de 30,000 pesos al mes, cada café se vende en 50 pesos y cuesta 20 pesos hacerlo. ¿Cuántos cafés necesitas vender para no perder?",
+       "opciones": [
+        "600",
+        "1,500",
+        "1,000"
+       ],
+       "correcta": 2,
+       "formula": "{30,000|50 − 20} = {30,000|30} = 1,000"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Ya sabes que necesitas vender 1,000 cafés y solo vendes 800. ¿Qué te ayuda más a llegar al punto de equilibrio?",
+       "opciones": [
+        "Subir la renta",
+        "Bajar el costo variable o aumentar las ventas",
+        "Contratar a más gente sin aumentar las ventas"
+       ],
+       "correcta": 1,
+       "explicacion": "Las otras dos suben tus costos."
+      },
+      {
+       "tipo": "teves"
       }
      ]
     }
@@ -226,202 +176,120 @@
   },
   {
    "id": "u2",
+   "titulo": "Dinero y clientes",
+   "sub": "Flujo de efectivo y marketing",
    "lecciones": [
     {
-     "id": "2.1",
-     "titulo": "Mini reto",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Vas a vender galletas en tu escuela. ¿Qué haces antes de hornear?",
-       "opciones": [
-        "Preguntar a 20 compañeros qué quieren",
-        "Calcular cuánto me cuesta cada galleta",
-        "Hacer una muestra y regalarla"
-       ]
-      },
-      {
-       "tipo": "info",
-       "titulo": "Así lo piensa alguien de Negocios",
-       "texto": "Son las tres patas de emprender: validar, calcular y probar. Aquí se estudia tanto cómo fallar barato como cómo crecer."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Te gustó pensar en algo así?",
-       "escala": [
-        "Nada",
-        "Mucho"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Los retos de una carrera se parecen a lo que harías en su trabajo."
-      },
-      {
-       "tipo": "interes",
-       "pregunta": "¿Te ves resolviendo retos así?"
-      }
-     ]
-    },
-    {
-     "id": "2.2",
-     "titulo": "Lo que te piden",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Habilidades que usarás en Negocios",
-       "puntos": [
-        "Organización",
-        "Liderazgo y negociación",
-        "Comunicación",
-        "Números básicos"
-       ]
-      },
-      {
-       "tipo": "completar",
-       "pregunta": "Según lo que leíste, completa la frase.",
-       "frase": "Para Negocios es clave: ___.",
-       "opciones": [
-        "Organización",
-        "Matemáticas",
-        "Matemáticas y física muy sólidas"
-       ],
-       "correcta": 0,
-       "revelacion": "Es de las habilidades que más se usan en Negocios."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué tanto se te da esto: liderazgo y negociación?",
-       "escala": [
-        "Me cuesta",
-        "Se me da"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Las habilidades se entrenan; lo importante es que te guste usarlas."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "2.3",
-     "titulo": "Temas que vas a ver",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Temas que te deben gustar",
-       "puntos": [
-        "Negocios",
-        "Emprender",
-        "Dirigir equipos"
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "¿Cuál de estos temas es más de Negocios?",
-       "opciones": [
-        {
-         "texto": "Negocios",
-         "consecuencia": "Sí, es de sus temas centrales.",
-         "mejor": true
-        },
-        {
-         "texto": "Objetos y productos",
-         "consecuencia": "Ese es más de Diseño industrial."
-        },
-        {
-         "texto": "Aviones y espacio",
-         "consecuencia": "Ese es más de Aeroespacial."
-        }
-       ]
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Cuál de estos temas te gusta más?",
-       "opciones": [
-        "Negocios",
-        "Emprender",
-        "Dirigir equipos",
-        "Ninguno me late"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Si los temas te aburren, la carrera se hace muy larga."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "2.4",
-     "titulo": "Materias clave",
+     "id": "3",
+     "titulo": "Ganar no es lo mismo que tener dinero",
      "minutos": 4,
      "tarjetas": [
       {
-       "tipo": "voltear",
-       "pregunta": "¿Qué materias crees que llevas en cada etapa? Piénsalo y voltea.",
-       "cartas": [
+       "tipo": "info",
+       "titulo": "Ganar no es lo mismo que tener dinero",
+       "partes": [
         {
-         "frente": "Semestres 1-2",
-         "reverso": "Fundamentos de administración, Contabilidad, Matemáticas, Economía"
-        },
-        {
-         "frente": "Semestres 3-4",
-         "reverso": "Estadística, Costos, Mercadotecnia, Recursos humanos"
-        },
-        {
-         "frente": "Semestres 5-6",
-         "reverso": "Finanzas, Operaciones y logística, Planeación estratégica, Emprendimiento"
-        },
-        {
-         "frente": "Semestres 7 en adelante",
-         "reverso": "Proyecto empresarial, Prácticas profesionales"
+         "t": "Un negocio puede tener utilidad en el papel y aun así quedarse sin dinero. Eso pasa cuando vende a crédito y todavía no le pagan, o cuando gasta en inventario antes de venderlo. Al dinero que realmente entra y sale se le llama flujo de efectivo. Muchos negocios cierran no porque pierdan, sino porque se quedan sin efectivo para pagar renta o sueldos. Por eso se guarda una reserva y se cuida cuándo entra y cuándo sale el dinero."
         }
        ]
       },
       {
-       "tipo": "decision",
-       "pregunta": "¿Cuál de estas materias llevarías en Negocios?",
+       "tipo": "pregunta",
+       "pregunta": "La cafetería le vende 50,000 pesos de pasteles a una empresa, que pagará en 90 días. Mañana tienes que pagar sueldos y no hay dinero en la caja. ¿Qué problema tienes?",
        "opciones": [
+        "De flujo de efectivo",
+        "De utilidad",
+        "De marketing"
+       ],
+       "correcta": 0,
+       "explicacion": "La venta existe, pero el dinero todavía no llega."
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Para evitar ese problema en el futuro, ¿qué te conviene más?",
+       "opciones": [
+        "Dar más tiempo a los clientes para pagar",
+        "Negociar plazos de pago más cortos y guardar una reserva de efectivo",
+        "Comprar más inventario"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Hay una promoción de café en grano: si compras el de seis meses te dan 20% de descuento, pero te quedarías sin efectivo para la renta.",
+       "opciones": [
+        "Compras todo porque está barato",
+        "No compras todo, porque quedarte sin efectivo es más peligroso que perder el descuento",
+        "Pides que te regalen el café"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "teves"
+      }
+     ]
+    },
+    {
+     "id": "4",
+     "titulo": "Marketing",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "Marketing",
+       "partes": [
         {
-         "texto": "Fundamentos de administración",
-         "consecuencia": "Sí: es de las primeras materias de Negocios.",
-         "mejor": true
+         "t": "El marketing se organiza en cuatro decisiones, las 4P. Producto es qué vendes. Precio es cuánto cobras. Plaza es dónde y cómo llega el producto al cliente. Promoción es cómo te das a conocer."
         },
         {
-         "texto": "Teoría de las relaciones internacionales",
-         "consecuencia": "Esa es de Relaciones internacionales."
-        },
-        {
-         "texto": "Cálculo",
-         "consecuencia": "Esa es de Inteligencia artificial."
+         "t": "Antes de decidir las 4P hay que elegir a tu cliente meta, porque no le puedes vender a todo el mundo de la misma manera. Las 4P tienen que cuadrar con ese cliente. Un precio de lujo no funciona si tu cliente es un estudiante con poco dinero."
         }
        ]
       },
       {
-       "tipo": "reflexion",
-       "pregunta": "¿Cuál te da más curiosidad?",
+       "tipo": "pregunta",
+       "pregunta": "Tu cafetería está frente a una universidad y casi todos tus clientes son estudiantes. ¿Qué estrategia cuadra mejor?",
        "opciones": [
-        "Fundamentos de administración",
-        "Contabilidad",
-        "Matemáticas",
-        "Economía"
-       ]
+        "Café premium a 120 pesos con meseros de traje",
+        "Combos accesibles con wifi y enchufes para estudiar",
+        "Anunciarte en revistas de autos de lujo"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "clave",
-       "texto": "Las primeras materias son la base; muchas veces son las más pesadas."
+       "tipo": "pregunta",
+       "pregunta": "Abres un servicio de entrega a domicilio. ¿Qué P cambiaste?",
+       "opciones": [
+        "Plaza",
+        "Precio",
+        "Producto"
+       ],
+       "correcta": 0,
+       "explicacion": "Cambió la forma en que el producto llega al cliente."
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "Haces una campaña en TikTok con un descuento para la primera compra. ¿Qué P es?",
+       "opciones": [
+        "Producto",
+        "Promoción",
+        "Plaza"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Lanzas un frappé nuevo, pero casi nadie lo compra aunque lo anuncias mucho. Al preguntar, los clientes dicen que es muy dulce. ¿Qué P tienes que ajustar?",
+       "opciones": [
+        "Promoción",
+        "Producto",
+        "Plaza"
+       ],
+       "correcta": 1,
+       "explicacion": "La publicidad funcionó; lo que no gusta es el producto."
+      },
+      {
+       "tipo": "teves"
       }
      ]
     }
@@ -429,183 +297,168 @@
   },
   {
    "id": "u3",
+   "titulo": "Equipo y estrategia",
+   "sub": "Personas, operaciones y FODA",
    "lecciones": [
     {
-     "id": "3.1",
-     "titulo": "Un día real",
+     "id": "5",
+     "titulo": "Dirigir personas",
      "minutos": 4,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Un día de trabajo en Negocios",
-       "puntos": [
-        "Coordina equipos y procesos: hace presupuestos, revisa indicadores, organiza compras o personal, presenta reportes y toma decisiones para que el negocio funcione y crezca."
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "¿Cuál de estas cosas sí hace alguien de Negocios?",
-       "opciones": [
+       "titulo": "Dirigir personas",
+       "partes": [
         {
-         "texto": "Coordina equipos y procesos: hace presupuestos, revisa indicadores, organiza compras o personal, presenta reportes y toma decisiones para que el negocio funcione y crezca.",
-         "consecuencia": "Sí: es parte de su día.",
-         "mejor": true
-        },
-        {
-         "texto": "Según el área: en clínica escucha y acompaña pacientes en terapia",
-         "consecuencia": "Eso es más de Psicología."
-        },
-        {
-         "texto": "Diseña y mantiene instalaciones y redes eléctricas: subestaciones, plantas industriales, edificios, parques solares o eólicos.",
-         "consecuencia": "Eso es más de Ing. Eléctrica."
+         "t": "Las personas son lo más difícil y lo más importante de una empresa. Un buen líder delega: le da a cada quien tareas según lo que hace bien, en vez de hacerlo todo él. Las correcciones se dan en privado y con ejemplos concretos; los reconocimientos se pueden dar en público. Además, reemplazar a un empleado cuesta caro, porque hay que buscar a alguien, entrenarlo y esperar a que agarre ritmo. Por eso, si mucha gente renuncia, conviene investigar la causa."
         }
        ]
       },
       {
-       "tipo": "reflexion",
-       "pregunta": "¿Te ves haciendo esto todos los días?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
+       "tipo": "pregunta",
+       "pregunta": "Un barista se equivocó varias veces con los pedidos. ¿Cómo se lo dices?",
+       "opciones": [
+        "Lo regañas frente a los clientes para que aprenda",
+        "Hablas con él en privado, le das ejemplos concretos y acuerdan cómo mejorar",
+        "No le dices nada"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "clave",
-       "texto": "El día a día pesa más que el título."
+       "tipo": "pregunta",
+       "pregunta": "Tú haces caja, inventario, redes sociales y pedidos, y ya no te da el tiempo. Sofía es muy buena con redes.",
+       "opciones": [
+        "Sigues haciendo todo tú",
+        "Le delegas las redes a Sofía",
+        "Dejas de publicar"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "En seis meses renunciaron cinco de tus ocho empleados. ¿Qué haces primero?",
+       "opciones": [
+        "Contratas cinco más y sigues igual",
+        "Hablas con el equipo para averiguar por qué se van",
+        "Prohíbes las renuncias"
+       ],
+       "correcta": 1,
+       "explicacion": "Si no encuentras la causa, va a seguir pasando."
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Luis superó la meta de ventas del mes. ¿Qué haces?",
+       "opciones": [
+        "Lo reconoces frente al equipo",
+        "No dices nada, porque es su trabajo",
+        "Le subes la meta sin decirle nada"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
-     "id": "3.2",
-     "titulo": "Lo difícil",
+     "id": "6",
+     "titulo": "Operaciones",
      "minutos": 4,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Lo difícil de Negocios",
-       "texto": "Se considera de dificultad media.",
-       "puntos": [
-        "Contabilidad, Matemáticas financieras y Estadística son lo más pesado",
-        "El resto es lectura, proyectos y trabajo en equipo."
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "Según lo que leíste, ¿qué es lo que más cuesta en Negocios?",
-       "opciones": [
+       "titulo": "Operaciones",
+       "partes": [
         {
-         "texto": "Contabilidad, Matemáticas financieras y Estadística son lo más pesado",
-         "consecuencia": "Sí, es de lo que más cuesta en Negocios.",
-         "mejor": true
-        },
-        {
-         "texto": "Teorías de la comunicación e Investigación",
-         "consecuencia": "Eso es más de Comunicación."
-        },
-        {
-         "texto": "Mucha lectura y memoria de leyes",
-         "consecuencia": "Eso es más de Derecho."
+         "t": "Operaciones es hacer que el trabajo diario fluya. Un cuello de botella es el paso más lento de un proceso: todo el proceso va a la velocidad de ese paso, así que para mejorar se ataca primero ahí. El inventario tiene dos peligros: si te falta, pierdes ventas; si te sobra, se echa a perder y amarra dinero. Con productos que caducan se usa primero lo que llegó primero."
         }
        ]
       },
       {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué tanto te preocupa esto?",
-       "escala": [
-        "Mucho",
-        "Nada"
-       ]
+       "tipo": "pregunta",
+       "pregunta": "En la hora pico, la caja cobra rápido, pero solo hay una máquina de espresso y la fila se acumula ahí. ¿Dónde inviertes primero?",
+       "opciones": [
+        "En otra caja",
+        "En otra máquina de espresso",
+        "En más mesas"
+       ],
+       "correcta": 1,
+       "explicacion": "La máquina es el cuello de botella."
       },
       {
-       "tipo": "clave",
-       "texto": "Saber lo difícil desde antes te ayuda a prepararte."
+       "tipo": "pregunta",
+       "pregunta": "Tienes leche que llegó el lunes y leche que llegó el jueves. ¿Cuál usas primero?",
+       "opciones": [
+        "La del jueves, porque es más fresca",
+        "La del lunes, porque llegó primero y caduca antes",
+        "Da igual"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "Cada semana tiras 30 panes porque no se venden, y los domingos se te acaban antes del mediodía.",
+       "opciones": [
+        "Horneas lo mismo todos los días",
+        "Ajustas la producción: menos pan entre semana y más el domingo",
+        "Dejas de vender pan"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
-     "id": "3.3",
-     "titulo": "Historia real",
-     "minutos": 3,
+     "id": "7",
+     "titulo": "Estrategia",
+     "minutos": 4,
      "tarjetas": [
       {
-       "tipo": "reflexion",
-       "pregunta": "Si pudieras preguntarle algo a alguien que ya estudia Negocios, ¿qué sería?",
+       "tipo": "info",
+       "titulo": "Estrategia",
+       "partes": [
+        {
+         "t": "Para decidir hacia dónde va un negocio se usa el FODA. Fortalezas y debilidades son internas, cosas que dependen de ti. Oportunidades y amenazas son externas, cosas que pasan afuera y que no controlas. La ventaja competitiva es la razón por la que un cliente te elige a ti y no a otro, y tiene que ser difícil de copiar."
+        }
+       ]
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Abre un Starbucks a una cuadra de tu cafetería. En tu FODA, eso es:",
        "opciones": [
-        "¿Qué fue lo más difícil?",
-        "¿Qué te sorprendió?",
-        "¿Volverías a elegirla?",
-        "¿Cómo es un día normal?"
-       ]
+        "Una amenaza",
+        "Una debilidad",
+        "Una fortaleza"
+       ],
+       "correcta": 0,
+       "explicacion": "Es externo y te puede afectar."
       },
       {
-       "tipo": "testimonio",
-       "estado": "pendiente",
-       "perfil": "Estudiante de últimos semestres o egresado de Negocios"
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "Mientras llega esta historia, ¿a quién podrías preguntarle tú?",
+       "tipo": "pregunta",
+       "pregunta": "Tu equipo no sabe usar el sistema de cobro y eso hace lentas las filas. Eso es:",
        "opciones": [
-        "A un familiar o conocido que la estudió",
-        "A un estudiante de mi ciudad",
-        "A un maestro que la conozca",
-        "Todavía no conozco a nadie"
-       ]
+        "Una oportunidad",
+        "Una debilidad",
+        "Una amenaza"
+       ],
+       "correcta": 1,
+       "explicacion": "Es interno y te perjudica."
       },
       {
-       "tipo": "clave",
-       "texto": "Una persona real te cuenta lo que ningún folleto dice."
+       "tipo": "pregunta",
+       "pregunta": "Contra una cadena grande, ¿cuál ventaja es más difícil de copiar?",
+       "opciones": [
+        "Bajar el precio un peso",
+        "Un trato personal donde conoces a cada cliente por su nombre y su pedido",
+        "Poner wifi"
+       ],
+       "correcta": 1,
+       "explicacion": "El precio y el wifi se copian en un día."
       },
       {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "3.4",
-     "titulo": "¿Es para ti?",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Contesta con honestidad. Nadie más ve tus respuestas."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Me gusta organizar a otros y que las cosas salgan?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Me veo con mi propio negocio algún día?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Prefiero una carrera flexible a una muy especializada?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Si dijiste que sí a casi todo, vale la pena seguir explorándola."
-      },
-      {
-       "tipo": "interes"
+       "tipo": "teves"
       }
      ]
     }
@@ -613,449 +466,127 @@
   },
   {
    "id": "u4",
+   "titulo": "Examen final",
+   "sub": "10 preguntas · apruebas con 7",
    "lecciones": [
     {
-     "id": "4.1",
-     "titulo": "Cuánto dura y qué estudias",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Cada escuela arma su plan distinto, pero el orden general se parece. Vamos a verlo."
-      },
-      {
-       "tipo": "ordenar",
-       "pregunta": "Ordena lo que estudias, de lo primero a lo último.",
-       "pasos": [
-        "Fundamentos de administración, Contabilidad",
-        "Estadística, Costos",
-        "Finanzas, Operaciones y logística",
-        "Proyecto empresarial, Prácticas profesionales"
-       ],
-       "revelacion": "Primero las bases y al final lo más especializado y las prácticas."
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Cuántos años crees que pasan desde que entras hasta que te titulas?",
-       "min": 3,
-       "max": 10,
-       "paso": 1,
-       "unidad": "años",
-       "dato": "negocios.duracion"
-      },
-      {
-       "tipo": "clave",
-       "texto": "Revisa el mapa curricular de cada escuela: cambia de una a otra."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "4.2",
-     "titulo": "Cómo se entra",
-     "minutos": 4,
+     "id": "ex",
+     "titulo": "Examen final",
+     "minutos": 6,
+     "examen": true,
+     "aprobar": 7,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Cómo se entra en la región",
-       "puntos": [
-        "UNAM: Concurso de selección UNAM (120 reactivos) o pase reglamentado desde CCH/ENP",
-        "IPN: Examen de admisión IPN (140 preguntas, hasta 3 horas, incluye sección de inglés)",
-        "UAM: Examen de selección UAM (trimestral; dos procesos al año y procesos extraordinarios)",
-        "UAEM: EXANI-II de CENEVAL + curso propedéutico"
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "Según lo que leíste, ¿qué pide UNAM para entrar?",
-       "opciones": [
+       "titulo": "Examen final",
+       "partes": [
         {
-         "texto": "Concurso de selección UNAM (120 reactivos) o pase reglamentado desde CCH/ENP",
-         "consecuencia": "Exacto.",
-         "mejor": true
-        },
-        {
-         "texto": "Examen de admisión IPN (140 preguntas, hasta 3 horas, incluye sección de inglés)",
-         "consecuencia": "Eso lo pide IPN."
-        },
-        {
-         "texto": "Examen de selección UAM (trimestral; dos procesos al año y procesos extraordinarios)",
-         "consecuencia": "Eso lo pide UAM."
+         "t": "Son 10 casos nuevos que mezclan todas las lecciones. Apruebas con 7. Si no, lo repites y las que fallaste regresan con otras palabras."
         }
        ]
       },
       {
-       "tipo": "vf",
-       "afirmacion": "Todas las universidades usan el mismo examen.",
-       "respuesta": false,
-       "revelacion": "Cada una tiene el suyo: revisa la convocatoria de la que te interese."
-      },
-      {
-       "tipo": "clave",
-       "texto": "Conoce el examen de tu escuela desde antes."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "4.3",
-     "titulo": "Dónde, cuánto cuesta y becas",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "escuelas"
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Cuánto crees que cuesta un semestre en una universidad pública?",
-       "min": 0,
-       "max": 60000,
-       "paso": 1000,
-       "unidad": "pesos",
-       "dato": "negocios.costo_publica"
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Y un semestre en una universidad privada?",
-       "min": 0,
-       "max": 300000,
-       "paso": 5000,
-       "unidad": "pesos",
-       "dato": "negocios.costo_privada"
-      },
-      {
-       "tipo": "dato",
-       "titulo": "Becas para estudiar Negocios",
-       "dato": "negocios.becas"
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Una universidad cara garantiza un mejor empleo.",
-       "respuesta": false,
-       "revelacion": "Pesan más lo que aprendes, tus prácticas y tu esfuerzo."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué pesa más para ti al elegir escuela?",
+       "tipo": "pregunta",
+       "pregunta": "Antes de abrir una segunda sucursal, defines la meta, el presupuesto y la fecha de apertura. ¿Qué función es?",
        "opciones": [
-        "El costo",
-        "Que esté cerca de mi casa",
-        "El prestigio",
-        "Las prácticas que ofrece"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Además de la colegiatura, cuenta transporte y materiales."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "u5",
-   "lecciones": [
-    {
-     "id": "5.1",
-     "titulo": "Qué piden para trabajar",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Qué te piden para trabajar",
-       "puntos": [
-        "No requiere cédula para la mayoría de puestos.",
-        "Sueldo cerca del promedio.",
-        "Destacan quienes se especializan (finanzas, datos, operaciones)."
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "Según lo que leíste, ¿qué necesitas para ejercer Negocios?",
-       "opciones": [
-        {
-         "texto": "No requiere cédula para la mayoría de puestos.",
-         "consecuencia": "Exacto.",
-         "mejor": true
-        },
-        {
-         "texto": "Título y cédula profesional.",
-         "consecuencia": "Eso lo piden en Nutrición."
-        },
-        {
-         "texto": "No requiere cédula",
-         "consecuencia": "Eso lo piden en Ciencia de datos."
-        }
-       ]
-      },
-      {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Cómo te ves?",
-       "a": {
-        "texto": "En una institución o empresa",
-        "dice": "Más estabilidad y un equipo de quien aprender."
-       },
-       "b": {
-        "texto": "Por tu cuenta",
-        "dice": "Más libertad, pero tienes que conseguir clientes."
-       }
-      },
-      {
-       "tipo": "clave",
-       "texto": "Saber qué te piden te ahorra sorpresas al salir."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "5.2",
-     "titulo": "Sueldo y demanda",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Hablemos de dinero sin rodeos. Antes de ver cualquier cifra, apuesta: así recuerdas mejor el dato real."
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Cuánto crees que gana al mes, en promedio, un profesionista de Negocios en México?",
-       "min": 5000,
-       "max": 100000,
-       "paso": 1000,
-       "unidad": "pesos",
-       "dato": "negocios.ingreso"
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "De cada 100 egresados, ¿cuántos crees que trabajan en algo de su carrera?",
-       "min": 0,
-       "max": 100,
-       "paso": 5,
-       "unidad": "de cada 100",
-       "dato": "negocios.ocupacion_afin"
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Todos los egresados de Negocios ganan lo mismo.",
-       "respuesta": false,
-       "revelacion": "Cambia con la experiencia, el lugar, la especialidad y si trabajas por tu cuenta."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué tanto pesa el sueldo en tu decisión?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "El promedio orienta, pero tu camino puede ser distinto."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "5.3",
-     "titulo": "Cómo les va al salir",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "chat",
-       "subtitulo": "Te cuenta cómo les va al salir",
-       "intro": [
-        "Te cuento cómo les va a quienes estudian Negocios al salir."
+        "Planear",
+        "Controlar",
+        "Dirigir"
        ],
-       "temas": [
-        {
-         "q": "¿Cuántos trabajan en lo suyo?",
-         "a": [
-          "Menos de la mitad trabaja en algo de su carrera.",
-          "Es un promedio nacional del IMCO."
-         ]
-        },
-        {
-         "q": "¿Muchos hacen posgrado?",
-         "a": [
-          "Pocos hacen posgrado; la mayoría empieza a trabajar."
-         ]
-        },
-        {
-         "q": "¿Hay más hombres o mujeres?",
-         "a": [
-          "Hay más mujeres que hombres.",
-          "Eso no decide nada: cualquiera puede estudiarla."
-         ]
-        },
-        {
-         "q": "¿El trabajo tiene prestaciones?",
-         "a": [
-          "La mayoría tiene un trabajo formal, con prestaciones.",
-          "Las prestaciones son cosas como seguro médico y aguinaldo."
-         ]
-        }
+       "correcta": 0
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Una panadería vendió 120,000 pesos y tuvo costos de 135,000. ¿Cuál fue el resultado?",
+       "opciones": [
+        "Ganó 15,000 pesos",
+        "Perdió 15,000 pesos",
+        "Quedó en cero"
        ],
-       "minimo": 2
+       "correcta": 1,
+       "formula": "120,000 − 135,000 = −15,000"
       },
       {
-       "tipo": "vf",
-       "afirmacion": "La mayoría de quienes estudian Negocios trabaja en algo de su carrera.",
-       "respuesta": false,
-       "revelacion": "Menos de la mitad trabaja en algo de su carrera. Promedio nacional del IMCO."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué te importa más de tu futuro trabajo?",
+       "tipo": "pregunta",
+       "pregunta": "Una tienda de playeras tiene costos fijos de 40,000 pesos al mes, vende cada playera en 300 pesos y cada una le cuesta 100. ¿Cuántas debe vender para no perder?",
        "opciones": [
-        "Que tenga que ver con lo que estudié",
-        "Ganar bien",
-        "Tener prestaciones",
-        "Hacer algo que me guste"
-       ]
+        "133",
+        "400",
+        "200"
+       ],
+       "correcta": 2,
+       "formula": "{40,000|300 − 100} = {40,000|200} = 200"
       },
       {
-       "tipo": "clave",
-       "texto": "Pregunta cómo les va a quienes ya salieron."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "5.4",
-     "titulo": "Después de titularte",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Después de titularte",
-       "puntos": [
-        "Puedes especializarte con cursos, diplomados o una maestría.",
-        "También puedes trabajar desde el inicio y estudiar después.",
-        "Se combina bien con: Contaduría Pública, Mercadotecnia, Negocios y Comercio Internacional."
-       ]
-      },
-      {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Qué harías al terminar?",
-       "a": {
-        "texto": "Trabajar desde el inicio",
-        "dice": "Ganas experiencia y dinero; después decides si estudias más."
-       },
-       "b": {
-        "texto": "Seguir estudiando",
-        "dice": "Te especializas antes; tardas más en empezar a trabajar."
-       }
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Cómo te imaginas después de la carrera?",
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál es un costo variable para una pizzería?",
        "opciones": [
-        "Trabajando",
-        "En una maestría",
-        "Emprendiendo",
-        "No sé todavía"
-       ]
+        "La renta del local",
+        "El queso de cada pizza",
+        "El sueldo fijo del gerente"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "clave",
-       "texto": "Al titularte empieza otra parte del camino, no termina."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "u6",
-   "lecciones": [
-    {
-     "id": "6.1",
-     "titulo": "Lo que sentiste",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Antes de ver tus respuestas: ¿cómo te fue con Negocios?",
+       "tipo": "pregunta",
+       "pregunta": "Una empresa tuvo utilidad, pero no pudo pagar la nómina porque sus clientes le pagan a 120 días. ¿Qué problema tiene?",
        "opciones": [
-        "Me gustó más de lo que pensaba",
-        "Más o menos como esperaba",
-        "Me gustó menos de lo que pensaba"
-       ]
+        "De flujo de efectivo",
+        "De marketing",
+        "De inventario"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "resumen"
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "Viendo tus respuestas, ¿qué pesó más?",
+       "tipo": "pregunta",
+       "pregunta": "Una marca de ropa juvenil pone tiendas en plazas donde van jóvenes. ¿Qué P está decidiendo?",
        "opciones": [
-        "Lo que sentí al probarla",
-        "Lo que supe de la realidad",
-        "El camino para llegar",
-        "El futuro que ofrece"
-       ]
+        "Plaza",
+        "Promoción",
+        "Precio"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "clave",
-       "texto": "Lo que sentiste al probarla vale más que lo que imaginabas."
-      },
-      {
-       "tipo": "interes",
-       "pregunta": "¿Te ves estudiando Negocios?"
-      }
-     ]
-    },
-    {
-     "id": "6.2",
-     "titulo": "Tu veredicto",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Si mañana tuvieras que elegir carrera, ¿Negocios estaría entre tus opciones?",
+       "tipo": "pregunta",
+       "pregunta": "Una cajera llegó tarde tres veces esta semana. ¿Qué haces?",
        "opciones": [
-        "Sí, entre las primeras",
-        "Sí, pero no arriba",
-        "No creo",
-        "No lo sé"
-       ]
+        "La exhibes en el grupo de WhatsApp del equipo",
+        "Hablas con ella en privado con las fechas concretas y buscan una solución",
+        "La ignoras"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "comparar"
+       "tipo": "pregunta",
+       "pregunta": "En una lavandería las lavadoras terminan rápido, pero solo hay una secadora y se junta la ropa. ¿Qué mejoras primero?",
+       "opciones": [
+        "Compras otra lavadora",
+        "Compras otra secadora",
+        "Contratas otro cajero"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Qué te ayudaría más a decidir?",
-       "a": {
-        "texto": "Hablar con alguien que la estudia",
-        "dice": "Busca a un estudiante o egresado cerca de ti y hazle tus preguntas. Una plática aclara más que diez videos."
-       },
-       "b": {
-        "texto": "Probar otra carrera y comparar",
-        "dice": "Explora otra de tu mapa. Comparar dos caminos reales aclara más que pensar en uno solo."
-       }
+       "tipo": "pregunta",
+       "pregunta": "Sube el precio del café a nivel mundial. Para tu cafetería, en el FODA eso es:",
+       "opciones": [
+        "Una debilidad",
+        "Una amenaza",
+        "Una fortaleza"
+       ],
+       "correcta": 1,
+       "explicacion": "Es externo y te perjudica."
       },
       {
-       "tipo": "veredicto"
-      },
-      {
-       "tipo": "clave",
-       "texto": "Decidir «en duda» también es avanzar."
+       "tipo": "pregunta",
+       "pregunta": "Una papelería quiere competir contra una cadena gigante. ¿Qué ventaja es más difícil de copiar?",
+       "opciones": [
+        "Abrir 5 minutos antes",
+        "Dar asesoría personalizada en tareas y proyectos escolares",
+        "Tener el mismo precio"
+       ],
+       "correcta": 1
       }
      ]
     }

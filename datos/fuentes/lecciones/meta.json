@@ -1,0 +1,47 @@
+{
+ "_nota": "Datos de cada carrera con lecciones de formato 2 (explicación + preguntas de 3 opciones + examen). El texto de las lecciones está en <id>.lec; datos/importar_lecciones.py lo convierte en datos/carreras/<id>.json.",
+ "medicina": {
+  "entrada": "Medicina forma médicos generales que diagnostican y tratan enfermedades. En el Tec dura 13 semestres y en la UAEM de Morelos, que es pública, 12. Para especializarte presentas el ENARM, y solo una parte de los aspirantes consigue lugar.",
+  "cifras": ["medicina.ingreso", "medicina.costo_tec", "medicina.costo_publica", "medicina.enarm"],
+  "gancho": "Ahora vas a ver si piensas como médico.",
+  "unidades": [
+   ["El cuerpo", "Corazón y signos vitales", ["entrada", 1, 2]],
+   ["Pensar como médico", "Diagnóstico y medicinas", [3, 4]],
+   ["En la práctica", "Urgencias, comunidad y ética", [5, 6, 7]],
+   ["Examen final", "10 preguntas · apruebas con 7", ["examen"]]
+  ]
+ },
+ "derecho": {
+  "entrada": "Un abogado aplica las leyes para defender a personas y empresas, resolver conflictos y evitar problemas legales. La carrera dura entre 4 y 5 años y necesitas tu cédula profesional para ejercer.",
+  "cifras": ["derecho.ingreso", "derecho.duracion", "derecho.costo_publica", "derecho.costo_privada"],
+  "gancho": "Ahora vas a ver si piensas como abogado.",
+  "unidades": [
+   ["Las reglas", "Qué ley manda y contratos", ["entrada", 1, 2]],
+   ["Lo penal", "Delitos, defensa y detenciones", [3, 4]],
+   ["En la práctica", "Trabajo, amparo y ética", [5, 6, 7]],
+   ["Examen final", "10 preguntas · apruebas con 7", ["examen"]]
+  ]
+ },
+ "psicologia": {
+  "entrada": "Un psicólogo estudia cómo piensan, sienten y se comportan las personas, y las ayuda en clínicas, escuelas y empresas. La carrera dura entre 4 y 5 años. Para atender pacientes necesitas tu cédula, y muchos estudian una maestría.",
+  "cifras": ["psicologia.ingreso", "psicologia.duracion", "psicologia.costo_publica", "psicologia.costo_privada"],
+  "gancho": "Ahora vas a ver si piensas como psicólogo.",
+  "unidades": [
+   ["Mente y conducta", "El cerebro y cómo aprendemos", ["entrada", 1, 2]],
+   ["Conocer a las personas", "Desarrollo y evaluación", [3, 4]],
+   ["En la práctica", "Ansiedad, ética y empresas", [5, 6, 7]],
+   ["Examen final", "10 preguntas · apruebas con 7", ["examen"]]
+  ]
+ },
+ "negocios": {
+  "entrada": "Un administrador hace que una empresa funcione y gane dinero: decide qué hacer, organiza a la gente, cuida el dinero y revisa que todo salga como se planeó. Puede trabajar en cualquier empresa, desde una tiendita hasta una multinacional, o abrir su propio negocio. La carrera dura alrededor de 4 años.",
+  "cifras": ["negocios.ingreso", "negocios.duracion", "negocios.costo_publica", "negocios.costo_privada"],
+  "gancho": "Hoy eres el gerente de una cafetería. Vamos a ver cómo la manejas.",
+  "unidades": [
+   ["Tu cafetería", "Las funciones y las cuentas", ["entrada", 1, 2]],
+   ["Dinero y clientes", "Flujo de efectivo y marketing", [3, 4]],
+   ["Equipo y estrategia", "Personas, operaciones y FODA", [5, 6, 7]],
+   ["Examen final", "10 preguntas · apruebas con 7", ["examen"]]
+  ]
+ }
+}

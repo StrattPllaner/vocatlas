@@ -42,6 +42,29 @@ for k,c in cif.items():
             if c.get(f) in(None,""):err.append(f"{k}: falta {f}")
 for p in sorted(glob.glob(D+"/carreras/*.json")):
     c=json.load(open(p));cid=c["id"];ids=[l["id"] for u in c["unidades"] for l in u["lecciones"]]
+    if c.get("formato")==2:
+        # formato 2 (datos/importar_lecciones.py): entrada, lecciones con explicación + preguntas de 3 opciones, examen final
+        if ids[0]!="0" or ids[-1]!="ex":err.append(f"{cid}: debe empezar con la entrada (0) y terminar con el examen (ex)")
+        for u in c["unidades"]:
+            for l in u["lecciones"]:
+                w=f"{cid} {l['id']}";T=l["tarjetas"];tipos=[t["tipo"] for t in T]
+                for t in T:
+                    for k in t.get("cifras",[]):
+                        if k not in cif:err.append(f"{w}: la cifra {k} no existe en cifras.json")
+                    for q in [t]+([t["repaso"]] if t.get("repaso") else []):
+                        if t["tipo"]!="pregunta":continue
+                        if len(q.get("opciones",[]))!=3:err.append(f"{w}: una pregunta no tiene 3 opciones: «{q['pregunta'][:50]}»")
+                        if q.get("correcta") not in(0,1,2):err.append(f"{w}: pregunta sin respuesta correcta: «{q['pregunta'][:50]}»")
+                        if len(set(q.get("opciones",[])))!=len(q.get("opciones",[])):err.append(f"{w}: opciones repetidas: «{q['pregunta'][:50]}»")
+                if l["id"]=="0":continue
+                if tipos[0]!="info":err.append(f"{w}: debe empezar con la explicación")
+                n=tipos.count("pregunta")
+                if l.get("examen"):
+                    if n<l.get("aprobar",7):err.append(f"{w}: el examen tiene {n} preguntas y se aprueba con {l.get('aprobar')}")
+                else:
+                    if tipos[-1]!="teves":err.append(f"{w}: debe cerrar con «¿te ves resolviendo esto?»")
+                    if not 2<=n<=6:err.append(f"{w}: tiene {n} preguntas")
+        continue
     if c.get("estado")=="completo" and ids!=orden:err.append(f"{cid}: las lecciones no coinciden con la estructura ({len(ids)} de {len(orden)})")
     for u in c["unidades"]:
         for l in u["lecciones"]:

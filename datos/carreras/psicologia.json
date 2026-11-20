@@ -1,231 +1,143 @@
 {
  "id": "psicologia",
- "version": 1,
+ "version": 2,
+ "formato": 2,
  "estado": "completo",
- "generado": true,
- "revision": "Armada automáticamente con la base de carreras de Morelos y CDMX (2026-11-17). Falta que la revise alguien de la carrera.",
+ "revision": "Pendiente de revisión por un profesionista de la carrera. Generado con datos/importar_lecciones.py desde datos/fuentes/lecciones/psicologia.lec; no se edita a mano.",
  "unidades": [
   {
    "id": "u1",
+   "titulo": "Mente y conducta",
+   "sub": "El cerebro y cómo aprendemos",
    "lecciones": [
     {
-     "id": "1.1",
-     "titulo": "Qué es y qué hace",
-     "minutos": 3,
+     "id": "0",
+     "titulo": "Conócela",
+     "minutos": 1,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "¿Qué es Psicología?",
-       "texto": "Conducta, emociones, cognición y procesos mentales. En el enfoque clínico se estudian evaluación, diagnóstico psicológico e intervención; otras áreas trabajan en organizaciones, educación o investigación.",
-       "puntos": [
-        "Según el área: en clínica escucha y acompaña pacientes en terapia",
-        "En empresas recluta, aplica pruebas y mejora el clima laboral",
-        "En escuelas orienta alumnos"
+       "tipo": "ficha",
+       "texto": "Un psicólogo estudia cómo piensan, sienten y se comportan las personas, y las ayuda en clínicas, escuelas y empresas. La carrera dura entre 4 y 5 años. Para atender pacientes necesitas tu cédula, y muchos estudian una maestría.",
+       "cifras": [
+        "psicologia.ingreso",
+        "psicologia.duracion",
+        "psicologia.costo_publica",
+        "psicologia.costo_privada"
        ]
       },
       {
-       "tipo": "decision",
-       "pregunta": "Por lo que leíste, ¿qué hace alguien de Psicología?",
-       "opciones": [
-        {
-         "texto": "Según el área: en clínica escucha y acompaña pacientes en terapia",
-         "consecuencia": "Exacto: eso es parte del día a día en Psicología.",
-         "mejor": true
-        },
-        {
-         "texto": "Atiende casos de familias o personas vulnerables, hace estudios socioeconómicos, gestiona apoyos y programas, trabaja en hospitales, DIF, escuelas o fundaciones.",
-         "consecuencia": "Eso lo hace alguien de Trabajo social."
-        },
-        {
-         "texto": "Investiga qué quieren los clientes, crea campañas en redes y medios, mide resultados (clics, ventas) y ajusta estrategias para marcas o agencias.",
-         "consecuencia": "Eso lo hace alguien de Mercadotecnia."
-        }
-       ]
-      },
-      {
-       "tipo": "completar",
-       "frase": "Psicología es una carrera del área de ___.",
-       "opciones": [
-        "Salud",
-        "Arte y comunicación",
-        "Negocios y sociedad"
-       ],
-       "correcta": 0,
-       "revelacion": "Está en Salud. Se parece a Pedagogía y Ciencias de la Educación, Trabajo Social, Sociología y Antropología."
-      },
-      {
-       "tipo": "clave",
-       "texto": "Antes de elegir, entiende qué harías cada día, no solo el nombre."
-      },
-      {
-       "tipo": "interes"
+       "tipo": "escena",
+       "texto": "Ahora vas a ver si piensas como psicólogo."
       }
      ]
     },
     {
-     "id": "1.2",
-     "titulo": "Dónde trabajas",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Dónde trabaja alguien de Psicología",
-       "texto": "Consultorios y clínicas, hospitales, escuelas, empresas, organizaciones sociales, investigación y recursos humanos;",
-       "puntos": [
-        "El ejercicio clínico puede exigir formación y acreditaciones adicionales."
-       ]
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Alguien de Psicología solo puede trabajar en un tipo de lugar.",
-       "respuesta": false,
-       "revelacion": "Puede trabajar en varios: consultorios, clínicas, hospitales."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Dónde te ves trabajando?",
-       "opciones": [
-        "Consultorios",
-        "Clínicas",
-        "Hospitales",
-        "Escuelas"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Una carrera abre varias puertas, no una sola."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "1.3",
-     "titulo": "Pregúntale a Rumbo",
+     "id": "1",
+     "titulo": "Cerebro y conducta",
      "minutos": 4,
      "tarjetas": [
       {
-       "tipo": "chat",
-       "subtitulo": "Te cuenta cómo es trabajar en Psicología",
-       "intro": [
-        "¡Hola! Junté lo que se sabe de Psicología.",
-        "Pregúntame lo que quieras."
-       ],
-       "temas": [
+       "tipo": "info",
+       "titulo": "Cerebro y conducta",
+       "partes": [
         {
-         "q": "¿Qué haces en un día normal?",
-         "a": [
-          "Según el área: en clínica escucha y acompaña pacientes en terapia",
-          "En empresas recluta, aplica pruebas y mejora el clima laboral",
-          "En escuelas orienta alumnos"
-         ]
-        },
-        {
-         "q": "¿Qué es lo más difícil?",
-         "a": [
-          "Se considera una carrera de dificultad media-alta.",
-          "Estadística, Neurociencias y Metodología de la investigación sorprenden a muchos",
-          "También se lee bastante."
-         ]
-        },
-        {
-         "q": "¿Hay trabajo?",
-         "a": [
-          "Cerca de la mitad trabaja en algo de su carrera. Es un promedio nacional del IMCO.",
-          "Solo la mitad trabaja en algo relacionado."
-         ]
-        },
-        {
-         "q": "¿Qué necesito para ejercer?",
-         "a": [
-          "Título y cédula",
-          "Para psicoterapia se recomienda posgrado y formación clínica supervisada."
-         ]
+         "t": "El cerebro tiene áreas con trabajos distintos. El lóbulo frontal, en la frente, sirve para planear, decidir y controlar impulsos, y es lo último que termina de madurar, alrededor de los 25 años. La amígdala reacciona al miedo y al peligro. El hipocampo ayuda a guardar recuerdos nuevos."
         }
-       ],
-       "minimo": 2,
-       "auto": true
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Psicología se considera una carrera de dificultad baja.",
-       "respuesta": false,
-       "revelacion": "Se considera de dificultad media-alta. Estadística, Neurociencias y Metodología de la investigación sorprenden a muchos"
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué te llamó más la atención?",
-       "opciones": [
-        "¿Qué haces en un día normal?",
-        "¿Qué es lo más difícil?",
-        "¿Hay trabajo?",
-        "¿Qué necesito para ejercer?"
        ]
       },
       {
-       "tipo": "clave",
-       "texto": "Preguntar a quien ya sabe ahorra muchos errores."
+       "tipo": "pregunta",
+       "pregunta": "Un paciente sufrió un golpe en la frente y desde entonces actúa sin pensar y dice cosas impulsivas. ¿Qué zona se dañó probablemente?",
+       "opciones": [
+        "El lóbulo frontal",
+        "El hipocampo",
+        "La amígdala"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "Una señora recuerda perfecto su infancia, pero no puede guardar nada nuevo de lo que le pasa hoy. ¿Qué zona se afecta?",
+       "opciones": [
+        "La amígdala",
+        "El hipocampo",
+        "El lóbulo frontal"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Por qué los adolescentes tienden a tomar más riesgos?",
+       "opciones": [
+        "Porque su lóbulo frontal todavía no termina de madurar",
+        "Porque tienen el hipocampo más grande",
+        "Porque no tienen amígdala"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
-     "id": "1.4",
-     "titulo": "Carreras parecidas",
-     "minutos": 3,
+     "id": "2",
+     "titulo": "Cómo aprendemos conductas",
+     "minutos": 4,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Carreras cercanas a Psicología",
-       "puntos": [
-        "Pedagogía y Ciencias de la Educación: procesos de enseñanza y aprendizaje, diseño didáctico.",
-        "Trabajo Social: análisis de instituciones, políticas, conflictos y problemas sociales. puede.",
-        "Sociología y Antropología: análisis de la sociedad, la cultura, el lenguaje.",
-        "Medicina (Médico Cirujano): formación para prevenir, diagnosticar y tratar enfermedades."
+       "titulo": "Cómo aprendemos conductas",
+       "partes": [
+        {
+         "t": "Una conducta aumenta cuando se refuerza y disminuye cuando se castiga. Reforzar positivo es dar algo agradable. Reforzar negativo es quitar algo desagradable, y también hace que la conducta aumente. Castigo positivo es dar algo desagradable. Castigo negativo es quitar algo agradable. Positivo significa agregar y negativo significa quitar; no tienen que ver con bueno o malo."
+        }
        ]
       },
       {
-       "tipo": "emparejar",
-       "pregunta": "Une cada carrera con lo que estudia.",
-       "pares": [
-        [
-         "Pedagogía y Ciencias de la Educación",
-         "Procesos de enseñanza y aprendizaje, diseño didáctico"
-        ],
-        [
-         "Trabajo Social",
-         "Análisis de instituciones, políticas, conflictos y problemas sociales. Puede"
-        ],
-        [
-         "Sociología y Antropología",
-         "Análisis de la sociedad, la cultura, el lenguaje"
-        ],
-        [
-         "Medicina (Médico Cirujano)",
-         "Formación para prevenir, diagnosticar y tratar enfermedades"
-        ]
-       ],
-       "revelacion": "Se cruzan en temas, pero cada una tiene su propio enfoque."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Cuál de estas te da curiosidad?",
+       "tipo": "pregunta",
+       "pregunta": "Un niño hace la tarea para que su mamá deje de regañarlo, y ahora la hace más seguido. ¿Qué es?",
        "opciones": [
-        "Pedagogía y Ciencias de la Educación",
-        "Trabajo Social",
-        "Sociología y Antropología",
-        "Me quedo con Psicología"
-       ]
+        "Reforzamiento positivo",
+        "Reforzamiento negativo",
+        "Castigo"
+       ],
+       "correcta": 1,
+       "explicacion": "Se quitó algo desagradable, el regaño, y la conducta aumentó."
       },
       {
-       "tipo": "clave",
-       "texto": "Si dudas entre dos, compara lo que harías cada día."
+       "tipo": "pregunta",
+       "pregunta": "A un adolescente le quitan el celular por llegar tarde. ¿Qué es?",
+       "opciones": [
+        "Castigo negativo",
+        "Reforzamiento negativo",
+        "Castigo positivo"
+       ],
+       "correcta": 0,
+       "explicacion": "Se quitó algo agradable para que la conducta baje."
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "Una empresa da un bono a quien llega puntual todo el mes. ¿Qué es?",
+       "opciones": [
+        "Castigo negativo",
+        "Reforzamiento positivo",
+        "Reforzamiento negativo"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Un niño hace berrinche en el súper y su papá le compra un dulce para que se calle. ¿Qué pasará probablemente?",
+       "opciones": [
+        "Los berrinches bajarán",
+        "Los berrinches aumentarán, porque se reforzaron",
+        "No pasa nada"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "teves"
       }
      ]
     }
@@ -233,202 +145,106 @@
   },
   {
    "id": "u2",
+   "titulo": "Conocer a las personas",
+   "sub": "Desarrollo y evaluación",
    "lecciones": [
     {
-     "id": "2.1",
-     "titulo": "Mini reto",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Un amigo dice que ya nada le emociona. ¿Qué le respondes?",
-       "opciones": [
-        "¿Desde cuándo te sientes así?",
-        "Aquí estoy, cuéntame más",
-        "Vamos a hacer algo para distraerte"
-       ]
-      },
-      {
-       "tipo": "info",
-       "titulo": "Así lo piensa alguien de Psicología",
-       "texto": "Quien estudia Psicología aprende a preguntar y a escuchar sin dar consejos rápidos. Una buena parte de la carrera es investigación y observación, no solo conversar."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Te gustó pensar en algo así?",
-       "escala": [
-        "Nada",
-        "Mucho"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Los retos de una carrera se parecen a lo que harías en su trabajo."
-      },
-      {
-       "tipo": "interes",
-       "pregunta": "¿Te ves resolviendo retos así?"
-      }
-     ]
-    },
-    {
-     "id": "2.2",
-     "titulo": "Lo que te piden",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Habilidades que usarás en Psicología",
-       "puntos": [
-        "Escucha activa",
-        "Empatía con límites",
-        "Lectura y escritura",
-        "Pensamiento crítico"
-       ]
-      },
-      {
-       "tipo": "completar",
-       "pregunta": "Según lo que leíste, completa la frase.",
-       "frase": "Para Psicología es clave: ___.",
-       "opciones": [
-        "Escucha activa",
-        "Creatividad",
-        "Orden y precisión"
-       ],
-       "correcta": 0,
-       "revelacion": "Es de las habilidades que más se usan en Psicología."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué tanto se te da esto: empatía con límites?",
-       "escala": [
-        "Me cuesta",
-        "Se me da"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Las habilidades se entrenan; lo importante es que te guste usarlas."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "2.3",
-     "titulo": "Temas que vas a ver",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Temas que te deben gustar",
-       "puntos": [
-        "Por qué las personas actúan como actúan",
-        "Salud mental",
-        "Educación o recursos humanos"
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "¿Cuál de estos temas es más de Psicología?",
-       "opciones": [
-        {
-         "texto": "Por qué las personas actúan como actúan",
-         "consecuencia": "Sí, es de sus temas centrales.",
-         "mejor": true
-        },
-        {
-         "texto": "Cómo funciona el país y el dinero",
-         "consecuencia": "Ese es más de Economía."
-        },
-        {
-         "texto": "Matemáticas por sí mismas",
-         "consecuencia": "Ese es más de Matemáticas."
-        }
-       ]
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Cuál de estos temas te gusta más?",
-       "opciones": [
-        "Por qué las personas actúan como actúan",
-        "Salud mental",
-        "Educación o recursos humanos",
-        "Ninguno me late"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Si los temas te aburren, la carrera se hace muy larga."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "2.4",
-     "titulo": "Materias clave",
+     "id": "3",
+     "titulo": "Cómo piensan los niños según su edad",
      "minutos": 4,
      "tarjetas": [
       {
-       "tipo": "voltear",
-       "pregunta": "¿Qué materias crees que llevas en cada etapa? Piénsalo y voltea.",
-       "cartas": [
+       "tipo": "info",
+       "titulo": "Cómo piensan los niños según su edad",
+       "partes": [
         {
-         "frente": "Semestres 1-2",
-         "reverso": "Bases biológicas de la conducta, Teorías de la personalidad, Estadística, Historia de la psicología"
-        },
-        {
-         "frente": "Semestres 3-4",
-         "reverso": "Psicología del desarrollo, Psicología social, Metodología de la investigación, Neuropsicología"
-        },
-        {
-         "frente": "Semestres 5-6",
-         "reverso": "Evaluación psicológica (pruebas), Psicopatología, Psicología clínica / educativa / organizacional"
-        },
-        {
-         "frente": "Semestres 7 en adelante",
-         "reverso": "Prácticas supervisadas, Tesis o proyecto, Servicio social"
+         "t": "Según Piaget, el pensamiento cambia por etapas. De 0 a 2 años, el bebé aprende que las cosas siguen existiendo aunque no las vea. De 2 a 7 años, el niño piensa que todos ven el mundo como él y se deja llevar por cómo se ven las cosas: si pasas agua de un vaso ancho a uno alto, cree que hay más. De 7 a 11 años ya entiende que la cantidad no cambia, pero piensa con cosas concretas. Desde los 11 años puede pensar en ideas abstractas e hipótesis."
         }
        ]
       },
       {
-       "tipo": "decision",
-       "pregunta": "¿Cuál de estas materias llevarías en Psicología?",
+       "tipo": "pregunta",
+       "pregunta": "Una niña de 5 años dice que el vaso alto tiene más jugo, aunque viste que era el mismo. ¿En qué etapa está?",
        "opciones": [
+        "De 2 a 7 años",
+        "De 7 a 11 años",
+        "De 11 años en adelante"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Un bebé de 4 meses deja de buscar un juguete cuando lo tapas con una cobija. ¿Qué no ha desarrollado todavía?",
+       "opciones": [
+        "La idea de que las cosas existen aunque no las vea",
+        "El lenguaje abstracto",
+        "La conservación"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Un maestro quiere explicar fracciones a niños de 8 años. ¿Qué le funciona mejor?",
+       "opciones": [
+        "Puras fórmulas abstractas",
+        "Partir pizzas u objetos reales",
+        "Debates filosóficos"
+       ],
+       "correcta": 1,
+       "explicacion": "A esa edad piensan con cosas concretas."
+      },
+      {
+       "tipo": "teves"
+      }
+     ]
+    },
+    {
+     "id": "4",
+     "titulo": "Entrevistar y evaluar",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "Entrevistar y evaluar",
+       "partes": [
         {
-         "texto": "Bases biológicas de la conducta",
-         "consecuencia": "Sí: es de las primeras materias de Psicología.",
-         "mejor": true
-        },
-        {
-         "texto": "Contabilidad básica",
-         "consecuencia": "Esa es de Contaduría."
-        },
-        {
-         "texto": "Cálculo",
-         "consecuencia": "Esa es de Mecatrónica."
+         "t": "Una buena entrevista usa preguntas abiertas, que no se contestan con sí o no. También pide escuchar sin juzgar y repetir con tus palabras lo que entendiste. Las pruebas psicológicas deben ser confiables, es decir, dar resultados parecidos si se repiten, y válidas, es decir, medir realmente lo que dicen medir. Una prueba puede ser confiable sin ser válida."
         }
        ]
       },
       {
-       "tipo": "reflexion",
-       "pregunta": "¿Cuál te da más curiosidad?",
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál es una pregunta abierta?",
        "opciones": [
-        "Bases biológicas de la conducta",
-        "Teorías de la personalidad",
-        "Estadística",
-        "Historia de la psicología"
-       ]
+        "¿Te sientes triste?",
+        "¿Cómo te has sentido esta semana?",
+        "¿Dormiste bien?"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "clave",
-       "texto": "Las primeras materias son la base; muchas veces son las más pesadas."
+       "tipo": "pregunta",
+       "pregunta": "Una báscula siempre marca 2 kilos de más, siempre igual. ¿Cómo es?",
+       "opciones": [
+        "Confiable pero no válida",
+        "Válida pero no confiable",
+        "Ni confiable ni válida"
+       ],
+       "correcta": 0,
+       "explicacion": "Es constante, pero no mide el peso real."
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "Un paciente te cuenta algo que le da vergüenza. ¿Qué haces?",
+       "opciones": [
+        "Le dices que eso está mal",
+        "Lo escuchas sin juzgar y le dices con tus palabras lo que entendiste",
+        "Cambias de tema"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "teves"
       }
      ]
     }
@@ -436,186 +252,153 @@
   },
   {
    "id": "u3",
+   "titulo": "En la práctica",
+   "sub": "Ansiedad, ética y empresas",
    "lecciones": [
     {
-     "id": "3.1",
-     "titulo": "Un día real",
+     "id": "5",
+     "titulo": "Ansiedad y pensamientos",
      "minutos": 4,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Un día de trabajo en Psicología",
-       "puntos": [
-        "Según el área: en clínica escucha y acompaña pacientes en terapia",
-        "En empresas recluta, aplica pruebas y mejora el clima laboral",
-        "En escuelas orienta alumnos",
-        "En investigación diseña estudios."
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "¿Qué de esto NO es parte del día de alguien de Psicología?",
-       "opciones": [
+       "titulo": "Ansiedad y pensamientos",
+       "partes": [
         {
-         "texto": "Escribe, graba y edita contenido",
-         "consecuencia": "Exacto: eso lo hace alguien de Comunicación.",
-         "mejor": true
-        },
-        {
-         "texto": "Según el área: en clínica escucha y acompaña pacientes en terapia",
-         "consecuencia": "Esto sí lo hace: es parte de su día."
-        },
-        {
-         "texto": "En empresas recluta, aplica pruebas y mejora el clima laboral",
-         "consecuencia": "Esto sí lo hace: es parte de su día."
+         "t": "En terapia cognitivo-conductual se trabaja con la idea de que pensamientos, emociones y conductas se conectan. Algunos pensamientos tienen errores comunes. Catastrofizar es imaginar siempre lo peor. Generalizar es decir \"siempre\" o \"nunca\" por un solo caso. Leer la mente es asumir que sabes lo que otros piensan. Evitar lo que da miedo lo alivia un rato, pero hace que el miedo crezca. Por eso se enfrenta poco a poco; a esto se le llama exposición gradual."
         }
        ]
       },
       {
-       "tipo": "reflexion",
-       "pregunta": "¿Te ves haciendo esto todos los días?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
+       "tipo": "pregunta",
+       "pregunta": "Un alumno reprueba un examen y dice: \"Nunca voy a pasar nada\". ¿Qué error es?",
+       "opciones": [
+        "Generalizar",
+        "Leer la mente",
+        "Ninguno"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "clave",
-       "texto": "El día a día pesa más que el título."
+       "tipo": "pregunta",
+       "pregunta": "Una persona le tiene miedo a hablar en público y siempre falta a sus exposiciones. ¿Qué pasa con su miedo?",
+       "opciones": [
+        "Desaparece",
+        "Crece, porque evitarlo lo mantiene",
+        "Se queda igual para siempre"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "¿Qué plan le sirve más a esa persona?",
+       "opciones": [
+        "Obligarla a hablar frente a mil personas mañana",
+        "Empezar hablando frente a una persona, luego un grupo pequeño, y subir poco a poco",
+        "Que nunca vuelva a exponer"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
-     "id": "3.2",
-     "titulo": "Lo difícil",
+     "id": "6",
+     "titulo": "Ética del psicólogo",
      "minutos": 4,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Lo difícil de Psicología",
-       "texto": "Se considera de dificultad media-alta.",
-       "puntos": [
-        "Estadística, Neurociencias y Metodología de la investigación sorprenden a muchos",
-        "También se lee bastante."
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "Según lo que leíste, ¿qué es lo que más cuesta en Psicología?",
-       "opciones": [
+       "titulo": "Ética del psicólogo",
+       "partes": [
         {
-         "texto": "Estadística, Neurociencias y Metodología de la investigación sorprenden a muchos",
-         "consecuencia": "Sí, es de lo que más cuesta en Psicología.",
-         "mejor": true
-        },
-        {
-         "texto": "Junta lo difícil de mecánica, electrónica y programación",
-         "consecuencia": "Eso es más de Mecatrónica."
-        },
-        {
-         "texto": "Más matemáticas de lo que la gente cree: Cálculo, Estadística, Econometría y Microeconomía avanzada.",
-         "consecuencia": "Eso es más de Economía."
+         "t": "Lo que te cuenta un paciente es confidencial. La excepción es cuando hay un riesgo grave para él o para otra persona: ahí se rompe la confidencialidad para protegerlo. No se atiende como paciente a familiares ni a amigos, porque se pierde la objetividad. Y si un caso no es de tu especialidad, lo canalizas con alguien que sí lo sea."
         }
        ]
       },
       {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué tanto te preocupa esto?",
-       "escala": [
-        "Mucho",
-        "Nada"
-       ]
+       "tipo": "pregunta",
+       "pregunta": "Un paciente te dice que planea lastimar a un compañero de trabajo.",
+       "opciones": [
+        "Lo guardas en secreto",
+        "Rompes la confidencialidad para proteger a la otra persona",
+        "Lo ignoras"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "clave",
-       "texto": "Saber lo difícil desde antes te ayuda a prepararte."
+       "tipo": "pregunta",
+       "pregunta": "Tu mejor amigo te pide que seas su psicólogo.",
+       "opciones": [
+        "Aceptas",
+        "Le recomiendas a otro colega",
+        "Lo atiendes gratis"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "Eres psicólogo de empresa y llega alguien con un problema clínico serio que no sabes tratar.",
+       "opciones": [
+        "Lo intentas igual",
+        "Lo canalizas con un especialista",
+        "Le dices que no es nada"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
-     "id": "3.3",
-     "titulo": "Historia real",
-     "minutos": 3,
+     "id": "7",
+     "titulo": "Psicología en las empresas",
+     "minutos": 4,
      "tarjetas": [
       {
-       "tipo": "reflexion",
-       "pregunta": "Si pudieras preguntarle algo a alguien que ya estudia Psicología, ¿qué sería?",
+       "tipo": "info",
+       "titulo": "Psicología en las empresas",
+       "partes": [
+        {
+         "t": "En las empresas los psicólogos seleccionan personal, miden el ambiente de trabajo y capacitan. Una buena selección evalúa competencias: lo que la persona sabe hacer y cómo lo ha demostrado. En México no se puede discriminar por edad, religión, embarazo u otras condiciones, y la ley prohíbe pedir certificados de no embarazo."
+        }
+       ]
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Estás contratando a un vendedor. ¿Cuál es la mejor pregunta?",
        "opciones": [
-        "¿Qué fue lo más difícil?",
-        "¿Qué te sorprendió?",
-        "¿Volverías a elegirla?",
-        "¿Cómo es un día normal?"
-       ]
+        "¿Cuál es tu religión?",
+        "Cuéntame de una vez que cerraste una venta difícil y cómo lo hiciste",
+        "¿Piensas tener hijos pronto?"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "testimonio",
-       "estado": "pendiente",
-       "perfil": "Estudiante de últimos semestres o egresado de Psicología"
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "Mientras llega esta historia, ¿a quién podrías preguntarle tú?",
+       "tipo": "pregunta",
+       "pregunta": "El gerente te pide que solo contrates a mujeres que no estén embarazadas.",
        "opciones": [
-        "A un familiar o conocido que la estudió",
-        "A un estudiante de mi ciudad",
-        "A un maestro que la conozca",
-        "Todavía no conozco a nadie"
-       ]
+        "Lo haces",
+        "Le explicas que es discriminación y está prohibido",
+        "Pides prueba de embarazo en secreto"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "clave",
-       "texto": "Una persona real te cuenta lo que ningún folleto dice."
+       "tipo": "pregunta",
+       "pregunta": "En una empresa renuncia mucha gente del mismo departamento. ¿Qué haces primero?",
+       "opciones": [
+        "Contratar más gente",
+        "Medir el ambiente de trabajo de ese departamento para encontrar la causa",
+        "Subir el sueldo a todos sin investigar"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "3.4",
-     "titulo": "¿Es para ti?",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Contesta con honestidad. Nadie más ve tus respuestas."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Las personas me cuentan sus problemas y sé escuchar sin juzgar?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Me interesa también la parte científica y estadística?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Estaría dispuesto a hacer maestría para dar terapia?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Si dijiste que sí a casi todo, vale la pena seguir explorándola."
-      },
-      {
-       "tipo": "interes"
+       "tipo": "teves"
       }
      ]
     }
@@ -623,449 +406,125 @@
   },
   {
    "id": "u4",
+   "titulo": "Examen final",
+   "sub": "10 preguntas · apruebas con 7",
    "lecciones": [
     {
-     "id": "4.1",
-     "titulo": "Cuánto dura y qué estudias",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Cada escuela arma su plan distinto, pero el orden general se parece. Vamos a verlo."
-      },
-      {
-       "tipo": "ordenar",
-       "pregunta": "Ordena lo que estudias, de lo primero a lo último.",
-       "pasos": [
-        "Bases biológicas de la conducta, Teorías de la personalidad",
-        "Psicología del desarrollo, Psicología social",
-        "Evaluación psicológica (pruebas), Psicopatología",
-        "Prácticas supervisadas, Tesis o proyecto"
-       ],
-       "revelacion": "Primero las bases y al final lo más especializado y las prácticas."
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Cuántos años crees que pasan desde que entras hasta que te titulas?",
-       "min": 3,
-       "max": 10,
-       "paso": 1,
-       "unidad": "años",
-       "dato": "psicologia.duracion"
-      },
-      {
-       "tipo": "clave",
-       "texto": "Revisa el mapa curricular de cada escuela: cambia de una a otra."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "4.2",
-     "titulo": "Cómo se entra",
-     "minutos": 4,
+     "id": "ex",
+     "titulo": "Examen final",
+     "minutos": 6,
+     "examen": true,
+     "aprobar": 7,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Cómo se entra en la región",
-       "puntos": [
-        "UNAM: Concurso de selección UNAM (120 reactivos) o pase reglamentado desde CCH/ENP",
-        "IPN: Examen de admisión IPN (140 preguntas, hasta 3 horas, incluye sección de inglés)",
-        "UAM: Examen de selección UAM (trimestral; dos procesos al año y procesos extraordinarios)",
-        "UAEM: EXANI-II de CENEVAL + curso propedéutico"
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "Según lo que leíste, ¿qué pide UNAM para entrar?",
-       "opciones": [
+       "titulo": "Examen final",
+       "partes": [
         {
-         "texto": "Concurso de selección UNAM (120 reactivos) o pase reglamentado desde CCH/ENP",
-         "consecuencia": "Exacto.",
-         "mejor": true
-        },
-        {
-         "texto": "Examen de admisión IPN (140 preguntas, hasta 3 horas, incluye sección de inglés)",
-         "consecuencia": "Eso lo pide IPN."
-        },
-        {
-         "texto": "Examen de selección UAM (trimestral; dos procesos al año y procesos extraordinarios)",
-         "consecuencia": "Eso lo pide UAM."
+         "t": "Son 10 casos nuevos que mezclan todas las lecciones. Apruebas con 7. Si no, lo repites y las que fallaste regresan con otras palabras."
         }
        ]
       },
       {
-       "tipo": "vf",
-       "afirmacion": "Todas las universidades usan el mismo examen.",
-       "respuesta": false,
-       "revelacion": "Cada una tiene el suyo: revisa la convocatoria de la que te interese."
-      },
-      {
-       "tipo": "clave",
-       "texto": "Conoce el examen de tu escuela desde antes."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "4.3",
-     "titulo": "Dónde, cuánto cuesta y becas",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "escuelas"
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Cuánto crees que cuesta un semestre en una universidad pública?",
-       "min": 0,
-       "max": 60000,
-       "paso": 1000,
-       "unidad": "pesos",
-       "dato": "psicologia.costo_publica"
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Y un semestre en una universidad privada?",
-       "min": 0,
-       "max": 300000,
-       "paso": 5000,
-       "unidad": "pesos",
-       "dato": "psicologia.costo_privada"
-      },
-      {
-       "tipo": "dato",
-       "titulo": "Becas para estudiar Psicología",
-       "dato": "psicologia.becas"
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Una universidad cara garantiza un mejor empleo.",
-       "respuesta": false,
-       "revelacion": "Pesan más lo que aprendes, tus prácticas y tu esfuerzo."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué pesa más para ti al elegir escuela?",
+       "tipo": "pregunta",
+       "pregunta": "Una persona sin daño en el hipocampo pero con la amígdala dañada se acerca a una serpiente sin ningún miedo. ¿Por qué?",
        "opciones": [
-        "El costo",
-        "Que esté cerca de mi casa",
-        "El prestigio",
-        "Las prácticas que ofrece"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Además de la colegiatura, cuenta transporte y materiales."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "u5",
-   "lecciones": [
-    {
-     "id": "5.1",
-     "titulo": "Qué piden para trabajar",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Qué te piden para trabajar",
-       "puntos": [
-        "Título y cédula",
-        "Para psicoterapia se recomienda posgrado y formación clínica supervisada.",
-        "Solo la mitad trabaja en algo relacionado."
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "Según lo que leíste, ¿qué necesitas para ejercer Psicología?",
-       "opciones": [
-        {
-         "texto": "Título y cédula",
-         "consecuencia": "Exacto.",
-         "mejor": true
-        },
-        {
-         "texto": "No requiere cédula",
-         "consecuencia": "Eso lo piden en Economía."
-        },
-        {
-         "texto": "Para mantenimiento de aeronaves se requiere licencia de la Agencia Federal de Aviación Civil.",
-         "consecuencia": "Eso lo piden en Aeroespacial."
-        }
-       ]
-      },
-      {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Cómo te ves?",
-       "a": {
-        "texto": "En una institución o empresa",
-        "dice": "Más estabilidad y un equipo de quien aprender."
-       },
-       "b": {
-        "texto": "Por tu cuenta",
-        "dice": "Más libertad, pero tienes que conseguir clientes."
-       }
-      },
-      {
-       "tipo": "clave",
-       "texto": "Saber qué te piden te ahorra sorpresas al salir."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "5.2",
-     "titulo": "Sueldo y demanda",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Hablemos de dinero sin rodeos. Antes de ver cualquier cifra, apuesta: así recuerdas mejor el dato real."
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Cuánto crees que gana al mes, en promedio, un profesionista de Psicología en México?",
-       "min": 5000,
-       "max": 100000,
-       "paso": 1000,
-       "unidad": "pesos",
-       "dato": "psicologia.ingreso"
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "De cada 100 egresados, ¿cuántos crees que trabajan en algo de su carrera?",
-       "min": 0,
-       "max": 100,
-       "paso": 5,
-       "unidad": "de cada 100",
-       "dato": "psicologia.ocupacion_afin"
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Todos los egresados de Psicología ganan lo mismo.",
-       "respuesta": false,
-       "revelacion": "Cambia con la experiencia, el lugar, la especialidad y si trabajas por tu cuenta."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué tanto pesa el sueldo en tu decisión?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "El promedio orienta, pero tu camino puede ser distinto."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "5.3",
-     "titulo": "Cómo les va al salir",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "chat",
-       "subtitulo": "Te cuenta cómo les va al salir",
-       "intro": [
-        "Te cuento cómo les va a quienes estudian Psicología al salir."
+        "La amígdala reacciona al peligro y está dañada",
+        "Tiene buena memoria",
+        "Su lóbulo frontal es muy grande"
        ],
-       "temas": [
-        {
-         "q": "¿Cuántos trabajan en lo suyo?",
-         "a": [
-          "Cerca de la mitad trabaja en algo de su carrera.",
-          "Es un promedio nacional del IMCO."
-         ]
-        },
-        {
-         "q": "¿Muchos hacen posgrado?",
-         "a": [
-          "Pocos hacen posgrado; la mayoría empieza a trabajar."
-         ]
-        },
-        {
-         "q": "¿Hay más hombres o mujeres?",
-         "a": [
-          "Hay más mujeres que hombres.",
-          "Eso no decide nada: cualquiera puede estudiarla."
-         ]
-        },
-        {
-         "q": "¿El trabajo tiene prestaciones?",
-         "a": [
-          "La mayoría tiene un trabajo formal, con prestaciones.",
-          "Las prestaciones son cosas como seguro médico y aguinaldo."
-         ]
-        }
+       "correcta": 0
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Un conductor se pone el cinturón para que deje de sonar la alarma del coche. ¿Qué es?",
+       "opciones": [
+        "Reforzamiento negativo",
+        "Castigo positivo",
+        "Reforzamiento positivo"
        ],
-       "minimo": 2
+       "correcta": 0
       },
       {
-       "tipo": "vf",
-       "afirmacion": "La mayoría de quienes estudian Psicología trabaja en algo de su carrera.",
-       "respuesta": true,
-       "revelacion": "Cerca de la mitad trabaja en algo de su carrera. Promedio nacional del IMCO."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué te importa más de tu futuro trabajo?",
+       "tipo": "pregunta",
+       "pregunta": "A un niño le ponen a lavar los trastes por pegarle a su hermano. ¿Qué es?",
        "opciones": [
-        "Que tenga que ver con lo que estudié",
-        "Ganar bien",
-        "Tener prestaciones",
-        "Hacer algo que me guste"
-       ]
+        "Castigo positivo",
+        "Castigo negativo",
+        "Reforzamiento negativo"
+       ],
+       "correcta": 0,
+       "explicacion": "Se agregó algo desagradable."
       },
       {
-       "tipo": "clave",
-       "texto": "Pregunta cómo les va a quienes ya salieron."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "5.4",
-     "titulo": "Después de titularte",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Después de titularte",
-       "puntos": [
-        "Puedes especializarte con cursos, diplomados o una maestría.",
-        "También puedes trabajar desde el inicio y estudiar después.",
-        "Se combina bien con: Pedagogía y Ciencias de la Educación, Trabajo Social, Sociología y Antropología."
-       ]
-      },
-      {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Qué harías al terminar?",
-       "a": {
-        "texto": "Trabajar desde el inicio",
-        "dice": "Ganas experiencia y dinero; después decides si estudias más."
-       },
-       "b": {
-        "texto": "Seguir estudiando",
-        "dice": "Te especializas antes; tardas más en empezar a trabajar."
-       }
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Cómo te imaginas después de la carrera?",
+       "tipo": "pregunta",
+       "pregunta": "Un niño de 4 años te tapa sus propios ojos y cree que tú ya no lo ves. ¿Qué característica muestra?",
        "opciones": [
-        "Trabajando",
-        "En una maestría",
-        "Emprendiendo",
-        "No sé todavía"
-       ]
+        "Piensa que todos ven el mundo como él",
+        "Piensa en hipótesis",
+        "Ya entiende la conservación"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "clave",
-       "texto": "Al titularte empieza otra parte del camino, no termina."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "u6",
-   "lecciones": [
-    {
-     "id": "6.1",
-     "titulo": "Lo que sentiste",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Antes de ver tus respuestas: ¿cómo te fue con Psicología?",
+       "tipo": "pregunta",
+       "pregunta": "Una joven de 15 años debate sobre qué pasaría si no existiera el dinero. ¿En qué etapa está?",
        "opciones": [
-        "Me gustó más de lo que pensaba",
-        "Más o menos como esperaba",
-        "Me gustó menos de lo que pensaba"
-       ]
+        "De 2 a 7 años",
+        "De 11 años en adelante",
+        "De 0 a 2 años"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "resumen"
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "Viendo tus respuestas, ¿qué pesó más?",
+       "tipo": "pregunta",
+       "pregunta": "Un test de inteligencia da resultados distintos cada vez que lo haces. ¿Qué le falta?",
        "opciones": [
-        "Lo que sentí al probarla",
-        "Lo que supe de la realidad",
-        "El camino para llegar",
-        "El futuro que ofrece"
-       ]
+        "Confiabilidad",
+        "Color",
+        "Más preguntas fáciles"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "clave",
-       "texto": "Lo que sentiste al probarla vale más que lo que imaginabas."
-      },
-      {
-       "tipo": "interes",
-       "pregunta": "¿Te ves estudiando Psicología?"
-      }
-     ]
-    },
-    {
-     "id": "6.2",
-     "titulo": "Tu veredicto",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Si mañana tuvieras que elegir carrera, ¿Psicología estaría entre tus opciones?",
+       "tipo": "pregunta",
+       "pregunta": "Tu amiga no te contestó un mensaje y piensas: \"Seguro está enojada conmigo\". ¿Qué error es?",
        "opciones": [
-        "Sí, entre las primeras",
-        "Sí, pero no arriba",
-        "No creo",
-        "No lo sé"
-       ]
+        "Leer la mente",
+        "Generalizar",
+        "Ninguno"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "comparar"
+       "tipo": "pregunta",
+       "pregunta": "Una paciente te cuenta que está pensando en hacerse daño.",
+       "opciones": [
+        "Guardas el secreto",
+        "Actúas para protegerla, aunque eso implique romper la confidencialidad",
+        "Le dices que no exagere"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Qué te ayudaría más a decidir?",
-       "a": {
-        "texto": "Hablar con alguien que la estudia",
-        "dice": "Busca a un estudiante o egresado cerca de ti y hazle tus preguntas. Una plática aclara más que diez videos."
-       },
-       "b": {
-        "texto": "Probar otra carrera y comparar",
-        "dice": "Explora otra de tu mapa. Comparar dos caminos reales aclara más que pensar en uno solo."
-       }
+       "tipo": "pregunta",
+       "pregunta": "Un niño le teme a los perros. ¿Cuál es el mejor primer paso?",
+       "opciones": [
+        "Encerrarlo con un perro grande",
+        "Ver fotos de perros y luego, poco a poco, acercarse a uno tranquilo",
+        "Evitar los perros toda su vida"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "veredicto"
-      },
-      {
-       "tipo": "clave",
-       "texto": "Decidir «en duda» también es avanzar."
+       "tipo": "pregunta",
+       "pregunta": "En una entrevista de trabajo un candidato te dice su edad y su religión. ¿Qué haces?",
+       "opciones": [
+        "Lo tomas en cuenta para decidir",
+        "Lo ignoras y decides por sus competencias",
+        "Lo descartas por su edad"
+       ],
+       "correcta": 1
       }
      ]
     }

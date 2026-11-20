@@ -22,7 +22,7 @@ for f in sorted(glob.glob(D+'carreras/*.json')):
         for l in u['lecciones']:
             # qué clase de lección es, para mostrarlo en el temario (las tarjetas se descargan aparte)
             tp=[t['tipo'] for t in l.get('tarjetas',[])]
-            l['k']='chat' if 'chat' in tp else 'reto' if any(x in tp for x in ('bloques','patron','presupuesto','armar','componer','encuadre')) else 'voltear' if 'voltear' in tp else 'testi' if 'testimonio' in tp else 'dato' if 'rango' in tp else 'lee' if 'info' in tp else 'sobre' if tp and all(x in ('reflexion','escena','clave','interes','resumen','comparar','veredicto','dos_caminos') for x in tp) else 'juega'
+            l['k']='examen' if l.get('examen') else 'dato' if 'ficha' in tp else 'lee' if 'pregunta' in tp else 'chat' if 'chat' in tp else 'reto' if any(x in tp for x in ('bloques','patron','presupuesto','armar','componer','encuadre')) else 'voltear' if 'voltear' in tp else 'testi' if 'testimonio' in tp else 'dato' if 'rango' in tp else 'lee' if 'info' in tp else 'sobre' if tp and all(x in ('reflexion','escena','clave','interes','resumen','comparar','veredicto','dos_caminos') for x in tp) else 'juega'
             l.pop('tarjetas',None)
     c['src']='datos/carreras/'+c['id']+'.json?v='+hashlib.sha1(raw).hexdigest()[:10]
     cat['car'][c['id']]=c
