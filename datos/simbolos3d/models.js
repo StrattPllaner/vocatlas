@@ -34,6 +34,152 @@ export function kit(material,g){
 const GY='#8C96A0',ST='#A9B6C2',BK='#3A4048',WH='#F3F1EA',RE='#DE4A3C',BL='#3F82C4',GR='#4FAE5B',YE='#F6CD3B',BR='#8A5A36',WO='#B9804B',GO='#E8B53C',NA='#2D4A6E',CR='#F0E2C2',SK='#E7A97C';
 
 export const MODELS={
+  // Estetoscopio: olivas, tubos metálicos en Y, manguera y campana con diafragma
+  'medicina.a'(K){
+    K.sph(3.4,BK,{p:[-16,60,4]});K.sph(3.4,BK,{p:[16,60,4]});
+    K.tube([[-16,58,3],[-15,46,1],[-9,34,0],[0,28,0]],1.5,ST,{m:'metal'});
+    K.tube([[16,58,3],[15,46,1],[9,34,0],[0,28,0]],1.5,ST,{m:'metal'});
+    K.tube([[-10,40,0],[10,40,0]],0.8,ST,{m:'metal'});
+    K.tube([[0,28,0],[0,16,0],[-6,2,2],[-2,-12,6],[12,-14,6],[20,-6,4]],2.4,BK);
+    const h=K.group({p:[24,-4,4],r:[90,0,0]});
+    K.cyl(9,9,4,ST,{m:'metal',parent:h});K.cyl(7.6,7.6,4.4,'#E6EBEF',{parent:h,p:[0,0.4,0]});K.cyl(3,3,5,'#9AA3AC',{m:'metal',parent:h,p:[0,-2,0]});
+  },
+  // Maletín médico con asa, cierre y cruz en ambas caras
+  'medicina.b'(K){
+    K.box(72,46,30,RE,{p:[0,0,0],rad:6});
+    K.box(73,4,31,'#B23A2E',{p:[0,14,0],rad:1.5});
+    K.tube([[-14,23,0],[-14,32,0],[14,32,0],[14,23,0]],2.6,BK,{tension:0.2});
+    [15.3,-15.3].forEach(z=>{K.box(20,6,1.2,WH,{p:[0,-3,z],rad:0.6});K.box(6,20,1.2,WH,{p:[0,-3,z],rad:0.6})});
+    K.box(6,4,2,GO,{m:'gold',p:[0,14,15.6],rad:0.6});
+  },
+  // Termómetro de vidrio con bulbo rojo, columna y escala
+  'o_termometro.a'(K){
+    K.cyl(7,7,70,'#EDF6FA',{m:'glass',p:[0,10,0]});K.sph(7,'#EDF6FA',{m:'glass',p:[0,45,0]});
+    K.sph(11,RE,{p:[0,-30,0]});K.cyl(2.6,2.6,52,RE,{p:[0,0,0]});
+    for(let i=0;i<9;i++)K.box(i%2?3:5,0.8,1,'#5B6670',{p:[8.5,-12+i*6,0],rad:0.2});
+  },
+  // Jeringa: barril de vidrio con líquido, émbolo, aletas y aguja
+  'enfermeria.b'(K){
+    const g=K.group({r:[0,0,-40]});
+    K.cyl(8,8,50,'#DDF1FA',{m:'glass',parent:g});K.cyl(7,7,28,'#E9677A',{p:[0,-10,0],parent:g});
+    K.box(30,3,8,ST,{m:'metal',p:[0,25,0],rad:1,parent:g});
+    K.cyl(2.2,2.2,22,'#C9D0D6',{p:[0,36,0],parent:g});K.cyl(7,7,3,BK,{p:[0,47,0],parent:g});
+    K.cyl(2.4,3.4,5,'#C9D0D6',{p:[0,-27,0],parent:g});K.cyl(0.6,0.6,22,ST,{m:'metal',p:[0,-40,0],parent:g});
+    for(let i=0;i<5;i++)K.box(4,0.7,0.6,BL,{p:[-6,-18+i*8,7.6],rad:0.2,parent:g});
+  },
+  // Manzana con hendidura, tallo y hoja
+  'nutricion.a'(K){
+    K.lathe([[0.01,-30],[8,-31],[18,-27],[27,-16],[31,-2],[30,12],[25,22],[16,27],[8,25],[2,20],[0.01,18]],RE);
+    K.tube([[0,18,0],[1,28,0],[4,34,0]],1.6,BR);
+    K.ext('M0 0 C6 -8 18 -8 22 -2 C16 4 6 4 0 0 Z',2,GR,{bevel:0.8,p:[3,32,0],r:[0,-30,20]});
+    K.sph(5,'#FF8A7A',{p:[-14,10,20],s:[1,1.6,0.4]});
+  },
+
+  // Balanza de la justicia: base, columna, brazo y platillos colgando de cadenas
+  'derecho.a'(K){
+    K.cyl(16,20,5,GO,{m:'gold',p:[0,-40,0]});K.cyl(8,10,4,GO,{m:'gold',p:[0,-36,0]});
+    K.cyl(2.4,2.4,70,GO,{m:'gold',p:[0,-2,0]});K.sph(5,GO,{m:'gold',p:[0,36,0]});
+    K.cyl(1.8,1.8,72,GO,{m:'gold',p:[0,30,0],r:[0,0,90]});
+    [-36,36].forEach(x=>{K.sph(2.4,GO,{m:'gold',p:[x,30,0]});
+      [[-9,0],[9,0],[0,-9],[0,9]].forEach(([dx,dz])=>K.tube([[x,30,0],[x+dx,0,dz]],0.5,'#C9A23A',{m:'gold',nocap:true}));
+      K.lathe([[0.01,-6],[9,-5],[12,-1],[12.5,0]],GO,{m:'gold',p:[x,1,0]})});
+  },
+  // Mazo de juez con bandas doradas sobre su base
+  'derecho.b'(K){
+    K.cyl(18,20,5,'#8F5E30',{m:'wood',p:[6,-30,0]});
+    const g=K.group({p:[-4,6,0],r:[0,0,32]});
+    K.cyl(10,10,40,WO,{m:'wood',r:[0,0,90],parent:g});
+    [-14,14].forEach(x=>K.cyl(10.6,10.6,3,GO,{m:'gold',p:[x,0,0],r:[0,0,90],parent:g}));
+    K.cyl(3.4,3,48,'#A36E3E',{m:'wood',p:[0,-28,0],parent:g});K.sph(4,'#8F5E30',{m:'wood',p:[0,-52,0],parent:g});
+  },
+  // Monitor con código, marco, cuello y base; carcasa trasera con ventilación
+  'computacion.a'(K){
+    K.box(80,52,5,BK,{p:[0,14,0],rad:2});K.box(72,44,0.8,'#13283B',{p:[0,15,2.8],rad:0.4});
+    const c=K.group({p:[0,15,3.4]});
+    K.tube([[-14,9,0],[-24,0,0],[-14,-9,0]],1.8,'#5BE07A',{tension:0,parent:c});K.tube([[14,9,0],[24,0,0],[14,-9,0]],1.8,'#5BE07A',{tension:0,parent:c});K.tube([[5,11,0],[-5,-11,0]],1.8,YE,{parent:c});
+    K.box(40,30,6,'#2E343B',{p:[0,14,-4.5],rad:3});
+    for(let i=0;i<5;i++)K.box(24,1,1,'#22272D',{p:[0,6+i*4,-7.6],rad:0.3});
+    K.box(8,16,5,GY,{m:'metal',p:[0,-17,-3],rad:1.5});K.box(36,3,20,GY,{m:'metal',p:[0,-25,-2],rad:1.4});
+  },
+  // Báscula de baño con pantalla y almohadillas antiderrapantes
+  'o_bascula.a'(K){
+    const g=K.group({r:[62,0,0]});
+    K.box(70,10,70,'#EEF1F4',{rad:5,parent:g});K.box(64,1,64,'#DCE1E6',{p:[0,5.2,0],rad:3,parent:g});
+    K.box(26,1.6,11,'#2B3540',{p:[0,5.8,-23],rad:1,parent:g});
+    [-15,15].forEach(x=>K.box(16,1,30,'#D0D6DC',{p:[x,5.9,9],rad:3,parent:g}));
+    [[-28,-28],[28,-28],[-28,28],[28,28]].forEach(([x,z])=>K.cyl(3,3,2,'#5B6670',{p:[x,-5.6,z],parent:g}));
+    const t=K.group({p:[0,6.8,-23],r:[-90,0,0],parent:g});
+    [-7,-2,4].forEach(x=>K.box(3,5,0.4,'#7CF2C8',{p:[x,0,0],rad:0.2,parent:t}));K.sph(0.6,'#7CF2C8',{p:[1,-2.4,0],parent:t});
+  },
+
+  // Alcancía de cerdito: cuerpo, hocico con fosas, orejas, patas, cola y moneda entrando
+  'finanzas.b'(K){
+    const P='#F2A7B8',PD='#E58AA0';
+    K.sph(30,P,{s:[1.15,0.9,0.85]});
+    const sn=K.group({p:[-34,0,0],r:[0,0,90]});K.cyl(9,10,8,P,{parent:sn});K.cyl(8,8,8.4,PD,{p:[0,0.4,0],parent:sn});
+    [-3.5,3.5].forEach(z=>K.cyl(1.6,1.6,1,'#B9566E',{p:[-38.4,0,z],r:[0,0,90]}));
+    [-10,10].forEach(z=>K.cone(5,10,PD,{p:[-18,26,z],r:[z<0?-20:20,0,-20]}));
+    [[-16,-14],[-16,14],[16,-14],[16,14]].forEach(([x,z])=>K.cyl(5.4,5.4,12,PD,{p:[x,-28,z]}));
+    [-14,14].forEach(z=>{K.sph(2.6,BK,{p:[-24,8,z*0.6]})});
+    K.tube([[34,4,0],[40,8,0],[42,2,3],[38,0,0],[42,-2,0]],1.4,PD);
+    K.box(16,1,3,'#B9566E',{p:[2,27,0],rad:0.4});
+    K.cyl(9,9,2.6,GO,{m:'gold',p:[2,38,0],r:[90,0,0]});
+  },
+  // Moneda gruesa con borde estriado y signo de pesos en ambas caras
+  'finanzas.a'(K){
+    K.cyl(40,40,8,GO,{m:'gold',r:[90,0,0],seg:72});
+    for(let i=0;i<60;i++){const a=i/60*Math.PI*2;K.box(1,1.2,8.4,'#C9961E',{m:'gold',p:[Math.cos(a)*40,Math.sin(a)*40,0],r:[0,0,a*180/Math.PI],rad:0.2})}
+    [4.2,-4.2].forEach(z=>{K.tor(32,1,'#C9961E',{m:'gold',p:[0,0,z]});
+      const g=K.group({p:[0,0,z],r:[0,z<0?180:0,0]});
+      K.tube([[9,13,0],[4,16,0],[-6,15,0],[-10,8,0],[-4,1,0],[6,-1,0],[11,-7,0],[7,-15,0],[-4,-16,0],[-10,-12,0]],2.4,'#B8861C',{m:'gold',parent:g});
+      K.tube([[0,22,0],[0,-22,0]],2,'#B8861C',{m:'gold',parent:g})});
+  },
+  // Pizarrón verde con marco de madera, escritura en gis, bandeja con gis y borrador, caballete
+  'educacion.a'(K){
+    K.box(80,56,4,'#9A6A3A',{m:'wood',p:[0,14,0],rad:1.4});K.box(72,48,0.8,'#2F5E45',{p:[0,14,2.2],rad:0.3});
+    K.box(72,48,0.8,'#2F5E45',{p:[0,14,-2.2],rad:0.3});
+    const w=K.group({p:[0,14,2.8]});
+    [[-12,12,22],[-8,4,30],[-14,-4,18]].forEach(([x,y,l])=>K.tube([[x-l/2+6,y,0],[x+l/2+6,y,0]],0.9,'#F3F1EA',{parent:w}));
+    K.tube([[16,10,0],[28,-2,0]],1,'#F3F1EA',{parent:w});K.tube([[28,10,0],[16,-2,0]],1,'#F3F1EA',{parent:w});
+    K.box(70,2,6,'#8A5A36',{m:'wood',p:[0,-15,3],rad:0.6});K.box(10,1.6,1.6,WH,{p:[-12,-13.2,4],rad:0.6});K.box(12,3,4,'#E9677A',{p:[14,-12.6,4],rad:0.8});
+    [[-30,6],[30,6]].forEach(([x,z])=>K.cyl(1.6,1.6,30,'#8A5A36',{m:'wood',p:[x*1.1,-26,z],r:[-10,0,x<0?-6:6]}));K.cyl(1.6,1.6,34,'#8A5A36',{m:'wood',p:[0,-24,-10],r:[20,0,0]});
+  },
+  // Birrete: tablero, gorro, botón y borla
+  'educacion.b'(K){
+    K.cyl(22,24,20,'#2B3540',{p:[0,-8,0]});
+    const b=K.box(66,3,66,'#3A4652',{p:[0,4,0],r:[0,45,0],rad:0.8});
+    K.cyl(3,3,2,GO,{m:'gold',p:[0,6.4,0]});
+    K.tube([[0,6.6,0],[20,6,20],[30,4,30]],0.8,GO,{m:'gold',nocap:true});
+    K.tube([[30,4,30],[30,-14,30]],0.9,GO,{m:'gold'});K.cyl(2.6,4,10,GO,{m:'gold',p:[30,-18,30]});
+  },
+  // Casco de obra: casco con cresta y ala alrededor
+  'civil.a'(K){
+    K.sph(30,YE,{s:[1,0.95,1.08]}).geometry=new THREE.SphereGeometry(30,48,24,0,Math.PI*2,0,Math.PI/2);
+    K.cyl(31,31,3,YE,{p:[0,0.5,0],s:[1,1,1.08]});
+    K.cyl(40,40,2.4,'#E3B526',{p:[0,-1,9],s:[1,1,1.12],seg:64});
+    K.tor(29,3.4,'#F8DA6A',{p:[0,0,0],r:[0,90,0],arc:180,s:[1,1,1.08]});
+  },
+
+  // Llave perica con quijadas y tornillo sinfín
+  'mecanica.a'(K){
+    const g=K.group({r:[0,0,-40]});
+    K.box(11,58,6,ST,{m:'metal',rad:3,parent:g});
+    K.tor(11,4.6,ST,{m:'metal',p:[0,40,0],arc:270,r:[0,0,-45],s:[1,1,0.7],parent:g});
+    K.box(10,8,6,ST,{m:'metal',p:[0,30,0],rad:2,parent:g});
+    K.tor(9,4,ST,{m:'metal',p:[0,-38,0],arc:270,r:[0,0,135],s:[1,1,0.75],parent:g});
+    K.box(10,8,6,ST,{m:'metal',p:[0,-29,0],rad:2,parent:g});
+    [3.2,-3.2].forEach(z=>K.box(5,30,0.6,'#7C8792',{m:'metal',p:[0,0,z],rad:0.3,parent:g}));
+  },
+
+
+
+  // Candado dorado con arco de acero y ojo de cerradura
+  'ciberseguridad.b'(K){
+    K.box(56,46,18,GO,{m:'gold',p:[0,-10,0],rad:6});
+    K.tube([[-17,12,0],[-17,30,0],[-12,40,0],[0,43,0],[12,40,0],[17,30,0],[17,12,0]],4,ST,{m:'metal'});
+    [9.3,-9.3].forEach(z=>{K.cyl(5,5,1.2,'#7A5A1A',{p:[0,-6,z],r:[90,0,0]});K.box(4,12,1.2,'#7A5A1A',{p:[0,-14,z],rad:0.6})});
+  },
+
   // Laptop: base con teclado y touchpad; pantalla inclinada con bisagra y código; tapa trasera con logo
   'computacion.b'(K){
     K.box(70,5,46,'#A9B6C2',{m:'metal',p:[0,0,0],rad:2});
