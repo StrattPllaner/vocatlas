@@ -85,7 +85,7 @@ function whyReco(c){
 function pkCard(c,why){
  var on=PK.sel.indexOf(c.id)>-1;
  return '<button type="button" class="pk-card" role="checkbox" aria-checked="'+(on?"true":"false")+'" data-id="'+c.id+'" data-a="'+c.area+'" data-h="'+esc(normQ(c.name+" "+AREAS[c.area].n+" "+c.tags.split(" ").map(function(t){return LAB[t]||t}).join(" ")))+'">'+
-  '<span class="pk-art">'+artSVG(c.id,1)+'</span><b>'+esc(c.name)+'</b><small>'+esc(AREAS[c.area].n)+'</small>'+(why?'<em class="pk-why">'+esc(why)+'</em>':'')+
+  '<span class="pk-art">'+artSVG(c.id,1)+(typeof SIMB!=="undefined"&&SIMB.has(c.id)?'<span class="sy-badge">'+SIMB.icon(c.id,"a",52)+'</span>':'')+'</span><b>'+esc(c.name)+'</b><small>'+esc(AREAS[c.area].n)+'</small>'+(why?'<em class="pk-why">'+esc(why)+'</em>':'')+
   '<span class="pk-ck" aria-hidden="true">'+ico("check")+'</span></button>';
 }
 function openPicker(mode,area){
@@ -307,7 +307,7 @@ function renderAtlas(){
   '<div class="at-ring" role="img" aria-label="Claridad vocacional: '+cl+' por ciento"><svg viewBox="0 0 120 120" aria-hidden="true"><circle class="tr" cx="60" cy="60" r="50"/><circle class="arc" id="atArc" cx="60" cy="60" r="50" stroke-dasharray="'+CIRC+'" stroke-dashoffset="'+CIRC+'"/></svg><div class="at-rn"><b class="num" id="atPct">0<i>%</i></b><span>claridad</span></div></div></header>';
  /* 2. sigue donde te quedaste */
  if(nx){var pg=progOf(nx.id);
-  h+='<section class="ui-card at-next at-in" style="--i:1"><div class="at-nx-top"><span class="at-nx-art">'+artSVG(nx.id,pg.p)+'</span><div class="at-nx-t"><div class="at-eb">'+(pg.done?"Sigue donde te quedaste":"Empieza por aquí")+'</div><h3>'+esc(nx.name)+'</h3><p>'+(pg.done?"Sigue: ":"Primera lección: ")+esc(nextLesson(nx.id))+'</p></div></div>'+
+  h+='<section class="ui-card at-next at-in" style="--i:1"><div class="at-nx-top"><span class="at-nx-art">'+artSVG(nx.id,pg.p)+(SIMB.has(nx.id)?'<span class="sy-badge">'+SIMB.icon(nx.id,"a",44)+'</span>':'')+'</span><div class="at-nx-t"><div class="at-eb">'+(pg.done?"Sigue donde te quedaste":"Empieza por aquí")+'</div><h3>'+esc(nx.name)+'</h3><p>'+(pg.done?"Sigue: ":"Primera lección: ")+esc(nextLesson(nx.id))+'</p></div></div>'+
    '<div class="at-pr"><div class="ui-prog" data-v="'+pg.p+'" role="img" aria-label="'+pg.done+' de '+pg.total+' lecciones"><i></i></div><span class="num">'+pg.done+'/'+pg.total+'</span></div>'+
    '<button type="button" class="ui-btn is-block" id="atGo" data-id="'+nx.id+'">'+(pg.done?"Continuar":"Empezar")+ico("next")+'</button></section>';
  }else{
@@ -317,13 +317,13 @@ function renderAtlas(){
  /* 3. tus carreras */
  h+='<section class="at-sec at-in" style="--i:2"><div class="at-sh"><h3>Tus carreras</h3><button type="button" class="at-link" id="atEdit">Editar</button></div><div class="at-row">'+
   cs.map(function(c){var p=progOf(c.id),d=S.res[c.id];
-   return '<button type="button" class="at-cc" data-id="'+c.id+'" aria-label="'+esc(c.name)+', '+Math.round(p.p*100)+' por ciento'+(d?', '+R[d].toLowerCase():'')+'"><span class="at-cc-art">'+artSVG(c.id,p.p)+(p.p>=1?'<span class="at-seal">'+ico("check")+'</span>':'')+'</span><b>'+esc(shortName(c))+'</b><div class="ui-prog" data-v="'+p.p+'"><i></i></div><span class="at-cc-re'+(d?' r-'+d:'')+'">'+(d?IC[d]+R[d]:"Sin reacción")+'</span></button>'}).join("")+
+   return '<button type="button" class="at-cc" data-id="'+c.id+'" aria-label="'+esc(c.name)+', '+Math.round(p.p*100)+' por ciento'+(d?', '+R[d].toLowerCase():'')+'"><span class="at-cc-art">'+artSVG(c.id,p.p)+(SIMB.has(c.id)?'<span class="sy-badge">'+SIMB.icon(c.id,"a",44)+'</span>':'')+(p.p>=1?'<span class="at-seal">'+ico("check")+'</span>':'')+'</span><b>'+esc(shortName(c))+'</b><div class="ui-prog" data-v="'+p.p+'"><i></i></div><span class="at-cc-re'+(d?' r-'+d:'')+'">'+(d?IC[d]+R[d]:"Sin reacción")+'</span></button>'}).join("")+
   (S.pick.length<C.length?'<button type="button" class="at-cc is-add" id="atAdd">'+ico("plus")+'Agregar</button>':'')+'</div></section>';
  /* 4. tu brújula */
  h+='<section class="at-sec at-in" style="--i:3"><div class="at-sh"><h3>Tu brújula</h3></div>';
  if(!top.length)h+='<div class="at-empty">'+rumboEl()+'<div><b>Todavía no apunta a ningún lado</b><p>Haz el mini reto de una carrera y di qué te pareció. Con eso empieza a moverse.</p></div></div>';
  else{
-  h+='<ol class="at-top">'+top.map(function(c,i){return '<li><button type="button" class="at-tp" data-id="'+c.id+'" style="--c:'+c.color+';--ct:'+(lum(c.color)>.62?"#14323F":"#FFFFFF")+'"><span class="at-rk">'+(i+1)+'</span><span class="at-tpt"><b>'+esc(c.name)+'</b><span>'+esc(whyOf(c.id))+'</span></span><span class="at-sc num">'+scoreOf(c.id)+'<i>%</i></span></button></li>'}).join("")+'</ol>';
+  h+='<ol class="at-top">'+top.map(function(c,i){return '<li><button type="button" class="at-tp" data-id="'+c.id+'" style="--c:'+c.color+';--ct:'+(lum(c.color)>.62?"#14323F":"#FFFFFF")+'"><span class="at-rk">'+(i+1)+'</span>'+(SIMB.has(c.id)?'<span class="at-tsy">'+SIMB.icon(c.id,"a",40)+'</span>':'')+'<span class="at-tpt"><b>'+esc(c.name)+'</b><span>'+esc(whyOf(c.id))+'</span></span><span class="at-sc num">'+scoreOf(c.id)+'<i>%</i></span></button></li>'}).join("")+'</ol>';
   if(top.length<3)h+='<p class="at-note">Te falta'+(3-top.length===1?" probar 1 carrera":" probar "+(3-top.length)+" carreras")+' para tener tu top 3.</p>';
  }
  h+='</section>';

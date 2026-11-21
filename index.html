@@ -2694,6 +2694,21 @@ body:not(.on-map):not(.lp-open)::before{content:"";position:fixed;left:0;right:0
  .pf.vwrap>.es-yo{grid-column:1;grid-row:3}
  .pf.vwrap>.pf-aj{grid-row:2 / span 2}
 }
+
+/* ===== símbolos 3D de cada carrera ===== */
+.tw-3d img{position:absolute;left:12%;top:2%;width:76%;height:auto;display:block;pointer-events:none}
+.tw-3d .tw-sk{filter:grayscale(1) sepia(.55) contrast(.85) brightness(1.08);opacity:.6}
+.tw-3d .tw-col{transition:opacity .6s ease}
+.tw-pvg{display:grid;grid-template-columns:repeat(3,96px);gap:8px}.tw-pv{position:relative;width:96px;height:96px}.tw-pv img{left:0;top:0;width:100%}
+.sy-badge{position:absolute;right:-6px;bottom:-6px;width:44%;max-width:52px;aspect-ratio:1;filter:drop-shadow(0 2px 2px rgba(20,50,63,.25))}
+.sy-badge img{width:100%;height:100%;display:block}
+.pk-art,.at-cc-art,.at-nx-art{position:relative}
+.at-tsy{flex:none;width:36px;height:36px}.at-tsy img{width:100%;height:100%;display:block}
+.gm-pin .gm-sy{width:40px;height:40px;margin-bottom:-6px;filter:drop-shadow(0 2px 2px rgba(20,50,63,.3))}
+.gm-pin .gm-sy img{width:100%;height:100%;display:block}
+.gm.m-short .gm-pin .gm-sy{width:30px;height:30px}
+.pl-sy{display:inline-block;width:34px;height:34px;vertical-align:middle;margin:-12px 2px -10px -10px;filter:drop-shadow(0 1px 1.5px rgba(20,50,63,.3))}
+.pl-sy img{width:100%;height:100%;display:block}
 /*@iso-css-fin*/
 </style>
 <script>
@@ -3710,7 +3725,7 @@ function buildMap(){
  ALABELS.forEach(function(a){addLabel("al",a[1]*K,a[2]*K,'<span class="t">'+esc(a[0])+"</span>")});}
  if(iso)ISOW.ghosts.forEach(function(g,i){if(!i)addLabel("al gh",g.x,g.ly,'<span class="t gh-t">Islas por descubrir</span>');var e=addLabel("ghost",g.x,g.y,'<span class="gh-hit"></span>');e.setAttribute("role","button");e.setAttribute("tabindex","0");e.setAttribute("aria-label","Isla por descubrir. Agregar carrera");if(g.area)e.setAttribute("data-a",g.area)});
  (iso?mapCs():C).forEach(function(c,i){
-  var e=addLabel("mpin",c.lx!=null?c.lx:c.cx,c.ly!=null?c.ly:c.cy,'<span class="pl"><span class="pd"><svg class="i-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><svg class="i-mid" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.6" stroke-linecap="round"><path d="M6 12h12"/></svg><svg class="i-no" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"><path d="M7 7l10 10M17 7L7 17"/></svg></span><span class="pn-l">'+esc(c.name)+'</span><span class="pn-s">'+esc(PSHORT[c.id]||c.name)+"</span><small></small></span>");
+  var e=addLabel("mpin",c.lx!=null?c.lx:c.cx,c.ly!=null?c.ly:c.cy,'<span class="pl">'+(typeof SIMB!=="undefined"&&SIMB.has(c.id)?'<span class="pl-sy">'+SIMB.icon(c.id,"a",34)+'</span>':'')+'<span class="pd"><svg class="i-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><svg class="i-mid" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.6" stroke-linecap="round"><path d="M6 12h12"/></svg><svg class="i-no" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"><path d="M7 7l10 10M17 7L7 17"/></svg></span><span class="pn-l">'+esc(c.name)+'</span><span class="pn-s">'+esc(PSHORT[c.id]||c.name)+"</span><small></small></span>");
   e.setAttribute("data-id",c.id);e.setAttribute("role","button");e.setAttribute("tabindex","0");e.setAttribute("aria-label",c.name+(S.res[c.id]?", ya probada":"")+". Ir con Rumbo");
   e.style.setProperty("--c",c.color);e.style.setProperty("--ic",lum(c.color)>.62?"#14323F":"#FFFBF2");e.style.setProperty("--d",(380+i*22)+"ms");e.style.setProperty("--c0",c.color);
   refs[c.id].pin=e;refs[c.id].mk=e.querySelector(".pd");refs[c.id].sm=e.querySelector("small");
@@ -8642,7 +8657,7 @@ var ISOMAP=(function(I,E,G){
   /* la subárea se nombra al frente de su grupo de edificios */
   W.subs.forEach(function(s){var xs=0,yb=-1e9;s.ids.forEach(function(id){var p=pj([W.byId[id].x,W.byId[id].y],Z_TOP);xs+=p[0];yb=Math.max(yb,p[1])});labels.push({k:"sl",el:mk("gm-sl",'<span>'+esc(s.sub)+'</span><b>'+s.n+'</b>'),x:xs/s.ids.length,y:yb+44,pri:5})});
   W.nodes.forEach(function(n){var p=pj([n.x,n.y],Z_TOP),k=aff[n.id]!=null?aff[n.id]:.5;
-   var e=mk("gm-pin",'<i class="pn"></i><span class="br"><b class="nf">'+esc(n.c.name)+'</b><b class="ns">'+esc(n.c.short||n.c.name)+'</b></span>',{btn:true});e.style.setProperty("--c",n.c.color);e.setAttribute("data-id",n.id);e.setAttribute("aria-label",n.c.name);
+   var e=mk("gm-pin",(typeof SIMB!=="undefined"&&SIMB.has(n.id)?'<span class="gm-sy">'+SIMB.icon(n.id,"a",40)+'</span>':'<i class="pn"></i>')+'<span class="br"><b class="nf">'+esc(n.c.name)+'</b><b class="ns">'+esc(n.c.short||n.c.name)+'</b></span>',{btn:true});e.style.setProperty("--c",n.c.color);e.setAttribute("data-id",n.id);e.setAttribute("aria-label",n.c.name);
    labels.push({k:"pin",el:e,x:p[0],y:p[1],pri:1+k*4,id:n.id});
    /* área de toque de al menos 48 px sobre el edificio */
    var hb=document.createElement("button");hb.type="button";hb.className="gm-hit";hb.setAttribute("data-id",n.id);hb.setAttribute("aria-label",n.c.name);hb.tabIndex=-1;lay.appendChild(hb);hits.push({el:hb,n:n,x:p[0],y:p[1]})});
@@ -9603,6 +9618,8 @@ var TORRE=(function(I){
  var CACHE={};
  function symSVG(id,k){var c=(byId[id]||{}).color||"#3F7DA6",s=symbols(id)[k]||"estrella";return '<g transform="scale(1.25)">'+solid(SH[s],c,24)+'</g>'}
  function floorSVG(id,k){return symSVG(id,k)}
+ /* los seis símbolos 3D de la carrera (media/sym), uno por unidad */
+ function symImg(id,k){if(typeof SIMB!=="undefined"&&SIMB.has(id)){var q=SIMB.six(id)[k];if(q)return "media/sym/"+q.id+"."+q.v+".webp"}return ""}
  function has(id){return !!byId[id]&&typeof ISO!=="undefined"}
  function star(on){var r=40,ri=17,p=[];for(var i=0;i<10;i++){var a=-Math.PI/2+i*Math.PI/5,rr=i%2?ri:r;p.push(f1(Math.cos(a)*rr)+","+f1(Math.sin(a)*rr))}
   var pl=p.join(" ");return '<g class="tw-star'+(on?" is-on":"")+'"><polygon points="'+pl+'" transform="translate(0 6)" class="tw-star-b"/><polygon points="'+pl+'" class="tw-star-t"/></g>'}
@@ -9632,7 +9649,6 @@ var TORRE=(function(I){
   var nf=Math.max(1,Math.min(6,o.units.length)),a0=-30,a1=nf*360+20,xs=R*1.414*(1+PF)+40,ytop=-(zAt(a1)+150),ybot=150,Wd=xs*2,Hd=ybot-ytop;
   var vw=host.clientWidth||360,k=Math.max(.92,Math.min(1.6,(vw-12)/Wd)),Wp=Wd*k,Hp=Hd*k,padT=150,padB=40;
   var toPx=function(p){if(p.length)p={x:p[0],y:p[1]};return {x:(p.x+xs)*k,y:(p.y-ytop)*k}};
-  var C=CACHE[id]||(CACHE[id]=[0,1,2,3,4,5].map(function(f){var col=symSVG(id,f);return {c:col,s:I.sketchAll(col)}}));
   /* la isla en el suelo: boceto que se vuelve isla a color con el avance de toda la carrera */
   var ic=toPx(P(0,0,0)),iw=Wp*1.02;
   var h='<div class="tw-scene" style="height:'+(Hp+padT+padB)+'px"><div class="tw-clouds" aria-hidden="true"><i></i><i></i><i></i><i></i></div>'+
@@ -9641,8 +9657,9 @@ var TORRE=(function(I){
    '<svg class="tw-l tw-pb" viewBox="'+(-xs)+' '+ytop+' '+Wd+' '+Hd+'" aria-hidden="true"><path class="tw-rib is-rest"/><path class="tw-rib is-done"/></svg>';
   var sw=230*k,sh=230*k;
   for(var f=0;f<nf;f++){var u=o.units[f]||{done:0},L2=u.items?u.items.filter(function(it){return it.lid}):[],p=L2.length?u.done/L2.length:0,c=toPx(P(0,0,symZ(f)));
-   h+='<div class="tw-sym tw-floor'+(p>=1?" is-done":"")+'" data-f="'+f+'" style="left:'+f1(c.x-sw/2)+'px;top:'+f1(c.y-sh*.72)+'px;width:'+f1(sw)+'px;height:'+f1(sh)+'px;animation-delay:-'+(f*.9)+'s">'+
-    '<svg viewBox="-115 -165 230 230" aria-hidden="true"><defs>'+I.skDefs()+'</defs><g class="tw-sk">'+C[f].s+'</g><g class="tw-col" style="opacity:'+(p>=1?1:(.15+p*.7).toFixed(2))+'">'+C[f].c+'</g></svg></div>';
+   var im=symImg(id,f);
+   h+='<div class="tw-sym tw-floor tw-3d'+(p>=1?" is-done":"")+'" data-f="'+f+'" style="left:'+f1(c.x-sw/2)+'px;top:'+f1(c.y-sh*.72)+'px;width:'+f1(sw)+'px;height:'+f1(sh)+'px;animation-delay:-'+(f*.9)+'s">'+
+    '<img class="tw-sk" src="'+im+'" alt="" decoding="async"><img class="tw-col" src="'+im+'" alt="" decoding="async" style="opacity:'+(p>=1?1:(.15+p*.7).toFixed(2))+'"></div>';
    h+='<span class="tw-ul s-'+(u.state||"lock")+'" data-u="'+f+'">'+(f+1)+' · '+esc(u.t||"")+'</span>'}
   var stc=toPx(P(0,0,zAt(a1)+70));
   h+='<div class="tw-sym tw-starw" style="left:'+f1(stc.x-55*k)+'px;top:'+f1(stc.y-55*k)+'px;width:'+f1(110*k)+'px;height:'+f1(110*k)+'px"><svg viewBox="-50 -50 100 100" aria-hidden="true">'+star(o.mastered)+'</svg></div>';
@@ -9693,8 +9710,7 @@ var TORRE=(function(I){
  function scrollTo(S,y,smooth){var sc=S.sc;if(!sc)return;var t=Math.max(0,y+S.padT-sc.clientHeight*.58);if(smooth&&sc.scrollTo)sc.scrollTo({top:t,behavior:"smooth"});else sc.scrollTop=t}
  function pos(S,i){var it=S.items[i];return it?{x:it.px,y:it.py,sz:it.sz}:null}
  /* vista previa para #art: los seis símbolos de la carrera */
- function preview(id,p){var s="";for(var f=0;f<6;f++){var q=Math.max(0,Math.min(1,p*6-f)),col=symSVG(id,f);s+='<g transform="translate('+((f%3)*230-230)+' '+(Math.floor(f/3)*230)+')"><g>'+I.sketchAll(col)+'</g><g style="opacity:'+(q>=1?1:(.15+q*.7).toFixed(2))+'">'+col+'</g></g>'}
-  return '<svg viewBox="-345 -165 690 460" class="tw-prev"><defs>'+I.skDefs()+'</defs>'+s+'</svg>'}
+ function preview(id,p){var s="";for(var f=0;f<6;f++){var q=Math.max(0,Math.min(1,p*6-f)),im=symImg(id,f);s+='<div class="tw-3d tw-pv"><img class="tw-sk" src="'+im+'" alt=""><img class="tw-col" src="'+im+'" alt="" style="opacity:'+(q>=1?1:(.15+q*.7).toFixed(2))+'"></div>'}return '<div class="tw-pvg">'+s+'</div>'}
  return {has:has,build:build,preview:preview,render:render,focus:focus,place:place,hop:hop,climbTop:climbTop,scrollTo:scrollTo,pos:pos,floorSVG:floorSVG,star:star,symbols:symbols};
 })(ISO);
 
@@ -10454,7 +10470,7 @@ function whyReco(c){
 function pkCard(c,why){
  var on=PK.sel.indexOf(c.id)>-1;
  return '<button type="button" class="pk-card" role="checkbox" aria-checked="'+(on?"true":"false")+'" data-id="'+c.id+'" data-a="'+c.area+'" data-h="'+esc(normQ(c.name+" "+AREAS[c.area].n+" "+c.tags.split(" ").map(function(t){return LAB[t]||t}).join(" ")))+'">'+
-  '<span class="pk-art">'+artSVG(c.id,1)+'</span><b>'+esc(c.name)+'</b><small>'+esc(AREAS[c.area].n)+'</small>'+(why?'<em class="pk-why">'+esc(why)+'</em>':'')+
+  '<span class="pk-art">'+artSVG(c.id,1)+(typeof SIMB!=="undefined"&&SIMB.has(c.id)?'<span class="sy-badge">'+SIMB.icon(c.id,"a",52)+'</span>':'')+'</span><b>'+esc(c.name)+'</b><small>'+esc(AREAS[c.area].n)+'</small>'+(why?'<em class="pk-why">'+esc(why)+'</em>':'')+
   '<span class="pk-ck" aria-hidden="true">'+ico("check")+'</span></button>';
 }
 function openPicker(mode,area){
@@ -10676,7 +10692,7 @@ function renderAtlas(){
   '<div class="at-ring" role="img" aria-label="Claridad vocacional: '+cl+' por ciento"><svg viewBox="0 0 120 120" aria-hidden="true"><circle class="tr" cx="60" cy="60" r="50"/><circle class="arc" id="atArc" cx="60" cy="60" r="50" stroke-dasharray="'+CIRC+'" stroke-dashoffset="'+CIRC+'"/></svg><div class="at-rn"><b class="num" id="atPct">0<i>%</i></b><span>claridad</span></div></div></header>';
  /* 2. sigue donde te quedaste */
  if(nx){var pg=progOf(nx.id);
-  h+='<section class="ui-card at-next at-in" style="--i:1"><div class="at-nx-top"><span class="at-nx-art">'+artSVG(nx.id,pg.p)+'</span><div class="at-nx-t"><div class="at-eb">'+(pg.done?"Sigue donde te quedaste":"Empieza por aquí")+'</div><h3>'+esc(nx.name)+'</h3><p>'+(pg.done?"Sigue: ":"Primera lección: ")+esc(nextLesson(nx.id))+'</p></div></div>'+
+  h+='<section class="ui-card at-next at-in" style="--i:1"><div class="at-nx-top"><span class="at-nx-art">'+artSVG(nx.id,pg.p)+(SIMB.has(nx.id)?'<span class="sy-badge">'+SIMB.icon(nx.id,"a",44)+'</span>':'')+'</span><div class="at-nx-t"><div class="at-eb">'+(pg.done?"Sigue donde te quedaste":"Empieza por aquí")+'</div><h3>'+esc(nx.name)+'</h3><p>'+(pg.done?"Sigue: ":"Primera lección: ")+esc(nextLesson(nx.id))+'</p></div></div>'+
    '<div class="at-pr"><div class="ui-prog" data-v="'+pg.p+'" role="img" aria-label="'+pg.done+' de '+pg.total+' lecciones"><i></i></div><span class="num">'+pg.done+'/'+pg.total+'</span></div>'+
    '<button type="button" class="ui-btn is-block" id="atGo" data-id="'+nx.id+'">'+(pg.done?"Continuar":"Empezar")+ico("next")+'</button></section>';
  }else{
@@ -10686,13 +10702,13 @@ function renderAtlas(){
  /* 3. tus carreras */
  h+='<section class="at-sec at-in" style="--i:2"><div class="at-sh"><h3>Tus carreras</h3><button type="button" class="at-link" id="atEdit">Editar</button></div><div class="at-row">'+
   cs.map(function(c){var p=progOf(c.id),d=S.res[c.id];
-   return '<button type="button" class="at-cc" data-id="'+c.id+'" aria-label="'+esc(c.name)+', '+Math.round(p.p*100)+' por ciento'+(d?', '+R[d].toLowerCase():'')+'"><span class="at-cc-art">'+artSVG(c.id,p.p)+(p.p>=1?'<span class="at-seal">'+ico("check")+'</span>':'')+'</span><b>'+esc(shortName(c))+'</b><div class="ui-prog" data-v="'+p.p+'"><i></i></div><span class="at-cc-re'+(d?' r-'+d:'')+'">'+(d?IC[d]+R[d]:"Sin reacción")+'</span></button>'}).join("")+
+   return '<button type="button" class="at-cc" data-id="'+c.id+'" aria-label="'+esc(c.name)+', '+Math.round(p.p*100)+' por ciento'+(d?', '+R[d].toLowerCase():'')+'"><span class="at-cc-art">'+artSVG(c.id,p.p)+(SIMB.has(c.id)?'<span class="sy-badge">'+SIMB.icon(c.id,"a",44)+'</span>':'')+(p.p>=1?'<span class="at-seal">'+ico("check")+'</span>':'')+'</span><b>'+esc(shortName(c))+'</b><div class="ui-prog" data-v="'+p.p+'"><i></i></div><span class="at-cc-re'+(d?' r-'+d:'')+'">'+(d?IC[d]+R[d]:"Sin reacción")+'</span></button>'}).join("")+
   (S.pick.length<C.length?'<button type="button" class="at-cc is-add" id="atAdd">'+ico("plus")+'Agregar</button>':'')+'</div></section>';
  /* 4. tu brújula */
  h+='<section class="at-sec at-in" style="--i:3"><div class="at-sh"><h3>Tu brújula</h3></div>';
  if(!top.length)h+='<div class="at-empty">'+rumboEl()+'<div><b>Todavía no apunta a ningún lado</b><p>Haz el mini reto de una carrera y di qué te pareció. Con eso empieza a moverse.</p></div></div>';
  else{
-  h+='<ol class="at-top">'+top.map(function(c,i){return '<li><button type="button" class="at-tp" data-id="'+c.id+'" style="--c:'+c.color+';--ct:'+(lum(c.color)>.62?"#14323F":"#FFFFFF")+'"><span class="at-rk">'+(i+1)+'</span><span class="at-tpt"><b>'+esc(c.name)+'</b><span>'+esc(whyOf(c.id))+'</span></span><span class="at-sc num">'+scoreOf(c.id)+'<i>%</i></span></button></li>'}).join("")+'</ol>';
+  h+='<ol class="at-top">'+top.map(function(c,i){return '<li><button type="button" class="at-tp" data-id="'+c.id+'" style="--c:'+c.color+';--ct:'+(lum(c.color)>.62?"#14323F":"#FFFFFF")+'"><span class="at-rk">'+(i+1)+'</span>'+(SIMB.has(c.id)?'<span class="at-tsy">'+SIMB.icon(c.id,"a",40)+'</span>':'')+'<span class="at-tpt"><b>'+esc(c.name)+'</b><span>'+esc(whyOf(c.id))+'</span></span><span class="at-sc num">'+scoreOf(c.id)+'<i>%</i></span></button></li>'}).join("")+'</ol>';
   if(top.length<3)h+='<p class="at-note">Te falta'+(3-top.length===1?" probar 1 carrera":" probar "+(3-top.length)+" carreras")+' para tener tu top 3.</p>';
  }
  h+='</section>';

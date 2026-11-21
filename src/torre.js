@@ -70,6 +70,8 @@ var TORRE=(function(I){
  var CACHE={};
  function symSVG(id,k){var c=(byId[id]||{}).color||"#3F7DA6",s=symbols(id)[k]||"estrella";return '<g transform="scale(1.25)">'+solid(SH[s],c,24)+'</g>'}
  function floorSVG(id,k){return symSVG(id,k)}
+ /* los seis símbolos 3D de la carrera (media/sym), uno por unidad */
+ function symImg(id,k){if(typeof SIMB!=="undefined"&&SIMB.has(id)){var q=SIMB.six(id)[k];if(q)return "media/sym/"+q.id+"."+q.v+".webp"}return ""}
  function has(id){return !!byId[id]&&typeof ISO!=="undefined"}
  function star(on){var r=40,ri=17,p=[];for(var i=0;i<10;i++){var a=-Math.PI/2+i*Math.PI/5,rr=i%2?ri:r;p.push(f1(Math.cos(a)*rr)+","+f1(Math.sin(a)*rr))}
   var pl=p.join(" ");return '<g class="tw-star'+(on?" is-on":"")+'"><polygon points="'+pl+'" transform="translate(0 6)" class="tw-star-b"/><polygon points="'+pl+'" class="tw-star-t"/></g>'}
@@ -99,7 +101,6 @@ var TORRE=(function(I){
   var nf=Math.max(1,Math.min(6,o.units.length)),a0=-30,a1=nf*360+20,xs=R*1.414*(1+PF)+40,ytop=-(zAt(a1)+150),ybot=150,Wd=xs*2,Hd=ybot-ytop;
   var vw=host.clientWidth||360,k=Math.max(.92,Math.min(1.6,(vw-12)/Wd)),Wp=Wd*k,Hp=Hd*k,padT=150,padB=40;
   var toPx=function(p){if(p.length)p={x:p[0],y:p[1]};return {x:(p.x+xs)*k,y:(p.y-ytop)*k}};
-  var C=CACHE[id]||(CACHE[id]=[0,1,2,3,4,5].map(function(f){var col=symSVG(id,f);return {c:col,s:I.sketchAll(col)}}));
   /* la isla en el suelo: boceto que se vuelve isla a color con el avance de toda la carrera */
   var ic=toPx(P(0,0,0)),iw=Wp*1.02;
   var h='<div class="tw-scene" style="height:'+(Hp+padT+padB)+'px"><div class="tw-clouds" aria-hidden="true"><i></i><i></i><i></i><i></i></div>'+
@@ -108,8 +109,9 @@ var TORRE=(function(I){
    '<svg class="tw-l tw-pb" viewBox="'+(-xs)+' '+ytop+' '+Wd+' '+Hd+'" aria-hidden="true"><path class="tw-rib is-rest"/><path class="tw-rib is-done"/></svg>';
   var sw=230*k,sh=230*k;
   for(var f=0;f<nf;f++){var u=o.units[f]||{done:0},L2=u.items?u.items.filter(function(it){return it.lid}):[],p=L2.length?u.done/L2.length:0,c=toPx(P(0,0,symZ(f)));
-   h+='<div class="tw-sym tw-floor'+(p>=1?" is-done":"")+'" data-f="'+f+'" style="left:'+f1(c.x-sw/2)+'px;top:'+f1(c.y-sh*.72)+'px;width:'+f1(sw)+'px;height:'+f1(sh)+'px;animation-delay:-'+(f*.9)+'s">'+
-    '<svg viewBox="-115 -165 230 230" aria-hidden="true"><defs>'+I.skDefs()+'</defs><g class="tw-sk">'+C[f].s+'</g><g class="tw-col" style="opacity:'+(p>=1?1:(.15+p*.7).toFixed(2))+'">'+C[f].c+'</g></svg></div>';
+   var im=symImg(id,f);
+   h+='<div class="tw-sym tw-floor tw-3d'+(p>=1?" is-done":"")+'" data-f="'+f+'" style="left:'+f1(c.x-sw/2)+'px;top:'+f1(c.y-sh*.72)+'px;width:'+f1(sw)+'px;height:'+f1(sh)+'px;animation-delay:-'+(f*.9)+'s">'+
+    '<img class="tw-sk" src="'+im+'" alt="" decoding="async"><img class="tw-col" src="'+im+'" alt="" decoding="async" style="opacity:'+(p>=1?1:(.15+p*.7).toFixed(2))+'"></div>';
    h+='<span class="tw-ul s-'+(u.state||"lock")+'" data-u="'+f+'">'+(f+1)+' · '+esc(u.t||"")+'</span>'}
   var stc=toPx(P(0,0,zAt(a1)+70));
   h+='<div class="tw-sym tw-starw" style="left:'+f1(stc.x-55*k)+'px;top:'+f1(stc.y-55*k)+'px;width:'+f1(110*k)+'px;height:'+f1(110*k)+'px"><svg viewBox="-50 -50 100 100" aria-hidden="true">'+star(o.mastered)+'</svg></div>';
@@ -160,7 +162,6 @@ var TORRE=(function(I){
  function scrollTo(S,y,smooth){var sc=S.sc;if(!sc)return;var t=Math.max(0,y+S.padT-sc.clientHeight*.58);if(smooth&&sc.scrollTo)sc.scrollTo({top:t,behavior:"smooth"});else sc.scrollTop=t}
  function pos(S,i){var it=S.items[i];return it?{x:it.px,y:it.py,sz:it.sz}:null}
  /* vista previa para #art: los seis símbolos de la carrera */
- function preview(id,p){var s="";for(var f=0;f<6;f++){var q=Math.max(0,Math.min(1,p*6-f)),col=symSVG(id,f);s+='<g transform="translate('+((f%3)*230-230)+' '+(Math.floor(f/3)*230)+')"><g>'+I.sketchAll(col)+'</g><g style="opacity:'+(q>=1?1:(.15+q*.7).toFixed(2))+'">'+col+'</g></g>'}
-  return '<svg viewBox="-345 -165 690 460" class="tw-prev"><defs>'+I.skDefs()+'</defs>'+s+'</svg>'}
+ function preview(id,p){var s="";for(var f=0;f<6;f++){var q=Math.max(0,Math.min(1,p*6-f)),im=symImg(id,f);s+='<div class="tw-3d tw-pv"><img class="tw-sk" src="'+im+'" alt=""><img class="tw-col" src="'+im+'" alt="" style="opacity:'+(q>=1?1:(.15+q*.7).toFixed(2))+'"></div>'}return '<div class="tw-pvg">'+s+'</div>'}
  return {has:has,build:build,preview:preview,render:render,focus:focus,place:place,hop:hop,climbTop:climbTop,scrollTo:scrollTo,pos:pos,floorSVG:floorSVG,star:star,symbols:symbols};
 })(ISO);

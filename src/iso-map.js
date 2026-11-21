@@ -177,7 +177,7 @@ var ISOMAP=(function(I,E,G){
   /* la subárea se nombra al frente de su grupo de edificios */
   W.subs.forEach(function(s){var xs=0,yb=-1e9;s.ids.forEach(function(id){var p=pj([W.byId[id].x,W.byId[id].y],Z_TOP);xs+=p[0];yb=Math.max(yb,p[1])});labels.push({k:"sl",el:mk("gm-sl",'<span>'+esc(s.sub)+'</span><b>'+s.n+'</b>'),x:xs/s.ids.length,y:yb+44,pri:5})});
   W.nodes.forEach(function(n){var p=pj([n.x,n.y],Z_TOP),k=aff[n.id]!=null?aff[n.id]:.5;
-   var e=mk("gm-pin",'<i class="pn"></i><span class="br"><b class="nf">'+esc(n.c.name)+'</b><b class="ns">'+esc(n.c.short||n.c.name)+'</b></span>',{btn:true});e.style.setProperty("--c",n.c.color);e.setAttribute("data-id",n.id);e.setAttribute("aria-label",n.c.name);
+   var e=mk("gm-pin",(typeof SIMB!=="undefined"&&SIMB.has(n.id)?'<span class="gm-sy">'+SIMB.icon(n.id,"a",40)+'</span>':'<i class="pn"></i>')+'<span class="br"><b class="nf">'+esc(n.c.name)+'</b><b class="ns">'+esc(n.c.short||n.c.name)+'</b></span>',{btn:true});e.style.setProperty("--c",n.c.color);e.setAttribute("data-id",n.id);e.setAttribute("aria-label",n.c.name);
    labels.push({k:"pin",el:e,x:p[0],y:p[1],pri:1+k*4,id:n.id});
    /* área de toque de al menos 48 px sobre el edificio */
    var hb=document.createElement("button");hb.type="button";hb.className="gm-hit";hb.setAttribute("data-id",n.id);hb.setAttribute("aria-label",n.c.name);hb.tabIndex=-1;lay.appendChild(hb);hits.push({el:hb,n:n,x:p[0],y:p[1]})});

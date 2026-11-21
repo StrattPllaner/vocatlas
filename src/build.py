@@ -29,7 +29,7 @@ for f in sorted(glob.glob(D+'carreras/*.json')):
 js+='/* catálogo de contenido, copiado de datos/ por build.py; no se edita aquí */\nvar CAT='+json.dumps(cat,ensure_ascii=False,separators=(',',':'))+';\n'
 js+=open(src+'rumbo.js').read().replace('/*@skins*/',open(src+'skins.js').read())+'\n'
 js+=''.join(open(src+f).read()+'\n' for f in ['iso-lib.js','iso-gen.js','iso-env-old.js','iso-env.js','iso-bld.js','iso-bld2.js','iso-bld3.js','iso-map.js','iso-fix.js','simbolos.js','iso-art.js','rumbo-page.js','leccion.js','torre.js','ruta.js','intereses.js','comparar.js','sprite.js','amb.js','mine.js','escuelas.js','perfil.js'])
-css=open(src+'iso.css').read()+open(src+'mine.css').read()+open(src+'perfil.css').read()+open(src+'ruta.css').read()+open(src+'intereses.css').read()+open(src+'comparar.css').read()+open(src+'ancho.css').read()
+css=open(src+'iso.css').read()+open(src+'mine.css').read()+open(src+'perfil.css').read()+open(src+'ruta.css').read()+open(src+'intereses.css').read()+open(src+'comparar.css').read()+open(src+'ancho.css').read()+open(src+'simbolos.css').read()
 def put(s,a,b,body,anchor,before=True):
     if a in s:
         i=s.index(a);j=s.index(b,i)+len(b);return s[:i]+a+'\n'+body+b+s[j:]
