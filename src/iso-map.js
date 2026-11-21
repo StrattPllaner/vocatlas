@@ -250,5 +250,5 @@ var ISOMAP=(function(I,E,G){
   measureB();measure();fit();if(opt.start)startView(opt.start);
   return {startView:startView,view:view,fit:fit,focus:focus,zoomAt:zoomAt,apply:apply,setScale:function(s){var w=W0()/2,h=H0()/2;zoomAt(gm.getBoundingClientRect().left+w,gm.getBoundingClientRect().top+h,s/view.s)},world:W,el:gm};
  }
- return {render:render,mount:mount,grass:function(b){return (AREA_LOOK[b]||AREA_LOOK.ciudad).grass}};
+ return {render:render,mount:mount,closed:closed,look:function(b){return AREA_LOOK[b]||AREA_LOOK.ciudad},SAND:SAND,CLIFF:CLIFF,grass:function(b){return (AREA_LOOK[b]||AREA_LOOK.ciudad).grass}};
 })(ISO,ENV,MAPGEN);
