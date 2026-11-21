@@ -1,0 +1,19 @@
+/* ¿cuánto ganan?: botón en la pantalla de la carrera y su hoja */
+.rt-su{position:absolute;left:12px;bottom:calc(14px + env(safe-area-inset-bottom));z-index:30;display:flex;align-items:center;gap:8px;padding:8px 14px 8px 10px;border-radius:999px;border:2px solid #3A3026;background:#FFF8EA;color:#14323F;box-shadow:0 4px 0 #3A3026;font:inherit;cursor:pointer}
+.rt-su .lp-ic{width:26px;height:26px;color:#C08A1E}
+.rt-su span{display:flex;flex-direction:column;align-items:flex-start;line-height:1.1}
+.rt-su b{font-size:14px}.rt-su small{font-size:12px;opacity:.75;font-weight:700}
+.rt-su:active{transform:translateY(3px);box-shadow:0 1px 0 #3A3026}
+.su-big{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;margin:6px 0 4px}
+.su-big b{font-size:40px;line-height:1;color:#1F7A4D}.su-big span{font-weight:700;opacity:.75}
+.su-lead{margin:6px 0}.su-pos{margin:4px 0 12px;font-weight:600}
+.su-h{margin:14px 0 8px;font-size:15px}
+.su-bars{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.su-bars li{display:grid;grid-template-columns:minmax(0,7.5em) 1fr auto;align-items:center;gap:8px;font-size:13px}
+.su-bars li.is-me{font-weight:800}
+.su-n{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.su-b{height:12px;border-radius:6px;background:rgba(0,0,0,.08);overflow:hidden}.su-b i{display:block;height:100%;border-radius:6px}
+.su-x{display:flex;align-items:baseline;gap:8px;margin:14px 0 4px;padding:10px 12px;border-radius:12px;background:rgba(0,0,0,.05)}.su-x b{font-size:24px}
+.su-src{margin-top:12px;font-size:12px;opacity:.75}
+.lp-dark .rt-su{background:#1E2A44;color:#F3F1EA;border-color:#0B1222;box-shadow:0 4px 0 #0B1222}
+.lp-dark .su-big b{color:#7FE0A8}

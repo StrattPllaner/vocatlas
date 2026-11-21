@@ -2771,6 +2771,25 @@ body:not(.on-map):not(.lp-open)::before{content:"";position:fixed;left:0;right:0
 .gm.m-short .gm-pin .gm-sy{width:30px;height:30px}
 .pl-sy{display:inline-block;width:34px;height:34px;vertical-align:middle;margin:-12px 2px -10px -10px;filter:drop-shadow(0 1px 1.5px rgba(20,50,63,.3))}
 .pl-sy img{width:100%;height:100%;display:block}
+/* ¿cuánto ganan?: botón en la pantalla de la carrera y su hoja */
+.rt-su{position:absolute;left:12px;bottom:calc(14px + env(safe-area-inset-bottom));z-index:30;display:flex;align-items:center;gap:8px;padding:8px 14px 8px 10px;border-radius:999px;border:2px solid #3A3026;background:#FFF8EA;color:#14323F;box-shadow:0 4px 0 #3A3026;font:inherit;cursor:pointer}
+.rt-su .lp-ic{width:26px;height:26px;color:#C08A1E}
+.rt-su span{display:flex;flex-direction:column;align-items:flex-start;line-height:1.1}
+.rt-su b{font-size:14px}.rt-su small{font-size:12px;opacity:.75;font-weight:700}
+.rt-su:active{transform:translateY(3px);box-shadow:0 1px 0 #3A3026}
+.su-big{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;margin:6px 0 4px}
+.su-big b{font-size:40px;line-height:1;color:#1F7A4D}.su-big span{font-weight:700;opacity:.75}
+.su-lead{margin:6px 0}.su-pos{margin:4px 0 12px;font-weight:600}
+.su-h{margin:14px 0 8px;font-size:15px}
+.su-bars{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.su-bars li{display:grid;grid-template-columns:minmax(0,7.5em) 1fr auto;align-items:center;gap:8px;font-size:13px}
+.su-bars li.is-me{font-weight:800}
+.su-n{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.su-b{height:12px;border-radius:6px;background:rgba(0,0,0,.08);overflow:hidden}.su-b i{display:block;height:100%;border-radius:6px}
+.su-x{display:flex;align-items:baseline;gap:8px;margin:14px 0 4px;padding:10px 12px;border-radius:12px;background:rgba(0,0,0,.05)}.su-x b{font-size:24px}
+.su-src{margin-top:12px;font-size:12px;opacity:.75}
+.lp-dark .rt-su{background:#1E2A44;color:#F3F1EA;border-color:#0B1222;box-shadow:0 4px 0 #0B1222}
+.lp-dark .su-big b{color:#7FE0A8}
 /*@iso-css-fin*/
 </style>
 <script>
@@ -9947,10 +9966,10 @@ var PATH=(function(){
    '<header class="rt2-head"><button class="lp-back rt2-back" id="pzx" aria-label="Volver al mapa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>'+
    '<div class="rt2-t"><h2>'+esc(c.name)+'</h2>'+(st.tower?'<small class="rt8-unit">'+(pg.p>=1?"Carrera dominada":"Unidad "+(cui+1)+" · "+esc(cu.t))+'</small>':'')+'<div class="rt2-pg"><div class="rt2-bar"><i style="width:'+(pg.p*100).toFixed(1)+'%"></i></div><b class="num">'+pg.done+(st.tower?' de '+pg.total+' lecciones':'/'+pg.total)+'</b></div></div>'+(typeof escHas==="function"&&escHas(id)?'<button type="button" class="rt2-esc" id="lpEsc" aria-label="Dónde estudiar '+esc(c.name)+'">'+icon('<path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5M22 9v6"/>',"lp-ic")+'<span><b>Escuelas</b><small>'+escCount(id)+'</small></span></button>':'')+'</header>'+
    (st.tower?'<div class="rt4-stage tw-wrap" id="lpScroll"><div class="tw-host" id="lpCol"></div></div>':'<div class="rt4-stage" id="lpScroll"><div class="rt4-col" id="lpCol"></div></div>')+
-   '<div class="rt2-card" id="lpPop" aria-live="polite"></div></div>';
+   '<div class="rt2-card" id="lpPop" aria-live="polite"></div>'+(typeof suBtn==="function"?suBtn(id):'')+'</div>';
   p.innerHTML=h;st.el=p.querySelector(".lp");st.sc=$("#lpScroll");
   if(st.tower)drawTower(id,cat,pg);else draw(id,cat,pg);
-  $("#pzx").onclick=function(){leave();exitPlaza()};var eb=$("#lpEsc");if(eb)eb.onclick=function(){escSheet(id)};
+  $("#pzx").onclick=function(){leave();exitPlaza()};var eb=$("#lpEsc");if(eb)eb.onclick=function(){escSheet(id)};var sb=$("#lpSu");if(sb)sb.onclick=function(){suSheet(id)};
   if(!st.rz){st.rz=1;var tm;window.addEventListener("resize",function(){clearTimeout(tm);tm=setTimeout(function(){if(st.sc&&st.sc.isConnected)placeRumbo(curIndex(),false)},120)})}
   var ci=curIndex();placeRumbo(ci,false);select(ci,false);toCur(ci,false);
  }
@@ -10927,6 +10946,34 @@ function escYo(){
   h+='<button type="button" class="pf-row" data-esc="'+c.id+'"><span class="pf-row-ic" style="color:'+c.color+'">'+ico("book")+'</span><span class="pf-row-t"><b>'+esc(c.name)+'</b><span>'+(n?n+' opci'+(n===1?'ón':'ones')+(mine?' en '+ESC_EDO[mine]:''):'Sin opciones en '+ESC_EDO[mine]+'; mira CDMX')+'</span></span>'+ico("next","pf-chev")+'</button>'});
  return h+'</div></section>'}
 function escBind(root){each(root.querySelectorAll("[data-esc]"),function(b){b.onclick=function(){escSheet(b.getAttribute("data-esc"))}})}
+
+/* ================= ¿cuánto ganan? =================
+   Solo cifras verificadas de CAT.cif (IMCO, Compara Carreras). Si una carrera no tiene dato, se dice y no se inventa. */
+function suDato(id,k){var d=(CAT.cif||{})[id+"."+k];return d&&d.estado!=="pendiente"&&d.valor!=null?d:null}
+function suNum(d){return d?parseFloat(String(d.valor).replace(/[^\d.]/g,""))||0:0}
+function suHas(id){return !!suDato(id,"ingreso")}
+function suFmt(n){return "$"+Math.round(n).toLocaleString("es-MX")}
+/* todas las carreras con sueldo verificado, de mayor a menor */
+function suRank(){return C.filter(function(c){return suHas(c.id)}).map(function(c){return {c:c,n:suNum(suDato(c.id,"ingreso"))}}).sort(function(a,b){return b.n-a.n})}
+function suBtn(id){var d=suDato(id,"ingreso");
+ return '<button type="button" class="rt-su" id="lpSu" aria-label="Cuánto ganan en '+esc((byId[id]||{}).name||"")+'"><svg viewBox="0 0 24 24" class="lp-ic" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M15 9.2c-.5-1-1.6-1.6-3-1.6-1.8 0-3 .9-3 2.2 0 3 6 1.6 6 4.6 0 1.3-1.3 2.3-3 2.3-1.5 0-2.7-.7-3.1-1.8M12 6v1.6M12 16.7V18"/></svg>'+
+  '<span><b>¿Cuánto ganan?</b><small>'+(d?suFmt(suNum(d))+' al mes':'Sin dato todavía')+'</small></span></button>'}
+function suSheet(id){var c=byId[id],d=suDato(id,"ingreso"),h='<h3>¿Cuánto gana alguien de '+esc(c.name)+'?</h3>';
+ if(!d){h+='<p class="su-lead"><b>Todavía no tenemos este dato verificado.</b> No lo vamos a inventar. Lo puedes buscar en <a href="https://imco.org.mx/comparacarreras/" target="_blank" rel="noopener">IMCO, Compara Carreras</a>.</p>'}
+ else{var R=suRank(),pos=R.findIndex(function(x){return x.c.id===id})+1,max=R[0].n,n=suNum(d);
+  h+='<div class="su-big"><b class="num">'+suFmt(n)+'</b><span>'+esc(d.unidad||"")+'</span></div>'+
+   '<p class="su-lead">Es el promedio nacional de quienes estudiaron esta carrera y trabajan. Es un promedio: hay quien gana más y quien gana menos.</p>'+
+   '<p class="su-pos">Lugar <b>'+pos+'</b> de '+R.length+' carreras con dato en Vocatlas.</p>';
+  /* contra tus otras carreras */
+  var mine=MC().filter(function(x){return suHas(x.id)});if(mine.map(function(x){return x.id}).indexOf(id)<0&&suHas(id))mine.push(c);
+  var rows=mine.length>1?mine:[R[0].c,c,R[R.length-1].c].filter(function(x,i,a){return a.indexOf(x)===i});
+  rows=rows.map(function(x){return {c:x,n:suNum(suDato(x.id,"ingreso"))}}).sort(function(a,b){return b.n-a.n});
+  h+='<h4 class="su-h">'+(mine.length>1?'Contra tus otras carreras':'Para darte idea: la que más y la que menos')+'</h4><ul class="su-bars">'+rows.map(function(r){
+   return '<li class="'+(r.c.id===id?'is-me':'')+'"><span class="su-n">'+esc(r.c.short||r.c.name)+'</span><span class="su-b"><i style="width:'+(r.n/max*100).toFixed(1)+'%;background:'+r.c.color+'"></i></span><b class="num">'+suFmt(r.n)+'</b></li>'}).join("")+'</ul>';
+  var oc=suDato(id,"ocupacion_afin");if(oc)h+='<div class="su-x"><b class="num">'+esc(String(oc.valor))+'</b><span>'+esc(oc.unidad||"")+' trabajan en algo de su carrera</span></div>';
+  h+='<p class="su-src">Fuente: '+(d.url?'<a href="'+esc(d.url)+'" target="_blank" rel="noopener">'+esc(d.fuente)+'</a>':esc(d.fuente))+'. Consultado el '+esc(d.consultado||"")+'.</p>'}
+ var el=document.createElement("div");el.className="ui-sheet su-sheet";el.setAttribute("role","dialog");el.setAttribute("aria-modal","true");el.setAttribute("aria-label","Cuánto ganan en "+c.name);
+ el.innerHTML=h;uiLayer(el,true)}
 
 /* ================= perfil (pestaña Yo) y colección de Rumbos =================
    Cada carrera completa regala a su Rumbo: la mascota con el gorro y las botas de esa carrera (src/skins.js).
