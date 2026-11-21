@@ -38,6 +38,70 @@ const PU='#8E5BB5',TE='#2FA39A',OR='#F08A2E',PK='#F3A3B5',GL='#AEE0F2';const GY=
 
 const circ=(cx,cy,r,n,a0,a1)=>{a0=a0==null?0:a0;a1=a1==null?Math.PI*2:a1;const o=[];for(let i=0;i<n;i++){const a=a0+(a1-a0)*i/(n-(Math.abs(a1-a0-Math.PI*2)<1e-6?0:1));o.push([cx+Math.cos(a)*r,cy+Math.sin(a)*r])}return o};
 export const MODELS={
+  // Capitolio: escalinata, columnas, frontón, tambor y cúpula
+  'politicas.a'(K){
+    [[80,4,40,-38],[72,4,36,-34],[64,4,32,-30]].forEach(([w,h,d,y])=>K.box(w,h,d,'#D5DCE2',{p:[0,y,0],rad:0.6}));
+    for(let i=0;i<6;i++)K.cyl(2.6,2.8,26,WH,{p:[-25+i*10,-15,12]});
+    K.box(64,24,22,'#ECEEF0',{p:[0,-15,-2],rad:0.6});
+    K.box(66,4,34,WH,{p:[0,0,0],rad:0.6});
+    K.ext('M-33 0 L33 0 L0 -12 Z',34,WH,{bevel:0.6,p:[0,2,0]});
+    K.cyl(16,16,12,WH,{p:[0,20,-4]});for(let i=0;i<12;i++){const a=i/12*Math.PI*2;K.cyl(1,1,11,'#D5DCE2',{p:[Math.cos(a)*16.4,20,Math.sin(a)*16.4-4]})}
+    const d=K.sph(16,ST,{m:'metal',p:[0,26,-4]});d.geometry=new THREE.SphereGeometry(16,40,20,0,Math.PI*2,0,Math.PI/2);
+    K.cyl(3,3,8,WH,{p:[0,46,-4]});K.cone(2.4,6,ST,{m:'metal',p:[0,53,-4]});
+  },
+  // Urna de votación con boleta entrando
+  'politicas.b'(K){
+    K.box(64,46,40,BL,{p:[0,-12,0],rad:4});K.box(66,6,42,'#2C5E91',{p:[0,13,0],rad:2});
+    K.box(30,3,4,'#1A3A5C',{p:[0,16.5,0],rad:1});
+    [20.4,-20.4].forEach(z=>{K.box(26,14,1,WH,{p:[0,-12,z],rad:1.4});K.box(16,2,1.4,'#7FA8D6',{p:[0,-12,z],rad:0.6})});
+    const b=K.group({p:[0,30,0],r:[0,0,8]});K.box(26,30,1,WH,{parent:b,rad:0.6});
+    [0.8,-0.8].forEach(z=>K.tube([[-6,2,z],[-1,-4,z],[8,8,z]],1.4,GR,{parent:b,tension:0}));
+  },
+  // Molécula: tres átomos unidos por enlaces
+  'quimica.a'(K){
+    const A=[[0,20,0,15,RE],[-22,-16,6,12,BL],[22,-14,-6,13,WH]];
+    A.forEach((a,i)=>{K.sph(a[3],a[4],{p:a.slice(0,3)});const b=A[(i+1)%3];K.tube([a.slice(0,3),b.slice(0,3)],2.4,'#8994A0',{nocap:true})});
+  },
+  // Matraz de laboratorio con líquido verde y engrane de ingeniería
+  'quimicaing.a'(K){
+    K.lathe([[0.01,-30],[26,-30],[28,-27],[9,10],[9,28],[11,30],[0.01,30]],'#DDF1FA',{m:'membrane',p:[-8,0,0]});
+    K.lathe([[0.01,-29],[25,-29],[19,-12],[0.01,-12]].reverse(),GR,{p:[-8,0,0]});
+    [[-12,-22],[-4,-18],[-10,-14]].forEach(([x,y])=>K.sph(1.8,'#BFF0C8',{p:[x,y,8]}));
+    K.cyl(10,10,6,ST,{m:'metal',p:[-8,33,0]});
+    const g=K.group({p:[26,22,0]});K.cyl(10,10,7,ST,{m:'metal',r:[90,0,0],parent:g});
+    for(let i=0;i<8;i++){const a=i/8*Math.PI*2;K.box(5,5,7,ST,{m:'metal',p:[Math.cos(a)*11.5,Math.sin(a)*11.5,0],r:[0,0,a*180/Math.PI],rad:1,parent:g})}
+    K.cyl(3.4,3.4,8,'#5B6670',{r:[90,0,0],parent:g});
+  },
+  // Torre de destilación con platos, tuberías y válvulas
+  'quimicaing.b'(K){
+    K.cap(14,62,ST,{m:'metal'});
+    for(let i=0;i<5;i++)K.tor(14.2,0.9,'#3A82C4',{p:[0,-24+i*12,0],r:[90,0,0]});
+    K.tube([[-14,18,0],[-26,18,0],[-26,-10,0]],2.4,GY,{m:'metal',tension:0});K.cyl(4,4,3,RE,{p:[-26,-12,0]});
+    K.tube([[14,-6,0],[28,-6,0],[28,-34,0]],2.4,GY,{m:'metal',tension:0});K.cyl(4,4,3,OR,{p:[28,-36,0]});
+    K.cyl(18,18,4,'#5B6670',{p:[0,-46,0]});K.sph(4,OR,{p:[0,-26,13]});
+  },
+  // Globo terráqueo con continentes y bandera
+  'rrii.a'(K){
+    K.sph(30,BL,{});
+    const blob=(lat,lon,r,sx,sy)=>{const v=new THREE.Vector3().setFromSphericalCoords(29.4,(90-lat)*Math.PI/180,lon*Math.PI/180);const m=K.sph(r,GR,{p:[v.x,v.y,v.z],s:[sx,sy,0.14]});m.lookAt(0,0,0)};
+    [[30,-100,11,1.2,1],[-15,-60,9,0.9,1.5],[45,10,9,1.3,0.8],[5,20,10,0.9,1.4],[50,90,12,1.6,0.9],[-25,135,7,1.2,0.9],[60,-40,5,1,1]].forEach(b=>blob(...b));
+    K.cyl(1.4,1.4,24,GY,{m:'metal',p:[14,36,8],r:[0,0,-20]});K.ext('M0 0 L18 5 L0 10 Z',1.4,RE,{bevel:0.4,p:[18,36,8],r:[0,0,-20]});
+  },
+  // Pasaporte con escudo dorado
+  'rrii.b'(K){
+    K.box(54,74,8,NA,{rad:3});K.box(52,72,6,'#F4F2EC',{p:[1.4,0,0],rad:2});K.box(54,74,7,NA,{p:[0,0,0.6],rad:3,s:[1,1,1]});
+    [4.3,-4.3].forEach(z=>{K.tor(11,1.2,GO,{m:'gold',p:[0,8,z]});K.box(22,1.6,0.6,GO,{m:'gold',p:[0,8,z],rad:0.4});K.box(1.6,22,0.6,GO,{m:'gold',p:[0,8,z],rad:0.4});
+      K.box(30,2,0.6,GO,{m:'gold',p:[0,-18,z],rad:0.5});K.box(20,1.6,0.6,GO,{m:'gold',p:[0,-24,z],rad:0.5})});
+  },
+  // Maleta de viaje con asa, cintas, broches, ruedas y etiqueta
+  'turismo.a'(K){
+    K.box(70,54,28,OR,{p:[0,-4,0],rad:6});
+    K.tube([[-14,23,0],[-14,32,0],[14,32,0],[14,23,0]],2.6,'#5E3A20',{tension:0.2});
+    [-18,18].forEach(x=>{K.box(5,55,29,'#8A4A16',{p:[x,-4,0],rad:1.4});[14.8,-14.8].forEach(z=>K.box(6,5,1.4,ST,{m:'metal',p:[x,14,z],rad:0.8}))});
+    [[-28,-14],[28,-14],[-28,14],[28,14]].forEach(([x,z])=>K.sph(3.4,BK,{p:[x,-33,z]}));
+    K.box(14,10,1,WH,{p:[2,-8,14.6],rad:1});K.box(8,1,1.2,'#9AA3AC',{p:[2,-8,15],rad:0.3});
+  },
+
   // Silla de madera con respaldo de travesaños
   'disindustrial.a'(K){
     K.box(46,5,42,WO,{m:'wood',p:[0,0,0],rad:1.6});
