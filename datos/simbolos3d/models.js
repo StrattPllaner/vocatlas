@@ -40,11 +40,12 @@ const circ=(cx,cy,r,n,a0,a1)=>{a0=a0==null?0:a0;a1=a1==null?Math.PI*2:a1;const o
 export const MODELS={
   // Capitolio: escalinata, columnas, frontón, tambor y cúpula
   'politicas.a'(K){
-    [[80,4,40,-38],[72,4,36,-34],[64,4,32,-30]].forEach(([w,h,d,y])=>K.box(w,h,d,'#D5DCE2',{p:[0,y,0],rad:0.6}));
-    for(let i=0;i<6;i++)K.cyl(2.6,2.8,26,WH,{p:[-25+i*10,-15,12]});
-    K.box(64,24,22,'#ECEEF0',{p:[0,-15,-2],rad:0.6});
-    K.box(66,4,34,WH,{p:[0,0,0],rad:0.6});
-    K.ext('M-33 0 L33 0 L0 -12 Z',34,WH,{bevel:0.6,p:[0,2,0]});
+    const WH='#EFE6D2';
+    [[80,4,44,-38],[72,4,40,-34],[64,4,36,-30]].forEach(([w,h,d,y])=>K.box(w,h,d,'#C9BC9E',{p:[0,y,0],rad:0.6}));
+    for(let i=0;i<6;i++)[12,-16].forEach(z=>K.cyl(2.6,2.8,26,WH,{p:[-25+i*10,-15,z]}));
+    K.box(62,24,20,'#D9CDB4',{p:[0,-15,-2],rad:0.6});
+    K.box(66,4,36,WH,{p:[0,0,-2],rad:0.6});
+    K.ext('M-33 0 L33 0 L0 -12 Z',36,WH,{bevel:0.6,p:[0,2,-2]});
     K.cyl(16,16,12,WH,{p:[0,20,-4]});for(let i=0;i<12;i++){const a=i/12*Math.PI*2;K.cyl(1,1,11,'#D5DCE2',{p:[Math.cos(a)*16.4,20,Math.sin(a)*16.4-4]})}
     const d=K.sph(16,ST,{m:'metal',p:[0,26,-4]});d.geometry=new THREE.SphereGeometry(16,40,20,0,Math.PI*2,0,Math.PI/2);
     K.cyl(3,3,8,WH,{p:[0,46,-4]});K.cone(2.4,6,ST,{m:'metal',p:[0,53,-4]});
@@ -204,7 +205,7 @@ export const MODELS={
   // Etiqueta de precio con hilo y signo de pesos
   'mercadotecnia.b'(K){
     K.shape([[-12,0],[10,-24],[46,-24],[46,24],[10,24]],[circ(2,0,4.5,24)],8,YE,{bevel:2});
-    [5,-5].forEach(z=>{K.tube([[34,10,z],[28,12,z],[22,9,z],[22,3,z],[30,-1,z],[34,-6,z],[30,-11,z],[22,-9,z]],1.4,'#8A5F12',{});K.tube([[28,16,z],[28,-16,z]],1.2,'#8A5F12',{})});
+    [5,-5].forEach(z=>{const g=K.group({p:[28,0,z],r:[0,z<0?180:0,0]});K.tube([[6,10,0],[0,12,0],[-6,9,0],[-6,3,0],[2,-1,0],[6,-6,0],[2,-11,0],[-6,-9,0]],1.4,'#8A5F12',{parent:g});K.tube([[0,16,0],[0,-16,0]],1.2,'#8A5F12',{parent:g})});
     K.tube([[-1,0,0],[-10,10,4],[-20,22,4],[-30,26,0]],0.7,GY,{nocap:true});
   },
   // Vestido en gancho
@@ -279,7 +280,7 @@ export const MODELS={
   // Periódico doblado con titular, foto y columnas
   'comunicacion.b'(K){
     K.box(60,78,4,'#F4F2EC',{rad:1});K.box(58,76,1,'#E9E6DE',{p:[4,-2,-2.6],rad:1});
-    [2.2,-2.2].forEach(z=>{const g=K.group({p:[0,0,z],r:[0,z<0?180:0,0]});
+    [[2.2,0],[-3.4,4]].forEach(([z,dx])=>{const g=K.group({p:[dx,-2*(dx>0),z],r:[0,z<0?180:0,0]});
       K.box(50,5,0.6,'#2B3540',{p:[0,30,0],rad:0.4,parent:g});K.box(22,16,0.6,'#A9B6C2',{p:[-12,12,0],rad:0.4,parent:g});
       for(let i=0;i<4;i++)K.box(20,1.4,0.6,'#8A939C',{p:[14,18-i*4,0],rad:0.3,parent:g});
       for(let i=0;i<7;i++)K.box(50,1.4,0.6,'#8A939C',{p:[0,-4-i*4.6,0],rad:0.3,parent:g})});
@@ -290,6 +291,7 @@ export const MODELS={
     const t=K.group({p:[6,24,5.9]});[[-10,'M'],[-2,'M'],[6,'M']].forEach(([x])=>{});
     [-12,-4,4].forEach((x,i)=>{K.box(5,9,0.4,'#2F4A2F',{p:[x+8,24,5.9],rad:0.3})});
     for(let r=0;r<5;r++)for(let c=0;c<4;c++)K.box(9,7,3,c==3?(r==4?OR:'#9AA3AC'):WH,{p:[-15+c*10,8-r*9.5,5.4],rad:1.6});
+    K.box(30,20,1,'#3A4048',{p:[0,-10,-5.4],rad:2});[[-20,-34],[20,-34],[-20,34],[20,34]].forEach(([x,y])=>K.cyl(3,3,2,'#2B3540',{p:[x,y,-5.6],r:[90,0,0]}));
   },
   // Recibo con borde dentado y renglones
   'contaduria.b'(K){
@@ -373,6 +375,7 @@ export const MODELS={
     [[-20,-10,'#F4B4A8'],[-4,8,'#EE8F80'],[14,14,RE]].forEach(([x,y,c])=>K.sph(5,c,{p:[x,y,4],s:[1,1,0.4]}));
     K.tube([[-28,-16,3.4],[-14,10,3.4],[0,16,3.4],[14,14,3.4]],0.5,'#9AA3AC',{nocap:true});
     const p=K.group({p:[36,-28,6],r:[0,0,-40]});K.cyl(2,2,40,'#5B6670',{parent:p});K.cone(2,5,BK,{p:[0,-22,0],r:[180,0,0],parent:p});
+    K.cyl(3,3,1,'#5B6670',{p:[-28,18,-3.4],r:[90,0,0]});K.cyl(6,6,0.8,'#3A4652',{p:[0,0,-3.2],r:[90,0,0]});
   },
   // Casa con plano: casa sobre un plano enrollado
   'arquitectura.b'(K){
@@ -477,6 +480,7 @@ export const MODELS={
     K.tube([[-32,8,12],[-20,8,12],[-16,18,12],[-11,-4,12],[-7,12,12],[-4,8,12],[18,8,12]],1,'#5BE07A',{tension:0});
     [16,4,-8].forEach(y=>K.cyl(3,3,3,'#3A4048',{p:[30,y,11],r:[90,0,0]}));
     K.box(30,6,26,GY,{p:[0,-21,0],rad:2});K.box(60,4,1,'#3A4048',{p:[0,28,-11.4],rad:1});
+    for(let i=0;i<5;i++)K.box(40,2,1,'#3A4048',{p:[0,18-i*6,-11.3],rad:0.6});K.box(18,8,3,'#4A5560',{p:[0,-6,-12],rad:2});
   },
   // Marcapasos con su cable
   'o_marcapasos.a'(K){
@@ -518,6 +522,7 @@ export const MODELS={
     for(let i=0;i<5;i++)K.box(2,8,2,'#3A4048',{p:[-10+i*5,-16,23],rad:0.6});
     K.cyl(1.6,1.6,14,GY,{m:'metal',p:[0,32,0]});K.sph(5,RE,{p:[0,41,0]});
     [-1,1].forEach(sd=>K.cyl(8,8,8,GY,{m:'metal',p:[sd*35,0,0],r:[0,0,90]}));
+    K.box(30,24,2,'#8994A0',{p:[0,2,-23.4],rad:3});for(let i=0;i<4;i++)K.box(22,1.6,1,'#5B6670',{p:[0,10-i*5,-24.6],rad:0.5});[-10,10].forEach(x=>K.cyl(1.6,1.6,1,'#5B6670',{p:[x,-14,-23.6],r:[90,0,0]}));
   },
   // Chip con patas en los cuatro lados
   'electronica.a'(K){
@@ -534,6 +539,7 @@ export const MODELS={
     K.cyl(4,4,10,'#3A82C4',{p:[24,7,16]});K.cyl(3,3,8,'#1F1F1F',{p:[-26,6,16]});
     K.box(10,3,4,'#D9B48A',{p:[-22,3.6,-18],rad:1.4});
     [[-36,-27],[36,-27],[-36,27],[36,27]].forEach(([x,z])=>K.cyl(2.4,2.4,4.4,'#1F5E36',{p:[x,0,z]}));
+    for(let i=0;i<24;i++)K.cyl(1.2,1.2,0.8,'#C9D0D6',{m:'metal',p:[-30+(i%8)*8.5,-2.4,-20+Math.floor(i/8)*20]});
   },
   // Rayo
   'electrica.a'(K){
@@ -678,8 +684,7 @@ export const MODELS={
   'enfermeria.a'(K){
     K.lathe([[0.01,0],[31,0],[30,4],[24,16],[14,24],[0.01,26]],WH,{s:[1,1,0.8]});
     K.box(66,6,30,WH,{p:[0,0,2],rad:3});
-    K.box(14,4,1,RE,{p:[0,14,23.6],rad:0.6});K.box(4,14,1,RE,{p:[0,14,23.6],rad:0.6});
-    K.box(14,4,1,RE,{p:[0,14,-23.6],rad:0.6});K.box(4,14,1,RE,{p:[0,14,-23.6],rad:0.6});
+    [1,-1].forEach(sd=>{const c=K.group({p:[0,10,sd*22.4],r:[sd*-22,sd<0?180:0,0]});K.box(12,3.6,1.2,RE,{rad:0.6,parent:c});K.box(3.6,12,1.2,RE,{rad:0.6,parent:c})});
   },
   // Bolsa de suero colgando con puerto, cámara de goteo y tubo
   'o_suero.a'(K){
