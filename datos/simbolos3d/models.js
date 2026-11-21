@@ -34,10 +34,126 @@ export function kit(material,g){
   return K;
 }
 
-const PU='#8E5BB5',TE='#2FA39A';const GY='#8C96A0',ST='#A9B6C2',BK='#3A4048',WH='#F3F1EA',RE='#DE4A3C',BL='#3F82C4',GR='#4FAE5B',YE='#F6CD3B',BR='#8A5A36',WO='#B9804B',GO='#E8B53C',NA='#2D4A6E',CR='#F0E2C2',SK='#E7A97C';
+const PU='#8E5BB5',TE='#2FA39A',OR='#F08A2E';const GY='#8C96A0',ST='#A9B6C2',BK='#3A4048',WH='#F3F1EA',RE='#DE4A3C',BL='#3F82C4',GR='#4FAE5B',YE='#F6CD3B',BR='#8A5A36',WO='#B9804B',GO='#E8B53C',NA='#2D4A6E',CR='#F0E2C2',SK='#E7A97C';
 
 const circ=(cx,cy,r,n,a0,a1)=>{a0=a0==null?0:a0;a1=a1==null?Math.PI*2:a1;const o=[];for(let i=0;i<n;i++){const a=a0+(a1-a0)*i/(n-(Math.abs(a1-a0-Math.PI*2)<1e-6?0:1));o.push([cx+Math.cos(a)*r,cy+Math.sin(a)*r])}return o};
 export const MODELS={
+  // Silbato metálico con cámara, boquilla, ranura, argolla y cordón
+  'educfisica.a'(K){
+    K.cyl(16,16,16,ST,{m:'metal',r:[90,0,0]});K.box(36,13,16,ST,{m:'metal',p:[20,9,0],rad:3});
+    K.box(8,2,10,'#3A4048',{p:[8,15.8,0],rad:0.6});
+    K.tor(5,1.2,ST,{m:'metal',p:[-17,10,0],r:[90,0,0]});
+    K.tube([[-20,6,0],[-30,-10,4],[-28,-30,2],[-18,-40,0]],1.4,RE,{});
+  },
+  // Balón de futbol: pentágonos negros repartidos en toda la esfera
+  'educfisica.b'(K){
+    K.sph(34,WH);
+    const phi=(1+Math.sqrt(5))/2;const V=[[0,1,phi],[0,-1,phi],[0,1,-phi],[0,-1,-phi],[1,phi,0],[-1,phi,0],[1,-phi,0],[-1,-phi,0],[phi,0,1],[-phi,0,1],[phi,0,-1],[-phi,0,-1]];
+    V.forEach(v=>{const n=new THREE.Vector3(...v).normalize();const m=K.cyl(10,10,2,'#2B3540',{seg:5,p:[n.x*33.4,n.y*33.4,n.z*33.4]});m.quaternion.setFromUnitVectors(new THREE.Vector3(0,1,0),n)});
+  },
+  // Cronómetro con corona, botón, carátula, manecillas y escala
+  'o_cronometro.a'(K){
+    K.cyl(32,32,12,'#5B6670',{m:'metal',r:[90,0,0],seg:64});K.cyl(27,27,12.6,WH,{r:[90,0,0],seg:64});
+    K.cyl(5,5,8,ST,{m:'metal',p:[0,36,0]});K.cyl(7,7,4,'#3A4048',{p:[0,42,0]});
+    K.cyl(3,3,7,ST,{m:'metal',p:[22,26,0],r:[0,0,-40]});
+    [6.5,-6.5].forEach(z=>{for(let i=0;i<12;i++){const a=i/12*Math.PI*2;K.box(i%3?1:1.6,i%3?3:5,0.6,'#3A4048',{p:[Math.sin(a)*23,Math.cos(a)*23,z],r:[0,0,-a*180/Math.PI],rad:0.2})}
+      K.box(2,18,0.8,'#2B3540',{p:[0,8,z*1.05],rad:0.5});K.box(2,13,0.8,'#2B3540',{p:[5,-3,z*1.05],r:[0,0,-50],rad:0.5});K.sph(2.4,RE,{p:[0,0,z]})});
+  },
+  // Trofeo: copa dorada con asas, estrella, pedestal y base con placa
+  'o_trofeo.a'(K){
+    K.lathe([[0.01,-2],[6,-2],[16,6],[22,20],[24,34],[22,34],[20,22],[14,10],[0.01,4]],GO,{m:'gold'});
+    [-1,1].forEach(sd=>K.tor(9,2.2,GO,{m:'gold',p:[sd*24,22,0],arc:200,r:[0,0,sd<0?80:-100]}));
+    K.cyl(3,5,14,GO,{m:'gold',p:[0,-9,0]});K.cyl(10,12,4,GO,{m:'gold',p:[0,-18,0]});
+    K.box(34,14,24,'#6B4A2A',{m:'wood',p:[0,-27,0],rad:2});K.box(20,6,1,'#F3CB5E',{m:'gold',p:[0,-27,12.4],rad:0.6});
+    K.ext('M0 -9 L2.6 -3 L9 -2.8 L4 1.4 L5.6 8 L0 4.4 L-5.6 8 L-4 1.4 L-9 -2.8 L-2.6 -3 Z',2,'#FFF1B0',{m:'gold',bevel:0.6,p:[0,22,23.2]});
+  },
+  // Tenis: suela, cuerpo, puntera, lengüeta, agujetas y franja
+  'o_tenis.a'(K){
+    const F=K.group({r:[180,0,0]});
+    K.ext('M-38 -10 L-38 12 C-38 22 -30 24 -24 22 L-14 18 C-8 26 4 26 10 18 L30 6 C38 2 42 -4 42 -10 Z',22,WH,{bevel:4,parent:F});
+    K.ext('M-41 -9 H44 C47 -9 47 -17 43 -17 H-39 C-43 -17 -43 -9 -41 -9 Z',28,'#F2EEE6',{bevel:1.5,parent:F});
+    K.ext('M-40 -15 H44 C46 -15 46 -20 42 -20 H-38 C-42 -20 -42 -15 -40 -15 Z',28.4,'#E2683E',{bevel:1,parent:F});
+    K.sph(9,'#3A4048',{p:[-28,27.6,0],s:[1.1,0.3,1]});
+    K.box(12,10,12,BL,{p:[-17,29,0],r:[0,0,-30],rad:4});
+    [[-8,28.5],[-2,29.5],[4,28.5],[10,24],[16,20.5]].forEach(([x,y])=>K.tube([[x,y-3,-12],[x,y+0.4,0],[x,y-3,12]],0.9,'#3A4048',{}));
+    [14.6,-14.6].forEach(z=>{K.tube([[-30,-4,z],[-4,6,z],[24,0,z]],1.6,BL,{});K.box(8,8,1,'#D5DCE2',{p:[-34,2,z],rad:1})});
+  },
+
+  // Cono de entrenamiento con franjas y base cuadrada
+  'o_cono.a'(K){
+    K.box(56,4,56,OR,{p:[0,-30,0],rad:2});
+    K.cyl(4,20,56,OR,{p:[0,0,0]});
+    [[-6,15.6,10.6],[10,10.4,5.6]].forEach(([y,rb,rt])=>K.cyl(rt+0.3,rb+0.3,8,WH,{p:[0,y,0],open:true}));
+  },
+  // Receta médica: hoja con encabezado, Rx y líneas en ambas caras
+  'o_receta.a'(K){
+    K.box(60,78,3,WH,{rad:1.2});K.box(60,16,3.4,BL,{p:[0,31,0],rad:1.2});
+    [1.9,-1.9].forEach(z=>{const g=K.group({p:[0,0,z],r:[0,z<0?180:0,0]});
+      K.box(10,3,0.6,WH,{p:[22,31,0.2],rad:0.4,parent:g});K.box(3,10,0.6,WH,{p:[22,31,0.2],rad:0.4,parent:g});
+      K.tube([[-16,-4,0],[-16,16,0],[-6,16,0],[-4,11,0],[-6,6,0],[-16,6,0]],1.4,NA,{tension:0.3,parent:g});K.tube([[-9,6,0],[2,-6,0]],1.4,NA,{parent:g});K.tube([[-4,4,0],[6,10,0]],1.4,NA,{parent:g});
+      [-16,-22,-28].forEach((y,i)=>K.box(i==2?26:40,1.2,0.5,'#9AA3AC',{p:[i==2?-7:0,y,0],rad:0.3,parent:g}))});
+  },
+  // Bata médica con mangas, solapas, botones, bolsillos y pluma
+  'o_bata.a'(K){
+    K.box(50,70,16,WH,{p:[0,-6,0],rad:6});
+    [-1,1].forEach(sd=>{K.cyl(7,8,54,WH,{p:[sd*30,-4,0],r:[0,0,sd*12]});
+      K.box(14,24,2,'#E6ECEF',{p:[sd*8,20,8.6],r:[0,0,sd*-20],rad:1});K.box(14,10,1.4,'#E1E6EA',{p:[sd*14,-26,8.4],rad:1})});
+    K.box(14,8,8,WH,{p:[0,30,-2],rad:3});
+    [16,2,-12].forEach(y=>K.sph(1.6,'#9AA3AC',{p:[4,y,8.6]}));
+    K.box(10,8,1.4,'#E1E6EA',{p:[14,10,8.4],rad:1});K.cyl(1,1,12,BL,{p:[12,14,9.4]});
+  },
+  // Plato con comida, tenedor y cuchillo
+  'nutricion.b'(K){
+    const g=K.group({r:[60,0,0]});
+    K.lathe([[0.01,0],[22,0],[30,3],[34,5],[33,6],[24,3.4],[0.01,2.6]],WH,{parent:g});
+    K.sph(7,GR,{p:[-8,6,-4],s:[1,0.7,1],parent:g});K.sph(6,RE,{p:[8,5,4],s:[1,0.7,1],parent:g});K.sph(5,YE,{p:[4,5,-10],s:[1,0.6,1],parent:g});
+    K.box(3,2,40,ST,{m:'metal',p:[-44,2,6],parent:g,rad:0.8});for(let i=0;i<4;i++)K.box(0.9,1.6,12,ST,{m:'metal',p:[-45.4+i*1,2,-20],parent:g,rad:0.3});
+    K.box(3,2,34,ST,{m:'metal',p:[44,2,10],parent:g,rad:0.8});K.box(6,1.4,22,ST,{m:'metal',p:[45,2,-16],parent:g,rad:0.6});
+  },
+  // Cinta métrica: caja con cinta saliendo, freno y gancho
+  'o_cinta.a'(K){
+    K.box(44,44,18,'#2B3540',{rad:8});K.cyl(17,17,19,YE,{r:[90,0,0]});K.cyl(6,6,20,ST,{m:'metal',r:[90,0,0]});
+    K.box(10,6,8,RE,{p:[-8,23,0],rad:2});
+    K.box(40,1.2,12,'#F2C230',{p:[38,-20,0],rad:0.3});
+    for(let i=0;i<10;i++)K.box(0.6,0.4,i%2?3:6,'#3A3026',{p:[22+i*4,-19.2,-3+(i%2?1.5:0)]});
+    K.box(2,8,12,ST,{m:'metal',p:[58,-17,0],rad:0.6});
+  },
+  // Zanahoria con hojas
+  'o_zanahoria.a'(K){
+    const g=K.group({r:[0,0,-30]});
+    K.lathe([[0.01,-40],[3,-34],[8,-10],[11,10],[10,18],[0.01,20]],OR,{parent:g});
+    for(let i=0;i<6;i++)K.tor(9-i*1.2,0.4,'#C9661E',{p:[0,6-i*7,0],r:[90,0,i*13],arc:90,parent:g});
+    [[-20,0],[0,0],[20,0],[-10,90],[10,90]].forEach(([a,b])=>{const q=K.group({p:[0,20,0],r:[a,b,0],parent:g});K.cap(2.6,18,GR,{p:[0,12,0],parent:q})});
+  },
+  // Pieza de rompecabezas con pestañas y hendiduras
+  'o_rompecabezas.a'(K){
+    const o=[];const sq=(x0,y0,x1,y1)=>{};
+    const pts=[[-24,-24]];
+    const tab=(ax,ay,bx,by,out)=>{const mx=(ax+bx)/2,my=(ay+by)/2,dx=(bx-ax)/48,dy=(by-ay)/48,nx=-dy*out,ny=dx*out;const res=[[mx-dx*7,my-dy*7]];for(let i=0;i<=16;i++){const a=Math.PI*1.25-i/16*Math.PI*1.5;res.push([mx+Math.cos(a)*8*dx*(-1)+nx*(14+Math.sin(a)*8)*0+(-dy*out)*0,0])}return res};
+    const shp='M-24 -24 H-8 C-8 -32 8 -32 8 -24 H24 V-8 C32 -8 32 8 24 8 V24 H8 C8 16 -8 16 -8 24 H-24 V8 C-16 8 -16 -8 -24 -8 Z';
+    K.ext(shp,12,PU,{bevel:2.4});
+  },
+  // Libreta de espiral con hojas y pluma
+  'o_libreta.a'(K){
+    K.box(54,70,8,'#F2C94C',{rad:2});K.box(48,64,1,WH,{p:[3,0,4.4],rad:1});
+    for(let i=0;i<5;i++)K.box(36,1,0.5,'#9AA3AC',{p:[5,18-i*9,5],rad:0.3});
+    for(let i=0;i<8;i++)K.tor(3.4,0.7,ST,{m:'metal',p:[-27,30-i*8.6,0],r:[0,90,0]});
+    const p=K.group({p:[24,-4,9],r:[0,0,-25]});K.cyl(2.4,2.4,50,BL,{parent:p});K.cone(2.4,6,'#F2D3A0',{p:[0,-28,0],r:[180,0,0],parent:p});K.box(1.2,14,2,ST,{m:'metal',p:[2.6,16,0],parent:p});
+  },
+  // Nube de pensamiento hecha de esferas con burbujas
+  'o_pensamiento.a'(K){
+    [[0,14,0,18],[-20,6,0,14],[20,6,0,14],[-10,-4,4,13],[10,-4,4,13],[-30,-4,0,10],[30,-4,0,10],[0,0,6,14]].forEach(([x,y,z,r])=>K.sph(r,WH,{p:[x,y,z],s:[1,1,0.8]}));
+    K.sph(5,WH,{p:[-26,-24,4]});K.sph(3,WH,{p:[-34,-32,4]});
+  },
+  // Foco: bulbo de vidrio con filamento, rosca y contacto
+  'o_foco.a'(K){
+    K.lathe([[0.01,-6],[10,-6],[12,2],[22,16],[26,30],[24,42],[16,50],[0.01,53]],'#FFF3B8',{m:'glass'});
+    K.tube([[-4,-4,0],[-4,12,0],[-6,20,0]],0.6,'#8994A0',{});K.tube([[4,-4,0],[4,12,0],[6,20,0]],0.6,'#8994A0',{});
+    K.tube([[-6,20,0],[-3,24,0],[0,20,0],[3,24,0],[6,20,0]],0.7,'#F2A21E',{});
+    K.cyl(11,10,14,ST,{m:'metal',p:[0,-13,0]});for(let i=0;i<4;i++)K.tor(11,1,'#8994A0',{m:'metal',p:[0,-8-i*3.4,0],r:[90,0,0]});
+    K.cyl(7,4,5,'#3A4048',{p:[0,-23,0]});
+  },
+
   // Cofia de enfermera con cruz roja al frente
   'enfermeria.a'(K){
     K.lathe([[0.01,0],[31,0],[30,4],[24,16],[14,24],[0.01,26]],WH,{s:[1,1,0.8]});
