@@ -178,7 +178,10 @@ var TORRE=(function(I){
   h+='<div class="tw-sym tw-starw" style="left:'+f1(stc.x-55*k)+'px;top:'+f1(stc.y-55*k)+'px;width:'+f1(110*k)+'px;height:'+f1(110*k)+'px"><svg viewBox="-50 -50 100 100" aria-hidden="true">'+star(o.mastered)+'</svg></div>';
   h+='<canvas class="tw-cv tw-cf" aria-hidden="true"></canvas><svg class="tw-l tw-pf" viewBox="'+(-xs)+' '+ytop+' '+Wd+' '+Hd+'" aria-hidden="true">'+RIBS+'</svg>';
   A.forEach(function(it){h+='<button type="button" class="rt3-n tw-n s-'+it.state+(it.chest!=null?" is-chest":"")+'" data-i="'+it.k2+'" aria-label="'+(it.lid?it.lid+" ":"")+esc(it.n)+(it.state==="done"?", hecha":it.state==="lock"?", todavía no":it.state==="soon"?", llega pronto":"")+'">'+o.nodeHTML(it)+'</button>'});
-  h+='<div class="tw-globe" id="twGlobe" hidden></div><div class="tw-rb" id="lpRb"><div class="tw-ship">'+PLANE+'<div class="tw-pilot">'+o.rb+'</div></div></div></div></div>';
+  h+='<div class="tw-globe" id="twGlobe" hidden></div><div class="tw-rb" id="lpRb"><div class="tw-ship">'+PLANE+
+   /* Rumbo va sentado dentro de la cabina: una copia de la parte de enfrente del avión le tapa el cuerpo; bufanda al viento y líneas de velocidad */
+   '<svg class="tw-scarf" viewBox="0 0 40 16" aria-hidden="true"><path d="M2 5 C12 2 20 9 30 5 L38 8 L30 10 C20 14 12 9 2 11 Z" fill="#F2A23A" stroke="#3A3026" stroke-width="1.4" stroke-linejoin="round"/></svg>'+
+   '<div class="tw-pilot">'+o.rb+'</div><img class="tw-plane tw-plane-f" src="media/plane.webp" alt="" decoding="async"><div class="tw-wind" aria-hidden="true"><i></i><i></i><i></i></div></div></div></div></div>';
   host.innerHTML=h;
   var S={host:host,k:k,Wp:Wp,xs:xs,ytop:ytop,toPx:toPx,items:A,padT:padT,a0:a0,a1:a1,rb:host.querySelector("#lpRb"),ship:host.querySelector(".tw-ship"),sc:host.closest(".tw-wrap")||host.parentNode,
    ul:host.querySelectorAll(".tw-ul"),pb:host.querySelectorAll(".tw-pb path"),pf:host.querySelectorAll(".tw-pf path"),btn:{},cur:o.cur,rot:A[o.cur]?A[o.cur].a:0,base:Math.round(58*Math.min(1.2,k))};
