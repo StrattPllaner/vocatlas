@@ -498,6 +498,16 @@ var RUMBO=(function(){
   s+='<path d="M'+X(29.4)+' 93.2C'+X(30)+' 95.2 '+X(31.4)+' 95.6 '+X(33.6)+' 95.6L'+X(42)+' 95.6C'+X(45.4)+' 95.6 '+X(47.2)+' 94.6 '+X(47.6)+' 92.6L'+X(47.6)+' 94.4C'+X(47.2)+' 96.6 '+X(45.2)+' 97.2 '+X(42)+' 97.2L'+X(33.6)+' 97.2C'+X(30.6)+' 97.2 '+X(29.2)+' 96 '+X(29.4)+' 93.2Z" fill="'+SSOLE+'"'+sl(1.2)+'/>';
   s+='<circle cx="'+X(44.4)+'" cy="85.4" r="1.2" fill="'+SGOLD+'"'+sl(.9)+'/>';
   return s}
+ /* pierna con articulaciones: muslo (cadera), espinilla (rodilla) y pie (tobillo). Cápsulas que se traslapan en cada
+    articulación, así al doblar nunca se abre un hueco. Los pivotes van en el centro de los extremos redondos. */
+ function legS(side,cls){var X=function(x){return (side<0?x:100-x).toFixed(2)},L=side<0?"L":"R",hx=+X(41.5),s="";
+  var thigh='<rect x="'+(hx-4.4).toFixed(2)+'" y="70.4" width="8.8" height="14.6" rx="4.4" fill="'+SBOOTS+'"'+sl()+'/>';
+  var shin='<rect x="'+(hx-5.4).toFixed(2)+'" y="76.6" width="10.8" height="13.4" rx="5.2" fill="'+SBOOT+'"'+sl()+'/>'+
+   '<path d="M'+X(44.6)+' 79.4L'+X(45.6)+' 80.6L'+X(45.6)+' 88L'+X(44.6)+' 89Z" fill="'+SBOOTS+'"/>'+
+   '<circle cx="'+X(44.2)+'" cy="83.4" r="1.2" fill="'+SGOLD+'"'+sl(.9)+'/>';
+  var foot='<path d="M'+X(36.4)+' 86.4L'+X(46.8)+' 86.4L'+X(47.4)+' 89.6C'+X(47.6)+' 93.6 '+X(46)+' 95.4 '+X(42)+' 95.4L'+X(33.6)+' 95.4C'+X(29.8)+' 95.4 '+X(28.8)+' 92.2 '+X(31.6)+' 90.4C'+X(33.6)+' 89.2 '+X(35.4)+' 88.4 '+X(36.4)+' 86.4Z" fill="'+SBOOT+'"'+sl()+'/>'+
+   '<path d="M'+X(29.4)+' 93.2C'+X(30)+' 95.2 '+X(31.4)+' 95.6 '+X(33.6)+' 95.6L'+X(42)+' 95.6C'+X(45.4)+' 95.6 '+X(47.2)+' 94.6 '+X(47.6)+' 92.6L'+X(47.6)+' 94.4C'+X(47.2)+' 96.6 '+X(45.2)+' 97.2 '+X(42)+' 97.2L'+X(33.6)+' 97.2C'+X(30.6)+' 97.2 '+X(29.2)+' 96 '+X(29.4)+' 93.2Z" fill="'+SSOLE+'"'+sl(1.2)+'/>';
+  return grp(cls,hx,74.8,thigh+grp("rk-knee"+L,hx,81,shin+grp("rk-ft"+L,hx,88.4,foot)))}
  /* cara de Rumbo (modelo T): la referencia cara-rumbo.svg usada tal cual (CARA, la inyecta build.py).
     Sus subtrazos se reparten en piezas sin cambiar su forma: el ojo izquierdo y la sonrisa vienen unidos en el dibujo,
     así que se separan con dos recortes complementarios. Cada pieza tiene su pivote en su centro (coordenadas de la referencia). */
@@ -579,7 +589,7 @@ var RUMBO=(function(){
  function buildS(fk,nh,sk){
   var id="rbm"+(++N),C=[50,57.6],R=24.4,SK=sk&&SKINS[sk]||null,b0=SBOOT,b1=SBOOTS;
   if(SK){SBOOT=SK.boot;SBOOTS=rbShade(SK.boot,.24)}
-  var bL=bootS(-1),bR=bootS(1);SBOOT=b0;SBOOTS=b1;
+  var bL=legS(-1,"rk-legL"),bR=legS(1,"rk-legR");SBOOT=b0;SBOOTS=b1;
   /* cuerpo: caja dorada con grosor, carátula crema, marcas cortas y triángulo rojo del norte */
   /* aro y carátula: círculos concéntricos perfectos; la luz y la sombra son arcos sobre el mismo círculo, no formas desplazadas */
   var arc=function(r,a0,a1,col,w){var p0=[50+r*Math.cos(a0*Math.PI/180),57.6+r*Math.sin(a0*Math.PI/180)],p1=[50+r*Math.cos(a1*Math.PI/180),57.6+r*Math.sin(a1*Math.PI/180)];
@@ -627,7 +637,7 @@ var RUMBO=(function(){
   return isoInk('<svg class="rbx rbx-S'+(fk==="ref"?' rbx-T'+(nh?' rbx-U':'')+'" data-face="ref':'')+(SK?'" data-skin="'+sk+(SK.prop?'" data-pose-l="puño':''):'')+'" data-ojos="retro" data-hatr="'+(SK?0:-7)+'" data-arr="'+(SK?0:-16)+'" data-eyefix="1" viewBox="0 0 100 100" aria-hidden="true">'+
    grp("rk-root",50,97,
     '<g class="rk-shadow"><ellipse class="rk-sh" cx="55" cy="97.6" rx="25" ry="3" fill="var(--rb-sh,#1D2C55)" opacity=".13"/><ellipse cx="38.6" cy="97.1" rx="9" ry="1.2" fill="#13213F" opacity=".22"/><ellipse cx="61.4" cy="97.1" rx="9" ry="1.2" fill="#13213F" opacity=".22"/></g>'+
-    grp("rk-legL",41.5,76,bL)+grp("rk-legR",58.5,76,bR)+
+    bL+bR+
     grp("rk-body",50,82,body+(SK&&SK.bib?SK.bib(id):'')+'<g class="rk-face">'+face+'</g>'+hat)+
     (nh?grp("rk-handL",15,70,(SK&&SK.prop?'<g class="rk-prop" transform="translate(15 66.6)">'+SK.prop()+'</g>':'')+handAt(id+"hL",15,70,-1))+grp("rk-handR",86,60,handAt(id+"hR",86,60,1)):grp("rk-handL",16,70,gloveS(16,70,-1))+grp("rk-handR",85,58,gloveS(85,58,1))))+'</svg>')}
 
@@ -666,7 +676,7 @@ var RUMBO=(function(){
   window.addEventListener("pointermove",onPtr,{passive:true});window.addEventListener("pointerdown",onPtr,{passive:true});
   function init(svg){
    var q=function(c){return svg.querySelector("."+c)};
-   var st={t:0,g:{root:q("rk-root"),body:q("rk-body"),face:q("rk-face"),brows:q("rk-brows"),legL:q("rk-legL"),legR:q("rk-legR"),hat:q("rk-hat"),hatb:q("rk-hatb"),arrow:q("rk-arrow"),flapL:q("rk-flapL"),flapR:q("rk-flapR"),gog:q("rk-gog"),armL:q("rk-armL"),handL:q("rk-handL"),handR:q("rk-handR"),armR:q("rk-armR"),shadow:q("rk-shadow"),mouth:q("rk-mouth"),zz:q("rk-zz")},
+   var st={t:0,g:{root:q("rk-root"),body:q("rk-body"),face:q("rk-face"),brows:q("rk-brows"),legL:q("rk-legL"),legR:q("rk-legR"),kneeL:q("rk-kneeL"),kneeR:q("rk-kneeR"),ftL:q("rk-ftL"),ftR:q("rk-ftR"),hat:q("rk-hat"),hatb:q("rk-hatb"),arrow:q("rk-arrow"),flapL:q("rk-flapL"),flapR:q("rk-flapR"),gog:q("rk-gog"),armL:q("rk-armL"),handL:q("rk-handL"),handR:q("rk-handR"),armR:q("rk-armR"),shadow:q("rk-shadow"),mouth:q("rk-mouth"),zz:q("rk-zz")},
     hk:(function(){var hs=["rk-handL","rk-handR"].map(function(c){var h=svg.querySelector("."+c);if(!h||!h.querySelector(".hk-flip"))return null;var sp=function(){return {x:0,v:0}};return {flip:h.querySelector(".hk-flip"),st:h.querySelector(".hk-stitch"),cr:h.querySelector(".hk-crease"),f:["t","i","m","r"].map(function(n){var p=h.querySelector(".hk-"+n+"1");return {p:p,d:h.querySelector(".hk-"+n+"2"),a0:+p.getAttribute("data-a"),l:+p.getAttribute("data-l")}}),c:[sp(),sp(),sp(),sp()],s:sp(),ta:{x:-62,v:0},hv:{x:1,v:0},lag:sp(),pr:0,mi:-1,mt:0,mn:2,last:{}}});return hs[0]?hs:null})(),
     fp:(function(){var g=function(c){return svg.querySelector("."+c)},e=function(c){var r=g(c);return r?{o:r.querySelector(".rk-fo"),up:r.querySelector(".rk-fup"),dn:r.querySelector(".rk-fdn"),ln:r.querySelector(".rk-fln"),c:{sx:1,sy:1,op:1,up:0,dn:0,dx:0,dy:0},last:{}}:null};var L=e("rk-feL");return L?{eL:L,eR:e("rk-feR"),s:g("rk-fs"),c:g("rk-fc"),n:g("rk-fn"),O:g("rk-fO"),ff:g("rk-ff"),m:{ssx:1,ssy:1,sop:1,O:0,ch:1,Os:1},last:{},smT:-9}:null})(),
     eyes:Array.prototype.slice.call(svg.querySelectorAll(".rk-eye")).map(function(e,i){return {sq:e.querySelector(".rk-esq"),pup:e.querySelector(".rk-pup"),up:e.querySelector(".rk-up"),lash:e.querySelector(".rk-lash"),lo:e.querySelector(".rk-lo"),lol:e.querySelector(".rk-lol"),iris:e.querySelector(".rk-iris"),cx:+e.getAttribute("data-cx"),cy:+e.getAttribute("data-cy"),rx:+e.getAttribute("data-rx"),ry:+e.getAttribute("data-ry"),cur:E(),last:{}}}),
@@ -675,7 +685,7 @@ var RUMBO=(function(){
     w:{idle:1,walk:0,cheer:0},pose:{wave:0,point:0},act:null,ov:null,idleIn:rnd(10,15),lastIdle:"",
     blinkIn:rnd(1,4),blinkT:-1,blinkD:.15,twice:false,mood:null,
     gz:[0,0],gzT:[0,0],gzIn:rnd(2.5,5),gzHold:0,mic:[0,0],micIn:.5,rc:null,rcT:0,lk:null,lkT:0,
-    sp:{arrow:{x:0,v:0},flapL:{x:0,v:0},flapR:{x:0,v:0},gog:{x:0,v:0},hat:{x:0,v:0},hatR:{x:0,v:0},face:{x:0,v:0},faceX:{x:0,v:0},lean:{x:0,v:0},armL:{x:0,v:0},armR:{x:0,v:0},hLx:{x:0,v:0},hLy:{x:0,v:0},hLr:{x:0,v:0},hRx:{x:0,v:0},hRy:{x:0,v:0},hRr:{x:0,v:0}},
+    wph:0,sp:{knL:{x:0,v:0},knR:{x:0,v:0},steer:{x:0,v:0},arrow:{x:0,v:0},flapL:{x:0,v:0},flapR:{x:0,v:0},gog:{x:0,v:0},hat:{x:0,v:0},hatR:{x:0,v:0},face:{x:0,v:0},faceX:{x:0,v:0},lean:{x:0,v:0},armL:{x:0,v:0},armR:{x:0,v:0},hLx:{x:0,v:0},hLy:{x:0,v:0},hLr:{x:0,v:0},hRx:{x:0,v:0},hRy:{x:0,v:0},hRr:{x:0,v:0}},
     py:0,vy:0,px:0,vx:0,pr:0,vr:0,idleEye:svg.getAttribute("data-ojos-idle"),asH:svg.getAttribute("data-hatr")?+svg.getAttribute("data-hatr"):svg.getAttribute("data-asim")?-6:0,asA:svg.getAttribute("data-arr")?+svg.getAttribute("data-arr"):svg.getAttribute("data-asim")?5:0,eyefix:!!svg.getAttribute("data-eyefix"),isR:svg.classList.contains("rbx-R")||svg.classList.contains("rbx-P")||svg.classList.contains("rbx-S"),browAuto:!!svg.getAttribute("data-brow-auto"),browO:-1,spin:0,asF:svg.getAttribute("data-asim")?-24:0,bk:(EYES[svg.getAttribute("data-ojos")]||{}).brow||1};
    ST.set(svg,st);if(io)io.observe(svg);else VIS.set(svg,true);return st}
   function frame(now){
@@ -725,15 +735,18 @@ var RUMBO=(function(){
     var br=Math.sin(t*2*Math.PI/3.4),slp=mood==="sleep"?1.8:1,bw=cls.contains("float")?1:.4;
     B.y+=W.idle*-.45*br*slp*bw;sway+=W.idle*4*Math.sin(t*2*Math.PI/2.8);
     /* caminar: cada pie se levanta por turnos desde la cadera; el cuerpo sube con la pierna recta y baja al apoyar */
-    var ph=t*2*Math.PI/.52,s1=Math.sin(ph),c2=Math.cos(2*ph);
-    /* pasos: cada pierna va adelante y atrás desde la cadera, alternadas; la que avanza se levanta */
-    /* caminar de lado: cada pie va de atrás hacia adelante y el otro al revés, así se cruzan; el que avanza se levanta en arco
-       (la punta un poco arriba) y pasa por detrás del que está apoyado. El cuerpo sube cuando los pies se cruzan y baja con el paso largo */
+    /* el ritmo de los pasos va con la velocidad real (wr.__wv: 0 a 1.3) para que los pies no se resbalen */
+    var wv=wr.__wv==null?1:cl(wr.__wv,.25,1.3);st.wph+=dt*2*Math.PI/(.56/(.55+.45*wv));
+    var ph=st.wph,s1=Math.sin(ph),c2=Math.cos(2*ph),amp=.65+.35*Math.min(1,wv);
+    /* caminar de lado: la pierna que avanza gira desde la cadera, dobla la rodilla y levanta el pie (talón primero al apoyar);
+       la de apoyo queda casi recta. El cuerpo baja al apoyar y sube cuando los pies se cruzan; se inclina con la velocidad */
     var cph=Math.cos(ph),swL=Math.max(0,cph),swR=Math.max(0,-cph);
-    lxL+=W.walk*6.5*s1;lxR-=W.walk*6.5*s1;
-    lyL+=W.walk*-3.6*Math.pow(swL,1.3);lyR+=W.walk*-3.6*Math.pow(swR,1.3);
-    legL+=W.walk*(5*s1-4*swL);legR+=W.walk*(-5*s1-4*swR);
-    B.y+=W.walk*-1.8*(.5+.5*c2);B.r+=W.walk*1.4*s1;aL+=W.walk*-18*s1;aR+=W.walk*18*s1;lean+=W.walk*3;
+    lxL+=W.walk*3.2*s1*amp;lxR-=W.walk*3.2*s1*amp;
+    lyL+=W.walk*-1.4*swL;lyR+=W.walk*-1.4*swR;
+    legL+=W.walk*-15*s1*amp;legR+=W.walk*15*s1*amp;
+    var knL=W.walk*38*Math.pow(swL,1.1)*amp,knR=W.walk*38*Math.pow(swR,1.1)*amp;
+    st.kn=[knL,knR,W.walk*(-(legL+knL)*.8+9*swL-4*Math.max(0,-s1)*(1-swL)),W.walk*(-(legR+knR)*.8+9*swR-4*Math.max(0,s1)*(1-swR))];
+    B.y+=W.walk*-2.2*(.5+.5*c2)*amp;B.r+=W.walk*1.6*s1;aL+=W.walk*-18*s1;aR+=W.walk*18*s1;lean+=W.walk*(2+3*Math.min(1,wv));
     st.back=W.walk>.5?(cph>0?"L":"R"):null;
     if(W.cheer>.001){var hp=hop((t%.9)/.9);lift+=W.cheer*Math.min(0,hp.y);B.y+=W.cheer*Math.max(0,hp.y);B.sy+=W.cheer*(hp.sy-1);aL+=W.cheer*hp.up*112;aR-=W.cheer*hp.up*112}
     /* poses */
@@ -773,6 +786,10 @@ var RUMBO=(function(){
    /* el salto mueve todo el personaje; la sombra se queda en el suelo y se encoge */
    T(g.root,{sx:flip,y:lift});
    var hgt=Math.max(0,-lift);T(g.shadow,{y:-lift,sx:1-hgt/36,sy:1-hgt/36});
+   var KN=st.kn||[0,0,0,0];if(rm)KN=[0,0,0,0];
+   /* sentado (manejando): muslos hacia adelante (se ven cortos) y rodillas dobladas */
+   if(cls.contains("drive")){legL=0;legR=0;lxL=lxR=0;lyL=lyR=-5;KN=[-6,6,0,0]}
+   T(g.kneeL,{r:spring(st.sp.knL,KN[0],dt,260,16,80)});T(g.kneeR,{r:-spring(st.sp.knR,KN[1],dt,260,16,80)});T(g.ftL,{r:KN[2]});T(g.ftR,{r:-KN[3]});
    T(g.body,B);T(g.legL,{x:lxL,r:legL,y:lyL+Math.max(0,B.y*.15),sx:ksL,sy:ksL});T(g.legR,{x:lxR,r:legR,y:lyR+Math.max(0,B.y*.15),sx:ksR,sy:ksR});
    /* el pie que avanza va detrás del apoyado: se cambia el orden de las piernas solo cuando hace falta */
    if(st.back!==st.lastBack&&g.legL&&g.legR&&g.legL.parentNode===g.legR.parentNode){var P=g.legL.parentNode;if(st.back==="L"&&g.legL.nextSibling!==g.legR&&g.legL.compareDocumentPosition(g.legR)&Node.DOCUMENT_POSITION_PRECEDING)P.insertBefore(g.legL,g.legR);else if(st.back==="R"&&g.legR.compareDocumentPosition(g.legL)&Node.DOCUMENT_POSITION_PRECEDING)P.insertBefore(g.legR,g.legL);st.lastBack=st.back}
@@ -800,6 +817,11 @@ var RUMBO=(function(){
      var hgL=PL==="relajada"?1:0,hgR=PR==="relajada"?1:0,sw=W.walk*14*s1;
      hl.r+=hgL*(196+sw);hl.y-=hgL*7.5;hl.x+=hgL*1.4;hr.r-=hgR*(202-sw);hr.y-=hgR*6.5;hr.x-=hgR*1.8;
      var QL=HPOSE[PL]||{},QR=HPOSE[PR]||{},hvw=wr.getAttribute("data-hview"),vf=function(Q){return hvw==="dorso"?-1:hvw==="palma"?1:(Q.v||1)};hl.r-=(QL.r||0)*vf(QL);hr.r+=(QR.r||0)*vf(QR)}
+    if(cls.contains("drive")&&!rm){var stg=spring(st.sp.steer,(cls.contains("fast")?20:12)*Math.sin(t*2*Math.PI/1.9)+4*Math.sin(t*2*Math.PI/.73),dt,90,9,40),ra=stg*Math.PI/180,WX=50,WY=77,WR=9.4;
+     /* agarre: izquierda a las 9 y derecha a las 3 del volante, giradas con él; puños hacia adentro */
+     var gl=[WX-WR*Math.cos(ra),WY-WR*Math.sin(ra)],gr=[WX+WR*Math.cos(ra),WY+WR*Math.sin(ra)];
+     hl={x:gl[0]-15,y:gl[1]-70+4,r:70+stg};hr={x:gr[0]-86,y:gr[1]-60+4,r:-70+stg};B.r+=stg*.35;
+     st.g.wheel=st.g.wheel||svg.querySelector(".rk-wheel");if(st.g.wheel)st.g.wheel.setAttribute("transform","rotate("+f(stg)+" "+WX+" "+WY+")")}
     var by=B.y+lift;hl.y+=by;hr.y+=by;
     var sx2=rm?0:1,HK=150,HC=12;
     T(g.handL,{x:spring(st.sp.hLx,hl.x,dt,HK,HC,40)*sx2,y:spring(st.sp.hLy,hl.y,dt,HK,HC,40)*sx2,r:spring(st.sp.hLr,hl.r,dt,120,11,260)*sx2});

@@ -568,7 +568,7 @@ img.tw-img.tw-back{opacity:.62;filter:saturate(.7)}
 .tw-ship.is-flying{transform:rotate(-6deg)}
 .tw-plane{position:absolute;left:0;bottom:0;width:100%;height:auto;z-index:2;overflow:visible}
 .tw-propw{z-index:5!important;position:absolute;left:-3%;top:15%;width:13%;height:auto;z-index:3;overflow:visible}
-.tw-pilot{position:absolute;left:47%;bottom:53%;width:60px;height:60px;z-index:3;transform:translateX(-50%)}
+.tw-pilot{position:absolute;left:47%;bottom:61%;width:66px;height:66px;z-index:3;transform:translateX(-50%)}
 .tw-pilot .rb{width:100%;height:100%}
 .tw-prop{transform-box:fill-box;transform-origin:center;animation:twProp .18s linear infinite}
 @keyframes twProp{50%{transform:scaleY(.15)}}
@@ -599,11 +599,12 @@ img.tw-img.tw-back{opacity:.62;filter:saturate(.7)}
 /* camino de caracol: nubes en lienzos (atrás y adelante de los símbolos) y destellos dorados que viajan por el centro */
 .tw-cv{position:absolute;left:0;top:0;pointer-events:none;will-change:transform}
 .tw-stage .tw-cb{z-index:1}.tw-stage .tw-cf{z-index:4}
-.tw-rib.L-pl{stroke-width:3.4;stroke-dasharray:.1 28;animation:twGlint 3.4s linear infinite}
+.tw-rib.L-pl{stroke-width:5;stroke-dasharray:.1 22;animation:twGlint 3.4s linear infinite}
 .tw-rib.L-pl.k0{stroke:#FFD45C}
 .tw-rib.L-pl.k1{stroke:#FFFFFF}
 .tw-pb .L-pl{stroke-width:2.4;opacity:.7}
-@keyframes twGlint{to{stroke-dashoffset:-56}}
+@keyframes twGlint{to{stroke-dashoffset:-44}}
+.tw-pf .tw-rib.L-pl.k0{filter:drop-shadow(0 0 3px #FFD45C)}
 .lp-dark .tw-cv{filter:brightness(.82) saturate(.9)}
 /* el suelo: isla de orilla a orilla */
 .tw-gwrap{position:absolute;left:0;right:0;bottom:0;z-index:0;pointer-events:none;overflow:hidden}
@@ -644,8 +645,6 @@ img.tw-img.tw-back{opacity:.62;filter:saturate(.7)}
 
 /* Rumbo manejando: va dentro de la cabina, se mece con el timón, la bufanda ondea y la avioneta sube y baja un poco */
 .tw-plane-f{z-index:4;clip-path:inset(29% 0 0 0)}
-.tw-pilot{transform-origin:50% 100%;animation:twDrive 1.7s ease-in-out infinite}
-@keyframes twDrive{0%,100%{rotate:-6deg}50%{rotate:6deg;translate:0 -2px}}
 .tw-ship{animation:twBob 2.6s ease-in-out infinite}
 @keyframes twBob{50%{translate:0 -5px}}
 .tw-scarf{position:absolute;left:52%;bottom:66%;width:30%;height:auto;z-index:2;transform-origin:0 50%;animation:twScarf .5s ease-in-out infinite alternate;overflow:visible}
@@ -655,7 +654,6 @@ img.tw-img.tw-back{opacity:.62;filter:saturate(.7)}
 .tw-wind i:nth-child(1){top:0;width:70%}.tw-wind i:nth-child(2){top:45%;width:100%;animation-delay:-.15s}.tw-wind i:nth-child(3){top:90%;width:55%;animation-delay:-.3s}
 @keyframes twWind{from{transform:translateX(-30%);opacity:1}to{transform:translateX(40%);opacity:0}}
 .tw-ship.is-flying .tw-wind{opacity:1}
-.tw-ship.is-flying .tw-pilot{animation-duration:.8s}
 /* el camino de nubes medio transparente */
-.tw-stage .tw-cf{opacity:.62}.tw-stage .tw-cb{opacity:.42}
+.tw-stage .tw-cf{opacity:.78}.tw-stage .tw-cb{opacity:.5}
 @media (prefers-reduced-motion:reduce){.tw-pilot,.tw-ship,.tw-scarf,.tw-wind i{animation:none}}

@@ -136,8 +136,12 @@ var TORRE=(function(I){
    g.globalCompositeOperation="source-atop";
    var sh=g.createLinearGradient(0,40,0,124);if(bi===3){sh.addColorStop(0,"rgba(150,168,204,.35)");sh.addColorStop(1,"rgba(112,132,176,.8)")}else{sh.addColorStop(0,"rgba(160,178,212,0)");sh.addColorStop(.5,"rgba(160,178,212,.18)");sh.addColorStop(.78,"rgba(140,160,200,.5)");sh.addColorStop(1,"rgba(118,140,186,.8)")}g.fillStyle=sh;g.fillRect(0,0,128,128);
    var hl=g.createRadialGradient(46,38,2,46,38,40);hl.addColorStop(0,"rgba(255,250,236,.85)");hl.addColorStop(1,"rgba(255,250,236,0)");g.fillStyle=hl;g.fillRect(0,0,128,128);
+   var rim=g.createLinearGradient(0,8,0,60);rim.addColorStop(0,"rgba(255,226,170,.55)");rim.addColorStop(1,"rgba(255,226,170,0)");g.fillStyle=rim;g.fillRect(0,0,128,128);
    if(tint){g.fillStyle=tint;g.globalAlpha=.34;g.fillRect(0,0,128,128);g.globalAlpha=1}
-   out.push(c)});return out}
+   out.push(c)});
+  /* sombra suave debajo de la banda: se ve que flota */
+  var c5=document.createElement("canvas");c5.width=c5.height=128;var g5=c5.getContext("2d"),r5=g5.createRadialGradient(64,64,4,64,64,62);r5.addColorStop(0,"rgba(52,74,128,.55)");r5.addColorStop(1,"rgba(52,74,128,0)");g5.fillStyle=r5;g5.fillRect(0,0,128,128);out.push(c5);
+  return out}
  function hsh(a,j){var x=Math.sin(a*12.9898+j*78.233)*43758.5453;return x-Math.floor(x)}
  /* dibuja la banda de nubes en dos lienzos del tamaño de la pantalla (atrás y adelante de los símbolos) */
  function clouds(S,rot,sc0,vh){var dpr=Math.min(2,window.devicePixelRatio||1),W=Math.round(S.Wp*dpr),top=sc0-140,H=Math.round((vh+280)*dpr),k=S.k,HW=17;
@@ -148,12 +152,18 @@ var TORRE=(function(I){
    /* bultos grandes y de tamaños distintos: uno al centro y, alternando, uno por orilla; la base más plana y sombreada */
    for(var j=-1;j<=1;j++){if(j!==0&&(n+j+3)%2)continue;var hj=hsh(a,j),big=hj>.72?1.45:1,r=R+j*HW*.62+(hj-.5)*6,lf=(j===0?6:2)+hj*7*big,p=proj(a,rot,lf,r),sz=(HW*(j===0?1.85:1.5)+hj*10)*big*k*p.k;
     P2.push({x:(p.x+S.xs)*k,y:(p.y-S.ytop)*k-top,s:sz,d:q.d+j*.02*(q.d<0?-1:1)+lf*.001,b:q.d<0,v:Math.floor(hj*3)%3,t:kind,al:1})}
+   if(n%2===0){var ps=proj(a,rot,-20,R);P2.push({x:(ps.x+S.xs)*k,y:(ps.y-S.ytop)*k-top,s:HW*2.6*k*ps.k,d:q.d-.09,b:q.d<0,v:4,t:0,al:.32})}
    var hb=hsh(a,9),pb=proj(a,rot,-3,R+(hb-.5)*10);P2.push({x:(pb.x+S.xs)*k,y:(pb.y-S.ytop)*k-top,s:HW*2*k*pb.k,d:q.d-.04,b:q.d<0,v:3,t:kind,al:1});
    if(n%3===0){var hw=hsh(a,5),pw=proj(a,rot,-6,R+(hw-.5)*22);P2.push({x:(pw.x+S.xs)*k,y:(pw.y-S.ytop)*k-top,s:HW*4*k*pw.k,d:q.d-.06,b:q.d<0,v:0,t:kind,al:.18})}}
   P2.sort(function(a,b){return a.d-b.d});
   var gb=S.cb.getContext("2d"),gf=S.cf.getContext("2d");
   for(var i=0;i<P2.length;i++){var o=P2[i],g=o.b?gb:gf,sp=(o.t?S.sprD:S.spr)[o.v];g.globalAlpha=o.al;g.drawImage(sp,(o.x-o.s/2)*dpr,(o.y-o.s*.55)*dpr,o.s*dpr,o.s*dpr)}
   gb.globalAlpha=gf.globalAlpha=1}
+ /* Rumbo manejando: puños en el volante (dentro de su dibujo, entre el cuerpo y las manos) */
+ var WHEEL='<g class="rk-wheel"><path d="M50 77V92" stroke="#3A3026" stroke-width="3.2" stroke-linecap="round"/><circle cx="50" cy="77" r="9.4" fill="none" stroke="#3A3026" stroke-width="4.6"/><circle cx="50" cy="77" r="9.4" fill="none" stroke="#5B4A3A" stroke-width="2.6"/>'+
+  '<path d="M41 77H59M50 77V86" stroke="#5B4A3A" stroke-width="2" stroke-linecap="round"/><circle cx="50" cy="77" r="2.6" fill="#E3A845" stroke="#3A3026" stroke-width="1"/></g>';
+ function drive(host){var rb=host.querySelector(".tw-pilot .rb");if(!rb)return;rb.classList.add("drive");rb.classList.remove("float");rb.setAttribute("data-pose-l","puño");rb.setAttribute("data-pose-r","puño");
+  var root=rb.querySelector(".rk-root"),hd=rb.querySelector(".rk-handL");if(root&&hd&&!root.querySelector(".rk-wheel")){var t=document.createElementNS("http://www.w3.org/2000/svg","g");t.innerHTML=WHEEL;root.insertBefore(t.firstChild,hd)}}
  /* ---------- arma la escena ---------- */
  function build(o){
   var id=o.id,host=o.host,A=[];
@@ -185,7 +195,7 @@ var TORRE=(function(I){
   host.innerHTML=h;
   var S={host:host,k:k,Wp:Wp,xs:xs,ytop:ytop,toPx:toPx,items:A,padT:padT,a0:a0,a1:a1,rb:host.querySelector("#lpRb"),ship:host.querySelector(".tw-ship"),sc:host.closest(".tw-wrap")||host.parentNode,
    ul:host.querySelectorAll(".tw-ul"),pb:host.querySelectorAll(".tw-pb path"),pf:host.querySelectorAll(".tw-pf path"),btn:{},cur:o.cur,rot:A[o.cur]?A[o.cur].a:0,base:Math.round(58*Math.min(1.2,k))};
-  S.cb=host.querySelector(".tw-cb");S.cf=host.querySelector(".tw-cf");S.spr=puffs(null);S.sprD=puffs((byId[id]||{}).color||"#3F7DA6");host.__S=S;setTimeout(function(){live3d(host)},60);
+  S.cb=host.querySelector(".tw-cb");S.cf=host.querySelector(".tw-cf");S.spr=puffs(null);S.sprD=puffs((byId[id]||{}).color||"#3F7DA6");host.__S=S;setTimeout(function(){live3d(host)},60);drive(host);
   /* al subir o bajar, la espiral gira: el tramo que queda a media pantalla siempre viene al frente */
   if(S.sc&&!S.sc.__twScroll){var tk=0;S.sc.__twScroll=1;S.sc.addEventListener("scroll",function(){var s2=S.sc.__S2||S;if(s2.raf||tk)return;tk=requestAnimationFrame(function(){tk=0;if(performance.now()>=(s2.quiet||0)){var a=angleAtScroll(s2);if(a!=null)s2.rot=a}render(s2)})},{passive:true})}
   if(S.sc)S.sc.__S2=S;
@@ -225,8 +235,8 @@ var TORRE=(function(I){
   anim(S,Math.min(900,300+Math.abs(r1-r0)*1.2),function(e){S.rot=r0+(r1-r0)*e;render(S);follow(S,it.py)},done)}
  function place(S,i){var it=S.items[i];if(!it)return;S.cur=i;S.rot=it.a;render(S)}
  /* la avioneta vuela a la siguiente lección: la espiral gira y sube con ella, así Rumbo siempre queda al frente */
- function fly(S,a0,a1,dur,bob,done){S.ship.classList.add("is-flying");
-  anim(S,dur,function(e,t){var a=a0+(a1-a0)*e;S.rot=a;var p=render(S,a,Math.sin(Math.PI*t)*(bob||30)*S.k);follow(S,p.y)},function(){S.ship.classList.remove("is-flying");S.rot=a1;render(S);done&&done()})}
+ function fly(S,a0,a1,dur,bob,done){S.ship.classList.add("is-flying");var prb=S.ship.querySelector(".rb");if(prb)prb.classList.add("fast");
+  anim(S,dur,function(e,t){var a=a0+(a1-a0)*e;S.rot=a;var p=render(S,a,Math.sin(Math.PI*t)*(bob||30)*S.k);follow(S,p.y)},function(){S.ship.classList.remove("is-flying");var prb=S.ship.querySelector(".rb");if(prb)prb.classList.remove("fast");S.rot=a1;render(S);done&&done()})}
  function hop(S,i0,i1,done){var A=S.items,a0=A[i0]?A[i0].a:S.rot,a1=A[i1]?A[i1].a:S.a1;S.cur=i1;fly(S,a0,a1,Math.min(1300,600+Math.abs(a1-a0)*1.2),30,done)}
  function climbTop(S,i0,done){var a0=S.items[i0]?S.items[i0].a:S.rot;S.cur=-1;fly(S,a0,S.a1-10,1800,20,done)}
  function angleAtScroll(S){var sc=S.sc;if(!sc)return null;var yc=sc.scrollTop-S.padT+sc.clientHeight*.55,lo=S.a0,hi=S.a1;
