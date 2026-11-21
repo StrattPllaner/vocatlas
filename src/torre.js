@@ -79,16 +79,10 @@ var TORRE=(function(I){
  function star(on){var r=40,ri=17,p=[];for(var i=0;i<10;i++){var a=-Math.PI/2+i*Math.PI/5,rr=i%2?ri:r;p.push(f1(Math.cos(a)*rr)+","+f1(Math.sin(a)*rr))}
   var pl=p.join(" ");return '<g class="tw-star'+(on?" is-on":"")+'"><polygon points="'+pl+'" transform="translate(0 6)" class="tw-star-b"/><polygon points="'+pl+'" class="tw-star-t"/></g>'}
 
- /* ---------- la avioneta de Rumbo: de lado, mirando a la derecha, con hélice que gira ---------- */
- var PLANE='<svg class="tw-plane" viewBox="-60 -40 130 70" aria-hidden="true">'+
-  '<path d="M52 -2 L62 -26 L68 -26 L66 2 Z" fill="#B23A2E" stroke="#3A3026" stroke-width="2" stroke-linejoin="round"/>'+
-  '<path d="M-40 4 C-40 -14 -20 -20 10 -18 C36 -16 60 -10 64 0 C60 10 30 14 0 14 C-26 14 -40 14 -40 4 Z" fill="#D9493B" stroke="#3A3026" stroke-width="2.4" stroke-linejoin="round"/>'+
-  '<path d="M-34 -2 C-34 -10 -26 -14 -14 -14" fill="none" stroke="#F08A7E" stroke-width="3" stroke-linecap="round"/>'+
-  '<path d="M-6 4 L20 4 L4 30 L-10 30 Z" fill="#F2C870" stroke="#3A3026" stroke-width="2" stroke-linejoin="round"/>'+
-  '<path d="M48 0 L64 0 L58 10 L50 10 Z" fill="#F2C870" stroke="#3A3026" stroke-width="1.8" stroke-linejoin="round"/>'+
-  '<path d="M-20 14 L-26 26 M-20 14 L-14 26" stroke="#7A2A22" stroke-width="2.4" stroke-linecap="round"/><circle cx="-24" cy="28" r="5" fill="#5A5A5A" stroke="#3A3026" stroke-width="1.6"/>'+
-  '<ellipse cx="-42" cy="2" rx="6" ry="8" fill="#F2C870" stroke="#3A3026" stroke-width="2"/>'+
-  '<g class="tw-prop"><ellipse cx="-47" cy="2" rx="4" ry="24" fill="#C9A86A" stroke="#3A3026" stroke-width="1.8"/></g></svg>';
+ /* ---------- la avioneta de Rumbo ---------- */
+ /* avioneta 3D (tipo Ryan STA, ala baja y cabina abierta), mismo estilo que los símbolos; la hélice gira enfrente de la nariz */
+ var PLANE='<img class="tw-plane" src="media/plane.webp" alt="" decoding="async">'+
+  '<svg class="tw-propw" viewBox="-8 -30 16 60" aria-hidden="true"><g class="tw-prop"><ellipse rx="4" ry="27" fill="#C9A86A" fill-opacity=".85" stroke="#3A3026" stroke-width="1.6"/><ellipse rx="1.6" ry="24" fill="#8A6A3A" fill-opacity=".6"/></g></svg>';
 
  /* ---------- geometría de la espiral ---------- */
  function zAt(a){return FH*a/360+ISLE+70}

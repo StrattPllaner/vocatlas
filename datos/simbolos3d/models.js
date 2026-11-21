@@ -38,6 +38,31 @@ const PU='#8E5BB5',TE='#2FA39A',OR='#F08A2E',PK='#F3A3B5',GL='#AEE0F2';const GY=
 
 const circ=(cx,cy,r,n,a0,a1)=>{a0=a0==null?0:a0;a1=a1==null?Math.PI*2:a1;const o=[];for(let i=0;i<n;i++){const a=a0+(a1-a0)*i/(n-(Math.abs(a1-a0-Math.PI*2)<1e-6?0:1));o.push([cx+Math.cos(a)*r,cy+Math.sin(a)*r])}return o};
 export const MODELS={
+  // avioneta de Rumbo, tipo Ryan STA: ala baja, cabina abierta, ruedas con carenado, timón y estabilizador. La nariz apunta a -x
+  'avioneta'(K){
+    const RD='#D9493B',YL='#F2C870',CRM='#F6EBD2',DK='#3A3026',MT='#B8C2CC';
+    const prof=[[0,-44],[6,-43],[9.5,-40],[10.5,-34],[11,-24],[11,-12],[10.4,-2],[9,10],[7,20],[5,30],[3.2,38],[1.6,43],[0,44]];
+    K.lathe(prof,RD,{r:[0,0,-90]});
+    K.cyl(10.2,9.6,6,CRM,{r:[0,0,90],p:[-36,0,0],seg:48});
+    K.cone(5,9,YL,{r:[0,0,90],p:[-48,0,0]});
+    K.cyl(1.2,1.2,1,DK,{r:[0,0,90],p:[-44.5,0,0]});
+    // franja crema a los lados
+    [1,-1].forEach(s=>K.tube([[-30,3,10.9*s],[-12,3.2,11.2*s],[4,3,10.5*s],[20,2.4,7.4*s],[34,1.6,4.3*s]],0.9,CRM));
+    // cabina abierta y parabrisas
+    K.tor(5.4,1.1,DK,{r:[90,0,0],p:[-4,10.2,0]});
+    K.cyl(5,5,1,DK,{p:[-4,9.6,0]});
+    K.box(0.8,5,9,'#BFE3F5',{m:'glass',p:[-11,12.6,0],r:[0,0,-28],rad:0.3});
+    // ala baja
+    const wing=[[-22,0],[0,0],[-3,56],[-17,56]];
+    [1,-1].forEach(s=>K.shape(wing.map(p=>[p[0],p[1]*s]),[],3,YL,{r:[90,0,0],p:[-4,-7,0],bevel:1}));
+    // estabilizador y timón
+    const hs=[[0,0],[10,0],[9,19],[3,19]];
+    [1,-1].forEach(s=>K.shape(hs.map(p=>[p[0],p[1]*s]),[],1.8,YL,{r:[90,0,0],p:[33,1,0],bevel:.6}));
+    K.ext('M30 0 L44 0 L46 -17 L40 -19 Z',2,RD,{bevel:.6,p:[0,1,0]});
+    // tren de aterrizaje con carenado
+    [1,-1].forEach(s=>{K.cyl(1,1,15,MT,{p:[-14,-14,13*s],r:[s*-12,0,0]});K.cap(4.2,8,YL,{r:[0,0,90],p:[-14,-22,14.6*s]});K.cyl(3.4,3.4,2.6,DK,{r:[90,0,0],p:[-14,-24.5,14.6*s]})});
+    K.cyl(.7,.7,6,MT,{p:[40,-4,0],r:[0,0,25]});K.sph(1.4,DK,{p:[41.5,-6.5,0]});
+  },
   // Capitolio: escalinata, columnas, frontón, tambor y cúpula
   'politicas.a'(K){
     const WH='#EFE6D2';
