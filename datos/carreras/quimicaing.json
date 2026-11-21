@@ -1,223 +1,167 @@
 {
  "id": "quimicaing",
- "version": 1,
+ "version": 2,
+ "formato": 2,
  "estado": "completo",
- "generado": true,
- "revision": "Armada automáticamente con la base de carreras de Morelos y CDMX (2026-11-17). Falta que la revise alguien de la carrera.",
+ "revision": "Pendiente de revisión por un profesionista de la carrera. Generado con datos/importar_lecciones.py desde datos/fuentes/lecciones/quimicaing.lec; no se edita a mano.",
  "unidades": [
   {
    "id": "u1",
+   "titulo": "Balances",
+   "sub": "Materia y mezclas",
    "lecciones": [
     {
-     "id": "1.1",
-     "titulo": "Qué es y qué hace",
-     "minutos": 3,
+     "id": "0",
+     "titulo": "Conócela",
+     "minutos": 1,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "¿Qué es Ing. Química?",
-       "texto": "Ciencias químicas y biológicas aplicadas al análisis, investigación, producción y control de calidad. El plan puede orientarse a medicamentos, diagnóstico, microorganismos, alimentos o procesos industriales.",
-       "puntos": [
-        "Diseña, opera o mejora procesos industriales que transforman materias primas en productos (combustibles, plásticos, alimentos, medicamentos), cuidando seguridad, costos y medio ambiente."
+       "tipo": "ficha",
+       "texto": "Ingeniería Química forma ingenieros que diseñan y operan los procesos que convierten materias primas en productos a gran escala: combustibles, plásticos, alimentos, medicinas y más, cuidando la seguridad, la energía y el ambiente.",
+       "cifras": [
+        "quimicaing.ingreso",
+        "quimicaing.duracion",
+        "quimicaing.costo_publica",
+        "quimicaing.costo_privada"
        ]
       },
       {
-       "tipo": "decision",
-       "pregunta": "Por lo que leíste, ¿qué hace alguien de Ing. Química?",
-       "opciones": [
-        {
-         "texto": "Diseña, opera o mejora procesos industriales que transforman materias primas en productos (combustibles, plásticos, alimentos, medicamentos), cuidando seguridad, costos y medio ambiente.",
-         "consecuencia": "Exacto: eso es parte del día a día en Ing. Química.",
-         "mejor": true
-        },
-        {
-         "texto": "Escribe, graba y edita contenido",
-         "consecuencia": "Eso lo hace alguien de Comunicación."
-        },
-        {
-         "texto": "Cocina, crea platillos, controla costos e inventarios, dirige equipos de cocina y, si emprende, administra su propio negocio de comida.",
-         "consecuencia": "Eso lo hace alguien de Gastronomía."
-        }
-       ]
-      },
-      {
-       "tipo": "completar",
-       "frase": "Ing. Química es una carrera del área de ___.",
-       "opciones": [
-        "Ingenierías",
-        "Negocios y sociedad",
-        "Arte y comunicación"
-       ],
-       "correcta": 0,
-       "revelacion": "Está en Ingenierías. Se parece a Química, Químico Farmacéutico Biólogo (QFB), Biotecnología e Ingeniería Bioquímica."
-      },
-      {
-       "tipo": "clave",
-       "texto": "Antes de elegir, entiende qué harías cada día, no solo el nombre."
-      },
-      {
-       "tipo": "interes"
+       "tipo": "escena",
+       "texto": "Hoy operas una planta química. Vamos a ver si tus balances cuadran y nadie corre peligro."
       }
      ]
     },
     {
-     "id": "1.2",
-     "titulo": "Dónde trabajas",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Dónde trabaja alguien de Ing. Química",
-       "texto": "Empresas agropecuarias, ranchos, granjas, laboratorios, industria alimentaria, organismos ambientales, gobierno, investigación, asesoría técnica y emprendimientos rurales."
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Alguien de Ing. Química solo puede trabajar en un tipo de lugar.",
-       "respuesta": false,
-       "revelacion": "Puede trabajar en varios: empresas agropecuarias, ranchos, granjas."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Dónde te ves trabajando?",
-       "opciones": [
-        "Empresas agropecuarias",
-        "Ranchos",
-        "Granjas",
-        "Laboratorios"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Una carrera abre varias puertas, no una sola."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "1.3",
-     "titulo": "Pregúntale a Rumbo",
+     "id": "1",
+     "titulo": "Balance de materia",
      "minutos": 4,
      "tarjetas": [
       {
-       "tipo": "chat",
-       "subtitulo": "Te cuenta cómo es trabajar en Ing. Química",
-       "intro": [
-        "¡Hola! Junté lo que se sabe de Ing. Química.",
-        "Pregúntame lo que quieras."
-       ],
-       "temas": [
+       "tipo": "info",
+       "titulo": "Balance de materia",
+       "partes": [
         {
-         "q": "¿Qué haces en un día normal?",
-         "a": [
-          "Diseña, opera o mejora procesos industriales que transforman materias primas en productos (combustibles, plásticos, alimentos, medicamentos), cuidando seguridad, costos y medio ambiente."
-         ]
+         "t": "Un ingeniero químico diseña y opera los procesos que transforman materias primas en productos a gran escala: gasolina, plásticos, alimentos, medicinas, cemento. La herramienta más básica es el balance de materia: lo que entra a un proceso tiene que salir o acumularse dentro."
         },
         {
-         "q": "¿Qué es lo más difícil?",
-         "a": [
-          "Se considera una carrera de dificultad muy alta.",
-          "Cálculo, Fisicoquímica, Termodinámica y Fenómenos de transporte",
-          "De las ingenierías con más deserción."
-         ]
+         "f": "lo que entra = lo que sale + lo que se acumula"
         },
         {
-         "q": "¿Hay trabajo?",
-         "a": [
-          "Menos de la mitad trabaja en algo de su carrera; muchos se mueven a otras áreas. Es un promedio nacional del IMCO.",
-          "Una de las ingenierías con más egresados."
-         ]
-        },
-        {
-         "q": "¿Qué necesito para ejercer?",
-         "a": [
-          "No requiere cédula para la mayoría de puestos."
-         ]
+         "t": "Si en un tanque entra más de lo que sale, el nivel sube. Si al hacer el balance falta material, hay una fuga, un error de medición o una reacción que no tomaste en cuenta."
         }
-       ],
-       "minimo": 2,
-       "auto": true
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Ing. Química se considera una carrera de dificultad muy alta.",
-       "respuesta": true,
-       "revelacion": "Se considera de dificultad muy alta. Cálculo, Fisicoquímica, Termodinámica y Fenómenos de transporte"
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué te llamó más la atención?",
-       "opciones": [
-        "¿Qué haces en un día normal?",
-        "¿Qué es lo más difícil?",
-        "¿Hay trabajo?",
-        "¿Qué necesito para ejercer?"
        ]
       },
       {
-       "tipo": "clave",
-       "texto": "Preguntar a quien ya sabe ahorra muchos errores."
+       "tipo": "pregunta",
+       "pregunta": "A un tanque entran 100 litros por minuto y salen 80. ¿Qué pasa con el nivel?",
+       "opciones": [
+        "Se queda igual",
+        "Sube 20 litros por minuto",
+        "Baja"
+       ],
+       "correcta": 1,
+       "formula": "100 − 80 = 20"
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "Un proceso recibe 1,000 kilos al día y sus salidas suman 950, sin acumulación. ¿Qué haces?",
+       "opciones": [
+        "Buscas los 50 kilos que faltan: una fuga, un error de medición o algo no contabilizado",
+        "Cambias los números",
+        "Nada"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "A un mezclador entran 300 kilos de agua y 200 de jarabe, y no se acumula nada. ¿Cuánto sale?",
+       "opciones": [
+        "500 kilos",
+        "100 kilos",
+        "300 kilos"
+       ],
+       "correcta": 0,
+       "formula": "300 + 200 = 500"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Qué dice el balance de materia?",
+       "opciones": [
+        "Lo que entra sale o se acumula",
+        "La materia desaparece",
+        "Nada"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
-     "id": "1.4",
-     "titulo": "Carreras parecidas",
-     "minutos": 3,
+     "id": "2",
+     "titulo": "Mezclas y concentraciones",
+     "minutos": 4,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Carreras cercanas a Ing. Química",
-       "puntos": [
-        "Química: ciencias químicas y biológicas aplicadas al análisis, investigación.",
-        "Químico Farmacéutico Biólogo (QFB): ciencias químicas y biológicas aplicadas al análisis, investigación.",
-        "Biotecnología e Ingeniería Bioquímica: estudio interdisciplinario de su campo profesional, con bases teóricas.",
-        "Ingeniería Ambiental y Desarrollo Sustentable: aplicación de matemáticas, ciencias y tecnología para diseñar, construir."
+       "titulo": "Mezclas y concentraciones",
+       "partes": [
+        {
+         "t": "Muchos procesos mezclan corrientes con distinta concentración. La concentración de la mezcla se calcula sumando lo que aporta cada corriente:"
+        },
+        {
+         "f": "concentración de la mezcla = {masa 1 × concentración 1 + masa 2 × concentración 2|masa 1 + masa 2}"
+        },
+        {
+         "t": "Así se calcula, por ejemplo, cuánto jugo concentrado y cuánta agua hay que mezclar para obtener un jugo con el azúcar que pide la receta. Un error aquí hace que miles de litros salgan fuera de especificación."
+        }
        ]
       },
       {
-       "tipo": "emparejar",
-       "pregunta": "Une cada carrera con lo que estudia.",
-       "pares": [
-        [
-         "Química",
-         "Ciencias químicas y biológicas aplicadas al análisis, investigación"
-        ],
-        [
-         "Químico Farmacéutico Biólogo (QFB)",
-         "Ciencias químicas y biológicas aplicadas al análisis, investigación"
-        ],
-        [
-         "Biotecnología e Ingeniería Bioquímica",
-         "Estudio interdisciplinario de su campo profesional, con bases teóricas"
-        ],
-        [
-         "Ingeniería Ambiental y Desarrollo Sustentable",
-         "Aplicación de matemáticas, ciencias y tecnología para diseñar, construir"
-        ]
-       ],
-       "revelacion": "Se cruzan en temas, pero cada una tiene su propio enfoque."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Cuál de estas te da curiosidad?",
+       "tipo": "pregunta",
+       "pregunta": "Mezclas 100 kilos de una solución al 20 por ciento con 100 kilos de agua pura. ¿A qué concentración queda?",
        "opciones": [
-        "Química",
-        "Químico Farmacéutico Biólogo (QFB)",
-        "Biotecnología e Ingeniería Bioquímica",
-        "Me quedo con Ing. Química"
-       ]
+        "40 por ciento",
+        "10 por ciento",
+        "20 por ciento"
+       ],
+       "correcta": 1,
+       "formula": "{100 × 20 + 100 × 0|200} = 10"
       },
       {
-       "tipo": "clave",
-       "texto": "Si dudas entre dos, compara lo que harías cada día."
+       "tipo": "pregunta",
+       "pregunta": "Mezclas 50 kilos al 40 por ciento con 150 kilos al 0 por ciento. ¿A qué concentración queda?",
+       "opciones": [
+        "20 por ciento",
+        "40 por ciento",
+        "10 por ciento"
+       ],
+       "correcta": 2,
+       "formula": "{50 × 40|200} = 10"
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "Un lote de 5,000 litros salió con menos azúcar de lo especificado. ¿Qué revisas?",
+       "opciones": [
+        "Las cantidades y concentraciones de cada corriente que se mezcló",
+        "Nada",
+        "El color del tanque"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Qué pasa con la concentración al agregar agua a una solución?",
+       "opciones": [
+        "Baja",
+        "Sube",
+        "No cambia"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "teves"
       }
      ]
     }
@@ -225,202 +169,177 @@
   },
   {
    "id": "u2",
+   "titulo": "Transformar",
+   "sub": "Separaciones, energía y reactores",
    "lecciones": [
     {
-     "id": "2.1",
-     "titulo": "Mini reto",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Una planta de refrescos quiere producir el doble. ¿Qué revisas?",
-       "opciones": [
-        "Si los equipos, la energía y el agua alcanzan para el doble",
-        "Solo compras el doble de ingredientes",
-        "Pides que trabajen más rápido"
-       ]
-      },
-      {
-       "tipo": "info",
-       "titulo": "Así lo piensa alguien de Ing. Química",
-       "texto": "Escalar un proceso cambia todo: equipos, calor, agua y residuos. Ingeniería Química es química con números y fábrica."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Te gustó pensar en algo así?",
-       "escala": [
-        "Nada",
-        "Mucho"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Los retos de una carrera se parecen a lo que harías en su trabajo."
-      },
-      {
-       "tipo": "interes",
-       "pregunta": "¿Te ves resolviendo retos así?"
-      }
-     ]
-    },
-    {
-     "id": "2.2",
-     "titulo": "Lo que te piden",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Habilidades que usarás en Ing. Química",
-       "puntos": [
-        "Química y matemáticas fuertes",
-        "Pensamiento de procesos",
-        "Seguridad industrial",
-        "Resolución de problemas"
-       ]
-      },
-      {
-       "tipo": "completar",
-       "pregunta": "Según lo que leíste, completa la frase.",
-       "frase": "Para Ing. Química es clave: ___.",
-       "opciones": [
-        "Química y matemáticas fuertes",
-        "Creatividad práctica",
-        "Dibujo"
-       ],
-       "correcta": 0,
-       "revelacion": "Es de las habilidades que más se usan en Ing. Química."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué tanto se te da esto: pensamiento de procesos?",
-       "escala": [
-        "Me cuesta",
-        "Se me da"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Las habilidades se entrenan; lo importante es que te guste usarlas."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "2.3",
-     "titulo": "Temas que vas a ver",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Temas que te deben gustar",
-       "puntos": [
-        "Química aplicada",
-        "Industria",
-        "Energía y medio ambiente"
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "¿Cuál de estos temas es más de Ing. Química?",
-       "opciones": [
-        {
-         "texto": "Química aplicada",
-         "consecuencia": "Sí, es de sus temas centrales.",
-         "mejor": true
-        },
-        {
-         "texto": "Química pura",
-         "consecuencia": "Ese es más de Química."
-        },
-        {
-         "texto": "Química y biología",
-         "consecuencia": "Ese es más de QFB."
-        }
-       ]
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Cuál de estos temas te gusta más?",
-       "opciones": [
-        "Química aplicada",
-        "Industria",
-        "Energía y medio ambiente",
-        "Ninguno me late"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Si los temas te aburren, la carrera se hace muy larga."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "2.4",
-     "titulo": "Materias clave",
+     "id": "3",
+     "titulo": "Separar",
      "minutos": 4,
      "tarjetas": [
       {
-       "tipo": "voltear",
-       "pregunta": "¿Qué materias crees que llevas en cada etapa? Piénsalo y voltea.",
-       "cartas": [
+       "tipo": "info",
+       "titulo": "Separar",
+       "partes": [
         {
-         "frente": "Semestres 1-2",
-         "reverso": "Cálculo, Química general, Física, Álgebra lineal"
-        },
-        {
-         "frente": "Semestres 3-4",
-         "reverso": "Química orgánica, Fisicoquímica, Balances de materia y energía, Ecuaciones diferenciales"
-        },
-        {
-         "frente": "Semestres 5-6",
-         "reverso": "Termodinámica química, Fenómenos de transporte, Operaciones unitarias, Ingeniería de reactores"
-        },
-        {
-         "frente": "Semestres 7 en adelante",
-         "reverso": "Diseño de plantas, Control de procesos, Proyecto"
+         "t": "Después de una reacción casi siempre hay que separar el producto de lo demás. La destilación separa líquidos por su punto de ebullición: el que hierve a menor temperatura se evapora primero y luego se condensa. Así se separa el alcohol del agua o se divide el petróleo en gasolina, diésel y otros. La filtración separa sólidos de líquidos, y la evaporación quita agua para concentrar algo, como al hacer sal o leche en polvo. Separar suele ser la parte que más energía gasta de una planta."
         }
        ]
       },
       {
-       "tipo": "decision",
-       "pregunta": "¿Cuál de estas materias llevarías en Ing. Química?",
+       "tipo": "pregunta",
+       "pregunta": "¿Cómo separa la destilación dos líquidos?",
        "opciones": [
+        "Por su precio",
+        "Por su punto de ebullición",
+        "Por su color"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Quieres sacar la sal del agua de mar. ¿Qué proceso usas?",
+       "opciones": [
+        "Filtración con papel",
+        "Evaporación",
+        "Congelación rápida"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Qué parte de una planta suele gastar más energía?",
+       "opciones": [
+        "La oficina",
+        "El estacionamiento",
+        "Las separaciones"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "teves"
+      }
+     ]
+    },
+    {
+     "id": "4",
+     "titulo": "Energía y calor",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "Energía y calor",
+       "partes": [
         {
-         "texto": "Cálculo",
-         "consecuencia": "Sí: es de las primeras materias de Ing. Química.",
-         "mejor": true
+         "t": "Calentar y enfriar cuesta mucha energía y dinero en una planta. La energía necesaria para calentar un líquido depende de su masa, de cuánto quieres subir la temperatura y de su calor específico. El agua necesita unos 4.18 kilojoules por cada kilo y cada grado:"
         },
         {
-         "texto": "Dibujo",
-         "consecuencia": "Esa es de Diseño gráfico."
+         "f": "energía = masa × calor específico × cambio de temperatura"
         },
         {
-         "texto": "Teoría del trabajo social",
-         "consecuencia": "Esa es de Trabajo social."
+         "t": "Los intercambiadores de calor aprovechan el calor de una corriente caliente para calentar otra fría, en vez de desperdiciarlo. Eso ahorra combustible."
         }
        ]
       },
       {
-       "tipo": "reflexion",
-       "pregunta": "¿Cuál te da más curiosidad?",
+       "tipo": "pregunta",
+       "pregunta": "¿Cuánta energía se necesita para calentar 10 kilos de agua de 20 a 30 grados?",
        "opciones": [
-        "Cálculo",
-        "Química general",
-        "Física",
-        "Álgebra lineal"
+        "Unos 418 kilojoules",
+        "300 kilojoules",
+        "41.8 kilojoules"
+       ],
+       "correcta": 0,
+       "formula": "10 × 4.18 × 10 = 418"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Una corriente sale caliente de un reactor y otra entra fría. ¿Qué propones?",
+       "opciones": [
+        "Tirar el calor al aire",
+        "Un intercambiador de calor para aprovechar ese calor",
+        "Nada"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Si duplicas la masa de agua que calientas, con el mismo cambio de temperatura, ¿qué pasa con la energía?",
+       "opciones": [
+        "Se reduce a la mitad",
+        "No cambia",
+        "Se duplica"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Por qué importa tanto la energía en una planta?",
+       "opciones": [
+        "Por estética",
+        "No importa",
+        "Porque calentar y enfriar cuesta mucho dinero"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "teves"
+      }
+     ]
+    },
+    {
+     "id": "5",
+     "titulo": "Reactores",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "Reactores",
+       "partes": [
+        {
+         "t": "En el reactor ocurre la transformación química. La conversión dice qué parte de la materia prima reaccionó:"
+        },
+        {
+         "f": "conversión = {materia prima que reaccionó|materia prima que entró} × 100"
+        },
+        {
+         "t": "Lo que no reacciona muchas veces se separa y se recircula al reactor. La temperatura, la presión y los catalizadores, que aceleran una reacción sin gastarse, se ajustan para obtener más producto y menos subproductos indeseados."
+        }
        ]
       },
       {
-       "tipo": "clave",
-       "texto": "Las primeras materias son la base; muchas veces son las más pesadas."
+       "tipo": "pregunta",
+       "pregunta": "Entran 500 kilos de materia prima y reaccionan 400. ¿Cuál es la conversión?",
+       "opciones": [
+        "20 por ciento",
+        "80 por ciento",
+        "125 por ciento"
+       ],
+       "correcta": 1,
+       "formula": "{400|500} × 100 = 80"
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "¿Qué se hace con la materia prima que no reaccionó?",
+       "opciones": [
+        "Se vende como producto",
+        "Se separa y se recircula al reactor",
+        "Se tira siempre"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Qué hace un catalizador?",
+       "opciones": [
+        "La detiene",
+        "Le da color",
+        "Acelera la reacción sin gastarse"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "teves"
       }
      ]
     }
@@ -428,183 +347,114 @@
   },
   {
    "id": "u3",
+   "titulo": "Operar en grande",
+   "sub": "Seguridad, ambiente y escala",
    "lecciones": [
     {
-     "id": "3.1",
-     "titulo": "Un día real",
+     "id": "6",
+     "titulo": "Seguridad de procesos",
      "minutos": 4,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Un día de trabajo en Ing. Química",
-       "puntos": [
-        "Diseña, opera o mejora procesos industriales que transforman materias primas en productos (combustibles, plásticos, alimentos, medicamentos), cuidando seguridad, costos y medio ambiente."
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "¿Cuál de estas cosas sí hace alguien de Ing. Química?",
-       "opciones": [
+       "titulo": "Seguridad de procesos",
+       "partes": [
         {
-         "texto": "Diseña, opera o mejora procesos industriales que transforman materias primas en productos (combustibles, plásticos, alimentos, medicamentos), cuidando seguridad, costos y medio ambiente.",
-         "consecuencia": "Sí: es parte de su día.",
-         "mejor": true
-        },
-        {
-         "texto": "Atiende mascotas en clínica, o trabaja en granjas y ranchos cuidando la salud y producción de ganado, en inspección de alimentos o en laboratorios.",
-         "consecuencia": "Eso es más de Veterinaria."
-        },
-        {
-         "texto": "Registra operaciones, prepara estados financieros, calcula y presenta impuestos ante el SAT, audita cuentas y asesora a empresas o personas.",
-         "consecuencia": "Eso es más de Contaduría."
+         "t": "En una planta química hay sustancias inflamables, tóxicas o a alta presión. Por eso se diseña con capas de protección: controles automáticos, alarmas, válvulas de alivio que liberan presión antes de que un tanque reviente, y procedimientos claros. Antes de cambiar algo en el proceso, se analiza qué podría salir mal. Muchos accidentes graves en la historia empezaron por cambios pequeños sin análisis o por alarmas que se apagaron porque \"sonaban mucho\"."
         }
        ]
       },
       {
-       "tipo": "reflexion",
-       "pregunta": "¿Te ves haciendo esto todos los días?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "El día a día pesa más que el título."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "3.2",
-     "titulo": "Lo difícil",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Lo difícil de Ing. Química",
-       "texto": "Se considera de dificultad muy alta.",
-       "puntos": [
-        "Cálculo, Fisicoquímica, Termodinámica y Fenómenos de transporte",
-        "De las ingenierías con más deserción."
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "Según lo que leíste, ¿qué es lo que más cuesta en Ing. Química?",
+       "tipo": "pregunta",
+       "pregunta": "¿Para qué sirve una válvula de alivio?",
        "opciones": [
-        {
-         "texto": "Cálculo, Fisicoquímica, Termodinámica y Fenómenos de transporte",
-         "consecuencia": "Sí, es de lo que más cuesta en Ing. Química.",
-         "mejor": true
-        },
-        {
-         "texto": "Bioquímica y Fisiología son las materias más pesadas",
-         "consecuencia": "Eso es más de Nutrición."
-        },
-        {
-         "texto": "Los primeros dos años de ciencias básicas (Anatomía, Bioquímica, Fisiología) son el gran filtro",
-         "consecuencia": "Eso es más de Medicina."
-        }
-       ]
+        "Para decorar",
+        "Para liberar presión antes de que un equipo reviente",
+        "Para llenar más rápido"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué tanto te preocupa esto?",
-       "escala": [
-        "Mucho",
+       "tipo": "pregunta",
+       "pregunta": "Una alarma de alta presión suena seguido y un operador quiere desconectarla.",
+       "opciones": [
+        "Se le baja el volumen",
+        "Se desconecta",
+        "No se desconecta; se investiga por qué suena"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Quieres cambiar una tubería por una de otro material para ahorrar. ¿Qué haces antes?",
+       "opciones": [
+        "Analizas si aguanta la presión, la temperatura y las sustancias",
+        "La cambias",
         "Nada"
-       ]
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "clave",
-       "texto": "Saber lo difícil desde antes te ayuda a prepararte."
+       "tipo": "pregunta",
+       "pregunta": "¿Qué causó muchos accidentes graves en la historia?",
+       "opciones": [
+        "La mala suerte y ya",
+        "Cambios sin análisis y alarmas ignoradas",
+        "Nada"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "interes"
+       "tipo": "teves"
       }
      ]
     },
     {
-     "id": "3.3",
-     "titulo": "Historia real",
-     "minutos": 3,
+     "id": "7",
+     "titulo": "Ambiente y escala",
+     "minutos": 4,
      "tarjetas": [
       {
-       "tipo": "reflexion",
-       "pregunta": "Si pudieras preguntarle algo a alguien que ya estudia Ing. Química, ¿qué sería?",
+       "tipo": "info",
+       "titulo": "Ambiente y escala",
+       "partes": [
+        {
+         "t": "Las plantas generan residuos y emisiones que se tratan antes de liberarse, cumpliendo las normas ambientales. Un buen ingeniero busca reducir los residuos desde el proceso, por ejemplo recirculando materiales. Además, lo que funciona en el laboratorio cambia al hacerse en grande: mezclar, calentar y enfriar miles de litros no es igual que en un vaso. Por eso se pasa por una planta piloto antes de construir la planta completa."
+        }
+       ]
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Por qué se construye una planta piloto?",
        "opciones": [
-        "¿Qué fue lo más difícil?",
-        "¿Qué te sorprendió?",
-        "¿Volverías a elegirla?",
-        "¿Cómo es un día normal?"
-       ]
+        "Para probar el proceso a escala intermedia antes de la planta completa",
+        "Para jugar",
+        "Para ahorrar papel"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "testimonio",
-       "estado": "pendiente",
-       "perfil": "Estudiante de últimos semestres o egresado de Ing. Química"
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "Mientras llega esta historia, ¿a quién podrías preguntarle tú?",
+       "tipo": "pregunta",
+       "pregunta": "Una planta puede tratar su agua residual o tirarla al río para ahorrar.",
        "opciones": [
-        "A un familiar o conocido que la estudió",
-        "A un estudiante de mi ciudad",
-        "A un maestro que la conozca",
-        "Todavía no conozco a nadie"
-       ]
+        "La tira",
+        "La trata y cumple las normas",
+        "La tira de noche"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "clave",
-       "texto": "Una persona real te cuenta lo que ningún folleto dice."
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál es una forma de reducir residuos desde el proceso?",
+       "opciones": [
+        "Tirar todo junto",
+        "Producir más",
+        "Recircular materiales que no reaccionaron"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "3.4",
-     "titulo": "¿Es para ti?",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Contesta con honestidad. Nadie más ve tus respuestas."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Me gusta la química y también las matemáticas?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Me veo en una planta industrial?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Me interesa producir a gran escala más que experimentar en pequeño?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Si dijiste que sí a casi todo, vale la pena seguir explorándola."
-      },
-      {
-       "tipo": "interes"
+       "tipo": "teves"
       }
      ]
     }
@@ -612,448 +462,128 @@
   },
   {
    "id": "u4",
+   "titulo": "Examen final",
+   "sub": "10 preguntas · apruebas con 7",
    "lecciones": [
     {
-     "id": "4.1",
-     "titulo": "Cuánto dura y qué estudias",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Cada escuela arma su plan distinto, pero el orden general se parece. Vamos a verlo."
-      },
-      {
-       "tipo": "ordenar",
-       "pregunta": "Ordena lo que estudias, de lo primero a lo último.",
-       "pasos": [
-        "Cálculo, Química general",
-        "Química orgánica, Fisicoquímica",
-        "Termodinámica química, Fenómenos de transporte",
-        "Diseño de plantas, Control de procesos"
-       ],
-       "revelacion": "Primero las bases y al final lo más especializado y las prácticas."
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Cuántos años crees que pasan desde que entras hasta que te titulas?",
-       "min": 3,
-       "max": 10,
-       "paso": 1,
-       "unidad": "años",
-       "dato": "quimicaing.duracion"
-      },
-      {
-       "tipo": "clave",
-       "texto": "Revisa el mapa curricular de cada escuela: cambia de una a otra."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "4.2",
-     "titulo": "Cómo se entra",
-     "minutos": 4,
+     "id": "ex",
+     "titulo": "Examen final",
+     "minutos": 6,
+     "examen": true,
+     "aprobar": 7,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Cómo se entra en la región",
-       "puntos": [
-        "UNAM: Concurso de selección UNAM (120 reactivos) o pase reglamentado desde CCH/ENP",
-        "IPN: Examen de admisión IPN (140 preguntas, hasta 3 horas, incluye sección de inglés)",
-        "UAM: Examen de selección UAM (trimestral; dos procesos al año y procesos extraordinarios)",
-        "UAEM: EXANI-II de CENEVAL + curso propedéutico"
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "Según lo que leíste, ¿qué pide UNAM para entrar?",
-       "opciones": [
+       "titulo": "Examen final",
+       "partes": [
         {
-         "texto": "Concurso de selección UNAM (120 reactivos) o pase reglamentado desde CCH/ENP",
-         "consecuencia": "Exacto.",
-         "mejor": true
-        },
-        {
-         "texto": "Examen de admisión IPN (140 preguntas, hasta 3 horas, incluye sección de inglés)",
-         "consecuencia": "Eso lo pide IPN."
-        },
-        {
-         "texto": "Examen de selección UAM (trimestral; dos procesos al año y procesos extraordinarios)",
-         "consecuencia": "Eso lo pide UAM."
+         "t": "Son 10 casos nuevos que mezclan todas las lecciones. Apruebas con 7. Si no, lo repites y las que fallaste regresan con otras palabras."
         }
        ]
       },
       {
-       "tipo": "vf",
-       "afirmacion": "Todas las universidades usan el mismo examen.",
-       "respuesta": false,
-       "revelacion": "Cada una tiene el suyo: revisa la convocatoria de la que te interese."
-      },
-      {
-       "tipo": "clave",
-       "texto": "Conoce el examen de tu escuela desde antes."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "4.3",
-     "titulo": "Dónde, cuánto cuesta y becas",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "escuelas"
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Cuánto crees que cuesta un semestre en una universidad pública?",
-       "min": 0,
-       "max": 60000,
-       "paso": 1000,
-       "unidad": "pesos",
-       "dato": "quimicaing.costo_publica"
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Y un semestre en una universidad privada?",
-       "min": 0,
-       "max": 300000,
-       "paso": 5000,
-       "unidad": "pesos",
-       "dato": "quimicaing.costo_privada"
-      },
-      {
-       "tipo": "dato",
-       "titulo": "Becas para estudiar Ing. Química",
-       "dato": "quimicaing.becas"
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Una universidad cara garantiza un mejor empleo.",
-       "respuesta": false,
-       "revelacion": "Pesan más lo que aprendes, tus prácticas y tu esfuerzo."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué pesa más para ti al elegir escuela?",
+       "tipo": "pregunta",
+       "pregunta": "A un tanque entran 50 litros por minuto y salen 70. ¿Qué pasa con el nivel?",
        "opciones": [
-        "El costo",
-        "Que esté cerca de mi casa",
-        "El prestigio",
-        "Las prácticas que ofrece"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Además de la colegiatura, cuenta transporte y materiales."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "u5",
-   "lecciones": [
-    {
-     "id": "5.1",
-     "titulo": "Qué piden para trabajar",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Qué te piden para trabajar",
-       "puntos": [
-        "No requiere cédula para la mayoría de puestos.",
-        "Una de las ingenierías con más egresados."
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "Según lo que leíste, ¿qué necesitas para ejercer Ing. Química?",
-       "opciones": [
-        {
-         "texto": "No requiere cédula para la mayoría de puestos.",
-         "consecuencia": "Exacto.",
-         "mejor": true
-        },
-        {
-         "texto": "Título y cédula profesional.",
-         "consecuencia": "Eso lo piden en Odontología."
-        },
-        {
-         "texto": "Título y cédula profesional.",
-         "consecuencia": "Eso lo piden en Fisioterapia."
-        }
-       ]
-      },
-      {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Cómo te ves?",
-       "a": {
-        "texto": "En una institución o empresa",
-        "dice": "Más estabilidad y un equipo de quien aprender."
-       },
-       "b": {
-        "texto": "Por tu cuenta",
-        "dice": "Más libertad, pero tienes que conseguir clientes."
-       }
-      },
-      {
-       "tipo": "clave",
-       "texto": "Saber qué te piden te ahorra sorpresas al salir."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "5.2",
-     "titulo": "Sueldo y demanda",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Hablemos de dinero sin rodeos. Antes de ver cualquier cifra, apuesta: así recuerdas mejor el dato real."
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Cuánto crees que gana al mes, en promedio, un profesionista de Ing. Química en México?",
-       "min": 5000,
-       "max": 100000,
-       "paso": 1000,
-       "unidad": "pesos",
-       "dato": "quimicaing.ingreso"
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "De cada 100 egresados, ¿cuántos crees que trabajan en algo de su carrera?",
-       "min": 0,
-       "max": 100,
-       "paso": 5,
-       "unidad": "de cada 100",
-       "dato": "quimicaing.ocupacion_afin"
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Todos los egresados de Ing. Química ganan lo mismo.",
-       "respuesta": false,
-       "revelacion": "Cambia con la experiencia, el lugar, la especialidad y si trabajas por tu cuenta."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué tanto pesa el sueldo en tu decisión?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "El promedio orienta, pero tu camino puede ser distinto."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "5.3",
-     "titulo": "Cómo les va al salir",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "chat",
-       "subtitulo": "Te cuenta cómo les va al salir",
-       "intro": [
-        "Te cuento cómo les va a quienes estudian Ing. Química al salir."
+        "Baja 20 litros por minuto",
+        "Sube",
+        "Igual"
        ],
-       "temas": [
-        {
-         "q": "¿Cuántos trabajan en lo suyo?",
-         "a": [
-          "Menos de la mitad trabaja en algo de su carrera.",
-          "Es un promedio nacional del IMCO."
-         ]
-        },
-        {
-         "q": "¿Muchos hacen posgrado?",
-         "a": [
-          "Pocos hacen posgrado; la mayoría empieza a trabajar."
-         ]
-        },
-        {
-         "q": "¿Hay más hombres o mujeres?",
-         "a": [
-          "Hay más hombres que mujeres.",
-          "Eso no decide nada: cualquiera puede estudiarla."
-         ]
-        },
-        {
-         "q": "¿El trabajo tiene prestaciones?",
-         "a": [
-          "La mayoría tiene un trabajo formal, con prestaciones.",
-          "Las prestaciones son cosas como seguro médico y aguinaldo."
-         ]
-        }
+       "correcta": 0,
+       "formula": "50 − 70 = −20"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Qué dice el balance de materia?",
+       "opciones": [
+        "Nada",
+        "La materia se crea",
+        "Lo que entra sale o se acumula"
        ],
-       "minimo": 2
+       "correcta": 2
       },
       {
-       "tipo": "vf",
-       "afirmacion": "La mayoría de quienes estudian Ing. Química trabaja en algo de su carrera.",
-       "respuesta": false,
-       "revelacion": "Menos de la mitad trabaja en algo de su carrera. Promedio nacional del IMCO."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué te importa más de tu futuro trabajo?",
+       "tipo": "pregunta",
+       "pregunta": "Mezclas 200 kilos al 30 por ciento con 100 kilos de agua pura. ¿A qué concentración queda?",
        "opciones": [
-        "Que tenga que ver con lo que estudié",
-        "Ganar bien",
-        "Tener prestaciones",
-        "Hacer algo que me guste"
-       ]
+        "30 por ciento",
+        "20 por ciento",
+        "10 por ciento"
+       ],
+       "correcta": 1,
+       "formula": "{200 × 30|300} = 20"
       },
       {
-       "tipo": "clave",
-       "texto": "Pregunta cómo les va a quienes ya salieron."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "5.4",
-     "titulo": "Después de titularte",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Después de titularte",
-       "puntos": [
-        "Puedes especializarte con cursos, diplomados o una maestría.",
-        "También puedes trabajar desde el inicio y estudiar después.",
-        "Se combina bien con: Química, Químico Farmacéutico Biólogo (QFB), Biotecnología e Ingeniería Bioquímica."
-       ]
-      },
-      {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Qué harías al terminar?",
-       "a": {
-        "texto": "Trabajar desde el inicio",
-        "dice": "Ganas experiencia y dinero; después decides si estudias más."
-       },
-       "b": {
-        "texto": "Seguir estudiando",
-        "dice": "Te especializas antes; tardas más en empezar a trabajar."
-       }
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Cómo te imaginas después de la carrera?",
+       "tipo": "pregunta",
+       "pregunta": "¿Cómo separa la destilación?",
        "opciones": [
-        "Trabajando",
-        "En una maestría",
-        "Emprendiendo",
-        "No sé todavía"
-       ]
+        "Por color",
+        "Por tamaño",
+        "Por punto de ebullición"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "clave",
-       "texto": "Al titularte empieza otra parte del camino, no termina."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "u6",
-   "lecciones": [
-    {
-     "id": "6.1",
-     "titulo": "Lo que sentiste",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Antes de ver tus respuestas: ¿cómo te fue con Ing. Química?",
+       "tipo": "pregunta",
+       "pregunta": "¿Cuánta energía se necesita para calentar 5 kilos de agua 20 grados?",
        "opciones": [
-        "Me gustó más de lo que pensaba",
-        "Más o menos como esperaba",
-        "Me gustó menos de lo que pensaba"
-       ]
+        "100 kilojoules",
+        "25 kilojoules",
+        "Unos 418 kilojoules"
+       ],
+       "correcta": 2,
+       "formula": "5 × 4.18 × 20 = 418"
       },
       {
-       "tipo": "resumen"
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "Viendo tus respuestas, ¿qué pesó más?",
+       "tipo": "pregunta",
+       "pregunta": "¿Para qué sirve un intercambiador de calor?",
        "opciones": [
-        "Lo que sentí al probarla",
-        "Lo que supe de la realidad",
-        "El camino para llegar",
-        "El futuro que ofrece"
-       ]
+        "Para aprovechar el calor de una corriente en otra",
+        "Para nada",
+        "Para enfriar la oficina"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "clave",
-       "texto": "Lo que sentiste al probarla vale más que lo que imaginabas."
-      },
-      {
-       "tipo": "interes",
-       "pregunta": "¿Te ves estudiando Ing. Química?"
-      }
-     ]
-    },
-    {
-     "id": "6.2",
-     "titulo": "Tu veredicto",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Si mañana tuvieras que elegir carrera, ¿Ing. Química estaría entre tus opciones?",
+       "tipo": "pregunta",
+       "pregunta": "Entran 200 kilos y reaccionan 150. ¿Cuál es la conversión?",
        "opciones": [
-        "Sí, entre las primeras",
-        "Sí, pero no arriba",
-        "No creo",
-        "No lo sé"
-       ]
+        "75 por ciento",
+        "25 por ciento",
+        "133 por ciento"
+       ],
+       "correcta": 0,
+       "formula": "{150|200} × 100 = 75"
       },
       {
-       "tipo": "comparar"
+       "tipo": "pregunta",
+       "pregunta": "¿Qué hace un catalizador?",
+       "opciones": [
+        "La enfría",
+        "Acelera la reacción sin gastarse",
+        "La frena"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Qué te ayudaría más a decidir?",
-       "a": {
-        "texto": "Hablar con alguien que la estudia",
-        "dice": "Busca a un estudiante o egresado cerca de ti y hazle tus preguntas. Una plática aclara más que diez videos."
-       },
-       "b": {
-        "texto": "Probar otra carrera y comparar",
-        "dice": "Explora otra de tu mapa. Comparar dos caminos reales aclara más que pensar en uno solo."
-       }
+       "tipo": "pregunta",
+       "pregunta": "Una alarma suena mucho.",
+       "opciones": [
+        "Se investiga la causa, no se desconecta",
+        "Se apaga",
+        "Se ignora"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "veredicto"
-      },
-      {
-       "tipo": "clave",
-       "texto": "Decidir «en duda» también es avanzar."
+       "tipo": "pregunta",
+       "pregunta": "¿Por qué existe la planta piloto?",
+       "opciones": [
+        "Para vender",
+        "Por gusto",
+        "Porque lo que funciona en pequeño cambia al hacerse grande"
+       ],
+       "correcta": 2
       }
      ]
     }

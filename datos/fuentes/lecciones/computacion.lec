@@ -1,0 +1,109 @@
+**Lección 1: Algoritmos (4 preguntas)**
+
+Un algoritmo es una lista de pasos exactos para resolver un problema. La computadora hace exactamente lo que le dices, ni más ni menos, así que los pasos tienen que ser claros y en el orden correcto. Los programas usan tres ideas básicas: secuencia, que es hacer un paso tras otro; decisión, que es "si pasa esto, haz aquello"; y repetición, que es hacer algo varias veces, también llamado ciclo. Antes de programar conviene escribir el algoritmo en palabras, o pseudocódigo, para pensar la solución sin pelearte con el lenguaje.
+
+Pregunta 1. Un programa debe decir "aprobado" si la calificación es 6 o más y "reprobado" si no. ¿Qué idea usa? A: una decisión. B: solo secuencia. C: nada. Correcta: A.
+
+Pregunta 2. Un ciclo repite una instrucción desde el número 1 hasta el 10, de uno en uno. ¿Cuántas veces se ejecuta? A: 11. B: 10. C: 9. Correcta: B.
+
+Pregunta 3. Tu programa para calcular el promedio suma las calificaciones, pero divide antes de terminar de sumar. ¿Qué pasa? A: sale bien. B: la computadora lo corrige sola. C: el promedio sale mal porque el orden de los pasos está mal. Correcta: C.
+
+Pregunta 4. ¿Para qué sirve escribir pseudocódigo antes de programar? A: para pensar la solución sin preocuparte del lenguaje. B: no sirve. C: para que el programa sea más lento. Correcta: A.
+
+**Lección 2: Binario (4 preguntas)**
+
+Las computadoras guardan todo con ceros y unos, que se llaman bits. Ocho bits forman un byte. En binario, cada posición vale el doble que la de su derecha: 1, 2, 4, 8, 16, 32, 64 y 128. Para pasar un número binario a decimal sumas los valores de las posiciones donde hay un 1. Por ejemplo, 1011 en binario es:
+
+$$8 + 0 + 2 + 1 = 11$$
+
+Con más bits puedes representar más valores: con 8 bits caben 256 valores distintos, del 0 al 255.
+
+Pregunta 1. ¿Cuánto vale 101 en binario? A: 5. B: 3. C: 101. Correcta: A, porque
+
+$$4 + 0 + 1 = 5$$
+
+Pregunta 2. ¿Cuánto vale 1100 en binario? A: 12. B: 6. C: 1,100. Correcta: A, porque
+
+$$8 + 4 + 0 + 0 = 12$$
+
+Pregunta 3. ¿Cuántos bits tiene un byte? A: 2. B: 8. C: 10. Correcta: B.
+
+Pregunta 4. Un juego guarda la vida del personaje en 8 bits sin signo. ¿Cuál es el valor máximo? A: 1,000. B: 8. C: 255. Correcta: C.
+
+**Lección 3: Buscar rápido (3 preguntas)**
+
+Para buscar un dato en una lista desordenada hay que revisar uno por uno: si hay 1,000 elementos, en el peor caso revisas los 1,000. Eso es búsqueda lineal. Si la lista está ordenada, puedes usar búsqueda binaria: ves el elemento de en medio, decides si lo que buscas está antes o después, y descartas la mitad. Cada paso parte la lista a la mitad, así que con 1,000 elementos bastan unos 10 pasos, y con un millón, unos 20. Elegir bien el algoritmo importa más que tener una computadora más rápida.
+
+Pregunta 1. Una lista desordenada tiene 500 nombres. ¿Cuántos revisas en el peor caso para encontrar uno? A: 9. B: 1. C: 500. Correcta: C.
+
+Pregunta 2. ¿Qué necesita una lista para usar búsqueda binaria? A: ser corta. B: estar ordenada. C: tener números pares. Correcta: B.
+
+Pregunta 3. Una app busca entre un millón de usuarios ordenados. ¿Cuántos pasos necesita la búsqueda binaria, más o menos? A: unos 20. B: 500,000. C: un millón. Correcta: A.
+
+**Lección 4: Bases de datos (4 preguntas)**
+
+Una base de datos guarda información en tablas, con filas y columnas, como una hoja de cálculo muy organizada. Cada fila necesita algo que la identifique sin repetirse, que se llama llave primaria, por ejemplo un número de cliente. Las tablas se relacionan entre sí: una tabla de pedidos guarda el número de cliente en vez de repetir su nombre y dirección en cada pedido. Así, si el cliente cambia de dirección, solo se cambia en un lugar. Los datos personales se protegen: no cualquiera debe poder verlos.
+
+Pregunta 1. ¿Qué es una llave primaria? A: la contraseña del administrador. B: un dato que identifica cada fila sin repetirse. C: la primera columna siempre. Correcta: B.
+
+Pregunta 2. ¿Puede servir el nombre del cliente como llave primaria? A: no es buena idea, porque dos personas pueden llamarse igual. B: solo si es largo. C: sí, siempre. Correcta: A.
+
+Pregunta 3. En tu sistema, la dirección del cliente está copiada en cada uno de sus 300 pedidos, y se mudó. ¿Qué problema hay? A: ninguno. B: hay que cambiarla en 300 lugares y es fácil dejar datos viejos. C: se cambia sola. Correcta: B.
+
+Pregunta 4. Un compañero quiere dar acceso a toda la base de clientes a un practicante "para que aprenda". A: le das todo. B: le das solo los datos que necesita, o datos de prueba. C: le pasas la contraseña del administrador. Correcta: B.
+
+**Lección 5: Errores en el código (3 preguntas)**
+
+Todo programador se equivoca: a los errores se les llama bugs, y encontrarlos se llama depurar. Un buen método es reproducir el error, encontrar el punto exacto donde falla, por ejemplo imprimiendo valores o usando un depurador, corregirlo y probar otra vez. También se escriben pruebas automáticas que revisan que el programa haga lo correcto, para que un cambio nuevo no rompa algo que ya funcionaba. Un error típico es el de "uno de más o uno de menos" en los ciclos.
+
+Pregunta 1. Un usuario dice que la app "falla a veces". ¿Qué haces primero? A: le dices que no es cierto. B: reescribes toda la app. C: intentas reproducir el error para saber cuándo pasa. Correcta: C.
+
+Pregunta 2. Tu ciclo debía procesar 10 elementos y procesa 11. ¿Qué tipo de error es probablemente? A: un error de uno de más en la condición del ciclo. B: un virus. C: la computadora está cansada. Correcta: A.
+
+Pregunta 3. ¿Para qué sirven las pruebas automáticas? A: para revisar que los cambios nuevos no rompan lo que ya funcionaba. B: para hacer lento el programa. C: no sirven. Correcta: A.
+
+**Lección 6: Trabajar en equipo (4 preguntas)**
+
+El software casi nunca se hace solo. Los equipos usan control de versiones, como Git, para guardar el historial de cambios y que varias personas trabajen en el mismo proyecto sin borrarse el trabajo. Cada cambio se describe con un mensaje claro. Antes de unir un cambio, otro compañero lo revisa. Además, el código se escribe para que otros lo entiendan: nombres claros y comentarios donde haga falta. Un código que solo entiende quien lo escribió es un problema cuando esa persona se va.
+
+Pregunta 1. ¿Para qué sirve Git? A: para pagar impuestos. B: para guardar el historial de cambios y trabajar en equipo sin perder trabajo. C: para diseñar logos. Correcta: B.
+
+Pregunta 2. ¿Qué nombre de variable es mejor para guardar el precio total? A: precio_total. B: cosa2. C: x. Correcta: A.
+
+Pregunta 3. Un cambio tuyo rompió la app en producción. Con control de versiones, ¿qué puedes hacer? A: nada. B: regresar a la versión anterior que funcionaba mientras lo corriges. C: borrar todo. Correcta: B.
+
+Pregunta 4. ¿Por qué un compañero revisa tu código antes de unirlo? A: para molestarte. B: no hace falta. C: para detectar errores y compartir conocimiento. Correcta: C.
+
+**Lección 7: Lo que necesita el cliente (3 preguntas)**
+
+Antes de programar hay que entender qué problema se resuelve. Los requisitos describen qué debe hacer el sistema. Muchas veces el cliente pide una solución, como "quiero una app", cuando lo que necesita es otra cosa, como "que mis clientes puedan agendar citas". Conviene hacer primero una versión pequeña que funcione, mostrarla, recibir comentarios y mejorar por partes. Así se evita pasar meses construyendo algo que nadie quería.
+
+Pregunta 1. Un dentista te pide "una app como Uber" para su consultorio. ¿Qué haces primero? A: le dices que no. B: programas un Uber. C: le preguntas qué problema quiere resolver, por ejemplo agendar citas. Correcta: C.
+
+Pregunta 2. ¿Por qué conviene entregar una primera versión pequeña? A: para cobrar menos. B: no conviene. C: para recibir comentarios pronto y no construir algo equivocado. Correcta: C.
+
+Pregunta 3. A mitad del proyecto, el cliente quiere agregar muchas funciones nuevas con la misma fecha de entrega. A: te vas. B: le explicas qué se puede en ese tiempo y priorizan juntos. C: aceptas todo y no duermes. Correcta: B.
+
+**Examen final**
+
+Pregunta 1. ¿Qué es un algoritmo? A: un tipo de computadora. B: un virus. C: una lista de pasos exactos para resolver un problema. Correcta: C.
+
+Pregunta 2. ¿Cuánto vale 111 en binario? A: 111. B: 7. C: 3. Correcta: B, porque
+
+$$4 + 2 + 1 = 7$$
+
+Pregunta 3. ¿Cuánto vale 1000 en binario? A: 1,000. B: 4. C: 8. Correcta: C.
+
+Pregunta 4. ¿Qué necesita la búsqueda binaria? A: una lista corta. B: una lista ordenada. C: una lista con letras. Correcta: B.
+
+Pregunta 5. Una lista ordenada tiene 1,000 elementos. ¿Cuántos pasos necesita la búsqueda binaria, más o menos? A: unos 10. B: 500. C: 1,000. Correcta: A.
+
+Pregunta 6. ¿Qué debe cumplir una llave primaria? A: no repetirse. B: ser la fecha. C: ser un nombre. Correcta: A.
+
+Pregunta 7. Un usuario reporta un error. ¿Qué haces primero? A: reescribes todo. B: lo ignoras. C: intentas reproducirlo. Correcta: C.
+
+Pregunta 8. ¿Para qué sirve el control de versiones? A: para guardar el historial y trabajar en equipo. B: para dibujar. C: para jugar. Correcta: A.
+
+Pregunta 9. ¿Qué nombre de variable es más claro? A: t. B: total_alumnos. C: aaa. Correcta: B.
+
+Pregunta 10. Un cliente pide una solución sin explicar su problema. A: te niegas. B: programas lo primero que pidió. C: le preguntas qué problema quiere resolver. Correcta: C.

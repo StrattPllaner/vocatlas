@@ -1,0 +1,117 @@
+**Lección 1: Fermentación (4 preguntas)**
+
+La biotecnología usa seres vivos, sobre todo microorganismos, para producir cosas útiles. La más antigua es la fermentación. Las levaduras, que son hongos de una sola célula, se comen el azúcar y, sin oxígeno, producen alcohol y dióxido de carbono. Así se hacen el pan, la cerveza, el vino y el pulque. En el pan, el dióxido de carbono hace que la masa se infle y el alcohol se evapora al hornear. Las bacterias del yogurt hacen otra fermentación: convierten el azúcar de la leche en ácido láctico, que la espesa y le da su sabor ácido. Cada microorganismo trabaja mejor a cierta temperatura.
+
+Pregunta 1. ¿Qué hace que la masa del pan se infle? A: el dióxido de carbono que producen las levaduras. B: el agua. C: la sal. Correcta: A.
+
+Pregunta 2. ¿Qué producen las bacterias del yogurt a partir del azúcar de la leche? A: alcohol. B: ácido láctico. C: oxígeno. Correcta: B.
+
+Pregunta 3. Una panadería deja la masa en un cuarto muy frío y no crece. ¿Qué pasó probablemente? A: se acabó la harina. B: con el frío las levaduras trabajan muy lento. C: la masa es de mala calidad. Correcta: B.
+
+Pregunta 4. Alguien mete la levadura en agua hirviendo para "activarla" y la masa no crece. ¿Por qué? A: así debe ser. B: el agua hirviendo mató a las levaduras. C: le faltó sal. Correcta: B.
+
+**Lección 2: Enzimas (4 preguntas)**
+
+Las enzimas son proteínas que aceleran reacciones químicas en los seres vivos. Cada enzima hace un trabajo específico, como una llave que solo abre su cerradura. Funcionan mejor a cierta temperatura y cierta acidez: si se calientan demasiado, cambian de forma y dejan de servir, y eso se llama desnaturalización. La industria las usa todo el tiempo: en detergentes que quitan manchas de comida, en jugos para que salgan más claros, en quesos y en medicinas. La lactasa, por ejemplo, rompe el azúcar de la leche y se usa para hacer leche deslactosada.
+
+Pregunta 1. ¿Qué pasa si una enzima se calienta demasiado? A: cambia de forma y deja de funcionar. B: trabaja más rápido para siempre. C: se convierte en azúcar. Correcta: A.
+
+Pregunta 2. ¿Qué enzima se usa para hacer leche deslactosada? A: la lactasa. B: la sal. C: la levadura. Correcta: A.
+
+Pregunta 3. Un detergente con enzimas no quita bien las manchas cuando se lava con agua hirviendo. ¿Por qué? A: la ropa es nueva. B: le faltó jabón. C: el calor desnaturalizó las enzimas. Correcta: C.
+
+Pregunta 4. Una enzima rompe proteínas, pero no grasas. ¿Por qué? A: cada enzima es específica para su trabajo. B: porque está descompuesta. C: porque es barata. Correcta: A.
+
+**Lección 3: El ADN y la PCR (3 preguntas)**
+
+El ADN es la molécula que guarda las instrucciones de un ser vivo. A veces hay muy poquito, por ejemplo en una muestra de saliva, y se necesita más para estudiarlo. La PCR es una técnica que copia un pedazo específico de ADN muchas veces. En cada ciclo, la cantidad se duplica:
+
+$$\text{copias después de 3 ciclos} = \text{copias iniciales} \times 2 \times 2 \times 2$$
+
+Después de 10 ciclos, una copia se vuelve 1,024; después de 30, más de mil millones. Por eso la PCR es tan sensible, y por eso también cualquier contaminación de otra muestra se multiplica y puede dar un resultado falso.
+
+Pregunta 1. Empiezas con 1 copia de ADN y haces 3 ciclos de PCR. ¿Cuántas copias tienes? A: 3. B: 6. C: 8. Correcta: C, porque
+
+$$1 \times 2 \times 2 \times 2 = 8$$
+
+Pregunta 2. Si empiezas con 5 copias y haces 2 ciclos, ¿cuántas tienes? A: 10. B: 7. C: 20. Correcta: C, porque
+
+$$5 \times 2 \times 2 = 20$$
+
+Pregunta 3. Una prueba de PCR sale positiva en una muestra que debería ser negativa, y la técnica usó la misma pipeta para varias muestras. ¿Qué pasó probablemente? A: la muestra era positiva. B: la máquina se descompuso. C: se contaminó con ADN de otra muestra. Correcta: C.
+
+**Lección 4: Ingeniería genética (4 preguntas)**
+
+La ingeniería genética le pone a un organismo un gen de otro para que produzca algo nuevo. El ejemplo más famoso es la insulina: antes se sacaba del páncreas de animales, y hoy se produce poniendo el gen humano de la insulina en bacterias o levaduras, que la fabrican en grandes tanques. Así se producen también vacunas, enzimas y otras medicinas. Los cultivos transgénicos, como algunas variedades de maíz y soya, se modifican para resistir plagas o herbicidas. En México, el maíz transgénico es un tema muy debatido, porque aquí se originó el maíz y hay muchas variedades nativas que proteger.
+
+Pregunta 1. ¿Cómo se produce hoy la mayor parte de la insulina? A: de páncreas de vaca. B: con bacterias o levaduras a las que se les puso el gen humano de la insulina. C: de plantas. Correcta: B.
+
+Pregunta 2. ¿Qué es un organismo transgénico? A: uno al que se le puso un gen de otra especie. B: uno silvestre. C: uno muy grande. Correcta: A.
+
+Pregunta 3. ¿Por qué el maíz transgénico es tan debatido en México? A: porque aquí se originó el maíz y hay muchas variedades nativas que se quieren proteger. B: porque nadie come maíz. C: porque es más caro. Correcta: A.
+
+Pregunta 4. ¿Qué ventaja tuvo producir insulina con microorganismos? A: ninguna. B: que es más bonita. C: se puede producir en grandes cantidades y de forma más constante. Correcta: C.
+
+**Lección 5: Diluciones en el laboratorio (3 preguntas)**
+
+En el laboratorio casi siempre hay que preparar soluciones a partir de otras más concentradas. La regla es que la cantidad de sustancia no cambia al agregar agua, solo se reparte en más volumen:
+
+$$\text{concentración inicial} \times \text{volumen inicial} = \text{concentración final} \times \text{volumen final}$$
+
+Si diluyes 1 a 10, tomas una parte de la solución y la completas a 10 partes con agua, y la concentración queda diez veces menor. Un error en una dilución puede arruinar un experimento completo, por eso se anota todo.
+
+Pregunta 1. Tienes una solución a 10 gramos por litro y necesitas 100 mililitros a 1 gramo por litro. ¿Cuánta solución original usas? A: 1 mililitro. B: 10 mililitros, y completas con agua hasta 100. C: 100 mililitros. Correcta: B, porque
+
+$$\frac{1 \times 100}{10} = 10$$
+
+Pregunta 2. Diluyes una muestra 1 a 10. ¿Cómo queda su concentración? A: diez veces menor. B: diez veces mayor. C: igual. Correcta: A.
+
+Pregunta 3. No anotaste cuánto diluiste una muestra. ¿Qué haces? A: usas el resultado igual. B: adivinas. C: repites la dilución anotando todo. Correcta: C.
+
+**Lección 6: Del laboratorio a la fábrica (4 preguntas)**
+
+Lo que funciona en un frasco no siempre funciona en un tanque de miles de litros. Pasar de pequeño a grande se llama escalamiento. En un biorreactor hay que controlar temperatura, acidez, oxígeno y mezcla para que los microorganismos estén bien. Si entra otro microorganismo, puede comerse los nutrientes o producir sustancias dañinas, y se pierde todo el lote. Por eso todo se esteriliza y se trabaja con mucho cuidado. Un lote perdido en un tanque grande puede costar muchísimo dinero.
+
+Pregunta 1. ¿Qué es el escalamiento? A: hacer el proceso más lento. B: pasar un proceso de pequeño a grande. C: subir escaleras. Correcta: B.
+
+Pregunta 2. En un biorreactor la temperatura subió mucho durante la noche. ¿Qué puede pasar? A: que los microorganismos dejen de producir o se mueran. B: nada. C: que produzcan el doble. Correcta: A.
+
+Pregunta 3. Un lote se contaminó con otra bacteria. ¿Qué haces? A: lo descartas de forma segura y buscas por dónde entró la contaminación. B: lo vendes igual. C: lo mezclas con otro lote. Correcta: A.
+
+Pregunta 4. ¿Por qué se esteriliza todo antes de empezar? A: para que huela mejor. B: por costumbre. C: para que solo crezca el microorganismo que quieres. Correcta: C.
+
+**Lección 7: Bioseguridad y ética (3 preguntas)**
+
+En biotecnología se trabaja con organismos vivos, así que hay reglas para proteger a las personas y al ambiente. Los laboratorios tienen niveles de bioseguridad según el riesgo de lo que se maneja. Los residuos biológicos se esterilizan antes de tirarlos. Los organismos modificados no se pueden liberar al ambiente sin permiso. Y los datos de experimentos se reportan completos, aunque no salgan como esperabas. Usar muestras de personas requiere su consentimiento.
+
+Pregunta 1. Terminaste un experimento con bacterias. ¿Qué haces con los cultivos? A: los esterilizas antes de desecharlos. B: los tiras a la basura normal. C: los tiras al drenaje. Correcta: A.
+
+Pregunta 2. Quieres usar muestras de saliva de tus compañeros para un estudio genético. A: las compras. B: les pides su consentimiento y les explicas para qué. C: las tomas sin decir nada. Correcta: B.
+
+Pregunta 3. Una planta modificada en tu laboratorio parece resistente a plagas y alguien quiere sembrarla en el campo. A: la regalas. B: se necesita evaluación y permiso antes de liberarla. C: la siembras ya. Correcta: B.
+
+**Examen final**
+
+Pregunta 1. ¿Qué producen las levaduras al fermentar azúcar sin oxígeno? A: oxígeno. B: leche. C: alcohol y dióxido de carbono. Correcta: C.
+
+Pregunta 2. ¿Qué pasa con una enzima que se calienta demasiado? A: funciona mejor. B: se desnaturaliza y deja de funcionar. C: nada. Correcta: B.
+
+Pregunta 3. Empiezas con 2 copias de ADN y haces 3 ciclos de PCR. ¿Cuántas copias tienes? A: 16. B: 8. C: 6. Correcta: A, porque
+
+$$2 \times 2 \times 2 \times 2 = 16$$
+
+Pregunta 4. ¿Por qué la PCR es tan sensible a la contaminación? A: porque cualquier ADN extra también se copia muchas veces. B: no es sensible. C: porque es lenta. Correcta: A.
+
+Pregunta 5. ¿Cómo se produce hoy la insulina? A: de animales. B: con microorganismos que tienen el gen humano de la insulina. C: de plantas. Correcta: B.
+
+Pregunta 6. Tienes una solución a 20 gramos por litro y necesitas 100 mililitros a 2 gramos por litro. ¿Cuánta solución original usas? A: 20 mililitros. B: 2 mililitros. C: 10 mililitros. Correcta: C, porque
+
+$$\frac{2 \times 100}{20} = 10$$
+
+Pregunta 7. ¿Qué es el escalamiento? A: un tipo de enzima. B: una prueba de ADN. C: pasar un proceso del laboratorio a la producción grande. Correcta: C.
+
+Pregunta 8. Un lote del biorreactor se contaminó. A: se vende. B: se descarta de forma segura y se busca la causa. C: se mezcla. Correcta: B.
+
+Pregunta 9. ¿Se puede liberar al campo una planta modificada sin permiso? A: sí. B: si es pequeña, sí. C: no. Correcta: C.
+
+Pregunta 10. ¿Qué necesitas para usar muestras de personas en un estudio? A: pagarles siempre. B: su consentimiento. C: nada. Correcta: B.

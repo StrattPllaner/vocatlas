@@ -1,224 +1,174 @@
 {
  "id": "electrica",
- "version": 1,
+ "version": 2,
+ "formato": 2,
  "estado": "completo",
- "generado": true,
- "revision": "Armada automáticamente con la base de carreras de Morelos y CDMX (2026-11-17). Falta que la revise alguien de la carrera.",
+ "revision": "Pendiente de revisión por un profesionista de la carrera. Generado con datos/importar_lecciones.py desde datos/fuentes/lecciones/electrica.lec; no se edita a mano.",
  "unidades": [
   {
    "id": "u1",
+   "titulo": "Lo básico",
+   "sub": "Ohm, potencia y el recibo",
    "lecciones": [
     {
-     "id": "1.1",
-     "titulo": "Qué es y qué hace",
-     "minutos": 3,
+     "id": "0",
+     "titulo": "Conócela",
+     "minutos": 1,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "¿Qué es Ing. Eléctrica?",
-       "texto": "Aplicación de matemáticas, ciencias y tecnología para diseñar, construir, operar y mejorar sistemas, productos o procesos. La especialidad define si el trabajo se concentra en infraestructura, energía, manufactura, electrónica, ambiente, transporte o materiales.",
-       "puntos": [
-        "Diseña y mantiene instalaciones y redes eléctricas: subestaciones, plantas industriales, edificios, parques solares o eólicos."
+       "tipo": "ficha",
+       "texto": "Ingeniería Eléctrica forma ingenieros que generan, transmiten y distribuyen la electricidad, y que diseñan las instalaciones de casas, edificios y fábricas. Trabajan en la CFE, en plantas de energía, en la industria y en proyectos de energía solar.",
+       "cifras": [
+        "electrica.ingreso",
+        "electrica.duracion",
+        "electrica.costo_publica",
+        "electrica.costo_privada"
        ]
       },
       {
-       "tipo": "decision",
-       "pregunta": "Por lo que leíste, ¿qué hace alguien de Ing. Eléctrica?",
-       "opciones": [
-        {
-         "texto": "Diseña y mantiene instalaciones y redes eléctricas: subestaciones, plantas industriales, edificios, parques solares o eólicos.",
-         "consecuencia": "Exacto: eso es parte del día a día en Ing. Eléctrica.",
-         "mejor": true
-        },
-        {
-         "texto": "Cuida pacientes de forma directa: toma signos vitales, aplica medicamentos y curaciones, vigila su evolución, apoya al médico y orienta a familias.",
-         "consecuencia": "Eso lo hace alguien de Enfermería."
-        },
-        {
-         "texto": "Revisa, limpia y repara dientes, hace extracciones, endodoncias y prótesis, toma radiografías y explica tratamientos.",
-         "consecuencia": "Eso lo hace alguien de Odontología."
-        }
-       ]
-      },
-      {
-       "tipo": "completar",
-       "frase": "Ing. Eléctrica es una carrera del área de ___.",
-       "opciones": [
-        "Ingenierías",
-        "Negocios y sociedad",
-        "Arte y comunicación"
-       ],
-       "correcta": 0,
-       "revelacion": "Está en Ingenierías. Se parece a Ingeniería Electrónica y Telecomunicaciones, Ingeniería Mecatrónica, Ingeniería Mecánica."
-      },
-      {
-       "tipo": "clave",
-       "texto": "Antes de elegir, entiende qué harías cada día, no solo el nombre."
-      },
-      {
-       "tipo": "interes"
+       "tipo": "escena",
+       "texto": "Hoy diseñas la instalación de un edificio. Vamos a ver si prende y si es seguro."
       }
      ]
     },
     {
-     "id": "1.2",
-     "titulo": "Dónde trabajas",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Dónde trabaja alguien de Ing. Eléctrica",
-       "texto": "Empresas industriales y tecnológicas, consultoría, construcción, energía, manufactura, telecomunicaciones, software, gobierno, investigación y emprendimiento;",
-       "puntos": [
-        "Depende de la especialidad."
-       ]
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Alguien de Ing. Eléctrica solo puede trabajar en un tipo de lugar.",
-       "respuesta": false,
-       "revelacion": "Puede trabajar en varios: empresas industriales, tecnológicas, consultoría."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Dónde te ves trabajando?",
-       "opciones": [
-        "Empresas industriales",
-        "Tecnológicas",
-        "Consultoría",
-        "Construcción"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Una carrera abre varias puertas, no una sola."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "1.3",
-     "titulo": "Pregúntale a Rumbo",
+     "id": "1",
+     "titulo": "Voltaje, corriente y resistencia",
      "minutos": 4,
      "tarjetas": [
       {
-       "tipo": "chat",
-       "subtitulo": "Te cuenta cómo es trabajar en Ing. Eléctrica",
-       "intro": [
-        "¡Hola! Junté lo que se sabe de Ing. Eléctrica.",
-        "Pregúntame lo que quieras."
-       ],
-       "temas": [
+       "tipo": "info",
+       "titulo": "Voltaje, corriente y resistencia",
+       "partes": [
         {
-         "q": "¿Qué haces en un día normal?",
-         "a": [
-          "Diseña y mantiene instalaciones y redes eléctricas: subestaciones, plantas industriales, edificios, parques solares o eólicos."
-         ]
+         "t": "La electricidad se parece al agua en una manguera. El voltaje es la presión que empuja, la corriente es cuánta electricidad pasa, y la resistencia es qué tan difícil se lo pone el camino. Las tres se relacionan con la ley de Ohm:"
         },
         {
-         "q": "¿Qué es lo más difícil?",
-         "a": [
-          "Se considera una carrera de dificultad alta.",
-          "Cálculo, Electromagnetismo y Circuitos eléctricos."
-         ]
+         "f": "voltaje = corriente × resistencia"
         },
         {
-         "q": "¿Hay trabajo?",
-         "a": [
-          "La mayoría de quienes la estudian trabaja en algo de su carrera. Es un promedio nacional del IMCO."
-         ]
-        },
-        {
-         "q": "¿Qué necesito para ejercer?",
-         "a": [
-          "Cédula y, para firmar instalaciones, registro como unidad de verificación (UVIE)."
-         ]
+         "t": "El voltaje se mide en volts, la corriente en amperes y la resistencia en ohms. En las casas de México el voltaje normal es de 127 volts. Con el mismo voltaje, si la resistencia baja, la corriente sube; por eso un cortocircuito, que casi no tiene resistencia, deja pasar una corriente enorme."
         }
-       ],
-       "minimo": 2,
-       "auto": true
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Ing. Eléctrica se considera una carrera de dificultad alta.",
-       "respuesta": true,
-       "revelacion": "Se considera de dificultad alta. Cálculo, Electromagnetismo y Circuitos eléctricos."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué te llamó más la atención?",
-       "opciones": [
-        "¿Qué haces en un día normal?",
-        "¿Qué es lo más difícil?",
-        "¿Hay trabajo?",
-        "¿Qué necesito para ejercer?"
        ]
       },
       {
-       "tipo": "clave",
-       "texto": "Preguntar a quien ya sabe ahorra muchos errores."
+       "tipo": "pregunta",
+       "pregunta": "Una resistencia de 10 ohms está conectada a 120 volts. ¿Cuánta corriente pasa?",
+       "opciones": [
+        "12 amperes",
+        "1,200 amperes",
+        "130 amperes"
+       ],
+       "correcta": 0,
+       "formula": "{120|10} = 12"
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "Por una resistencia de 20 ohms pasan 3 amperes. ¿Qué voltaje tiene?",
+       "opciones": [
+        "6.7 volts",
+        "23 volts",
+        "60 volts"
+       ],
+       "correcta": 2,
+       "formula": "3 × 20 = 60"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Por qué un cortocircuito es peligroso?",
+       "opciones": [
+        "Porque casi no tiene resistencia y pasa una corriente enorme",
+        "No es peligroso",
+        "Porque baja el voltaje"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Qué voltaje tienen normalmente los contactos de una casa en México?",
+       "opciones": [
+        "1,000 volts",
+        "12 volts",
+        "127 volts"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
-     "id": "1.4",
-     "titulo": "Carreras parecidas",
-     "minutos": 3,
+     "id": "2",
+     "titulo": "Potencia y el recibo de luz",
+     "minutos": 4,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Carreras cercanas a Ing. Eléctrica",
-       "puntos": [
-        "Ingeniería Electrónica y Telecomunicaciones: aplicación de matemáticas, ciencias y tecnología para diseñar, construir.",
-        "Ingeniería Mecatrónica: aplicación de matemáticas, ciencias y tecnología para diseñar, construir.",
-        "Ingeniería Mecánica: aplicación de matemáticas, ciencias y tecnología para diseñar, construir.",
-        "Ingeniería Ambiental y Desarrollo Sustentable: aplicación de matemáticas, ciencias y tecnología para diseñar, construir."
+       "titulo": "Potencia y el recibo de luz",
+       "partes": [
+        {
+         "t": "La potencia dice cuánta energía usa un aparato por segundo, y se mide en watts:"
+        },
+        {
+         "f": "potencia = voltaje × corriente"
+        },
+        {
+         "t": "La energía que cobra la CFE se mide en kilowatts hora: un aparato de 1,000 watts prendido una hora gasta 1 kilowatt hora."
+        },
+        {
+         "f": "energía en kWh = potencia en kW × horas"
+        },
+        {
+         "t": "Los aparatos que calientan, como planchas, secadoras y calentadores eléctricos, y los que enfrían, como el aire acondicionado, son los que más gastan."
+        }
        ]
       },
       {
-       "tipo": "emparejar",
-       "pregunta": "Une cada carrera con lo que estudia.",
-       "pares": [
-        [
-         "Ingeniería Electrónica y Telecomunicaciones",
-         "Aplicación de matemáticas, ciencias y tecnología para diseñar, construir"
-        ],
-        [
-         "Ingeniería Mecatrónica",
-         "Aplicación de matemáticas, ciencias y tecnología para diseñar, construir"
-        ],
-        [
-         "Ingeniería Mecánica",
-         "Aplicación de matemáticas, ciencias y tecnología para diseñar, construir"
-        ],
-        [
-         "Ingeniería Ambiental y Desarrollo Sustentable",
-         "Aplicación de matemáticas, ciencias y tecnología para diseñar, construir"
-        ]
-       ],
-       "revelacion": "Se cruzan en temas, pero cada una tiene su propio enfoque."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Cuál de estas te da curiosidad?",
+       "tipo": "pregunta",
+       "pregunta": "Una plancha toma 10 amperes a 127 volts. ¿Cuál es su potencia?",
        "opciones": [
-        "Ingeniería Electrónica y Telecomunicaciones",
-        "Ingeniería Mecatrónica",
-        "Ingeniería Mecánica",
-        "Me quedo con Ing. Eléctrica"
-       ]
+        "137 watts",
+        "12.7 watts",
+        "1,270 watts"
+       ],
+       "correcta": 2,
+       "formula": "127 × 10 = 1,270"
       },
       {
-       "tipo": "clave",
-       "texto": "Si dudas entre dos, compara lo que harías cada día."
+       "tipo": "pregunta",
+       "pregunta": "Un aire acondicionado de 1.5 kilowatts está prendido 8 horas. ¿Cuánta energía gasta?",
+       "opciones": [
+        "5.3 kilowatts hora",
+        "12 kilowatts hora",
+        "9.5 kilowatts hora"
+       ],
+       "correcta": 1,
+       "formula": "1.5 × 8 = 12"
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "Si cada kilowatt hora cuesta 3 pesos, ¿cuánto cuesta usar ese aire acondicionado ese día?",
+       "opciones": [
+        "15 pesos",
+        "4 pesos",
+        "36 pesos"
+       ],
+       "correcta": 2,
+       "formula": "12 × 3 = 36"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Una familia quiere bajar su recibo de luz. ¿Qué revisa primero?",
+       "opciones": [
+        "Los aparatos que calientan o enfrían",
+        "El reloj de pared",
+        "El cargador del celular"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "teves"
       }
      ]
     }
@@ -226,202 +176,115 @@
   },
   {
    "id": "u2",
+   "titulo": "Circuitos seguros",
+   "sub": "Serie, paralelo y protecciones",
    "lecciones": [
     {
-     "id": "2.1",
-     "titulo": "Mini reto",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Al prender varios aparatos, se bota la pastilla de una casa. ¿Qué piensas?",
-       "opciones": [
-        "Que se pide más corriente de la que aguanta el circuito",
-        "Que la pastilla está mal y hay que quitarla",
-        "Que es mala suerte"
-       ]
-      },
-      {
-       "tipo": "info",
-       "titulo": "Así lo piensa alguien de Ing. Eléctrica",
-       "texto": "La protección hace su trabajo: hay que repartir la carga o rediseñar el circuito. Eléctrica es física aplicada y mucha seguridad."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Te gustó pensar en algo así?",
-       "escala": [
-        "Nada",
-        "Mucho"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Los retos de una carrera se parecen a lo que harías en su trabajo."
-      },
-      {
-       "tipo": "interes",
-       "pregunta": "¿Te ves resolviendo retos así?"
-      }
-     ]
-    },
-    {
-     "id": "2.2",
-     "titulo": "Lo que te piden",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Habilidades que usarás en Ing. Eléctrica",
-       "puntos": [
-        "Matemáticas y física",
-        "Seguridad y precisión",
-        "Lógica",
-        "Trabajo en campo"
-       ]
-      },
-      {
-       "tipo": "completar",
-       "pregunta": "Según lo que leíste, completa la frase.",
-       "frase": "Para Ing. Eléctrica es clave: ___.",
-       "opciones": [
-        "Matemáticas y física",
-        "Creatividad",
-        "Lectura y redacción"
-       ],
-       "correcta": 0,
-       "revelacion": "Es de las habilidades que más se usan en Ing. Eléctrica."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué tanto se te da esto: seguridad y precisión?",
-       "escala": [
-        "Me cuesta",
-        "Se me da"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Las habilidades se entrenan; lo importante es que te guste usarlas."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "2.3",
-     "titulo": "Temas que vas a ver",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Temas que te deben gustar",
-       "puntos": [
-        "Energía",
-        "Electricidad",
-        "Sustentabilidad"
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "¿Cuál de estos temas es más de Ing. Eléctrica?",
-       "opciones": [
-        {
-         "texto": "Energía",
-         "consecuencia": "Sí, es de sus temas centrales.",
-         "mejor": true
-        },
-        {
-         "texto": "Universo y naturaleza",
-         "consecuencia": "Ese es más de Física."
-        },
-        {
-         "texto": "Objetos y productos",
-         "consecuencia": "Ese es más de Diseño industrial."
-        }
-       ]
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Cuál de estos temas te gusta más?",
-       "opciones": [
-        "Energía",
-        "Electricidad",
-        "Sustentabilidad",
-        "Ninguno me late"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Si los temas te aburren, la carrera se hace muy larga."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "2.4",
-     "titulo": "Materias clave",
+     "id": "3",
+     "titulo": "Serie y paralelo",
      "minutos": 4,
      "tarjetas": [
       {
-       "tipo": "voltear",
-       "pregunta": "¿Qué materias crees que llevas en cada etapa? Piénsalo y voltea.",
-       "cartas": [
+       "tipo": "info",
+       "titulo": "Serie y paralelo",
+       "partes": [
         {
-         "frente": "Semestres 1-2",
-         "reverso": "Cálculo, Física, Álgebra lineal, Programación"
-        },
-        {
-         "frente": "Semestres 3-4",
-         "reverso": "Circuitos eléctricos, Electromagnetismo, Ecuaciones diferenciales"
-        },
-        {
-         "frente": "Semestres 5-6",
-         "reverso": "Máquinas eléctricas, Sistemas de potencia, Electrónica de potencia, Instalaciones eléctricas"
-        },
-        {
-         "frente": "Semestres 7 en adelante",
-         "reverso": "Energías renovables, Protecciones eléctricas, Proyecto"
+         "t": "En un circuito en serie, la corriente pasa por todos los elementos uno tras otro: si uno se apaga o se rompe, se apagan todos, como en algunas series de luces navideñas viejas. En un circuito en paralelo, cada elemento tiene su propio camino y recibe el mismo voltaje: si uno falla, los demás siguen funcionando. Por eso las instalaciones de las casas son en paralelo. En paralelo, cada aparato que conectas suma su corriente a la del circuito."
         }
        ]
       },
       {
-       "tipo": "decision",
-       "pregunta": "¿Cuál de estas materias llevarías en Ing. Eléctrica?",
+       "tipo": "pregunta",
+       "pregunta": "En tu casa se funde un foco y los demás siguen prendidos. ¿Cómo están conectados?",
        "opciones": [
+        "No están conectados",
+        "En paralelo",
+        "En serie"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "En una serie de luces se funde un foco y se apaga toda la serie. ¿Cómo están conectados?",
+       "opciones": [
+        "En paralelo",
+        "En serie",
+        "Con internet"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "En un circuito de la cocina conectas una parrilla de 8 amperes y un horno de 7 amperes al mismo tiempo. ¿Cuánta corriente pasa por el circuito?",
+       "opciones": [
+        "8 amperes",
+        "15 amperes",
+        "1 ampere"
+       ],
+       "correcta": 1,
+       "formula": "8 + 7 = 15"
+      },
+      {
+       "tipo": "teves"
+      }
+     ]
+    },
+    {
+     "id": "4",
+     "titulo": "Protecciones",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "Protecciones",
+       "partes": [
         {
-         "texto": "Cálculo",
-         "consecuencia": "Sí: es de las primeras materias de Ing. Eléctrica.",
-         "mejor": true
-        },
-        {
-         "texto": "Teorías de la comunicación",
-         "consecuencia": "Esa es de Comunicación."
-        },
-        {
-         "texto": "Cálculo I y II",
-         "consecuencia": "Esa es de Matemáticas."
+         "t": "Cada circuito tiene una pastilla, o interruptor termomagnético, que se bota si pasa más corriente de la que aguanta el cable. Eso evita que el cable se caliente y provoque un incendio. Por eso nunca se cambia una pastilla por una más grande \"para que ya no se bote\" sin cambiar también el cable. La tierra física lleva a tierra la corriente que se escapa de un aparato dañado, en vez de que pase por una persona. En baños y cocinas se usan contactos con protección contra fugas, que cortan la luz en milésimas de segundo si detectan una fuga."
         }
        ]
       },
       {
-       "tipo": "reflexion",
-       "pregunta": "¿Cuál te da más curiosidad?",
+       "tipo": "pregunta",
+       "pregunta": "¿Para qué sirve la pastilla de un circuito?",
        "opciones": [
-        "Cálculo",
-        "Física",
-        "Álgebra lineal",
-        "Programación"
-       ]
+        "Para ahorrar",
+        "Para cortar la corriente si pasa más de lo que aguanta el cable",
+        "Para que la luz sea más brillante"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "clave",
-       "texto": "Las primeras materias son la base; muchas veces son las más pesadas."
+       "tipo": "pregunta",
+       "pregunta": "Una pastilla de 15 amperes se bota seguido y el dueño quiere poner una de 40 sin cambiar el cable. ¿Qué le dices?",
+       "opciones": [
+        "Que mejor una de 100",
+        "Que está bien",
+        "Que es peligroso, porque el cable se puede calentar e incendiar; hay que revisar la carga o el cable"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "¿Dónde es más importante un contacto con protección contra fugas?",
+       "opciones": [
+        "En baños y cocinas, cerca del agua",
+        "En el techo",
+        "En la recámara"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Qué hace la tierra física?",
+       "opciones": [
+        "Hace que el aparato gaste menos",
+        "Lleva a tierra la corriente que se escapa de un aparato dañado",
+        "Nada"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "teves"
       }
      ]
     }
@@ -429,182 +292,168 @@
   },
   {
    "id": "u3",
+   "titulo": "De la planta a la casa",
+   "sub": "Transmisión, instalaciones y seguridad",
    "lecciones": [
     {
-     "id": "3.1",
-     "titulo": "Un día real",
+     "id": "5",
+     "titulo": "Llevar la electricidad lejos",
      "minutos": 4,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Un día de trabajo en Ing. Eléctrica",
-       "puntos": [
-        "Diseña y mantiene instalaciones y redes eléctricas: subestaciones, plantas industriales, edificios, parques solares o eólicos."
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "¿Cuál de estas cosas sí hace alguien de Ing. Eléctrica?",
-       "opciones": [
+       "titulo": "Llevar la electricidad lejos",
+       "partes": [
         {
-         "texto": "Diseña y mantiene instalaciones y redes eléctricas: subestaciones, plantas industriales, edificios, parques solares o eólicos.",
-         "consecuencia": "Sí: es parte de su día.",
-         "mejor": true
-        },
-        {
-         "texto": "Crea logotipos, campañas, empaques, publicaciones y contenido digital",
-         "consecuencia": "Eso es más de Diseño gráfico."
-        },
-        {
-         "texto": "Diseña prendas y colecciones, elige telas, trabaja patrones con talleres, sigue tendencias y comercializa: en marcas, retail o con su propia marca.",
-         "consecuencia": "Eso es más de Moda."
+         "t": "La electricidad se genera en centrales, a veces muy lejos de las ciudades, y viaja por líneas de transmisión. En los cables se pierde energía en forma de calor, y esa pérdida crece mucho con la corriente. Para mandar la misma potencia con menos corriente se sube el voltaje, a cientos de miles de volts, con transformadores. Cerca de las ciudades, otros transformadores lo bajan, y el del poste lo deja en el voltaje de las casas."
         }
        ]
       },
       {
-       "tipo": "reflexion",
-       "pregunta": "¿Te ves haciendo esto todos los días?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
+       "tipo": "pregunta",
+       "pregunta": "¿Por qué se transmite la electricidad a voltajes muy altos?",
+       "opciones": [
+        "Para mandar la misma potencia con menos corriente y perder menos energía",
+        "Para que sea más peligrosa",
+        "Porque es más barato el poste"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "clave",
-       "texto": "El día a día pesa más que el título."
+       "tipo": "pregunta",
+       "pregunta": "¿Qué aparato sube o baja el voltaje?",
+       "opciones": [
+        "La pastilla",
+        "El foco",
+        "El transformador"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "Una línea manda 100,000 watts a 10,000 volts. ¿Cuánta corriente lleva?",
+       "opciones": [
+        "1,000 amperes",
+        "110,000 amperes",
+        "10 amperes"
+       ],
+       "correcta": 2,
+       "formula": "{100,000|10,000} = 10"
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
-     "id": "3.2",
-     "titulo": "Lo difícil",
+     "id": "6",
+     "titulo": "Calcular una instalación",
      "minutos": 4,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Lo difícil de Ing. Eléctrica",
-       "texto": "Se considera de dificultad alta.",
-       "puntos": [
-        "Cálculo, Electromagnetismo y Circuitos eléctricos."
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "Según lo que leíste, ¿qué es lo que más cuesta en Ing. Eléctrica?",
-       "opciones": [
+       "titulo": "Calcular una instalación",
+       "partes": [
         {
-         "texto": "Cálculo, Electromagnetismo y Circuitos eléctricos.",
-         "consecuencia": "Sí, es de lo que más cuesta en Ing. Eléctrica.",
-         "mejor": true
+         "t": "Al diseñar la instalación de una casa o un local se suman las cargas de cada circuito y se elige el cable y la pastilla adecuados. Un cable más grueso aguanta más corriente. Los aparatos grandes, como el aire acondicionado, el horno eléctrico o la bomba de agua, llevan su propio circuito. En México, las instalaciones se diseñan siguiendo la norma oficial de instalaciones eléctricas, la NOM-001-SEDE. Para saber qué corriente toma un aparato:"
         },
         {
-         "texto": "Cálculo, Mecánica clásica, Electromagnetismo y Mecánica cuántica",
-         "consecuencia": "Eso es más de Física."
-        },
-        {
-         "texto": "Estadística e Investigación de mercados",
-         "consecuencia": "Eso es más de Mercadotecnia."
+         "f": "corriente = {potencia|voltaje}"
         }
        ]
       },
       {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué tanto te preocupa esto?",
-       "escala": [
-        "Mucho",
-        "Nada"
-       ]
+       "tipo": "pregunta",
+       "pregunta": "Un horno eléctrico de 2,540 watts funciona a 127 volts. ¿Qué corriente toma?",
+       "opciones": [
+        "2 amperes",
+        "20 amperes",
+        "2,667 amperes"
+       ],
+       "correcta": 1,
+       "formula": "{2,540|127} = 20"
       },
       {
-       "tipo": "clave",
-       "texto": "Saber lo difícil desde antes te ayuda a prepararte."
+       "tipo": "pregunta",
+       "pregunta": "¿Por qué el aire acondicionado suele llevar su propio circuito?",
+       "opciones": [
+        "Porque toma mucha corriente y sobrecargaría un circuito compartido",
+        "No lo necesita",
+        "Por estética"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "¿Qué cable aguanta más corriente?",
+       "opciones": [
+        "Uno más grueso",
+        "Todos igual",
+        "Uno más delgado"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Qué norma se sigue en México para las instalaciones eléctricas?",
+       "opciones": [
+        "Ninguna",
+        "La NOM-001-SEDE",
+        "La del IMSS"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
-     "id": "3.3",
-     "titulo": "Historia real",
-     "minutos": 3,
+     "id": "7",
+     "titulo": "Trabajar seguro",
+     "minutos": 4,
      "tarjetas": [
       {
-       "tipo": "reflexion",
-       "pregunta": "Si pudieras preguntarle algo a alguien que ya estudia Ing. Eléctrica, ¿qué sería?",
+       "tipo": "info",
+       "titulo": "Trabajar seguro",
+       "partes": [
+        {
+         "t": "La electricidad no se ve, no se oye y no avisa. Antes de trabajar en un circuito se desenergiza: se baja la pastilla, se pone un candado o una etiqueta para que nadie la suba, y se comprueba con un probador que de verdad no hay voltaje. Se usan herramientas aisladas, guantes y calzado adecuados. Nunca se trabaja con las manos mojadas. En alta tensión, solo personal capacitado se acerca a las líneas."
+        }
+       ]
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Vas a cambiar un contacto. ¿Qué haces antes?",
        "opciones": [
-        "¿Qué fue lo más difícil?",
-        "¿Qué te sorprendió?",
-        "¿Volverías a elegirla?",
-        "¿Cómo es un día normal?"
-       ]
+        "Le pides a alguien que no toque nada y ya",
+        "Bajas la pastilla, pones una etiqueta y compruebas que no haya voltaje",
+        "Lo cambias con la luz prendida"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "testimonio",
-       "estado": "pendiente",
-       "perfil": "Estudiante de últimos semestres o egresado de Ing. Eléctrica"
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "Mientras llega esta historia, ¿a quién podrías preguntarle tú?",
+       "tipo": "pregunta",
+       "pregunta": "¿Por qué se pone candado o etiqueta en la pastilla que bajaste?",
        "opciones": [
-        "A un familiar o conocido que la estudió",
-        "A un estudiante de mi ciudad",
-        "A un maestro que la conozca",
-        "Todavía no conozco a nadie"
-       ]
+        "Para que nadie la suba mientras trabajas",
+        "Para que no se pierda",
+        "Para decorar"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "clave",
-       "texto": "Una persona real te cuenta lo que ningún folleto dice."
+       "tipo": "pregunta",
+       "pregunta": "Un vecino quiere subir al poste para \"arreglar\" un cable.",
+       "opciones": [
+        "Le ayudas",
+        "Le dices que no, que es peligrosísimo y debe llamar a la CFE",
+        "Le prestas guantes de cocina"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "3.4",
-     "titulo": "¿Es para ti?",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Contesta con honestidad. Nadie más ve tus respuestas."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Me interesa cómo llega la luz a las casas?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Me gustan los circuitos?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Me veo en una planta de energía?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Si dijiste que sí a casi todo, vale la pena seguir explorándola."
-      },
-      {
-       "tipo": "interes"
+       "tipo": "teves"
       }
      ]
     }
@@ -612,447 +461,128 @@
   },
   {
    "id": "u4",
+   "titulo": "Examen final",
+   "sub": "10 preguntas · apruebas con 7",
    "lecciones": [
     {
-     "id": "4.1",
-     "titulo": "Cuánto dura y qué estudias",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Cada escuela arma su plan distinto, pero el orden general se parece. Vamos a verlo."
-      },
-      {
-       "tipo": "ordenar",
-       "pregunta": "Ordena lo que estudias, de lo primero a lo último.",
-       "pasos": [
-        "Cálculo, Física",
-        "Circuitos eléctricos, Electromagnetismo",
-        "Máquinas eléctricas, Sistemas de potencia",
-        "Energías renovables, Protecciones eléctricas"
-       ],
-       "revelacion": "Primero las bases y al final lo más especializado y las prácticas."
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Cuántos años crees que pasan desde que entras hasta que te titulas?",
-       "min": 3,
-       "max": 10,
-       "paso": 1,
-       "unidad": "años",
-       "dato": "electrica.duracion"
-      },
-      {
-       "tipo": "clave",
-       "texto": "Revisa el mapa curricular de cada escuela: cambia de una a otra."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "4.2",
-     "titulo": "Cómo se entra",
-     "minutos": 4,
+     "id": "ex",
+     "titulo": "Examen final",
+     "minutos": 6,
+     "examen": true,
+     "aprobar": 7,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Cómo se entra en la región",
-       "puntos": [
-        "UNAM: Concurso de selección UNAM (120 reactivos) o pase reglamentado desde CCH/ENP",
-        "IPN: Examen de admisión IPN (140 preguntas, hasta 3 horas, incluye sección de inglés)",
-        "UAM: Examen de selección UAM (trimestral; dos procesos al año y procesos extraordinarios)",
-        "UAEM: EXANI-II de CENEVAL + curso propedéutico"
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "Según lo que leíste, ¿qué pide UNAM para entrar?",
-       "opciones": [
+       "titulo": "Examen final",
+       "partes": [
         {
-         "texto": "Concurso de selección UNAM (120 reactivos) o pase reglamentado desde CCH/ENP",
-         "consecuencia": "Exacto.",
-         "mejor": true
-        },
-        {
-         "texto": "Examen de admisión IPN (140 preguntas, hasta 3 horas, incluye sección de inglés)",
-         "consecuencia": "Eso lo pide IPN."
-        },
-        {
-         "texto": "Examen de selección UAM (trimestral; dos procesos al año y procesos extraordinarios)",
-         "consecuencia": "Eso lo pide UAM."
+         "t": "Son 10 casos nuevos que mezclan todas las lecciones. Apruebas con 7. Si no, lo repites y las que fallaste regresan con otras palabras."
         }
        ]
       },
       {
-       "tipo": "vf",
-       "afirmacion": "Todas las universidades usan el mismo examen.",
-       "respuesta": false,
-       "revelacion": "Cada una tiene el suyo: revisa la convocatoria de la que te interese."
-      },
-      {
-       "tipo": "clave",
-       "texto": "Conoce el examen de tu escuela desde antes."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "4.3",
-     "titulo": "Dónde, cuánto cuesta y becas",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "escuelas"
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Cuánto crees que cuesta un semestre en una universidad pública?",
-       "min": 0,
-       "max": 60000,
-       "paso": 1000,
-       "unidad": "pesos",
-       "dato": "electrica.costo_publica"
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Y un semestre en una universidad privada?",
-       "min": 0,
-       "max": 300000,
-       "paso": 5000,
-       "unidad": "pesos",
-       "dato": "electrica.costo_privada"
-      },
-      {
-       "tipo": "dato",
-       "titulo": "Becas para estudiar Ing. Eléctrica",
-       "dato": "electrica.becas"
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Una universidad cara garantiza un mejor empleo.",
-       "respuesta": false,
-       "revelacion": "Pesan más lo que aprendes, tus prácticas y tu esfuerzo."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué pesa más para ti al elegir escuela?",
+       "tipo": "pregunta",
+       "pregunta": "Una resistencia de 5 ohms está a 20 volts. ¿Cuánta corriente pasa?",
        "opciones": [
-        "El costo",
-        "Que esté cerca de mi casa",
-        "El prestigio",
-        "Las prácticas que ofrece"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Además de la colegiatura, cuenta transporte y materiales."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "u5",
-   "lecciones": [
-    {
-     "id": "5.1",
-     "titulo": "Qué piden para trabajar",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Qué te piden para trabajar",
-       "puntos": [
-        "Cédula y, para firmar instalaciones, registro como unidad de verificación (UVIE)."
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "Según lo que leíste, ¿qué necesitas para ejercer Ing. Eléctrica?",
-       "opciones": [
-        {
-         "texto": "Cédula y, para firmar instalaciones, registro como unidad de verificación (UVIE).",
-         "consecuencia": "Exacto.",
-         "mejor": true
-        },
-        {
-         "texto": "No requiere cédula.",
-         "consecuencia": "Eso lo piden en Ciencias políticas."
-        },
-        {
-         "texto": "Cédula para firmar proyectos y licencias",
-         "consecuencia": "Eso lo piden en Arquitectura."
-        }
-       ]
-      },
-      {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Cómo te ves?",
-       "a": {
-        "texto": "En una institución o empresa",
-        "dice": "Más estabilidad y un equipo de quien aprender."
-       },
-       "b": {
-        "texto": "Por tu cuenta",
-        "dice": "Más libertad, pero tienes que conseguir clientes."
-       }
-      },
-      {
-       "tipo": "clave",
-       "texto": "Saber qué te piden te ahorra sorpresas al salir."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "5.2",
-     "titulo": "Sueldo y demanda",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Hablemos de dinero sin rodeos. Antes de ver cualquier cifra, apuesta: así recuerdas mejor el dato real."
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Cuánto crees que gana al mes, en promedio, un profesionista de Ing. Eléctrica en México?",
-       "min": 5000,
-       "max": 100000,
-       "paso": 1000,
-       "unidad": "pesos",
-       "dato": "electrica.ingreso"
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "De cada 100 egresados, ¿cuántos crees que trabajan en algo de su carrera?",
-       "min": 0,
-       "max": 100,
-       "paso": 5,
-       "unidad": "de cada 100",
-       "dato": "electrica.ocupacion_afin"
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Todos los egresados de Ing. Eléctrica ganan lo mismo.",
-       "respuesta": false,
-       "revelacion": "Cambia con la experiencia, el lugar, la especialidad y si trabajas por tu cuenta."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué tanto pesa el sueldo en tu decisión?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "El promedio orienta, pero tu camino puede ser distinto."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "5.3",
-     "titulo": "Cómo les va al salir",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "chat",
-       "subtitulo": "Te cuenta cómo les va al salir",
-       "intro": [
-        "Te cuento cómo les va a quienes estudian Ing. Eléctrica al salir."
+        "4 amperes",
+        "25 amperes",
+        "100 amperes"
        ],
-       "temas": [
-        {
-         "q": "¿Cuántos trabajan en lo suyo?",
-         "a": [
-          "La mayoría trabaja en algo de su carrera.",
-          "Es un promedio nacional del IMCO."
-         ]
-        },
-        {
-         "q": "¿Muchos hacen posgrado?",
-         "a": [
-          "Pocos hacen posgrado; la mayoría empieza a trabajar."
-         ]
-        },
-        {
-         "q": "¿Hay más hombres o mujeres?",
-         "a": [
-          "Hay más hombres que mujeres.",
-          "Eso no decide nada: cualquiera puede estudiarla."
-         ]
-        },
-        {
-         "q": "¿El trabajo tiene prestaciones?",
-         "a": [
-          "La mayoría tiene un trabajo formal, con prestaciones.",
-          "Las prestaciones son cosas como seguro médico y aguinaldo."
-         ]
-        }
+       "correcta": 0,
+       "formula": "{20|5} = 4"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Un aparato toma 5 amperes a 127 volts. ¿Cuál es su potencia?",
+       "opciones": [
+        "25 watts",
+        "132 watts",
+        "635 watts"
        ],
-       "minimo": 2
+       "correcta": 2,
+       "formula": "127 × 5 = 635"
       },
       {
-       "tipo": "vf",
-       "afirmacion": "La mayoría de quienes estudian Ing. Eléctrica trabaja en algo de su carrera.",
-       "respuesta": true,
-       "revelacion": "La mayoría trabaja en algo de su carrera. Promedio nacional del IMCO."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué te importa más de tu futuro trabajo?",
+       "tipo": "pregunta",
+       "pregunta": "Un aparato de 2 kilowatts está prendido 3 horas. ¿Cuánta energía gasta?",
        "opciones": [
-        "Que tenga que ver con lo que estudié",
-        "Ganar bien",
-        "Tener prestaciones",
-        "Hacer algo que me guste"
-       ]
+        "5 kilowatts hora",
+        "6 kilowatts hora",
+        "1.5 kilowatts hora"
+       ],
+       "correcta": 1,
+       "formula": "2 × 3 = 6"
       },
       {
-       "tipo": "clave",
-       "texto": "Pregunta cómo les va a quienes ya salieron."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "5.4",
-     "titulo": "Después de titularte",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Después de titularte",
-       "puntos": [
-        "Puedes especializarte con cursos, diplomados o una maestría.",
-        "También puedes trabajar desde el inicio y estudiar después.",
-        "Se combina bien con: Ingeniería Electrónica y Telecomunicaciones, Ingeniería Mecatrónica, Ingeniería Mecánica."
-       ]
-      },
-      {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Qué harías al terminar?",
-       "a": {
-        "texto": "Trabajar desde el inicio",
-        "dice": "Ganas experiencia y dinero; después decides si estudias más."
-       },
-       "b": {
-        "texto": "Seguir estudiando",
-        "dice": "Te especializas antes; tardas más en empezar a trabajar."
-       }
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Cómo te imaginas después de la carrera?",
+       "tipo": "pregunta",
+       "pregunta": "¿Cómo están conectados los contactos de una casa?",
        "opciones": [
-        "Trabajando",
-        "En una maestría",
-        "Emprendiendo",
-        "No sé todavía"
-       ]
+        "En paralelo",
+        "Sin conexión",
+        "En serie"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "clave",
-       "texto": "Al titularte empieza otra parte del camino, no termina."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "u6",
-   "lecciones": [
-    {
-     "id": "6.1",
-     "titulo": "Lo que sentiste",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Antes de ver tus respuestas: ¿cómo te fue con Ing. Eléctrica?",
+       "tipo": "pregunta",
+       "pregunta": "¿Para qué sirve la pastilla?",
        "opciones": [
-        "Me gustó más de lo que pensaba",
-        "Más o menos como esperaba",
-        "Me gustó menos de lo que pensaba"
-       ]
+        "Para ahorrar",
+        "Para cortar la corriente si se pasa de lo que aguanta el cable",
+        "Para dar más luz"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "resumen"
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "Viendo tus respuestas, ¿qué pesó más?",
+       "tipo": "pregunta",
+       "pregunta": "¿Se puede cambiar una pastilla por una más grande sin cambiar el cable?",
        "opciones": [
-        "Lo que sentí al probarla",
-        "Lo que supe de la realidad",
-        "El camino para llegar",
-        "El futuro que ofrece"
-       ]
+        "No, el cable podría calentarse e incendiarse",
+        "Siempre",
+        "Sí"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "clave",
-       "texto": "Lo que sentiste al probarla vale más que lo que imaginabas."
-      },
-      {
-       "tipo": "interes",
-       "pregunta": "¿Te ves estudiando Ing. Eléctrica?"
-      }
-     ]
-    },
-    {
-     "id": "6.2",
-     "titulo": "Tu veredicto",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Si mañana tuvieras que elegir carrera, ¿Ing. Eléctrica estaría entre tus opciones?",
+       "tipo": "pregunta",
+       "pregunta": "¿Por qué se transmite a alto voltaje?",
        "opciones": [
-        "Sí, entre las primeras",
-        "Sí, pero no arriba",
-        "No creo",
-        "No lo sé"
-       ]
+        "Por costumbre",
+        "Para que sea más peligroso",
+        "Para perder menos energía"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "comparar"
+       "tipo": "pregunta",
+       "pregunta": "Un calentador de 1,270 watts funciona a 127 volts. ¿Qué corriente toma?",
+       "opciones": [
+        "1,397 amperes",
+        "100 amperes",
+        "10 amperes"
+       ],
+       "correcta": 2,
+       "formula": "{1,270|127} = 10"
       },
       {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Qué te ayudaría más a decidir?",
-       "a": {
-        "texto": "Hablar con alguien que la estudia",
-        "dice": "Busca a un estudiante o egresado cerca de ti y hazle tus preguntas. Una plática aclara más que diez videos."
-       },
-       "b": {
-        "texto": "Probar otra carrera y comparar",
-        "dice": "Explora otra de tu mapa. Comparar dos caminos reales aclara más que pensar en uno solo."
-       }
+       "tipo": "pregunta",
+       "pregunta": "¿Dónde son más importantes los contactos con protección contra fugas?",
+       "opciones": [
+        "En baños y cocinas",
+        "En el garaje solamente",
+        "En ninguno"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "veredicto"
-      },
-      {
-       "tipo": "clave",
-       "texto": "Decidir «en duda» también es avanzar."
+       "tipo": "pregunta",
+       "pregunta": "¿Qué haces antes de trabajar en un circuito?",
+       "opciones": [
+        "Mojarte las manos",
+        "Nada",
+        "Desenergizar, etiquetar y comprobar que no haya voltaje"
+       ],
+       "correcta": 2
       }
      ]
     }

@@ -1,222 +1,151 @@
 {
  "id": "mercadotecnia",
- "version": 1,
+ "version": 2,
+ "formato": 2,
  "estado": "completo",
- "generado": true,
- "revision": "Armada automáticamente con la base de carreras de Morelos y CDMX (2026-11-17). Falta que la revise alguien de la carrera.",
+ "revision": "Pendiente de revisión por un profesionista de la carrera. Generado con datos/importar_lecciones.py desde datos/fuentes/lecciones/mercadotecnia.lec; no se edita a mano.",
  "unidades": [
   {
    "id": "u1",
+   "titulo": "El cliente",
+   "sub": "Segmentación y propuesta de valor",
    "lecciones": [
     {
-     "id": "1.1",
-     "titulo": "Qué es y qué hace",
-     "minutos": 3,
+     "id": "0",
+     "titulo": "Conócela",
+     "minutos": 1,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "¿Qué es Mercadotecnia?",
-       "texto": "Organización y dirección de recursos, personas y procesos. Según su orientación, aborda estrategia, ventas, operaciones, talento, innovación, mercadotecnia o gestión de organizaciones.",
-       "puntos": [
-        "Investiga qué quieren los clientes, crea campañas en redes y medios, mide resultados (clics, ventas) y ajusta estrategias para marcas o agencias."
+       "tipo": "ficha",
+       "texto": "Mercadotecnia forma profesionales que entienden qué necesita la gente y cómo hacer que un producto llegue a ella: investigan, definen precios, crean campañas y miden resultados. Trabajan en empresas, agencias de publicidad, marketing digital o con sus propias marcas.",
+       "cifras": [
+        "mercadotecnia.ingreso",
+        "mercadotecnia.duracion",
+        "mercadotecnia.costo_publica",
+        "mercadotecnia.costo_privada"
        ]
       },
       {
-       "tipo": "decision",
-       "pregunta": "Por lo que leíste, ¿qué hace alguien de Mercadotecnia?",
-       "opciones": [
-        {
-         "texto": "Investiga qué quieren los clientes, crea campañas en redes y medios, mide resultados (clics, ventas) y ajusta estrategias para marcas o agencias.",
-         "consecuencia": "Exacto: eso es parte del día a día en Mercadotecnia.",
-         "mejor": true
-        },
-        {
-         "texto": "Investiga fenómenos físicos, hace simulaciones por computadora o aplica la física en tecnología, energía, medicina, datos o docencia.",
-         "consecuencia": "Eso lo hace alguien de Física."
-        },
-        {
-         "texto": "Diseña espacios (casas, edificios, interiores) desde el boceto hasta los planos",
-         "consecuencia": "Eso lo hace alguien de Arquitectura."
-        }
-       ]
-      },
-      {
-       "tipo": "completar",
-       "frase": "Mercadotecnia es una carrera del área de ___.",
-       "opciones": [
-        "Negocios y sociedad",
-        "Ingenierías",
-        "Arte y comunicación"
-       ],
-       "correcta": 0,
-       "revelacion": "Está en Negocios y sociedad. Se parece a Ciencias de la Comunicación, Administración de Empresas, Diseño Gráfico y Comunicación Visual."
-      },
-      {
-       "tipo": "clave",
-       "texto": "Antes de elegir, entiende qué harías cada día, no solo el nombre."
-      },
-      {
-       "tipo": "interes"
+       "tipo": "escena",
+       "texto": "Hoy lanzas un producto nuevo. Vamos a ver si alguien lo compra."
       }
      ]
     },
     {
-     "id": "1.2",
-     "titulo": "Dónde trabajas",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Dónde trabaja alguien de Mercadotecnia",
-       "texto": "Instituciones públicas y privadas, organizaciones sociales, empresas, centros de investigación, consultoría, docencia y proyectos independientes, según la especialización y experiencia."
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Alguien de Mercadotecnia solo puede trabajar en un tipo de lugar.",
-       "respuesta": false,
-       "revelacion": "Puede trabajar en varios: instituciones públicas, privadas, organizaciones sociales."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Dónde te ves trabajando?",
-       "opciones": [
-        "Instituciones públicas",
-        "Privadas",
-        "Organizaciones sociales",
-        "Empresas"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Una carrera abre varias puertas, no una sola."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "1.3",
-     "titulo": "Pregúntale a Rumbo",
+     "id": "1",
+     "titulo": "A quién le vendes",
      "minutos": 4,
      "tarjetas": [
       {
-       "tipo": "chat",
-       "subtitulo": "Te cuenta cómo es trabajar en Mercadotecnia",
-       "intro": [
-        "¡Hola! Junté lo que se sabe de Mercadotecnia.",
-        "Pregúntame lo que quieras."
-       ],
-       "temas": [
+       "tipo": "info",
+       "titulo": "A quién le vendes",
+       "partes": [
         {
-         "q": "¿Qué haces en un día normal?",
-         "a": [
-          "Investiga qué quieren los clientes, crea campañas en redes y medios, mide resultados (clics, ventas) y ajusta estrategias para marcas o agencias."
-         ]
-        },
-        {
-         "q": "¿Qué es lo más difícil?",
-         "a": [
-          "Se considera una carrera de dificultad media.",
-          "Estadística e Investigación de mercados",
-          "El resto es creatividad y proyectos."
-         ]
-        },
-        {
-         "q": "¿Hay trabajo?",
-         "a": [
-          "Menos de la mitad trabaja en algo de su carrera; muchos se mueven a otras áreas. Es un promedio nacional del IMCO."
-         ]
-        },
-        {
-         "q": "¿Qué necesito para ejercer?",
-         "a": [
-          "No requiere cédula."
-         ]
+         "t": "Un producto no es para todos. La mercadotecnia empieza por dividir el mercado en grupos con necesidades parecidas, que se llama segmentar, y elegir a cuál dirigirse: el público objetivo. Se puede segmentar por edad, lugar, ingresos, intereses o estilo de vida. Elegir un público no es excluir a los demás; es poder hablarle claro a alguien. Un mensaje para todos suele no convencer a nadie."
         }
-       ],
-       "minimo": 2,
-       "auto": true
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Mercadotecnia se considera una carrera de dificultad muy alta.",
-       "respuesta": false,
-       "revelacion": "Se considera de dificultad media. Estadística e Investigación de mercados"
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué te llamó más la atención?",
-       "opciones": [
-        "¿Qué haces en un día normal?",
-        "¿Qué es lo más difícil?",
-        "¿Hay trabajo?",
-        "¿Qué necesito para ejercer?"
        ]
       },
       {
-       "tipo": "clave",
-       "texto": "Preguntar a quien ya sabe ahorra muchos errores."
+       "tipo": "pregunta",
+       "pregunta": "Una marca de tenis para correr maratones dice que su público es \"todas las personas\". ¿Qué problema hay?",
+       "opciones": [
+        "Que vende poco",
+        "Un mensaje para todos no convence a nadie; debe definir a corredores con ciertas necesidades",
+        "Ninguno"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "¿Qué es segmentar?",
+       "opciones": [
+        "Dividir el mercado en grupos con necesidades parecidas",
+        "Bajar precios",
+        "Hacer anuncios"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Una cafetería cerca de una universidad quiere atraer estudiantes. ¿Qué toma en cuenta?",
+       "opciones": [
+        "Nada",
+        "Sus horarios, presupuesto y lo que buscan, como wifi y lugares para estudiar",
+        "Solo la decoración"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Elegir un público objetivo significa que nadie más puede comprar?",
+       "opciones": [
+        "No, solo que el mensaje se diseña para ese grupo",
+        "Sí",
+        "Depende"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
-     "id": "1.4",
-     "titulo": "Carreras parecidas",
-     "minutos": 3,
+     "id": "2",
+     "titulo": "La propuesta de valor",
+     "minutos": 4,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Carreras cercanas a Mercadotecnia",
-       "puntos": [
-        "Ciencias de la Comunicación: análisis de la sociedad, la cultura, el lenguaje.",
-        "Administración de Empresas: organización y dirección de recursos.",
-        "Diseño Gráfico y Comunicación Visual: creación, interpretación y comunicación mediante lenguajes visuales, escénicos.",
-        "Negocios y Comercio Internacional: organización y dirección de recursos."
+       "titulo": "La propuesta de valor",
+       "partes": [
+        {
+         "t": "La propuesta de valor responde por qué alguien te compraría a ti y no a la competencia. Habla del beneficio para el cliente, no solo de las características del producto. \"Batería de 5,000 mAh\" es una característica; \"te dura todo el día sin cargar\" es un beneficio. Una buena propuesta es clara, específica y creíble. Las 4P ayudan a ordenar la estrategia: producto, precio, plaza, que es dónde se vende, y promoción."
+        }
        ]
       },
       {
-       "tipo": "emparejar",
-       "pregunta": "Une cada carrera con lo que estudia.",
-       "pares": [
-        [
-         "Ciencias de la Comunicación",
-         "Análisis de la sociedad, la cultura, el lenguaje"
-        ],
-        [
-         "Administración de Empresas",
-         "Organización y dirección de recursos"
-        ],
-        [
-         "Diseño Gráfico y Comunicación Visual",
-         "Creación, interpretación y comunicación mediante lenguajes visuales, escénicos"
-        ],
-        [
-         "Negocios y Comercio Internacional",
-         "Organización y dirección de recursos"
-        ]
-       ],
-       "revelacion": "Se cruzan en temas, pero cada una tiene su propio enfoque."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Cuál de estas te da curiosidad?",
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál es un beneficio y no solo una característica?",
        "opciones": [
-        "Ciencias de la Comunicación",
-        "Administración de Empresas",
-        "Diseño Gráfico y Comunicación Visual",
-        "Me quedo con Mercadotecnia"
-       ]
+        "\"Color negro\"",
+        "\"Te dura todo el día sin cargar\"",
+        "\"Batería de 5,000 mAh\""
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "clave",
-       "texto": "Si dudas entre dos, compara lo que harías cada día."
+       "tipo": "pregunta",
+       "pregunta": "¿Qué son las 4P?",
+       "opciones": [
+        "Papel, pluma, pintura y póster",
+        "Producto, precio, plaza y promoción",
+        "Personas, pago, permiso y publicidad"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "Una marca de agua dice \"la mejor agua del mundo\" sin decir por qué. ¿Qué le falta a su propuesta?",
+       "opciones": [
+        "Nada",
+        "Ser específica y creíble",
+        "Más signos de exclamación"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Qué responde la propuesta de valor?",
+       "opciones": [
+        "Cuánto cuesta el anuncio",
+        "Dónde está la fábrica",
+        "Por qué alguien te compraría a ti y no a la competencia"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "teves"
       }
      ]
     }
@@ -224,202 +153,122 @@
   },
   {
    "id": "u2",
+   "titulo": "Medir",
+   "sub": "Investigación y métricas",
    "lecciones": [
     {
-     "id": "2.1",
-     "titulo": "Mini reto",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Una cafetería nueva no tiene clientes. ¿Qué haces primero?",
-       "opciones": [
-        "Preguntas a la gente de la zona qué busca",
-        "Pagas anuncios en todas partes",
-        "Bajas los precios a la mitad"
-       ]
-      },
-      {
-       "tipo": "info",
-       "titulo": "Así lo piensa alguien de Mercadotecnia",
-       "texto": "Primero se entiende al cliente; luego se decide el mensaje. Mercadotecnia es investigar, crear y medir."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Te gustó pensar en algo así?",
-       "escala": [
-        "Nada",
-        "Mucho"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Los retos de una carrera se parecen a lo que harías en su trabajo."
-      },
-      {
-       "tipo": "interes",
-       "pregunta": "¿Te ves resolviendo retos así?"
-      }
-     ]
-    },
-    {
-     "id": "2.2",
-     "titulo": "Lo que te piden",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Habilidades que usarás en Mercadotecnia",
-       "puntos": [
-        "Creatividad",
-        "Análisis de datos de campañas",
-        "Comunicación persuasiva",
-        "Trabajo en equipo"
-       ]
-      },
-      {
-       "tipo": "completar",
-       "pregunta": "Según lo que leíste, completa la frase.",
-       "frase": "Para Mercadotecnia es clave: ___.",
-       "opciones": [
-        "Creatividad",
-        "Dibujo",
-        "Amor y respeto por los animales"
-       ],
-       "correcta": 0,
-       "revelacion": "Es de las habilidades que más se usan en Mercadotecnia."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué tanto se te da esto: análisis de datos de campañas?",
-       "escala": [
-        "Me cuesta",
-        "Se me da"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Las habilidades se entrenan; lo importante es que te guste usarlas."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "2.3",
-     "titulo": "Temas que vas a ver",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Temas que te deben gustar",
-       "puntos": [
-        "Marcas y publicidad",
-        "Redes sociales",
-        "Psicología del consumidor"
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "¿Cuál de estos temas es más de Mercadotecnia?",
-       "opciones": [
-        {
-         "texto": "Marcas y publicidad",
-         "consecuencia": "Sí, es de sus temas centrales.",
-         "mejor": true
-        },
-        {
-         "texto": "Deporte",
-         "consecuencia": "Ese es más de Educación física."
-        },
-        {
-         "texto": "Salud",
-         "consecuencia": "Ese es más de Enfermería."
-        }
-       ]
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Cuál de estos temas te gusta más?",
-       "opciones": [
-        "Marcas y publicidad",
-        "Redes sociales",
-        "Psicología del consumidor",
-        "Ninguno me late"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Si los temas te aburren, la carrera se hace muy larga."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "2.4",
-     "titulo": "Materias clave",
+     "id": "3",
+     "titulo": "Investigar al cliente",
      "minutos": 4,
      "tarjetas": [
       {
-       "tipo": "voltear",
-       "pregunta": "¿Qué materias crees que llevas en cada etapa? Piénsalo y voltea.",
-       "cartas": [
+       "tipo": "info",
+       "titulo": "Investigar al cliente",
+       "partes": [
         {
-         "frente": "Semestres 1-2",
-         "reverso": "Fundamentos de mercadotecnia, Administración, Comunicación, Matemáticas"
-        },
-        {
-         "frente": "Semestres 3-4",
-         "reverso": "Comportamiento del consumidor, Estadística, Investigación de mercados"
-        },
-        {
-         "frente": "Semestres 5-6",
-         "reverso": "Marketing digital, Publicidad, Branding, Ventas"
-        },
-        {
-         "frente": "Semestres 7 en adelante",
-         "reverso": "Analítica digital, Proyecto con marca real"
+         "t": "Antes de lanzar algo se investiga: encuestas, entrevistas, observar cómo compra la gente y analizar a la competencia. Las preguntas tienen que ser neutrales; si preguntas \"¿verdad que nuestro producto es increíble?\", la respuesta no sirve. Lo que la gente dice que haría no siempre es lo que hace, así que conviene probar con ventas reales pequeñas antes de invertir en grande."
         }
        ]
       },
       {
-       "tipo": "decision",
-       "pregunta": "¿Cuál de estas materias llevarías en Mercadotecnia?",
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál pregunta de encuesta es mejor?",
        "opciones": [
+        "\"¿No crees que es el mejor?\"",
+        "\"¿Verdad que te encantaría este increíble producto?\"",
+        "\"¿Qué tan probable es que compres este producto?\""
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "En una encuesta, el 80 por ciento dijo que compraría tu producto, pero en la tienda casi nadie lo compra. ¿Qué aprendes?",
+       "opciones": [
+        "Que la encuesta era perfecta",
+        "Que lo que la gente dice no siempre es lo que hace; hay que probar con ventas reales",
+        "Nada"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Para qué se analiza a la competencia?",
+       "opciones": [
+        "Para saber qué ofrecen y cómo diferenciarse",
+        "No sirve",
+        "Para copiarla igual"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "teves"
+      }
+     ]
+    },
+    {
+     "id": "4",
+     "titulo": "Métricas digitales",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "Métricas digitales",
+       "partes": [
         {
-         "texto": "Fundamentos de mercadotecnia",
-         "consecuencia": "Sí: es de las primeras materias de Mercadotecnia.",
-         "mejor": true
+         "t": "En publicidad digital todo se mide. La tasa de clics dice qué parte de quienes vieron el anuncio le dieron clic; la tasa de conversión, qué parte de quienes entraron compraron; y el costo por cliente, cuánto gastaste para conseguir cada cliente:"
         },
         {
-         "texto": "Cálculo",
-         "consecuencia": "Esa es de Inteligencia artificial."
+         "f": "tasa de clics = {clics|veces que se vio} × 100 ;; costo por cliente = {gasto en anuncios|clientes nuevos}"
         },
         {
-         "texto": "Cálculo",
-         "consecuencia": "Esa es de Ciencia de datos."
+         "t": "Si conseguir un cliente cuesta más de lo que te deja, la campaña pierde dinero aunque tenga muchos likes."
         }
        ]
       },
       {
-       "tipo": "reflexion",
-       "pregunta": "¿Cuál te da más curiosidad?",
+       "tipo": "pregunta",
+       "pregunta": "Un anuncio se vio 10,000 veces y tuvo 200 clics. ¿Cuál es su tasa de clics?",
        "opciones": [
-        "Fundamentos de mercadotecnia",
-        "Administración",
-        "Comunicación",
-        "Matemáticas"
-       ]
+        "2 por ciento",
+        "0.2 por ciento",
+        "20 por ciento"
+       ],
+       "correcta": 0,
+       "formula": "{200|10,000} × 100 = 2"
       },
       {
-       "tipo": "clave",
-       "texto": "Las primeras materias son la base; muchas veces son las más pesadas."
+       "tipo": "pregunta",
+       "pregunta": "Gastaste 5,000 pesos en anuncios y conseguiste 50 clientes. ¿Cuál es el costo por cliente?",
+       "opciones": [
+        "250,000 pesos",
+        "50 pesos",
+        "100 pesos"
+       ],
+       "correcta": 2,
+       "formula": "{5,000|50} = 100"
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "Cada cliente te deja 80 pesos de ganancia y te cuesta 100 conseguirlo. ¿Qué pasa?",
+       "opciones": [
+        "Pierdes 20 pesos por cliente",
+        "Ganas",
+        "Quedas igual"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Una campaña tiene miles de likes pero casi no vende. ¿Qué revisas?",
+       "opciones": [
+        "La conversión y el costo por cliente, no solo los likes",
+        "Nada, los likes bastan",
+        "El color del logo"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "teves"
       }
      ]
     }
@@ -427,183 +276,163 @@
   },
   {
    "id": "u3",
+   "titulo": "La campaña",
+   "sub": "Precio, historias y responsabilidad",
    "lecciones": [
     {
-     "id": "3.1",
-     "titulo": "Un día real",
+     "id": "5",
+     "titulo": "Precio",
      "minutos": 4,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Un día de trabajo en Mercadotecnia",
-       "puntos": [
-        "Investiga qué quieren los clientes, crea campañas en redes y medios, mide resultados (clics, ventas) y ajusta estrategias para marcas o agencias."
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "¿Cuál de estas cosas sí hace alguien de Mercadotecnia?",
-       "opciones": [
+       "titulo": "Precio",
+       "partes": [
         {
-         "texto": "Investiga qué quieren los clientes, crea campañas en redes y medios, mide resultados (clics, ventas) y ajusta estrategias para marcas o agencias.",
-         "consecuencia": "Sí: es parte de su día.",
-         "mejor": true
-        },
-        {
-         "texto": "Escribe, graba y edita contenido",
-         "consecuencia": "Eso es más de Comunicación."
-        },
-        {
-         "texto": "Crea personajes, escenarios y movimiento para series, videojuegos, publicidad o redes",
-         "consecuencia": "Eso es más de Animación."
+         "t": "El precio no solo cubre costos: también comunica. Un precio muy bajo puede hacer que la gente piense que el producto es de mala calidad, y uno alto puede transmitir exclusividad. Se fija tomando en cuenta tres cosas: lo que cuesta producirlo, lo que cobra la competencia y lo que el cliente está dispuesto a pagar. Los descuentos constantes acostumbran al cliente a no comprar a precio completo."
         }
        ]
       },
       {
-       "tipo": "reflexion",
-       "pregunta": "¿Te ves haciendo esto todos los días?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "El día a día pesa más que el título."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "3.2",
-     "titulo": "Lo difícil",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Lo difícil de Mercadotecnia",
-       "texto": "Se considera de dificultad media.",
-       "puntos": [
-        "Estadística e Investigación de mercados",
-        "El resto es creatividad y proyectos."
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "Según lo que leíste, ¿qué es lo que más cuesta en Mercadotecnia?",
+       "tipo": "pregunta",
+       "pregunta": "¿Qué tres cosas se toman en cuenta para fijar un precio?",
        "opciones": [
-        {
-         "texto": "Estadística e Investigación de mercados",
-         "consecuencia": "Sí, es de lo que más cuesta en Mercadotecnia.",
-         "mejor": true
-        },
-        {
-         "texto": "Desde el inicio se trabaja con demostraciones: Cálculo, Álgebra superior, Análisis matemático.",
-         "consecuencia": "Eso es más de Matemáticas."
-        },
-        {
-         "texto": "Talleres con muchas entregas y críticas",
-         "consecuencia": "Eso es más de Diseño gráfico."
-        }
-       ]
+        "El costo, la competencia y lo que el cliente está dispuesto a pagar",
+        "Solo el costo",
+        "El precio de otro país"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué tanto te preocupa esto?",
-       "escala": [
-        "Mucho",
+       "tipo": "pregunta",
+       "pregunta": "Una marca da descuento todas las semanas y ahora nadie compra a precio completo. ¿Qué pasó?",
+       "opciones": [
+        "El producto es malo",
+        "Acostumbró a sus clientes a esperar el descuento",
         "Nada"
-       ]
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "clave",
-       "texto": "Saber lo difícil desde antes te ayuda a prepararte."
+       "tipo": "pregunta",
+       "pregunta": "Un perfume de lujo baja mucho su precio para vender más. ¿Qué riesgo hay?",
+       "opciones": [
+        "Que suba de calidad",
+        "Ninguno",
+        "Que pierda su imagen de exclusividad"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "interes"
+       "tipo": "teves"
       }
      ]
     },
     {
-     "id": "3.3",
-     "titulo": "Historia real",
-     "minutos": 3,
+     "id": "6",
+     "titulo": "Contar una historia",
+     "minutos": 4,
      "tarjetas": [
       {
-       "tipo": "reflexion",
-       "pregunta": "Si pudieras preguntarle algo a alguien que ya estudia Mercadotecnia, ¿qué sería?",
-       "opciones": [
-        "¿Qué fue lo más difícil?",
-        "¿Qué te sorprendió?",
-        "¿Volverías a elegirla?",
-        "¿Cómo es un día normal?"
+       "tipo": "info",
+       "titulo": "Contar una historia",
+       "partes": [
+        {
+         "t": "La gente recuerda historias más que datos. Una campaña efectiva conecta con una emoción o un problema real del cliente y muestra cómo el producto lo resuelve. El mensaje se adapta a cada canal: un video corto en redes, un anuncio en la radio o un cartel en la calle. Siempre se incluye una llamada a la acción clara: qué quieres que haga la persona, como \"pide aquí\" o \"visítanos el sábado\". La consistencia en colores, tono y mensaje hace que la marca se reconozca."
+        }
        ]
       },
       {
-       "tipo": "testimonio",
-       "estado": "pendiente",
-       "perfil": "Estudiante de últimos semestres o egresado de Mercadotecnia"
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "Mientras llega esta historia, ¿a quién podrías preguntarle tú?",
+       "tipo": "pregunta",
+       "pregunta": "¿Qué es una llamada a la acción?",
        "opciones": [
-        "A un familiar o conocido que la estudió",
-        "A un estudiante de mi ciudad",
-        "A un maestro que la conozca",
-        "Todavía no conozco a nadie"
-       ]
+        "Llamar por teléfono a los clientes",
+        "Decirle claramente a la persona qué hacer, como \"pide aquí\"",
+        "El logo"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "clave",
-       "texto": "Una persona real te cuenta lo que ningún folleto dice."
+       "tipo": "pregunta",
+       "pregunta": "Un anuncio es bonito pero no dice qué hacer ni dónde comprar. ¿Qué le falta?",
+       "opciones": [
+        "Nada",
+        "Una llamada a la acción",
+        "Más música"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "¿Por qué se usan historias en la publicidad?",
+       "opciones": [
+        "Por moda",
+        "Porque la gente las recuerda más que los datos sueltos",
+        "Porque son largas"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Una marca usa colores y tono distintos en cada red social. ¿Qué problema tiene?",
+       "opciones": [
+        "Ninguno",
+        "Cuesta reconocerla; le falta consistencia",
+        "Que gasta menos"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
-     "id": "3.4",
-     "titulo": "¿Es para ti?",
-     "minutos": 3,
+     "id": "7",
+     "titulo": "Publicidad responsable",
+     "minutos": 4,
      "tarjetas": [
       {
-       "tipo": "escena",
-       "texto": "Contesta con honestidad. Nadie más ve tus respuestas."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Me fijo en por qué un anuncio funciona?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
+       "tipo": "info",
+       "titulo": "Publicidad responsable",
+       "partes": [
+        {
+         "t": "En México, la Profeco vigila que la publicidad no engañe: no se puede prometer lo que el producto no hace ni esconder condiciones importantes. Los anuncios de alimentos con sellos de advertencia tienen reglas especiales, sobre todo los dirigidos a niñas y niños. Los influencers deben aclarar cuando un contenido es pagado. Una mentira en publicidad puede traer multas y destruir la confianza en la marca."
+        }
        ]
       },
       {
-       "tipo": "reflexion",
-       "pregunta": "¿Me gusta mezclar creatividad con números?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
+       "tipo": "pregunta",
+       "pregunta": "Un anuncio dice \"baja 10 kilos en una semana sin dieta ni ejercicio\". ¿Qué problema hay?",
+       "opciones": [
+        "Ninguno",
+        "Es una promesa engañosa",
+        "Que es corta"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "reflexion",
-       "pregunta": "¿Me veo en agencia o en una marca?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
+       "tipo": "pregunta",
+       "pregunta": "¿Quién vigila en México que la publicidad no engañe?",
+       "opciones": [
+        "La Profeco",
+        "El SAT",
+        "La SEP"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "clave",
-       "texto": "Si dijiste que sí a casi todo, vale la pena seguir explorándola."
+       "tipo": "pregunta",
+       "pregunta": "Un influencer recibe dinero por recomendar un producto. ¿Qué debe hacer?",
+       "opciones": [
+        "Esconderlo",
+        "Decir que lo compró él",
+        "Aclarar que es contenido pagado"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "interes"
+       "tipo": "teves"
       }
      ]
     }
@@ -611,447 +440,126 @@
   },
   {
    "id": "u4",
+   "titulo": "Examen final",
+   "sub": "10 preguntas · apruebas con 7",
    "lecciones": [
     {
-     "id": "4.1",
-     "titulo": "Cuánto dura y qué estudias",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Cada escuela arma su plan distinto, pero el orden general se parece. Vamos a verlo."
-      },
-      {
-       "tipo": "ordenar",
-       "pregunta": "Ordena lo que estudias, de lo primero a lo último.",
-       "pasos": [
-        "Fundamentos de mercadotecnia, Administración",
-        "Comportamiento del consumidor, Estadística",
-        "Marketing digital, Publicidad",
-        "Analítica digital, Proyecto con marca real"
-       ],
-       "revelacion": "Primero las bases y al final lo más especializado y las prácticas."
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Cuántos años crees que pasan desde que entras hasta que te titulas?",
-       "min": 3,
-       "max": 10,
-       "paso": 1,
-       "unidad": "años",
-       "dato": "mercadotecnia.duracion"
-      },
-      {
-       "tipo": "clave",
-       "texto": "Revisa el mapa curricular de cada escuela: cambia de una a otra."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "4.2",
-     "titulo": "Cómo se entra",
-     "minutos": 4,
+     "id": "ex",
+     "titulo": "Examen final",
+     "minutos": 6,
+     "examen": true,
+     "aprobar": 7,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Cómo se entra en la región",
-       "puntos": [
-        "IPN: Examen de admisión IPN (140 preguntas, hasta 3 horas, incluye sección de inglés)",
-        "UAEM: EXANI-II de CENEVAL + curso propedéutico",
-        "Tec de Monterrey: PAA (Prueba de Aptitud Académica), SAT o ACT + promedio + perfil integral (ensayo, currículum)",
-        "IBERO: Examen de admisión propio + promedio de bachillerato"
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "Según lo que leíste, ¿qué pide IPN para entrar?",
-       "opciones": [
+       "titulo": "Examen final",
+       "partes": [
         {
-         "texto": "Examen de admisión IPN (140 preguntas, hasta 3 horas, incluye sección de inglés)",
-         "consecuencia": "Exacto.",
-         "mejor": true
-        },
-        {
-         "texto": "EXANI-II de CENEVAL + curso propedéutico",
-         "consecuencia": "Eso lo pide UAEM."
-        },
-        {
-         "texto": "PAA (Prueba de Aptitud Académica), SAT o ACT + promedio + perfil integral (ensayo, currículum)",
-         "consecuencia": "Eso lo pide Tec de Monterrey."
+         "t": "Son 10 casos nuevos que mezclan todas las lecciones. Apruebas con 7. Si no, lo repites y las que fallaste regresan con otras palabras."
         }
        ]
       },
       {
-       "tipo": "vf",
-       "afirmacion": "Todas las universidades usan el mismo examen.",
-       "respuesta": false,
-       "revelacion": "Cada una tiene el suyo: revisa la convocatoria de la que te interese."
-      },
-      {
-       "tipo": "clave",
-       "texto": "Conoce el examen de tu escuela desde antes."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "4.3",
-     "titulo": "Dónde, cuánto cuesta y becas",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "escuelas"
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Cuánto crees que cuesta un semestre en una universidad pública?",
-       "min": 0,
-       "max": 60000,
-       "paso": 1000,
-       "unidad": "pesos",
-       "dato": "mercadotecnia.costo_publica"
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Y un semestre en una universidad privada?",
-       "min": 0,
-       "max": 300000,
-       "paso": 5000,
-       "unidad": "pesos",
-       "dato": "mercadotecnia.costo_privada"
-      },
-      {
-       "tipo": "dato",
-       "titulo": "Becas para estudiar Mercadotecnia",
-       "dato": "mercadotecnia.becas"
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Una universidad cara garantiza un mejor empleo.",
-       "respuesta": false,
-       "revelacion": "Pesan más lo que aprendes, tus prácticas y tu esfuerzo."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué pesa más para ti al elegir escuela?",
+       "tipo": "pregunta",
+       "pregunta": "¿Qué es el público objetivo?",
        "opciones": [
-        "El costo",
-        "Que esté cerca de mi casa",
-        "El prestigio",
-        "Las prácticas que ofrece"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Además de la colegiatura, cuenta transporte y materiales."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "u5",
-   "lecciones": [
-    {
-     "id": "5.1",
-     "titulo": "Qué piden para trabajar",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Qué te piden para trabajar",
-       "puntos": [
-        "No requiere cédula."
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "Según lo que leíste, ¿qué necesitas para ejercer Mercadotecnia?",
-       "opciones": [
-        {
-         "texto": "No requiere cédula.",
-         "consecuencia": "Exacto.",
-         "mejor": true
-        },
-        {
-         "texto": "No requiere cédula para la mayoría de puestos.",
-         "consecuencia": "Eso lo piden en Ing. Mecánica."
-        },
-        {
-         "texto": "Para dar clases en escuelas públicas de educación básica se pide formación normalista o concursar en USICAMM.",
-         "consecuencia": "Eso lo piden en Educación."
-        }
-       ]
-      },
-      {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Cómo te ves?",
-       "a": {
-        "texto": "En una institución o empresa",
-        "dice": "Más estabilidad y un equipo de quien aprender."
-       },
-       "b": {
-        "texto": "Por tu cuenta",
-        "dice": "Más libertad, pero tienes que conseguir clientes."
-       }
-      },
-      {
-       "tipo": "clave",
-       "texto": "Saber qué te piden te ahorra sorpresas al salir."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "5.2",
-     "titulo": "Sueldo y demanda",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Hablemos de dinero sin rodeos. Antes de ver cualquier cifra, apuesta: así recuerdas mejor el dato real."
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Cuánto crees que gana al mes, en promedio, un profesionista de Mercadotecnia en México?",
-       "min": 5000,
-       "max": 100000,
-       "paso": 1000,
-       "unidad": "pesos",
-       "dato": "mercadotecnia.ingreso"
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "De cada 100 egresados, ¿cuántos crees que trabajan en algo de su carrera?",
-       "min": 0,
-       "max": 100,
-       "paso": 5,
-       "unidad": "de cada 100",
-       "dato": "mercadotecnia.ocupacion_afin"
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Todos los egresados de Mercadotecnia ganan lo mismo.",
-       "respuesta": false,
-       "revelacion": "Cambia con la experiencia, el lugar, la especialidad y si trabajas por tu cuenta."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué tanto pesa el sueldo en tu decisión?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "El promedio orienta, pero tu camino puede ser distinto."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "5.3",
-     "titulo": "Cómo les va al salir",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "chat",
-       "subtitulo": "Te cuenta cómo les va al salir",
-       "intro": [
-        "Te cuento cómo les va a quienes estudian Mercadotecnia al salir."
+        "Todas las personas",
+        "Los empleados",
+        "El grupo de personas al que se dirige una marca"
        ],
-       "temas": [
-        {
-         "q": "¿Cuántos trabajan en lo suyo?",
-         "a": [
-          "Menos de la mitad trabaja en algo de su carrera.",
-          "Es un promedio nacional del IMCO."
-         ]
-        },
-        {
-         "q": "¿Muchos hacen posgrado?",
-         "a": [
-          "Pocos hacen posgrado; la mayoría empieza a trabajar."
-         ]
-        },
-        {
-         "q": "¿Hay más hombres o mujeres?",
-         "a": [
-          "Hay más mujeres que hombres.",
-          "Eso no decide nada: cualquiera puede estudiarla."
-         ]
-        },
-        {
-         "q": "¿El trabajo tiene prestaciones?",
-         "a": [
-          "La mayoría tiene un trabajo formal, con prestaciones.",
-          "Las prestaciones son cosas como seguro médico y aguinaldo."
-         ]
-        }
+       "correcta": 2
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál es un beneficio?",
+       "opciones": [
+        "\"Llegas más rápido al trabajo\"",
+        "\"Motor de 150 cc\"",
+        "\"Color rojo\""
        ],
-       "minimo": 2
+       "correcta": 0
       },
       {
-       "tipo": "vf",
-       "afirmacion": "La mayoría de quienes estudian Mercadotecnia trabaja en algo de su carrera.",
-       "respuesta": false,
-       "revelacion": "Menos de la mitad trabaja en algo de su carrera. Promedio nacional del IMCO."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué te importa más de tu futuro trabajo?",
+       "tipo": "pregunta",
+       "pregunta": "¿Qué son las 4P?",
        "opciones": [
-        "Que tenga que ver con lo que estudié",
-        "Ganar bien",
-        "Tener prestaciones",
-        "Hacer algo que me guste"
-       ]
+        "Producto, precio, plaza y promoción",
+        "Plan, pago, puesto y pausa",
+        "Ninguna"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "clave",
-       "texto": "Pregunta cómo les va a quienes ya salieron."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "5.4",
-     "titulo": "Después de titularte",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Después de titularte",
-       "puntos": [
-        "Puedes especializarte con cursos, diplomados o una maestría.",
-        "También puedes trabajar desde el inicio y estudiar después.",
-        "Se combina bien con: Ciencias de la Comunicación, Administración de Empresas, Diseño Gráfico y Comunicación Visual."
-       ]
-      },
-      {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Qué harías al terminar?",
-       "a": {
-        "texto": "Trabajar desde el inicio",
-        "dice": "Ganas experiencia y dinero; después decides si estudias más."
-       },
-       "b": {
-        "texto": "Seguir estudiando",
-        "dice": "Te especializas antes; tardas más en empezar a trabajar."
-       }
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Cómo te imaginas después de la carrera?",
+       "tipo": "pregunta",
+       "pregunta": "¿Cómo debe ser una pregunta de encuesta?",
        "opciones": [
-        "Trabajando",
-        "En una maestría",
-        "Emprendiendo",
-        "No sé todavía"
-       ]
+        "Neutral",
+        "Muy larga",
+        "Que sugiera la respuesta"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "clave",
-       "texto": "Al titularte empieza otra parte del camino, no termina."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "u6",
-   "lecciones": [
-    {
-     "id": "6.1",
-     "titulo": "Lo que sentiste",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Antes de ver tus respuestas: ¿cómo te fue con Mercadotecnia?",
+       "tipo": "pregunta",
+       "pregunta": "Un anuncio se vio 5,000 veces y tuvo 150 clics. ¿Cuál es su tasa de clics?",
        "opciones": [
-        "Me gustó más de lo que pensaba",
-        "Más o menos como esperaba",
-        "Me gustó menos de lo que pensaba"
-       ]
+        "30 por ciento",
+        "0.3 por ciento",
+        "3 por ciento"
+       ],
+       "correcta": 2,
+       "formula": "{150|5,000} × 100 = 3"
       },
       {
-       "tipo": "resumen"
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "Viendo tus respuestas, ¿qué pesó más?",
+       "tipo": "pregunta",
+       "pregunta": "Gastaste 8,000 pesos y conseguiste 40 clientes. ¿Cuál es el costo por cliente?",
        "opciones": [
-        "Lo que sentí al probarla",
-        "Lo que supe de la realidad",
-        "El camino para llegar",
-        "El futuro que ofrece"
-       ]
+        "40 pesos",
+        "320,000 pesos",
+        "200 pesos"
+       ],
+       "correcta": 2,
+       "formula": "{8,000|40} = 200"
       },
       {
-       "tipo": "clave",
-       "texto": "Lo que sentiste al probarla vale más que lo que imaginabas."
-      },
-      {
-       "tipo": "interes",
-       "pregunta": "¿Te ves estudiando Mercadotecnia?"
-      }
-     ]
-    },
-    {
-     "id": "6.2",
-     "titulo": "Tu veredicto",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Si mañana tuvieras que elegir carrera, ¿Mercadotecnia estaría entre tus opciones?",
+       "tipo": "pregunta",
+       "pregunta": "¿Qué pasa si cada cliente cuesta más de lo que deja?",
        "opciones": [
-        "Sí, entre las primeras",
-        "Sí, pero no arriba",
-        "No creo",
-        "No lo sé"
-       ]
+        "Gana",
+        "Nada",
+        "La campaña pierde dinero"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "comparar"
+       "tipo": "pregunta",
+       "pregunta": "¿Qué riesgo tienen los descuentos constantes?",
+       "opciones": [
+        "Ninguno",
+        "Que suban las ventas siempre",
+        "Que el cliente no quiera pagar precio completo"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Qué te ayudaría más a decidir?",
-       "a": {
-        "texto": "Hablar con alguien que la estudia",
-        "dice": "Busca a un estudiante o egresado cerca de ti y hazle tus preguntas. Una plática aclara más que diez videos."
-       },
-       "b": {
-        "texto": "Probar otra carrera y comparar",
-        "dice": "Explora otra de tu mapa. Comparar dos caminos reales aclara más que pensar en uno solo."
-       }
+       "tipo": "pregunta",
+       "pregunta": "¿Qué le falta a un anuncio que no dice qué hacer?",
+       "opciones": [
+        "Color",
+        "Música",
+        "Una llamada a la acción"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "veredicto"
-      },
-      {
-       "tipo": "clave",
-       "texto": "Decidir «en duda» también es avanzar."
+       "tipo": "pregunta",
+       "pregunta": "Un influencer recibió pago por recomendar. ¿Qué debe hacer?",
+       "opciones": [
+        "Aclararlo",
+        "Negarlo",
+        "Ocultarlo"
+       ],
+       "correcta": 0
       }
      ]
     }

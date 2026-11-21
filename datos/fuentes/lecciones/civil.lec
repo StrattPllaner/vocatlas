@@ -1,0 +1,137 @@
+**Lección 1: Compresión y tensión (4 preguntas)**
+
+Las fuerzas en una estructura aprietan o estiran. Cuando aprietan se llama compresión, como en una columna que carga un techo. Cuando estiran se llama tensión, como en el cable de un puente colgante. El concreto aguanta muy bien la compresión, pero se agrieta fácilmente con la tensión. El acero aguanta muy bien la tensión. Por eso se combinan en el concreto armado: el concreto toma la compresión y las varillas de acero toman la tensión. En una viga cargada en medio, la parte de arriba se comprime y la parte de abajo se estira, así que las varillas principales van abajo.
+
+Pregunta 1. ¿Qué fuerza aguanta mejor el concreto? A: la compresión. B: las dos igual. C: la tensión. Correcta: A.
+
+Pregunta 2. En una viga apoyada en sus extremos y cargada en medio, ¿qué parte se estira? A: ninguna. B: la de arriba. C: la de abajo. Correcta: C.
+
+Pregunta 3. Un maestro de obra quiere poner las varillas de una viga hasta arriba "para que no se vean". ¿Qué le dices? A: que las varillas principales van abajo, donde está la tensión. B: que está bien. C: que no lleve varillas. Correcta: A.
+
+Pregunta 4. ¿Por qué se le pone acero al concreto? A: para que se vea gris. B: para que aguante la tensión, que el concreto solo no aguanta. C: para que pese más. Correcta: B.
+
+**Lección 2: Cuánto material (4 preguntas)**
+
+Antes de construir hay que calcular cuánto material se necesita. El concreto se pide en metros cúbicos, y el volumen de una losa o una zapata rectangular es:
+
+$$\text{volumen} = \text{largo} \times \text{ancho} \times \text{espesor}$$
+
+Todas las medidas tienen que estar en metros: 10 centímetros son 0.10 metros. Se pide un poco más de lo calculado, por desperdicio y por irregularidades del terreno. Si pides de menos, tienes que hacer un segundo colado y queda una junta débil; si pides de más, se tira dinero.
+
+Pregunta 1. Una losa mide 5 metros de largo, 4 de ancho y 0.10 de espesor. ¿Cuánto concreto lleva? A: 9.1 metros cúbicos. B: 20 metros cúbicos. C: 2 metros cúbicos. Correcta: C, porque
+
+$$5 \times 4 \times 0.10 = 2$$
+
+Pregunta 2. Una banqueta mide 10 metros de largo, 1.5 de ancho y 10 centímetros de espesor. ¿Cuánto concreto lleva? A: 15 metros cúbicos. B: 150 metros cúbicos. C: 1.5 metros cúbicos. Correcta: C, porque
+
+$$10 \times 1.5 \times 0.10 = 1.5$$
+
+Pregunta 3. Alguien calcula con el espesor en centímetros sin convertir. ¿Qué pasa? A: le sale bien. B: le sale la mitad. C: le sale un volumen 100 veces más grande. Correcta: C.
+
+Pregunta 4. ¿Por qué se pide un poco más de concreto de lo calculado? A: no se pide más. B: por desperdicio e irregularidades del terreno. C: para regalar. Correcta: B.
+
+**Lección 3: El suelo (3 preguntas)**
+
+Toda construcción descansa en el suelo, y no todos los suelos aguantan lo mismo. La cimentación reparte el peso del edificio en un área para que el suelo lo resista. El esfuerzo que recibe el suelo es:
+
+$$\text{esfuerzo} = \frac{\text{fuerza}}{\text{área}}$$
+
+Si el suelo es débil, como las arcillas blandas de buena parte de la Ciudad de México, se necesita una cimentación más grande o pilotes que bajen hasta capas firmes. Por eso antes de diseñar se hace un estudio de mecánica de suelos.
+
+Pregunta 1. Una columna baja 200 kilonewtons a una zapata de 2 metros cuadrados. ¿Qué esfuerzo recibe el suelo? A: 400. B: 100 kilonewtons por metro cuadrado. C: 202. Correcta: B, porque
+
+$$\frac{200}{2} = 100$$
+
+Pregunta 2. El suelo solo aguanta 50 kilonewtons por metro cuadrado. ¿Qué haces con esa zapata? A: la dejas igual. B: la haces más grande para repartir mejor la carga. C: la haces más chica. Correcta: B.
+
+Pregunta 3. ¿Para qué sirve un estudio de mecánica de suelos? A: para saber cuánto aguanta el terreno antes de diseñar la cimentación. B: para elegir pintura. C: para sembrar. Correcta: A.
+
+**Lección 4: Sismos (4 preguntas)**
+
+Gran parte de México está en zona sísmica, incluido Morelos, que sufrió mucho en el sismo de 2017. En un sismo el suelo se mueve de lado y el edificio tiene que aguantar esas fuerzas sin caerse. Algunas reglas básicas: las estructuras deben ser regulares y simétricas; los muros deben estar bien confinados con castillos y dalas; y hay que evitar la planta baja débil, que es cuando abajo hay pura columna y arriba muchos muros, porque abajo se concentra el daño. El reglamento de construcción indica cómo diseñar para el sismo de cada zona.
+
+Pregunta 1. ¿Qué es un piso débil en planta baja? A: un piso sin pintar. B: un piso de madera. C: abajo pocas columnas y nada de muros, y arriba muchos muros. Correcta: C.
+
+Pregunta 2. ¿Para qué sirven los castillos y dalas en una casa de tabique? A: confinan los muros para que aguanten los sismos. B: para decorar. C: para colgar cuadros. Correcta: A.
+
+Pregunta 3. Un cliente quiere quitar todos los muros de la planta baja para hacer un local, y arriba tiene tres pisos de departamentos. A: le explicas el riesgo de piso débil y se hace un diseño estructural que lo compense. B: quitas la mitad. C: lo haces sin revisar. Correcta: A.
+
+Pregunta 4. Después de un sismo, una columna tiene grietas en forma de X. ¿Qué haces? A: se evalúa la estructura antes de que la gente vuelva a usarla. B: nada. C: la pintas. Correcta: A.
+
+**Lección 5: Agua potable y drenaje (3 preguntas)**
+
+Un ingeniero civil también diseña cómo llega el agua a las casas y cómo sale. El caudal es cuánta agua pasa en un tiempo:
+
+$$\text{caudal} = \frac{\text{volumen}}{\text{tiempo}}$$
+
+Para diseñar una red se estima cuánta agua usa cada persona al día. El drenaje funciona por gravedad, así que los tubos necesitan pendiente: bajada constante hacia la salida. Sin pendiente, el agua se estanca y los tubos se tapan. El agua de lluvia, en lo ideal, se separa del drenaje de las casas.
+
+Pregunta 1. Un tinaco de 1,100 litros se llena en 2 horas. ¿Cuál es el caudal? A: 2,200 litros por hora. B: 550 litros por hora. C: 1,102. Correcta: B, porque
+
+$$\frac{1{,}100}{2} = 550$$
+
+Pregunta 2. Una colonia de 1,000 personas usa 150 litros por persona al día. ¿Cuánta agua necesita al día? A: 150,000 litros. B: 1,150 litros. C: 15,000 litros. Correcta: A, porque
+
+$$1{,}000 \times 150 = 150{,}000$$
+
+Pregunta 3. Un tubo de drenaje quedó horizontal, sin bajada. ¿Qué pasará? A: nada. B: el agua se estancará y se tapará. C: funcionará mejor. Correcta: B.
+
+**Lección 6: Caminos (4 preguntas)**
+
+En una carretera, la pendiente dice cuánto sube o baja por cada 100 metros:
+
+$$\text{pendiente} = \frac{\text{desnivel}}{\text{distancia horizontal}} \times 100$$
+
+Pendientes muy fuertes hacen que los camiones pesados vayan muy lento al subir y se queden sin frenos al bajar. Por eso en las montañas las carreteras zigzaguean. Las curvas se diseñan según la velocidad: a más velocidad, curvas más abiertas. Y el agua es el peor enemigo del pavimento: si no se drena bien, se hacen baches.
+
+Pregunta 1. Un camino sube 6 metros en 100 metros horizontales. ¿Cuál es su pendiente? A: 60 por ciento. B: 0.6 por ciento. C: 6 por ciento. Correcta: C, porque
+
+$$\frac{6}{100} \times 100 = 6$$
+
+Pregunta 2. Un camino sube 15 metros en 300 metros horizontales. ¿Cuál es su pendiente? A: 15 por ciento. B: 20 por ciento. C: 5 por ciento. Correcta: C, porque
+
+$$\frac{15}{300} \times 100 = 5$$
+
+Pregunta 3. ¿Por qué las carreteras de montaña zigzaguean? A: para que la pendiente no sea demasiado fuerte. B: para que el paisaje se vea mejor. C: por error. Correcta: A.
+
+Pregunta 4. Una calle se llena de baches cada temporada de lluvias. ¿Qué revisas? A: el drenaje del agua en esa calle. B: el color del pavimento. C: nada. Correcta: A.
+
+**Lección 7: La obra y la responsabilidad (3 preguntas)**
+
+En la obra, el ingeniero revisa que se construya como dicen los planos, con los materiales correctos. Al concreto se le hacen pruebas: se toman muestras en cilindros y se prueban a los 28 días para verificar que alcanzó su resistencia. Un perito o director responsable de obra firma y responde por la seguridad. Ceder ante presiones para ahorrar en materiales o saltarse pruebas puede costar vidas.
+
+Pregunta 1. ¿Para qué se toman cilindros de concreto en la obra? A: para tirarlos. B: para probar que el concreto alcanzó la resistencia de diseño. C: para decorar. Correcta: B.
+
+Pregunta 2. El constructor quiere usar varilla más delgada que la del plano para ahorrar. A: aceptas si nadie se entera. B: te niegas; se usa la del diseño o el estructurista revisa un cambio formal. C: aceptas. Correcta: B.
+
+Pregunta 3. Las pruebas del concreto de una losa salieron por debajo de lo especificado. A: se cambia el resultado. B: se reporta y se evalúa qué hacer antes de seguir cargando la estructura. C: se ignora. Correcta: B.
+
+**Examen final**
+
+Pregunta 1. ¿Qué aguanta mejor el acero? A: nada. B: el fuego directo. C: la tensión. Correcta: C.
+
+Pregunta 2. Una losa mide 6 metros por 5 metros y 0.10 de espesor. ¿Cuánto concreto lleva? A: 3 metros cúbicos. B: 30 metros cúbicos. C: 11.1 metros cúbicos. Correcta: A, porque
+
+$$6 \times 5 \times 0.10 = 3$$
+
+Pregunta 3. Una columna baja 300 kilonewtons a una zapata de 3 metros cuadrados. ¿Qué esfuerzo recibe el suelo? A: 100 kilonewtons por metro cuadrado. B: 900. C: 303. Correcta: A, porque
+
+$$\frac{300}{3} = 100$$
+
+Pregunta 4. ¿Qué haces si el suelo es débil? A: zapatas más chicas. B: cimentación más grande o pilotes. C: nada. Correcta: B.
+
+Pregunta 5. ¿Qué es un piso débil en planta baja? A: un piso de cerámica. B: un piso mojado. C: pocas columnas abajo y muchos muros arriba. Correcta: C.
+
+Pregunta 6. Un tanque de 2,000 litros se llena en 4 horas. ¿Cuál es el caudal? A: 2,004. B: 8,000. C: 500 litros por hora. Correcta: C, porque
+
+$$\frac{2{,}000}{4} = 500$$
+
+Pregunta 7. ¿Por qué el drenaje necesita pendiente? A: no la necesita. B: porque funciona por gravedad. C: por estética. Correcta: B.
+
+Pregunta 8. Un camino sube 8 metros en 200 metros. ¿Cuál es su pendiente? A: 25 por ciento. B: 8 por ciento. C: 4 por ciento. Correcta: C, porque
+
+$$\frac{8}{200} \times 100 = 4$$
+
+Pregunta 9. ¿A los cuántos días se prueban normalmente los cilindros de concreto? A: a los 28. B: al día siguiente. C: al año. Correcta: A.
+
+Pregunta 10. Te piden cambiar el acero por uno más delgado para ahorrar. A: aceptas. B: te niegas o se revisa formalmente con el estructurista. C: no dices nada. Correcta: B.

@@ -1,225 +1,172 @@
 {
  "id": "actuaria",
- "version": 1,
+ "version": 2,
+ "formato": 2,
  "estado": "completo",
- "generado": true,
- "revision": "Armada automáticamente con la base de carreras de Morelos y CDMX (2026-11-17). Falta que la revise alguien de la carrera.",
+ "revision": "Pendiente de revisión por un profesionista de la carrera. Generado con datos/importar_lecciones.py desde datos/fuentes/lecciones/actuaria.lec; no se edita a mano.",
  "unidades": [
   {
    "id": "u1",
+   "titulo": "El riesgo",
+   "sub": "Probabilidad y valor esperado",
    "lecciones": [
     {
-     "id": "1.1",
-     "titulo": "Qué es y qué hace",
-     "minutos": 3,
+     "id": "0",
+     "titulo": "Conócela",
+     "minutos": 1,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "¿Qué es Actuaría?",
-       "texto": "Análisis cuantitativo de decisiones económicas, financieras y de riesgo. Puede incluir matemáticas, estadística, modelación, mercados, política económica e interpretación de datos.",
-       "puntos": [
-        "Calcula riesgos con modelos estadísticos: cuánto debe costar un seguro, cuánto debe ahorrar un fondo de pensiones o qué tan probable es que un cliente no…",
-        "Trabaja con muchos datos y programación."
+       "tipo": "ficha",
+       "texto": "Actuaría forma actuarios: personas que usan matemáticas y estadística para medir el riesgo y ponerle precio. Calculan cuánto debe costar un seguro, cuánto dinero necesita un fondo de pensiones y qué tan probable es una pérdida. En Morelos no hay dónde terminarla; la opción pública más cercana es la UNAM, en la Ciudad de México.",
+       "cifras": [
+        "actuaria.becas",
+        "actuaria.duracion",
+        "actuaria.costo_publica",
+        "actuaria.costo_privada"
        ]
       },
       {
-       "tipo": "decision",
-       "pregunta": "Por lo que leíste, ¿qué hace alguien de Actuaría?",
-       "opciones": [
-        {
-         "texto": "Calcula riesgos con modelos estadísticos: cuánto debe costar un seguro, cuánto debe ahorrar un fondo de pensiones o qué tan probable es que un cliente no…",
-         "consecuencia": "Exacto: eso es parte del día a día en Actuaría.",
-         "mejor": true
-        },
-        {
-         "texto": "Entrena y ajusta modelos de IA (reconocimiento de imágenes, chatbots, recomendaciones), los integra en productos y evalúa que funcionen bien y de forma responsable.",
-         "consecuencia": "Eso lo hace alguien de Inteligencia artificial."
-        },
-        {
-         "texto": "Usa organismos vivos o sus moléculas para crear productos: vacunas, medicamentos, alimentos, biocombustibles o mejoras agrícolas.",
-         "consecuencia": "Eso lo hace alguien de Biotecnología."
-        }
-       ]
-      },
-      {
-       "tipo": "completar",
-       "frase": "Actuaría es una carrera del área de ___.",
-       "opciones": [
-        "Negocios y sociedad",
-        "Arte y comunicación",
-        "Salud"
-       ],
-       "correcta": 0,
-       "revelacion": "Está en Negocios y sociedad. Se parece a Matemáticas, Economía, Finanzas."
-      },
-      {
-       "tipo": "clave",
-       "texto": "Antes de elegir, entiende qué harías cada día, no solo el nombre."
-      },
-      {
-       "tipo": "interes"
+       "tipo": "escena",
+       "texto": "Hoy trabajas en una aseguradora. Vamos a ver si te salen las cuentas del riesgo."
       }
      ]
     },
     {
-     "id": "1.2",
-     "titulo": "Dónde trabajas",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Dónde trabaja alguien de Actuaría",
-       "texto": "Empresas privadas, bancos, aseguradoras, consultoras, despachos, organismos públicos, comercio, emprendimiento y áreas de planeación, análisis, finanzas u operaciones."
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Alguien de Actuaría solo puede trabajar en un tipo de lugar.",
-       "respuesta": false,
-       "revelacion": "Puede trabajar en varios: empresas privadas, bancos, aseguradoras."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Dónde te ves trabajando?",
-       "opciones": [
-        "Empresas privadas",
-        "Bancos",
-        "Aseguradoras",
-        "Consultoras"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Una carrera abre varias puertas, no una sola."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "1.3",
-     "titulo": "Pregúntale a Rumbo",
+     "id": "1",
+     "titulo": "Probabilidad",
      "minutos": 4,
      "tarjetas": [
       {
-       "tipo": "chat",
-       "subtitulo": "Te cuenta cómo es trabajar en Actuaría",
-       "intro": [
-        "¡Hola! Junté lo que se sabe de Actuaría.",
-        "Pregúntame lo que quieras."
-       ],
-       "temas": [
+       "tipo": "info",
+       "titulo": "Probabilidad",
+       "partes": [
         {
-         "q": "¿Qué haces en un día normal?",
-         "a": [
-          "Calcula riesgos con modelos estadísticos: cuánto debe costar un seguro, cuánto debe ahorrar un fondo de pensiones o qué tan probable es que un cliente no pague.",
-          "Trabaja con muchos datos y programación."
-         ]
+         "t": "La probabilidad dice qué tan seguido pasa algo. Es un número entre 0 y 1: 0 es que nunca pasa y 1 es que siempre pasa. Los actuarios la sacan de datos reales:"
         },
         {
-         "q": "¿Qué es lo más difícil?",
-         "a": [
-          "Se considera una carrera de dificultad muy alta.",
-          "Cálculo, Probabilidad y Estadística matemática desde el primer semestre",
-          "Mucha abstracción."
-         ]
+         "f": "probabilidad = {veces que pasó|total de casos}"
         },
         {
-         "q": "¿Hay trabajo?",
-         "a": [
-          "La mayoría de quienes la estudian trabaja en algo de su carrera. Es un promedio nacional del IMCO.",
-          "IMCO no separa Actuaría"
-         ]
-        },
-        {
-         "q": "¿Qué necesito para ejercer?",
-         "a": [
-          "Para firmar notas técnicas de seguros se requiere certificación ante el Colegio Nacional de Actuarios / CNSF."
-         ]
+         "t": "La probabilidad de que algo no pase es 1 menos la probabilidad de que sí pase. Dos eventos son independientes cuando uno no afecta al otro, y entonces la probabilidad de que pasen los dos es la multiplicación de sus probabilidades. Lo que pasó antes no cambia lo que va a pasar: una moneda no \"se acuerda\" de que ya salieron cinco soles seguidos."
         }
-       ],
-       "minimo": 2,
-       "auto": true
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Actuaría se considera una carrera de dificultad baja.",
-       "respuesta": false,
-       "revelacion": "Se considera de dificultad muy alta. Cálculo, Probabilidad y Estadística matemática desde el primer semestre"
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué te llamó más la atención?",
-       "opciones": [
-        "¿Qué haces en un día normal?",
-        "¿Qué es lo más difícil?",
-        "¿Hay trabajo?",
-        "¿Qué necesito para ejercer?"
        ]
       },
       {
-       "tipo": "clave",
-       "texto": "Preguntar a quien ya sabe ahorra muchos errores."
+       "tipo": "pregunta",
+       "pregunta": "De 1,000 autos asegurados, 50 chocaron en el año. ¿Cuál es la probabilidad de que un auto choque?",
+       "opciones": [
+        "50",
+        "0.5",
+        "0.05"
+       ],
+       "correcta": 2,
+       "formula": "{50|1,000} = 0.05"
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "Con el mismo dato, ¿cuál es la probabilidad de que un auto no choque?",
+       "opciones": [
+        "0.05",
+        "1.05",
+        "0.95"
+       ],
+       "correcta": 2,
+       "formula": "1 − 0.05 = 0.95"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Una casa tiene una probabilidad de 0.02 de inundarse en el año y de 0.01 de incendiarse, y una cosa no afecta a la otra. ¿Cuál es la probabilidad de que le pasen las dos el mismo año?",
+       "opciones": [
+        "0.0002",
+        "0.03",
+        "0.02"
+       ],
+       "correcta": 0,
+       "formula": "0.02 × 0.01 = 0.0002"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Un amigo te dice: \"Llevo 5 años sin chocar, así que este año seguro me toca\".",
+       "opciones": [
+        "Su probabilidad sube al doble",
+        "No; si cada año es independiente, los 5 años sin chocar no cambian la probabilidad de este año",
+        "Tiene razón"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
-     "id": "1.4",
-     "titulo": "Carreras parecidas",
-     "minutos": 3,
+     "id": "2",
+     "titulo": "Valor esperado",
+     "minutos": 4,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Carreras cercanas a Actuaría",
-       "puntos": [
-        "Matemáticas: fundamentos científicos y cuantitativos para explicar fenómenos naturales y.",
-        "Economía: análisis cuantitativo de decisiones económicas.",
-        "Finanzas: análisis cuantitativo de decisiones económicas.",
-        "Ciencia de Datos: diseño y desarrollo de soluciones digitales. puede incluir programación."
+       "titulo": "Valor esperado",
+       "partes": [
+        {
+         "t": "El valor esperado es cuánto pierdes o ganas en promedio si algo se repite muchas veces:"
+        },
+        {
+         "f": "pérdida esperada = probabilidad × monto de la pérdida"
+        },
+        {
+         "t": "En los seguros, esa pérdida esperada se llama prima pura: es lo mínimo que la aseguradora necesita cobrarle a cada cliente para pagar los siniestros en promedio. Lo que cobra en realidad siempre es más, porque también paga sueldos y gastos, guarda dinero para los años malos y necesita ganancia. Si cobra menos que la prima pura, pierde dinero aunque tenga muchos clientes."
+        },
+        {
+         "t": "Pagas 100 pesos por algo que en promedio vale 50."
+        }
        ]
       },
       {
-       "tipo": "emparejar",
-       "pregunta": "Une cada carrera con lo que estudia.",
-       "pares": [
-        [
-         "Matemáticas",
-         "Fundamentos científicos y cuantitativos para explicar fenómenos naturales y"
-        ],
-        [
-         "Economía",
-         "Análisis cuantitativo de decisiones económicas"
-        ],
-        [
-         "Finanzas",
-         "Análisis cuantitativo de decisiones económicas"
-        ],
-        [
-         "Ciencia de Datos",
-         "Diseño y desarrollo de soluciones digitales. Puede incluir programación"
-        ]
-       ],
-       "revelacion": "Se cruzan en temas, pero cada una tiene su propio enfoque."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Cuál de estas te da curiosidad?",
+       "tipo": "pregunta",
+       "pregunta": "A un celular le roban con una probabilidad de 0.1 al año, y reponerlo cuesta 8,000 pesos. ¿Cuál es la pérdida esperada?",
        "opciones": [
-        "Matemáticas",
-        "Economía",
-        "Finanzas",
-        "Me quedo con Actuaría"
-       ]
+        "800",
+        "80",
+        "8,000"
+       ],
+       "correcta": 0,
+       "formula": "0.1 × 8,000 = 800"
       },
       {
-       "tipo": "clave",
-       "texto": "Si dudas entre dos, compara lo que harías cada día."
+       "tipo": "pregunta",
+       "pregunta": "Una aseguradora cobra 600 pesos al año por ese seguro.",
+       "opciones": [
+        "En promedio pierde 200 pesos por cliente",
+        "En promedio queda igual",
+        "En promedio gana"
+       ],
+       "correcta": 0,
+       "explicacion": "Cobra menos de los 800 de prima pura."
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "En una rifa se venden 100 boletos de 100 pesos y hay un solo premio de 5,000. ¿Cuánto vale en promedio cada boleto?",
+       "opciones": [
+        "50",
+        "5,000",
+        "100"
+       ],
+       "correcta": 0,
+       "formula": "{1|100} × 5,000 = 50"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Por qué una aseguradora cobra más que la prima pura?",
+       "opciones": [
+        "No debería cobrar más",
+        "Por abuso",
+        "Para pagar gastos, guardar dinero para años malos y tener ganancia"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "teves"
       }
      ]
     }
@@ -227,201 +174,179 @@
   },
   {
    "id": "u2",
+   "titulo": "Muchos clientes y el tiempo",
+   "sub": "Grandes números, interés y valor presente",
    "lecciones": [
     {
-     "id": "2.1",
-     "titulo": "Mini reto",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Una aseguradora quiere cobrar lo mismo a todos por el seguro de auto. ¿Qué opinas?",
-       "opciones": [
-        "Que conviene ver qué tan probable es un choque en cada caso",
-        "Que es lo más justo",
-        "Que mejor no venda seguros"
-       ]
-      },
-      {
-       "tipo": "info",
-       "titulo": "Así lo piensa alguien de Actuaría",
-       "texto": "El precio de un seguro sale de calcular riesgos. Actuaría es probabilidad y estadística aplicadas al dinero."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Te gustó pensar en algo así?",
-       "escala": [
-        "Nada",
-        "Mucho"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Los retos de una carrera se parecen a lo que harías en su trabajo."
-      },
-      {
-       "tipo": "interes",
-       "pregunta": "¿Te ves resolviendo retos así?"
-      }
-     ]
-    },
-    {
-     "id": "2.2",
-     "titulo": "Lo que te piden",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Habilidades que usarás en Actuaría",
-       "puntos": [
-        "Matemáticas fuertes",
-        "Programación",
-        "Paciencia con problemas largos",
-        "Precisión"
-       ]
-      },
-      {
-       "tipo": "completar",
-       "pregunta": "Según lo que leíste, completa la frase.",
-       "frase": "Para Actuaría es clave: ___.",
-       "opciones": [
-        "Matemáticas fuertes",
-        "Pensamiento lógico",
-        "Trato cercano y paciencia"
-       ],
-       "correcta": 0,
-       "revelacion": "Es de las habilidades que más se usan en Actuaría."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué tanto se te da esto: programación?",
-       "escala": [
-        "Me cuesta",
-        "Se me da"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Las habilidades se entrenan; lo importante es que te guste usarlas."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "2.3",
-     "titulo": "Temas que vas a ver",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Temas que te deben gustar",
-       "puntos": [
-        "Matemáticas aplicadas al dinero",
-        "Seguros y finanzas",
-        "Datos"
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "¿Cuál de estos temas es más de Actuaría?",
-       "opciones": [
-        {
-         "texto": "Matemáticas aplicadas al dinero",
-         "consecuencia": "Sí, es de sus temas centrales.",
-         "mejor": true
-        },
-        {
-         "texto": "Universo y naturaleza",
-         "consecuencia": "Ese es más de Física."
-        },
-        {
-         "texto": "Medio ambiente",
-         "consecuencia": "Ese es más de Ing. Ambiental."
-        }
-       ]
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Cuál de estos temas te gusta más?",
-       "opciones": [
-        "Matemáticas aplicadas al dinero",
-        "Seguros y finanzas",
-        "Datos",
-        "Ninguno me late"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Si los temas te aburren, la carrera se hace muy larga."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "2.4",
-     "titulo": "Materias clave",
+     "id": "3",
+     "titulo": "Muchos clientes",
      "minutos": 4,
      "tarjetas": [
       {
-       "tipo": "voltear",
-       "pregunta": "¿Qué materias crees que llevas en cada etapa? Piénsalo y voltea.",
-       "cartas": [
+       "tipo": "info",
+       "titulo": "Muchos clientes",
+       "partes": [
         {
-         "frente": "Semestres 1-2",
-         "reverso": "Cálculo I y II, Álgebra superior, Introducción a la actuaría"
-        },
-        {
-         "frente": "Semestres 3-4",
-         "reverso": "Probabilidad, Álgebra lineal, Matemáticas financieras, Programación"
-        },
-        {
-         "frente": "Semestres 5-6",
-         "reverso": "Estadística matemática, Modelos de supervivencia, Teoría del riesgo, Seguros de vida y daños"
-        },
-        {
-         "frente": "Semestres 7 en adelante",
-         "reverso": "Pensiones, Ciencia de datos actuarial, Prácticas"
+         "t": "Con pocos clientes, el resultado de un año puede ser muy distinto a lo que calculaste. Con muchos clientes, lo que pasa en realidad se acerca cada vez más al promedio esperado. Esto se llama ley de los grandes números y es la razón por la que las aseguradoras funcionan. Pero solo protege si los siniestros son independientes: si un huracán o un terremoto le pega a todos tus clientes al mismo tiempo, tener muchos no te salva. Para eso existe el reaseguro: la aseguradora contrata a su vez un seguro con otra compañía más grande para cubrir las pérdidas enormes."
         }
        ]
       },
       {
-       "tipo": "decision",
-       "pregunta": "¿Cuál de estas materias llevarías en Actuaría?",
+       "tipo": "pregunta",
+       "pregunta": "¿Con qué cartera es más fácil que el resultado real se parezca a tu cálculo?",
        "opciones": [
+        "Da igual",
+        "Con 100,000 clientes",
+        "Con 10 clientes"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Una aseguradora pequeña tiene pocos clientes, y un solo siniestro muy grande podría quebrarla. ¿Qué le conviene?",
+       "opciones": [
+        "Cobrarle todo a un solo cliente",
+        "Contratar reaseguro",
+        "No hacer nada"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Todos tus clientes viven en Acapulco y llega un huracán. ¿Por qué es peligroso?",
+       "opciones": [
+        "Porque solo afecta a uno",
+        "No es peligroso porque son muchos clientes",
+        "Porque los siniestros pasan todos juntos, no son independientes y la ley de los grandes números no te protege"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "teves"
+      }
+     ]
+    },
+    {
+     "id": "4",
+     "titulo": "Interés compuesto",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "Interés compuesto",
+       "partes": [
         {
-         "texto": "Cálculo I y II",
-         "consecuencia": "Sí: es de las primeras materias de Actuaría.",
-         "mejor": true
+         "t": "Cuando el dinero se invierte, cada año gana intereses, y al año siguiente también gana intereses sobre esos intereses. Eso es el interés compuesto. Para calcularlo, cada año multiplicas por 1 más la tasa. Con una tasa del 10 por ciento, multiplicas por 1.10 una vez por cada año:"
         },
         {
-         "texto": "Anatomía",
-         "consecuencia": "Esa es de Medicina."
+         "f": "dinero después de 2 años = capital × 1.10 × 1.10"
         },
         {
-         "texto": "Dibujo y anatomía",
-         "consecuencia": "Esa es de Animación."
+         "t": "Por eso empezar a ahorrar unos años antes hace una diferencia enorme, sobre todo en algo de tan largo plazo como una Afore. Los actuarios usan esta cuenta todo el tiempo para pensiones y seguros de vida."
         }
        ]
       },
       {
-       "tipo": "reflexion",
-       "pregunta": "¿Cuál te da más curiosidad?",
+       "tipo": "pregunta",
+       "pregunta": "Inviertes 10,000 pesos al 10 por ciento anual durante 2 años. ¿Cuánto tienes al final?",
        "opciones": [
-        "Cálculo I y II",
-        "Álgebra superior",
-        "Introducción a la actuaría"
+        "12,000",
+        "11,000",
+        "12,100"
+       ],
+       "correcta": 2,
+       "formula": "10,000 × 1.10 × 1.10 = 12,100"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Por qué el interés compuesto da más dinero que el simple?",
+       "opciones": [
+        "Porque ganas intereses sobre los intereses",
+        "Dan lo mismo",
+        "Porque el banco te regala dinero"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Inviertes 1,000 pesos al 5 por ciento anual durante 3 años. ¿Cuánto tienes al final?",
+       "opciones": [
+        "1,050",
+        "1,150",
+        "1,157.63"
+       ],
+       "correcta": 2,
+       "formula": "1,000 × 1.05 × 1.05 × 1.05 = 1,157.63"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Dos personas ponen lo mismo cada mes en su Afore hasta los 65 años. Una empieza a los 25 y la otra a los 40.",
+       "opciones": [
+        "La de 40 junta más",
+        "Juntan lo mismo",
+        "La de 25 junta mucho más, porque su dinero crece durante más años"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "teves"
+      }
+     ]
+    },
+    {
+     "id": "5",
+     "titulo": "Valor presente",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "Valor presente",
+       "partes": [
+        {
+         "t": "El valor presente es la cuenta del interés compuesto al revés: dice cuánto vale hoy un dinero que vas a recibir en el futuro. Para un año:"
+        },
+        {
+         "f": "valor presente = {dinero futuro|1 + tasa}"
+        },
+        {
+         "t": "Mil pesos hoy valen más que mil pesos dentro de 3 años, porque los de hoy los puedes invertir. Por eso, cuando una aseguradora sabe que en el futuro va a pagar una suma, hoy guarda menos que esa suma y la invierte para que crezca hasta el día del pago. Ese dinero guardado se llama reserva."
+        }
        ]
       },
       {
-       "tipo": "clave",
-       "texto": "Las primeras materias son la base; muchas veces son las más pesadas."
+       "tipo": "pregunta",
+       "pregunta": "Te prometen 11,000 pesos dentro de un año y la tasa es del 10 por ciento. ¿Cuánto vale eso hoy?",
+       "opciones": [
+        "11,000",
+        "10,000",
+        "9,900"
+       ],
+       "correcta": 1,
+       "formula": "{11,000|1.10} = 10,000"
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "Con una tasa del 8 por ciento, ¿qué te conviene más: 10,000 pesos hoy o 10,000 pesos dentro de 3 años?",
+       "opciones": [
+        "Dentro de 3 años",
+        "Da lo mismo",
+        "Hoy"
+       ],
+       "correcta": 2,
+       "explicacion": "Los de hoy los puedes invertir y en 3 años tendrías más."
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Una aseguradora va a pagar un millón de pesos en el futuro, pero hoy guarda menos que eso. ¿Por qué?",
+       "opciones": [
+        "Porque no piensa pagar",
+        "Es un error",
+        "Porque ese dinero se invierte y crece hasta el día que tenga que pagar"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "teves"
       }
      ]
     }
@@ -429,184 +354,116 @@
   },
   {
    "id": "u3",
+   "titulo": "Seguros de verdad",
+   "sub": "Vida, pensiones y ética",
    "lecciones": [
     {
-     "id": "3.1",
-     "titulo": "Un día real",
+     "id": "6",
+     "titulo": "Seguros de vida y pensiones",
      "minutos": 4,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Un día de trabajo en Actuaría",
-       "puntos": [
-        "Calcula riesgos con modelos estadísticos: cuánto debe costar un seguro, cuánto debe ahorrar un fondo de pensiones o qué tan probable es que un cliente no…",
-        "Trabaja con muchos datos y programación."
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "¿Qué de esto NO es parte del día de alguien de Actuaría?",
-       "opciones": [
+       "titulo": "Seguros de vida y pensiones",
+       "partes": [
         {
-         "texto": "Escribe, graba y edita contenido",
-         "consecuencia": "Exacto: eso lo hace alguien de Comunicación.",
-         "mejor": true
-        },
-        {
-         "texto": "Calcula riesgos con modelos estadísticos: cuánto debe costar un seguro, cuánto debe ahorrar un fondo de pensiones o qué tan probable es que un cliente no…",
-         "consecuencia": "Esto sí lo hace: es parte de su día."
-        },
-        {
-         "texto": "Trabaja con muchos datos y programación.",
-         "consecuencia": "Esto sí lo hace: es parte de su día."
+         "t": "Para los seguros de vida, los actuarios usan tablas de mortalidad, que dicen qué probabilidad tiene una persona de morir en el año según su edad. A mayor edad, mayor probabilidad, y por eso el seguro cuesta más. Algunos factores, como fumar, también la suben, y por eso la aseguradora pregunta por ellos. Si el cliente miente, el precio queda mal calculado y la aseguradora puede negarse a pagar. Con las pensiones el riesgo es al revés: que la gente viva más años de los calculados, porque el fondo tendrá que pagar durante más tiempo."
         }
        ]
       },
       {
-       "tipo": "reflexion",
-       "pregunta": "¿Te ves haciendo esto todos los días?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
+       "tipo": "pregunta",
+       "pregunta": "Según la tabla, una persona de 30 años tiene una probabilidad de 0.001 de morir en el año. El seguro paga 500,000 pesos. ¿Cuál es la prima pura?",
+       "opciones": [
+        "500",
+        "5,000",
+        "50"
+       ],
+       "correcta": 0,
+       "formula": "0.001 × 500,000 = 500"
       },
       {
-       "tipo": "clave",
-       "texto": "El día a día pesa más que el título."
+       "tipo": "pregunta",
+       "pregunta": "El mismo seguro para una persona de 60 años, con probabilidad de 0.01. ¿Cuál es la prima pura?",
+       "opciones": [
+        "5,000",
+        "500",
+        "50,000"
+       ],
+       "correcta": 0,
+       "formula": "0.01 × 500,000 = 5,000"
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "Un cliente fuma, pero dice que no. ¿Por qué importa?",
+       "opciones": [
+        "Porque fumar sube su probabilidad de morir, su precio queda mal calculado y la aseguradora puede negarse a pagar si lo descubre",
+        "No importa",
+        "Porque así le baja el precio, que es lo justo"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "En los últimos años la gente vive más que antes. ¿Qué le pasa a un fondo de pensiones?",
+       "opciones": [
+        "Necesita más dinero, porque va a pagar pensiones durante más tiempo",
+        "No le pasa nada",
+        "Necesita menos dinero"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
-     "id": "3.2",
-     "titulo": "Lo difícil",
+     "id": "7",
+     "titulo": "El actuario en el trabajo",
      "minutos": 4,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Lo difícil de Actuaría",
-       "texto": "Se considera de dificultad muy alta.",
-       "puntos": [
-        "Cálculo, Probabilidad y Estadística matemática desde el primer semestre",
-        "Mucha abstracción."
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "Según lo que leíste, ¿qué es lo que más cuesta en Actuaría?",
-       "opciones": [
+       "titulo": "El actuario en el trabajo",
+       "partes": [
         {
-         "texto": "Cálculo, Probabilidad y Estadística matemática desde el primer semestre",
-         "consecuencia": "Sí, es de lo que más cuesta en Actuaría.",
-         "mejor": true
-        },
-        {
-         "texto": "Anatomía (sobre todo músculos y huesos) y Biomecánica",
-         "consecuencia": "Eso es más de Fisioterapia."
-        },
-        {
-         "texto": "Anatomía, Fisiología del ejercicio y mucha práctica deportiva.",
-         "consecuencia": "Eso es más de Educación física."
+         "t": "El actuario firma los cálculos de las reservas, que es el dinero que la aseguradora necesita tener para pagarles a sus clientes. En México, la Comisión Nacional de Seguros y Fianzas vigila que esas reservas alcancen. Si se calculan bajas a propósito, la empresa se ve más rentable, pero luego no le alcanza para pagar. Los modelos de precios también se revisan para que cobren según el riesgo real medido con datos y no según prejuicios. Y gran parte del trabajo es explicar los resultados a personas que no saben estadística."
         }
        ]
       },
       {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué tanto te preocupa esto?",
-       "escala": [
-        "Mucho",
-        "Nada"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Saber lo difícil desde antes te ayuda a prepararte."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "3.3",
-     "titulo": "Historia real",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Si pudieras preguntarle algo a alguien que ya estudia Actuaría, ¿qué sería?",
+       "tipo": "pregunta",
+       "pregunta": "El director te pide bajar la reserva para que este año aparezcan más ganancias.",
        "opciones": [
-        "¿Qué fue lo más difícil?",
-        "¿Qué te sorprendió?",
-        "¿Volverías a elegirla?",
-        "¿Cómo es un día normal?"
-       ]
+        "La bajas",
+        "Te niegas, porque si la reserva no alcanza la aseguradora no podrá pagarles a sus clientes, y la Comisión la revisa",
+        "La bajas solo un poco"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "testimonio",
-       "estado": "pendiente",
-       "perfil": "Estudiante de últimos semestres o egresado de Actuaría"
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "Mientras llega esta historia, ¿a quién podrías preguntarle tú?",
+       "tipo": "pregunta",
+       "pregunta": "Tu modelo le cobra mucho más caro el seguro de auto a una colonia.",
        "opciones": [
-        "A un familiar o conocido que la estudió",
-        "A un estudiante de mi ciudad",
-        "A un maestro que la conozca",
-        "Todavía no conozco a nadie"
-       ]
+        "Borras datos al azar hasta que se vea parejo",
+        "Lo dejas así sin revisar",
+        "Revisas qué datos lo explican, como más robos o choques, y que no sea un prejuicio"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "clave",
-       "texto": "Una persona real te cuenta lo que ningún folleto dice."
+       "tipo": "pregunta",
+       "pregunta": "Tienes que presentarles tus resultados a directivos que no saben estadística.",
+       "opciones": [
+        "Les muestras todas las fórmulas",
+        "Les explicas con palabras sencillas y les das el número que importa para decidir",
+        "Mejor no les presentas nada"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "3.4",
-     "titulo": "¿Es para ti?",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Contesta con honestidad. Nadie más ve tus respuestas."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Me gustan las matemáticas aunque sean difíciles?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Me interesa más el dinero y el riesgo que la física?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Me veo programando modelos?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Si dijiste que sí a casi todo, vale la pena seguir explorándola."
-      },
-      {
-       "tipo": "interes"
+       "tipo": "teves"
       }
      ]
     }
@@ -614,447 +471,129 @@
   },
   {
    "id": "u4",
+   "titulo": "Examen final",
+   "sub": "10 preguntas · apruebas con 7",
    "lecciones": [
     {
-     "id": "4.1",
-     "titulo": "Cuánto dura y qué estudias",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Cada escuela arma su plan distinto, pero el orden general se parece. Vamos a verlo."
-      },
-      {
-       "tipo": "ordenar",
-       "pregunta": "Ordena lo que estudias, de lo primero a lo último.",
-       "pasos": [
-        "Cálculo I y II, Álgebra superior",
-        "Probabilidad, Álgebra lineal",
-        "Estadística matemática, Modelos de supervivencia",
-        "Pensiones, Ciencia de datos actuarial"
-       ],
-       "revelacion": "Primero las bases y al final lo más especializado y las prácticas."
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Cuántos años crees que pasan desde que entras hasta que te titulas?",
-       "min": 3,
-       "max": 10,
-       "paso": 1,
-       "unidad": "años",
-       "dato": "actuaria.duracion"
-      },
-      {
-       "tipo": "clave",
-       "texto": "Revisa el mapa curricular de cada escuela: cambia de una a otra."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "4.2",
-     "titulo": "Cómo se entra",
-     "minutos": 4,
+     "id": "ex",
+     "titulo": "Examen final",
+     "minutos": 6,
+     "examen": true,
+     "aprobar": 7,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Cómo se entra en la región",
-       "puntos": [
-        "UNAM: Concurso de selección UNAM (120 reactivos) o pase reglamentado desde CCH/ENP",
-        "Anáhuac: Examen de admisión propio + promedio",
-        "La Salle: Examen de admisión propio + promedio"
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "Según lo que leíste, ¿qué pide UNAM para entrar?",
-       "opciones": [
+       "titulo": "Examen final",
+       "partes": [
         {
-         "texto": "Concurso de selección UNAM (120 reactivos) o pase reglamentado desde CCH/ENP",
-         "consecuencia": "Exacto.",
-         "mejor": true
-        },
-        {
-         "texto": "Examen de admisión propio + promedio",
-         "consecuencia": "Eso lo pide Anáhuac."
-        },
-        {
-         "texto": "Examen de admisión propio + promedio",
-         "consecuencia": "Eso lo pide La Salle."
+         "t": "Son 10 casos nuevos que mezclan todas las lecciones. Apruebas con 7. Si no, lo repites y las que fallaste regresan con otras palabras."
         }
        ]
       },
       {
-       "tipo": "vf",
-       "afirmacion": "Todas las universidades usan el mismo examen.",
-       "respuesta": false,
-       "revelacion": "Cada una tiene el suyo: revisa la convocatoria de la que te interese."
-      },
-      {
-       "tipo": "clave",
-       "texto": "Conoce el examen de tu escuela desde antes."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "4.3",
-     "titulo": "Dónde, cuánto cuesta y becas",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "escuelas"
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Cuánto crees que cuesta un semestre en una universidad pública?",
-       "min": 0,
-       "max": 60000,
-       "paso": 1000,
-       "unidad": "pesos",
-       "dato": "actuaria.costo_publica"
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Y un semestre en una universidad privada?",
-       "min": 0,
-       "max": 300000,
-       "paso": 5000,
-       "unidad": "pesos",
-       "dato": "actuaria.costo_privada"
-      },
-      {
-       "tipo": "dato",
-       "titulo": "Becas para estudiar Actuaría",
-       "dato": "actuaria.becas"
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Una universidad cara garantiza un mejor empleo.",
-       "respuesta": false,
-       "revelacion": "Pesan más lo que aprendes, tus prácticas y tu esfuerzo."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué pesa más para ti al elegir escuela?",
+       "tipo": "pregunta",
+       "pregunta": "De 600 casas aseguradas, 30 se inundaron en el año. ¿Cuál es la probabilidad de que una casa se inunde?",
        "opciones": [
-        "El costo",
-        "Que esté cerca de mi casa",
-        "El prestigio",
-        "Las prácticas que ofrece"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Además de la colegiatura, cuenta transporte y materiales."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "u5",
-   "lecciones": [
-    {
-     "id": "5.1",
-     "titulo": "Qué piden para trabajar",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Qué te piden para trabajar",
-       "puntos": [
-        "Para firmar notas técnicas de seguros se requiere certificación ante el Colegio Nacional de Actuarios / CNSF.",
-        "IMCO no separa Actuaría"
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "Según lo que leíste, ¿qué necesitas para ejercer Actuaría?",
-       "opciones": [
-        {
-         "texto": "Para firmar notas técnicas de seguros se requiere certificación ante el Colegio Nacional de Actuarios / CNSF.",
-         "consecuencia": "Exacto.",
-         "mejor": true
-        },
-        {
-         "texto": "Título y cédula profesional.",
-         "consecuencia": "Eso lo piden en Nutrición."
-        },
-        {
-         "texto": "Título y cédula profesional.",
-         "consecuencia": "Eso lo piden en Veterinaria."
-        }
-       ]
-      },
-      {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Cómo te ves?",
-       "a": {
-        "texto": "En una institución o empresa",
-        "dice": "Más estabilidad y un equipo de quien aprender."
-       },
-       "b": {
-        "texto": "Por tu cuenta",
-        "dice": "Más libertad, pero tienes que conseguir clientes."
-       }
-      },
-      {
-       "tipo": "clave",
-       "texto": "Saber qué te piden te ahorra sorpresas al salir."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "5.2",
-     "titulo": "Sueldo y demanda",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Hablemos de dinero sin rodeos. Antes de ver cualquier cifra, apuesta: así recuerdas mejor el dato real."
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Cuánto crees que gana al mes, en promedio, un profesionista de Actuaría en México?",
-       "min": 5000,
-       "max": 100000,
-       "paso": 1000,
-       "unidad": "pesos",
-       "dato": "actuaria.ingreso"
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "De cada 100 egresados, ¿cuántos crees que trabajan en algo de su carrera?",
-       "min": 0,
-       "max": 100,
-       "paso": 5,
-       "unidad": "de cada 100",
-       "dato": "actuaria.ocupacion_afin"
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Todos los egresados de Actuaría ganan lo mismo.",
-       "respuesta": false,
-       "revelacion": "Cambia con la experiencia, el lugar, la especialidad y si trabajas por tu cuenta."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué tanto pesa el sueldo en tu decisión?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "El promedio orienta, pero tu camino puede ser distinto."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "5.3",
-     "titulo": "Cómo les va al salir",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "chat",
-       "subtitulo": "Te cuenta cómo les va al salir",
-       "intro": [
-        "Te cuento cómo les va a quienes estudian Actuaría al salir."
+        "0.5",
+        "0.02",
+        "0.05"
        ],
-       "temas": [
-        {
-         "q": "¿Cuántos trabajan en lo suyo?",
-         "a": [
-          "La mayoría trabaja en algo de su carrera.",
-          "Es un promedio nacional del IMCO."
-         ]
-        },
-        {
-         "q": "¿Muchos hacen posgrado?",
-         "a": [
-          "Pocos hacen posgrado; la mayoría empieza a trabajar."
-         ]
-        },
-        {
-         "q": "¿Hay más hombres o mujeres?",
-         "a": [
-          "Hay más hombres que mujeres.",
-          "Eso no decide nada: cualquiera puede estudiarla."
-         ]
-        },
-        {
-         "q": "¿El trabajo tiene prestaciones?",
-         "a": [
-          "La mayoría tiene un trabajo formal, con prestaciones.",
-          "Las prestaciones son cosas como seguro médico y aguinaldo."
-         ]
-        }
+       "correcta": 2,
+       "formula": "{30|600} = 0.05"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Algo tiene una probabilidad de 0.2 de pasar. ¿Cuál es la probabilidad de que no pase?",
+       "opciones": [
+        "0.2",
+        "0.8",
+        "1.2"
        ],
-       "minimo": 2
+       "correcta": 1
       },
       {
-       "tipo": "vf",
-       "afirmacion": "La mayoría de quienes estudian Actuaría trabaja en algo de su carrera.",
-       "respuesta": true,
-       "revelacion": "La mayoría trabaja en algo de su carrera. Promedio nacional del IMCO."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué te importa más de tu futuro trabajo?",
+       "tipo": "pregunta",
+       "pregunta": "Hay una probabilidad de 0.05 de perder 20,000 pesos. ¿Cuál es la pérdida esperada?",
        "opciones": [
-        "Que tenga que ver con lo que estudié",
-        "Ganar bien",
-        "Tener prestaciones",
-        "Hacer algo que me guste"
-       ]
+        "1,000",
+        "100",
+        "20,000"
+       ],
+       "correcta": 0,
+       "formula": "0.05 × 20,000 = 1,000"
       },
       {
-       "tipo": "clave",
-       "texto": "Pregunta cómo les va a quienes ya salieron."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "5.4",
-     "titulo": "Después de titularte",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Después de titularte",
-       "puntos": [
-        "Puedes especializarte con cursos, diplomados o una maestría.",
-        "También puedes trabajar desde el inicio y estudiar después.",
-        "Se combina bien con: Matemáticas, Economía, Finanzas."
-       ]
-      },
-      {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Qué harías al terminar?",
-       "a": {
-        "texto": "Trabajar desde el inicio",
-        "dice": "Ganas experiencia y dinero; después decides si estudias más."
-       },
-       "b": {
-        "texto": "Seguir estudiando",
-        "dice": "Te especializas antes; tardas más en empezar a trabajar."
-       }
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Cómo te imaginas después de la carrera?",
+       "tipo": "pregunta",
+       "pregunta": "¿Por qué una aseguradora cobra más que la prima pura?",
        "opciones": [
-        "Trabajando",
-        "En una maestría",
-        "Emprendiendo",
-        "No sé todavía"
-       ]
+        "Para que nadie compre el seguro",
+        "Para pagar gastos, guardar dinero para años malos y tener ganancia",
+        "No cobra más"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "clave",
-       "texto": "Al titularte empieza otra parte del camino, no termina."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "u6",
-   "lecciones": [
-    {
-     "id": "6.1",
-     "titulo": "Lo que sentiste",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Antes de ver tus respuestas: ¿cómo te fue con Actuaría?",
+       "tipo": "pregunta",
+       "pregunta": "¿Qué pasa cuando una aseguradora tiene más clientes independientes?",
        "opciones": [
-        "Me gustó más de lo que pensaba",
-        "Más o menos como esperaba",
-        "Me gustó menos de lo que pensaba"
-       ]
+        "El resultado se vuelve más impredecible",
+        "El resultado real se parece más a lo calculado",
+        "No cambia nada"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "resumen"
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "Viendo tus respuestas, ¿qué pesó más?",
+       "tipo": "pregunta",
+       "pregunta": "Inviertes 5,000 pesos al 10 por ciento anual durante 2 años. ¿Cuánto tienes al final?",
        "opciones": [
-        "Lo que sentí al probarla",
-        "Lo que supe de la realidad",
-        "El camino para llegar",
-        "El futuro que ofrece"
-       ]
+        "6,050",
+        "5,500",
+        "6,000"
+       ],
+       "correcta": 0,
+       "formula": "5,000 × 1.10 × 1.10 = 6,050"
       },
       {
-       "tipo": "clave",
-       "texto": "Lo que sentiste al probarla vale más que lo que imaginabas."
-      },
-      {
-       "tipo": "interes",
-       "pregunta": "¿Te ves estudiando Actuaría?"
-      }
-     ]
-    },
-    {
-     "id": "6.2",
-     "titulo": "Tu veredicto",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Si mañana tuvieras que elegir carrera, ¿Actuaría estaría entre tus opciones?",
+       "tipo": "pregunta",
+       "pregunta": "Vas a recibir 5,500 pesos dentro de un año y la tasa es del 10 por ciento. ¿Cuánto vale eso hoy?",
        "opciones": [
-        "Sí, entre las primeras",
-        "Sí, pero no arriba",
-        "No creo",
-        "No lo sé"
-       ]
+        "4,950",
+        "5,000",
+        "5,500"
+       ],
+       "correcta": 1,
+       "formula": "{5,500|1.10} = 5,000"
       },
       {
-       "tipo": "comparar"
+       "tipo": "pregunta",
+       "pregunta": "Una persona tiene una probabilidad de 0.002 de morir en el año, y su seguro paga un millón de pesos. ¿Cuál es la prima pura?",
+       "opciones": [
+        "200",
+        "2,000",
+        "20,000"
+       ],
+       "correcta": 1,
+       "formula": "0.002 × 1,000,000 = 2,000"
       },
       {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Qué te ayudaría más a decidir?",
-       "a": {
-        "texto": "Hablar con alguien que la estudia",
-        "dice": "Busca a un estudiante o egresado cerca de ti y hazle tus preguntas. Una plática aclara más que diez videos."
-       },
-       "b": {
-        "texto": "Probar otra carrera y comparar",
-        "dice": "Explora otra de tu mapa. Comparar dos caminos reales aclara más que pensar en uno solo."
-       }
+       "tipo": "pregunta",
+       "pregunta": "Todos tus clientes viven en la misma ciudad y hay un terremoto. ¿Qué te protege?",
+       "opciones": [
+        "El reaseguro y tener clientes en distintos lugares",
+        "La ley de los grandes números, por sí sola",
+        "Nada"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "veredicto"
-      },
-      {
-       "tipo": "clave",
-       "texto": "Decidir «en duda» también es avanzar."
+       "tipo": "pregunta",
+       "pregunta": "Te piden calcular una reserva más baja para mostrar más ganancias.",
+       "opciones": [
+        "Lo haces solo este año",
+        "Te niegas, porque luego no alcanzaría para pagarles a los clientes",
+        "Lo haces"
+       ],
+       "correcta": 1
       }
      ]
     }

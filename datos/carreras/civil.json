@@ -1,228 +1,159 @@
 {
  "id": "civil",
- "version": 1,
+ "version": 2,
+ "formato": 2,
  "estado": "completo",
- "generado": true,
- "revision": "Armada automáticamente con la base de carreras de Morelos y CDMX (2026-11-17). Falta que la revise alguien de la carrera.",
+ "revision": "Pendiente de revisión por un profesionista de la carrera. Generado con datos/importar_lecciones.py desde datos/fuentes/lecciones/civil.lec; no se edita a mano.",
  "unidades": [
   {
    "id": "u1",
+   "titulo": "Lo que aguanta",
+   "sub": "Fuerzas y materiales",
    "lecciones": [
     {
-     "id": "1.1",
-     "titulo": "Qué es y qué hace",
-     "minutos": 3,
+     "id": "0",
+     "titulo": "Conócela",
+     "minutos": 1,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "¿Qué es Ing. Civil?",
-       "texto": "Aplicación de matemáticas, ciencias y tecnología para diseñar, construir, operar y mejorar sistemas, productos o procesos. La especialidad define si el trabajo se concentra en infraestructura, energía, manufactura, electrónica, ambiente, transporte o materiales.",
-       "puntos": [
-        "Diseña, calcula o supervisa obras: edificios, puentes, carreteras, drenajes.",
-        "Alterna entre oficina (cálculos, planos, presupuestos) y obra (supervisar avances y seguridad)."
+       "tipo": "ficha",
+       "texto": "Ingeniería Civil forma ingenieros que diseñan y construyen edificios, puentes, carreteras, presas y redes de agua y drenaje. Calculan que las estructuras aguanten su peso y los sismos, y supervisan las obras.",
+       "cifras": [
+        "civil.ingreso",
+        "civil.duracion",
+        "civil.costo_publica",
+        "civil.costo_privada"
        ]
       },
       {
-       "tipo": "decision",
-       "pregunta": "Por lo que leíste, ¿qué hace alguien de Ing. Civil?",
-       "opciones": [
-        {
-         "texto": "Diseña, calcula o supervisa obras: edificios, puentes, carreteras, drenajes.",
-         "consecuencia": "Exacto: eso es parte del día a día en Ing. Civil.",
-         "mejor": true
-        },
-        {
-         "texto": "Consulta pacientes, interroga y explora, pide estudios, interpreta resultados, receta y da seguimiento.",
-         "consecuencia": "Eso lo hace alguien de Medicina."
-        },
-        {
-         "texto": "Estudia seres vivos en campo o laboratorio: monitorea especies, analiza muestras, participa en conservación, investigación, educación ambiental o industria.",
-         "consecuencia": "Eso lo hace alguien de Biología."
-        }
-       ]
-      },
-      {
-       "tipo": "completar",
-       "frase": "Ing. Civil es una carrera del área de ___.",
-       "opciones": [
-        "Ingenierías",
-        "Tecnología y ciencias",
-        "Arte y comunicación"
-       ],
-       "correcta": 0,
-       "revelacion": "Está en Ingenierías. Se parece a Arquitectura, Ingeniería Ambiental y Desarrollo Sustentable, Ingeniería Mecánica."
-      },
-      {
-       "tipo": "clave",
-       "texto": "Antes de elegir, entiende qué harías cada día, no solo el nombre."
-      },
-      {
-       "tipo": "interes"
+       "tipo": "escena",
+       "texto": "Hoy estás a cargo de una obra. Vamos a ver si lo que construyes se queda en pie."
       }
      ]
     },
     {
-     "id": "1.2",
-     "titulo": "Dónde trabajas",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Dónde trabaja alguien de Ing. Civil",
-       "texto": "Empresas industriales y tecnológicas, consultoría, construcción, energía, manufactura, telecomunicaciones, software, gobierno, investigación y emprendimiento;",
-       "puntos": [
-        "Depende de la especialidad."
-       ]
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Alguien de Ing. Civil solo puede trabajar en un tipo de lugar.",
-       "respuesta": false,
-       "revelacion": "Puede trabajar en varios: empresas industriales, tecnológicas, consultoría."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Dónde te ves trabajando?",
-       "opciones": [
-        "Empresas industriales",
-        "Tecnológicas",
-        "Consultoría",
-        "Construcción"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Una carrera abre varias puertas, no una sola."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "1.3",
-     "titulo": "Pregúntale a Rumbo",
+     "id": "1",
+     "titulo": "Compresión y tensión",
      "minutos": 4,
      "tarjetas": [
       {
-       "tipo": "chat",
-       "subtitulo": "Te cuenta cómo es trabajar en Ing. Civil",
-       "intro": [
-        "¡Hola! Junté lo que se sabe de Ing. Civil.",
-        "Pregúntame lo que quieras."
-       ],
-       "temas": [
+       "tipo": "info",
+       "titulo": "Compresión y tensión",
+       "partes": [
         {
-         "q": "¿Qué haces en un día normal?",
-         "a": [
-          "Diseña, calcula o supervisa obras: edificios, puentes, carreteras, drenajes.",
-          "Alterna entre oficina (cálculos, planos, presupuestos) y obra (supervisar avances y seguridad)."
-         ]
-        },
-        {
-         "q": "¿Qué es lo más difícil?",
-         "a": [
-          "Se considera una carrera de dificultad alta.",
-          "Cálculo, Estática y Mecánica de materiales",
-          "Luego Estructuras es el gran filtro."
-         ]
-        },
-        {
-         "q": "¿Hay trabajo?",
-         "a": [
-          "Cerca de la mitad trabaja en algo de su carrera. Es un promedio nacional del IMCO."
-         ]
-        },
-        {
-         "q": "¿Qué necesito para ejercer?",
-         "a": [
-          "Cédula para firmar proyectos",
-          "En CDMX, registro como Director Responsable de Obra para grandes construcciones."
-         ]
+         "t": "Las fuerzas en una estructura aprietan o estiran. Cuando aprietan se llama compresión, como en una columna que carga un techo. Cuando estiran se llama tensión, como en el cable de un puente colgante. El concreto aguanta muy bien la compresión, pero se agrieta fácilmente con la tensión. El acero aguanta muy bien la tensión. Por eso se combinan en el concreto armado: el concreto toma la compresión y las varillas de acero toman la tensión. En una viga cargada en medio, la parte de arriba se comprime y la parte de abajo se estira, así que las varillas principales van abajo."
         }
-       ],
-       "minimo": 2,
-       "auto": true
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Ing. Civil se considera una carrera de dificultad alta.",
-       "respuesta": true,
-       "revelacion": "Se considera de dificultad alta. Cálculo, Estática y Mecánica de materiales"
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué te llamó más la atención?",
-       "opciones": [
-        "¿Qué haces en un día normal?",
-        "¿Qué es lo más difícil?",
-        "¿Hay trabajo?",
-        "¿Qué necesito para ejercer?"
        ]
       },
       {
-       "tipo": "clave",
-       "texto": "Preguntar a quien ya sabe ahorra muchos errores."
+       "tipo": "pregunta",
+       "pregunta": "¿Qué fuerza aguanta mejor el concreto?",
+       "opciones": [
+        "La compresión",
+        "Las dos igual",
+        "La tensión"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "En una viga apoyada en sus extremos y cargada en medio, ¿qué parte se estira?",
+       "opciones": [
+        "Ninguna",
+        "La de arriba",
+        "La de abajo"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Un maestro de obra quiere poner las varillas de una viga hasta arriba \"para que no se vean\". ¿Qué le dices?",
+       "opciones": [
+        "Que las varillas principales van abajo, donde está la tensión",
+        "Que está bien",
+        "Que no lleve varillas"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Por qué se le pone acero al concreto?",
+       "opciones": [
+        "Para que se vea gris",
+        "Para que aguante la tensión, que el concreto solo no aguanta",
+        "Para que pese más"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
-     "id": "1.4",
-     "titulo": "Carreras parecidas",
-     "minutos": 3,
+     "id": "2",
+     "titulo": "Cuánto material",
+     "minutos": 4,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Carreras cercanas a Ing. Civil",
-       "puntos": [
-        "Arquitectura: diseño y planificación de edificios, espacios y ciudades.",
-        "Ingeniería Ambiental y Desarrollo Sustentable: aplicación de matemáticas, ciencias y tecnología para diseñar, construir.",
-        "Ingeniería Mecánica: aplicación de matemáticas, ciencias y tecnología para diseñar, construir.",
-        "Ingeniería Industrial: aplicación de matemáticas, ciencias y tecnología para diseñar, construir."
+       "titulo": "Cuánto material",
+       "partes": [
+        {
+         "t": "Antes de construir hay que calcular cuánto material se necesita. El concreto se pide en metros cúbicos, y el volumen de una losa o una zapata rectangular es:"
+        },
+        {
+         "f": "volumen = largo × ancho × espesor"
+        },
+        {
+         "t": "Todas las medidas tienen que estar en metros: 10 centímetros son 0.10 metros. Se pide un poco más de lo calculado, por desperdicio y por irregularidades del terreno. Si pides de menos, tienes que hacer un segundo colado y queda una junta débil; si pides de más, se tira dinero."
+        }
        ]
       },
       {
-       "tipo": "emparejar",
-       "pregunta": "Une cada carrera con lo que estudia.",
-       "pares": [
-        [
-         "Arquitectura",
-         "Diseño y planificación de edificios, espacios y ciudades"
-        ],
-        [
-         "Ingeniería Ambiental y Desarrollo Sustentable",
-         "Aplicación de matemáticas, ciencias y tecnología para diseñar, construir"
-        ],
-        [
-         "Ingeniería Mecánica",
-         "Aplicación de matemáticas, ciencias y tecnología para diseñar, construir"
-        ],
-        [
-         "Ingeniería Industrial",
-         "Aplicación de matemáticas, ciencias y tecnología para diseñar, construir"
-        ]
-       ],
-       "revelacion": "Se cruzan en temas, pero cada una tiene su propio enfoque."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Cuál de estas te da curiosidad?",
+       "tipo": "pregunta",
+       "pregunta": "Una losa mide 5 metros de largo, 4 de ancho y 0.10 de espesor. ¿Cuánto concreto lleva?",
        "opciones": [
-        "Arquitectura",
-        "Ingeniería Ambiental y Desarrollo Sustentable",
-        "Ingeniería Mecánica",
-        "Me quedo con Ing. Civil"
-       ]
+        "9.1 metros cúbicos",
+        "20 metros cúbicos",
+        "2 metros cúbicos"
+       ],
+       "correcta": 2,
+       "formula": "5 × 4 × 0.10 = 2"
       },
       {
-       "tipo": "clave",
-       "texto": "Si dudas entre dos, compara lo que harías cada día."
+       "tipo": "pregunta",
+       "pregunta": "Una banqueta mide 10 metros de largo, 1.5 de ancho y 10 centímetros de espesor. ¿Cuánto concreto lleva?",
+       "opciones": [
+        "15 metros cúbicos",
+        "150 metros cúbicos",
+        "1.5 metros cúbicos"
+       ],
+       "correcta": 2,
+       "formula": "10 × 1.5 × 0.10 = 1.5"
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "Alguien calcula con el espesor en centímetros sin convertir. ¿Qué pasa?",
+       "opciones": [
+        "Le sale bien",
+        "Le sale la mitad",
+        "Le sale un volumen 100 veces más grande"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Por qué se pide un poco más de concreto de lo calculado?",
+       "opciones": [
+        "No se pide más",
+        "Por desperdicio e irregularidades del terreno",
+        "Para regalar"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "teves"
       }
      ]
     }
@@ -230,202 +161,121 @@
   },
   {
    "id": "u2",
+   "titulo": "Suelo y sismos",
+   "sub": "Cimentación y seguridad",
    "lecciones": [
     {
-     "id": "2.1",
-     "titulo": "Mini reto",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Un puente peatonal debe cruzar un río de 40 metros. ¿Qué decides primero?",
-       "opciones": [
-        "Dónde apoyarlo según el suelo",
-        "Cuánto peso aguantará",
-        "Cuánto costará"
-       ]
-      },
-      {
-       "tipo": "info",
-       "titulo": "Así lo piensa alguien de Ing. Civil",
-       "texto": "Un ingeniero civil balancea seguridad, suelo, presupuesto y tiempo, y casi siempre hay que ceder algo. Hay oficina, pero también mucho trabajo en obra."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Te gustó pensar en algo así?",
-       "escala": [
-        "Nada",
-        "Mucho"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Los retos de una carrera se parecen a lo que harías en su trabajo."
-      },
-      {
-       "tipo": "interes",
-       "pregunta": "¿Te ves resolviendo retos así?"
-      }
-     ]
-    },
-    {
-     "id": "2.2",
-     "titulo": "Lo que te piden",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Habilidades que usarás en Ing. Civil",
-       "puntos": [
-        "Matemáticas y física",
-        "Visión espacial",
-        "Liderazgo en obra",
-        "Responsabilidad"
-       ]
-      },
-      {
-       "tipo": "completar",
-       "pregunta": "Según lo que leíste, completa la frase.",
-       "frase": "Para Ing. Civil es clave: ___.",
-       "opciones": [
-        "Matemáticas y física",
-        "Matemáticas avanzadas",
-        "Precisión en laboratorio"
-       ],
-       "correcta": 0,
-       "revelacion": "Es de las habilidades que más se usan en Ing. Civil."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué tanto se te da esto: visión espacial?",
-       "escala": [
-        "Me cuesta",
-        "Se me da"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Las habilidades se entrenan; lo importante es que te guste usarlas."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "2.3",
-     "titulo": "Temas que vas a ver",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Temas que te deben gustar",
-       "puntos": [
-        "Construcción",
-        "Infraestructura",
-        "Trabajo al aire libre"
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "¿Cuál de estos temas es más de Ing. Civil?",
-       "opciones": [
-        {
-         "texto": "Construcción",
-         "consecuencia": "Sí, es de sus temas centrales.",
-         "mejor": true
-        },
-        {
-         "texto": "Animales",
-         "consecuencia": "Ese es más de Veterinaria."
-        },
-        {
-         "texto": "Deporte",
-         "consecuencia": "Ese es más de Fisioterapia."
-        }
-       ]
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Cuál de estos temas te gusta más?",
-       "opciones": [
-        "Construcción",
-        "Infraestructura",
-        "Trabajo al aire libre",
-        "Ninguno me late"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Si los temas te aburren, la carrera se hace muy larga."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "2.4",
-     "titulo": "Materias clave",
+     "id": "3",
+     "titulo": "El suelo",
      "minutos": 4,
      "tarjetas": [
       {
-       "tipo": "voltear",
-       "pregunta": "¿Qué materias crees que llevas en cada etapa? Piénsalo y voltea.",
-       "cartas": [
+       "tipo": "info",
+       "titulo": "El suelo",
+       "partes": [
         {
-         "frente": "Semestres 1-2",
-         "reverso": "Cálculo diferencial e integral, Álgebra lineal, Física, Dibujo técnico"
+         "t": "Toda construcción descansa en el suelo, y no todos los suelos aguantan lo mismo. La cimentación reparte el peso del edificio en un área para que el suelo lo resista. El esfuerzo que recibe el suelo es:"
         },
         {
-         "frente": "Semestres 3-4",
-         "reverso": "Estática, Mecánica de materiales, Topografía, Geología"
+         "f": "esfuerzo = {fuerza|área}"
         },
         {
-         "frente": "Semestres 5-6",
-         "reverso": "Análisis estructural, Mecánica de suelos, Hidráulica, Concreto y acero"
-        },
-        {
-         "frente": "Semestres 7 en adelante",
-         "reverso": "Vías terrestres, Administración de obra, Proyecto final"
+         "t": "Si el suelo es débil, como las arcillas blandas de buena parte de la Ciudad de México, se necesita una cimentación más grande o pilotes que bajen hasta capas firmes. Por eso antes de diseñar se hace un estudio de mecánica de suelos."
         }
        ]
       },
       {
-       "tipo": "decision",
-       "pregunta": "¿Cuál de estas materias llevarías en Ing. Civil?",
+       "tipo": "pregunta",
+       "pregunta": "Una columna baja 200 kilonewtons a una zapata de 2 metros cuadrados. ¿Qué esfuerzo recibe el suelo?",
        "opciones": [
+        "400",
+        "100 kilonewtons por metro cuadrado",
+        "202"
+       ],
+       "correcta": 1,
+       "formula": "{200|2} = 100"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "El suelo solo aguanta 50 kilonewtons por metro cuadrado. ¿Qué haces con esa zapata?",
+       "opciones": [
+        "La dejas igual",
+        "La haces más grande para repartir mejor la carga",
+        "La haces más chica"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Para qué sirve un estudio de mecánica de suelos?",
+       "opciones": [
+        "Para saber cuánto aguanta el terreno antes de diseñar la cimentación",
+        "Para elegir pintura",
+        "Para sembrar"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "teves"
+      }
+     ]
+    },
+    {
+     "id": "4",
+     "titulo": "Sismos",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "Sismos",
+       "partes": [
         {
-         "texto": "Cálculo diferencial e integral",
-         "consecuencia": "Sí: es de las primeras materias de Ing. Civil.",
-         "mejor": true
-        },
-        {
-         "texto": "Anatomía veterinaria",
-         "consecuencia": "Esa es de Veterinaria."
-        },
-        {
-         "texto": "Teoría política",
-         "consecuencia": "Esa es de Ciencias políticas."
+         "t": "Gran parte de México está en zona sísmica, incluido Morelos, que sufrió mucho en el sismo de 2017. En un sismo el suelo se mueve de lado y el edificio tiene que aguantar esas fuerzas sin caerse. Algunas reglas básicas: las estructuras deben ser regulares y simétricas; los muros deben estar bien confinados con castillos y dalas; y hay que evitar la planta baja débil, que es cuando abajo hay pura columna y arriba muchos muros, porque abajo se concentra el daño. El reglamento de construcción indica cómo diseñar para el sismo de cada zona."
         }
        ]
       },
       {
-       "tipo": "reflexion",
-       "pregunta": "¿Cuál te da más curiosidad?",
+       "tipo": "pregunta",
+       "pregunta": "¿Qué es un piso débil en planta baja?",
        "opciones": [
-        "Cálculo diferencial e integral",
-        "Álgebra lineal",
-        "Física",
-        "Dibujo técnico"
-       ]
+        "Un piso sin pintar",
+        "Un piso de madera",
+        "Abajo pocas columnas y nada de muros, y arriba muchos muros"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "clave",
-       "texto": "Las primeras materias son la base; muchas veces son las más pesadas."
+       "tipo": "pregunta",
+       "pregunta": "¿Para qué sirven los castillos y dalas en una casa de tabique?",
+       "opciones": [
+        "Confinan los muros para que aguanten los sismos",
+        "Para decorar",
+        "Para colgar cuadros"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "Un cliente quiere quitar todos los muros de la planta baja para hacer un local, y arriba tiene tres pisos de departamentos.",
+       "opciones": [
+        "Le explicas el riesgo de piso débil y se hace un diseño estructural que lo compense",
+        "Quitas la mitad",
+        "Lo haces sin revisar"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Después de un sismo, una columna tiene grietas en forma de X. ¿Qué haces?",
+       "opciones": [
+        "Se evalúa la estructura antes de que la gente vuelva a usarla",
+        "Nada",
+        "La pintas"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "teves"
       }
      ]
     }
@@ -433,184 +283,179 @@
   },
   {
    "id": "u3",
+   "titulo": "Servicios y obra",
+   "sub": "Agua, caminos y responsabilidad",
    "lecciones": [
     {
-     "id": "3.1",
-     "titulo": "Un día real",
+     "id": "5",
+     "titulo": "Agua potable y drenaje",
      "minutos": 4,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Un día de trabajo en Ing. Civil",
-       "puntos": [
-        "Diseña, calcula o supervisa obras: edificios, puentes, carreteras, drenajes.",
-        "Alterna entre oficina (cálculos, planos, presupuestos) y obra (supervisar avances y seguridad)."
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "¿Qué de esto NO es parte del día de alguien de Ing. Civil?",
-       "opciones": [
+       "titulo": "Agua potable y drenaje",
+       "partes": [
         {
-         "texto": "Analiza sustancias, desarrolla nuevos materiales o productos y controla la calidad en laboratorios de industria (alimentos, cosméticos, farmacéutica) o de investigación.",
-         "consecuencia": "Exacto: eso lo hace alguien de Química.",
-         "mejor": true
+         "t": "Un ingeniero civil también diseña cómo llega el agua a las casas y cómo sale. El caudal es cuánta agua pasa en un tiempo:"
         },
         {
-         "texto": "Diseña, calcula o supervisa obras: edificios, puentes, carreteras, drenajes.",
-         "consecuencia": "Esto sí lo hace: es parte de su día."
+         "f": "caudal = {volumen|tiempo}"
         },
         {
-         "texto": "Alterna entre oficina (cálculos, planos, presupuestos) y obra (supervisar avances y seguridad).",
-         "consecuencia": "Esto sí lo hace: es parte de su día."
+         "t": "Para diseñar una red se estima cuánta agua usa cada persona al día. El drenaje funciona por gravedad, así que los tubos necesitan pendiente: bajada constante hacia la salida. Sin pendiente, el agua se estanca y los tubos se tapan. El agua de lluvia, en lo ideal, se separa del drenaje de las casas."
         }
        ]
       },
       {
-       "tipo": "reflexion",
-       "pregunta": "¿Te ves haciendo esto todos los días?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
+       "tipo": "pregunta",
+       "pregunta": "Un tinaco de 1,100 litros se llena en 2 horas. ¿Cuál es el caudal?",
+       "opciones": [
+        "2,200 litros por hora",
+        "550 litros por hora",
+        "1,102"
+       ],
+       "correcta": 1,
+       "formula": "{1,100|2} = 550"
       },
       {
-       "tipo": "clave",
-       "texto": "El día a día pesa más que el título."
+       "tipo": "pregunta",
+       "pregunta": "Una colonia de 1,000 personas usa 150 litros por persona al día. ¿Cuánta agua necesita al día?",
+       "opciones": [
+        "150,000 litros",
+        "1,150 litros",
+        "15,000 litros"
+       ],
+       "correcta": 0,
+       "formula": "1,000 × 150 = 150,000"
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "Un tubo de drenaje quedó horizontal, sin bajada. ¿Qué pasará?",
+       "opciones": [
+        "Nada",
+        "El agua se estancará y se tapará",
+        "Funcionará mejor"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
-     "id": "3.2",
-     "titulo": "Lo difícil",
+     "id": "6",
+     "titulo": "Caminos",
      "minutos": 4,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Lo difícil de Ing. Civil",
-       "texto": "Se considera de dificultad alta.",
-       "puntos": [
-        "Cálculo, Estática y Mecánica de materiales",
-        "Luego Estructuras es el gran filtro."
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "Según lo que leíste, ¿qué es lo que más cuesta en Ing. Civil?",
-       "opciones": [
+       "titulo": "Caminos",
+       "partes": [
         {
-         "texto": "Cálculo, Estática y Mecánica de materiales",
-         "consecuencia": "Sí, es de lo que más cuesta en Ing. Civil.",
-         "mejor": true
+         "t": "En una carretera, la pendiente dice cuánto sube o baja por cada 100 metros:"
         },
         {
-         "texto": "Talleres de proyecto, Materiales y procesos de manufactura, modelado 3D.",
-         "consecuencia": "Eso es más de Diseño industrial."
+         "f": "pendiente = {desnivel|distancia horizontal} × 100"
         },
         {
-         "texto": "Cálculo, Probabilidad y Estadística matemática desde el primer semestre",
-         "consecuencia": "Eso es más de Actuaría."
+         "t": "Pendientes muy fuertes hacen que los camiones pesados vayan muy lento al subir y se queden sin frenos al bajar. Por eso en las montañas las carreteras zigzaguean. Las curvas se diseñan según la velocidad: a más velocidad, curvas más abiertas. Y el agua es el peor enemigo del pavimento: si no se drena bien, se hacen baches."
         }
        ]
       },
       {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué tanto te preocupa esto?",
-       "escala": [
-        "Mucho",
+       "tipo": "pregunta",
+       "pregunta": "Un camino sube 6 metros en 100 metros horizontales. ¿Cuál es su pendiente?",
+       "opciones": [
+        "60 por ciento",
+        "0.6 por ciento",
+        "6 por ciento"
+       ],
+       "correcta": 2,
+       "formula": "{6|100} × 100 = 6"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Un camino sube 15 metros en 300 metros horizontales. ¿Cuál es su pendiente?",
+       "opciones": [
+        "15 por ciento",
+        "20 por ciento",
+        "5 por ciento"
+       ],
+       "correcta": 2,
+       "formula": "{15|300} × 100 = 5"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Por qué las carreteras de montaña zigzaguean?",
+       "opciones": [
+        "Para que la pendiente no sea demasiado fuerte",
+        "Para que el paisaje se vea mejor",
+        "Por error"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Una calle se llena de baches cada temporada de lluvias. ¿Qué revisas?",
+       "opciones": [
+        "El drenaje del agua en esa calle",
+        "El color del pavimento",
         "Nada"
-       ]
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "clave",
-       "texto": "Saber lo difícil desde antes te ayuda a prepararte."
-      },
-      {
-       "tipo": "interes"
+       "tipo": "teves"
       }
      ]
     },
     {
-     "id": "3.3",
-     "titulo": "Historia real",
-     "minutos": 3,
+     "id": "7",
+     "titulo": "La obra y la responsabilidad",
+     "minutos": 4,
      "tarjetas": [
       {
-       "tipo": "reflexion",
-       "pregunta": "Si pudieras preguntarle algo a alguien que ya estudia Ing. Civil, ¿qué sería?",
+       "tipo": "info",
+       "titulo": "La obra y la responsabilidad",
+       "partes": [
+        {
+         "t": "En la obra, el ingeniero revisa que se construya como dicen los planos, con los materiales correctos. Al concreto se le hacen pruebas: se toman muestras en cilindros y se prueban a los 28 días para verificar que alcanzó su resistencia. Un perito o director responsable de obra firma y responde por la seguridad. Ceder ante presiones para ahorrar en materiales o saltarse pruebas puede costar vidas."
+        }
+       ]
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Para qué se toman cilindros de concreto en la obra?",
        "opciones": [
-        "¿Qué fue lo más difícil?",
-        "¿Qué te sorprendió?",
-        "¿Volverías a elegirla?",
-        "¿Cómo es un día normal?"
-       ]
+        "Para tirarlos",
+        "Para probar que el concreto alcanzó la resistencia de diseño",
+        "Para decorar"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "testimonio",
-       "estado": "pendiente",
-       "perfil": "Estudiante de últimos semestres o egresado de Ing. Civil"
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "Mientras llega esta historia, ¿a quién podrías preguntarle tú?",
+       "tipo": "pregunta",
+       "pregunta": "El constructor quiere usar varilla más delgada que la del plano para ahorrar.",
        "opciones": [
-        "A un familiar o conocido que la estudió",
-        "A un estudiante de mi ciudad",
-        "A un maestro que la conozca",
-        "Todavía no conozco a nadie"
-       ]
+        "Aceptas si nadie se entera",
+        "Te niegas; se usa la del diseño o el estructurista revisa un cambio formal",
+        "Aceptas"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "clave",
-       "texto": "Una persona real te cuenta lo que ningún folleto dice."
+       "tipo": "pregunta",
+       "pregunta": "Las pruebas del concreto de una losa salieron por debajo de lo especificado.",
+       "opciones": [
+        "Se cambia el resultado",
+        "Se reporta y se evalúa qué hacer antes de seguir cargando la estructura",
+        "Se ignora"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "3.4",
-     "titulo": "¿Es para ti?",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Contesta con honestidad. Nadie más ve tus respuestas."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Me gustan las matemáticas y la física?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Me veo en una obra con casco?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Me interesa cómo se sostienen los edificios?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Si dijiste que sí a casi todo, vale la pena seguir explorándola."
-      },
-      {
-       "tipo": "interes"
+       "tipo": "teves"
       }
      ]
     }
@@ -618,448 +463,128 @@
   },
   {
    "id": "u4",
+   "titulo": "Examen final",
+   "sub": "10 preguntas · apruebas con 7",
    "lecciones": [
     {
-     "id": "4.1",
-     "titulo": "Cuánto dura y qué estudias",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Cada escuela arma su plan distinto, pero el orden general se parece. Vamos a verlo."
-      },
-      {
-       "tipo": "ordenar",
-       "pregunta": "Ordena lo que estudias, de lo primero a lo último.",
-       "pasos": [
-        "Cálculo diferencial e integral, Álgebra lineal",
-        "Estática, Mecánica de materiales",
-        "Análisis estructural, Mecánica de suelos",
-        "Vías terrestres, Administración de obra"
-       ],
-       "revelacion": "Primero las bases y al final lo más especializado y las prácticas."
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Cuántos años crees que pasan desde que entras hasta que te titulas?",
-       "min": 3,
-       "max": 10,
-       "paso": 1,
-       "unidad": "años",
-       "dato": "civil.duracion"
-      },
-      {
-       "tipo": "clave",
-       "texto": "Revisa el mapa curricular de cada escuela: cambia de una a otra."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "4.2",
-     "titulo": "Cómo se entra",
-     "minutos": 4,
+     "id": "ex",
+     "titulo": "Examen final",
+     "minutos": 6,
+     "examen": true,
+     "aprobar": 7,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Cómo se entra en la región",
-       "puntos": [
-        "UNAM: Concurso de selección UNAM (120 reactivos) o pase reglamentado desde CCH/ENP",
-        "IPN: Examen de admisión IPN (140 preguntas, hasta 3 horas, incluye sección de inglés)",
-        "UAM: Examen de selección UAM (trimestral; dos procesos al año y procesos extraordinarios)",
-        "Tec de Monterrey: PAA (Prueba de Aptitud Académica), SAT o ACT + promedio + perfil integral (ensayo, currículum)"
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "Según lo que leíste, ¿qué pide UNAM para entrar?",
-       "opciones": [
+       "titulo": "Examen final",
+       "partes": [
         {
-         "texto": "Concurso de selección UNAM (120 reactivos) o pase reglamentado desde CCH/ENP",
-         "consecuencia": "Exacto.",
-         "mejor": true
-        },
-        {
-         "texto": "Examen de admisión IPN (140 preguntas, hasta 3 horas, incluye sección de inglés)",
-         "consecuencia": "Eso lo pide IPN."
-        },
-        {
-         "texto": "Examen de selección UAM (trimestral; dos procesos al año y procesos extraordinarios)",
-         "consecuencia": "Eso lo pide UAM."
+         "t": "Son 10 casos nuevos que mezclan todas las lecciones. Apruebas con 7. Si no, lo repites y las que fallaste regresan con otras palabras."
         }
        ]
       },
       {
-       "tipo": "vf",
-       "afirmacion": "Todas las universidades usan el mismo examen.",
-       "respuesta": false,
-       "revelacion": "Cada una tiene el suyo: revisa la convocatoria de la que te interese."
-      },
-      {
-       "tipo": "clave",
-       "texto": "Conoce el examen de tu escuela desde antes."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "4.3",
-     "titulo": "Dónde, cuánto cuesta y becas",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "escuelas"
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Cuánto crees que cuesta un semestre en una universidad pública?",
-       "min": 0,
-       "max": 60000,
-       "paso": 1000,
-       "unidad": "pesos",
-       "dato": "civil.costo_publica"
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Y un semestre en una universidad privada?",
-       "min": 0,
-       "max": 300000,
-       "paso": 5000,
-       "unidad": "pesos",
-       "dato": "civil.costo_privada"
-      },
-      {
-       "tipo": "dato",
-       "titulo": "Becas para estudiar Ing. Civil",
-       "dato": "civil.becas"
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Una universidad cara garantiza un mejor empleo.",
-       "respuesta": false,
-       "revelacion": "Pesan más lo que aprendes, tus prácticas y tu esfuerzo."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué pesa más para ti al elegir escuela?",
+       "tipo": "pregunta",
+       "pregunta": "¿Qué aguanta mejor el acero?",
        "opciones": [
-        "El costo",
-        "Que esté cerca de mi casa",
-        "El prestigio",
-        "Las prácticas que ofrece"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Además de la colegiatura, cuenta transporte y materiales."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "u5",
-   "lecciones": [
-    {
-     "id": "5.1",
-     "titulo": "Qué piden para trabajar",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Qué te piden para trabajar",
-       "puntos": [
-        "Cédula para firmar proyectos",
-        "En CDMX, registro como Director Responsable de Obra para grandes construcciones."
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "Según lo que leíste, ¿qué necesitas para ejercer Ing. Civil?",
-       "opciones": [
-        {
-         "texto": "Cédula para firmar proyectos",
-         "consecuencia": "Exacto.",
-         "mejor": true
-        },
-        {
-         "texto": "Título y cédula profesional.",
-         "consecuencia": "Eso lo piden en Fisioterapia."
-        },
-        {
-         "texto": "No requiere cédula",
-         "consecuencia": "Eso lo piden en Gastronomía."
-        }
-       ]
-      },
-      {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Cómo te ves?",
-       "a": {
-        "texto": "En una institución o empresa",
-        "dice": "Más estabilidad y un equipo de quien aprender."
-       },
-       "b": {
-        "texto": "Por tu cuenta",
-        "dice": "Más libertad, pero tienes que conseguir clientes."
-       }
-      },
-      {
-       "tipo": "clave",
-       "texto": "Saber qué te piden te ahorra sorpresas al salir."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "5.2",
-     "titulo": "Sueldo y demanda",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Hablemos de dinero sin rodeos. Antes de ver cualquier cifra, apuesta: así recuerdas mejor el dato real."
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Cuánto crees que gana al mes, en promedio, un profesionista de Ing. Civil en México?",
-       "min": 5000,
-       "max": 100000,
-       "paso": 1000,
-       "unidad": "pesos",
-       "dato": "civil.ingreso"
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "De cada 100 egresados, ¿cuántos crees que trabajan en algo de su carrera?",
-       "min": 0,
-       "max": 100,
-       "paso": 5,
-       "unidad": "de cada 100",
-       "dato": "civil.ocupacion_afin"
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Todos los egresados de Ing. Civil ganan lo mismo.",
-       "respuesta": false,
-       "revelacion": "Cambia con la experiencia, el lugar, la especialidad y si trabajas por tu cuenta."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué tanto pesa el sueldo en tu decisión?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "El promedio orienta, pero tu camino puede ser distinto."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "5.3",
-     "titulo": "Cómo les va al salir",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "chat",
-       "subtitulo": "Te cuenta cómo les va al salir",
-       "intro": [
-        "Te cuento cómo les va a quienes estudian Ing. Civil al salir."
+        "Nada",
+        "El fuego directo",
+        "La tensión"
        ],
-       "temas": [
-        {
-         "q": "¿Cuántos trabajan en lo suyo?",
-         "a": [
-          "Cerca de la mitad trabaja en algo de su carrera.",
-          "Es un promedio nacional del IMCO."
-         ]
-        },
-        {
-         "q": "¿Muchos hacen posgrado?",
-         "a": [
-          "Pocos hacen posgrado; la mayoría empieza a trabajar."
-         ]
-        },
-        {
-         "q": "¿Hay más hombres o mujeres?",
-         "a": [
-          "Hay más hombres que mujeres.",
-          "Eso no decide nada: cualquiera puede estudiarla."
-         ]
-        },
-        {
-         "q": "¿El trabajo tiene prestaciones?",
-         "a": [
-          "La mayoría tiene un trabajo formal, con prestaciones.",
-          "Las prestaciones son cosas como seguro médico y aguinaldo."
-         ]
-        }
+       "correcta": 2
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Una losa mide 6 metros por 5 metros y 0.10 de espesor. ¿Cuánto concreto lleva?",
+       "opciones": [
+        "3 metros cúbicos",
+        "30 metros cúbicos",
+        "11.1 metros cúbicos"
        ],
-       "minimo": 2
+       "correcta": 0,
+       "formula": "6 × 5 × 0.10 = 3"
       },
       {
-       "tipo": "vf",
-       "afirmacion": "La mayoría de quienes estudian Ing. Civil trabaja en algo de su carrera.",
-       "respuesta": false,
-       "revelacion": "Cerca de la mitad trabaja en algo de su carrera. Promedio nacional del IMCO."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué te importa más de tu futuro trabajo?",
+       "tipo": "pregunta",
+       "pregunta": "Una columna baja 300 kilonewtons a una zapata de 3 metros cuadrados. ¿Qué esfuerzo recibe el suelo?",
        "opciones": [
-        "Que tenga que ver con lo que estudié",
-        "Ganar bien",
-        "Tener prestaciones",
-        "Hacer algo que me guste"
-       ]
+        "100 kilonewtons por metro cuadrado",
+        "900",
+        "303"
+       ],
+       "correcta": 0,
+       "formula": "{300|3} = 100"
       },
       {
-       "tipo": "clave",
-       "texto": "Pregunta cómo les va a quienes ya salieron."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "5.4",
-     "titulo": "Después de titularte",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Después de titularte",
-       "puntos": [
-        "Puedes especializarte con cursos, diplomados o una maestría.",
-        "También puedes trabajar desde el inicio y estudiar después.",
-        "Se combina bien con: Arquitectura, Ingeniería Ambiental y Desarrollo Sustentable, Ingeniería Mecánica."
-       ]
-      },
-      {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Qué harías al terminar?",
-       "a": {
-        "texto": "Trabajar desde el inicio",
-        "dice": "Ganas experiencia y dinero; después decides si estudias más."
-       },
-       "b": {
-        "texto": "Seguir estudiando",
-        "dice": "Te especializas antes; tardas más en empezar a trabajar."
-       }
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Cómo te imaginas después de la carrera?",
+       "tipo": "pregunta",
+       "pregunta": "¿Qué haces si el suelo es débil?",
        "opciones": [
-        "Trabajando",
-        "En una maestría",
-        "Emprendiendo",
-        "No sé todavía"
-       ]
+        "Zapatas más chicas",
+        "Cimentación más grande o pilotes",
+        "Nada"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "clave",
-       "texto": "Al titularte empieza otra parte del camino, no termina."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "u6",
-   "lecciones": [
-    {
-     "id": "6.1",
-     "titulo": "Lo que sentiste",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Antes de ver tus respuestas: ¿cómo te fue con Ing. Civil?",
+       "tipo": "pregunta",
+       "pregunta": "¿Qué es un piso débil en planta baja?",
        "opciones": [
-        "Me gustó más de lo que pensaba",
-        "Más o menos como esperaba",
-        "Me gustó menos de lo que pensaba"
-       ]
+        "Un piso de cerámica",
+        "Un piso mojado",
+        "Pocas columnas abajo y muchos muros arriba"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "resumen"
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "Viendo tus respuestas, ¿qué pesó más?",
+       "tipo": "pregunta",
+       "pregunta": "Un tanque de 2,000 litros se llena en 4 horas. ¿Cuál es el caudal?",
        "opciones": [
-        "Lo que sentí al probarla",
-        "Lo que supe de la realidad",
-        "El camino para llegar",
-        "El futuro que ofrece"
-       ]
+        "2,004",
+        "8,000",
+        "500 litros por hora"
+       ],
+       "correcta": 2,
+       "formula": "{2,000|4} = 500"
       },
       {
-       "tipo": "clave",
-       "texto": "Lo que sentiste al probarla vale más que lo que imaginabas."
-      },
-      {
-       "tipo": "interes",
-       "pregunta": "¿Te ves estudiando Ing. Civil?"
-      }
-     ]
-    },
-    {
-     "id": "6.2",
-     "titulo": "Tu veredicto",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Si mañana tuvieras que elegir carrera, ¿Ing. Civil estaría entre tus opciones?",
+       "tipo": "pregunta",
+       "pregunta": "¿Por qué el drenaje necesita pendiente?",
        "opciones": [
-        "Sí, entre las primeras",
-        "Sí, pero no arriba",
-        "No creo",
-        "No lo sé"
-       ]
+        "No la necesita",
+        "Porque funciona por gravedad",
+        "Por estética"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "comparar"
+       "tipo": "pregunta",
+       "pregunta": "Un camino sube 8 metros en 200 metros. ¿Cuál es su pendiente?",
+       "opciones": [
+        "25 por ciento",
+        "8 por ciento",
+        "4 por ciento"
+       ],
+       "correcta": 2,
+       "formula": "{8|200} × 100 = 4"
       },
       {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Qué te ayudaría más a decidir?",
-       "a": {
-        "texto": "Hablar con alguien que la estudia",
-        "dice": "Busca a un estudiante o egresado cerca de ti y hazle tus preguntas. Una plática aclara más que diez videos."
-       },
-       "b": {
-        "texto": "Probar otra carrera y comparar",
-        "dice": "Explora otra de tu mapa. Comparar dos caminos reales aclara más que pensar en uno solo."
-       }
+       "tipo": "pregunta",
+       "pregunta": "¿A los cuántos días se prueban normalmente los cilindros de concreto?",
+       "opciones": [
+        "A los 28",
+        "Al día siguiente",
+        "Al año"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "veredicto"
-      },
-      {
-       "tipo": "clave",
-       "texto": "Decidir «en duda» también es avanzar."
+       "tipo": "pregunta",
+       "pregunta": "Te piden cambiar el acero por uno más delgado para ahorrar.",
+       "opciones": [
+        "Aceptas",
+        "Te niegas o se revisa formalmente con el estructurista",
+        "No dices nada"
+       ],
+       "correcta": 1
       }
      ]
     }

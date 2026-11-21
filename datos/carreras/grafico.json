@@ -1,228 +1,151 @@
 {
  "id": "grafico",
- "version": 1,
+ "version": 2,
+ "formato": 2,
  "estado": "completo",
- "generado": true,
- "revision": "Armada automáticamente con la base de carreras de Morelos y CDMX (2026-11-17). Falta que la revise alguien de la carrera.",
+ "revision": "Pendiente de revisión por un profesionista de la carrera. Generado con datos/importar_lecciones.py desde datos/fuentes/lecciones/grafico.lec; no se edita a mano.",
  "unidades": [
   {
    "id": "u1",
+   "titulo": "Que se entienda",
+   "sub": "Jerarquía y tipografía",
    "lecciones": [
     {
-     "id": "1.1",
-     "titulo": "Qué es y qué hace",
-     "minutos": 3,
+     "id": "0",
+     "titulo": "Conócela",
+     "minutos": 1,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "¿Qué es Diseño gráfico?",
-       "texto": "Creación, interpretación y comunicación mediante lenguajes visuales, escénicos, audiovisuales o sonoros. Combina técnica, práctica constante, desarrollo de portafolio y proyectos.",
-       "puntos": [
-        "Crea logotipos, campañas, empaques, publicaciones y contenido digital",
-        "Presenta propuestas a clientes, recibe correcciones y entrega archivos listos."
+       "tipo": "ficha",
+       "texto": "Diseño Gráfico forma diseñadores que comunican con imágenes, letras y color: logos, carteles, empaques, páginas web, redes sociales y publicaciones. Trabajan en agencias, estudios, empresas, editoriales o por su cuenta.",
+       "cifras": [
+        "grafico.ingreso",
+        "grafico.duracion",
+        "grafico.costo_publica",
+        "grafico.costo_privada"
        ]
       },
       {
-       "tipo": "decision",
-       "pregunta": "Por lo que leíste, ¿qué hace alguien de Diseño gráfico?",
-       "opciones": [
-        {
-         "texto": "Crea logotipos, campañas, empaques, publicaciones y contenido digital",
-         "consecuencia": "Exacto: eso es parte del día a día en Diseño gráfico.",
-         "mejor": true
-        },
-        {
-         "texto": "Calcula riesgos con modelos estadísticos: cuánto debe costar un seguro, cuánto debe ahorrar un fondo de pensiones o qué tan probable es que un cliente no…",
-         "consecuencia": "Eso lo hace alguien de Actuaría."
-        },
-        {
-         "texto": "Trabaja en laboratorios clínicos (analiza sangre y muestras), en la industria farmacéutica (fabrica y controla la calidad de medicamentos), en hospitales o en regulación sanitaria.",
-         "consecuencia": "Eso lo hace alguien de QFB."
-        }
-       ]
-      },
-      {
-       "tipo": "completar",
-       "frase": "Diseño gráfico es una carrera del área de ___.",
-       "opciones": [
-        "Arte y comunicación",
-        "Salud",
-        "Ingenierías"
-       ],
-       "correcta": 0,
-       "revelacion": "Está en Arte y comunicación. Se parece a Animación y Arte Digital, Ciencias de la Comunicación, Mercadotecnia."
-      },
-      {
-       "tipo": "clave",
-       "texto": "Antes de elegir, entiende qué harías cada día, no solo el nombre."
-      },
-      {
-       "tipo": "interes"
+       "tipo": "escena",
+       "texto": "Hoy te llega un cliente con un encargo. Vamos a ver si tu diseño comunica."
       }
      ]
     },
     {
-     "id": "1.2",
-     "titulo": "Dónde trabajas",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Dónde trabaja alguien de Diseño gráfico",
-       "texto": "Estudios creativos, agencias, productoras, editoriales, museos, instituciones culturales, compañías escénicas, medios, entretenimiento, trabajo independiente y emprendimientos.",
-       "puntos": [
-        "El portafolio y la experiencia son decisivos."
-       ]
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Alguien de Diseño gráfico solo puede trabajar en un tipo de lugar.",
-       "respuesta": false,
-       "revelacion": "Puede trabajar en varios: estudios creativos, agencias, productoras."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Dónde te ves trabajando?",
-       "opciones": [
-        "Estudios creativos",
-        "Agencias",
-        "Productoras",
-        "Editoriales"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Una carrera abre varias puertas, no una sola."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "1.3",
-     "titulo": "Pregúntale a Rumbo",
+     "id": "1",
+     "titulo": "Jerarquía visual",
      "minutos": 4,
      "tarjetas": [
       {
-       "tipo": "chat",
-       "subtitulo": "Te cuenta cómo es trabajar en Diseño gráfico",
-       "intro": [
-        "¡Hola! Junté lo que se sabe de Diseño gráfico.",
-        "Pregúntame lo que quieras."
-       ],
-       "temas": [
+       "tipo": "info",
+       "titulo": "Jerarquía visual",
+       "partes": [
         {
-         "q": "¿Qué haces en un día normal?",
-         "a": [
-          "Crea logotipos, campañas, empaques, publicaciones y contenido digital",
-          "Presenta propuestas a clientes, recibe correcciones y entrega archivos listos."
-         ]
-        },
-        {
-         "q": "¿Qué es lo más difícil?",
-         "a": [
-          "Se considera una carrera de dificultad media.",
-          "Talleres con muchas entregas y críticas",
-          "Poca matemática."
-         ]
-        },
-        {
-         "q": "¿Hay trabajo?",
-         "a": [
-          "Cerca de la mitad trabaja en algo de su carrera. Es un promedio nacional del IMCO."
-         ]
-        },
-        {
-         "q": "¿Qué necesito para ejercer?",
-         "a": [
-          "No requiere cédula",
-          "El portafolio es lo que consigue trabajo."
-         ]
+         "t": "Un buen diseño le dice al ojo por dónde empezar. Eso es la jerarquía visual: lo más importante se ve primero, por su tamaño, su color, su contraste o su posición. Si todo es grande y llamativo, nada destaca. El espacio en blanco, que es el espacio vacío alrededor de los elementos, no es desperdicio: ayuda a que lo importante respire y se lea mejor. En un cartel, por ejemplo, el ojo debería ver primero el mensaje principal, luego los datos clave, como fecha y lugar, y al final los detalles."
         }
-       ],
-       "minimo": 2,
-       "auto": true
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Diseño gráfico se considera una carrera de dificultad media.",
-       "respuesta": true,
-       "revelacion": "Se considera de dificultad media. Talleres con muchas entregas y críticas"
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué te llamó más la atención?",
-       "opciones": [
-        "¿Qué haces en un día normal?",
-        "¿Qué es lo más difícil?",
-        "¿Hay trabajo?",
-        "¿Qué necesito para ejercer?"
        ]
       },
       {
-       "tipo": "clave",
-       "texto": "Preguntar a quien ya sabe ahorra muchos errores."
+       "tipo": "pregunta",
+       "pregunta": "En un cartel de un concierto, ¿qué debe verse primero?",
+       "opciones": [
+        "El aviso de privacidad",
+        "Los logos de los patrocinadores",
+        "El nombre del evento o del artista"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "Un cliente pide que todo en su volante esté en letra grande y en rojo \"para que se note\". ¿Qué le explicas?",
+       "opciones": [
+        "Que si todo destaca, nada destaca",
+        "Que tiene razón",
+        "Que mejor todo en amarillo"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Para qué sirve el espacio en blanco?",
+       "opciones": [
+        "Para que lo importante respire y se lea mejor",
+        "Para ahorrar tinta",
+        "Es un error"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Con qué puedes hacer que un elemento destaque?",
+       "opciones": [
+        "Con tamaño, color, contraste o posición",
+        "Solo con el tamaño",
+        "No se puede"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
-     "id": "1.4",
-     "titulo": "Carreras parecidas",
-     "minutos": 3,
+     "id": "2",
+     "titulo": "Tipografía",
+     "minutos": 4,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Carreras cercanas a Diseño gráfico",
-       "puntos": [
-        "Animación y Arte Digital: creación, interpretación y comunicación mediante lenguajes visuales, escénicos.",
-        "Ciencias de la Comunicación: análisis de la sociedad, la cultura, el lenguaje.",
-        "Mercadotecnia: organización y dirección de recursos.",
-        "Diseño Industrial: creación, interpretación y comunicación mediante lenguajes visuales, escénicos."
+       "titulo": "Tipografía",
+       "partes": [
+        {
+         "t": "La tipografía es el diseño de las letras. Para textos largos se usan letras fáciles de leer, en un tamaño cómodo y con buen espacio entre líneas. Mezclar demasiadas fuentes hace que un diseño se vea desordenado; casi siempre bastan una o dos. Las letras muy decorativas sirven para un título corto, pero no para un párrafo. También importa el contraste: texto gris claro sobre fondo blanco se lee mal, sobre todo en pantallas y para personas con baja visión."
+        }
        ]
       },
       {
-       "tipo": "emparejar",
-       "pregunta": "Une cada carrera con lo que estudia.",
-       "pares": [
-        [
-         "Animación y Arte Digital",
-         "Creación, interpretación y comunicación mediante lenguajes visuales, escénicos"
-        ],
-        [
-         "Ciencias de la Comunicación",
-         "Análisis de la sociedad, la cultura, el lenguaje"
-        ],
-        [
-         "Mercadotecnia",
-         "Organización y dirección de recursos"
-        ],
-        [
-         "Diseño Industrial",
-         "Creación, interpretación y comunicación mediante lenguajes visuales, escénicos"
-        ]
-       ],
-       "revelacion": "Se cruzan en temas, pero cada una tiene su propio enfoque."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Cuál de estas te da curiosidad?",
+       "tipo": "pregunta",
+       "pregunta": "Un menú usa cinco fuentes distintas. ¿Qué problema tiene?",
        "opciones": [
-        "Animación y Arte Digital",
-        "Ciencias de la Comunicación",
-        "Mercadotecnia",
-        "Me quedo con Diseño gráfico"
-       ]
+        "Que tiene pocas",
+        "Se ve desordenado; con una o dos basta",
+        "Ninguno"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "clave",
-       "texto": "Si dudas entre dos, compara lo que harías cada día."
+       "tipo": "pregunta",
+       "pregunta": "¿Dónde conviene usar una letra muy decorativa?",
+       "opciones": [
+        "En un contrato de diez páginas",
+        "En un título corto",
+        "En las instrucciones de un medicamento"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "Una página web pone texto gris claro sobre fondo blanco. ¿Qué problema hay?",
+       "opciones": [
+        "Poco contraste: se lee mal",
+        "Que se ve elegante y ya",
+        "Ninguno"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Qué ayuda a leer un texto largo?",
+       "opciones": [
+        "Letra clara, tamaño cómodo y buen espacio entre líneas",
+        "Todo en mayúsculas",
+        "Letra muy pequeña"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "teves"
       }
      ]
     }
@@ -230,202 +153,122 @@
   },
   {
    "id": "u2",
+   "titulo": "Que se vea bien",
+   "sub": "Color e impresión",
    "lecciones": [
     {
-     "id": "2.1",
-     "titulo": "Mini reto",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Un cliente quiere que su logo sea «más moderno», sin decir cómo. ¿Qué haces?",
-       "opciones": [
-        "Le preguntas qué marcas admira y a quién le quiere hablar",
-        "Le haces diez logos al azar",
-        "Le dices que su logo ya está bien"
-       ]
-      },
-      {
-       "tipo": "info",
-       "titulo": "Así lo piensa alguien de Diseño gráfico",
-       "texto": "Diseñar es resolver lo que el cliente necesita, no solo lo que pide. Hay creatividad, pero también correcciones y fechas de entrega."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Te gustó pensar en algo así?",
-       "escala": [
-        "Nada",
-        "Mucho"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Los retos de una carrera se parecen a lo que harías en su trabajo."
-      },
-      {
-       "tipo": "interes",
-       "pregunta": "¿Te ves resolviendo retos así?"
-      }
-     ]
-    },
-    {
-     "id": "2.2",
-     "titulo": "Lo que te piden",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Habilidades que usarás en Diseño gráfico",
-       "puntos": [
-        "Creatividad",
-        "Dominio de software (Illustrator, Figma)",
-        "Aceptar críticas",
-        "Organización de tiempos"
-       ]
-      },
-      {
-       "tipo": "completar",
-       "pregunta": "Según lo que leíste, completa la frase.",
-       "frase": "Para Diseño gráfico es clave: ___.",
-       "opciones": [
-        "Creatividad",
-        "Matemáticas",
-        "Memoria y constancia para estudiar mucho todos los días"
-       ],
-       "correcta": 0,
-       "revelacion": "Es de las habilidades que más se usan en Diseño gráfico."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué tanto se te da esto: dominio de software (illustrator, figma)?",
-       "escala": [
-        "Me cuesta",
-        "Se me da"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Las habilidades se entrenan; lo importante es que te guste usarlas."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "2.3",
-     "titulo": "Temas que vas a ver",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Temas que te deben gustar",
-       "puntos": [
-        "Dibujo y arte",
-        "Marcas",
-        "Redes sociales y contenido visual"
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "¿Cuál de estos temas es más de Diseño gráfico?",
-       "opciones": [
-        {
-         "texto": "Dibujo y arte",
-         "consecuencia": "Sí, es de sus temas centrales.",
-         "mejor": true
-        },
-        {
-         "texto": "Salud",
-         "consecuencia": "Ese es más de Enfermería."
-        },
-        {
-         "texto": "Negocios",
-         "consecuencia": "Ese es más de Contaduría."
-        }
-       ]
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Cuál de estos temas te gusta más?",
-       "opciones": [
-        "Dibujo y arte",
-        "Marcas",
-        "Redes sociales y contenido visual",
-        "Ninguno me late"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Si los temas te aburren, la carrera se hace muy larga."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "2.4",
-     "titulo": "Materias clave",
+     "id": "3",
+     "titulo": "Color",
      "minutos": 4,
      "tarjetas": [
       {
-       "tipo": "voltear",
-       "pregunta": "¿Qué materias crees que llevas en cada etapa? Piénsalo y voltea.",
-       "cartas": [
+       "tipo": "info",
+       "titulo": "Color",
+       "partes": [
         {
-         "frente": "Semestres 1-2",
-         "reverso": "Dibujo, Teoría del color, Tipografía, Historia del arte y del diseño"
-        },
-        {
-         "frente": "Semestres 3-4",
-         "reverso": "Diseño editorial, Fotografía, Ilustración, Software de diseño"
-        },
-        {
-         "frente": "Semestres 5-6",
-         "reverso": "Identidad corporativa, Diseño web y UX, Animación básica, Publicidad"
-        },
-        {
-         "frente": "Semestres 7 en adelante",
-         "reverso": "Portafolio profesional, Proyecto con cliente real"
+         "t": "Las pantallas forman los colores con luz: rojo, verde y azul, que se llama RGB. Las imprentas usan tintas: cian, magenta, amarillo y negro, que se llama CMYK. Un color muy brillante en pantalla puede salir más apagado impreso, porque las tintas no alcanzan todos los colores de la luz. Por eso los archivos para imprimir se preparan en CMYK y se piden pruebas de color. Además, los colores se eligen por contraste y por lo que comunican, no solo porque se ven bonitos."
         }
        ]
       },
       {
-       "tipo": "decision",
-       "pregunta": "¿Cuál de estas materias llevarías en Diseño gráfico?",
+       "tipo": "pregunta",
+       "pregunta": "¿Qué modo de color se usa para imprimir?",
        "opciones": [
+        "RGB",
+        "Cualquiera",
+        "CMYK"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Un logo verde neón se ve increíble en pantalla, pero en la impresión salió opaco. ¿Por qué?",
+       "opciones": [
+        "Las tintas no alcanzan algunos colores de la pantalla",
+        "La impresora está rota",
+        "Por casualidad"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Un póster va a imprimirse en miles de copias. ¿Qué pides antes?",
+       "opciones": [
+        "Que lo impriman en blanco y negro",
+        "Nada",
+        "Una prueba de color"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "teves"
+      }
+     ]
+    },
+    {
+     "id": "4",
+     "titulo": "Imprimir bien",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "Imprimir bien",
+       "partes": [
         {
-         "texto": "Dibujo",
-         "consecuencia": "Sí: es de las primeras materias de Diseño gráfico.",
-         "mejor": true
+         "t": "Para imprimir con calidad, las imágenes necesitan suficiente resolución: normalmente 300 puntos por pulgada al tamaño final. Para saber cuántos píxeles necesitas:"
         },
         {
-         "texto": "Química general",
-         "consecuencia": "Esa es de QFB."
+         "f": "píxeles = pulgadas × 300"
         },
         {
-         "texto": "Teoría sociológica clásica",
-         "consecuencia": "Esa es de Sociología."
+         "t": "Una imagen sacada de internet suele tener muy pocos píxeles y se ve pixeleada al imprimir grande. También se deja rebase: el fondo se extiende unos milímetros más allá del corte, para que no queden orillas blancas si la guillotina se mueve un poco. Y los textos importantes se alejan de la orilla."
         }
        ]
       },
       {
-       "tipo": "reflexion",
-       "pregunta": "¿Cuál te da más curiosidad?",
+       "tipo": "pregunta",
+       "pregunta": "Un volante mide 6 pulgadas de ancho. ¿Cuántos píxeles de ancho necesita su imagen a 300 puntos por pulgada?",
        "opciones": [
-        "Dibujo",
-        "Teoría del color",
-        "Tipografía",
-        "Historia del arte y del diseño"
-       ]
+        "50",
+        "1,800",
+        "306"
+       ],
+       "correcta": 1,
+       "formula": "6 × 300 = 1,800"
       },
       {
-       "tipo": "clave",
-       "texto": "Las primeras materias son la base; muchas veces son las más pesadas."
+       "tipo": "pregunta",
+       "pregunta": "Una lona mide 10 pulgadas de alto en la parte de la foto. ¿Cuántos píxeles necesita a 300?",
+       "opciones": [
+        "30",
+        "3,000",
+        "310"
+       ],
+       "correcta": 1,
+       "formula": "10 × 300 = 3,000"
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "¿Para qué sirve el rebase?",
+       "opciones": [
+        "Para poner el logo",
+        "Para gastar más papel",
+        "Para que no queden orillas blancas si el corte se mueve un poco"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "El cliente manda un logo de 200 por 200 píxeles sacado de WhatsApp para una lona enorme.",
+       "opciones": [
+        "Lo estiras",
+        "Le pides el archivo original en vector o en alta resolución",
+        "Lo imprimes así"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "teves"
       }
      ]
     }
@@ -433,184 +276,163 @@
   },
   {
    "id": "u3",
+   "titulo": "El oficio",
+   "sub": "Marca, clientes y derechos",
    "lecciones": [
     {
-     "id": "3.1",
-     "titulo": "Un día real",
+     "id": "5",
+     "titulo": "Identidad de marca",
      "minutos": 4,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Un día de trabajo en Diseño gráfico",
-       "puntos": [
-        "Crea logotipos, campañas, empaques, publicaciones y contenido digital",
-        "Presenta propuestas a clientes, recibe correcciones y entrega archivos listos."
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "¿Qué de esto NO es parte del día de alguien de Diseño gráfico?",
-       "opciones": [
+       "titulo": "Identidad de marca",
+       "partes": [
         {
-         "texto": "Diseña circuitos y dispositivos, programa microcontroladores, instala redes de telecomunicaciones o trabaja en manufactura de electrónica y semiconductores.",
-         "consecuencia": "Exacto: eso lo hace alguien de Ing. Electrónica.",
-         "mejor": true
-        },
-        {
-         "texto": "Crea logotipos, campañas, empaques, publicaciones y contenido digital",
-         "consecuencia": "Esto sí lo hace: es parte de su día."
-        },
-        {
-         "texto": "Presenta propuestas a clientes, recibe correcciones y entrega archivos listos.",
-         "consecuencia": "Esto sí lo hace: es parte de su día."
+         "t": "Una identidad de marca es más que un logo: incluye colores, tipografías, estilo de fotos y la forma de usarlos, todo explicado en un manual de marca. Un buen logo funciona en grande y en chiquito, a color y en una sola tinta, en un anuncio y en un sello. Por eso los logos se hacen en vectores, que se pueden agrandar sin perder calidad. Antes de diseñar se investiga a la empresa, a su público y a su competencia."
         }
        ]
       },
       {
-       "tipo": "reflexion",
-       "pregunta": "¿Te ves haciendo esto todos los días?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
+       "tipo": "pregunta",
+       "pregunta": "¿Qué incluye una identidad de marca?",
+       "opciones": [
+        "Solo los colores",
+        "Logo, colores, tipografías y reglas de uso",
+        "Solo el logo"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "clave",
-       "texto": "El día a día pesa más que el título."
+       "tipo": "pregunta",
+       "pregunta": "Tu logo se ve bien en grande, pero en el ícono de una app no se entiende. ¿Qué haces?",
+       "opciones": [
+        "Lo agrandas",
+        "Lo dejas así",
+        "Lo simplificas o haces una versión reducida"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "¿Por qué los logos se hacen en vectores?",
+       "opciones": [
+        "Porque se pueden agrandar sin perder calidad",
+        "Por moda",
+        "Porque pesan más"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
-     "id": "3.2",
-     "titulo": "Lo difícil",
+     "id": "6",
+     "titulo": "El cliente y el brief",
      "minutos": 4,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Lo difícil de Diseño gráfico",
-       "texto": "Se considera de dificultad media.",
-       "puntos": [
-        "Talleres con muchas entregas y críticas",
-        "Poca matemática."
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "Según lo que leíste, ¿qué es lo que más cuesta en Diseño gráfico?",
-       "opciones": [
+       "titulo": "El cliente y el brief",
+       "partes": [
         {
-         "texto": "Talleres con muchas entregas y críticas",
-         "consecuencia": "Sí, es de lo que más cuesta en Diseño gráfico.",
-         "mejor": true
-        },
-        {
-         "texto": "Contabilidad intermedia, Impuestos (fiscal) y Costos",
-         "consecuencia": "Eso es más de Contaduría."
-        },
-        {
-         "texto": "Estadística e Investigación de mercados",
-         "consecuencia": "Eso es más de Mercadotecnia."
+         "t": "Todo proyecto empieza con un brief: un documento que dice qué se necesita, para quién, para qué, en qué formato, con qué presupuesto y para cuándo. Sin brief, el diseñador adivina. Se presentan pocas propuestas bien pensadas, no veinte. Los cambios se acuerdan desde el inicio: cuántas rondas incluye el precio. Y se diseña para el público del cliente, no para el gusto personal del diseñador."
         }
        ]
       },
       {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué tanto te preocupa esto?",
-       "escala": [
-        "Mucho",
-        "Nada"
-       ]
+       "tipo": "pregunta",
+       "pregunta": "¿Qué es un brief?",
+       "opciones": [
+        "Un documento con qué se necesita, para quién, para qué y para cuándo",
+        "Un logo",
+        "La factura"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "clave",
-       "texto": "Saber lo difícil desde antes te ayuda a prepararte."
+       "tipo": "pregunta",
+       "pregunta": "Un cliente solo dice \"hazme algo bonito\". ¿Qué haces?",
+       "opciones": [
+        "Diseñas lo que te guste a ti",
+        "Haces 50 opciones",
+        "Le haces preguntas para armar el brief"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "Diseñas un folleto para adultos mayores y te gusta mucho la letra muy pequeña y delgada.",
+       "opciones": [
+        "Usas varias",
+        "Usas la que te gusta",
+        "Eliges letra clara y grande porque es para ese público"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Por qué conviene acordar desde el inicio cuántas rondas de cambios incluye el precio?",
+       "opciones": [
+        "Por desconfianza",
+        "Para evitar cambios infinitos sin pago",
+        "No conviene"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
-     "id": "3.3",
-     "titulo": "Historia real",
-     "minutos": 3,
+     "id": "7",
+     "titulo": "Derechos de autor",
+     "minutos": 4,
      "tarjetas": [
       {
-       "tipo": "reflexion",
-       "pregunta": "Si pudieras preguntarle algo a alguien que ya estudia Diseño gráfico, ¿qué sería?",
+       "tipo": "info",
+       "titulo": "Derechos de autor",
+       "partes": [
+        {
+         "t": "No todo lo que está en internet se puede usar. Las fotos, ilustraciones y tipografías tienen dueño, y usarlas sin licencia en un trabajo comercial puede traer demandas. Hay bancos de imágenes gratuitos con licencias que permiten usarlas, y bancos de pago. Algunas fuentes son gratis solo para uso personal. Copiar el logo o el diseño de otra marca no es inspiración, es plagio. Tu propio trabajo también está protegido."
+        }
+       ]
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Un cliente te pide usar una foto que encontró en Google para su anuncio.",
        "opciones": [
-        "¿Qué fue lo más difícil?",
-        "¿Qué te sorprendió?",
-        "¿Volverías a elegirla?",
-        "¿Cómo es un día normal?"
-       ]
+        "Le quitas la marca de agua",
+        "Buscas una con licencia que lo permita o una de un banco de imágenes",
+        "La usas"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "testimonio",
-       "estado": "pendiente",
-       "perfil": "Estudiante de últimos semestres o egresado de Diseño gráfico"
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "Mientras llega esta historia, ¿a quién podrías preguntarle tú?",
+       "tipo": "pregunta",
+       "pregunta": "Una fuente dice \"gratis para uso personal\". ¿Puedes usarla en el logo de una empresa?",
        "opciones": [
-        "A un familiar o conocido que la estudió",
-        "A un estudiante de mi ciudad",
-        "A un maestro que la conozca",
-        "Todavía no conozco a nadie"
-       ]
+        "Si le cambias el color",
+        "No sin comprar la licencia comercial",
+        "Sí"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "clave",
-       "texto": "Una persona real te cuenta lo que ningún folleto dice."
+       "tipo": "pregunta",
+       "pregunta": "Un cliente quiere un logo idéntico al de una marca famosa con otro nombre.",
+       "opciones": [
+        "Lo copias",
+        "Lo copias al revés",
+        "Le propones un diseño original"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "3.4",
-     "titulo": "¿Es para ti?",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Contesta con honestidad. Nadie más ve tus respuestas."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Dibujo o diseño por gusto?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Aguanto que critiquen mi trabajo?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Me veo como freelance o en agencia?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Si dijiste que sí a casi todo, vale la pena seguir explorándola."
-      },
-      {
-       "tipo": "interes"
+       "tipo": "teves"
       }
      ]
     }
@@ -618,448 +440,125 @@
   },
   {
    "id": "u4",
+   "titulo": "Examen final",
+   "sub": "10 preguntas · apruebas con 7",
    "lecciones": [
     {
-     "id": "4.1",
-     "titulo": "Cuánto dura y qué estudias",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Cada escuela arma su plan distinto, pero el orden general se parece. Vamos a verlo."
-      },
-      {
-       "tipo": "ordenar",
-       "pregunta": "Ordena lo que estudias, de lo primero a lo último.",
-       "pasos": [
-        "Dibujo, Teoría del color",
-        "Diseño editorial, Fotografía",
-        "Identidad corporativa, Diseño web y UX",
-        "Portafolio profesional, Proyecto con cliente real"
-       ],
-       "revelacion": "Primero las bases y al final lo más especializado y las prácticas."
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Cuántos años crees que pasan desde que entras hasta que te titulas?",
-       "min": 3,
-       "max": 10,
-       "paso": 1,
-       "unidad": "años",
-       "dato": "grafico.duracion"
-      },
-      {
-       "tipo": "clave",
-       "texto": "Revisa el mapa curricular de cada escuela: cambia de una a otra."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "4.2",
-     "titulo": "Cómo se entra",
-     "minutos": 4,
+     "id": "ex",
+     "titulo": "Examen final",
+     "minutos": 6,
+     "examen": true,
+     "aprobar": 7,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Cómo se entra en la región",
-       "puntos": [
-        "UNAM: Concurso de selección UNAM (120 reactivos) o pase reglamentado desde CCH/ENP",
-        "UAM: Examen de selección UAM (trimestral; dos procesos al año y procesos extraordinarios)",
-        "UAEM: EXANI-II de CENEVAL + curso propedéutico",
-        "IBERO: Examen de admisión propio + promedio de bachillerato"
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "Según lo que leíste, ¿qué pide UNAM para entrar?",
-       "opciones": [
+       "titulo": "Examen final",
+       "partes": [
         {
-         "texto": "Concurso de selección UNAM (120 reactivos) o pase reglamentado desde CCH/ENP",
-         "consecuencia": "Exacto.",
-         "mejor": true
-        },
-        {
-         "texto": "Examen de selección UAM (trimestral; dos procesos al año y procesos extraordinarios)",
-         "consecuencia": "Eso lo pide UAM."
-        },
-        {
-         "texto": "EXANI-II de CENEVAL + curso propedéutico",
-         "consecuencia": "Eso lo pide UAEM."
+         "t": "Son 10 casos nuevos que mezclan todas las lecciones. Apruebas con 7. Si no, lo repites y las que fallaste regresan con otras palabras."
         }
        ]
       },
       {
-       "tipo": "vf",
-       "afirmacion": "Todas las universidades usan el mismo examen.",
-       "respuesta": false,
-       "revelacion": "Cada una tiene el suyo: revisa la convocatoria de la que te interese."
-      },
-      {
-       "tipo": "clave",
-       "texto": "Conoce el examen de tu escuela desde antes."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "4.3",
-     "titulo": "Dónde, cuánto cuesta y becas",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "escuelas"
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Cuánto crees que cuesta un semestre en una universidad pública?",
-       "min": 0,
-       "max": 60000,
-       "paso": 1000,
-       "unidad": "pesos",
-       "dato": "grafico.costo_publica"
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Y un semestre en una universidad privada?",
-       "min": 0,
-       "max": 300000,
-       "paso": 5000,
-       "unidad": "pesos",
-       "dato": "grafico.costo_privada"
-      },
-      {
-       "tipo": "dato",
-       "titulo": "Becas para estudiar Diseño gráfico",
-       "dato": "grafico.becas"
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Una universidad cara garantiza un mejor empleo.",
-       "respuesta": false,
-       "revelacion": "Pesan más lo que aprendes, tus prácticas y tu esfuerzo."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué pesa más para ti al elegir escuela?",
+       "tipo": "pregunta",
+       "pregunta": "¿Qué es la jerarquía visual?",
        "opciones": [
-        "El costo",
-        "Que esté cerca de mi casa",
-        "El prestigio",
-        "Las prácticas que ofrece"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Además de la colegiatura, cuenta transporte y materiales."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "u5",
-   "lecciones": [
-    {
-     "id": "5.1",
-     "titulo": "Qué piden para trabajar",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Qué te piden para trabajar",
-       "puntos": [
-        "No requiere cédula",
-        "El portafolio es lo que consigue trabajo."
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "Según lo que leíste, ¿qué necesitas para ejercer Diseño gráfico?",
-       "opciones": [
-        {
-         "texto": "No requiere cédula",
-         "consecuencia": "Exacto.",
-         "mejor": true
-        },
-        {
-         "texto": "No requiere cédula para la mayoría de puestos.",
-         "consecuencia": "Eso lo piden en Ing. Química."
-        },
-        {
-         "texto": "Para peritajes oficiales se requiere certificación como perito.",
-         "consecuencia": "Eso lo piden en Criminología."
-        }
-       ]
-      },
-      {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Cómo te ves?",
-       "a": {
-        "texto": "En una institución o empresa",
-        "dice": "Más estabilidad y un equipo de quien aprender."
-       },
-       "b": {
-        "texto": "Por tu cuenta",
-        "dice": "Más libertad, pero tienes que conseguir clientes."
-       }
-      },
-      {
-       "tipo": "clave",
-       "texto": "Saber qué te piden te ahorra sorpresas al salir."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "5.2",
-     "titulo": "Sueldo y demanda",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Hablemos de dinero sin rodeos. Antes de ver cualquier cifra, apuesta: así recuerdas mejor el dato real."
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Cuánto crees que gana al mes, en promedio, un profesionista de Diseño gráfico en México?",
-       "min": 5000,
-       "max": 100000,
-       "paso": 1000,
-       "unidad": "pesos",
-       "dato": "grafico.ingreso"
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "De cada 100 egresados, ¿cuántos crees que trabajan en algo de su carrera?",
-       "min": 0,
-       "max": 100,
-       "paso": 5,
-       "unidad": "de cada 100",
-       "dato": "grafico.ocupacion_afin"
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Todos los egresados de Diseño gráfico ganan lo mismo.",
-       "respuesta": false,
-       "revelacion": "Cambia con la experiencia, el lugar, la especialidad y si trabajas por tu cuenta."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué tanto pesa el sueldo en tu decisión?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "El promedio orienta, pero tu camino puede ser distinto."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "5.3",
-     "titulo": "Cómo les va al salir",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "chat",
-       "subtitulo": "Te cuenta cómo les va al salir",
-       "intro": [
-        "Te cuento cómo les va a quienes estudian Diseño gráfico al salir."
+        "El color del fondo",
+        "El tamaño del papel",
+        "El orden en que el ojo ve los elementos según su importancia"
        ],
-       "temas": [
-        {
-         "q": "¿Cuántos trabajan en lo suyo?",
-         "a": [
-          "Cerca de la mitad trabaja en algo de su carrera.",
-          "Es un promedio nacional del IMCO."
-         ]
-        },
-        {
-         "q": "¿Muchos hacen posgrado?",
-         "a": [
-          "Pocos hacen posgrado; la mayoría empieza a trabajar."
-         ]
-        },
-        {
-         "q": "¿Hay más hombres o mujeres?",
-         "a": [
-          "Hay más mujeres que hombres.",
-          "Eso no decide nada: cualquiera puede estudiarla."
-         ]
-        },
-        {
-         "q": "¿El trabajo tiene prestaciones?",
-         "a": [
-          "La mayoría tiene un trabajo formal, con prestaciones.",
-          "Las prestaciones son cosas como seguro médico y aguinaldo."
-         ]
-        }
+       "correcta": 2
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Si todo en un diseño destaca, ¿qué pasa?",
+       "opciones": [
+        "Se lee más rápido",
+        "Nada destaca",
+        "Todo se ve mejor"
        ],
-       "minimo": 2
+       "correcta": 1
       },
       {
-       "tipo": "vf",
-       "afirmacion": "La mayoría de quienes estudian Diseño gráfico trabaja en algo de su carrera.",
-       "respuesta": false,
-       "revelacion": "Cerca de la mitad trabaja en algo de su carrera. Promedio nacional del IMCO."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué te importa más de tu futuro trabajo?",
+       "tipo": "pregunta",
+       "pregunta": "¿Cuántas fuentes suelen bastar en un diseño?",
        "opciones": [
-        "Que tenga que ver con lo que estudié",
-        "Ganar bien",
-        "Tener prestaciones",
-        "Hacer algo que me guste"
-       ]
+        "Una o dos",
+        "Siete",
+        "Diez"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "clave",
-       "texto": "Pregunta cómo les va a quienes ya salieron."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "5.4",
-     "titulo": "Después de titularte",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Después de titularte",
-       "puntos": [
-        "Puedes especializarte con cursos, diplomados o una maestría.",
-        "También puedes trabajar desde el inicio y estudiar después.",
-        "Se combina bien con: Animación y Arte Digital, Ciencias de la Comunicación, Mercadotecnia."
-       ]
-      },
-      {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Qué harías al terminar?",
-       "a": {
-        "texto": "Trabajar desde el inicio",
-        "dice": "Ganas experiencia y dinero; después decides si estudias más."
-       },
-       "b": {
-        "texto": "Seguir estudiando",
-        "dice": "Te especializas antes; tardas más en empezar a trabajar."
-       }
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Cómo te imaginas después de la carrera?",
+       "tipo": "pregunta",
+       "pregunta": "¿Qué modo de color se usa para imprimir?",
        "opciones": [
-        "Trabajando",
-        "En una maestría",
-        "Emprendiendo",
-        "No sé todavía"
-       ]
+        "CMYK",
+        "Ninguno",
+        "RGB"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "clave",
-       "texto": "Al titularte empieza otra parte del camino, no termina."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "u6",
-   "lecciones": [
-    {
-     "id": "6.1",
-     "titulo": "Lo que sentiste",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Antes de ver tus respuestas: ¿cómo te fue con Diseño gráfico?",
+       "tipo": "pregunta",
+       "pregunta": "Una imagen de 8 pulgadas de ancho a 300 puntos por pulgada. ¿Cuántos píxeles necesita?",
        "opciones": [
-        "Me gustó más de lo que pensaba",
-        "Más o menos como esperaba",
-        "Me gustó menos de lo que pensaba"
-       ]
+        "37",
+        "2,400",
+        "308"
+       ],
+       "correcta": 1,
+       "formula": "8 × 300 = 2,400"
       },
       {
-       "tipo": "resumen"
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "Viendo tus respuestas, ¿qué pesó más?",
+       "tipo": "pregunta",
+       "pregunta": "¿Para qué sirve el rebase?",
        "opciones": [
-        "Lo que sentí al probarla",
-        "Lo que supe de la realidad",
-        "El camino para llegar",
-        "El futuro que ofrece"
-       ]
+        "Para ahorrar",
+        "Para decorar",
+        "Para que no queden orillas blancas al cortar"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "clave",
-       "texto": "Lo que sentiste al probarla vale más que lo que imaginabas."
-      },
-      {
-       "tipo": "interes",
-       "pregunta": "¿Te ves estudiando Diseño gráfico?"
-      }
-     ]
-    },
-    {
-     "id": "6.2",
-     "titulo": "Tu veredicto",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Si mañana tuvieras que elegir carrera, ¿Diseño gráfico estaría entre tus opciones?",
+       "tipo": "pregunta",
+       "pregunta": "¿Por qué un logo se hace en vector?",
        "opciones": [
-        "Sí, entre las primeras",
-        "Sí, pero no arriba",
-        "No creo",
-        "No lo sé"
-       ]
+        "Para que pese más",
+        "Para que sea de colores",
+        "Para agrandarlo sin perder calidad"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "comparar"
+       "tipo": "pregunta",
+       "pregunta": "El cliente dice \"hazme algo bonito\".",
+       "opciones": [
+        "Le haces preguntas para armar el brief",
+        "Le cobras doble",
+        "Haces lo que te guste"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Qué te ayudaría más a decidir?",
-       "a": {
-        "texto": "Hablar con alguien que la estudia",
-        "dice": "Busca a un estudiante o egresado cerca de ti y hazle tus preguntas. Una plática aclara más que diez videos."
-       },
-       "b": {
-        "texto": "Probar otra carrera y comparar",
-        "dice": "Explora otra de tu mapa. Comparar dos caminos reales aclara más que pensar en uno solo."
-       }
+       "tipo": "pregunta",
+       "pregunta": "¿Puedes usar en un anuncio una foto de Google sin licencia?",
+       "opciones": [
+        "No",
+        "Si es pequeña",
+        "Sí"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "veredicto"
-      },
-      {
-       "tipo": "clave",
-       "texto": "Decidir «en duda» también es avanzar."
+       "tipo": "pregunta",
+       "pregunta": "Una fuente es gratis solo para uso personal. ¿La usas en un logo comercial?",
+       "opciones": [
+        "Si nadie se entera",
+        "No sin licencia comercial",
+        "Sí"
+       ],
+       "correcta": 1
       }
      ]
     }

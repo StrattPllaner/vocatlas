@@ -1,222 +1,159 @@
 {
  "id": "economia",
- "version": 1,
+ "version": 2,
+ "formato": 2,
  "estado": "completo",
- "generado": true,
- "revision": "Armada automáticamente con la base de carreras de Morelos y CDMX (2026-11-17). Falta que la revise alguien de la carrera.",
+ "revision": "Pendiente de revisión por un profesionista de la carrera. Generado con datos/importar_lecciones.py desde datos/fuentes/lecciones/economia.lec; no se edita a mano.",
  "unidades": [
   {
    "id": "u1",
+   "titulo": "Los precios",
+   "sub": "Oferta, demanda e inflación",
    "lecciones": [
     {
-     "id": "1.1",
-     "titulo": "Qué es y qué hace",
-     "minutos": 3,
+     "id": "0",
+     "titulo": "Conócela",
+     "minutos": 1,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "¿Qué es Economía?",
-       "texto": "Análisis cuantitativo de decisiones económicas, financieras y de riesgo. Puede incluir matemáticas, estadística, modelación, mercados, política económica e interpretación de datos.",
-       "puntos": [
-        "Analiza datos para entender precios, empleo, comercio o políticas: hace modelos en Excel, R o Python, escribe reportes y recomienda decisiones en bancos, gobierno…"
+       "tipo": "ficha",
+       "texto": "Economía forma profesionales que estudian cómo las personas, las empresas y los gobiernos usan recursos que no alcanzan para todo. Analizan precios, inflación, empleo y políticas públicas con datos. Trabajan en bancos, el Banco de México, gobierno, empresas, consultorías e investigación.",
+       "cifras": [
+        "economia.ingreso",
+        "economia.duracion",
+        "economia.costo_publica",
+        "economia.costo_privada"
        ]
       },
       {
-       "tipo": "decision",
-       "pregunta": "Por lo que leíste, ¿qué hace alguien de Economía?",
-       "opciones": [
-        {
-         "texto": "Analiza datos para entender precios, empleo, comercio o políticas: hace modelos en Excel, R o Python, escribe reportes y recomienda decisiones en bancos, gobierno…",
-         "consecuencia": "Exacto: eso es parte del día a día en Economía.",
-         "mejor": true
-        },
-        {
-         "texto": "Investiga problemas sociales con encuestas, entrevistas y datos",
-         "consecuencia": "Eso lo hace alguien de Sociología."
-        },
-        {
-         "texto": "Entrena y ajusta modelos de IA (reconocimiento de imágenes, chatbots, recomendaciones), los integra en productos y evalúa que funcionen bien y de forma responsable.",
-         "consecuencia": "Eso lo hace alguien de Inteligencia artificial."
-        }
-       ]
-      },
-      {
-       "tipo": "completar",
-       "frase": "Economía es una carrera del área de ___.",
-       "opciones": [
-        "Negocios y sociedad",
-        "Salud",
-        "Ingenierías"
-       ],
-       "correcta": 0,
-       "revelacion": "Está en Negocios y sociedad. Se parece a Actuaría, Finanzas, Matemáticas."
-      },
-      {
-       "tipo": "clave",
-       "texto": "Antes de elegir, entiende qué harías cada día, no solo el nombre."
-      },
-      {
-       "tipo": "interes"
+       "tipo": "escena",
+       "texto": "Hoy te toca explicar la economía del país. Vamos a ver si los números te cuadran."
       }
      ]
     },
     {
-     "id": "1.2",
-     "titulo": "Dónde trabajas",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Dónde trabaja alguien de Economía",
-       "texto": "Empresas privadas, bancos, aseguradoras, consultoras, despachos, organismos públicos, comercio, emprendimiento y áreas de planeación, análisis, finanzas u operaciones."
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Alguien de Economía solo puede trabajar en un tipo de lugar.",
-       "respuesta": false,
-       "revelacion": "Puede trabajar en varios: empresas privadas, bancos, aseguradoras."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Dónde te ves trabajando?",
-       "opciones": [
-        "Empresas privadas",
-        "Bancos",
-        "Aseguradoras",
-        "Consultoras"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Una carrera abre varias puertas, no una sola."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "1.3",
-     "titulo": "Pregúntale a Rumbo",
+     "id": "1",
+     "titulo": "Oferta y demanda",
      "minutos": 4,
      "tarjetas": [
       {
-       "tipo": "chat",
-       "subtitulo": "Te cuenta cómo es trabajar en Economía",
-       "intro": [
-        "¡Hola! Junté lo que se sabe de Economía.",
-        "Pregúntame lo que quieras."
-       ],
-       "temas": [
+       "tipo": "info",
+       "titulo": "Oferta y demanda",
+       "partes": [
         {
-         "q": "¿Qué haces en un día normal?",
-         "a": [
-          "Analiza datos para entender precios, empleo, comercio o políticas: hace modelos en Excel, R o Python, escribe reportes y recomienda decisiones en bancos, gobierno, consultoras o centros de investigación."
-         ]
-        },
-        {
-         "q": "¿Qué es lo más difícil?",
-         "a": [
-          "Se considera una carrera de dificultad alta.",
-          "Más matemáticas de lo que la gente cree: Cálculo, Estadística, Econometría y Microeconomía avanzada."
-         ]
-        },
-        {
-         "q": "¿Hay trabajo?",
-         "a": [
-          "Menos de la mitad trabaja en algo de su carrera; muchos se mueven a otras áreas. Es un promedio nacional del IMCO."
-         ]
-        },
-        {
-         "q": "¿Qué necesito para ejercer?",
-         "a": [
-          "No requiere cédula",
-          "Los mejores puestos suelen pedir maestría."
-         ]
+         "t": "La demanda es cuánto quiere comprar la gente de algo a cada precio: si el precio sube, la gente compra menos. La oferta es cuánto quieren vender los productores: si el precio sube, quieren vender más. El precio de equilibrio es donde la cantidad que se quiere comprar es igual a la que se quiere vender. Si algo hace que haya menos producto, como una helada que arruina la cosecha de jitomate, la oferta baja y el precio sube. Si de repente todos quieren algo, la demanda sube y el precio también."
         }
-       ],
-       "minimo": 2,
-       "auto": true
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Economía se considera una carrera de dificultad alta.",
-       "respuesta": true,
-       "revelacion": "Se considera de dificultad alta. Más matemáticas de lo que la gente cree: Cálculo, Estadística, Econometría y Microeconomía avanzada."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué te llamó más la atención?",
-       "opciones": [
-        "¿Qué haces en un día normal?",
-        "¿Qué es lo más difícil?",
-        "¿Hay trabajo?",
-        "¿Qué necesito para ejercer?"
        ]
       },
       {
-       "tipo": "clave",
-       "texto": "Preguntar a quien ya sabe ahorra muchos errores."
+       "tipo": "pregunta",
+       "pregunta": "Una helada arruina buena parte de la cosecha de jitomate. ¿Qué pasa con su precio?",
+       "opciones": [
+        "No cambia",
+        "Sube, porque hay menos oferta",
+        "Baja"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "Un producto se pone de moda y todos lo quieren. ¿Qué pasa con su precio, si la oferta no cambia?",
+       "opciones": [
+        "Se vuelve cero",
+        "Baja",
+        "Sube"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Si el precio de un producto sube, ¿qué pasa normalmente con la cantidad que la gente quiere comprar?",
+       "opciones": [
+        "Baja",
+        "Sube",
+        "No cambia"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "El gobierno fija un precio máximo muy por debajo del equilibrio para el huevo. ¿Qué puede pasar?",
+       "opciones": [
+        "Que sobre huevo",
+        "Que falte huevo, porque los productores quieren vender menos a ese precio y la gente quiere comprar más",
+        "Nada"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
-     "id": "1.4",
-     "titulo": "Carreras parecidas",
-     "minutos": 3,
+     "id": "2",
+     "titulo": "Inflación",
+     "minutos": 4,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Carreras cercanas a Economía",
-       "puntos": [
-        "Actuaría: análisis cuantitativo de decisiones económicas.",
-        "Finanzas: análisis cuantitativo de decisiones económicas.",
-        "Matemáticas: fundamentos científicos y cuantitativos para explicar fenómenos naturales y.",
-        "Ciencias Políticas y Administración Pública: análisis de instituciones, políticas, conflictos y problemas sociales. puede."
+       "titulo": "Inflación",
+       "partes": [
+        {
+         "t": "La inflación es el aumento general de los precios. En México la mide el INEGI con el Índice Nacional de Precios al Consumidor. El cambio de un precio en porcentaje se calcula así:"
+        },
+        {
+         "f": "cambio = {precio nuevo − precio anterior|precio anterior} × 100"
+        },
+        {
+         "t": "Si los precios suben y tu sueldo no, puedes comprar menos con el mismo dinero: pierdes poder de compra. Por eso un aumento de sueldo del 3 por ciento con inflación del 5 por ciento en realidad es una pérdida."
+        }
        ]
       },
       {
-       "tipo": "emparejar",
-       "pregunta": "Une cada carrera con lo que estudia.",
-       "pares": [
-        [
-         "Actuaría",
-         "Análisis cuantitativo de decisiones económicas"
-        ],
-        [
-         "Finanzas",
-         "Análisis cuantitativo de decisiones económicas"
-        ],
-        [
-         "Matemáticas",
-         "Fundamentos científicos y cuantitativos para explicar fenómenos naturales y"
-        ],
-        [
-         "Ciencias Políticas y Administración Pública",
-         "Análisis de instituciones, políticas, conflictos y problemas sociales. Puede"
-        ]
-       ],
-       "revelacion": "Se cruzan en temas, pero cada una tiene su propio enfoque."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Cuál de estas te da curiosidad?",
+       "tipo": "pregunta",
+       "pregunta": "Un kilo de tortilla pasó de 20 a 22 pesos. ¿Cuánto subió en porcentaje?",
        "opciones": [
-        "Actuaría",
-        "Finanzas",
-        "Matemáticas",
-        "Me quedo con Economía"
-       ]
+        "2 por ciento",
+        "22 por ciento",
+        "10 por ciento"
+       ],
+       "correcta": 2,
+       "formula": "{22 − 20|20} × 100 = 10"
       },
       {
-       "tipo": "clave",
-       "texto": "Si dudas entre dos, compara lo que harías cada día."
+       "tipo": "pregunta",
+       "pregunta": "Un producto pasó de 50 a 60 pesos. ¿Cuánto subió?",
+       "opciones": [
+        "10 por ciento",
+        "60 por ciento",
+        "20 por ciento"
+       ],
+       "correcta": 2,
+       "formula": "{60 − 50|50} × 100 = 20"
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "Te suben el sueldo 3 por ciento y la inflación del año fue de 5. ¿Qué pasó con tu poder de compra?",
+       "opciones": [
+        "Igual",
+        "Bajó",
+        "Subió"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Quién mide la inflación en México?",
+       "opciones": [
+        "La SEP",
+        "El SAT",
+        "El INEGI"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "teves"
       }
      ]
     }
@@ -224,202 +161,121 @@
   },
   {
    "id": "u2",
+   "titulo": "La economía del país",
+   "sub": "Banxico y el PIB",
    "lecciones": [
     {
-     "id": "2.1",
-     "titulo": "Mini reto",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "El precio de la tortilla sube en tu ciudad. ¿Qué investigas primero?",
-       "opciones": [
-        "Si subió el maíz, el gas o el transporte",
-        "A quién culpar en redes",
-        "Nada, siempre suben"
-       ]
-      },
-      {
-       "tipo": "info",
-       "titulo": "Así lo piensa alguien de Economía",
-       "texto": "Se buscan las causas con datos. Economía usa matemáticas, estadística y mucha lectura sobre cómo decide la gente."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Te gustó pensar en algo así?",
-       "escala": [
-        "Nada",
-        "Mucho"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Los retos de una carrera se parecen a lo que harías en su trabajo."
-      },
-      {
-       "tipo": "interes",
-       "pregunta": "¿Te ves resolviendo retos así?"
-      }
-     ]
-    },
-    {
-     "id": "2.2",
-     "titulo": "Lo que te piden",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Habilidades que usarás en Economía",
-       "puntos": [
-        "Razonamiento matemático",
-        "Análisis de datos",
-        "Lectura y redacción",
-        "Curiosidad por la sociedad"
-       ]
-      },
-      {
-       "tipo": "completar",
-       "pregunta": "Según lo que leíste, completa la frase.",
-       "frase": "Para Economía es clave: ___.",
-       "opciones": [
-        "Razonamiento matemático",
-        "Curiosidad",
-        "Paciencia"
-       ],
-       "correcta": 0,
-       "revelacion": "Es de las habilidades que más se usan en Economía."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué tanto se te da esto: análisis de datos?",
-       "escala": [
-        "Me cuesta",
-        "Se me da"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Las habilidades se entrenan; lo importante es que te guste usarlas."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "2.3",
-     "titulo": "Temas que vas a ver",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Temas que te deben gustar",
-       "puntos": [
-        "Cómo funciona el país y el dinero",
-        "Política pública",
-        "Datos"
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "¿Cuál de estos temas es más de Economía?",
-       "opciones": [
-        {
-         "texto": "Cómo funciona el país y el dinero",
-         "consecuencia": "Sí, es de sus temas centrales.",
-         "mejor": true
-        },
-        {
-         "texto": "Construcción",
-         "consecuencia": "Ese es más de Ing. Civil."
-        },
-        {
-         "texto": "Química y biología",
-         "consecuencia": "Ese es más de QFB."
-        }
-       ]
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Cuál de estos temas te gusta más?",
-       "opciones": [
-        "Cómo funciona el país y el dinero",
-        "Política pública",
-        "Datos",
-        "Ninguno me late"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Si los temas te aburren, la carrera se hace muy larga."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "2.4",
-     "titulo": "Materias clave",
+     "id": "3",
+     "titulo": "El Banco de México",
      "minutos": 4,
      "tarjetas": [
       {
-       "tipo": "voltear",
-       "pregunta": "¿Qué materias crees que llevas en cada etapa? Piénsalo y voltea.",
-       "cartas": [
+       "tipo": "info",
+       "titulo": "El Banco de México",
+       "partes": [
         {
-         "frente": "Semestres 1-2",
-         "reverso": "Microeconomía I, Macroeconomía I, Cálculo, Historia económica"
-        },
-        {
-         "frente": "Semestres 3-4",
-         "reverso": "Estadística, Álgebra lineal, Microeconomía II, Economía de México"
-        },
-        {
-         "frente": "Semestres 5-6",
-         "reverso": "Econometría, Economía internacional, Finanzas públicas, Teoría monetaria"
-        },
-        {
-         "frente": "Semestres 7 en adelante",
-         "reverso": "Seminario de tesis, Optativas (desarrollo, datos, políticas públicas)"
+         "t": "El Banco de México, o Banxico, tiene como tarea principal mantener la inflación baja y estable; su meta es alrededor del 3 por ciento. Su herramienta principal es la tasa de interés de referencia. Cuando la sube, los créditos se vuelven más caros, la gente y las empresas piden menos prestado y gastan menos, y eso ayuda a frenar los precios. Cuando la baja, el crédito se abarata y la economía se anima, pero puede subir la inflación. Banxico es autónomo: el gobierno no le puede ordenar qué hacer."
         }
        ]
       },
       {
-       "tipo": "decision",
-       "pregunta": "¿Cuál de estas materias llevarías en Economía?",
+       "tipo": "pregunta",
+       "pregunta": "La inflación está muy alta. ¿Qué suele hacer Banxico?",
        "opciones": [
+        "Imprimir más billetes",
+        "Subir la tasa de interés",
+        "Bajarla"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Qué pasa con los créditos cuando sube la tasa de interés?",
+       "opciones": [
+        "Se vuelven gratis",
+        "Se vuelven más caros",
+        "No cambian"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál es la tarea principal de Banxico?",
+       "opciones": [
+        "Mantener la inflación baja y estable",
+        "Cobrar impuestos",
+        "Construir carreteras"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "teves"
+      }
+     ]
+    },
+    {
+     "id": "4",
+     "titulo": "El PIB y el crecimiento",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "El PIB y el crecimiento",
+       "partes": [
         {
-         "texto": "Microeconomía I",
-         "consecuencia": "Sí: es de las primeras materias de Economía.",
-         "mejor": true
+         "t": "El Producto Interno Bruto, o PIB, es el valor de todo lo que un país produce en un periodo. Si crece, la economía está produciendo más. Para comparar países de distinto tamaño se usa el PIB por persona:"
         },
         {
-         "texto": "Cálculo",
-         "consecuencia": "Esa es de Ing. Química."
+         "f": "PIB por persona = {PIB|población}"
         },
         {
-         "texto": "Fundamentos de programación",
-         "consecuencia": "Esa es de Computación."
+         "t": "El PIB no lo dice todo: no muestra cómo se reparte el ingreso, ni el trabajo de casa que no se paga, ni el daño ambiental. Por eso los economistas también miran otros indicadores, como la pobreza y la desigualdad."
         }
        ]
       },
       {
-       "tipo": "reflexion",
-       "pregunta": "¿Cuál te da más curiosidad?",
+       "tipo": "pregunta",
+       "pregunta": "Un país tiene un PIB de 1,000 millones y 10 millones de habitantes. ¿Cuál es su PIB por persona?",
        "opciones": [
-        "Microeconomía I",
-        "Macroeconomía I",
-        "Cálculo",
-        "Historia económica"
-       ]
+        "1,010",
+        "100",
+        "10,000"
+       ],
+       "correcta": 1,
+       "formula": "{1,000|10} = 100"
       },
       {
-       "tipo": "clave",
-       "texto": "Las primeras materias son la base; muchas veces son las más pesadas."
+       "tipo": "pregunta",
+       "pregunta": "¿Por qué se usa el PIB por persona para comparar países?",
+       "opciones": [
+        "Porque toma en cuenta el tamaño de la población",
+        "Porque es más bonito",
+        "No se usa"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "El PIB de un país creció, pero casi todo el ingreso nuevo se lo quedó un grupo muy pequeño. ¿Qué no te muestra el PIB?",
+       "opciones": [
+        "Cómo se reparte el ingreso",
+        "Nada",
+        "Cuánto se produjo"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Qué es el PIB?",
+       "opciones": [
+        "El valor de todo lo que un país produce en un periodo",
+        "La deuda del país",
+        "El dinero que tiene el gobierno"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "teves"
       }
      ]
     }
@@ -427,182 +283,170 @@
   },
   {
    "id": "u3",
+   "titulo": "Decidir mejor",
+   "sub": "Costo de oportunidad, empleo y políticas",
    "lecciones": [
     {
-     "id": "3.1",
-     "titulo": "Un día real",
+     "id": "5",
+     "titulo": "Costo de oportunidad",
      "minutos": 4,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Un día de trabajo en Economía",
-       "puntos": [
-        "Analiza datos para entender precios, empleo, comercio o políticas: hace modelos en Excel, R o Python, escribe reportes y recomienda decisiones en bancos, gobierno…"
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "¿Cuál de estas cosas sí hace alguien de Economía?",
-       "opciones": [
+       "titulo": "Costo de oportunidad",
+       "partes": [
         {
-         "texto": "Analiza datos para entender precios, empleo, comercio o políticas: hace modelos en Excel, R o Python, escribe reportes y recomienda decisiones en bancos, gobierno…",
-         "consecuencia": "Sí: es parte de su día.",
-         "mejor": true
-        },
-        {
-         "texto": "Analiza escenas del crimen, elabora peritajes, estudia perfiles de delincuentes o trabaja en prevención del delito, seguridad privada o fiscalías.",
-         "consecuencia": "Eso es más de Criminología."
-        },
-        {
-         "texto": "Estudia seres vivos en campo o laboratorio: monitorea especies, analiza muestras, participa en conservación, investigación, educación ambiental o industria.",
-         "consecuencia": "Eso es más de Biología."
+         "t": "Todo lo que eliges tiene un costo: lo que dejas de hacer por elegirlo. Eso se llama costo de oportunidad. Si pasas la tarde trabajando, el costo es lo que habrías hecho con ese tiempo, como estudiar o descansar. Si un gobierno gasta en una cosa, deja de gastar ese dinero en otra. Los economistas comparan opciones pensando en todo lo que se gana y todo lo que se deja, no solo en el precio."
         }
        ]
       },
       {
-       "tipo": "reflexion",
-       "pregunta": "¿Te ves haciendo esto todos los días?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
+       "tipo": "pregunta",
+       "pregunta": "Puedes trabajar un sábado y ganar 500 pesos, o ir a un curso gratis. Si vas al curso, ¿cuál es tu costo de oportunidad?",
+       "opciones": [
+        "Cero, porque el curso es gratis",
+        "El curso",
+        "Los 500 pesos que dejas de ganar"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "clave",
-       "texto": "El día a día pesa más que el título."
+       "tipo": "pregunta",
+       "pregunta": "Un municipio decide construir un estadio con todo su presupuesto. ¿Cuál es el costo de oportunidad?",
+       "opciones": [
+        "El pasto",
+        "Lo que ya no podrá hacer con ese dinero, como arreglar calles o drenaje",
+        "Ninguno"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "¿Qué es el costo de oportunidad?",
+       "opciones": [
+        "Lo que dejas de hacer o de tener por elegir otra cosa",
+        "Un impuesto",
+        "El precio de una cosa"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
-     "id": "3.2",
-     "titulo": "Lo difícil",
+     "id": "6",
+     "titulo": "Empleo e informalidad",
      "minutos": 4,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Lo difícil de Economía",
-       "texto": "Se considera de dificultad alta.",
-       "puntos": [
-        "Más matemáticas de lo que la gente cree: Cálculo, Estadística, Econometría y Microeconomía avanzada."
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "Según lo que leíste, ¿qué es lo que más cuesta en Economía?",
-       "opciones": [
+       "titulo": "Empleo e informalidad",
+       "partes": [
         {
-         "texto": "Más matemáticas de lo que la gente cree: Cálculo, Estadística, Econometría y Microeconomía avanzada.",
-         "consecuencia": "Sí, es de lo que más cuesta en Economía.",
-         "mejor": true
+         "t": "La tasa de desempleo mide qué parte de las personas que buscan trabajo no lo encuentran:"
         },
         {
-         "texto": "Anatomía comparada de muchas especies y prácticas con animales grandes en ranchos y granjas.",
-         "consecuencia": "Eso es más de Veterinaria."
+         "f": "tasa de desempleo = {desempleados|personas que trabajan o buscan trabajo} × 100"
         },
         {
-         "texto": "Química, Bioquímica, Genética y Estadística",
-         "consecuencia": "Eso es más de Biología."
+         "t": "En México el desempleo suele ser bajo, pero más de la mitad de las personas trabajan en la informalidad: sin seguro social, sin contrato y sin prestaciones. Eso significa que no tener desempleo no es lo mismo que tener un buen empleo. Los economistas estudian por qué pasa y qué políticas ayudan a formalizar el trabajo."
         }
        ]
       },
       {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué tanto te preocupa esto?",
-       "escala": [
-        "Mucho",
-        "Nada"
-       ]
+       "tipo": "pregunta",
+       "pregunta": "De 1,000 personas que trabajan o buscan trabajo, 30 no encuentran. ¿Cuál es la tasa de desempleo?",
+       "opciones": [
+        "97 por ciento",
+        "3 por ciento",
+        "30 por ciento"
+       ],
+       "correcta": 1,
+       "formula": "{30|1,000} × 100 = 3"
       },
       {
-       "tipo": "clave",
-       "texto": "Saber lo difícil desde antes te ayuda a prepararte."
+       "tipo": "pregunta",
+       "pregunta": "¿Qué es el trabajo informal?",
+       "opciones": [
+        "Trabajo con ropa casual",
+        "Trabajo sin seguro social, contrato ni prestaciones",
+        "Trabajo desde casa"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "Un país tiene poco desempleo pero mucha informalidad. ¿Qué concluyes?",
+       "opciones": [
+        "Que mucha gente trabaja, pero sin protección ni buenas condiciones",
+        "Que todo está perfecto",
+        "Que nadie trabaja"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Por qué una persona sin trabajo que no está buscando no cuenta como desempleada?",
+       "opciones": [
+        "Sí cuenta",
+        "Por error",
+        "Porque la tasa solo cuenta a quienes trabajan o buscan trabajo"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
-     "id": "3.3",
-     "titulo": "Historia real",
-     "minutos": 3,
+     "id": "7",
+     "titulo": "Incentivos y políticas",
+     "minutos": 4,
      "tarjetas": [
       {
-       "tipo": "reflexion",
-       "pregunta": "Si pudieras preguntarle algo a alguien que ya estudia Economía, ¿qué sería?",
+       "tipo": "info",
+       "titulo": "Incentivos y políticas",
+       "partes": [
+        {
+         "t": "Las personas responden a incentivos: si algo se vuelve más caro, se hace menos; si se premia, se hace más. Una buena política pública cambia los incentivos en la dirección correcta. Por ejemplo, un impuesto a las bebidas azucaradas busca que se consuman menos. A veces una actividad daña a otros que no participan, como una fábrica que contamina un río: eso se llama externalidad, y justifica que el gobierno intervenga. Los economistas evalúan con datos si una política logró lo que prometía."
+        }
+       ]
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Se pone un impuesto a las bebidas azucaradas. ¿Qué se espera?",
        "opciones": [
-        "¿Qué fue lo más difícil?",
-        "¿Qué te sorprendió?",
-        "¿Volverías a elegirla?",
-        "¿Cómo es un día normal?"
-       ]
+        "Nada",
+        "Que se consuman menos",
+        "Que se consuman más"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "testimonio",
-       "estado": "pendiente",
-       "perfil": "Estudiante de últimos semestres o egresado de Economía"
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "Mientras llega esta historia, ¿a quién podrías preguntarle tú?",
+       "tipo": "pregunta",
+       "pregunta": "Una fábrica contamina un río y daña a los pescadores. ¿Qué es eso?",
        "opciones": [
-        "A un familiar o conocido que la estudió",
-        "A un estudiante de mi ciudad",
-        "A un maestro que la conozca",
-        "Todavía no conozco a nadie"
-       ]
+        "Una externalidad",
+        "Un impuesto",
+        "Una ganancia"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "clave",
-       "texto": "Una persona real te cuenta lo que ningún folleto dice."
+       "tipo": "pregunta",
+       "pregunta": "Un programa social promete reducir la deserción escolar. ¿Cómo sabes si funcionó?",
+       "opciones": [
+        "Preguntándole al funcionario",
+        "Por el número de anuncios",
+        "Comparando con datos a quienes lo recibieron y a quienes no, en condiciones parecidas"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "3.4",
-     "titulo": "¿Es para ti?",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Contesta con honestidad. Nadie más ve tus respuestas."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Me gustan las matemáticas aplicadas a problemas sociales?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Leo noticias de economía o política por gusto?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Estaría dispuesto a hacer posgrado?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Si dijiste que sí a casi todo, vale la pena seguir explorándola."
-      },
-      {
-       "tipo": "interes"
+       "tipo": "teves"
       }
      ]
     }
@@ -610,448 +454,127 @@
   },
   {
    "id": "u4",
+   "titulo": "Examen final",
+   "sub": "10 preguntas · apruebas con 7",
    "lecciones": [
     {
-     "id": "4.1",
-     "titulo": "Cuánto dura y qué estudias",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Cada escuela arma su plan distinto, pero el orden general se parece. Vamos a verlo."
-      },
-      {
-       "tipo": "ordenar",
-       "pregunta": "Ordena lo que estudias, de lo primero a lo último.",
-       "pasos": [
-        "Microeconomía I, Macroeconomía I",
-        "Estadística, Álgebra lineal",
-        "Econometría, Economía internacional",
-        "Seminario de tesis, Optativas (desarrollo, datos, políticas públicas)"
-       ],
-       "revelacion": "Primero las bases y al final lo más especializado y las prácticas."
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Cuántos años crees que pasan desde que entras hasta que te titulas?",
-       "min": 3,
-       "max": 10,
-       "paso": 1,
-       "unidad": "años",
-       "dato": "economia.duracion"
-      },
-      {
-       "tipo": "clave",
-       "texto": "Revisa el mapa curricular de cada escuela: cambia de una a otra."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "4.2",
-     "titulo": "Cómo se entra",
-     "minutos": 4,
+     "id": "ex",
+     "titulo": "Examen final",
+     "minutos": 6,
+     "examen": true,
+     "aprobar": 7,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Cómo se entra en la región",
-       "puntos": [
-        "UNAM: Concurso de selección UNAM (120 reactivos) o pase reglamentado desde CCH/ENP",
-        "IPN: Examen de admisión IPN (140 preguntas, hasta 3 horas, incluye sección de inglés)",
-        "UAM: Examen de selección UAM (trimestral; dos procesos al año y procesos extraordinarios)",
-        "UAEM: EXANI-II de CENEVAL + curso propedéutico"
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "Según lo que leíste, ¿qué pide UNAM para entrar?",
-       "opciones": [
+       "titulo": "Examen final",
+       "partes": [
         {
-         "texto": "Concurso de selección UNAM (120 reactivos) o pase reglamentado desde CCH/ENP",
-         "consecuencia": "Exacto.",
-         "mejor": true
-        },
-        {
-         "texto": "Examen de admisión IPN (140 preguntas, hasta 3 horas, incluye sección de inglés)",
-         "consecuencia": "Eso lo pide IPN."
-        },
-        {
-         "texto": "Examen de selección UAM (trimestral; dos procesos al año y procesos extraordinarios)",
-         "consecuencia": "Eso lo pide UAM."
+         "t": "Son 10 casos nuevos que mezclan todas las lecciones. Apruebas con 7. Si no, lo repites y las que fallaste regresan con otras palabras."
         }
        ]
       },
       {
-       "tipo": "vf",
-       "afirmacion": "Todas las universidades usan el mismo examen.",
-       "respuesta": false,
-       "revelacion": "Cada una tiene el suyo: revisa la convocatoria de la que te interese."
-      },
-      {
-       "tipo": "clave",
-       "texto": "Conoce el examen de tu escuela desde antes."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "4.3",
-     "titulo": "Dónde, cuánto cuesta y becas",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "escuelas"
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Cuánto crees que cuesta un semestre en una universidad pública?",
-       "min": 0,
-       "max": 60000,
-       "paso": 1000,
-       "unidad": "pesos",
-       "dato": "economia.costo_publica"
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Y un semestre en una universidad privada?",
-       "min": 0,
-       "max": 300000,
-       "paso": 5000,
-       "unidad": "pesos",
-       "dato": "economia.costo_privada"
-      },
-      {
-       "tipo": "dato",
-       "titulo": "Becas para estudiar Economía",
-       "dato": "economia.becas"
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Una universidad cara garantiza un mejor empleo.",
-       "respuesta": false,
-       "revelacion": "Pesan más lo que aprendes, tus prácticas y tu esfuerzo."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué pesa más para ti al elegir escuela?",
+       "tipo": "pregunta",
+       "pregunta": "Una sequía reduce la cosecha de maíz. ¿Qué pasa con su precio?",
        "opciones": [
-        "El costo",
-        "Que esté cerca de mi casa",
-        "El prestigio",
-        "Las prácticas que ofrece"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Además de la colegiatura, cuenta transporte y materiales."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "u5",
-   "lecciones": [
-    {
-     "id": "5.1",
-     "titulo": "Qué piden para trabajar",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Qué te piden para trabajar",
-       "puntos": [
-        "No requiere cédula",
-        "Los mejores puestos suelen pedir maestría."
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "Según lo que leíste, ¿qué necesitas para ejercer Economía?",
-       "opciones": [
-        {
-         "texto": "No requiere cédula",
-         "consecuencia": "Exacto.",
-         "mejor": true
-        },
-        {
-         "texto": "No requiere cédula para la mayoría de puestos",
-         "consecuencia": "Eso lo piden en Biotecnología."
-        },
-        {
-         "texto": "Para peritajes oficiales se requiere certificación como perito.",
-         "consecuencia": "Eso lo piden en Criminología."
-        }
-       ]
-      },
-      {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Cómo te ves?",
-       "a": {
-        "texto": "En una institución o empresa",
-        "dice": "Más estabilidad y un equipo de quien aprender."
-       },
-       "b": {
-        "texto": "Por tu cuenta",
-        "dice": "Más libertad, pero tienes que conseguir clientes."
-       }
-      },
-      {
-       "tipo": "clave",
-       "texto": "Saber qué te piden te ahorra sorpresas al salir."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "5.2",
-     "titulo": "Sueldo y demanda",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Hablemos de dinero sin rodeos. Antes de ver cualquier cifra, apuesta: así recuerdas mejor el dato real."
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Cuánto crees que gana al mes, en promedio, un profesionista de Economía en México?",
-       "min": 5000,
-       "max": 100000,
-       "paso": 1000,
-       "unidad": "pesos",
-       "dato": "economia.ingreso"
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "De cada 100 egresados, ¿cuántos crees que trabajan en algo de su carrera?",
-       "min": 0,
-       "max": 100,
-       "paso": 5,
-       "unidad": "de cada 100",
-       "dato": "economia.ocupacion_afin"
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Todos los egresados de Economía ganan lo mismo.",
-       "respuesta": false,
-       "revelacion": "Cambia con la experiencia, el lugar, la especialidad y si trabajas por tu cuenta."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué tanto pesa el sueldo en tu decisión?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "El promedio orienta, pero tu camino puede ser distinto."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "5.3",
-     "titulo": "Cómo les va al salir",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "chat",
-       "subtitulo": "Te cuenta cómo les va al salir",
-       "intro": [
-        "Te cuento cómo les va a quienes estudian Economía al salir."
+        "Baja",
+        "Igual",
+        "Sube"
        ],
-       "temas": [
-        {
-         "q": "¿Cuántos trabajan en lo suyo?",
-         "a": [
-          "Menos de la mitad trabaja en algo de su carrera.",
-          "Es un promedio nacional del IMCO."
-         ]
-        },
-        {
-         "q": "¿Muchos hacen posgrado?",
-         "a": [
-          "Pocos hacen posgrado; la mayoría empieza a trabajar."
-         ]
-        },
-        {
-         "q": "¿Hay más hombres o mujeres?",
-         "a": [
-          "Hay más hombres que mujeres.",
-          "Eso no decide nada: cualquiera puede estudiarla."
-         ]
-        },
-        {
-         "q": "¿El trabajo tiene prestaciones?",
-         "a": [
-          "La mayoría tiene un trabajo formal, con prestaciones.",
-          "Las prestaciones son cosas como seguro médico y aguinaldo."
-         ]
-        }
+       "correcta": 2
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Un producto pasó de 40 a 44 pesos. ¿Cuánto subió?",
+       "opciones": [
+        "4 por ciento",
+        "44 por ciento",
+        "10 por ciento"
        ],
-       "minimo": 2
+       "correcta": 2,
+       "formula": "{44 − 40|40} × 100 = 10"
       },
       {
-       "tipo": "vf",
-       "afirmacion": "La mayoría de quienes estudian Economía trabaja en algo de su carrera.",
-       "respuesta": false,
-       "revelacion": "Menos de la mitad trabaja en algo de su carrera. Promedio nacional del IMCO."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué te importa más de tu futuro trabajo?",
+       "tipo": "pregunta",
+       "pregunta": "Tu sueldo sube 4 por ciento y la inflación es de 6. ¿Qué pasa con tu poder de compra?",
        "opciones": [
-        "Que tenga que ver con lo que estudié",
-        "Ganar bien",
-        "Tener prestaciones",
-        "Hacer algo que me guste"
-       ]
+        "Igual",
+        "Sube",
+        "Baja"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "clave",
-       "texto": "Pregunta cómo les va a quienes ya salieron."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "5.4",
-     "titulo": "Después de titularte",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Después de titularte",
-       "puntos": [
-        "Puedes especializarte con cursos, diplomados o una maestría.",
-        "También puedes trabajar desde el inicio y estudiar después.",
-        "Se combina bien con: Actuaría, Finanzas, Matemáticas."
-       ]
-      },
-      {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Qué harías al terminar?",
-       "a": {
-        "texto": "Trabajar desde el inicio",
-        "dice": "Ganas experiencia y dinero; después decides si estudias más."
-       },
-       "b": {
-        "texto": "Seguir estudiando",
-        "dice": "Te especializas antes; tardas más en empezar a trabajar."
-       }
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Cómo te imaginas después de la carrera?",
+       "tipo": "pregunta",
+       "pregunta": "Si la inflación está muy alta, ¿qué suele hacer Banxico?",
        "opciones": [
-        "Trabajando",
-        "En una maestría",
-        "Emprendiendo",
-        "No sé todavía"
-       ]
+        "Subir la tasa de interés",
+        "Bajarla",
+        "Nada"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "clave",
-       "texto": "Al titularte empieza otra parte del camino, no termina."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "u6",
-   "lecciones": [
-    {
-     "id": "6.1",
-     "titulo": "Lo que sentiste",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Antes de ver tus respuestas: ¿cómo te fue con Economía?",
+       "tipo": "pregunta",
+       "pregunta": "Un país tiene un PIB de 500 millones y 5 millones de habitantes. ¿Cuál es su PIB por persona?",
        "opciones": [
-        "Me gustó más de lo que pensaba",
-        "Más o menos como esperaba",
-        "Me gustó menos de lo que pensaba"
-       ]
+        "2,500",
+        "100",
+        "505"
+       ],
+       "correcta": 1,
+       "formula": "{500|5} = 100"
       },
       {
-       "tipo": "resumen"
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "Viendo tus respuestas, ¿qué pesó más?",
+       "tipo": "pregunta",
+       "pregunta": "¿Qué no muestra el PIB?",
        "opciones": [
-        "Lo que sentí al probarla",
-        "Lo que supe de la realidad",
-        "El camino para llegar",
-        "El futuro que ofrece"
-       ]
+        "Cuánto se produce",
+        "Cómo se reparte el ingreso",
+        "El valor de la producción"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "clave",
-       "texto": "Lo que sentiste al probarla vale más que lo que imaginabas."
-      },
-      {
-       "tipo": "interes",
-       "pregunta": "¿Te ves estudiando Economía?"
-      }
-     ]
-    },
-    {
-     "id": "6.2",
-     "titulo": "Tu veredicto",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Si mañana tuvieras que elegir carrera, ¿Economía estaría entre tus opciones?",
+       "tipo": "pregunta",
+       "pregunta": "¿Qué es el costo de oportunidad?",
        "opciones": [
-        "Sí, entre las primeras",
-        "Sí, pero no arriba",
-        "No creo",
-        "No lo sé"
-       ]
+        "Lo que dejas por elegir otra cosa",
+        "Un descuento",
+        "Un impuesto"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "comparar"
+       "tipo": "pregunta",
+       "pregunta": "De 2,000 personas que trabajan o buscan trabajo, 80 no encuentran. ¿Cuál es la tasa de desempleo?",
+       "opciones": [
+        "4 por ciento",
+        "40 por ciento",
+        "8 por ciento"
+       ],
+       "correcta": 0,
+       "formula": "{80|2,000} × 100 = 4"
       },
       {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Qué te ayudaría más a decidir?",
-       "a": {
-        "texto": "Hablar con alguien que la estudia",
-        "dice": "Busca a un estudiante o egresado cerca de ti y hazle tus preguntas. Una plática aclara más que diez videos."
-       },
-       "b": {
-        "texto": "Probar otra carrera y comparar",
-        "dice": "Explora otra de tu mapa. Comparar dos caminos reales aclara más que pensar en uno solo."
-       }
+       "tipo": "pregunta",
+       "pregunta": "Una fábrica contamina el aire de una colonia. ¿Qué es?",
+       "opciones": [
+        "Una externalidad",
+        "Una exportación",
+        "Un subsidio"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "veredicto"
-      },
-      {
-       "tipo": "clave",
-       "texto": "Decidir «en duda» también es avanzar."
+       "tipo": "pregunta",
+       "pregunta": "¿Cómo evalúas si un programa social funcionó?",
+       "opciones": [
+        "Por su publicidad",
+        "Por lo que diga quien lo hizo",
+        "Comparando con datos a quienes lo recibieron y a quienes no"
+       ],
+       "correcta": 2
       }
      ]
     }

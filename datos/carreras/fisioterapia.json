@@ -1,223 +1,151 @@
 {
  "id": "fisioterapia",
- "version": 1,
+ "version": 2,
+ "formato": 2,
  "estado": "completo",
- "generado": true,
- "revision": "Armada automáticamente con la base de carreras de Morelos y CDMX (2026-11-17). Falta que la revise alguien de la carrera.",
+ "revision": "Pendiente de revisión por un profesionista de la carrera. Generado con datos/importar_lecciones.py desde datos/fuentes/lecciones/fisioterapia.lec; no se edita a mano.",
  "unidades": [
   {
    "id": "u1",
+   "titulo": "Valorar",
+   "sub": "Evaluación y señales de alarma",
    "lecciones": [
     {
-     "id": "1.1",
-     "titulo": "Qué es y qué hace",
-     "minutos": 3,
+     "id": "0",
+     "titulo": "Conócela",
+     "minutos": 1,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "¿Qué es Fisioterapia?",
-       "texto": "Evaluación funcional y rehabilitación de personas. El enfoque concreto puede abarcar movimiento, visión, audición, comunicación o técnicas terapéuticas.",
-       "puntos": [
-        "Evalúa lesiones o limitaciones de movimiento y diseña rutinas de ejercicio, masaje y terapias para recuperar a pacientes: deportistas, adultos mayores…"
+       "tipo": "ficha",
+       "texto": "Fisioterapia forma profesionales que ayudan a las personas a recuperar el movimiento y a vivir con menos dolor después de lesiones, cirugías, enfermedades o con la edad. Su herramienta principal es el ejercicio. Trabajan en hospitales, clínicas, equipos deportivos y consultorios propios.",
+       "cifras": [
+        "fisioterapia.ingreso",
+        "fisioterapia.duracion",
+        "fisioterapia.costo_publica",
+        "fisioterapia.costo_privada"
        ]
       },
       {
-       "tipo": "decision",
-       "pregunta": "Por lo que leíste, ¿qué hace alguien de Fisioterapia?",
-       "opciones": [
-        {
-         "texto": "Evalúa lesiones o limitaciones de movimiento y diseña rutinas de ejercicio, masaje y terapias para recuperar a pacientes: deportistas, adultos mayores…",
-         "consecuencia": "Exacto: eso es parte del día a día en Fisioterapia.",
-         "mejor": true
-        },
-        {
-         "texto": "Diseña prendas y colecciones, elige telas, trabaja patrones con talleres, sigue tendencias y comercializa: en marcas, retail o con su propia marca.",
-         "consecuencia": "Eso lo hace alguien de Moda."
-        },
-        {
-         "texto": "Mide y reduce la contaminación: diseña plantas de tratamiento de agua, gestiona residuos…",
-         "consecuencia": "Eso lo hace alguien de Ing. Ambiental."
-        }
-       ]
-      },
-      {
-       "tipo": "completar",
-       "frase": "Fisioterapia es una carrera del área de ___.",
-       "opciones": [
-        "Salud",
-        "Negocios y sociedad",
-        "Tecnología y ciencias"
-       ],
-       "correcta": 0,
-       "revelacion": "Está en Salud. Se parece a Educación Física y Ciencias del Deporte, Enfermería, Medicina (Médico Cirujano)."
-      },
-      {
-       "tipo": "clave",
-       "texto": "Antes de elegir, entiende qué harías cada día, no solo el nombre."
-      },
-      {
-       "tipo": "interes"
+       "tipo": "escena",
+       "texto": "Hoy atiendes tu consultorio de fisioterapia. Vamos a ver si tus pacientes se recuperan."
       }
      ]
     },
     {
-     "id": "1.2",
-     "titulo": "Dónde trabajas",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Dónde trabaja alguien de Fisioterapia",
-       "texto": "Instituciones públicas y privadas, organizaciones sociales, empresas, centros de investigación, consultoría, docencia y proyectos independientes, según la especialización y experiencia."
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Alguien de Fisioterapia solo puede trabajar en un tipo de lugar.",
-       "respuesta": false,
-       "revelacion": "Puede trabajar en varios: instituciones públicas, privadas, organizaciones sociales."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Dónde te ves trabajando?",
-       "opciones": [
-        "Instituciones públicas",
-        "Privadas",
-        "Organizaciones sociales",
-        "Empresas"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Una carrera abre varias puertas, no una sola."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "1.3",
-     "titulo": "Pregúntale a Rumbo",
+     "id": "1",
+     "titulo": "Valorar al paciente",
      "minutos": 4,
      "tarjetas": [
       {
-       "tipo": "chat",
-       "subtitulo": "Te cuenta cómo es trabajar en Fisioterapia",
-       "intro": [
-        "¡Hola! Junté lo que se sabe de Fisioterapia.",
-        "Pregúntame lo que quieras."
-       ],
-       "temas": [
+       "tipo": "info",
+       "titulo": "Valorar al paciente",
+       "partes": [
         {
-         "q": "¿Qué haces en un día normal?",
-         "a": [
-          "Evalúa lesiones o limitaciones de movimiento y diseña rutinas de ejercicio, masaje y terapias para recuperar a pacientes: deportistas, adultos mayores, personas con secuelas de accidentes o derrames."
-         ]
-        },
-        {
-         "q": "¿Qué es lo más difícil?",
-         "a": [
-          "Se considera una carrera de dificultad media-alta.",
-          "Anatomía (sobre todo músculos y huesos) y Biomecánica",
-          "Mucha práctica con pacientes."
-         ]
-        },
-        {
-         "q": "¿Hay trabajo?",
-         "a": [
-          "La mayoría de quienes la estudian trabaja en algo de su carrera. Es un promedio nacional del IMCO.",
-          "Mucho trabajo por cuenta propia."
-         ]
-        },
-        {
-         "q": "¿Qué necesito para ejercer?",
-         "a": [
-          "Título y cédula profesional."
-         ]
+         "t": "Antes de tratar, el fisioterapeuta valora. Pregunta dónde duele, desde cuándo, qué lo empeora y qué lo mejora, y le pide al paciente que califique su dolor del 0 al 10. Luego observa cómo se mueve, mide el rango de movimiento de las articulaciones con un goniómetro, que es un transportador para el cuerpo, y revisa fuerza y equilibrio. Con eso fija objetivos concretos, como \"subir escaleras sin dolor en seis semanas\". Volver a medir durante el tratamiento permite saber si de verdad está funcionando."
         }
-       ],
-       "minimo": 2,
-       "auto": true
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Fisioterapia se considera una carrera de dificultad baja.",
-       "respuesta": false,
-       "revelacion": "Se considera de dificultad media-alta. Anatomía (sobre todo músculos y huesos) y Biomecánica"
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué te llamó más la atención?",
-       "opciones": [
-        "¿Qué haces en un día normal?",
-        "¿Qué es lo más difícil?",
-        "¿Hay trabajo?",
-        "¿Qué necesito para ejercer?"
        ]
       },
       {
-       "tipo": "clave",
-       "texto": "Preguntar a quien ya sabe ahorra muchos errores."
+       "tipo": "pregunta",
+       "pregunta": "¿Para qué sirve pedir el dolor del 0 al 10?",
+       "opciones": [
+        "Para cobrar más",
+        "Para nada",
+        "Para tener un número y comparar cómo cambia con el tratamiento"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "¿Qué mide un goniómetro?",
+       "opciones": [
+        "La presión",
+        "La temperatura",
+        "Cuántos grados se mueve una articulación"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál objetivo está mejor planteado?",
+       "opciones": [
+        "\"Hacer ejercicio\"",
+        "\"Que se sienta mejor\"",
+        "\"Subir escaleras sin dolor en seis semanas\""
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Una rodilla doblaba 90 grados al inicio y ahora dobla 120. ¿Qué te dice?",
+       "opciones": [
+        "Nada",
+        "Que empeoró",
+        "Que el tratamiento está ayudando"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
-     "id": "1.4",
-     "titulo": "Carreras parecidas",
-     "minutos": 3,
+     "id": "2",
+     "titulo": "Señales de alarma",
+     "minutos": 4,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Carreras cercanas a Fisioterapia",
-       "puntos": [
-        "Educación Física y Ciencias del Deporte: procesos de enseñanza y aprendizaje, diseño didáctico.",
-        "Enfermería: atención integral de pacientes, vigilancia clínica, administración de tratamientos.",
-        "Medicina (Médico Cirujano): formación para prevenir, diagnosticar y tratar enfermedades.",
-        "Nutrición: alimentación y metabolismo, evaluación del estado nutricional y diseño."
+       "titulo": "Señales de alarma",
+       "partes": [
+        {
+         "t": "El fisioterapeuta no diagnostica enfermedades que no le tocan, pero sí debe reconocer señales de alarma que indican que algo más serio podría estar pasando y que la persona debe ver a un médico pronto. Algunas son: dolor de espalda que no mejora con ninguna posición y empeora de noche, pérdida de peso sin explicación, fiebre con dolor, debilidad que avanza rápido, o pérdida del control de la orina o del excremento junto con dolor de espalda. Ante esas señales, se refiere al médico antes de seguir."
+        }
        ]
       },
       {
-       "tipo": "emparejar",
-       "pregunta": "Une cada carrera con lo que estudia.",
-       "pares": [
-        [
-         "Educación Física y Ciencias del Deporte",
-         "Procesos de enseñanza y aprendizaje, diseño didáctico"
-        ],
-        [
-         "Enfermería",
-         "Atención integral de pacientes, vigilancia clínica, administración de tratamientos"
-        ],
-        [
-         "Medicina (Médico Cirujano)",
-         "Formación para prevenir, diagnosticar y tratar enfermedades"
-        ],
-        [
-         "Nutrición",
-         "Alimentación y metabolismo, evaluación del estado nutricional y diseño"
-        ]
-       ],
-       "revelacion": "Se cruzan en temas, pero cada una tiene su propio enfoque."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Cuál de estas te da curiosidad?",
+       "tipo": "pregunta",
+       "pregunta": "Un paciente con dolor de espalda dice que de noche no lo deja dormir en ninguna posición y ha bajado de peso sin querer.",
        "opciones": [
-        "Educación Física y Ciencias del Deporte",
-        "Enfermería",
-        "Medicina (Médico Cirujano)",
-        "Me quedo con Fisioterapia"
-       ]
+        "Le dices que es estrés",
+        "Le das masaje y ya",
+        "Lo refieres al médico pronto"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "clave",
-       "texto": "Si dudas entre dos, compara lo que harías cada día."
+       "tipo": "pregunta",
+       "pregunta": "Un paciente con dolor de espalda empieza a perder el control de la orina.",
+       "opciones": [
+        "Lo mandas a urgencias de inmediato",
+        "Le das ejercicios",
+        "Esperas a la siguiente cita"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "¿Por qué el fisioterapeuta debe conocer las señales de alarma?",
+       "opciones": [
+        "Para diagnosticar todo él solo",
+        "No hace falta",
+        "Para referir a tiempo cuando algo más serio podría estar pasando"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Un dolor de rodilla mejora al moverse y empeora al estar mucho tiempo sentado. ¿Es una señal de alarma?",
+       "opciones": [
+        "Sí, siempre",
+        "No, es un patrón común mecánico",
+        "Sí, es grave"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "teves"
       }
      ]
     }
@@ -225,202 +153,114 @@
   },
   {
    "id": "u2",
+   "titulo": "Tratar",
+   "sub": "Ejercicio y lesiones",
    "lecciones": [
     {
-     "id": "2.1",
-     "titulo": "Mini reto",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Un futbolista quiere volver a jugar la próxima semana tras una lesión de rodilla. ¿Qué le dices?",
-       "opciones": [
-        "Primero evaluamos cómo está y avanzamos por etapas",
-        "Que sí, si ya no le duele",
-        "Que deje el futbol para siempre"
-       ]
-      },
-      {
-       "tipo": "info",
-       "titulo": "Así lo piensa alguien de Fisioterapia",
-       "texto": "Se evalúa y se avanza por etapas: volver antes de tiempo puede lesionarlo peor. Es una carrera de mucho contacto, constancia y motivar a otros."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Te gustó pensar en algo así?",
-       "escala": [
-        "Nada",
-        "Mucho"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Los retos de una carrera se parecen a lo que harías en su trabajo."
-      },
-      {
-       "tipo": "interes",
-       "pregunta": "¿Te ves resolviendo retos así?"
-      }
-     ]
-    },
-    {
-     "id": "2.2",
-     "titulo": "Lo que te piden",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Habilidades que usarás en Fisioterapia",
-       "puntos": [
-        "Trato cercano y paciencia",
-        "Condición física",
-        "Observación del movimiento",
-        "Constancia"
-       ]
-      },
-      {
-       "tipo": "completar",
-       "pregunta": "Según lo que leíste, completa la frase.",
-       "frase": "Para Fisioterapia es clave: ___.",
-       "opciones": [
-        "Trato cercano y paciencia",
-        "Matemáticas y estadística",
-        "Observación"
-       ],
-       "correcta": 0,
-       "revelacion": "Es de las habilidades que más se usan en Fisioterapia."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué tanto se te da esto: condición física?",
-       "escala": [
-        "Me cuesta",
-        "Se me da"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Las habilidades se entrenan; lo importante es que te guste usarlas."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "2.3",
-     "titulo": "Temas que vas a ver",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Temas que te deben gustar",
-       "puntos": [
-        "Deporte",
-        "Cuerpo humano",
-        "Ayudar a otros a recuperarse"
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "¿Cuál de estos temas es más de Fisioterapia?",
-       "opciones": [
-        {
-         "texto": "Deporte",
-         "consecuencia": "Sí, es de sus temas centrales.",
-         "mejor": true
-        },
-        {
-         "texto": "Ayudar a personas vulnerables",
-         "consecuencia": "Ese es más de Trabajo social."
-        },
-        {
-         "texto": "Naturaleza y animales",
-         "consecuencia": "Ese es más de Biología."
-        }
-       ]
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Cuál de estos temas te gusta más?",
-       "opciones": [
-        "Deporte",
-        "Cuerpo humano",
-        "Ayudar a otros a recuperarse",
-        "Ninguno me late"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Si los temas te aburren, la carrera se hace muy larga."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "2.4",
-     "titulo": "Materias clave",
+     "id": "3",
+     "titulo": "Ejercicio terapéutico",
      "minutos": 4,
      "tarjetas": [
       {
-       "tipo": "voltear",
-       "pregunta": "¿Qué materias crees que llevas en cada etapa? Piénsalo y voltea.",
-       "cartas": [
+       "tipo": "info",
+       "titulo": "Ejercicio terapéutico",
+       "partes": [
         {
-         "frente": "Semestres 1-2",
-         "reverso": "Anatomía, Fisiología, Biomecánica, Kinesiología"
-        },
-        {
-         "frente": "Semestres 3-4",
-         "reverso": "Agentes físicos (calor, electroterapia), Fisiopatología, Valoración funcional"
-        },
-        {
-         "frente": "Semestres 5-6",
-         "reverso": "Rehabilitación neurológica, Rehabilitación deportiva, Fisioterapia pediátrica y geriátrica"
-        },
-        {
-         "frente": "Semestres 7 en adelante",
-         "reverso": "Prácticas clínicas, Servicio social"
+         "t": "El ejercicio es la herramienta principal de la fisioterapia. Se elige según el objetivo: fuerza, movilidad, equilibrio o resistencia. Se empieza con una carga que el paciente pueda hacer bien y se aumenta poco a poco. Una molestia leve durante el ejercicio, que no empeora al día siguiente, suele ser aceptable; un dolor que aumenta y dura es señal de que hay que bajar la carga. Lo que más funciona es lo que el paciente sí hace en casa, así que el programa debe ser sencillo."
         }
        ]
       },
       {
-       "tipo": "decision",
-       "pregunta": "¿Cuál de estas materias llevarías en Fisioterapia?",
+       "tipo": "pregunta",
+       "pregunta": "Después de los ejercicios, un paciente tiene más dolor al día siguiente que antes de empezar. ¿Qué haces?",
        "opciones": [
+        "Le duplicas los ejercicios",
+        "Le dices que aguante",
+        "Bajas la carga y ajustas el programa"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Le dejaste a un paciente 15 ejercicios para casa y no hace ninguno. ¿Qué cambias?",
+       "opciones": [
+        "Lo regañas",
+        "Le dejas 30",
+        "Le dejas pocos, claros y fáciles de hacer en su rutina"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Cómo se aumenta la carga de un ejercicio?",
+       "opciones": [
+        "Al doble cada día",
+        "Poco a poco, según cómo responde el paciente",
+        "Nunca se aumenta"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "teves"
+      }
+     ]
+    },
+    {
+     "id": "4",
+     "titulo": "Lesiones deportivas",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "Lesiones deportivas",
+       "partes": [
         {
-         "texto": "Anatomía",
-         "consecuencia": "Sí: es de las primeras materias de Fisioterapia.",
-         "mejor": true
-        },
-        {
-         "texto": "Técnicas culinarias básicas",
-         "consecuencia": "Esa es de Gastronomía."
-        },
-        {
-         "texto": "Cálculo",
-         "consecuencia": "Esa es de Ing. Eléctrica."
+         "t": "Un esguince es una lesión de los ligamentos, muy común en el tobillo. En los primeros días se protege la zona, se controla la inflamación con hielo y elevación, y se evita forzarla. Pero el reposo total por mucho tiempo hace que la articulación se ponga rígida y débil, así que pronto se empieza a mover con cuidado y luego se fortalece. Antes de volver al deporte, el paciente debe recuperar fuerza, movilidad y equilibrio, y hacer pruebas como saltar y cambiar de dirección sin dolor. Regresar antes de tiempo aumenta el riesgo de volver a lesionarse."
         }
        ]
       },
       {
-       "tipo": "reflexion",
-       "pregunta": "¿Cuál te da más curiosidad?",
+       "tipo": "pregunta",
+       "pregunta": "¿Qué se lesiona en un esguince?",
        "opciones": [
-        "Anatomía",
-        "Fisiología",
-        "Biomecánica",
-        "Kinesiología"
-       ]
+        "Los ligamentos",
+        "El hueso",
+        "La piel"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "clave",
-       "texto": "Las primeras materias son la base; muchas veces son las más pesadas."
+       "tipo": "pregunta",
+       "pregunta": "Un futbolista con esguince quiere volver a jugar a los tres días porque \"ya no le duele caminando\".",
+       "opciones": [
+        "Lo dejas jugar",
+        "Le vendas el tobillo y que juegue",
+        "Le explicas que primero debe recuperar fuerza y equilibrio y pasar pruebas de salto y cambio de dirección"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "¿Qué pasa si una articulación lesionada se deja en reposo total por mucho tiempo?",
+       "opciones": [
+        "Nada",
+        "Se cura más rápido",
+        "Se pone rígida y débil"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Qué se hace en los primeros días de un esguince?",
+       "opciones": [
+        "Proteger, hielo y elevar",
+        "Calor fuerte y masaje profundo",
+        "Correr"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "teves"
       }
      ]
     }
@@ -428,183 +268,163 @@
   },
   {
    "id": "u3",
+   "titulo": "Para cada persona",
+   "sub": "Postura, adultos mayores y comunicación",
    "lecciones": [
     {
-     "id": "3.1",
-     "titulo": "Un día real",
+     "id": "5",
+     "titulo": "Postura y trabajo",
      "minutos": 4,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Un día de trabajo en Fisioterapia",
-       "puntos": [
-        "Evalúa lesiones o limitaciones de movimiento y diseña rutinas de ejercicio, masaje y terapias para recuperar a pacientes: deportistas, adultos mayores…"
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "¿Cuál de estas cosas sí hace alguien de Fisioterapia?",
-       "opciones": [
+       "titulo": "Postura y trabajo",
+       "partes": [
         {
-         "texto": "Evalúa lesiones o limitaciones de movimiento y diseña rutinas de ejercicio, masaje y terapias para recuperar a pacientes: deportistas, adultos mayores…",
-         "consecuencia": "Sí: es parte de su día.",
-         "mejor": true
-        },
-        {
-         "texto": "Diseña y mantiene instalaciones y redes eléctricas: subestaciones, plantas industriales, edificios, parques solares o eólicos.",
-         "consecuencia": "Eso es más de Ing. Eléctrica."
-        },
-        {
-         "texto": "Calcula riesgos con modelos estadísticos: cuánto debe costar un seguro, cuánto debe ahorrar un fondo de pensiones o qué tan probable es que un cliente no…",
-         "consecuencia": "Eso es más de Actuaría."
+         "t": "Mucho dolor de cuello y espalda viene de pasar horas en la misma posición. No existe una postura perfecta: el problema suele ser no moverse. Algunos ajustes ayudan: la pantalla a la altura de los ojos, los pies apoyados y los codos cerca del cuerpo. Pero lo que más ayuda es cambiar de posición y hacer pausas cortas cada rato para levantarse y moverse. Para levantar objetos pesados, se acercan al cuerpo y se usan las piernas."
         }
        ]
       },
       {
-       "tipo": "reflexion",
-       "pregunta": "¿Te ves haciendo esto todos los días?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
+       "tipo": "pregunta",
+       "pregunta": "Una oficinista tiene dolor de cuello y pasa ocho horas sin levantarse. ¿Qué le recomiendas primero?",
+       "opciones": [
+        "Pausas cortas para moverse y ajustar la altura de su pantalla",
+        "Una silla carísima y ya",
+        "No moverse"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "clave",
-       "texto": "El día a día pesa más que el título."
+       "tipo": "pregunta",
+       "pregunta": "¿Existe una postura perfecta para estar todo el día?",
+       "opciones": [
+        "No; lo importante es cambiar de posición y moverse",
+        "Sí, recto como tabla",
+        "Sí, encorvado"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "¿Cómo se levanta un objeto pesado del piso?",
+       "opciones": [
+        "Con los brazos estirados",
+        "Acercándolo al cuerpo y usando las piernas",
+        "Girando la espalda"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
-     "id": "3.2",
-     "titulo": "Lo difícil",
+     "id": "6",
+     "titulo": "Adultos mayores y neurología",
      "minutos": 4,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Lo difícil de Fisioterapia",
-       "texto": "Se considera de dificultad media-alta.",
-       "puntos": [
-        "Anatomía (sobre todo músculos y huesos) y Biomecánica",
-        "Mucha práctica con pacientes."
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "Según lo que leíste, ¿qué es lo que más cuesta en Fisioterapia?",
-       "opciones": [
+       "titulo": "Adultos mayores y neurología",
+       "partes": [
         {
-         "texto": "Anatomía (sobre todo músculos y huesos) y Biomecánica",
-         "consecuencia": "Sí, es de lo que más cuesta en Fisioterapia.",
-         "mejor": true
-        },
-        {
-         "texto": "Contabilidad, Matemáticas financieras y Estadística son lo más pesado",
-         "consecuencia": "Eso es más de Negocios."
-        },
-        {
-         "texto": "Cálculo, Electromagnetismo y Circuitos eléctricos.",
-         "consecuencia": "Eso es más de Ing. Eléctrica."
+         "t": "En adultos mayores, las caídas son una causa importante de lesiones graves. El fisioterapeuta trabaja fuerza en las piernas y equilibrio, y revisa la casa para quitar riesgos como tapetes sueltos o poca luz. En pacientes que tuvieron un infarto cerebral, también llamado evento vascular cerebral, el cerebro puede reaprender movimientos con práctica: lo que más ayuda es repetir muchas veces tareas útiles, como alcanzar objetos o levantarse de una silla. Empezar pronto y practicar mucho mejora la recuperación."
         }
        ]
       },
       {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué tanto te preocupa esto?",
-       "escala": [
-        "Mucho",
-        "Nada"
-       ]
+       "tipo": "pregunta",
+       "pregunta": "Una señora de 78 años se ha caído dos veces este año. ¿Qué trabajas con ella?",
+       "opciones": [
+        "Que no salga de la cama",
+        "Fuerza de piernas, equilibrio y revisar riesgos en su casa",
+        "Solo masaje"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "clave",
-       "texto": "Saber lo difícil desde antes te ayuda a prepararte."
+       "tipo": "pregunta",
+       "pregunta": "¿Qué ayuda más a un paciente a recuperar el movimiento después de un infarto cerebral?",
+       "opciones": [
+        "Esperar sin moverse",
+        "Repetir muchas veces tareas útiles",
+        "Un solo ejercicio a la semana"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "En la casa de un paciente hay tapetes sueltos y el pasillo está oscuro. ¿Qué recomiendas?",
+       "opciones": [
+        "Nada",
+        "Quitar o fijar los tapetes y mejorar la luz",
+        "Poner más tapetes"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Por qué conviene empezar pronto la rehabilitación después de un infarto cerebral?",
+       "opciones": [
+        "Porque practicar pronto y mucho mejora la recuperación",
+        "Por cobrar",
+        "No conviene"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
-     "id": "3.3",
-     "titulo": "Historia real",
-     "minutos": 3,
+     "id": "7",
+     "titulo": "El paciente en el centro",
+     "minutos": 4,
      "tarjetas": [
       {
-       "tipo": "reflexion",
-       "pregunta": "Si pudieras preguntarle algo a alguien que ya estudia Fisioterapia, ¿qué sería?",
+       "tipo": "info",
+       "titulo": "El paciente en el centro",
+       "partes": [
+        {
+         "t": "El paciente tiene que entender qué le pasa y qué va a hacer para mejorar. Explicar con palabras sencillas reduce el miedo, y el miedo al movimiento empeora muchos dolores. Se respetan sus objetivos: no es lo mismo un deportista que quiere competir que un abuelo que quiere cargar a su nieta. Antes de tocar se pide permiso y se explica qué se va a hacer. Y se registra todo en el expediente."
+        }
+       ]
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Un paciente con dolor de espalda tiene miedo de moverse porque cree que se va a \"romper\". ¿Qué haces?",
        "opciones": [
-        "¿Qué fue lo más difícil?",
-        "¿Qué te sorprendió?",
-        "¿Volverías a elegirla?",
-        "¿Cómo es un día normal?"
-       ]
+        "Le dices que no se mueva nunca",
+        "Le explicas con calma que el movimiento controlado le ayuda y avanzas poco a poco",
+        "Lo ignoras"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "testimonio",
-       "estado": "pendiente",
-       "perfil": "Estudiante de últimos semestres o egresado de Fisioterapia"
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "Mientras llega esta historia, ¿a quién podrías preguntarle tú?",
+       "tipo": "pregunta",
+       "pregunta": "Vas a hacer una técnica manual en el hombro. ¿Qué haces antes?",
        "opciones": [
-        "A un familiar o conocido que la estudió",
-        "A un estudiante de mi ciudad",
-        "A un maestro que la conozca",
-        "Todavía no conozco a nadie"
-       ]
+        "Explicas qué vas a hacer y pides permiso",
+        "Empiezas sin decir nada",
+        "Le pides que cierre los ojos"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "clave",
-       "texto": "Una persona real te cuenta lo que ningún folleto dice."
+       "tipo": "pregunta",
+       "pregunta": "Un abuelo quiere volver a cargar a su nieta. ¿Cómo usas eso?",
+       "opciones": [
+        "Como objetivo del tratamiento, con ejercicios dirigidos a lograrlo",
+        "No importa",
+        "Le dices que ya no puede"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "3.4",
-     "titulo": "¿Es para ti?",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Contesta con honestidad. Nadie más ve tus respuestas."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Me gusta trabajar con el cuerpo de otras personas?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Tengo paciencia para avances lentos?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Me interesa el deporte o la rehabilitación?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Si dijiste que sí a casi todo, vale la pena seguir explorándola."
-      },
-      {
-       "tipo": "interes"
+       "tipo": "teves"
       }
      ]
     }
@@ -612,448 +432,124 @@
   },
   {
    "id": "u4",
+   "titulo": "Examen final",
+   "sub": "10 preguntas · apruebas con 7",
    "lecciones": [
     {
-     "id": "4.1",
-     "titulo": "Cuánto dura y qué estudias",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Cada escuela arma su plan distinto, pero el orden general se parece. Vamos a verlo."
-      },
-      {
-       "tipo": "ordenar",
-       "pregunta": "Ordena lo que estudias, de lo primero a lo último.",
-       "pasos": [
-        "Anatomía, Fisiología",
-        "Agentes físicos (calor, electroterapia), Fisiopatología",
-        "Rehabilitación neurológica, Rehabilitación deportiva",
-        "Prácticas clínicas, Servicio social"
-       ],
-       "revelacion": "Primero las bases y al final lo más especializado y las prácticas."
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Cuántos años crees que pasan desde que entras hasta que te titulas?",
-       "min": 3,
-       "max": 10,
-       "paso": 1,
-       "unidad": "años",
-       "dato": "fisioterapia.duracion"
-      },
-      {
-       "tipo": "clave",
-       "texto": "Revisa el mapa curricular de cada escuela: cambia de una a otra."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "4.2",
-     "titulo": "Cómo se entra",
-     "minutos": 4,
+     "id": "ex",
+     "titulo": "Examen final",
+     "minutos": 6,
+     "examen": true,
+     "aprobar": 7,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Cómo se entra en la región",
-       "puntos": [
-        "UNAM: Concurso de selección UNAM (120 reactivos) o pase reglamentado desde CCH/ENP",
-        "Anáhuac: Examen de admisión propio + promedio",
-        "La Salle: Examen de admisión propio + promedio",
-        "UVM: Registro y examen diagnóstico; la beca depende del promedio"
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "Según lo que leíste, ¿qué pide UNAM para entrar?",
-       "opciones": [
+       "titulo": "Examen final",
+       "partes": [
         {
-         "texto": "Concurso de selección UNAM (120 reactivos) o pase reglamentado desde CCH/ENP",
-         "consecuencia": "Exacto.",
-         "mejor": true
-        },
-        {
-         "texto": "Examen de admisión propio + promedio",
-         "consecuencia": "Eso lo pide Anáhuac."
-        },
-        {
-         "texto": "Examen de admisión propio + promedio",
-         "consecuencia": "Eso lo pide La Salle."
+         "t": "Son 10 casos nuevos que mezclan todas las lecciones. Apruebas con 7. Si no, lo repites y las que fallaste regresan con otras palabras."
         }
        ]
       },
       {
-       "tipo": "vf",
-       "afirmacion": "Todas las universidades usan el mismo examen.",
-       "respuesta": false,
-       "revelacion": "Cada una tiene el suyo: revisa la convocatoria de la que te interese."
-      },
-      {
-       "tipo": "clave",
-       "texto": "Conoce el examen de tu escuela desde antes."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "4.3",
-     "titulo": "Dónde, cuánto cuesta y becas",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "escuelas"
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Cuánto crees que cuesta un semestre en una universidad pública?",
-       "min": 0,
-       "max": 60000,
-       "paso": 1000,
-       "unidad": "pesos",
-       "dato": "fisioterapia.costo_publica"
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Y un semestre en una universidad privada?",
-       "min": 0,
-       "max": 300000,
-       "paso": 5000,
-       "unidad": "pesos",
-       "dato": "fisioterapia.costo_privada"
-      },
-      {
-       "tipo": "dato",
-       "titulo": "Becas para estudiar Fisioterapia",
-       "dato": "fisioterapia.becas"
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Una universidad cara garantiza un mejor empleo.",
-       "respuesta": false,
-       "revelacion": "Pesan más lo que aprendes, tus prácticas y tu esfuerzo."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué pesa más para ti al elegir escuela?",
+       "tipo": "pregunta",
+       "pregunta": "¿Para qué sirve el goniómetro?",
        "opciones": [
-        "El costo",
-        "Que esté cerca de mi casa",
-        "El prestigio",
-        "Las prácticas que ofrece"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Además de la colegiatura, cuenta transporte y materiales."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "u5",
-   "lecciones": [
-    {
-     "id": "5.1",
-     "titulo": "Qué piden para trabajar",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Qué te piden para trabajar",
-       "puntos": [
-        "Título y cédula profesional.",
-        "Mucho trabajo por cuenta propia."
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "Según lo que leíste, ¿qué necesitas para ejercer Fisioterapia?",
-       "opciones": [
-        {
-         "texto": "Título y cédula profesional.",
-         "consecuencia": "Exacto.",
-         "mejor": true
-        },
-        {
-         "texto": "No requiere cédula para la mayoría de puestos.",
-         "consecuencia": "Eso lo piden en Ing. Química."
-        },
-        {
-         "texto": "Título y cédula profesional.",
-         "consecuencia": "Eso lo piden en Trabajo social."
-        }
-       ]
-      },
-      {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Cómo te ves?",
-       "a": {
-        "texto": "En una institución o empresa",
-        "dice": "Más estabilidad y un equipo de quien aprender."
-       },
-       "b": {
-        "texto": "Por tu cuenta",
-        "dice": "Más libertad, pero tienes que conseguir clientes."
-       }
-      },
-      {
-       "tipo": "clave",
-       "texto": "Saber qué te piden te ahorra sorpresas al salir."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "5.2",
-     "titulo": "Sueldo y demanda",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Hablemos de dinero sin rodeos. Antes de ver cualquier cifra, apuesta: así recuerdas mejor el dato real."
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Cuánto crees que gana al mes, en promedio, un profesionista de Fisioterapia en México?",
-       "min": 5000,
-       "max": 100000,
-       "paso": 1000,
-       "unidad": "pesos",
-       "dato": "fisioterapia.ingreso"
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "De cada 100 egresados, ¿cuántos crees que trabajan en algo de su carrera?",
-       "min": 0,
-       "max": 100,
-       "paso": 5,
-       "unidad": "de cada 100",
-       "dato": "fisioterapia.ocupacion_afin"
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Todos los egresados de Fisioterapia ganan lo mismo.",
-       "respuesta": false,
-       "revelacion": "Cambia con la experiencia, el lugar, la especialidad y si trabajas por tu cuenta."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué tanto pesa el sueldo en tu decisión?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "El promedio orienta, pero tu camino puede ser distinto."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "5.3",
-     "titulo": "Cómo les va al salir",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "chat",
-       "subtitulo": "Te cuenta cómo les va al salir",
-       "intro": [
-        "Te cuento cómo les va a quienes estudian Fisioterapia al salir."
+        "Para medir la fiebre",
+        "Para medir cuántos grados se mueve una articulación",
+        "Para pesar"
        ],
-       "temas": [
-        {
-         "q": "¿Cuántos trabajan en lo suyo?",
-         "a": [
-          "La mayoría trabaja en algo de su carrera.",
-          "Es un promedio nacional del IMCO."
-         ]
-        },
-        {
-         "q": "¿Muchos hacen posgrado?",
-         "a": [
-          "Pocos hacen posgrado; la mayoría empieza a trabajar."
-         ]
-        },
-        {
-         "q": "¿Hay más hombres o mujeres?",
-         "a": [
-          "Hay más mujeres que hombres.",
-          "Eso no decide nada: cualquiera puede estudiarla."
-         ]
-        },
-        {
-         "q": "¿El trabajo tiene prestaciones?",
-         "a": [
-          "Una parte trabaja sin prestaciones.",
-          "Las prestaciones son cosas como seguro médico y aguinaldo."
-         ]
-        }
+       "correcta": 1
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Un paciente con dolor de espalda pierde el control de la orina.",
+       "opciones": [
+        "Urgencias de inmediato",
+        "Esperar",
+        "Ejercicios"
        ],
-       "minimo": 2
+       "correcta": 0
       },
       {
-       "tipo": "vf",
-       "afirmacion": "La mayoría de quienes estudian Fisioterapia trabaja en algo de su carrera.",
-       "respuesta": true,
-       "revelacion": "La mayoría trabaja en algo de su carrera. Promedio nacional del IMCO."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué te importa más de tu futuro trabajo?",
+       "tipo": "pregunta",
+       "pregunta": "Un dolor empeora al día siguiente del ejercicio.",
        "opciones": [
-        "Que tenga que ver con lo que estudié",
-        "Ganar bien",
-        "Tener prestaciones",
-        "Hacer algo que me guste"
-       ]
+        "Ignoras",
+        "La duplicas",
+        "Bajas la carga"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "clave",
-       "texto": "Pregunta cómo les va a quienes ya salieron."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "5.4",
-     "titulo": "Después de titularte",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Después de titularte",
-       "puntos": [
-        "Puedes especializarte con cursos, diplomados o una maestría.",
-        "También puedes trabajar desde el inicio y estudiar después.",
-        "Se combina bien con: Educación Física y Ciencias del Deporte, Enfermería, Medicina (Médico Cirujano)."
-       ]
-      },
-      {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Qué harías al terminar?",
-       "a": {
-        "texto": "Trabajar desde el inicio",
-        "dice": "Ganas experiencia y dinero; después decides si estudias más."
-       },
-       "b": {
-        "texto": "Seguir estudiando",
-        "dice": "Te especializas antes; tardas más en empezar a trabajar."
-       }
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Cómo te imaginas después de la carrera?",
+       "tipo": "pregunta",
+       "pregunta": "¿Qué funciona mejor como programa de casa?",
        "opciones": [
-        "Trabajando",
-        "En una maestría",
-        "Emprendiendo",
-        "No sé todavía"
-       ]
+        "Pocos ejercicios, claros y fáciles de hacer",
+        "30 ejercicios",
+        "Ninguno"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "clave",
-       "texto": "Al titularte empieza otra parte del camino, no termina."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "u6",
-   "lecciones": [
-    {
-     "id": "6.1",
-     "titulo": "Lo que sentiste",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Antes de ver tus respuestas: ¿cómo te fue con Fisioterapia?",
+       "tipo": "pregunta",
+       "pregunta": "¿Qué se lesiona en un esguince?",
        "opciones": [
-        "Me gustó más de lo que pensaba",
-        "Más o menos como esperaba",
-        "Me gustó menos de lo que pensaba"
-       ]
+        "El músculo del corazón",
+        "Los ligamentos",
+        "El hueso"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "resumen"
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "Viendo tus respuestas, ¿qué pesó más?",
+       "tipo": "pregunta",
+       "pregunta": "¿Qué debe recuperar un deportista antes de volver?",
        "opciones": [
-        "Lo que sentí al probarla",
-        "Lo que supe de la realidad",
-        "El camino para llegar",
-        "El futuro que ofrece"
-       ]
+        "Fuerza, movilidad y equilibrio, sin dolor en pruebas de salto",
+        "Nada",
+        "Solo caminar sin dolor"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "clave",
-       "texto": "Lo que sentiste al probarla vale más que lo que imaginabas."
-      },
-      {
-       "tipo": "interes",
-       "pregunta": "¿Te ves estudiando Fisioterapia?"
-      }
-     ]
-    },
-    {
-     "id": "6.2",
-     "titulo": "Tu veredicto",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Si mañana tuvieras que elegir carrera, ¿Fisioterapia estaría entre tus opciones?",
+       "tipo": "pregunta",
+       "pregunta": "¿Qué ayuda más contra el dolor de oficina?",
        "opciones": [
-        "Sí, entre las primeras",
-        "Sí, pero no arriba",
-        "No creo",
-        "No lo sé"
-       ]
+        "Una sola postura",
+        "Pausas para moverse",
+        "No moverse"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "comparar"
+       "tipo": "pregunta",
+       "pregunta": "¿Qué trabajas para prevenir caídas en adultos mayores?",
+       "opciones": [
+        "Fuerza de piernas y equilibrio",
+        "Reposo",
+        "Solo masaje"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Qué te ayudaría más a decidir?",
-       "a": {
-        "texto": "Hablar con alguien que la estudia",
-        "dice": "Busca a un estudiante o egresado cerca de ti y hazle tus preguntas. Una plática aclara más que diez videos."
-       },
-       "b": {
-        "texto": "Probar otra carrera y comparar",
-        "dice": "Explora otra de tu mapa. Comparar dos caminos reales aclara más que pensar en uno solo."
-       }
+       "tipo": "pregunta",
+       "pregunta": "¿Qué ayuda a recuperar movimiento tras un infarto cerebral?",
+       "opciones": [
+        "No moverse",
+        "Repetir mucho tareas útiles",
+        "Esperar"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "veredicto"
-      },
-      {
-       "tipo": "clave",
-       "texto": "Decidir «en duda» también es avanzar."
+       "tipo": "pregunta",
+       "pregunta": "¿Qué haces antes de una técnica manual?",
+       "opciones": [
+        "Cobrar",
+        "Explicar y pedir permiso",
+        "Nada"
+       ],
+       "correcta": 1
       }
      ]
     }

@@ -1,0 +1,113 @@
+**Lección 1: Promedio y mediana (4 preguntas)**
+
+El promedio suma todos los valores y los divide entre cuántos son. La mediana es el valor de en medio cuando los ordenas. Si hay valores extremos, el promedio se jala hacia ellos y la mediana casi no se mueve. Por eso, para cosas como sueldos o precios de casas, donde unos pocos valores son enormes, la mediana describe mejor lo típico.
+
+$$\text{promedio} = \frac{\text{suma de los valores}}{\text{número de valores}}$$
+
+Pregunta 1. Cinco personas ganan 10, 12, 11, 13 y 14 mil pesos. ¿Cuál es el promedio? A: 12 mil. B: 11 mil. C: 60 mil. Correcta: A, porque
+
+$$\frac{10 + 12 + 11 + 13 + 14}{5} = 12$$
+
+Pregunta 2. Con esos mismos datos ordenados, 10, 11, 12, 13 y 14, ¿cuál es la mediana? A: 14. B: 11. C: 12. Correcta: C.
+
+Pregunta 3. Si la quinta persona ganara 200 mil en vez de 14, ¿qué pasa? A: los dos suben igual. B: el promedio sube muchísimo y la mediana sigue en 12. C: ninguno cambia. Correcta: B.
+
+Pregunta 4. Un reporte quiere mostrar el sueldo típico de una empresa donde el dueño gana muchísimo más que todos. ¿Qué usas? A: el sueldo del dueño. B: la mediana. C: el promedio. Correcta: B.
+
+**Lección 2: Muestras y sesgo (4 preguntas)**
+
+Casi nunca se puede preguntar a todos, así que se usa una muestra. Para que represente a todos, tiene que elegirse bien, idealmente al azar. Si la eliges de forma que algunos grupos quedan fuera, la muestra tiene sesgo y las conclusiones salen mal, aunque sea muy grande. Por ejemplo, una encuesta hecha solo por internet deja fuera a quien no tiene internet. Más datos no arreglan un sesgo: solo te dan una respuesta equivocada con más seguridad.
+
+Pregunta 1. Quieres saber qué opinan todos los alumnos de la prepa sobre la cafetería y solo preguntas a los que están comiendo ahí. ¿Qué problema hay? A: ninguno. B: dejas fuera a quienes no van a la cafetería, quizá porque no les gusta. C: que son pocos. Correcta: B.
+
+Pregunta 2. ¿Se arregla un sesgo juntando muchos más datos del mismo modo? A: no, solo das una respuesta equivocada con más seguridad. B: a veces. C: sí. Correcta: A.
+
+Pregunta 3. ¿Cuál es una buena forma de elegir una muestra? A: al azar entre toda la población. B: solo a tus amigos. C: a los que contesten primero. Correcta: A.
+
+Pregunta 4. Una app de salud solo tiene datos de personas que tienen smartwatch. ¿Qué cuidado tienes al sacar conclusiones? A: ninguno. B: que el reloj sea caro. C: que esos usuarios no representan a toda la población. Correcta: C.
+
+**Lección 3: Correlación no es causa (3 preguntas)**
+
+Dos cosas están correlacionadas cuando suben o bajan juntas. Pero que vayan juntas no significa que una cause la otra. A veces una tercera cosa causa las dos: en verano suben las ventas de helado y también los ahogamientos, pero el helado no ahoga a nadie; el calor causa ambos. Para saber si algo causa otra cosa se necesitan experimentos o análisis más cuidadosos.
+
+Pregunta 1. Los alumnos que desayunan sacan mejores calificaciones. ¿Puedes concluir que desayunar sube las calificaciones? A: no, son contrarias. B: sí, seguro. C: no solo con eso; podría haber otras causas, como la rutina familiar. Correcta: C.
+
+Pregunta 2. En verano suben las ventas de helado y los ahogamientos. ¿Qué los conecta? A: el helado. B: el calor, que causa las dos cosas. C: nada. Correcta: B.
+
+Pregunta 3. ¿Qué necesitas para probar que algo causa otra cosa? A: que los datos suban juntos. B: un experimento o un análisis cuidadoso que descarte otras causas. C: una gráfica bonita. Correcta: B.
+
+**Lección 4: Limpiar los datos (4 preguntas)**
+
+Gran parte del trabajo en ciencia de datos es limpiar: los datos reales vienen con errores. Hay registros duplicados, valores faltantes, fechas en distintos formatos, nombres escritos diferente, como "CDMX" y "Ciudad de México", y valores imposibles, como una edad de 250 años. Antes de analizar se revisa todo eso. Borrar a ciegas también es un error: si todos los datos faltantes son de un grupo, quitarlos sesga el resultado.
+
+Pregunta 1. Una tabla de clientes tiene a la misma persona tres veces. ¿Qué haces? A: quitas los duplicados antes de contar clientes. B: los dejas. C: los cuentas triple. Correcta: A.
+
+Pregunta 2. En la columna de edad aparece un 250. ¿Qué haces? A: lo revisas como posible error de captura. B: lo dejas. C: lo usas para el promedio. Correcta: A.
+
+Pregunta 3. Tus datos dicen "CDMX", "Cd. de México" y "Ciudad de México". ¿Qué pasa si no los unificas? A: se suman solos. B: los cuentas como tres lugares distintos. C: nada. Correcta: B.
+
+Pregunta 4. Casi todos los datos faltantes de ingreso son de personas mayores. Si borras esas filas, ¿qué pasa? A: nada. B: mejora. C: tu análisis deja fuera a ese grupo y queda sesgado. Correcta: C.
+
+**Lección 5: Gráficas honestas (3 preguntas)**
+
+Una buena gráfica hace que el mensaje se entienda en segundos. Para comparar categorías se usan barras; para ver cómo cambia algo en el tiempo, líneas. Las gráficas de pastel solo funcionan con pocas partes. Un truco engañoso es cortar el eje de las barras para que una diferencia pequeña se vea enorme. Por eso, en las barras el eje empieza en cero. Siempre se ponen títulos, unidades y la fuente de los datos.
+
+Pregunta 1. Quieres mostrar cómo cambiaron las ventas mes a mes durante un año. ¿Qué gráfica usas? A: de pastel. B: ninguna. C: de líneas. Correcta: C.
+
+Pregunta 2. Una gráfica de barras empieza en 95 y hace que 97 se vea el doble que 96. ¿Qué problema tiene? A: tiene muchos colores. B: ninguno. C: exagera una diferencia pequeña porque el eje no empieza en cero. Correcta: C.
+
+Pregunta 3. ¿Qué no le debe faltar a una gráfica? A: muchos colores. B: título, unidades y fuente. C: animaciones. Correcta: B.
+
+**Lección 6: Modelos que predicen (4 preguntas)**
+
+Un modelo aprende patrones de datos pasados para predecir algo, como si un cliente dejará de pagar. Para saber si funciona, se prueba con datos que no vio al aprender. Si se aprende de memoria los datos de entrenamiento, funciona perfecto ahí y mal con datos nuevos; eso se llama sobreajuste. La exactitud es la proporción de aciertos:
+
+$$\text{exactitud} = \frac{\text{aciertos}}{\text{total de casos}}$$
+
+Pero cuidado: si solo 1 de cada 100 transacciones es fraude, un modelo que siempre dice "no es fraude" tiene 99 por ciento de exactitud y no sirve para nada.
+
+Pregunta 1. Un modelo acertó 180 de 200 casos. ¿Cuál es su exactitud? A: 0.9, o 90 por ciento. B: 180. C: 0.2. Correcta: A, porque
+
+$$\frac{180}{200} = 0.9$$
+
+Pregunta 2. Tu modelo tiene 100 por ciento de exactitud con los datos de entrenamiento y 60 con datos nuevos. ¿Qué pasó? A: los datos nuevos están mal. B: sobreajuste: memorizó en vez de aprender. C: es excelente. Correcta: B.
+
+Pregunta 3. En fraudes, donde solo 1 de cada 100 casos es fraude, un modelo tiene 99 por ciento de exactitud. ¿Qué revisas? A: si realmente detecta los fraudes o solo dice siempre "no es fraude". B: el color de la pantalla. C: nada, es excelente. Correcta: A.
+
+Pregunta 4. ¿Por qué se prueba el modelo con datos que no vio? A: para saber si funciona con casos nuevos. B: por costumbre. C: para que tarde más. Correcta: A.
+
+**Lección 7: Datos y personas (3 preguntas)**
+
+Los datos casi siempre son de personas, y eso trae responsabilidades. En México, la ley protege los datos personales: se necesita avisar para qué se usan y cuidarlos. Un modelo entrenado con datos injustos del pasado puede repetir esa injusticia, por ejemplo negar créditos a una colonia entera. Por eso se revisa a quién afecta un modelo antes de usarlo. Y los resultados se explican en palabras que entienda quien va a decidir.
+
+Pregunta 1. Tu modelo de créditos rechaza casi siempre a personas de ciertas colonias. ¿Qué haces? A: revisas si está repitiendo una injusticia de los datos y lo corriges. B: lo usas igual. C: borras las colonias del mapa. Correcta: A.
+
+Pregunta 2. Un jefe quiere usar los datos de clientes para algo que nunca se les avisó. A: lo haces. B: le explicas que hay que respetar el aviso de privacidad y la ley. C: vendes los datos. Correcta: B.
+
+Pregunta 3. Presentas tus resultados a directivos que no saben estadística. A: explicas en palabras claras lo que significa para su decisión. B: no presentas. C: muestras todo el código. Correcta: A.
+
+**Examen final**
+
+Pregunta 1. Los valores 4, 6, 8, 10 y 12. ¿Cuál es el promedio? A: 40. B: 8. C: 6. Correcta: B, porque
+
+$$\frac{4 + 6 + 8 + 10 + 12}{5} = 8$$
+
+Pregunta 2. ¿Qué medida aguanta mejor los valores extremos? A: el promedio. B: la mediana. C: el máximo. Correcta: B.
+
+Pregunta 3. ¿Qué es una muestra sesgada? A: una muestra grande. B: una muestra al azar. C: una que deja fuera a algunos grupos. Correcta: C.
+
+Pregunta 4. Si dos cosas suben juntas, ¿una causa la otra? A: no necesariamente. B: siempre. C: nunca. Correcta: A.
+
+Pregunta 5. ¿Qué haces con registros duplicados? A: los sumas. B: los dejas. C: los quitas antes de contar. Correcta: C.
+
+Pregunta 6. ¿Dónde debe empezar el eje de una gráfica de barras? A: en cero. B: en el valor más alto. C: donde quieras. Correcta: A.
+
+Pregunta 7. Un modelo acertó 45 de 50 casos. ¿Cuál es su exactitud? A: 0.45. B: 0.9. C: 5. Correcta: B, porque
+
+$$\frac{45}{50} = 0.9$$
+
+Pregunta 8. ¿Qué es el sobreajuste? A: que usa muchos colores. B: que es muy lento. C: que el modelo memoriza los datos de entrenamiento y falla con datos nuevos. Correcta: C.
+
+Pregunta 9. ¿Qué gráfica usas para ver un cambio en el tiempo? A: ninguna. B: de pastel. C: de líneas. Correcta: C.
+
+Pregunta 10. Tu modelo afecta injustamente a un grupo. A: lo usas igual. B: lo escondes. C: lo revisas y corriges. Correcta: C.

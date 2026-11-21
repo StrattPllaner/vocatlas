@@ -1,226 +1,156 @@
 {
  "id": "quimica",
- "version": 1,
+ "version": 2,
+ "formato": 2,
  "estado": "completo",
- "generado": true,
- "revision": "Armada automáticamente con la base de carreras de Morelos y CDMX (2026-11-17). Falta que la revise alguien de la carrera.",
+ "revision": "Pendiente de revisión por un profesionista de la carrera. Generado con datos/importar_lecciones.py desde datos/fuentes/lecciones/quimica.lec; no se edita a mano.",
  "unidades": [
   {
    "id": "u1",
+   "titulo": "La materia",
+   "sub": "Átomos y el mol",
    "lecciones": [
     {
-     "id": "1.1",
-     "titulo": "Qué es y qué hace",
-     "minutos": 3,
+     "id": "0",
+     "titulo": "Conócela",
+     "minutos": 1,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "¿Qué es Química?",
-       "texto": "Ciencias químicas y biológicas aplicadas al análisis, investigación, producción y control de calidad. El plan puede orientarse a medicamentos, diagnóstico, microorganismos, alimentos o procesos industriales.",
-       "puntos": [
-        "Analiza sustancias, desarrolla nuevos materiales o productos y controla la calidad en laboratorios de industria (alimentos, cosméticos, farmacéutica) o de investigación."
+       "tipo": "ficha",
+       "texto": "Química forma científicos que estudian de qué está hecha la materia y cómo se transforma. Trabajan en laboratorios de análisis, control de calidad, investigación, la industria de alimentos, farmacéutica, de pinturas o cosméticos, y en el cuidado del ambiente.",
+       "cifras": [
+        "quimica.ingreso",
+        "quimica.duracion",
+        "quimica.costo_publica",
+        "quimica.costo_privada"
        ]
       },
       {
-       "tipo": "decision",
-       "pregunta": "Por lo que leíste, ¿qué hace alguien de Química?",
-       "opciones": [
-        {
-         "texto": "Analiza sustancias, desarrolla nuevos materiales o productos y controla la calidad en laboratorios de industria (alimentos, cosméticos, farmacéutica) o de investigación.",
-         "consecuencia": "Exacto: eso es parte del día a día en Química.",
-         "mejor": true
-        },
-        {
-         "texto": "Coordina importaciones y exportaciones: trámites aduanales, logística de envíos, negociación con proveedores de otros países y análisis de mercados extranjeros.",
-         "consecuencia": "Eso lo hace alguien de Negocios internacionales."
-        },
-        {
-         "texto": "Calcula riesgos con modelos estadísticos: cuánto debe costar un seguro, cuánto debe ahorrar un fondo de pensiones o qué tan probable es que un cliente no…",
-         "consecuencia": "Eso lo hace alguien de Actuaría."
-        }
-       ]
-      },
-      {
-       "tipo": "completar",
-       "frase": "Química es una carrera del área de ___.",
-       "opciones": [
-        "Tecnología y ciencias",
-        "Ingenierías",
-        "Negocios y sociedad"
-       ],
-       "correcta": 0,
-       "revelacion": "Está en Tecnología y ciencias. Se parece a Ingeniería Química, Químico Farmacéutico Biólogo (QFB), Biotecnología e Ingeniería Bioquímica."
-      },
-      {
-       "tipo": "clave",
-       "texto": "Antes de elegir, entiende qué harías cada día, no solo el nombre."
-      },
-      {
-       "tipo": "interes"
+       "tipo": "escena",
+       "texto": "Hoy te pones la bata. Vamos a ver si tus reacciones salen como esperas."
       }
      ]
     },
     {
-     "id": "1.2",
-     "titulo": "Dónde trabajas",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Dónde trabaja alguien de Química",
-       "texto": "Universidades, centros de investigación, laboratorios, consultoría ambiental, industria, gobierno, análisis de datos, conservación y docencia;",
-       "puntos": [
-        "Algunos puestos valoran mucho el posgrado."
-       ]
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Alguien de Química solo puede trabajar en un tipo de lugar.",
-       "respuesta": false,
-       "revelacion": "Puede trabajar en varios: universidades, centros de investigación, laboratorios."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Dónde te ves trabajando?",
-       "opciones": [
-        "Universidades",
-        "Centros de investigación",
-        "Laboratorios",
-        "Consultoría ambiental"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Una carrera abre varias puertas, no una sola."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "1.3",
-     "titulo": "Pregúntale a Rumbo",
+     "id": "1",
+     "titulo": "Átomos y tabla periódica",
      "minutos": 4,
      "tarjetas": [
       {
-       "tipo": "chat",
-       "subtitulo": "Te cuenta cómo es trabajar en Química",
-       "intro": [
-        "¡Hola! Junté lo que se sabe de Química.",
-        "Pregúntame lo que quieras."
-       ],
-       "temas": [
+       "tipo": "info",
+       "titulo": "Átomos y tabla periódica",
+       "partes": [
         {
-         "q": "¿Qué haces en un día normal?",
-         "a": [
-          "Analiza sustancias, desarrolla nuevos materiales o productos y controla la calidad en laboratorios de industria (alimentos, cosméticos, farmacéutica) o de investigación."
-         ]
-        },
-        {
-         "q": "¿Qué es lo más difícil?",
-         "a": [
-          "Se considera una carrera de dificultad alta.",
-          "Química orgánica, Fisicoquímica y Química cuántica",
-          "Muchas horas de laboratorio."
-         ]
-        },
-        {
-         "q": "¿Hay trabajo?",
-         "a": [
-          "Cerca de la mitad trabaja en algo de su carrera. Es un promedio nacional del IMCO.",
-          "De las que más crecieron en egresados."
-         ]
-        },
-        {
-         "q": "¿Qué necesito para ejercer?",
-         "a": [
-          "No requiere cédula para la mayoría de puestos."
-         ]
+         "t": "Toda la materia está hecha de átomos. Cada elemento, como el oxígeno o el hierro, tiene un número fijo de protones en su núcleo, que es su número atómico. La tabla periódica los ordena así, y los elementos de una misma columna se comportan parecido porque tienen el mismo número de electrones en su capa externa. Por ejemplo, el sodio y el potasio reaccionan con agua de forma violenta, y el helio y el neón casi no reaccionan con nada. Los átomos se unen formando moléculas, como el agua, que tiene dos hidrógenos y un oxígeno."
         }
-       ],
-       "minimo": 2,
-       "auto": true
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Química se considera una carrera de dificultad baja.",
-       "respuesta": false,
-       "revelacion": "Se considera de dificultad alta. Química orgánica, Fisicoquímica y Química cuántica"
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué te llamó más la atención?",
-       "opciones": [
-        "¿Qué haces en un día normal?",
-        "¿Qué es lo más difícil?",
-        "¿Hay trabajo?",
-        "¿Qué necesito para ejercer?"
        ]
       },
       {
-       "tipo": "clave",
-       "texto": "Preguntar a quien ya sabe ahorra muchos errores."
+       "tipo": "pregunta",
+       "pregunta": "¿Qué define a un elemento químico?",
+       "opciones": [
+        "El número de protones en su núcleo",
+        "Su peso en una báscula",
+        "Su color"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "¿Por qué los elementos de una misma columna se parecen?",
+       "opciones": [
+        "Porque se descubrieron juntos",
+        "Por casualidad",
+        "Porque tienen el mismo número de electrones en su capa externa"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Cuántos átomos tiene una molécula de agua?",
+       "opciones": [
+        "Dos",
+        "Uno",
+        "Tres: dos hidrógenos y un oxígeno"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Qué elementos casi no reaccionan con nada?",
+       "opciones": [
+        "Todos reaccionan igual",
+        "Los gases nobles, como el helio y el neón",
+        "El sodio y el potasio"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
-     "id": "1.4",
-     "titulo": "Carreras parecidas",
-     "minutos": 3,
+     "id": "2",
+     "titulo": "El mol",
+     "minutos": 4,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Carreras cercanas a Química",
-       "puntos": [
-        "Ingeniería Química: ciencias químicas y biológicas aplicadas al análisis, investigación.",
-        "Químico Farmacéutico Biólogo (QFB): ciencias químicas y biológicas aplicadas al análisis, investigación.",
-        "Biotecnología e Ingeniería Bioquímica: estudio interdisciplinario de su campo profesional, con bases teóricas.",
-        "Física: fundamentos científicos y cuantitativos para explicar fenómenos naturales y."
+       "titulo": "El mol",
+       "partes": [
+        {
+         "t": "Los átomos son tan pequeños que se cuentan por paquetes llamados moles. Un mol tiene muchísimas partículas, alrededor de 602 mil trillones. La ventaja es que la masa de un mol de una sustancia, en gramos, es su masa molar, que se saca de la tabla periódica. El agua tiene una masa molar de unos 18 gramos por mol. Así se puede pasar de gramos a moles:"
+        },
+        {
+         "f": "moles = {masa en gramos|masa molar}"
+        }
        ]
       },
       {
-       "tipo": "emparejar",
-       "pregunta": "Une cada carrera con lo que estudia.",
-       "pares": [
-        [
-         "Ingeniería Química",
-         "Ciencias químicas y biológicas aplicadas al análisis, investigación"
-        ],
-        [
-         "Químico Farmacéutico Biólogo (QFB)",
-         "Ciencias químicas y biológicas aplicadas al análisis, investigación"
-        ],
-        [
-         "Biotecnología e Ingeniería Bioquímica",
-         "Estudio interdisciplinario de su campo profesional, con bases teóricas"
-        ],
-        [
-         "Física",
-         "Fundamentos científicos y cuantitativos para explicar fenómenos naturales y"
-        ]
-       ],
-       "revelacion": "Se cruzan en temas, pero cada una tiene su propio enfoque."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Cuál de estas te da curiosidad?",
+       "tipo": "pregunta",
+       "pregunta": "Tienes 36 gramos de agua, con masa molar de 18 gramos por mol. ¿Cuántos moles son?",
        "opciones": [
-        "Ingeniería Química",
-        "Químico Farmacéutico Biólogo (QFB)",
-        "Biotecnología e Ingeniería Bioquímica",
-        "Me quedo con Química"
-       ]
+        "648",
+        "2",
+        "18"
+       ],
+       "correcta": 1,
+       "formula": "{36|18} = 2"
       },
       {
-       "tipo": "clave",
-       "texto": "Si dudas entre dos, compara lo que harías cada día."
+       "tipo": "pregunta",
+       "pregunta": "La sal común tiene una masa molar de unos 58.5 gramos por mol. ¿Cuántos gramos son 2 moles?",
+       "opciones": [
+        "29.25 gramos",
+        "117 gramos",
+        "60.5 gramos"
+       ],
+       "correcta": 1,
+       "formula": "2 × 58.5 = 117"
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "¿Para qué sirve el mol?",
+       "opciones": [
+        "Para medir temperatura",
+        "Para medir distancia",
+        "Para contar partículas pesándolas"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿De dónde se saca la masa molar?",
+       "opciones": [
+        "De la tabla periódica",
+        "De un termómetro",
+        "De un diccionario"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "teves"
       }
      ]
     }
@@ -228,202 +158,163 @@
   },
   {
    "id": "u2",
+   "titulo": "Transformaciones",
+   "sub": "Reacciones, ácidos y seguridad",
    "lecciones": [
     {
-     "id": "2.1",
-     "titulo": "Mini reto",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Un champú nuevo irrita la piel de algunas personas. ¿Qué haces?",
-       "opciones": [
-        "Analizas sus ingredientes y pruebas cuál causa la reacción",
-        "Le cambias el olor",
-        "Lo vendes igual"
-       ]
-      },
-      {
-       "tipo": "info",
-       "titulo": "Así lo piensa alguien de Química",
-       "texto": "Se aísla la causa con pruebas controladas. Química es laboratorio, paciencia y mucha precisión."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Te gustó pensar en algo así?",
-       "escala": [
-        "Nada",
-        "Mucho"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Los retos de una carrera se parecen a lo que harías en su trabajo."
-      },
-      {
-       "tipo": "interes",
-       "pregunta": "¿Te ves resolviendo retos así?"
-      }
-     ]
-    },
-    {
-     "id": "2.2",
-     "titulo": "Lo que te piden",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Habilidades que usarás en Química",
-       "puntos": [
-        "Rigor experimental",
-        "Matemáticas",
-        "Observación",
-        "Seguridad en laboratorio"
-       ]
-      },
-      {
-       "tipo": "completar",
-       "pregunta": "Según lo que leíste, completa la frase.",
-       "frase": "Para Química es clave: ___.",
-       "opciones": [
-        "Rigor experimental",
-        "Servicio al cliente",
-        "Matemáticas y física muy sólidas"
-       ],
-       "correcta": 0,
-       "revelacion": "Es de las habilidades que más se usan en Química."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué tanto se te da esto: matemáticas?",
-       "escala": [
-        "Me cuesta",
-        "Se me da"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Las habilidades se entrenan; lo importante es que te guste usarlas."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "2.3",
-     "titulo": "Temas que vas a ver",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Temas que te deben gustar",
-       "puntos": [
-        "Química pura",
-        "Experimentar",
-        "Investigación"
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "¿Cuál de estos temas es más de Química?",
-       "opciones": [
-        {
-         "texto": "Química pura",
-         "consecuencia": "Sí, es de sus temas centrales.",
-         "mejor": true
-        },
-        {
-         "texto": "Inteligencia artificial",
-         "consecuencia": "Ese es más de Inteligencia artificial."
-        },
-        {
-         "texto": "Biología y química",
-         "consecuencia": "Ese es más de Biotecnología."
-        }
-       ]
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Cuál de estos temas te gusta más?",
-       "opciones": [
-        "Química pura",
-        "Experimentar",
-        "Investigación",
-        "Ninguno me late"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Si los temas te aburren, la carrera se hace muy larga."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "2.4",
-     "titulo": "Materias clave",
+     "id": "3",
+     "titulo": "Reacciones",
      "minutos": 4,
      "tarjetas": [
       {
-       "tipo": "voltear",
-       "pregunta": "¿Qué materias crees que llevas en cada etapa? Piénsalo y voltea.",
-       "cartas": [
+       "tipo": "info",
+       "titulo": "Reacciones",
+       "partes": [
         {
-         "frente": "Semestres 1-2",
-         "reverso": "Química general, Cálculo, Física, Laboratorio básico"
-        },
-        {
-         "frente": "Semestres 3-4",
-         "reverso": "Química orgánica, Química analítica, Fisicoquímica, Química inorgánica"
-        },
-        {
-         "frente": "Semestres 5-6",
-         "reverso": "Química cuántica, Análisis instrumental, Síntesis orgánica, Bioquímica"
-        },
-        {
-         "frente": "Semestres 7 en adelante",
-         "reverso": "Investigación o estancia industrial, Tesis"
+         "t": "En una reacción química los átomos se reacomodan: no se crean ni se destruyen. Por eso las ecuaciones químicas se balancean, para que haya el mismo número de átomos de cada elemento de los dos lados. Cuando el gas metano se quema, reacciona con oxígeno y produce dióxido de carbono y agua. La velocidad de una reacción aumenta con la temperatura, con la concentración y si las partículas son más pequeñas, porque hay más superficie de contacto."
         }
        ]
       },
       {
-       "tipo": "decision",
-       "pregunta": "¿Cuál de estas materias llevarías en Química?",
+       "tipo": "pregunta",
+       "pregunta": "¿Qué pasa con los átomos en una reacción química?",
        "opciones": [
+        "Se reacomodan; no se crean ni se destruyen",
+        "Desaparecen",
+        "Se multiplican"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Por qué una pastilla efervescente molida se disuelve más rápido que entera?",
+       "opciones": [
+        "No se disuelve más rápido",
+        "Porque tiene más superficie de contacto",
+        "Porque pesa menos"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Qué produce la combustión completa del metano?",
+       "opciones": [
+        "Dióxido de carbono y agua",
+        "Sal",
+        "Oro"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "teves"
+      }
+     ]
+    },
+    {
+     "id": "4",
+     "titulo": "Ácidos y bases",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "Ácidos y bases",
+       "partes": [
         {
-         "texto": "Química general",
-         "consecuencia": "Sí: es de las primeras materias de Química.",
-         "mejor": true
-        },
-        {
-         "texto": "Anatomía de cabeza y cuello",
-         "consecuencia": "Esa es de Odontología."
-        },
-        {
-         "texto": "Fundamentos de turismo",
-         "consecuencia": "Esa es de Turismo."
+         "t": "El pH mide qué tan ácida o básica es una sustancia, en una escala que va más o menos del 0 al 14. El 7 es neutro, como el agua pura; abajo de 7 es ácido, como el limón o el vinagre; arriba de 7 es básico, como el jabón o el cloro. Cada número de diferencia significa diez veces más ácido o básico. Un ácido y una base se neutralizan al mezclarse y forman sal y agua. Los ácidos y bases fuertes pueden quemar la piel."
         }
        ]
       },
       {
-       "tipo": "reflexion",
-       "pregunta": "¿Cuál te da más curiosidad?",
+       "tipo": "pregunta",
+       "pregunta": "Una sustancia tiene pH 3. ¿Cómo es?",
        "opciones": [
-        "Química general",
-        "Cálculo",
-        "Física",
-        "Laboratorio básico"
+        "Neutra",
+        "Ácida",
+        "Básica"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Cuántas veces más ácido es un pH 4 que un pH 5?",
+       "opciones": [
+        "2 veces",
+        "1 vez",
+        "10 veces"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Un pH de 7, ¿cómo es?",
+       "opciones": [
+        "Neutro",
+        "Muy básico",
+        "Muy ácido"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Qué se forma al neutralizar un ácido con una base?",
+       "opciones": [
+        "Oro",
+        "Sal y agua",
+        "Fuego"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "teves"
+      }
+     ]
+    },
+    {
+     "id": "5",
+     "titulo": "Seguridad en el laboratorio",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "Seguridad en el laboratorio",
+       "partes": [
+        {
+         "t": "En el laboratorio se trabaja con bata, lentes de seguridad y guantes adecuados. Antes de usar una sustancia se lee su hoja de seguridad, que dice sus riesgos y qué hacer si hay un accidente. Una regla clásica para diluir ácidos concentrados es agregar el ácido al agua, poco a poco, y nunca el agua al ácido, porque se calienta mucho y puede salpicar. Nunca se mezclan sustancias al azar: por ejemplo, mezclar cloro con amoniaco o con ácidos libera gases tóxicos. Los residuos se desechan según su tipo, no al drenaje."
+        }
        ]
       },
       {
-       "tipo": "clave",
-       "texto": "Las primeras materias son la base; muchas veces son las más pesadas."
+       "tipo": "pregunta",
+       "pregunta": "¿Cómo se diluye un ácido concentrado?",
+       "opciones": [
+        "Agregando el agua al ácido de golpe",
+        "Da igual",
+        "Agregando el ácido al agua, poco a poco"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "Alguien quiere mezclar cloro con limpiador con amoniaco \"para que limpie más\".",
+       "opciones": [
+        "Está bien",
+        "Le dices que no, porque se liberan gases tóxicos",
+        "Que agregue vinagre"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Qué documento lees antes de usar una sustancia?",
+       "opciones": [
+        "Nada",
+        "El periódico",
+        "Su hoja de seguridad"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "teves"
       }
      ]
     }
@@ -431,183 +322,123 @@
   },
   {
    "id": "u3",
+   "titulo": "El químico en acción",
+   "sub": "Análisis y química verde",
    "lecciones": [
     {
-     "id": "3.1",
-     "titulo": "Un día real",
+     "id": "6",
+     "titulo": "Análisis químico",
      "minutos": 4,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Un día de trabajo en Química",
-       "puntos": [
-        "Analiza sustancias, desarrolla nuevos materiales o productos y controla la calidad en laboratorios de industria (alimentos, cosméticos, farmacéutica) o de investigación."
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "¿Cuál de estas cosas sí hace alguien de Química?",
-       "opciones": [
+       "titulo": "Análisis químico",
+       "partes": [
         {
-         "texto": "Analiza sustancias, desarrolla nuevos materiales o productos y controla la calidad en laboratorios de industria (alimentos, cosméticos, farmacéutica) o de investigación.",
-         "consecuencia": "Sí: es parte de su día.",
-         "mejor": true
+         "t": "Un químico analítico averigua qué hay en una muestra y cuánto. Por ejemplo, revisa si el agua tiene metales pesados, si un alimento cumple con lo que dice su etiqueta o si un medicamento tiene la cantidad correcta. Una técnica clásica es la titulación: se agrega poco a poco una solución de concentración conocida hasta que la reacción se completa, y con eso se calcula la concentración desconocida. Los resultados se comparan con los límites que marcan las normas."
         },
         {
-         "texto": "Usa organismos vivos o sus moléculas para crear productos: vacunas, medicamentos, alimentos, biocombustibles o mejoras agrícolas.",
-         "consecuencia": "Eso es más de Biotecnología."
-        },
-        {
-         "texto": "Diseña, fabrica o da mantenimiento a aviones, motores y componentes",
-         "consecuencia": "Eso es más de Aeroespacial."
+         "f": "concentración desconocida = {concentración conocida × volumen usado|volumen de la muestra}"
         }
        ]
       },
       {
-       "tipo": "reflexion",
-       "pregunta": "¿Te ves haciendo esto todos los días?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "El día a día pesa más que el título."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "3.2",
-     "titulo": "Lo difícil",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Lo difícil de Química",
-       "texto": "Se considera de dificultad alta.",
-       "puntos": [
-        "Química orgánica, Fisicoquímica y Química cuántica",
-        "Muchas horas de laboratorio."
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "Según lo que leíste, ¿qué es lo que más cuesta en Química?",
+       "tipo": "pregunta",
+       "pregunta": "Usaste 20 mililitros de una base de 0.1 moles por litro para neutralizar 10 mililitros de un ácido, con reacción uno a uno. ¿Qué concentración tiene el ácido?",
        "opciones": [
-        {
-         "texto": "Química orgánica, Fisicoquímica y Química cuántica",
-         "consecuencia": "Sí, es de lo que más cuesta en Química.",
-         "mejor": true
-        },
-        {
-         "texto": "Cálculo, Álgebra lineal, Probabilidad y Programación desde el primer año.",
-         "consecuencia": "Eso es más de Ciencia de datos."
-        },
-        {
-         "texto": "Idiomas, Administración y prácticas en hoteles o agencias.",
-         "consecuencia": "Eso es más de Turismo."
-        }
-       ]
+        "0.05 moles por litro",
+        "0.2 moles por litro",
+        "2 moles por litro"
+       ],
+       "correcta": 1,
+       "formula": "{0.1 × 20|10} = 0.2"
       },
       {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué tanto te preocupa esto?",
-       "escala": [
-        "Mucho",
+       "tipo": "pregunta",
+       "pregunta": "¿Para qué sirve la titulación?",
+       "opciones": [
+        "Para calcular una concentración desconocida",
+        "Para pesar",
+        "Para calentar"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "El agua de un pozo tiene más arsénico del que permite la norma. ¿Qué haces?",
+       "opciones": [
+        "Lo reportas para que no se use para beber hasta tratarla",
+        "La hierves y ya",
         "Nada"
-       ]
+       ],
+       "correcta": 0,
+       "explicacion": "Hervir no quita el arsénico."
       },
       {
-       "tipo": "clave",
-       "texto": "Saber lo difícil desde antes te ayuda a prepararte."
+       "tipo": "pregunta",
+       "pregunta": "¿Con qué se comparan los resultados de un análisis?",
+       "opciones": [
+        "Con lo que se espera que salga",
+        "Con los límites de las normas",
+        "Con nada"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "interes"
+       "tipo": "teves"
       }
      ]
     },
     {
-     "id": "3.3",
-     "titulo": "Historia real",
-     "minutos": 3,
+     "id": "7",
+     "titulo": "Química verde",
+     "minutos": 4,
      "tarjetas": [
       {
-       "tipo": "reflexion",
-       "pregunta": "Si pudieras preguntarle algo a alguien que ya estudia Química, ¿qué sería?",
+       "tipo": "info",
+       "titulo": "Química verde",
+       "partes": [
+        {
+         "t": "La química verde busca hacer los procesos más seguros y limpios desde el diseño: generar menos residuos, usar sustancias menos tóxicas, gastar menos energía y aprovechar materias primas renovables. Prevenir un residuo es mejor que tratarlo después. Una medida útil es el rendimiento: qué parte del producto que se podía obtener en teoría se obtuvo de verdad."
+        },
+        {
+         "f": "rendimiento = {producto obtenido|producto teórico} × 100"
+        }
+       ]
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Esperabas obtener 50 gramos de producto y obtuviste 40. ¿Cuál es el rendimiento?",
        "opciones": [
-        "¿Qué fue lo más difícil?",
-        "¿Qué te sorprendió?",
-        "¿Volverías a elegirla?",
-        "¿Cómo es un día normal?"
-       ]
+        "125 por ciento",
+        "40 por ciento",
+        "80 por ciento"
+       ],
+       "correcta": 2,
+       "formula": "{40|50} × 100 = 80"
       },
       {
-       "tipo": "testimonio",
-       "estado": "pendiente",
-       "perfil": "Estudiante de últimos semestres o egresado de Química"
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "Mientras llega esta historia, ¿a quién podrías preguntarle tú?",
+       "tipo": "pregunta",
+       "pregunta": "¿Qué es mejor según la química verde?",
        "opciones": [
-        "A un familiar o conocido que la estudió",
-        "A un estudiante de mi ciudad",
-        "A un maestro que la conozca",
-        "Todavía no conozco a nadie"
-       ]
+        "Prevenir el residuo desde el diseño",
+        "Tratarlo después",
+        "Tirarlo"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "clave",
-       "texto": "Una persona real te cuenta lo que ningún folleto dice."
+       "tipo": "pregunta",
+       "pregunta": "Puedes usar un solvente muy tóxico o uno menos tóxico que funciona igual. ¿Cuál eliges?",
+       "opciones": [
+        "El más tóxico",
+        "Da igual",
+        "El menos tóxico"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "3.4",
-     "titulo": "¿Es para ti?",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Contesta con honestidad. Nadie más ve tus respuestas."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿La química es mi materia favorita?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Disfruto horas en el laboratorio?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Me interesa investigar o hacer posgrado?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Si dijiste que sí a casi todo, vale la pena seguir explorándola."
-      },
-      {
-       "tipo": "interes"
+       "tipo": "teves"
       }
      ]
     }
@@ -615,448 +446,127 @@
   },
   {
    "id": "u4",
+   "titulo": "Examen final",
+   "sub": "10 preguntas · apruebas con 7",
    "lecciones": [
     {
-     "id": "4.1",
-     "titulo": "Cuánto dura y qué estudias",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Cada escuela arma su plan distinto, pero el orden general se parece. Vamos a verlo."
-      },
-      {
-       "tipo": "ordenar",
-       "pregunta": "Ordena lo que estudias, de lo primero a lo último.",
-       "pasos": [
-        "Química general, Cálculo",
-        "Química orgánica, Química analítica",
-        "Química cuántica, Análisis instrumental",
-        "Investigación o estancia industrial, Tesis"
-       ],
-       "revelacion": "Primero las bases y al final lo más especializado y las prácticas."
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Cuántos años crees que pasan desde que entras hasta que te titulas?",
-       "min": 3,
-       "max": 10,
-       "paso": 1,
-       "unidad": "años",
-       "dato": "quimica.duracion"
-      },
-      {
-       "tipo": "clave",
-       "texto": "Revisa el mapa curricular de cada escuela: cambia de una a otra."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "4.2",
-     "titulo": "Cómo se entra",
-     "minutos": 4,
+     "id": "ex",
+     "titulo": "Examen final",
+     "minutos": 6,
+     "examen": true,
+     "aprobar": 7,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Cómo se entra en la región",
-       "puntos": [
-        "UNAM: Concurso de selección UNAM (120 reactivos) o pase reglamentado desde CCH/ENP",
-        "IPN: Examen de admisión IPN (140 preguntas, hasta 3 horas, incluye sección de inglés)",
-        "UAM: Examen de selección UAM (trimestral; dos procesos al año y procesos extraordinarios)",
-        "UAEM: EXANI-II de CENEVAL + curso propedéutico"
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "Según lo que leíste, ¿qué pide UNAM para entrar?",
-       "opciones": [
+       "titulo": "Examen final",
+       "partes": [
         {
-         "texto": "Concurso de selección UNAM (120 reactivos) o pase reglamentado desde CCH/ENP",
-         "consecuencia": "Exacto.",
-         "mejor": true
-        },
-        {
-         "texto": "Examen de admisión IPN (140 preguntas, hasta 3 horas, incluye sección de inglés)",
-         "consecuencia": "Eso lo pide IPN."
-        },
-        {
-         "texto": "Examen de selección UAM (trimestral; dos procesos al año y procesos extraordinarios)",
-         "consecuencia": "Eso lo pide UAM."
+         "t": "Son 10 casos nuevos que mezclan todas las lecciones. Apruebas con 7. Si no, lo repites y las que fallaste regresan con otras palabras."
         }
        ]
       },
       {
-       "tipo": "vf",
-       "afirmacion": "Todas las universidades usan el mismo examen.",
-       "respuesta": false,
-       "revelacion": "Cada una tiene el suyo: revisa la convocatoria de la que te interese."
-      },
-      {
-       "tipo": "clave",
-       "texto": "Conoce el examen de tu escuela desde antes."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "4.3",
-     "titulo": "Dónde, cuánto cuesta y becas",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "escuelas"
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Cuánto crees que cuesta un semestre en una universidad pública?",
-       "min": 0,
-       "max": 60000,
-       "paso": 1000,
-       "unidad": "pesos",
-       "dato": "quimica.costo_publica"
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Y un semestre en una universidad privada?",
-       "min": 0,
-       "max": 300000,
-       "paso": 5000,
-       "unidad": "pesos",
-       "dato": "quimica.costo_privada"
-      },
-      {
-       "tipo": "dato",
-       "titulo": "Becas para estudiar Química",
-       "dato": "quimica.becas"
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Una universidad cara garantiza un mejor empleo.",
-       "respuesta": false,
-       "revelacion": "Pesan más lo que aprendes, tus prácticas y tu esfuerzo."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué pesa más para ti al elegir escuela?",
+       "tipo": "pregunta",
+       "pregunta": "¿Qué define a un elemento?",
        "opciones": [
-        "El costo",
-        "Que esté cerca de mi casa",
-        "El prestigio",
-        "Las prácticas que ofrece"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Además de la colegiatura, cuenta transporte y materiales."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "u5",
-   "lecciones": [
-    {
-     "id": "5.1",
-     "titulo": "Qué piden para trabajar",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Qué te piden para trabajar",
-       "puntos": [
-        "No requiere cédula para la mayoría de puestos.",
-        "De las que más crecieron en egresados."
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "Según lo que leíste, ¿qué necesitas para ejercer Química?",
-       "opciones": [
-        {
-         "texto": "No requiere cédula para la mayoría de puestos.",
-         "consecuencia": "Exacto.",
-         "mejor": true
-        },
-        {
-         "texto": "No requiere cédula para la mayoría de puestos",
-         "consecuencia": "Eso lo piden en Biotecnología."
-        },
-        {
-         "texto": "No requiere cédula.",
-         "consecuencia": "Eso lo piden en Mercadotecnia."
-        }
-       ]
-      },
-      {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Cómo te ves?",
-       "a": {
-        "texto": "En una institución o empresa",
-        "dice": "Más estabilidad y un equipo de quien aprender."
-       },
-       "b": {
-        "texto": "Por tu cuenta",
-        "dice": "Más libertad, pero tienes que conseguir clientes."
-       }
-      },
-      {
-       "tipo": "clave",
-       "texto": "Saber qué te piden te ahorra sorpresas al salir."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "5.2",
-     "titulo": "Sueldo y demanda",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Hablemos de dinero sin rodeos. Antes de ver cualquier cifra, apuesta: así recuerdas mejor el dato real."
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Cuánto crees que gana al mes, en promedio, un profesionista de Química en México?",
-       "min": 5000,
-       "max": 100000,
-       "paso": 1000,
-       "unidad": "pesos",
-       "dato": "quimica.ingreso"
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "De cada 100 egresados, ¿cuántos crees que trabajan en algo de su carrera?",
-       "min": 0,
-       "max": 100,
-       "paso": 5,
-       "unidad": "de cada 100",
-       "dato": "quimica.ocupacion_afin"
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Todos los egresados de Química ganan lo mismo.",
-       "respuesta": false,
-       "revelacion": "Cambia con la experiencia, el lugar, la especialidad y si trabajas por tu cuenta."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué tanto pesa el sueldo en tu decisión?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "El promedio orienta, pero tu camino puede ser distinto."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "5.3",
-     "titulo": "Cómo les va al salir",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "chat",
-       "subtitulo": "Te cuenta cómo les va al salir",
-       "intro": [
-        "Te cuento cómo les va a quienes estudian Química al salir."
+        "Su olor",
+        "Su color",
+        "Su número de protones"
        ],
-       "temas": [
-        {
-         "q": "¿Cuántos trabajan en lo suyo?",
-         "a": [
-          "Cerca de la mitad trabaja en algo de su carrera.",
-          "Es un promedio nacional del IMCO."
-         ]
-        },
-        {
-         "q": "¿Muchos hacen posgrado?",
-         "a": [
-          "Pocos hacen posgrado; la mayoría empieza a trabajar."
-         ]
-        },
-        {
-         "q": "¿Hay más hombres o mujeres?",
-         "a": [
-          "Hay más mujeres que hombres.",
-          "Eso no decide nada: cualquiera puede estudiarla."
-         ]
-        },
-        {
-         "q": "¿El trabajo tiene prestaciones?",
-         "a": [
-          "La mayoría tiene un trabajo formal, con prestaciones.",
-          "Las prestaciones son cosas como seguro médico y aguinaldo."
-         ]
-        }
+       "correcta": 2
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Tienes 54 gramos de agua, con masa molar de 18. ¿Cuántos moles son?",
+       "opciones": [
+        "3",
+        "36",
+        "972"
        ],
-       "minimo": 2
+       "correcta": 0,
+       "formula": "{54|18} = 3"
       },
       {
-       "tipo": "vf",
-       "afirmacion": "La mayoría de quienes estudian Química trabaja en algo de su carrera.",
-       "respuesta": false,
-       "revelacion": "Cerca de la mitad trabaja en algo de su carrera. Promedio nacional del IMCO."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué te importa más de tu futuro trabajo?",
+       "tipo": "pregunta",
+       "pregunta": "¿Qué pasa con los átomos en una reacción?",
        "opciones": [
-        "Que tenga que ver con lo que estudié",
-        "Ganar bien",
-        "Tener prestaciones",
-        "Hacer algo que me guste"
-       ]
+        "Desaparecen",
+        "Se reacomodan",
+        "Se duplican"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "clave",
-       "texto": "Pregunta cómo les va a quienes ya salieron."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "5.4",
-     "titulo": "Después de titularte",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Después de titularte",
-       "puntos": [
-        "Puedes especializarte con cursos, diplomados o una maestría.",
-        "También puedes trabajar desde el inicio y estudiar después.",
-        "Se combina bien con: Ingeniería Química, Químico Farmacéutico Biólogo (QFB), Biotecnología e Ingeniería Bioquímica."
-       ]
-      },
-      {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Qué harías al terminar?",
-       "a": {
-        "texto": "Trabajar desde el inicio",
-        "dice": "Ganas experiencia y dinero; después decides si estudias más."
-       },
-       "b": {
-        "texto": "Seguir estudiando",
-        "dice": "Te especializas antes; tardas más en empezar a trabajar."
-       }
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Cómo te imaginas después de la carrera?",
+       "tipo": "pregunta",
+       "pregunta": "¿Qué acelera una reacción?",
        "opciones": [
-        "Trabajando",
-        "En una maestría",
-        "Emprendiendo",
-        "No sé todavía"
-       ]
+        "Más temperatura",
+        "Nada",
+        "Más frío"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "clave",
-       "texto": "Al titularte empieza otra parte del camino, no termina."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "u6",
-   "lecciones": [
-    {
-     "id": "6.1",
-     "titulo": "Lo que sentiste",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Antes de ver tus respuestas: ¿cómo te fue con Química?",
+       "tipo": "pregunta",
+       "pregunta": "Una sustancia tiene pH 11. ¿Cómo es?",
        "opciones": [
-        "Me gustó más de lo que pensaba",
-        "Más o menos como esperaba",
-        "Me gustó menos de lo que pensaba"
-       ]
+        "Básica",
+        "Ácida",
+        "Neutra"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "resumen"
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "Viendo tus respuestas, ¿qué pesó más?",
+       "tipo": "pregunta",
+       "pregunta": "¿Cómo se diluye un ácido concentrado?",
        "opciones": [
-        "Lo que sentí al probarla",
-        "Lo que supe de la realidad",
-        "El camino para llegar",
-        "El futuro que ofrece"
-       ]
+        "Agua al ácido",
+        "De golpe",
+        "Ácido al agua, poco a poco"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "clave",
-       "texto": "Lo que sentiste al probarla vale más que lo que imaginabas."
-      },
-      {
-       "tipo": "interes",
-       "pregunta": "¿Te ves estudiando Química?"
-      }
-     ]
-    },
-    {
-     "id": "6.2",
-     "titulo": "Tu veredicto",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Si mañana tuvieras que elegir carrera, ¿Química estaría entre tus opciones?",
+       "tipo": "pregunta",
+       "pregunta": "¿Se pueden mezclar cloro y amoniaco?",
        "opciones": [
-        "Sí, entre las primeras",
-        "Sí, pero no arriba",
-        "No creo",
-        "No lo sé"
-       ]
+        "Solo en verano",
+        "Sí",
+        "No, liberan gases tóxicos"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "comparar"
+       "tipo": "pregunta",
+       "pregunta": "Usaste 15 mililitros de una base de 0.2 moles por litro para 10 mililitros de ácido, uno a uno. ¿Qué concentración tiene el ácido?",
+       "opciones": [
+        "3 moles por litro",
+        "0.3 moles por litro",
+        "0.13 moles por litro"
+       ],
+       "correcta": 1,
+       "formula": "{0.2 × 15|10} = 0.3"
       },
       {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Qué te ayudaría más a decidir?",
-       "a": {
-        "texto": "Hablar con alguien que la estudia",
-        "dice": "Busca a un estudiante o egresado cerca de ti y hazle tus preguntas. Una plática aclara más que diez videos."
-       },
-       "b": {
-        "texto": "Probar otra carrera y comparar",
-        "dice": "Explora otra de tu mapa. Comparar dos caminos reales aclara más que pensar en uno solo."
-       }
+       "tipo": "pregunta",
+       "pregunta": "Esperabas 80 gramos y obtuviste 60. ¿Cuál es el rendimiento?",
+       "opciones": [
+        "60 por ciento",
+        "75 por ciento",
+        "133 por ciento"
+       ],
+       "correcta": 1,
+       "formula": "{60|80} × 100 = 75"
       },
       {
-       "tipo": "veredicto"
-      },
-      {
-       "tipo": "clave",
-       "texto": "Decidir «en duda» también es avanzar."
+       "tipo": "pregunta",
+       "pregunta": "¿Qué busca la química verde?",
+       "opciones": [
+        "Procesos más seguros y con menos residuos desde el diseño",
+        "Más residuos",
+        "Pintar todo de verde"
+       ],
+       "correcta": 0
       }
      ]
     }

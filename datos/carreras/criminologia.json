@@ -1,225 +1,151 @@
 {
  "id": "criminologia",
- "version": 1,
+ "version": 2,
+ "formato": 2,
  "estado": "completo",
- "generado": true,
- "revision": "Armada automáticamente con la base de carreras de Morelos y CDMX (2026-11-17). Falta que la revise alguien de la carrera.",
+ "revision": "Pendiente de revisión por un profesionista de la carrera. Generado con datos/importar_lecciones.py desde datos/fuentes/lecciones/criminologia.lec; no se edita a mano.",
  "unidades": [
   {
    "id": "u1",
+   "titulo": "La escena",
+   "sub": "Indicios, huellas y custodia",
    "lecciones": [
     {
-     "id": "1.1",
-     "titulo": "Qué es y qué hace",
-     "minutos": 3,
+     "id": "0",
+     "titulo": "Conócela",
+     "minutos": 1,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "¿Qué es Criminología?",
-       "texto": "Análisis de instituciones, políticas, conflictos y problemas sociales. Puede enfocarse en investigación, intervención comunitaria, seguridad, gestión pública, cooperación o diseño de políticas.",
-       "puntos": [
-        "Analiza escenas del crimen, elabora peritajes, estudia perfiles de delincuentes o trabaja en prevención del delito, seguridad privada o fiscalías."
+       "tipo": "ficha",
+       "texto": "Criminología y Criminalística forma profesionales que estudian por qué ocurren los delitos y cómo prevenirlos, y que analizan los indicios de una escena para ayudar a la justicia. Trabajan en fiscalías, servicios periciales, prevención del delito, cárceles y atención a víctimas.",
+       "cifras": [
+        "criminologia.ingreso",
+        "criminologia.duracion",
+        "criminologia.costo_publica",
+        "criminologia.costo_privada"
        ]
       },
       {
-       "tipo": "decision",
-       "pregunta": "Por lo que leíste, ¿qué hace alguien de Criminología?",
-       "opciones": [
-        {
-         "texto": "Analiza escenas del crimen, elabora peritajes, estudia perfiles de delincuentes o trabaja en prevención del delito, seguridad privada o fiscalías.",
-         "consecuencia": "Exacto: eso es parte del día a día en Criminología.",
-         "mejor": true
-        },
-        {
-         "texto": "Cuida pacientes de forma directa: toma signos vitales, aplica medicamentos y curaciones, vigila su evolución, apoya al médico y orienta a familias.",
-         "consecuencia": "Eso lo hace alguien de Enfermería."
-        },
-        {
-         "texto": "Revisa, limpia y repara dientes, hace extracciones, endodoncias y prótesis, toma radiografías y explica tratamientos.",
-         "consecuencia": "Eso lo hace alguien de Odontología."
-        }
-       ]
-      },
-      {
-       "tipo": "completar",
-       "frase": "Criminología es una carrera del área de ___.",
-       "opciones": [
-        "Negocios y sociedad",
-        "Salud",
-        "Arte y comunicación"
-       ],
-       "correcta": 0,
-       "revelacion": "Está en Negocios y sociedad. Se parece a Derecho, Psicología, Sociología y Antropología."
-      },
-      {
-       "tipo": "clave",
-       "texto": "Antes de elegir, entiende qué harías cada día, no solo el nombre."
-      },
-      {
-       "tipo": "interes"
+       "tipo": "escena",
+       "texto": "Hoy llegas a una escena. Vamos a ver si cuidas cada pista."
       }
      ]
     },
     {
-     "id": "1.2",
-     "titulo": "Dónde trabajas",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Dónde trabaja alguien de Criminología",
-       "texto": "Despachos, tribunales, fiscalías, notarías, empresas, gobierno, organismos internacionales, seguridad, peritaje y consultoría;",
-       "puntos": [
-        "Ciertos puestos requieren cédula, concursos o formación especializada."
-       ]
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Alguien de Criminología solo puede trabajar en un tipo de lugar.",
-       "respuesta": false,
-       "revelacion": "Puede trabajar en varios: despachos, tribunales, fiscalías."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Dónde te ves trabajando?",
-       "opciones": [
-        "Despachos",
-        "Tribunales",
-        "Fiscalías",
-        "Notarías"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Una carrera abre varias puertas, no una sola."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "1.3",
-     "titulo": "Pregúntale a Rumbo",
+     "id": "1",
+     "titulo": "La escena del crimen",
      "minutos": 4,
      "tarjetas": [
       {
-       "tipo": "chat",
-       "subtitulo": "Te cuenta cómo es trabajar en Criminología",
-       "intro": [
-        "¡Hola! Junté lo que se sabe de Criminología.",
-        "Pregúntame lo que quieras."
-       ],
-       "temas": [
+       "tipo": "info",
+       "titulo": "La escena del crimen",
+       "partes": [
         {
-         "q": "¿Qué haces en un día normal?",
-         "a": [
-          "Analiza escenas del crimen, elabora peritajes, estudia perfiles de delincuentes o trabaja en prevención del delito, seguridad privada o fiscalías."
-         ]
-        },
-        {
-         "q": "¿Qué es lo más difícil?",
-         "a": [
-          "Se considera una carrera de dificultad media.",
-          "Derecho penal y Criminalística de campo",
-          "En Ciencia Forense también Química y Biología."
-         ]
-        },
-        {
-         "q": "¿Hay trabajo?",
-         "a": [
-          "Menos de la mitad trabaja en algo de su carrera; muchos se mueven a otras áreas. Es un promedio nacional del IMCO."
-         ]
-        },
-        {
-         "q": "¿Qué necesito para ejercer?",
-         "a": [
-          "Para peritajes oficiales se requiere certificación como perito."
-         ]
+         "t": "La criminalística estudia los indicios que deja un delito. Lo primero es proteger la escena: acordonarla para que nadie entre, mueva ni toque nada, porque cualquier cambio puede destruir pruebas. Luego se observa, se fotografía y se documenta todo antes de levantar los indicios. Cada indicio se embala por separado, se etiqueta y entra a la cadena de custodia, que es el registro de quién lo tuvo, cuándo y dónde, desde que se levantó hasta que llega al juez. Si la cadena se rompe, la prueba puede no valer en el juicio."
         }
-       ],
-       "minimo": 2,
-       "auto": true
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Criminología se considera una carrera de dificultad muy alta.",
-       "respuesta": false,
-       "revelacion": "Se considera de dificultad media. Derecho penal y Criminalística de campo"
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué te llamó más la atención?",
-       "opciones": [
-        "¿Qué haces en un día normal?",
-        "¿Qué es lo más difícil?",
-        "¿Hay trabajo?",
-        "¿Qué necesito para ejercer?"
        ]
       },
       {
-       "tipo": "clave",
-       "texto": "Preguntar a quien ya sabe ahorra muchos errores."
+       "tipo": "pregunta",
+       "pregunta": "Llegas a una escena y hay curiosos caminando por todos lados. ¿Qué haces primero?",
+       "opciones": [
+        "Tomas selfies",
+        "Acordonas y proteges la escena",
+        "Empiezas a levantar indicios"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "¿Qué es la cadena de custodia?",
+       "opciones": [
+        "El nombre del juez",
+        "Una cadena de metal",
+        "El registro de quién tuvo cada indicio, cuándo y dónde"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Un policía levanta un cuchillo con la mano para \"verlo mejor\" antes de que lo fotografíen. ¿Qué problema hay?",
+       "opciones": [
+        "Pudo dejar sus huellas, borrar otras y alterar la posición original",
+        "Que el cuchillo se ensucia",
+        "Ninguno"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Dos indicios distintos se guardaron juntos en la misma bolsa. ¿Qué riesgo hay?",
+       "opciones": [
+        "Ninguno",
+        "Que pesen más",
+        "Que se contaminen entre sí"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
-     "id": "1.4",
-     "titulo": "Carreras parecidas",
-     "minutos": 3,
+     "id": "2",
+     "titulo": "Huellas y rastros",
+     "minutos": 4,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Carreras cercanas a Criminología",
-       "puntos": [
-        "Derecho: sistema jurídico, interpretación de leyes, argumentación.",
-        "Psicología: conducta, emociones, cognición y procesos mentales. en el enfoque.",
-        "Sociología y Antropología: análisis de la sociedad, la cultura, el lenguaje.",
-        "Químico Farmacéutico Biólogo (QFB): ciencias químicas y biológicas aplicadas al análisis, investigación."
+       "titulo": "Huellas y rastros",
+       "partes": [
+        {
+         "t": "Las huellas dactilares son únicas de cada persona, incluso en gemelos idénticos. Se clasifican por sus formas generales, como arcos, presillas y verticilos, y se comparan por sus detalles pequeños, como dónde termina o se divide una línea. Las huellas que no se ven a simple vista se revelan con polvos o químicos. Además de huellas hay otros rastros: fibras, pelos, pisadas, marcas de herramientas. Un principio clásico dice que todo contacto deja un rastro: quien entra a un lugar se lleva algo y deja algo."
+        }
        ]
       },
       {
-       "tipo": "emparejar",
-       "pregunta": "Une cada carrera con lo que estudia.",
-       "pares": [
-        [
-         "Derecho",
-         "Sistema jurídico, interpretación de leyes, argumentación"
-        ],
-        [
-         "Psicología",
-         "Conducta, emociones, cognición y procesos mentales. En el enfoque"
-        ],
-        [
-         "Sociología y Antropología",
-         "Análisis de la sociedad, la cultura, el lenguaje"
-        ],
-        [
-         "Químico Farmacéutico Biólogo (QFB)",
-         "Ciencias químicas y biológicas aplicadas al análisis, investigación"
-        ]
-       ],
-       "revelacion": "Se cruzan en temas, pero cada una tiene su propio enfoque."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Cuál de estas te da curiosidad?",
+       "tipo": "pregunta",
+       "pregunta": "¿Los gemelos idénticos tienen las mismas huellas dactilares?",
        "opciones": [
-        "Derecho",
-        "Psicología",
-        "Sociología y Antropología",
-        "Me quedo con Criminología"
-       ]
+        "Sí",
+        "Solo en una mano",
+        "No, cada persona tiene huellas únicas"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "clave",
-       "texto": "Si dudas entre dos, compara lo que harías cada día."
+       "tipo": "pregunta",
+       "pregunta": "¿Cómo se revelan las huellas que no se ven?",
+       "opciones": [
+        "Con agua",
+        "Con polvos o químicos especiales",
+        "No se pueden revelar"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "En una ventana forzada encuentras una marca de herramienta. ¿Para qué sirve?",
+       "opciones": [
+        "Para decorar el reporte",
+        "Para nada",
+        "Para compararla con herramientas que se encuentren después"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Qué dice el principio de intercambio?",
+       "opciones": [
+        "Que todos los delincuentes confiesan",
+        "Que todo contacto deja un rastro",
+        "Que las huellas se borran solas"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "teves"
       }
      ]
     }
@@ -227,202 +153,122 @@
   },
   {
    "id": "u2",
+   "titulo": "Entender el delito",
+   "sub": "Causas y datos",
    "lecciones": [
     {
-     "id": "2.1",
-     "titulo": "Mini reto",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Llegas a una escena donde robaron una casa. ¿Qué haces primero?",
-       "opciones": [
-        "Proteges el lugar para que nadie mueva nada",
-        "Buscas al culpable entre los vecinos",
-        "Limpias para ver mejor"
-       ]
-      },
-      {
-       "tipo": "info",
-       "titulo": "Así lo piensa alguien de Criminología",
-       "texto": "Una escena alterada pierde pruebas. Criminología es método, observación y mucho cuidado con los detalles."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Te gustó pensar en algo así?",
-       "escala": [
-        "Nada",
-        "Mucho"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Los retos de una carrera se parecen a lo que harías en su trabajo."
-      },
-      {
-       "tipo": "interes",
-       "pregunta": "¿Te ves resolviendo retos así?"
-      }
-     ]
-    },
-    {
-     "id": "2.2",
-     "titulo": "Lo que te piden",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Habilidades que usarás en Criminología",
-       "puntos": [
-        "Observación",
-        "Estómago fuerte",
-        "Redacción de informes",
-        "Ética"
-       ]
-      },
-      {
-       "tipo": "completar",
-       "pregunta": "Según lo que leíste, completa la frase.",
-       "frase": "Para Criminología es clave: ___.",
-       "opciones": [
-        "Observación",
-        "Servicio al cliente",
-        "Matemáticas"
-       ],
-       "correcta": 0,
-       "revelacion": "Es de las habilidades que más se usan en Criminología."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué tanto se te da esto: estómago fuerte?",
-       "escala": [
-        "Me cuesta",
-        "Se me da"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Las habilidades se entrenan; lo importante es que te guste usarlas."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "2.3",
-     "titulo": "Temas que vas a ver",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Temas que te deben gustar",
-       "puntos": [
-        "Justicia",
-        "Investigación",
-        "Psicología del delito"
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "¿Cuál de estos temas es más de Criminología?",
-       "opciones": [
-        {
-         "texto": "Justicia",
-         "consecuencia": "Sí, es de sus temas centrales.",
-         "mejor": true
-        },
-        {
-         "texto": "Por qué las personas actúan como actúan",
-         "consecuencia": "Ese es más de Psicología."
-        },
-        {
-         "texto": "Aviones y espacio",
-         "consecuencia": "Ese es más de Aeroespacial."
-        }
-       ]
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Cuál de estos temas te gusta más?",
-       "opciones": [
-        "Justicia",
-        "Investigación",
-        "Psicología del delito",
-        "Ninguno me late"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Si los temas te aburren, la carrera se hace muy larga."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "2.4",
-     "titulo": "Materias clave",
+     "id": "3",
+     "titulo": "Por qué ocurre el delito",
      "minutos": 4,
      "tarjetas": [
       {
-       "tipo": "voltear",
-       "pregunta": "¿Qué materias crees que llevas en cada etapa? Piénsalo y voltea.",
-       "cartas": [
+       "tipo": "info",
+       "titulo": "Por qué ocurre el delito",
+       "partes": [
         {
-         "frente": "Semestres 1-2",
-         "reverso": "Introducción a la criminología, Derecho penal, Psicología, Sociología"
-        },
-        {
-         "frente": "Semestres 3-4",
-         "reverso": "Criminalística de campo, Medicina forense, Victimología"
-        },
-        {
-         "frente": "Semestres 5-6",
-         "reverso": "Dactiloscopia y balística, Psicología criminal, Sistema penal acusatorio"
-        },
-        {
-         "frente": "Semestres 7 en adelante",
-         "reverso": "Prácticas en fiscalías o instituciones, Proyecto"
+         "t": "La criminología estudia por qué ocurren los delitos y cómo prevenirlos. No hay una sola causa: influyen factores personales, familiares, sociales y del lugar. Una idea muy usada dice que para que ocurra un delito tienen que coincidir tres cosas: alguien con intención, un objetivo atractivo y la falta de alguien que lo cuide. Si quitas una, el delito es menos probable. Por eso la iluminación, el diseño de los espacios públicos y la vida en las calles ayudan a prevenir."
         }
        ]
       },
       {
-       "tipo": "decision",
-       "pregunta": "¿Cuál de estas materias llevarías en Criminología?",
+       "tipo": "pregunta",
+       "pregunta": "¿Qué tres cosas tienen que coincidir para que ocurra un delito, según esa idea?",
        "opciones": [
+        "Dinero, celular y coche",
+        "Noche, lluvia y frío",
+        "Alguien con intención, un objetivo atractivo y nadie que lo cuide"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "En un parque oscuro y vacío hay muchos asaltos. ¿Qué medida de prevención tiene sentido?",
+       "opciones": [
+        "Mejorar la iluminación y llenarlo de actividades",
+        "Cerrarlo para siempre",
+        "No hacer nada"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿El delito tiene una sola causa?",
+       "opciones": [
+        "No, influyen muchos factores",
+        "Sí, la genética",
+        "Sí, la pobreza"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "teves"
+      }
+     ]
+    },
+    {
+     "id": "4",
+     "titulo": "Datos del delito",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "Datos del delito",
+       "partes": [
         {
-         "texto": "Introducción a la criminología",
-         "consecuencia": "Sí: es de las primeras materias de Criminología.",
-         "mejor": true
+         "t": "Para comparar la delincuencia entre lugares de distinto tamaño no se usan números totales, sino tasas por cada 100,000 habitantes:"
         },
         {
-         "texto": "Cálculo",
-         "consecuencia": "Esa es de Ing. Química."
+         "f": "tasa = {delitos|habitantes} × 100,000"
         },
         {
-         "texto": "Fundamentos de mercadotecnia",
-         "consecuencia": "Esa es de Mercadotecnia."
+         "t": "Además, muchos delitos no se denuncian; a eso se le llama cifra negra. En México es muy alta, así que las denuncias muestran solo una parte. Las encuestas de victimización, como la ENVIPE del INEGI, preguntan directamente a la gente si fue víctima, para medir mejor."
         }
        ]
       },
       {
-       "tipo": "reflexion",
-       "pregunta": "¿Cuál te da más curiosidad?",
+       "tipo": "pregunta",
+       "pregunta": "Una ciudad de 200,000 habitantes tuvo 100 robos de auto. ¿Cuál es la tasa por cada 100,000?",
        "opciones": [
-        "Introducción a la criminología",
-        "Derecho penal",
-        "Psicología",
-        "Sociología"
-       ]
+        "50",
+        "200",
+        "100"
+       ],
+       "correcta": 0,
+       "formula": "{100|200,000} × 100,000 = 50"
       },
       {
-       "tipo": "clave",
-       "texto": "Las primeras materias son la base; muchas veces son las más pesadas."
+       "tipo": "pregunta",
+       "pregunta": "La ciudad A tuvo 300 robos y tiene un millón de habitantes; la B tuvo 100 y tiene 100,000. ¿Dónde es mayor la tasa?",
+       "opciones": [
+        "Igual",
+        "En la B, con 100 contra 30",
+        "En la A"
+       ],
+       "correcta": 1,
+       "formula": "{300|1,000,000} × 100,000 = 30"
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "¿Qué es la cifra negra?",
+       "opciones": [
+        "Los delitos que no se denuncian",
+        "El dinero robado",
+        "Los delitos de noche"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Para qué sirven las encuestas de victimización?",
+       "opciones": [
+        "Para castigar",
+        "Para medir delitos que no aparecen en las denuncias",
+        "No sirven"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "teves"
       }
      ]
     }
@@ -430,183 +276,163 @@
   },
   {
    "id": "u3",
+   "titulo": "Justicia",
+   "sub": "Juicio, peritaje y prevención",
    "lecciones": [
     {
-     "id": "3.1",
-     "titulo": "Un día real",
+     "id": "5",
+     "titulo": "El sistema de justicia",
      "minutos": 4,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Un día de trabajo en Criminología",
-       "puntos": [
-        "Analiza escenas del crimen, elabora peritajes, estudia perfiles de delincuentes o trabaja en prevención del delito, seguridad privada o fiscalías."
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "¿Cuál de estas cosas sí hace alguien de Criminología?",
-       "opciones": [
+       "titulo": "El sistema de justicia",
+       "partes": [
         {
-         "texto": "Analiza escenas del crimen, elabora peritajes, estudia perfiles de delincuentes o trabaja en prevención del delito, seguridad privada o fiscalías.",
-         "consecuencia": "Sí: es parte de su día.",
-         "mejor": true
-        },
-        {
-         "texto": "Entrena y ajusta modelos de IA (reconocimiento de imágenes, chatbots, recomendaciones), los integra en productos y evalúa que funcionen bien y de forma responsable.",
-         "consecuencia": "Eso es más de Inteligencia artificial."
-        },
-        {
-         "texto": "Calcula riesgos con modelos estadísticos: cuánto debe costar un seguro, cuánto debe ahorrar un fondo de pensiones o qué tan probable es que un cliente no…",
-         "consecuencia": "Eso es más de Actuaría."
+         "t": "En México se usa el sistema penal acusatorio, con juicios orales. El Ministerio Público investiga y acusa; la defensa protege los derechos del acusado; y un juez decide con las pruebas presentadas. Toda persona es inocente hasta que se demuestre lo contrario. Las pruebas obtenidas violando derechos, por ejemplo con tortura o sin orden cuando se necesitaba, no valen. Por eso el trabajo de los peritos tiene que ser impecable."
         }
        ]
       },
       {
-       "tipo": "reflexion",
-       "pregunta": "¿Te ves haciendo esto todos los días?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
+       "tipo": "pregunta",
+       "pregunta": "¿Quién investiga y acusa en el sistema penal mexicano?",
+       "opciones": [
+        "El Ministerio Público",
+        "La víctima sola",
+        "El juez"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "clave",
-       "texto": "El día a día pesa más que el título."
+       "tipo": "pregunta",
+       "pregunta": "¿Qué es la presunción de inocencia?",
+       "opciones": [
+        "Que todos son culpables",
+        "Que toda persona es inocente hasta que se demuestre lo contrario",
+        "Que nadie va a juicio"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "Una confesión se obtuvo con golpes. ¿Vale en juicio?",
+       "opciones": [
+        "Solo si es completa",
+        "No, porque se obtuvo violando derechos",
+        "Sí"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
-     "id": "3.2",
-     "titulo": "Lo difícil",
+     "id": "6",
+     "titulo": "El perito en el juicio",
      "minutos": 4,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Lo difícil de Criminología",
-       "texto": "Se considera de dificultad media.",
-       "puntos": [
-        "Derecho penal y Criminalística de campo",
-        "En Ciencia Forense también Química y Biología."
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "Según lo que leíste, ¿qué es lo que más cuesta en Criminología?",
-       "opciones": [
+       "titulo": "El perito en el juicio",
+       "partes": [
         {
-         "texto": "Derecho penal y Criminalística de campo",
-         "consecuencia": "Sí, es de lo que más cuesta en Criminología.",
-         "mejor": true
-        },
-        {
-         "texto": "Anatomía, Fisiología y Farmacología al inicio",
-         "consecuencia": "Eso es más de Enfermería."
-        },
-        {
-         "texto": "Cálculo, Álgebra lineal, Probabilidad y Programación desde el primer año.",
-         "consecuencia": "Eso es más de Ciencia de datos."
+         "t": "El perito es un experto que analiza pruebas y explica sus conclusiones ante el juez. Su trabajo es decir lo que muestran los indicios, no ayudar a un lado. Debe explicar con palabras claras, decir qué tan seguro está y reconocer los límites de su análisis. Si una prueba no permite concluir algo, lo dice. Inventar o exagerar resultados puede mandar a prisión a un inocente o dejar libre a un culpable."
         }
        ]
       },
       {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué tanto te preocupa esto?",
-       "escala": [
-        "Mucho",
-        "Nada"
-       ]
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál es el trabajo del perito?",
+       "opciones": [
+        "Decidir la sentencia",
+        "Explicar con objetividad lo que muestran las pruebas",
+        "Ayudar a la parte que le paga"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "clave",
-       "texto": "Saber lo difícil desde antes te ayuda a prepararte."
+       "tipo": "pregunta",
+       "pregunta": "Tu análisis de una huella no permite saber de quién es. ¿Qué dices en el juicio?",
+       "opciones": [
+        "Que es de la víctima",
+        "Que es del acusado",
+        "Que no se puede concluir"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "Un abogado te presiona para que digas que estás \"completamente seguro\" cuando no lo estás.",
+       "opciones": [
+        "Dices honestamente tu nivel de certeza",
+        "Te quedas callado",
+        "Dices lo que él quiere"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Por qué el perito debe hablar claro en el juicio?",
+       "opciones": [
+        "No importa",
+        "Porque el juez y las partes no son expertos",
+        "Por cortesía"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
-     "id": "3.3",
-     "titulo": "Historia real",
-     "minutos": 3,
+     "id": "7",
+     "titulo": "Prevención y atención a víctimas",
+     "minutos": 4,
      "tarjetas": [
       {
-       "tipo": "reflexion",
-       "pregunta": "Si pudieras preguntarle algo a alguien que ya estudia Criminología, ¿qué sería?",
+       "tipo": "info",
+       "titulo": "Prevención y atención a víctimas",
+       "partes": [
+        {
+         "t": "Un criminólogo no solo trabaja después del delito. También diseña programas de prevención con jóvenes, escuelas y comunidades, y apoya a víctimas. A las víctimas se les trata con respeto y sin culparlas, y se evita que tengan que contar lo que vivieron una y otra vez sin necesidad, porque eso las vuelve a lastimar. En las cárceles, los criminólogos trabajan en la reinserción: preparar a las personas para que no vuelvan a delinquir al salir."
+        }
+       ]
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Una víctima de robo llega a denunciar. ¿Qué evitas?",
        "opciones": [
-        "¿Qué fue lo más difícil?",
-        "¿Qué te sorprendió?",
-        "¿Volverías a elegirla?",
-        "¿Cómo es un día normal?"
-       ]
+        "Darle información",
+        "Escucharla",
+        "Culparla o hacerla repetir su historia sin necesidad"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "testimonio",
-       "estado": "pendiente",
-       "perfil": "Estudiante de últimos semestres o egresado de Criminología"
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "Mientras llega esta historia, ¿a quién podrías preguntarle tú?",
+       "tipo": "pregunta",
+       "pregunta": "¿Qué es la reinserción?",
        "opciones": [
-        "A un familiar o conocido que la estudió",
-        "A un estudiante de mi ciudad",
-        "A un maestro que la conozca",
-        "Todavía no conozco a nadie"
-       ]
+        "Volver a encarcelar",
+        "Cambiar de cárcel",
+        "Preparar a quien estuvo en prisión para no volver a delinquir"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "clave",
-       "texto": "Una persona real te cuenta lo que ningún folleto dice."
+       "tipo": "pregunta",
+       "pregunta": "Una colonia tiene muchos jóvenes sin actividades y aumentan los delitos. ¿Qué programa propones?",
+       "opciones": [
+        "Actividades deportivas, culturales y de empleo para jóvenes",
+        "Nada",
+        "Más castigos y nada más"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "3.4",
-     "titulo": "¿Es para ti?",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Contesta con honestidad. Nadie más ve tus respuestas."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Podría ver escenas violentas como parte del trabajo?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Me interesa más la evidencia que el drama de las series?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Me veo en una fiscalía o en seguridad?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Si dijiste que sí a casi todo, vale la pena seguir explorándola."
-      },
-      {
-       "tipo": "interes"
+       "tipo": "teves"
       }
      ]
     }
@@ -614,447 +440,125 @@
   },
   {
    "id": "u4",
+   "titulo": "Examen final",
+   "sub": "10 preguntas · apruebas con 7",
    "lecciones": [
     {
-     "id": "4.1",
-     "titulo": "Cuánto dura y qué estudias",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Cada escuela arma su plan distinto, pero el orden general se parece. Vamos a verlo."
-      },
-      {
-       "tipo": "ordenar",
-       "pregunta": "Ordena lo que estudias, de lo primero a lo último.",
-       "pasos": [
-        "Introducción a la criminología, Derecho penal",
-        "Criminalística de campo, Medicina forense",
-        "Dactiloscopia y balística, Psicología criminal",
-        "Prácticas en fiscalías o instituciones, Proyecto"
-       ],
-       "revelacion": "Primero las bases y al final lo más especializado y las prácticas."
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Cuántos años crees que pasan desde que entras hasta que te titulas?",
-       "min": 3,
-       "max": 10,
-       "paso": 1,
-       "unidad": "años",
-       "dato": "criminologia.duracion"
-      },
-      {
-       "tipo": "clave",
-       "texto": "Revisa el mapa curricular de cada escuela: cambia de una a otra."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "4.2",
-     "titulo": "Cómo se entra",
-     "minutos": 4,
+     "id": "ex",
+     "titulo": "Examen final",
+     "minutos": 6,
+     "examen": true,
+     "aprobar": 7,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Cómo se entra en la región",
-       "puntos": [
-        "UNAM: Concurso de selección UNAM (120 reactivos) o pase reglamentado desde CCH/ENP",
-        "UAEM: EXANI-II de CENEVAL + curso propedéutico",
-        "UVM: Registro y examen diagnóstico; la beca depende del promedio",
-        "UNITEC: Registro y examen diagnóstico; beca según promedio"
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "Según lo que leíste, ¿qué pide UNAM para entrar?",
-       "opciones": [
+       "titulo": "Examen final",
+       "partes": [
         {
-         "texto": "Concurso de selección UNAM (120 reactivos) o pase reglamentado desde CCH/ENP",
-         "consecuencia": "Exacto.",
-         "mejor": true
-        },
-        {
-         "texto": "EXANI-II de CENEVAL + curso propedéutico",
-         "consecuencia": "Eso lo pide UAEM."
-        },
-        {
-         "texto": "Registro y examen diagnóstico; la beca depende del promedio",
-         "consecuencia": "Eso lo pide UVM."
+         "t": "Son 10 casos nuevos que mezclan todas las lecciones. Apruebas con 7. Si no, lo repites y las que fallaste regresan con otras palabras."
         }
        ]
       },
       {
-       "tipo": "vf",
-       "afirmacion": "Todas las universidades usan el mismo examen.",
-       "respuesta": false,
-       "revelacion": "Cada una tiene el suyo: revisa la convocatoria de la que te interese."
-      },
-      {
-       "tipo": "clave",
-       "texto": "Conoce el examen de tu escuela desde antes."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "4.3",
-     "titulo": "Dónde, cuánto cuesta y becas",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "escuelas"
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Cuánto crees que cuesta un semestre en una universidad pública?",
-       "min": 0,
-       "max": 60000,
-       "paso": 1000,
-       "unidad": "pesos",
-       "dato": "criminologia.costo_publica"
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Y un semestre en una universidad privada?",
-       "min": 0,
-       "max": 300000,
-       "paso": 5000,
-       "unidad": "pesos",
-       "dato": "criminologia.costo_privada"
-      },
-      {
-       "tipo": "dato",
-       "titulo": "Becas para estudiar Criminología",
-       "dato": "criminologia.becas"
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Una universidad cara garantiza un mejor empleo.",
-       "respuesta": false,
-       "revelacion": "Pesan más lo que aprendes, tus prácticas y tu esfuerzo."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué pesa más para ti al elegir escuela?",
+       "tipo": "pregunta",
+       "pregunta": "¿Qué haces primero al llegar a una escena?",
        "opciones": [
-        "El costo",
-        "Que esté cerca de mi casa",
-        "El prestigio",
-        "Las prácticas que ofrece"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Además de la colegiatura, cuenta transporte y materiales."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "u5",
-   "lecciones": [
-    {
-     "id": "5.1",
-     "titulo": "Qué piden para trabajar",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Qué te piden para trabajar",
-       "puntos": [
-        "Para peritajes oficiales se requiere certificación como perito."
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "Según lo que leíste, ¿qué necesitas para ejercer Criminología?",
-       "opciones": [
-        {
-         "texto": "Para peritajes oficiales se requiere certificación como perito.",
-         "consecuencia": "Exacto.",
-         "mejor": true
-        },
-        {
-         "texto": "No requiere cédula",
-         "consecuencia": "Eso lo piden en Ciberseguridad."
-        },
-        {
-         "texto": "No requiere cédula para la mayoría de puestos.",
-         "consecuencia": "Eso lo piden en Ing. Electrónica."
-        }
-       ]
-      },
-      {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Cómo te ves?",
-       "a": {
-        "texto": "En una institución o empresa",
-        "dice": "Más estabilidad y un equipo de quien aprender."
-       },
-       "b": {
-        "texto": "Por tu cuenta",
-        "dice": "Más libertad, pero tienes que conseguir clientes."
-       }
-      },
-      {
-       "tipo": "clave",
-       "texto": "Saber qué te piden te ahorra sorpresas al salir."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "5.2",
-     "titulo": "Sueldo y demanda",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Hablemos de dinero sin rodeos. Antes de ver cualquier cifra, apuesta: así recuerdas mejor el dato real."
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Cuánto crees que gana al mes, en promedio, un profesionista de Criminología en México?",
-       "min": 5000,
-       "max": 100000,
-       "paso": 1000,
-       "unidad": "pesos",
-       "dato": "criminologia.ingreso"
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "De cada 100 egresados, ¿cuántos crees que trabajan en algo de su carrera?",
-       "min": 0,
-       "max": 100,
-       "paso": 5,
-       "unidad": "de cada 100",
-       "dato": "criminologia.ocupacion_afin"
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Todos los egresados de Criminología ganan lo mismo.",
-       "respuesta": false,
-       "revelacion": "Cambia con la experiencia, el lugar, la especialidad y si trabajas por tu cuenta."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué tanto pesa el sueldo en tu decisión?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "El promedio orienta, pero tu camino puede ser distinto."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "5.3",
-     "titulo": "Cómo les va al salir",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "chat",
-       "subtitulo": "Te cuenta cómo les va al salir",
-       "intro": [
-        "Te cuento cómo les va a quienes estudian Criminología al salir."
+        "Protegerla y acordonarla",
+        "Levantar indicios",
+        "Limpiar"
        ],
-       "temas": [
-        {
-         "q": "¿Cuántos trabajan en lo suyo?",
-         "a": [
-          "Menos de la mitad trabaja en algo de su carrera.",
-          "Es un promedio nacional del IMCO."
-         ]
-        },
-        {
-         "q": "¿Muchos hacen posgrado?",
-         "a": [
-          "Pocos hacen posgrado; la mayoría empieza a trabajar."
-         ]
-        },
-        {
-         "q": "¿Hay más hombres o mujeres?",
-         "a": [
-          "Hay más mujeres que hombres.",
-          "Eso no decide nada: cualquiera puede estudiarla."
-         ]
-        },
-        {
-         "q": "¿El trabajo tiene prestaciones?",
-         "a": [
-          "La mayoría tiene un trabajo formal, con prestaciones.",
-          "Las prestaciones son cosas como seguro médico y aguinaldo."
-         ]
-        }
+       "correcta": 0
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Qué es la cadena de custodia?",
+       "opciones": [
+        "El registro de quién tuvo cada indicio y cuándo",
+        "Una cárcel",
+        "Una esposa"
        ],
-       "minimo": 2
+       "correcta": 0
       },
       {
-       "tipo": "vf",
-       "afirmacion": "La mayoría de quienes estudian Criminología trabaja en algo de su carrera.",
-       "respuesta": false,
-       "revelacion": "Menos de la mitad trabaja en algo de su carrera. Promedio nacional del IMCO."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué te importa más de tu futuro trabajo?",
+       "tipo": "pregunta",
+       "pregunta": "¿Las huellas dactilares se repiten entre personas?",
        "opciones": [
-        "Que tenga que ver con lo que estudié",
-        "Ganar bien",
-        "Tener prestaciones",
-        "Hacer algo que me guste"
-       ]
+        "Sí",
+        "No, son únicas",
+        "Entre hermanos sí"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "clave",
-       "texto": "Pregunta cómo les va a quienes ya salieron."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "5.4",
-     "titulo": "Después de titularte",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Después de titularte",
-       "puntos": [
-        "Puedes especializarte con cursos, diplomados o una maestría.",
-        "También puedes trabajar desde el inicio y estudiar después.",
-        "Se combina bien con: Derecho, Psicología, Sociología y Antropología."
-       ]
-      },
-      {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Qué harías al terminar?",
-       "a": {
-        "texto": "Trabajar desde el inicio",
-        "dice": "Ganas experiencia y dinero; después decides si estudias más."
-       },
-       "b": {
-        "texto": "Seguir estudiando",
-        "dice": "Te especializas antes; tardas más en empezar a trabajar."
-       }
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Cómo te imaginas después de la carrera?",
+       "tipo": "pregunta",
+       "pregunta": "¿Qué dice el principio de intercambio?",
        "opciones": [
-        "Trabajando",
-        "En una maestría",
-        "Emprendiendo",
-        "No sé todavía"
-       ]
+        "Nadie deja rastros",
+        "Todo contacto deja un rastro",
+        "Los rastros duran un día"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "clave",
-       "texto": "Al titularte empieza otra parte del camino, no termina."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "u6",
-   "lecciones": [
-    {
-     "id": "6.1",
-     "titulo": "Lo que sentiste",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Antes de ver tus respuestas: ¿cómo te fue con Criminología?",
+       "tipo": "pregunta",
+       "pregunta": "Una ciudad de 500,000 habitantes tuvo 250 robos. ¿Cuál es la tasa por cada 100,000?",
        "opciones": [
-        "Me gustó más de lo que pensaba",
-        "Más o menos como esperaba",
-        "Me gustó menos de lo que pensaba"
-       ]
+        "50",
+        "250",
+        "500"
+       ],
+       "correcta": 0,
+       "formula": "{250|500,000} × 100,000 = 50"
       },
       {
-       "tipo": "resumen"
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "Viendo tus respuestas, ¿qué pesó más?",
+       "tipo": "pregunta",
+       "pregunta": "¿Qué es la cifra negra?",
        "opciones": [
-        "Lo que sentí al probarla",
-        "Lo que supe de la realidad",
-        "El camino para llegar",
-        "El futuro que ofrece"
-       ]
+        "Los delitos de noche",
+        "Los delitos no denunciados",
+        "Los delitos resueltos"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "clave",
-       "texto": "Lo que sentiste al probarla vale más que lo que imaginabas."
-      },
-      {
-       "tipo": "interes",
-       "pregunta": "¿Te ves estudiando Criminología?"
-      }
-     ]
-    },
-    {
-     "id": "6.2",
-     "titulo": "Tu veredicto",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Si mañana tuvieras que elegir carrera, ¿Criminología estaría entre tus opciones?",
+       "tipo": "pregunta",
+       "pregunta": "¿Quién decide en un juicio?",
        "opciones": [
-        "Sí, entre las primeras",
-        "Sí, pero no arriba",
-        "No creo",
-        "No lo sé"
-       ]
+        "El policía",
+        "El perito",
+        "El juez"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "comparar"
+       "tipo": "pregunta",
+       "pregunta": "¿Vale una prueba obtenida con tortura?",
+       "opciones": [
+        "Sí",
+        "A veces",
+        "No"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Qué te ayudaría más a decidir?",
-       "a": {
-        "texto": "Hablar con alguien que la estudia",
-        "dice": "Busca a un estudiante o egresado cerca de ti y hazle tus preguntas. Una plática aclara más que diez videos."
-       },
-       "b": {
-        "texto": "Probar otra carrera y comparar",
-        "dice": "Explora otra de tu mapa. Comparar dos caminos reales aclara más que pensar en uno solo."
-       }
+       "tipo": "pregunta",
+       "pregunta": "Tu análisis no permite concluir nada. ¿Qué dices?",
+       "opciones": [
+        "Inventas",
+        "Lo que te pidan",
+        "Que no se puede concluir"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "veredicto"
-      },
-      {
-       "tipo": "clave",
-       "texto": "Decidir «en duda» también es avanzar."
+       "tipo": "pregunta",
+       "pregunta": "¿Qué ayuda a prevenir delitos en un espacio público?",
+       "opciones": [
+        "Iluminación y actividades",
+        "Dejarlo vacío",
+        "Quitar las bancas"
+       ],
+       "correcta": 0
       }
      ]
     }

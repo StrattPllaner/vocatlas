@@ -1,0 +1,137 @@
+**Lección 1: La ecuación contable (4 preguntas)**
+
+Todo lo que una empresa tiene se llama activo: el dinero en el banco, la mercancía, las computadoras y lo que le deben sus clientes. Lo que la empresa debe se llama pasivo: préstamos, lo que les debe a sus proveedores y los impuestos por pagar. Lo que en realidad es de los dueños se llama capital. Siempre se cumple:
+
+$$\text{activo} = \text{pasivo} + \text{capital}$$
+
+Esto se llama partida doble: cada movimiento toca por lo menos dos cuentas y la ecuación sigue cuadrando. Si compras una computadora de contado, sube el equipo y baja el banco, y el activo total queda igual. Si la compras a crédito, sube el equipo y también sube el pasivo. Si la ecuación no cuadra, algo se registró mal.
+
+Pregunta 1. Una papelería tiene activos por 500,000 pesos y pasivos por 200,000. ¿Cuánto capital tienen los dueños? A: 700,000. B: 300,000. C: 200,000. Correcta: B, porque
+
+$$500{,}000 - 200{,}000 = 300{,}000$$
+
+Pregunta 2. La empresa compra una impresora de 8,000 pesos y la paga con transferencia. ¿Qué pasa en las cuentas? A: el activo total sube 8,000. B: sube el equipo, baja el banco y el activo total queda igual. C: el pasivo sube 8,000. Correcta: B. Solo cambiaste un activo por otro.
+
+Pregunta 3. La empresa compra mercancía por 50,000 pesos y la va a pagar en 30 días. A: baja el capital. B: sube el inventario y baja el banco. C: sube el inventario y sube lo que se les debe a los proveedores. Correcta: C. Todavía no sale dinero, pero ya hay una deuda.
+
+Pregunta 4. Al cerrar el mes, tus registros dicen activo 1,200,000, pasivo 400,000 y capital 750,000. A: todo está bien. B: faltan 50,000 por cuadrar, así que buscas qué movimiento se registró mal. C: cambias el capital a mano para que cuadre. Correcta: B. Pasivo más capital da 1,150,000, e inventar una cifra para que cuadre es falsear la contabilidad.
+
+**Lección 2: Los estados financieros (4 preguntas)**
+
+Los estados financieros son los reportes que hace el contador. El estado de resultados dice si la empresa ganó o perdió en un periodo: ingresos menos costos y gastos. El balance general muestra cuánto activo, pasivo y capital había en una fecha exacta. El flujo de efectivo muestra el dinero que de verdad entró y salió. Una venta a crédito cuenta como ingreso cuando se hace, aunque el dinero llegue después; por eso una empresa puede tener utilidad y quedarse sin dinero en el banco. El margen de utilidad dice cuánto ganas de cada 100 pesos que vendes:
+
+$$\text{margen} = \frac{\text{utilidad}}{\text{ventas}} \times 100$$
+
+Pregunta 1. ¿Qué reporte te dice si la empresa ganó o perdió en el año? A: la lista de proveedores. B: el estado de resultados. C: el balance general. Correcta: B.
+
+Pregunta 2. Un taller vendió 400,000 pesos en el año y tuvo 340,000 de costos y gastos. ¿Cuál es su margen de utilidad? A: 15 por ciento. B: 60 por ciento. C: 85 por ciento. Correcta: A. La utilidad es de 60,000, y
+
+$$\frac{60{,}000}{400{,}000} \times 100 = 15$$
+
+Pregunta 3. Un cliente compró 30,000 pesos a crédito en diciembre y paga en enero. ¿Cuándo cuenta esa venta como ingreso? A: en enero, cuando llega el dinero. B: nunca. C: en diciembre, cuando se hizo la venta. Correcta: C.
+
+Pregunta 4. El dueño ve que hubo utilidad y quiere repartirla toda, pero en el banco casi no hay dinero. ¿Qué revisas primero? A: nada, si hay utilidad hay dinero. B: pides un préstamo para repartirlo. C: el flujo de efectivo, para ver si de verdad hay dinero para repartir. Correcta: C. La utilidad puede estar todavía en ventas a crédito.
+
+**Lección 3: El IVA (4 preguntas)**
+
+El IVA es un impuesto que en México casi siempre es del 16 por ciento. La empresa lo cobra cuando vende y lo paga cuando compra, y al SAT solo le entrega la diferencia. Si pagó más del que cobró, le queda saldo a favor. Para poder restar el IVA de una compra necesitas la factura electrónica, que se llama CFDI. Algunos productos tienen tasa cero, como la mayoría de los alimentos básicos y las medicinas.
+
+$$\text{precio con IVA} = \text{precio sin IVA} \times 1.16 \qquad \text{precio sin IVA} = \frac{\text{precio con IVA}}{1.16}$$
+
+Pregunta 1. Un producto cuesta 1,000 pesos sin IVA. ¿Cuánto cuesta con IVA? A: 1,600. B: 1,160. C: 1,016. Correcta: B, porque
+
+$$1{,}000 \times 1.16 = 1{,}160$$
+
+Pregunta 2. Este mes cobraste 48,000 pesos de IVA en tus ventas y pagaste 30,000 en compras con factura. ¿Cuánto le pagas al SAT? A: 18,000. B: 78,000. C: 48,000. Correcta: A, porque
+
+$$48{,}000 - 30{,}000 = 18{,}000$$
+
+Pregunta 3. Un cliente te pide que le restes el IVA de unas compras que no tienen factura, "porque sí las hice". A: le consigues facturas de otra persona. B: le explicas que sin CFDI ese IVA no se puede restar y le pides que solicite las facturas. C: las metes de todos modos. Correcta: B. Usar facturas de otra persona para pagar menos es un delito.
+
+Pregunta 4. Un ticket dice 2,320 pesos con IVA incluido. ¿Cuánto de eso es IVA? A: 320. B: 2,000. C: 371.20. Correcta: A. Sin IVA son
+
+$$\frac{2{,}320}{1.16} = 2{,}000$$
+
+y 2,320 menos 2,000 da 320.
+
+**Lección 4: El ISR y las fechas del SAT (3 preguntas)**
+
+El ISR, o impuesto sobre la renta, se cobra sobre lo que ganas, no sobre lo que vendes. Las empresas pagan el 30 por ciento de su utilidad fiscal. Para calcularla, a lo que vendiste le restas los gastos deducibles, que son los indispensables para el negocio y que tienen factura. Durante el año se hacen pagos cada mes, a más tardar el día 17 del mes siguiente. Al final viene la declaración anual: las empresas la presentan a más tardar el 31 de marzo y las personas el 30 de abril. Pagar tarde genera recargos y multas.
+
+Pregunta 1. Una empresa tuvo una utilidad fiscal de 200,000 pesos en el año. ¿Cuánto paga de ISR? A: 60,000. B: 140,000. C: 6,000. Correcta: A, porque
+
+$$200{,}000 \times 0.30 = 60{,}000$$
+
+Pregunta 2. El dueño quiere deducir el viaje de su familia a Cancún como gasto del negocio. A: sí se puede si pide factura. B: no, porque no es indispensable para el negocio. C: sí se puede, porque es un gasto. Correcta: B. Aunque tenga factura, tiene que ser un gasto que el negocio necesite.
+
+Pregunta 3. Es 15 de abril y una clienta tuya todavía no presenta su declaración anual. A: le avisas que vence el 30 de abril y le pides sus papeles hoy. B: lo dejas para mayo. C: no le dices nada, porque no pasa nada. Correcta: A. Si la presenta tarde, le cobran recargos o multas.
+
+**Lección 5: La depreciación (3 preguntas)**
+
+Una camioneta o una computadora se usan varios años, así que su costo no se cuenta todo como gasto el año en que la compras: se reparte entre los años que dura. Eso se llama depreciación. La forma más sencilla es la línea recta: al costo le restas lo que valdrá cuando ya no la uses, que es el valor de rescate, y lo divides entre los años de uso.
+
+$$\text{depreciación por año} = \frac{\text{costo} - \text{valor de rescate}}{\text{años de vida útil}}$$
+
+El valor en libros es lo que vale el bien en tus cuentas: el costo menos toda la depreciación acumulada.
+
+Pregunta 1. Una camioneta costó 400,000 pesos, va a durar 5 años y al final valdrá 50,000. ¿Cuánto se deprecia cada año? A: 90,000. B: 70,000. C: 80,000. Correcta: B, porque
+
+$$\frac{400{,}000 - 50{,}000}{5} = 70{,}000$$
+
+Pregunta 2. ¿Por qué la camioneta no se cuenta completa como gasto el primer año? A: para pagar más impuestos. B: porque se usa varios años y su costo se reparte entre ellos. C: porque así lo decide el dueño. Correcta: B.
+
+Pregunta 3. Con la misma camioneta, ¿cuál es su valor en libros después de 2 años? A: 260,000. B: 400,000. C: 330,000. Correcta: A, porque
+
+$$400{,}000 - 70{,}000 \times 2 = 260{,}000$$
+
+**Lección 6: Auditoría y control (4 preguntas)**
+
+Un auditor revisa que lo que dicen las cuentas sea cierto, y para eso pide evidencia: facturas, estados de cuenta y el inventario contado en persona. Una herramienta básica es la conciliación bancaria, que compara tus registros con el estado de cuenta del banco. Hay diferencias normales, como un cheque que ya entregaste y que el proveedor todavía no cobra. El control interno son reglas para evitar errores y robos; la principal es que una sola persona no debe cobrar, registrar y depositar el mismo dinero. El contador firma lo que revisa y responde por ello.
+
+Pregunta 1. Tus registros dicen que hay 85,000 pesos en el banco y el estado de cuenta dice 92,000. Encuentras un cheque de 7,000 que le diste a un proveedor y que todavía no cobra. A: la diferencia ya está explicada. B: el banco se equivocó. C: alguien se robó 7,000 pesos. Correcta: A. Cuando lo cobre, las dos cifras van a quedar iguales.
+
+Pregunta 2. En una tienda, la misma empleada cobra en la caja, anota las ventas y hace los depósitos. A: es un riesgo; conviene separar esas tareas. B: está bien, así se ahorra tiempo. C: hay que despedirla. Correcta: A. Si alguien se equivoca o roba, nadie más se daría cuenta.
+
+Pregunta 3. Los registros dicen que hay 1,000 piezas en el almacén, pero al contarlas encuentras 940. A: firmas que hay 1,000. B: investigas qué pasó con las 60 que faltan y ajustas el registro. C: no le das importancia porque son pocas. Correcta: B.
+
+Pregunta 4. El director te pide que no aparezca una deuda grande en los estados financieros para que el banco le preste. A: la pones en una nota muy pequeña. B: te niegas, porque esconderla engaña al banco, puede ser delito y tú firmas esos reportes. C: lo haces. Correcta: B.
+
+**Lección 7: Un día como contador (3 preguntas)**
+
+En el trabajo real, un contador lleva varios clientes al mismo tiempo, cada uno con sus fechas límite, y además los asesora. Por ejemplo, una persona que abre un negocio puede elegir entre varios regímenes del SAT. Uno es el RESICO, para personas que ganan hasta 3.5 millones de pesos al año, con una tasa baja sobre lo que cobran. Para recomendar uno hay que revisar cuánto vende y cuánto gasta la persona. Las facturas llevan folio y sello del SAT: si una tiene un error, se cancela y se hace otra. Y el contador guarda el secreto de las cuentas de sus clientes.
+
+Pregunta 1. Una señora con una fonda vende 600,000 pesos al año y no sabe en qué régimen darse de alta. A: revisas sus ingresos y gastos y comparas regímenes, como el RESICO, que le aplica porque no pasa de 3.5 millones al año. B: le recomiendas el que tenga menos papeleo, sin revisar sus números. C: le dices que mejor no se dé de alta. Correcta: A.
+
+Pregunta 2. Un cliente te pide cambiar la fecha de una factura para que parezca del mes pasado. A: lo haces. B: lo haces si te paga extra. C: le explicas que no se puede, porque el CFDI lleva fecha y sello del SAT; si tiene un error, se cancela y se hace otra. Correcta: C.
+
+Pregunta 3. Tres clientes tienen que presentar sus pagos el día 17 y hoy es 10. A: atiendes primero al que te paga más. B: esperas al 16 para hacerlos todos juntos. C: revisas qué le falta a cada uno, les pides sus papeles hoy y te organizas por fechas. Correcta: C. Si un cliente se atrasa, a él le cuesta en recargos.
+
+**Examen final**
+
+Pregunta 1. Una empresa tiene activos por 800,000 pesos y un capital de 500,000. ¿Cuánto es su pasivo? A: 500,000. B: 1,300,000. C: 300,000. Correcta: C, porque
+
+$$800{,}000 - 500{,}000 = 300{,}000$$
+
+Pregunta 2. Compras mercancía a crédito. ¿Qué pasa en las cuentas? A: baja el capital. B: baja el banco. C: sube el inventario y sube el pasivo. Correcta: C.
+
+Pregunta 3. Un producto cuesta 5,000 pesos sin IVA. ¿Cuánto cuesta con IVA? A: 5,800. B: 5,160. C: 5,016. Correcta: A, porque
+
+$$5{,}000 \times 1.16 = 5{,}800$$
+
+Pregunta 4. En el mes cobraste 20,000 pesos de IVA y pagaste 26,000 en compras con factura. A: le pagas 6,000 al SAT. B: le pagas 46,000 al SAT. C: te quedan 6,000 de saldo a favor. Correcta: C.
+
+Pregunta 5. ¿Qué reporte te dice si la empresa ganó o perdió en el año? A: el balance general. B: la conciliación bancaria. C: el estado de resultados. Correcta: C.
+
+Pregunta 6. Una empresa tuvo una utilidad fiscal de 90,000 pesos. ¿Cuánto paga de ISR? A: 63,000. B: 9,000. C: 27,000. Correcta: C, porque
+
+$$90{,}000 \times 0.30 = 27{,}000$$
+
+Pregunta 7. Una computadora de 30,000 pesos va a durar 3 años y al final no valdrá nada. ¿Cuánto se deprecia cada año? A: 30,000. B: 15,000. C: 10,000. Correcta: C, porque
+
+$$\frac{30{,}000 - 0}{3} = 10{,}000$$
+
+Pregunta 8. Un gasto del negocio no tiene factura. A: no se puede deducir. B: se deduce completo. C: se deduce la mitad. Correcta: A.
+
+Pregunta 9. En una empresa, la misma persona autoriza los pagos y también los registra. A: así lo pide la ley. B: es un riesgo de control interno. C: es lo más eficiente. Correcta: B.
+
+Pregunta 10. Una factura salió con un error. A: la cancelas y haces una nueva. B: corriges el PDF a mano. C: la dejas así. Correcta: A.

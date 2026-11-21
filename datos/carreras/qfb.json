@@ -1,225 +1,156 @@
 {
  "id": "qfb",
- "version": 1,
+ "version": 2,
+ "formato": 2,
  "estado": "completo",
- "generado": true,
- "revision": "Armada automáticamente con la base de carreras de Morelos y CDMX (2026-11-17). Falta que la revise alguien de la carrera.",
+ "revision": "Pendiente de revisión por un profesionista de la carrera. Generado con datos/importar_lecciones.py desde datos/fuentes/lecciones/qfb.lec; no se edita a mano.",
  "unidades": [
   {
    "id": "u1",
+   "titulo": "El laboratorio",
+   "sub": "Muestras y control de calidad",
    "lecciones": [
     {
-     "id": "1.1",
-     "titulo": "Qué es y qué hace",
-     "minutos": 3,
+     "id": "0",
+     "titulo": "Conócela",
+     "minutos": 1,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "¿Qué es QFB?",
-       "texto": "Ciencias químicas y biológicas aplicadas al análisis, investigación, producción y control de calidad. El plan puede orientarse a medicamentos, diagnóstico, microorganismos, alimentos o procesos industriales.",
-       "puntos": [
-        "Trabaja en laboratorios clínicos (analiza sangre y muestras), en la industria farmacéutica (fabrica y controla la calidad de medicamentos), en hospitales o en regulación sanitaria."
+       "tipo": "ficha",
+       "texto": "Químico Farmacéutico Biólogo forma profesionales que analizan muestras en laboratorios clínicos, producen y controlan la calidad de medicamentos, trabajan en microbiología y orientan sobre el uso de medicinas en farmacias y hospitales.",
+       "cifras": [
+        "qfb.becas",
+        "qfb.duracion",
+        "qfb.costo_publica",
+        "qfb.costo_privada"
        ]
       },
       {
-       "tipo": "decision",
-       "pregunta": "Por lo que leíste, ¿qué hace alguien de QFB?",
-       "opciones": [
-        {
-         "texto": "Trabaja en laboratorios clínicos (analiza sangre y muestras), en la industria farmacéutica (fabrica y controla la calidad de medicamentos), en hospitales o en regulación sanitaria.",
-         "consecuencia": "Exacto: eso es parte del día a día en QFB.",
-         "mejor": true
-        },
-        {
-         "texto": "Diseña, opera o mejora procesos industriales que transforman materias primas en productos (combustibles, plásticos, alimentos, medicamentos), cuidando seguridad, costos y medio ambiente.",
-         "consecuencia": "Eso lo hace alguien de Ing. Química."
-        },
-        {
-         "texto": "Registra operaciones, prepara estados financieros, calcula y presenta impuestos ante el SAT, audita cuentas y asesora a empresas o personas.",
-         "consecuencia": "Eso lo hace alguien de Contaduría."
-        }
-       ]
-      },
-      {
-       "tipo": "completar",
-       "frase": "QFB es una carrera del área de ___.",
-       "opciones": [
-        "Salud",
-        "Ingenierías",
-        "Tecnología y ciencias"
-       ],
-       "correcta": 0,
-       "revelacion": "Está en Salud. Se parece a Química, Biotecnología e Ingeniería Bioquímica, Medicina (Médico Cirujano)."
-      },
-      {
-       "tipo": "clave",
-       "texto": "Antes de elegir, entiende qué harías cada día, no solo el nombre."
-      },
-      {
-       "tipo": "interes"
+       "tipo": "escena",
+       "texto": "Hoy entras al laboratorio clínico. Vamos a ver si tus resultados son confiables."
       }
      ]
     },
     {
-     "id": "1.2",
-     "titulo": "Dónde trabajas",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Dónde trabaja alguien de QFB",
-       "texto": "Laboratorios clínicos e industriales, farmacéuticas, hospitales, alimentos, biotecnología, control de calidad, investigación, regulación y docencia."
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Alguien de QFB solo puede trabajar en un tipo de lugar.",
-       "respuesta": false,
-       "revelacion": "Puede trabajar en varios: laboratorios clínicos e industriales, farmacéuticas, hospitales."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Dónde te ves trabajando?",
-       "opciones": [
-        "Laboratorios clínicos e industriales",
-        "Farmacéuticas",
-        "Hospitales",
-        "Alimentos"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Una carrera abre varias puertas, no una sola."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "1.3",
-     "titulo": "Pregúntale a Rumbo",
+     "id": "1",
+     "titulo": "El laboratorio clínico",
      "minutos": 4,
      "tarjetas": [
       {
-       "tipo": "chat",
-       "subtitulo": "Te cuenta cómo es trabajar en QFB",
-       "intro": [
-        "¡Hola! Junté lo que se sabe de QFB.",
-        "Pregúntame lo que quieras."
-       ],
-       "temas": [
+       "tipo": "info",
+       "titulo": "El laboratorio clínico",
+       "partes": [
         {
-         "q": "¿Qué haces en un día normal?",
-         "a": [
-          "Trabaja en laboratorios clínicos (analiza sangre y muestras), en la industria farmacéutica (fabrica y controla la calidad de medicamentos), en hospitales o en regulación sanitaria."
-         ]
-        },
-        {
-         "q": "¿Qué es lo más difícil?",
-         "a": [
-          "Se considera una carrera de dificultad alta.",
-          "Química orgánica, Fisicoquímica y Bioquímica",
-          "Muchas horas de laboratorio."
-         ]
-        },
-        {
-         "q": "¿Hay trabajo?",
-         "a": [
-          "Cerca de la mitad trabaja en algo de su carrera. Es un promedio nacional del IMCO.",
-          "IMCO no tiene QFB por separado",
-          "Se usa el campo 'Bioquímica y biofísica' como aproximación."
-         ]
-        },
-        {
-         "q": "¿Qué necesito para ejercer?",
-         "a": [
-          "Título y cédula",
-          "Algunos puestos de responsable sanitario requieren experiencia y registro ante COFEPRIS."
-         ]
+         "t": "Muchos QFB trabajan en laboratorios clínicos, donde analizan sangre, orina y otras muestras para ayudar al médico a diagnosticar. Un análisis empieza antes del laboratorio: la muestra debe tomarse bien, en el tubo correcto, con el paciente en ayuno si se pide, y etiquetarse con sus datos en ese momento. Un error en la etiqueta puede hacer que los resultados de una persona se le den a otra. Cada resultado se compara con valores de referencia, que dicen qué es lo esperado en personas sanas."
         }
-       ],
-       "minimo": 2,
-       "auto": true
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "QFB se considera una carrera de dificultad alta.",
-       "respuesta": true,
-       "revelacion": "Se considera de dificultad alta. Química orgánica, Fisicoquímica y Bioquímica"
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué te llamó más la atención?",
-       "opciones": [
-        "¿Qué haces en un día normal?",
-        "¿Qué es lo más difícil?",
-        "¿Hay trabajo?",
-        "¿Qué necesito para ejercer?"
        ]
       },
       {
-       "tipo": "clave",
-       "texto": "Preguntar a quien ya sabe ahorra muchos errores."
+       "tipo": "pregunta",
+       "pregunta": "Un tubo de sangre llegó al laboratorio sin etiqueta. ¿Qué haces?",
+       "opciones": [
+        "Adivinas de quién es",
+        "Lo procesas igual",
+        "No se procesa; se pide una nueva muestra correctamente identificada"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "Un estudio de glucosa pide ayuno, pero el paciente desayunó. ¿Qué pasa?",
+       "opciones": [
+        "El resultado puede salir alto y no ser confiable",
+        "Sale más bajo",
+        "Nada"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Para qué sirven los valores de referencia?",
+       "opciones": [
+        "Para saber qué resultados son esperados en personas sanas",
+        "Para cobrar",
+        "Para nada"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Cuándo se etiqueta una muestra?",
+       "opciones": [
+        "En el momento de tomarla",
+        "Al final del día",
+        "Cuando llega al laboratorio, de memoria"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
-     "id": "1.4",
-     "titulo": "Carreras parecidas",
-     "minutos": 3,
+     "id": "2",
+     "titulo": "Control de calidad",
+     "minutos": 4,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Carreras cercanas a QFB",
-       "puntos": [
-        "Química: ciencias químicas y biológicas aplicadas al análisis, investigación.",
-        "Biotecnología e Ingeniería Bioquímica: estudio interdisciplinario de su campo profesional, con bases teóricas.",
-        "Medicina (Médico Cirujano): formación para prevenir, diagnosticar y tratar enfermedades.",
-        "Ingeniería Química: ciencias químicas y biológicas aplicadas al análisis, investigación."
+       "titulo": "Control de calidad",
+       "partes": [
+        {
+         "t": "Un laboratorio no puede confiar solo en sus aparatos. Cada día procesa muestras de control, que tienen un valor conocido, y revisa que el resultado salga dentro de un rango aceptable. Si el control sale fuera de rango, no se entregan los resultados de los pacientes hasta encontrar el problema. Para ver qué tan lejos se fue, se calcula el error:"
+        },
+        {
+         "f": "error = {valor medido − valor esperado|valor esperado} × 100"
+        }
        ]
       },
       {
-       "tipo": "emparejar",
-       "pregunta": "Une cada carrera con lo que estudia.",
-       "pares": [
-        [
-         "Química",
-         "Ciencias químicas y biológicas aplicadas al análisis, investigación"
-        ],
-        [
-         "Biotecnología e Ingeniería Bioquímica",
-         "Estudio interdisciplinario de su campo profesional, con bases teóricas"
-        ],
-        [
-         "Medicina (Médico Cirujano)",
-         "Formación para prevenir, diagnosticar y tratar enfermedades"
-        ],
-        [
-         "Ingeniería Química",
-         "Ciencias químicas y biológicas aplicadas al análisis, investigación"
-        ]
-       ],
-       "revelacion": "Se cruzan en temas, pero cada una tiene su propio enfoque."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Cuál de estas te da curiosidad?",
+       "tipo": "pregunta",
+       "pregunta": "Un control de glucosa debería dar 100 y da 110. ¿Cuál es el error?",
        "opciones": [
-        "Química",
-        "Biotecnología e Ingeniería Bioquímica",
-        "Medicina (Médico Cirujano)",
-        "Me quedo con QFB"
-       ]
+        "10 por ciento",
+        "110 por ciento",
+        "1 por ciento"
+       ],
+       "correcta": 0,
+       "formula": "{110 − 100|100} × 100 = 10"
       },
       {
-       "tipo": "clave",
-       "texto": "Si dudas entre dos, compara lo que harías cada día."
+       "tipo": "pregunta",
+       "pregunta": "El control salió fuera de rango esta mañana. ¿Qué haces con los resultados de los pacientes?",
+       "opciones": [
+        "Les restas el error a mano y ya",
+        "No los entregas hasta encontrar y corregir el problema",
+        "Los entregas igual"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "¿Qué es una muestra de control?",
+       "opciones": [
+        "Agua",
+        "La muestra del paciente más importante",
+        "Una muestra con un valor conocido para verificar que el análisis funciona"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Un control debería dar 200 y da 190. ¿Cuál es el error?",
+       "opciones": [
+        "10 por ciento",
+        "Menos 5 por ciento",
+        "190 por ciento"
+       ],
+       "correcta": 1,
+       "formula": "{190 − 200|200} × 100 = −5"
+      },
+      {
+       "tipo": "teves"
       }
      ]
     }
@@ -227,202 +158,114 @@
   },
   {
    "id": "u2",
+   "titulo": "Medicamentos",
+   "sub": "Cómo son y cómo se fabrican",
    "lecciones": [
     {
-     "id": "2.1",
-     "titulo": "Mini reto",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Un análisis de sangre sale con un valor muy raro. ¿Qué haces?",
-       "opciones": [
-        "Revisas la muestra y repites la prueba antes de reportarlo",
-        "Lo reportas tal cual, es lo que salió",
-        "Lo corriges a un valor normal"
-       ]
-      },
-      {
-       "tipo": "info",
-       "titulo": "Así lo piensa alguien de QFB",
-       "texto": "Un error de laboratorio cambia un diagnóstico, así que se verifica antes de reportar. QFB es precisión, química y mucho trabajo de laboratorio."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Te gustó pensar en algo así?",
-       "escala": [
-        "Nada",
-        "Mucho"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Los retos de una carrera se parecen a lo que harías en su trabajo."
-      },
-      {
-       "tipo": "interes",
-       "pregunta": "¿Te ves resolviendo retos así?"
-      }
-     ]
-    },
-    {
-     "id": "2.2",
-     "titulo": "Lo que te piden",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Habilidades que usarás en QFB",
-       "puntos": [
-        "Precisión en laboratorio",
-        "Orden y apego a normas",
-        "Razonamiento científico",
-        "Química sólida"
-       ]
-      },
-      {
-       "tipo": "completar",
-       "pregunta": "Según lo que leíste, completa la frase.",
-       "frase": "Para QFB es clave: ___.",
-       "opciones": [
-        "Precisión en laboratorio",
-        "Matemáticas avanzadas",
-        "Inglés (y otro idioma ideal)"
-       ],
-       "correcta": 0,
-       "revelacion": "Es de las habilidades que más se usan en QFB."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué tanto se te da esto: orden y apego a normas?",
-       "escala": [
-        "Me cuesta",
-        "Se me da"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Las habilidades se entrenan; lo importante es que te guste usarlas."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "2.3",
-     "titulo": "Temas que vas a ver",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Temas que te deben gustar",
-       "puntos": [
-        "Química y biología",
-        "Medicamentos",
-        "Laboratorio"
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "¿Cuál de estos temas es más de QFB?",
-       "opciones": [
-        {
-         "texto": "Química y biología",
-         "consecuencia": "Sí, es de sus temas centrales.",
-         "mejor": true
-        },
-        {
-         "texto": "Cocinar",
-         "consecuencia": "Ese es más de Gastronomía."
-        },
-        {
-         "texto": "Máquinas y motores",
-         "consecuencia": "Ese es más de Ing. Mecánica."
-        }
-       ]
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Cuál de estos temas te gusta más?",
-       "opciones": [
-        "Química y biología",
-        "Medicamentos",
-        "Laboratorio",
-        "Ninguno me late"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Si los temas te aburren, la carrera se hace muy larga."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "2.4",
-     "titulo": "Materias clave",
+     "id": "3",
+     "titulo": "Medicamentos",
      "minutos": 4,
      "tarjetas": [
       {
-       "tipo": "voltear",
-       "pregunta": "¿Qué materias crees que llevas en cada etapa? Piénsalo y voltea.",
-       "cartas": [
+       "tipo": "info",
+       "titulo": "Medicamentos",
+       "partes": [
         {
-         "frente": "Semestres 1-2",
-         "reverso": "Química general, Cálculo, Biología celular, Física"
-        },
-        {
-         "frente": "Semestres 3-4",
-         "reverso": "Química orgánica, Química analítica, Fisicoquímica, Bioquímica"
-        },
-        {
-         "frente": "Semestres 5-6",
-         "reverso": "Microbiología, Farmacología, Tecnología farmacéutica, Análisis clínicos"
-        },
-        {
-         "frente": "Semestres 7 en adelante",
-         "reverso": "Control de calidad, Farmacia hospitalaria, Estancia en industria o laboratorio"
+         "t": "Un medicamento tiene un principio activo, que es lo que hace el efecto, y excipientes, que le dan forma, sabor o estabilidad. La dosis importa: muy poca no hace efecto y demasiada puede ser tóxica. Cada medicamento tiene fecha de caducidad y condiciones de almacenamiento; fuera de ellas puede perder efecto. Un medicamento genérico intercambiable tiene el mismo principio activo y ha demostrado funcionar igual que el de patente, aunque cueste menos."
         }
        ]
       },
       {
-       "tipo": "decision",
-       "pregunta": "¿Cuál de estas materias llevarías en QFB?",
+       "tipo": "pregunta",
+       "pregunta": "¿Qué es el principio activo?",
        "opciones": [
+        "El empaque",
+        "El sabor",
+        "La sustancia que produce el efecto del medicamento"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Un medicamento dice \"consérvese en refrigeración\" y pasó una semana al sol. ¿Qué haces?",
+       "opciones": [
+        "Lo usas",
+        "No lo usas; pudo perder su efecto",
+        "Lo metes al refri y ya"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Qué es un genérico intercambiable?",
+       "opciones": [
+        "Un medicamento falso",
+        "Un medicamento con el mismo principio activo que demostró funcionar igual que el de patente",
+        "Un dulce"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "teves"
+      }
+     ]
+    },
+    {
+     "id": "4",
+     "titulo": "La industria farmacéutica",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "La industria farmacéutica",
+       "partes": [
         {
-         "texto": "Química general",
-         "consecuencia": "Sí: es de las primeras materias de QFB.",
-         "mejor": true
-        },
-        {
-         "texto": "Cálculo",
-         "consecuencia": "Esa es de Ing. Mecánica."
-        },
-        {
-         "texto": "Química general",
-         "consecuencia": "Esa es de Química."
+         "t": "En la industria, los QFB producen medicamentos siguiendo buenas prácticas de fabricación: cada paso está escrito, se registra y se revisa. Cada lote se analiza antes de liberarse: contenido del principio activo, pureza y, en algunos casos, que esté estéril. Si un lote no cumple, no sale al mercado. En México, la COFEPRIS regula los medicamentos y puede ordenar retirar un lote del mercado si hay un problema."
         }
        ]
       },
       {
-       "tipo": "reflexion",
-       "pregunta": "¿Cuál te da más curiosidad?",
+       "tipo": "pregunta",
+       "pregunta": "Un lote de tabletas tiene menos principio activo del permitido.",
        "opciones": [
-        "Química general",
-        "Cálculo",
-        "Biología celular",
-        "Física"
-       ]
+        "No se libera",
+        "Se vende igual",
+        "Se vende más barato"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "clave",
-       "texto": "Las primeras materias son la base; muchas veces son las más pesadas."
+       "tipo": "pregunta",
+       "pregunta": "¿Quién regula los medicamentos en México?",
+       "opciones": [
+        "La COFEPRIS",
+        "El SAT",
+        "La SEP"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "¿Por qué cada paso de fabricación se escribe y se registra?",
+       "opciones": [
+        "Para que siempre se haga igual y se pueda revisar qué pasó si hay un problema",
+        "Por moda",
+        "Para gastar papel"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Se descubre un problema en un lote que ya está en farmacias. ¿Qué puede pasar?",
+       "opciones": [
+        "Se vende más",
+        "Nada",
+        "Se retira del mercado"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "teves"
       }
      ]
     }
@@ -430,183 +273,171 @@
   },
   {
    "id": "u3",
+   "titulo": "Precisión y personas",
+   "sub": "Microbiología, diluciones y pacientes",
    "lecciones": [
     {
-     "id": "3.1",
-     "titulo": "Un día real",
+     "id": "5",
+     "titulo": "Microbiología",
      "minutos": 4,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Un día de trabajo en QFB",
-       "puntos": [
-        "Trabaja en laboratorios clínicos (analiza sangre y muestras), en la industria farmacéutica (fabrica y controla la calidad de medicamentos), en hospitales o en regulación sanitaria."
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "¿Cuál de estas cosas sí hace alguien de QFB?",
-       "opciones": [
+       "titulo": "Microbiología",
+       "partes": [
         {
-         "texto": "Trabaja en laboratorios clínicos (analiza sangre y muestras), en la industria farmacéutica (fabrica y controla la calidad de medicamentos), en hospitales o en regulación sanitaria.",
-         "consecuencia": "Sí: es parte de su día.",
-         "mejor": true
-        },
-        {
-         "texto": "Mejora procesos en fábricas, almacenes o servicios: mide tiempos, reduce costos y errores, organiza la producción, analiza datos de calidad y coordina equipos.",
-         "consecuencia": "Eso es más de Ing. Industrial."
-        },
-        {
-         "texto": "Analiza problemas públicos, diseña o evalúa programas de gobierno, asesora a legisladores o candidatos, investiga opinión pública o trabaja en organizaciones civiles.",
-         "consecuencia": "Eso es más de Ciencias políticas."
+         "t": "En microbiología se identifican bacterias y hongos que causan infecciones. Se siembra la muestra en un medio de cultivo, se deja crecer y se identifica el microorganismo. Luego se hace un antibiograma: se prueba qué antibióticos lo detienen y cuáles no. Así el médico elige el antibiótico correcto. Si la muestra se contamina con bacterias de la piel o del ambiente, el resultado puede ser falso, por eso se toma con técnica estéril."
         }
        ]
       },
       {
-       "tipo": "reflexion",
-       "pregunta": "¿Te ves haciendo esto todos los días?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
+       "tipo": "pregunta",
+       "pregunta": "¿Para qué sirve un antibiograma?",
+       "opciones": [
+        "Para medir la glucosa",
+        "Para saber qué antibióticos funcionan contra el microorganismo",
+        "Para contar glóbulos rojos"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "clave",
-       "texto": "El día a día pesa más que el título."
+       "tipo": "pregunta",
+       "pregunta": "Un urocultivo sale con tres bacterias distintas y la muestra se tomó sin limpiar la zona. ¿Qué piensas?",
+       "opciones": [
+        "Probablemente se contaminó y hay que repetir con buena técnica",
+        "Que es normal",
+        "El paciente tiene tres infecciones seguro"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "¿Por qué se toman las muestras con técnica estéril?",
+       "opciones": [
+        "Por costumbre",
+        "Para no contaminarlas con otros microorganismos",
+        "No hace falta"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
-     "id": "3.2",
-     "titulo": "Lo difícil",
+     "id": "6",
+     "titulo": "Diluciones y concentraciones",
      "minutos": 4,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Lo difícil de QFB",
-       "texto": "Se considera de dificultad alta.",
-       "puntos": [
-        "Química orgánica, Fisicoquímica y Bioquímica",
-        "Muchas horas de laboratorio."
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "Según lo que leíste, ¿qué es lo que más cuesta en QFB?",
-       "opciones": [
+       "titulo": "Diluciones y concentraciones",
+       "partes": [
         {
-         "texto": "Química orgánica, Fisicoquímica y Bioquímica",
-         "consecuencia": "Sí, es de lo que más cuesta en QFB.",
-         "mejor": true
+         "t": "En el laboratorio, preparar soluciones exactas es diario. La concentración dice cuánta sustancia hay en cierto volumen. Para diluir se usa la regla de que la cantidad de sustancia no cambia:"
         },
         {
-         "texto": "Mucha práctica en cocina",
-         "consecuencia": "Eso es más de Gastronomía."
+         "f": "concentración inicial × volumen inicial = concentración final × volumen final"
         },
         {
-         "texto": "Cálculo, Probabilidad e Investigación de operaciones.",
-         "consecuencia": "Eso es más de Ing. Industrial."
+         "t": "Si una muestra sale demasiado alta para el aparato, se diluye y luego el resultado se multiplica por el factor de dilución. Olvidar multiplicar es un error grave, porque el resultado sale mucho más bajo que el real."
         }
        ]
       },
       {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué tanto te preocupa esto?",
-       "escala": [
-        "Mucho",
+       "tipo": "pregunta",
+       "pregunta": "Tienes una solución de 50 miligramos por mililitro y necesitas 100 mililitros de 5 miligramos por mililitro. ¿Cuánta usas?",
+       "opciones": [
+        "50 mililitros",
+        "10 mililitros",
+        "1 mililitro"
+       ],
+       "correcta": 1,
+       "formula": "{5 × 100|50} = 10"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Diluiste una muestra 1 a 10 y el aparato marca 30. ¿Cuál es el resultado real?",
+       "opciones": [
+        "3",
+        "300",
+        "30"
+       ],
+       "correcta": 1,
+       "formula": "30 × 10 = 300"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Se te olvidó multiplicar por el factor de dilución. ¿Qué pasa?",
+       "opciones": [
+        "El resultado sale mucho más bajo que el real",
+        "Sale más alto",
         "Nada"
-       ]
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "clave",
-       "texto": "Saber lo difícil desde antes te ayuda a prepararte."
+       "tipo": "pregunta",
+       "pregunta": "¿Qué no cambia al diluir una solución?",
+       "opciones": [
+        "El volumen",
+        "La concentración",
+        "La cantidad de sustancia"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "interes"
+       "tipo": "teves"
       }
      ]
     },
     {
-     "id": "3.3",
-     "titulo": "Historia real",
-     "minutos": 3,
+     "id": "7",
+     "titulo": "El QFB y el paciente",
+     "minutos": 4,
      "tarjetas": [
       {
-       "tipo": "reflexion",
-       "pregunta": "Si pudieras preguntarle algo a alguien que ya estudia QFB, ¿qué sería?",
+       "tipo": "info",
+       "titulo": "El QFB y el paciente",
+       "partes": [
+        {
+         "t": "En las farmacias, el QFB puede orientar sobre cómo tomar un medicamento, interacciones y efectos adversos, y detectar errores en recetas. Los antibióticos solo se venden con receta, para frenar la resistencia bacteriana. La farmacovigilancia es reportar los efectos adversos de los medicamentos, para que se conozcan y se prevengan. Y los resultados de laboratorio son confidenciales: se entregan solo al paciente o a quien él autorice."
+        }
+       ]
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Una persona quiere comprar antibióticos sin receta \"para la gripa\".",
        "opciones": [
-        "¿Qué fue lo más difícil?",
-        "¿Qué te sorprendió?",
-        "¿Volverías a elegirla?",
-        "¿Cómo es un día normal?"
-       ]
+        "Le explicas que se venden solo con receta y que no sirven contra virus",
+        "Le das la mitad",
+        "Se los vendes"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "testimonio",
-       "estado": "pendiente",
-       "perfil": "Estudiante de últimos semestres o egresado de QFB"
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "Mientras llega esta historia, ¿a quién podrías preguntarle tú?",
+       "tipo": "pregunta",
+       "pregunta": "Un paciente tuvo una reacción rara a un medicamento. ¿Qué se hace?",
        "opciones": [
-        "A un familiar o conocido que la estudió",
-        "A un estudiante de mi ciudad",
-        "A un maestro que la conozca",
-        "Todavía no conozco a nadie"
-       ]
+        "Se reporta como parte de la farmacovigilancia",
+        "Se oculta",
+        "Nada"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "clave",
-       "texto": "Una persona real te cuenta lo que ningún folleto dice."
+       "tipo": "pregunta",
+       "pregunta": "Un vecino pide los resultados de laboratorio de otra persona.",
+       "opciones": [
+        "Se los das",
+        "No se los das sin autorización del paciente",
+        "Le lees solo uno"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "3.4",
-     "titulo": "¿Es para ti?",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Contesta con honestidad. Nadie más ve tus respuestas."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Disfruto los experimentos de química?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Me veo en un laboratorio más que con pacientes?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Me acomodo a seguir protocolos estrictos?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Si dijiste que sí a casi todo, vale la pena seguir explorándola."
-      },
-      {
-       "tipo": "interes"
+       "tipo": "teves"
       }
      ]
     }
@@ -614,450 +445,126 @@
   },
   {
    "id": "u4",
+   "titulo": "Examen final",
+   "sub": "10 preguntas · apruebas con 7",
    "lecciones": [
     {
-     "id": "4.1",
-     "titulo": "Cuánto dura y qué estudias",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Cada escuela arma su plan distinto, pero el orden general se parece. Vamos a verlo."
-      },
-      {
-       "tipo": "ordenar",
-       "pregunta": "Ordena lo que estudias, de lo primero a lo último.",
-       "pasos": [
-        "Química general, Cálculo",
-        "Química orgánica, Química analítica",
-        "Microbiología, Farmacología",
-        "Control de calidad, Farmacia hospitalaria"
-       ],
-       "revelacion": "Primero las bases y al final lo más especializado y las prácticas."
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Cuántos años crees que pasan desde que entras hasta que te titulas?",
-       "min": 3,
-       "max": 10,
-       "paso": 1,
-       "unidad": "años",
-       "dato": "qfb.duracion"
-      },
-      {
-       "tipo": "clave",
-       "texto": "Revisa el mapa curricular de cada escuela: cambia de una a otra."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "4.2",
-     "titulo": "Cómo se entra",
-     "minutos": 4,
+     "id": "ex",
+     "titulo": "Examen final",
+     "minutos": 6,
+     "examen": true,
+     "aprobar": 7,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Cómo se entra en la región",
-       "puntos": [
-        "UNAM: Concurso de selección UNAM (120 reactivos) o pase reglamentado desde CCH/ENP",
-        "IPN: Examen de admisión IPN (140 preguntas, hasta 3 horas, incluye sección de inglés)",
-        "UAM: Examen de selección UAM (trimestral; dos procesos al año y procesos extraordinarios)",
-        "UAEM: EXANI-II de CENEVAL + curso propedéutico"
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "Según lo que leíste, ¿qué pide UNAM para entrar?",
-       "opciones": [
+       "titulo": "Examen final",
+       "partes": [
         {
-         "texto": "Concurso de selección UNAM (120 reactivos) o pase reglamentado desde CCH/ENP",
-         "consecuencia": "Exacto.",
-         "mejor": true
-        },
-        {
-         "texto": "Examen de admisión IPN (140 preguntas, hasta 3 horas, incluye sección de inglés)",
-         "consecuencia": "Eso lo pide IPN."
-        },
-        {
-         "texto": "Examen de selección UAM (trimestral; dos procesos al año y procesos extraordinarios)",
-         "consecuencia": "Eso lo pide UAM."
+         "t": "Son 10 casos nuevos que mezclan todas las lecciones. Apruebas con 7. Si no, lo repites y las que fallaste regresan con otras palabras."
         }
        ]
       },
       {
-       "tipo": "vf",
-       "afirmacion": "Todas las universidades usan el mismo examen.",
-       "respuesta": false,
-       "revelacion": "Cada una tiene el suyo: revisa la convocatoria de la que te interese."
-      },
-      {
-       "tipo": "clave",
-       "texto": "Conoce el examen de tu escuela desde antes."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "4.3",
-     "titulo": "Dónde, cuánto cuesta y becas",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "escuelas"
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Cuánto crees que cuesta un semestre en una universidad pública?",
-       "min": 0,
-       "max": 60000,
-       "paso": 1000,
-       "unidad": "pesos",
-       "dato": "qfb.costo_publica"
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Y un semestre en una universidad privada?",
-       "min": 0,
-       "max": 300000,
-       "paso": 5000,
-       "unidad": "pesos",
-       "dato": "qfb.costo_privada"
-      },
-      {
-       "tipo": "dato",
-       "titulo": "Becas para estudiar QFB",
-       "dato": "qfb.becas"
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Una universidad cara garantiza un mejor empleo.",
-       "respuesta": false,
-       "revelacion": "Pesan más lo que aprendes, tus prácticas y tu esfuerzo."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué pesa más para ti al elegir escuela?",
+       "tipo": "pregunta",
+       "pregunta": "Llega una muestra sin etiqueta.",
        "opciones": [
-        "El costo",
-        "Que esté cerca de mi casa",
-        "El prestigio",
-        "Las prácticas que ofrece"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Además de la colegiatura, cuenta transporte y materiales."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "u5",
-   "lecciones": [
-    {
-     "id": "5.1",
-     "titulo": "Qué piden para trabajar",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Qué te piden para trabajar",
-       "puntos": [
-        "Título y cédula",
-        "Algunos puestos de responsable sanitario requieren experiencia y registro ante COFEPRIS.",
-        "IMCO no tiene QFB por separado",
-        "Se usa el campo 'Bioquímica y biofísica' como aproximación."
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "Según lo que leíste, ¿qué necesitas para ejercer QFB?",
-       "opciones": [
-        {
-         "texto": "Título y cédula",
-         "consecuencia": "Exacto.",
-         "mejor": true
-        },
-        {
-         "texto": "No requiere cédula para la mayoría de puestos.",
-         "consecuencia": "Eso lo piden en Negocios."
-        },
-        {
-         "texto": "Para firmar notas técnicas de seguros se requiere certificación ante el Colegio Nacional de Actuarios / CNSF.",
-         "consecuencia": "Eso lo piden en Actuaría."
-        }
-       ]
-      },
-      {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Cómo te ves?",
-       "a": {
-        "texto": "En una institución o empresa",
-        "dice": "Más estabilidad y un equipo de quien aprender."
-       },
-       "b": {
-        "texto": "Por tu cuenta",
-        "dice": "Más libertad, pero tienes que conseguir clientes."
-       }
-      },
-      {
-       "tipo": "clave",
-       "texto": "Saber qué te piden te ahorra sorpresas al salir."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "5.2",
-     "titulo": "Sueldo y demanda",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Hablemos de dinero sin rodeos. Antes de ver cualquier cifra, apuesta: así recuerdas mejor el dato real."
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Cuánto crees que gana al mes, en promedio, un profesionista de QFB en México?",
-       "min": 5000,
-       "max": 100000,
-       "paso": 1000,
-       "unidad": "pesos",
-       "dato": "qfb.ingreso"
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "De cada 100 egresados, ¿cuántos crees que trabajan en algo de su carrera?",
-       "min": 0,
-       "max": 100,
-       "paso": 5,
-       "unidad": "de cada 100",
-       "dato": "qfb.ocupacion_afin"
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Todos los egresados de QFB ganan lo mismo.",
-       "respuesta": false,
-       "revelacion": "Cambia con la experiencia, el lugar, la especialidad y si trabajas por tu cuenta."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué tanto pesa el sueldo en tu decisión?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "El promedio orienta, pero tu camino puede ser distinto."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "5.3",
-     "titulo": "Cómo les va al salir",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "chat",
-       "subtitulo": "Te cuenta cómo les va al salir",
-       "intro": [
-        "Te cuento cómo les va a quienes estudian QFB al salir."
+        "Se adivina",
+        "Se procesa",
+        "Se pide una nueva"
        ],
-       "temas": [
-        {
-         "q": "¿Cuántos trabajan en lo suyo?",
-         "a": [
-          "Cerca de la mitad trabaja en algo de su carrera.",
-          "Es un promedio nacional del IMCO."
-         ]
-        },
-        {
-         "q": "¿Muchos hacen posgrado?",
-         "a": [
-          "Pocos hacen posgrado; la mayoría empieza a trabajar."
-         ]
-        },
-        {
-         "q": "¿Hay más hombres o mujeres?",
-         "a": [
-          "Hay más mujeres que hombres.",
-          "Eso no decide nada: cualquiera puede estudiarla."
-         ]
-        },
-        {
-         "q": "¿El trabajo tiene prestaciones?",
-         "a": [
-          "La mayoría tiene un trabajo formal, con prestaciones.",
-          "Las prestaciones son cosas como seguro médico y aguinaldo."
-         ]
-        }
+       "correcta": 2
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Para qué sirven los valores de referencia?",
+       "opciones": [
+        "Para cobrar",
+        "Para nada",
+        "Para comparar con lo esperado en personas sanas"
        ],
-       "minimo": 2
+       "correcta": 2
       },
       {
-       "tipo": "vf",
-       "afirmacion": "La mayoría de quienes estudian QFB trabaja en algo de su carrera.",
-       "respuesta": false,
-       "revelacion": "Cerca de la mitad trabaja en algo de su carrera. Promedio nacional del IMCO."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué te importa más de tu futuro trabajo?",
+       "tipo": "pregunta",
+       "pregunta": "Un control debería dar 50 y da 55. ¿Cuál es el error?",
        "opciones": [
-        "Que tenga que ver con lo que estudié",
-        "Ganar bien",
-        "Tener prestaciones",
-        "Hacer algo que me guste"
-       ]
+        "55 por ciento",
+        "5 por ciento",
+        "10 por ciento"
+       ],
+       "correcta": 2,
+       "formula": "{55 − 50|50} × 100 = 10"
       },
       {
-       "tipo": "clave",
-       "texto": "Pregunta cómo les va a quienes ya salieron."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "5.4",
-     "titulo": "Después de titularte",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Después de titularte",
-       "puntos": [
-        "Puedes especializarte con cursos, diplomados o una maestría.",
-        "También puedes trabajar desde el inicio y estudiar después.",
-        "Se combina bien con: Química, Biotecnología e Ingeniería Bioquímica, Medicina (Médico Cirujano)."
-       ]
-      },
-      {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Qué harías al terminar?",
-       "a": {
-        "texto": "Trabajar desde el inicio",
-        "dice": "Ganas experiencia y dinero; después decides si estudias más."
-       },
-       "b": {
-        "texto": "Seguir estudiando",
-        "dice": "Te especializas antes; tardas más en empezar a trabajar."
-       }
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Cómo te imaginas después de la carrera?",
+       "tipo": "pregunta",
+       "pregunta": "El control salió fuera de rango.",
        "opciones": [
-        "Trabajando",
-        "En una maestría",
-        "Emprendiendo",
-        "No sé todavía"
-       ]
+        "Se entregan",
+        "Se ignoran",
+        "No se entregan resultados hasta corregir"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "clave",
-       "texto": "Al titularte empieza otra parte del camino, no termina."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "u6",
-   "lecciones": [
-    {
-     "id": "6.1",
-     "titulo": "Lo que sentiste",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Antes de ver tus respuestas: ¿cómo te fue con QFB?",
+       "tipo": "pregunta",
+       "pregunta": "¿Qué es el principio activo?",
        "opciones": [
-        "Me gustó más de lo que pensaba",
-        "Más o menos como esperaba",
-        "Me gustó menos de lo que pensaba"
-       ]
+        "El color",
+        "La caja",
+        "Lo que produce el efecto"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "resumen"
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "Viendo tus respuestas, ¿qué pesó más?",
+       "tipo": "pregunta",
+       "pregunta": "¿Qué pasa con un lote que no cumple?",
        "opciones": [
-        "Lo que sentí al probarla",
-        "Lo que supe de la realidad",
-        "El camino para llegar",
-        "El futuro que ofrece"
-       ]
+        "Se regala",
+        "No se libera",
+        "Se vende"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "clave",
-       "texto": "Lo que sentiste al probarla vale más que lo que imaginabas."
-      },
-      {
-       "tipo": "interes",
-       "pregunta": "¿Te ves estudiando QFB?"
-      }
-     ]
-    },
-    {
-     "id": "6.2",
-     "titulo": "Tu veredicto",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Si mañana tuvieras que elegir carrera, ¿QFB estaría entre tus opciones?",
+       "tipo": "pregunta",
+       "pregunta": "¿Para qué sirve el antibiograma?",
        "opciones": [
-        "Sí, entre las primeras",
-        "Sí, pero no arriba",
-        "No creo",
-        "No lo sé"
-       ]
+        "Para medir azúcar",
+        "Para nada",
+        "Para elegir el antibiótico que sí funciona"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "comparar"
+       "tipo": "pregunta",
+       "pregunta": "Diluiste 1 a 5 y el aparato marca 40. ¿Cuál es el resultado real?",
+       "opciones": [
+        "40",
+        "200",
+        "8"
+       ],
+       "correcta": 1,
+       "formula": "40 × 5 = 200"
       },
       {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Qué te ayudaría más a decidir?",
-       "a": {
-        "texto": "Hablar con alguien que la estudia",
-        "dice": "Busca a un estudiante o egresado cerca de ti y hazle tus preguntas. Una plática aclara más que diez videos."
-       },
-       "b": {
-        "texto": "Probar otra carrera y comparar",
-        "dice": "Explora otra de tu mapa. Comparar dos caminos reales aclara más que pensar en uno solo."
-       }
+       "tipo": "pregunta",
+       "pregunta": "¿Se venden antibióticos sin receta?",
+       "opciones": [
+        "No",
+        "Sí",
+        "Solo los fines de semana"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "veredicto"
-      },
-      {
-       "tipo": "clave",
-       "texto": "Decidir «en duda» también es avanzar."
+       "tipo": "pregunta",
+       "pregunta": "¿Qué es la farmacovigilancia?",
+       "opciones": [
+        "Vender más",
+        "Reportar efectos adversos de los medicamentos",
+        "Vigilar la farmacia de noche"
+       ],
+       "correcta": 1
       }
      ]
     }

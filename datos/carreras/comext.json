@@ -1,224 +1,159 @@
 {
  "id": "comext",
- "version": 1,
+ "version": 2,
+ "formato": 2,
  "estado": "completo",
- "generado": true,
- "revision": "Armada automáticamente con la base de carreras de Morelos y CDMX (2026-11-17). Falta que la revise alguien de la carrera.",
+ "revision": "Pendiente de revisión por un profesionista de la carrera. Generado con datos/importar_lecciones.py desde datos/fuentes/lecciones/comext.lec; no se edita a mano.",
  "unidades": [
   {
    "id": "u1",
+   "titulo": "Cruzar fronteras",
+   "sub": "Importar, exportar y tipo de cambio",
    "lecciones": [
     {
-     "id": "1.1",
-     "titulo": "Qué es y qué hace",
-     "minutos": 3,
+     "id": "0",
+     "titulo": "Conócela",
+     "minutos": 1,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "¿Qué es Negocios internacionales?",
-       "texto": "Organización y dirección de recursos, personas y procesos. Según su orientación, aborda estrategia, ventas, operaciones, talento, innovación, mercadotecnia o gestión de organizaciones.",
-       "puntos": [
-        "Coordina importaciones y exportaciones: trámites aduanales, logística de envíos, negociación con proveedores de otros países y análisis de mercados extranjeros."
+       "tipo": "ficha",
+       "texto": "Comercio Exterior, o Negocios Internacionales, forma profesionales que compran y venden entre países. Manejan aduanas, tratados, tipo de cambio, transporte y documentos, y buscan nuevos mercados para productos mexicanos. Trabajan en empresas exportadoras, agencias aduanales y de logística.",
+       "cifras": [
+        "comext.ingreso",
+        "comext.duracion",
+        "comext.costo_publica",
+        "comext.costo_privada"
        ]
       },
       {
-       "tipo": "decision",
-       "pregunta": "Por lo que leíste, ¿qué hace alguien de Negocios internacionales?",
-       "opciones": [
-        {
-         "texto": "Coordina importaciones y exportaciones: trámites aduanales, logística de envíos, negociación con proveedores de otros países y análisis de mercados extranjeros.",
-         "consecuencia": "Exacto: eso es parte del día a día en Negocios internacionales.",
-         "mejor": true
-        },
-        {
-         "texto": "Investiga fenómenos físicos, hace simulaciones por computadora o aplica la física en tecnología, energía, medicina, datos o docencia.",
-         "consecuencia": "Eso lo hace alguien de Física."
-        },
-        {
-         "texto": "Analiza sustancias, desarrolla nuevos materiales o productos y controla la calidad en laboratorios de industria (alimentos, cosméticos, farmacéutica) o de investigación.",
-         "consecuencia": "Eso lo hace alguien de Química."
-        }
-       ]
-      },
-      {
-       "tipo": "completar",
-       "frase": "Negocios internacionales es una carrera del área de ___.",
-       "opciones": [
-        "Negocios y sociedad",
-        "Salud",
-        "Tecnología y ciencias"
-       ],
-       "correcta": 0,
-       "revelacion": "Está en Negocios y sociedad. Se parece a Administración de Empresas, Relaciones Internacionales, Economía."
-      },
-      {
-       "tipo": "clave",
-       "texto": "Antes de elegir, entiende qué harías cada día, no solo el nombre."
-      },
-      {
-       "tipo": "interes"
+       "tipo": "escena",
+       "texto": "Hoy mandas mercancía a otro país. Vamos a ver si llega sin problemas."
       }
      ]
     },
     {
-     "id": "1.2",
-     "titulo": "Dónde trabajas",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Dónde trabaja alguien de Negocios internacionales",
-       "texto": "Instituciones públicas y privadas, organizaciones sociales, empresas, centros de investigación, consultoría, docencia y proyectos independientes, según la especialización y experiencia."
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Alguien de Negocios internacionales solo puede trabajar en un tipo de lugar.",
-       "respuesta": false,
-       "revelacion": "Puede trabajar en varios: instituciones públicas, privadas, organizaciones sociales."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Dónde te ves trabajando?",
-       "opciones": [
-        "Instituciones públicas",
-        "Privadas",
-        "Organizaciones sociales",
-        "Empresas"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Una carrera abre varias puertas, no una sola."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "1.3",
-     "titulo": "Pregúntale a Rumbo",
+     "id": "1",
+     "titulo": "Importar y exportar",
      "minutos": 4,
      "tarjetas": [
       {
-       "tipo": "chat",
-       "subtitulo": "Te cuenta cómo es trabajar en Negocios internacionales",
-       "intro": [
-        "¡Hola! Junté lo que se sabe de Negocios internacionales.",
-        "Pregúntame lo que quieras."
-       ],
-       "temas": [
+       "tipo": "info",
+       "titulo": "Importar y exportar",
+       "partes": [
         {
-         "q": "¿Qué haces en un día normal?",
-         "a": [
-          "Coordina importaciones y exportaciones: trámites aduanales, logística de envíos, negociación con proveedores de otros países y análisis de mercados extranjeros."
-         ]
-        },
-        {
-         "q": "¿Qué es lo más difícil?",
-         "a": [
-          "Se considera una carrera de dificultad media.",
-          "Derecho aduanero, Logística internacional y Finanzas internacionales",
-          "Inglés obligatorio."
-         ]
-        },
-        {
-         "q": "¿Hay trabajo?",
-         "a": [
-          "Cerca de la mitad trabaja en algo de su carrera. Es un promedio nacional del IMCO.",
-          "IMCO la agrupa como 'Negocios y comercio'"
-         ]
-        },
-        {
-         "q": "¿Qué necesito para ejercer?",
-         "a": [
-          "Para ser agente aduanal se requiere patente",
-          "No es necesaria para la mayoría de puestos."
-         ]
+         "t": "Exportar es vender a otro país; importar es comprarle. México exporta mucho: autos, autopartes, computadoras, aguacate, tomate, cerveza y tequila, sobre todo a Estados Unidos. Una empresa exporta para vender más y en monedas fuertes; importa para conseguir materias primas o productos que aquí no hay o salen más caros. Todo lo que cruza la frontera pasa por la aduana, donde se revisa qué es, cuánto vale, de dónde viene y qué impuestos paga. En México, las importaciones y exportaciones se tramitan con un agente aduanal y un documento llamado pedimento."
         }
-       ],
-       "minimo": 2,
-       "auto": true
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Negocios internacionales se considera una carrera de dificultad muy alta.",
-       "respuesta": false,
-       "revelacion": "Se considera de dificultad media. Derecho aduanero, Logística internacional y Finanzas internacionales"
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué te llamó más la atención?",
-       "opciones": [
-        "¿Qué haces en un día normal?",
-        "¿Qué es lo más difícil?",
-        "¿Hay trabajo?",
-        "¿Qué necesito para ejercer?"
        ]
       },
       {
-       "tipo": "clave",
-       "texto": "Preguntar a quien ya sabe ahorra muchos errores."
+       "tipo": "pregunta",
+       "pregunta": "Un productor de Michoacán le vende aguacate a una cadena de supermercados de Texas. ¿Qué hace el productor?",
+       "opciones": [
+        "Ninguna",
+        "Exporta",
+        "Importa"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "¿Qué documento se usa en México para tramitar una importación o exportación ante la aduana?",
+       "opciones": [
+        "El acta de nacimiento",
+        "El pedimento",
+        "La licencia de manejo"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Una fábrica en Morelos necesita una máquina que solo se hace en Alemania. ¿Qué hace?",
+       "opciones": [
+        "La copia",
+        "La exporta",
+        "La importa"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Quién te ayuda a hacer el trámite en la aduana?",
+       "opciones": [
+        "Un agente aduanal",
+        "Un dentista",
+        "Un notario"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
-     "id": "1.4",
-     "titulo": "Carreras parecidas",
-     "minutos": 3,
+     "id": "2",
+     "titulo": "Tipo de cambio",
+     "minutos": 4,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Carreras cercanas a Negocios internacionales",
-       "puntos": [
-        "Administración de Empresas: organización y dirección de recursos.",
-        "Relaciones Internacionales: análisis de instituciones, políticas, conflictos y problemas sociales. puede.",
-        "Economía: análisis cuantitativo de decisiones económicas.",
-        "Mercadotecnia: organización y dirección de recursos."
+       "titulo": "Tipo de cambio",
+       "partes": [
+        {
+         "t": "En comercio exterior casi todo se paga en dólares. El tipo de cambio dice cuántos pesos cuesta un dólar, y cambia todos los días."
+        },
+        {
+         "f": "pesos = dólares × tipo de cambio"
+        },
+        {
+         "t": "Si el peso se debilita, es decir, si un dólar cuesta más pesos, a los que exportan les conviene, porque reciben más pesos por cada dólar. A los que importan les perjudica, porque lo que compran sale más caro. Este riesgo se llama riesgo cambiario, y las empresas lo cuidan, por ejemplo fijando el tipo de cambio con su banco por adelantado."
+        }
        ]
       },
       {
-       "tipo": "emparejar",
-       "pregunta": "Une cada carrera con lo que estudia.",
-       "pares": [
-        [
-         "Administración de Empresas",
-         "Organización y dirección de recursos"
-        ],
-        [
-         "Relaciones Internacionales",
-         "Análisis de instituciones, políticas, conflictos y problemas sociales. Puede"
-        ],
-        [
-         "Economía",
-         "Análisis cuantitativo de decisiones económicas"
-        ],
-        [
-         "Mercadotecnia",
-         "Organización y dirección de recursos"
-        ]
-       ],
-       "revelacion": "Se cruzan en temas, pero cada una tiene su propio enfoque."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Cuál de estas te da curiosidad?",
+       "tipo": "pregunta",
+       "pregunta": "Vendes 10,000 dólares de mercancía y el tipo de cambio es de 18 pesos por dólar. ¿Cuántos pesos recibes?",
        "opciones": [
-        "Administración de Empresas",
-        "Relaciones Internacionales",
-        "Economía",
-        "Me quedo con Negocios internacionales"
-       ]
+        "10,018",
+        "180,000",
+        "555"
+       ],
+       "correcta": 1,
+       "formula": "10,000 × 18 = 180,000"
       },
       {
-       "tipo": "clave",
-       "texto": "Si dudas entre dos, compara lo que harías cada día."
+       "tipo": "pregunta",
+       "pregunta": "Si el tipo de cambio sube a 20, ¿cuántos pesos recibes por los mismos 10,000 dólares?",
+       "opciones": [
+        "200,000",
+        "10,020",
+        "180,000"
+       ],
+       "correcta": 0,
+       "formula": "10,000 × 20 = 200,000"
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "El dólar sube de 18 a 20 pesos. ¿A quién perjudica?",
+       "opciones": [
+        "A quien exporta",
+        "A quien importa, porque lo que compra sale más caro en pesos",
+        "A nadie"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Vas a pagar una máquina de 50,000 dólares dentro de tres meses y te preocupa que suba el dólar. ¿Qué puedes hacer?",
+       "opciones": [
+        "Fijar el tipo de cambio con tu banco por adelantado",
+        "Rezar",
+        "No pagar"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "teves"
       }
      ]
     }
@@ -226,202 +161,121 @@
   },
   {
    "id": "u2",
+   "titulo": "Las reglas",
+   "sub": "Incoterms, aranceles y tratados",
    "lecciones": [
     {
-     "id": "2.1",
-     "titulo": "Mini reto",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Un productor de aguacate de Michoacán quiere vender en Japón. ¿Qué revisas primero?",
-       "opciones": [
-        "Qué requisitos pide Japón para entrar",
-        "El diseño de la caja",
-        "Cuánto cuesta un boleto de avión"
-       ]
-      },
-      {
-       "tipo": "info",
-       "titulo": "Así lo piensa alguien de Negocios internacionales",
-       "texto": "Sin cumplir las reglas del otro país, la mercancía no entra. Es una carrera de trámites, logística, idiomas y negociación."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Te gustó pensar en algo así?",
-       "escala": [
-        "Nada",
-        "Mucho"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Los retos de una carrera se parecen a lo que harías en su trabajo."
-      },
-      {
-       "tipo": "interes",
-       "pregunta": "¿Te ves resolviendo retos así?"
-      }
-     ]
-    },
-    {
-     "id": "2.2",
-     "titulo": "Lo que te piden",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Habilidades que usarás en Negocios internacionales",
-       "puntos": [
-        "Inglés (y otro idioma ideal)",
-        "Negociación",
-        "Organización",
-        "Visión global"
-       ]
-      },
-      {
-       "tipo": "completar",
-       "pregunta": "Según lo que leíste, completa la frase.",
-       "frase": "Para Negocios internacionales es clave: ___.",
-       "opciones": [
-        "Inglés (y otro idioma ideal)",
-        "Abstracción",
-        "Escucha activa"
-       ],
-       "correcta": 0,
-       "revelacion": "Es de las habilidades que más se usan en Negocios internacionales."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué tanto se te da esto: negociación?",
-       "escala": [
-        "Me cuesta",
-        "Se me da"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Las habilidades se entrenan; lo importante es que te guste usarlas."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "2.3",
-     "titulo": "Temas que vas a ver",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Temas que te deben gustar",
-       "puntos": [
-        "Otros países y culturas",
-        "Comercio y logística",
-        "Viajar"
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "¿Cuál de estos temas es más de Negocios internacionales?",
-       "opciones": [
-        {
-         "texto": "Otros países y culturas",
-         "consecuencia": "Sí, es de sus temas centrales.",
-         "mejor": true
-        },
-        {
-         "texto": "Medio ambiente",
-         "consecuencia": "Ese es más de Ing. Ambiental."
-        },
-        {
-         "texto": "Aparatos electrónicos",
-         "consecuencia": "Ese es más de Ing. Electrónica."
-        }
-       ]
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Cuál de estos temas te gusta más?",
-       "opciones": [
-        "Otros países y culturas",
-        "Comercio y logística",
-        "Viajar",
-        "Ninguno me late"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Si los temas te aburren, la carrera se hace muy larga."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "2.4",
-     "titulo": "Materias clave",
+     "id": "3",
+     "titulo": "Los Incoterms",
      "minutos": 4,
      "tarjetas": [
       {
-       "tipo": "voltear",
-       "pregunta": "¿Qué materias crees que llevas en cada etapa? Piénsalo y voltea.",
-       "cartas": [
+       "tipo": "info",
+       "titulo": "Los Incoterms",
+       "partes": [
         {
-         "frente": "Semestres 1-2",
-         "reverso": "Administración, Economía, Contabilidad, Inglés"
-        },
-        {
-         "frente": "Semestres 3-4",
-         "reverso": "Comercio internacional, Derecho mercantil, Logística"
-        },
-        {
-         "frente": "Semestres 5-6",
-         "reverso": "Aduanas y tratados (T-MEC), Finanzas internacionales, Negociación intercultural"
-        },
-        {
-         "frente": "Semestres 7 en adelante",
-         "reverso": "Plan de exportación, Prácticas"
+         "t": "Cuando compras a otro país hay que dejar claro quién paga el transporte, el seguro y en qué momento la mercancía pasa a ser responsabilidad del comprador. Para eso existen los Incoterms, reglas internacionales con siglas. Con EXW, el comprador recoge la mercancía en la fábrica del vendedor y se hace cargo de todo. Con FOB, el vendedor la pone arriba del barco en su puerto, y de ahí en adelante es del comprador. Con DDP, el vendedor entrega en la puerta del comprador con todo pagado, incluso impuestos. Mientras más se encarga el vendedor, más alto suele ser el precio."
         }
        ]
       },
       {
-       "tipo": "decision",
-       "pregunta": "¿Cuál de estas materias llevarías en Negocios internacionales?",
+       "tipo": "pregunta",
+       "pregunta": "Compras con FOB a un proveedor de China. ¿Quién paga el flete del barco a México?",
        "opciones": [
+        "Tú, el comprador",
+        "Nadie",
+        "El vendedor"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Con qué Incoterm el vendedor entrega en tu puerta con todo pagado?",
+       "opciones": [
+        "FOB",
+        "EXW",
+        "DDP"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Dos proveedores dan el mismo producto, uno en EXW a 100 dólares y otro en DDP a 115. ¿Cuál es más barato?",
+       "opciones": [
+        "Siempre el de 100",
+        "Depende de cuánto te cueste a ti el transporte, el seguro y los impuestos con el primero",
+        "Siempre el de 115"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "teves"
+      }
+     ]
+    },
+    {
+     "id": "4",
+     "titulo": "Aranceles y tratados",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "Aranceles y tratados",
+       "partes": [
         {
-         "texto": "Administración",
-         "consecuencia": "Sí: es de las primeras materias de Negocios internacionales.",
-         "mejor": true
+         "t": "El arancel es un impuesto que se cobra por importar. Se calcula como un porcentaje del valor de la mercancía:"
         },
         {
-         "texto": "Cálculo",
-         "consecuencia": "Esa es de Ciencia de datos."
+         "f": "arancel = valor de la mercancía × tasa"
         },
         {
-         "texto": "Cálculo",
-         "consecuencia": "Esa es de Ing. Electrónica."
+         "t": "México tiene tratados de libre comercio con muchos países. El más importante es el T-MEC, con Estados Unidos y Canadá. Con un tratado, muchos productos pagan arancel cero, pero solo si cumplen las reglas de origen: que de verdad se hayan producido en esos países. Eso se demuestra con una certificación de origen. Si no cumples, pagas el arancel normal."
         }
        ]
       },
       {
-       "tipo": "reflexion",
-       "pregunta": "¿Cuál te da más curiosidad?",
+       "tipo": "pregunta",
+       "pregunta": "Importas mercancía con un valor de 200,000 pesos y un arancel del 10 por ciento. ¿Cuánto pagas de arancel?",
        "opciones": [
-        "Administración",
-        "Economía",
-        "Contabilidad",
-        "Inglés"
-       ]
+        "20,000",
+        "210,000",
+        "2,000"
+       ],
+       "correcta": 0,
+       "formula": "200,000 × 0.10 = 20,000"
       },
       {
-       "tipo": "clave",
-       "texto": "Las primeras materias son la base; muchas veces son las más pesadas."
+       "tipo": "pregunta",
+       "pregunta": "¿Con qué países es el T-MEC?",
+       "opciones": [
+        "Estados Unidos y Canadá",
+        "China y Japón",
+        "España y Francia"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "Un producto armado en Estados Unidos con piezas casi todas de otro continente quiere entrar sin arancel por el T-MEC. ¿Qué hay que revisar?",
+       "opciones": [
+        "Nada, viene de Estados Unidos",
+        "El color de la caja",
+        "Si cumple las reglas de origen del tratado"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Un cliente te pide declarar su mercancía con un valor menor al real para pagar menos impuestos.",
+       "opciones": [
+        "Bajas solo la mitad",
+        "Te niegas; es un delito y la mercancía puede ser embargada",
+        "Lo haces"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "teves"
       }
      ]
     }
@@ -429,183 +283,171 @@
   },
   {
    "id": "u3",
+   "titulo": "Que llegue",
+   "sub": "Logística, documentos y mercados",
    "lecciones": [
     {
-     "id": "3.1",
-     "titulo": "Un día real",
+     "id": "5",
+     "titulo": "Logística",
      "minutos": 4,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Un día de trabajo en Negocios internacionales",
-       "puntos": [
-        "Coordina importaciones y exportaciones: trámites aduanales, logística de envíos, negociación con proveedores de otros países y análisis de mercados extranjeros."
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "¿Cuál de estas cosas sí hace alguien de Negocios internacionales?",
-       "opciones": [
+       "titulo": "Logística",
+       "partes": [
         {
-         "texto": "Coordina importaciones y exportaciones: trámites aduanales, logística de envíos, negociación con proveedores de otros países y análisis de mercados extranjeros.",
-         "consecuencia": "Sí: es parte de su día.",
-         "mejor": true
+         "t": "Mover mercancía entre países cuesta, y ese costo se reparte entre lo que mandas. Casi todo viaja en contenedores; los más comunes miden 20 o 40 pies. Si llenas bien el contenedor, el flete por pieza baja:"
         },
         {
-         "texto": "Diseña, calcula o supervisa obras: edificios, puentes, carreteras, drenajes.",
-         "consecuencia": "Eso es más de Ing. Civil."
+         "f": "flete por pieza = {costo del flete|número de piezas}"
         },
         {
-         "texto": "Investiga fenómenos físicos, hace simulaciones por computadora o aplica la física en tecnología, energía, medicina, datos o docencia.",
-         "consecuencia": "Eso es más de Física."
+         "t": "El barco es barato pero lento; el avión es rápido pero caro, así que se usa para cosas urgentes, ligeras o valiosas. A Estados Unidos, la mayor parte de la carga de México viaja por camión y tren."
         }
        ]
       },
       {
-       "tipo": "reflexion",
-       "pregunta": "¿Te ves haciendo esto todos los días?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
+       "tipo": "pregunta",
+       "pregunta": "Un contenedor cuesta 3,000 dólares de flete y llevas 1,500 piezas. ¿Cuánto es el flete por pieza?",
+       "opciones": [
+        "4,500 dólares",
+        "0.5 dólares",
+        "2 dólares"
+       ],
+       "correcta": 2,
+       "formula": "{3,000|1,500} = 2"
       },
       {
-       "tipo": "clave",
-       "texto": "El día a día pesa más que el título."
+       "tipo": "pregunta",
+       "pregunta": "Si llenas mejor el contenedor y metes 3,000 piezas, ¿cuánto es por pieza?",
+       "opciones": [
+        "3 dólares",
+        "1 dólar",
+        "2 dólares"
+       ],
+       "correcta": 1,
+       "formula": "{3,000|3,000} = 1"
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "Una empresa necesita refacciones urgentes de Japón para que no se pare su fábrica. ¿Qué transporte usas?",
+       "opciones": [
+        "Barco",
+        "El más barato aunque tarde",
+        "Avión"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
-     "id": "3.2",
-     "titulo": "Lo difícil",
+     "id": "6",
+     "titulo": "Documentos y errores caros",
      "minutos": 4,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Lo difícil de Negocios internacionales",
-       "texto": "Se considera de dificultad media.",
-       "puntos": [
-        "Derecho aduanero, Logística internacional y Finanzas internacionales",
-        "Inglés obligatorio."
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "Según lo que leíste, ¿qué es lo que más cuesta en Negocios internacionales?",
-       "opciones": [
+       "titulo": "Documentos y errores caros",
+       "partes": [
         {
-         "texto": "Derecho aduanero, Logística internacional y Finanzas internacionales",
-         "consecuencia": "Sí, es de lo que más cuesta en Negocios internacionales.",
-         "mejor": true
-        },
-        {
-         "texto": "Talleres con muchas entregas y críticas",
-         "consecuencia": "Eso es más de Diseño gráfico."
-        },
-        {
-         "texto": "Anatomía, Fisiología y Farmacología al inicio",
-         "consecuencia": "Eso es más de Enfermería."
+         "t": "Para que una mercancía cruce sin problemas, los documentos tienen que coincidir: factura comercial, lista de empaque, documento de transporte, certificado de origen y, en algunos productos, permisos especiales, por ejemplo sanitarios para alimentos. Si la factura dice una cantidad y en el camión hay otra, la aduana puede detener la carga y multar. Una carga detenida cuesta todos los días en almacenaje y en clientes molestos. Los alimentos y productos agrícolas suelen necesitar permisos sanitarios del país al que van."
         }
        ]
       },
       {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué tanto te preocupa esto?",
-       "escala": [
-        "Mucho",
+       "tipo": "pregunta",
+       "pregunta": "La factura dice 500 cajas, pero en el camión hay 520. ¿Qué puede pasar en la aduana?",
+       "opciones": [
+        "Nada",
+        "Que detengan la carga y te multen",
+        "Que te regalen las 20"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Vas a exportar fresas a Estados Unidos. ¿Qué necesitas además de la factura?",
+       "opciones": [
+        "Una foto de las fresas",
+        "Los permisos sanitarios correspondientes",
         "Nada"
-       ]
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "clave",
-       "texto": "Saber lo difícil desde antes te ayuda a prepararte."
+       "tipo": "pregunta",
+       "pregunta": "¿Por qué cuesta tanto una carga detenida?",
+       "opciones": [
+        "Porque se pinta",
+        "Por el almacenaje diario y los retrasos con clientes",
+        "No cuesta"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "Antes de mandar un embarque, ¿qué revisas?",
+       "opciones": [
+        "Que todos los documentos coincidan con lo que va físicamente",
+        "Solo el precio",
+        "El clima"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
-     "id": "3.3",
-     "titulo": "Historia real",
-     "minutos": 3,
+     "id": "7",
+     "titulo": "Encontrar mercados",
+     "minutos": 4,
      "tarjetas": [
       {
-       "tipo": "reflexion",
-       "pregunta": "Si pudieras preguntarle algo a alguien que ya estudia Negocios internacionales, ¿qué sería?",
+       "tipo": "info",
+       "titulo": "Encontrar mercados",
+       "partes": [
+        {
+         "t": "Para exportar no basta con tener un buen producto: hay que encontrar a quién venderle. Se investiga qué países lo compran, a qué precio, qué competencia hay y qué normas piden, como etiquetado en su idioma o certificaciones. Muchas empresas empiezan con un país cercano, donde ya hay demanda y el transporte es fácil. También se cuida la cultura de negocios del otro país: los tiempos, la forma de negociar y el idioma."
+        }
+       ]
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Una marca de salsas de Morelos quiere exportar. ¿Qué hace primero?",
        "opciones": [
-        "¿Qué fue lo más difícil?",
-        "¿Qué te sorprendió?",
-        "¿Volverías a elegirla?",
-        "¿Cómo es un día normal?"
-       ]
+        "Manda un contenedor a cualquier país",
+        "Cambia su receta",
+        "Investiga qué países compran salsas, a qué precio y qué normas piden"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "testimonio",
-       "estado": "pendiente",
-       "perfil": "Estudiante de últimos semestres o egresado de Negocios internacionales"
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "Mientras llega esta historia, ¿a quién podrías preguntarle tú?",
+       "tipo": "pregunta",
+       "pregunta": "Quieres vender en Canadá, donde hay dos idiomas oficiales. ¿Qué revisas de la etiqueta?",
        "opciones": [
-        "A un familiar o conocido que la estudió",
-        "A un estudiante de mi ciudad",
-        "A un maestro que la conozca",
-        "Todavía no conozco a nadie"
-       ]
+        "Que tenga muchos colores",
+        "Nada",
+        "Los requisitos de idioma y etiquetado de Canadá"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "clave",
-       "texto": "Una persona real te cuenta lo que ningún folleto dice."
+       "tipo": "pregunta",
+       "pregunta": "¿Por qué muchas empresas mexicanas empiezan exportando a Estados Unidos?",
+       "opciones": [
+        "Por la cercanía, la demanda y el tratado comercial",
+        "Por casualidad",
+        "Porque es obligatorio"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "3.4",
-     "titulo": "¿Es para ti?",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Contesta con honestidad. Nadie más ve tus respuestas."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Me gustaría hablar en inglés todos los días en el trabajo?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Me interesa cómo llegan los productos de un país a otro?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Me veo negociando con extranjeros?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Si dijiste que sí a casi todo, vale la pena seguir explorándola."
-      },
-      {
-       "tipo": "interes"
+       "tipo": "teves"
       }
      ]
     }
@@ -613,449 +455,127 @@
   },
   {
    "id": "u4",
+   "titulo": "Examen final",
+   "sub": "10 preguntas · apruebas con 7",
    "lecciones": [
     {
-     "id": "4.1",
-     "titulo": "Cuánto dura y qué estudias",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Cada escuela arma su plan distinto, pero el orden general se parece. Vamos a verlo."
-      },
-      {
-       "tipo": "ordenar",
-       "pregunta": "Ordena lo que estudias, de lo primero a lo último.",
-       "pasos": [
-        "Administración, Economía",
-        "Comercio internacional, Derecho mercantil",
-        "Aduanas y tratados (T-MEC), Finanzas internacionales",
-        "Plan de exportación, Prácticas"
-       ],
-       "revelacion": "Primero las bases y al final lo más especializado y las prácticas."
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Cuántos años crees que pasan desde que entras hasta que te titulas?",
-       "min": 3,
-       "max": 10,
-       "paso": 1,
-       "unidad": "años",
-       "dato": "comext.duracion"
-      },
-      {
-       "tipo": "clave",
-       "texto": "Revisa el mapa curricular de cada escuela: cambia de una a otra."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "4.2",
-     "titulo": "Cómo se entra",
-     "minutos": 4,
+     "id": "ex",
+     "titulo": "Examen final",
+     "minutos": 6,
+     "examen": true,
+     "aprobar": 7,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Cómo se entra en la región",
-       "puntos": [
-        "UNAM: Concurso de selección UNAM (120 reactivos) o pase reglamentado desde CCH/ENP",
-        "IPN: Examen de admisión IPN (140 preguntas, hasta 3 horas, incluye sección de inglés)",
-        "Tec de Monterrey: PAA (Prueba de Aptitud Académica), SAT o ACT + promedio + perfil integral (ensayo, currículum)",
-        "IBERO: Examen de admisión propio + promedio de bachillerato"
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "Según lo que leíste, ¿qué pide UNAM para entrar?",
-       "opciones": [
+       "titulo": "Examen final",
+       "partes": [
         {
-         "texto": "Concurso de selección UNAM (120 reactivos) o pase reglamentado desde CCH/ENP",
-         "consecuencia": "Exacto.",
-         "mejor": true
-        },
-        {
-         "texto": "Examen de admisión IPN (140 preguntas, hasta 3 horas, incluye sección de inglés)",
-         "consecuencia": "Eso lo pide IPN."
-        },
-        {
-         "texto": "PAA (Prueba de Aptitud Académica), SAT o ACT + promedio + perfil integral (ensayo, currículum)",
-         "consecuencia": "Eso lo pide Tec de Monterrey."
+         "t": "Son 10 casos nuevos que mezclan todas las lecciones. Apruebas con 7. Si no, lo repites y las que fallaste regresan con otras palabras."
         }
        ]
       },
       {
-       "tipo": "vf",
-       "afirmacion": "Todas las universidades usan el mismo examen.",
-       "respuesta": false,
-       "revelacion": "Cada una tiene el suyo: revisa la convocatoria de la que te interese."
-      },
-      {
-       "tipo": "clave",
-       "texto": "Conoce el examen de tu escuela desde antes."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "4.3",
-     "titulo": "Dónde, cuánto cuesta y becas",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "escuelas"
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Cuánto crees que cuesta un semestre en una universidad pública?",
-       "min": 0,
-       "max": 60000,
-       "paso": 1000,
-       "unidad": "pesos",
-       "dato": "comext.costo_publica"
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Y un semestre en una universidad privada?",
-       "min": 0,
-       "max": 300000,
-       "paso": 5000,
-       "unidad": "pesos",
-       "dato": "comext.costo_privada"
-      },
-      {
-       "tipo": "dato",
-       "titulo": "Becas para estudiar Negocios internacionales",
-       "dato": "comext.becas"
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Una universidad cara garantiza un mejor empleo.",
-       "respuesta": false,
-       "revelacion": "Pesan más lo que aprendes, tus prácticas y tu esfuerzo."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué pesa más para ti al elegir escuela?",
+       "tipo": "pregunta",
+       "pregunta": "¿Qué es exportar?",
        "opciones": [
-        "El costo",
-        "Que esté cerca de mi casa",
-        "El prestigio",
-        "Las prácticas que ofrece"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Además de la colegiatura, cuenta transporte y materiales."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "u5",
-   "lecciones": [
-    {
-     "id": "5.1",
-     "titulo": "Qué piden para trabajar",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Qué te piden para trabajar",
-       "puntos": [
-        "Para ser agente aduanal se requiere patente",
-        "No es necesaria para la mayoría de puestos.",
-        "IMCO la agrupa como 'Negocios y comercio'"
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "Según lo que leíste, ¿qué necesitas para ejercer Negocios internacionales?",
-       "opciones": [
-        {
-         "texto": "Para ser agente aduanal se requiere patente",
-         "consecuencia": "Exacto.",
-         "mejor": true
-        },
-        {
-         "texto": "Cédula para firmar proyectos",
-         "consecuencia": "Eso lo piden en Ing. Civil."
-        },
-        {
-         "texto": "Para escuelas públicas, concurso en USICAMM.",
-         "consecuencia": "Eso lo piden en Educación física."
-        }
-       ]
-      },
-      {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Cómo te ves?",
-       "a": {
-        "texto": "En una institución o empresa",
-        "dice": "Más estabilidad y un equipo de quien aprender."
-       },
-       "b": {
-        "texto": "Por tu cuenta",
-        "dice": "Más libertad, pero tienes que conseguir clientes."
-       }
-      },
-      {
-       "tipo": "clave",
-       "texto": "Saber qué te piden te ahorra sorpresas al salir."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "5.2",
-     "titulo": "Sueldo y demanda",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Hablemos de dinero sin rodeos. Antes de ver cualquier cifra, apuesta: así recuerdas mejor el dato real."
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Cuánto crees que gana al mes, en promedio, un profesionista de Negocios internacionales en México?",
-       "min": 5000,
-       "max": 100000,
-       "paso": 1000,
-       "unidad": "pesos",
-       "dato": "comext.ingreso"
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "De cada 100 egresados, ¿cuántos crees que trabajan en algo de su carrera?",
-       "min": 0,
-       "max": 100,
-       "paso": 5,
-       "unidad": "de cada 100",
-       "dato": "comext.ocupacion_afin"
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Todos los egresados de Negocios internacionales ganan lo mismo.",
-       "respuesta": false,
-       "revelacion": "Cambia con la experiencia, el lugar, la especialidad y si trabajas por tu cuenta."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué tanto pesa el sueldo en tu decisión?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "El promedio orienta, pero tu camino puede ser distinto."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "5.3",
-     "titulo": "Cómo les va al salir",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "chat",
-       "subtitulo": "Te cuenta cómo les va al salir",
-       "intro": [
-        "Te cuento cómo les va a quienes estudian Negocios internacionales al salir."
+        "Vender a otro país",
+        "Vender en tu ciudad",
+        "Comprarle a otro país"
        ],
-       "temas": [
-        {
-         "q": "¿Cuántos trabajan en lo suyo?",
-         "a": [
-          "Cerca de la mitad trabaja en algo de su carrera.",
-          "Es un promedio nacional del IMCO."
-         ]
-        },
-        {
-         "q": "¿Muchos hacen posgrado?",
-         "a": [
-          "Pocos hacen posgrado; la mayoría empieza a trabajar."
-         ]
-        },
-        {
-         "q": "¿Hay más hombres o mujeres?",
-         "a": [
-          "Hay casi el mismo número de hombres y mujeres.",
-          "Eso no decide nada: cualquiera puede estudiarla."
-         ]
-        },
-        {
-         "q": "¿El trabajo tiene prestaciones?",
-         "a": [
-          "La mayoría tiene un trabajo formal, con prestaciones.",
-          "Las prestaciones son cosas como seguro médico y aguinaldo."
-         ]
-        }
+       "correcta": 0
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Vendes 5,000 dólares y el tipo de cambio es de 19 pesos. ¿Cuántos pesos recibes?",
+       "opciones": [
+        "95,000",
+        "5,019",
+        "263"
        ],
-       "minimo": 2
+       "correcta": 0,
+       "formula": "5,000 × 19 = 95,000"
       },
       {
-       "tipo": "vf",
-       "afirmacion": "La mayoría de quienes estudian Negocios internacionales trabaja en algo de su carrera.",
-       "respuesta": false,
-       "revelacion": "Cerca de la mitad trabaja en algo de su carrera. Promedio nacional del IMCO."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué te importa más de tu futuro trabajo?",
+       "tipo": "pregunta",
+       "pregunta": "Si el dólar sube, ¿a quién beneficia?",
        "opciones": [
-        "Que tenga que ver con lo que estudié",
-        "Ganar bien",
-        "Tener prestaciones",
-        "Hacer algo que me guste"
-       ]
+        "A nadie",
+        "A quien exporta",
+        "A quien importa"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "clave",
-       "texto": "Pregunta cómo les va a quienes ya salieron."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "5.4",
-     "titulo": "Después de titularte",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Después de titularte",
-       "puntos": [
-        "Puedes especializarte con cursos, diplomados o una maestría.",
-        "También puedes trabajar desde el inicio y estudiar después.",
-        "Se combina bien con: Administración de Empresas, Relaciones Internacionales, Economía."
-       ]
-      },
-      {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Qué harías al terminar?",
-       "a": {
-        "texto": "Trabajar desde el inicio",
-        "dice": "Ganas experiencia y dinero; después decides si estudias más."
-       },
-       "b": {
-        "texto": "Seguir estudiando",
-        "dice": "Te especializas antes; tardas más en empezar a trabajar."
-       }
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Cómo te imaginas después de la carrera?",
+       "tipo": "pregunta",
+       "pregunta": "Con FOB, ¿quién paga el barco?",
        "opciones": [
-        "Trabajando",
-        "En una maestría",
-        "Emprendiendo",
-        "No sé todavía"
-       ]
+        "La aduana",
+        "El vendedor",
+        "El comprador"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "clave",
-       "texto": "Al titularte empieza otra parte del camino, no termina."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "u6",
-   "lecciones": [
-    {
-     "id": "6.1",
-     "titulo": "Lo que sentiste",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Antes de ver tus respuestas: ¿cómo te fue con Negocios internacionales?",
+       "tipo": "pregunta",
+       "pregunta": "Importas 50,000 pesos de mercancía con un arancel del 20 por ciento. ¿Cuánto pagas de arancel?",
        "opciones": [
-        "Me gustó más de lo que pensaba",
-        "Más o menos como esperaba",
-        "Me gustó menos de lo que pensaba"
-       ]
+        "60,000",
+        "1,000",
+        "10,000"
+       ],
+       "correcta": 2,
+       "formula": "50,000 × 0.20 = 10,000"
       },
       {
-       "tipo": "resumen"
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "Viendo tus respuestas, ¿qué pesó más?",
+       "tipo": "pregunta",
+       "pregunta": "¿Qué hay que cumplir para no pagar arancel con el T-MEC?",
        "opciones": [
-        "Lo que sentí al probarla",
-        "Lo que supe de la realidad",
-        "El camino para llegar",
-        "El futuro que ofrece"
-       ]
+        "Las reglas de origen",
+        "Nada",
+        "Pagar más"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "clave",
-       "texto": "Lo que sentiste al probarla vale más que lo que imaginabas."
-      },
-      {
-       "tipo": "interes",
-       "pregunta": "¿Te ves estudiando Negocios internacionales?"
-      }
-     ]
-    },
-    {
-     "id": "6.2",
-     "titulo": "Tu veredicto",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Si mañana tuvieras que elegir carrera, ¿Negocios internacionales estaría entre tus opciones?",
+       "tipo": "pregunta",
+       "pregunta": "Un flete de 2,400 dólares lleva 800 piezas. ¿Cuánto es por pieza?",
        "opciones": [
-        "Sí, entre las primeras",
-        "Sí, pero no arriba",
-        "No creo",
-        "No lo sé"
-       ]
+        "1,600 dólares",
+        "0.33 dólares",
+        "3 dólares"
+       ],
+       "correcta": 2,
+       "formula": "{2,400|800} = 3"
       },
       {
-       "tipo": "comparar"
+       "tipo": "pregunta",
+       "pregunta": "Necesitas algo urgente y ligero de otro continente. ¿Qué transporte usas?",
+       "opciones": [
+        "Tren",
+        "Avión",
+        "Barco"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Qué te ayudaría más a decidir?",
-       "a": {
-        "texto": "Hablar con alguien que la estudia",
-        "dice": "Busca a un estudiante o egresado cerca de ti y hazle tus preguntas. Una plática aclara más que diez videos."
-       },
-       "b": {
-        "texto": "Probar otra carrera y comparar",
-        "dice": "Explora otra de tu mapa. Comparar dos caminos reales aclara más que pensar en uno solo."
-       }
+       "tipo": "pregunta",
+       "pregunta": "Un cliente te pide declarar un valor más bajo.",
+       "opciones": [
+        "Te niegas, es un delito",
+        "Lo haces a medias",
+        "Lo haces"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "veredicto"
-      },
-      {
-       "tipo": "clave",
-       "texto": "Decidir «en duda» también es avanzar."
+       "tipo": "pregunta",
+       "pregunta": "La factura no coincide con lo que va en el camión. ¿Qué puede pasar?",
+       "opciones": [
+        "Que te devuelvan dinero",
+        "Nada",
+        "Que detengan la carga y te multen"
+       ],
+       "correcta": 2
       }
      ]
     }

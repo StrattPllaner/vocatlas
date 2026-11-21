@@ -1,0 +1,137 @@
+**Lección 1: Interés y tiempo (4 preguntas)**
+
+En finanzas, el tiempo cambia el valor del dinero. Si inviertes, ganas intereses; si pides prestado, los pagas. Con interés compuesto, cada periodo ganas intereses sobre lo que ya habías ganado. Para un año, el dinero se multiplica por 1 más la tasa:
+
+$$\text{dinero en un año} = \text{capital} \times (1 + \text{tasa})$$
+
+Y al revés, para saber cuánto vale hoy un dinero que recibirás en un año, se divide entre 1 más la tasa. Eso se llama valor presente, y es la base para comparar inversiones.
+
+Pregunta 1. Inviertes 20,000 pesos al 10 por ciento anual. ¿Cuánto tienes en un año? A: 20,010. B: 22,000. C: 30,000. Correcta: B, porque
+
+$$20{,}000 \times 1.10 = 22{,}000$$
+
+Pregunta 2. ¿Y en dos años, si reinviertes todo? A: 24,000. B: 22,000. C: 24,200. Correcta: C, porque
+
+$$20{,}000 \times 1.10 \times 1.10 = 24{,}200$$
+
+Pregunta 3. Te ofrecen 33,000 pesos dentro de un año. Con una tasa del 10 por ciento, ¿cuánto valen hoy? A: 30,000. B: 29,700. C: 33,000. Correcta: A, porque
+
+$$\frac{33{,}000}{1.10} = 30{,}000$$
+
+Pregunta 4. ¿Por qué un peso hoy vale más que un peso en el futuro? A: porque hoy lo puedes invertir y hacerlo crecer. B: no vale más. C: porque los billetes viejos valen menos. Correcta: A.
+
+**Lección 2: Riesgo y rendimiento (4 preguntas)**
+
+En las inversiones, más rendimiento casi siempre significa más riesgo. Los Cetes, que son bonos del gobierno de México, tienen muy poco riesgo y un rendimiento moderado. Las acciones de empresas pueden rendir más a largo plazo, pero su precio sube y baja mucho. Diversificar es repartir el dinero en varias inversiones, para que si una cae, no pierdas todo. Si alguien promete rendimientos muy altos sin riesgo, casi siempre es fraude.
+
+Pregunta 1. Alguien te ofrece duplicar tu dinero en un mes "sin riesgo". ¿Qué es probablemente? A: un bono del gobierno. B: un fraude. C: una gran oportunidad. Correcta: B.
+
+Pregunta 2. ¿Qué es diversificar? A: guardar todo debajo del colchón. B: poner todo en una sola empresa. C: repartir el dinero en varias inversiones. Correcta: C.
+
+Pregunta 3. Una persona necesita el dinero en tres meses para pagar la inscripción de la universidad. ¿Dónde conviene más? A: en algo de bajo riesgo, como Cetes. B: en acciones muy volátiles. C: en criptomonedas desconocidas. Correcta: A.
+
+Pregunta 4. ¿Qué inversión tiene en general más riesgo? A: una cuenta de ahorro. B: Cetes. C: acciones de empresas. Correcta: C.
+
+**Lección 3: Créditos (3 preguntas)**
+
+Un crédito no solo cuesta la tasa de interés: también hay comisiones y seguros. Por eso en México se compara con el CAT, el costo anual total, que junta todo en un porcentaje. Las tarjetas de crédito cobran intereses altos si no pagas el total del mes; si solo pagas el mínimo, la deuda puede tardar años en bajar. Para saber cuánto pagas de interés en un mes, aproximadamente:
+
+$$\text{interés del mes} = \text{deuda} \times \frac{\text{tasa anual}}{12}$$
+
+Pregunta 1. Tienes una deuda de 10,000 pesos en la tarjeta con una tasa anual de 60 por ciento. ¿Cuánto pagas de interés en un mes, más o menos? A: 500 pesos. B: 60 pesos. C: 6,000 pesos. Correcta: A, porque
+
+$$10{,}000 \times \frac{0.60}{12} = 500$$
+
+Pregunta 2. ¿Qué indicador usas para comparar créditos en México? A: el color de la tarjeta. B: el CAT. C: el número de sucursales. Correcta: B.
+
+Pregunta 3. Una persona paga solo el mínimo de su tarjeta cada mes. ¿Qué le pasa? A: la deuda baja muy lento y paga muchos intereses. B: termina rápido. C: no paga intereses. Correcta: A.
+
+**Lección 4: Los estados financieros (4 preguntas)**
+
+Un analista financiero lee los estados financieros de una empresa para saber si está sana. Unos indicadores muy usados son el margen de utilidad, que dice cuánto gana de cada peso que vende, y la liquidez, que dice si puede pagar lo que debe a corto plazo:
+
+$$\text{margen} = \frac{\text{utilidad neta}}{\text{ventas}} \qquad \text{liquidez} = \frac{\text{activo circulante}}{\text{pasivo circulante}}$$
+
+Una liquidez menor a 1 significa que lo que debe pagar pronto es mayor que lo que tiene disponible pronto: es una señal de alerta.
+
+Pregunta 1. Una empresa vendió 1,000,000 de pesos y su utilidad neta fue de 80,000. ¿Cuál es su margen? A: 0.08, o 8 por ciento. B: 80. C: 0.8. Correcta: A, porque
+
+$$\frac{80{,}000}{1{,}000{,}000} = 0.08$$
+
+Pregunta 2. Una empresa tiene 300,000 pesos de activo circulante y 200,000 de pasivo circulante. ¿Cuál es su liquidez? A: 0.67. B: 1.5. C: 100,000. Correcta: B, porque
+
+$$\frac{300{,}000}{200{,}000} = 1.5$$
+
+Pregunta 3. Otra empresa tiene una liquidez de 0.6. ¿Qué significa? A: que está muy sana. B: nada. C: que le podría costar pagar sus deudas de corto plazo. Correcta: C.
+
+Pregunta 4. ¿Qué dice el margen de utilidad? A: cuánto gana la empresa de cada peso que vende. B: cuánto debe. C: cuántos empleados tiene. Correcta: A.
+
+**Lección 5: Evaluar un proyecto (3 preguntas)**
+
+Antes de invertir en un proyecto, como abrir una sucursal, se calcula si conviene. Una forma sencilla es el periodo de recuperación: cuánto tiempo tarda en regresar el dinero invertido.
+
+$$\text{periodo de recuperación} = \frac{\text{inversión}}{\text{flujo de efectivo por año}}$$
+
+Una forma más completa es el valor presente neto: traer a hoy todo el dinero que dejará el proyecto y restarle la inversión. Si el resultado es positivo, el proyecto crea valor; si es negativo, conviene más dejar el dinero en otra opción.
+
+Pregunta 1. Un proyecto cuesta 500,000 pesos y deja 100,000 al año. ¿En cuánto tiempo se recupera? A: 5 años. B: 50 años. C: 4 años. Correcta: A, porque
+
+$$\frac{500{,}000}{100{,}000} = 5$$
+
+Pregunta 2. El valor presente neto de un proyecto es negativo. ¿Qué significa? A: que no importa. B: que es un gran proyecto. C: que conviene más otra opción. Correcta: C.
+
+Pregunta 3. Dos proyectos cuestan lo mismo. Uno se recupera en 2 años y el otro en 6, con riesgos parecidos. ¿Cuál es más atractivo en principio? A: el de 6 años. B: el de 2 años. C: igual. Correcta: B.
+
+**Lección 6: Finanzas personales (4 preguntas)**
+
+Las mismas ideas sirven para tu propio dinero. Un presupuesto separa ingresos, gastos fijos, gastos variables y ahorro. Una regla útil es ahorrar primero, en cuanto llega el dinero, en vez de ahorrar "lo que sobre". Un fondo de emergencia de varios meses de gastos evita endeudarse cuando pasa algo inesperado. Y en México, el dinero del retiro se va acumulando en la Afore, donde también puedes hacer aportaciones voluntarias.
+
+Pregunta 1. Ganas 10,000 pesos al mes y quieres ahorrar el 10 por ciento. ¿Cuánto apartas? A: 10 pesos. B: 100 pesos. C: 1,000 pesos. Correcta: C, porque
+
+$$10{,}000 \times 0.10 = 1{,}000$$
+
+Pregunta 2. ¿Cuándo conviene apartar el ahorro? A: en cuanto llega el dinero. B: nunca. C: al final del mes, si sobra. Correcta: A.
+
+Pregunta 3. ¿Para qué sirve un fondo de emergencia? A: para cubrir imprevistos sin endeudarse. B: para vacaciones. C: para apostar. Correcta: A.
+
+Pregunta 4. ¿Dónde se acumula el dinero para el retiro de los trabajadores formales en México? A: en la Lotería. B: en la Afore. C: en el SAT. Correcta: B.
+
+**Lección 7: Ética financiera (3 preguntas)**
+
+En finanzas se maneja dinero de otras personas, así que la confianza lo es todo. Un asesor recomienda lo que le conviene al cliente, no lo que le deja más comisión a él. Usar información privada de una empresa para comprar o vender sus acciones antes que los demás es un delito llamado uso de información privilegiada. Y los riesgos de una inversión se explican claramente, aunque eso haga que el cliente no compre.
+
+Pregunta 1. Un producto te deja más comisión, pero no le conviene a tu cliente. A: le vendes el de más comisión. B: le recomiendas lo que le conviene a él. C: no le dices nada. Correcta: B.
+
+Pregunta 2. Te enteras en tu trabajo de que una empresa va a ser comprada, antes de que sea público, y quieres comprar sus acciones. ¿Qué es eso? A: suerte. B: una buena inversión. C: uso de información privilegiada, que es un delito. Correcta: C.
+
+Pregunta 3. Un cliente quiere invertir en algo muy riesgoso sin entenderlo. A: le explicas claramente los riesgos. B: le dices que no hay riesgo. C: lo dejas sin decir nada. Correcta: A.
+
+**Examen final**
+
+Pregunta 1. Inviertes 10,000 pesos al 8 por ciento anual. ¿Cuánto tienes en un año? A: 18,000. B: 10,800. C: 10,008. Correcta: B, porque
+
+$$10{,}000 \times 1.08 = 10{,}800$$
+
+Pregunta 2. Te ofrecen 22,000 pesos en un año con una tasa del 10 por ciento. ¿Cuánto valen hoy? A: 19,800. B: 22,000. C: 20,000. Correcta: C, porque
+
+$$\frac{22{,}000}{1.10} = 20{,}000$$
+
+Pregunta 3. Te prometen rendimientos altísimos sin riesgo. ¿Qué es probablemente? A: una cuenta de ahorro. B: un fraude. C: los Cetes. Correcta: B.
+
+Pregunta 4. ¿Qué es diversificar? A: concentrar todo. B: repartir el dinero en varias inversiones. C: gastar todo. Correcta: B.
+
+Pregunta 5. Una deuda de 12,000 pesos con tasa anual de 48 por ciento. ¿Cuánto pagas de interés en un mes, más o menos? A: 5,760 pesos. B: 480 pesos. C: 48 pesos. Correcta: B, porque
+
+$$12{,}000 \times \frac{0.48}{12} = 480$$
+
+Pregunta 6. ¿Con qué comparas créditos en México? A: con el horario. B: con el CAT. C: con el logo. Correcta: B.
+
+Pregunta 7. Una empresa tiene una liquidez de 0.5. ¿Qué indica? A: nada. B: que está muy sana. C: posible problema para pagar sus deudas de corto plazo. Correcta: C.
+
+Pregunta 8. Un proyecto cuesta 300,000 pesos y deja 60,000 al año. ¿En cuánto tiempo se recupera? A: 6 años. B: 3 años. C: 5 años. Correcta: C, porque
+
+$$\frac{300{,}000}{60{,}000} = 5$$
+
+Pregunta 9. ¿Cuándo conviene apartar el ahorro? A: si sobra. B: al final del año. C: en cuanto llega el dinero. Correcta: C.
+
+Pregunta 10. ¿Qué es el uso de información privilegiada? A: comprar o vender acciones con información privada antes que los demás, y es delito. B: diversificar. C: una estrategia legal. Correcta: A.

@@ -1,222 +1,151 @@
 {
  "id": "odontologia",
- "version": 1,
+ "version": 2,
+ "formato": 2,
  "estado": "completo",
- "generado": true,
- "revision": "Armada automáticamente con la base de carreras de Morelos y CDMX (2026-11-17). Falta que la revise alguien de la carrera.",
+ "revision": "Pendiente de revisión por un profesionista de la carrera. Generado con datos/importar_lecciones.py desde datos/fuentes/lecciones/odontologia.lec; no se edita a mano.",
  "unidades": [
   {
    "id": "u1",
+   "titulo": "Dientes y caries",
+   "sub": "Cómo son y cómo se dañan",
    "lecciones": [
     {
-     "id": "1.1",
-     "titulo": "Qué es y qué hace",
-     "minutos": 3,
+     "id": "0",
+     "titulo": "Conócela",
+     "minutos": 1,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "¿Qué es Odontología?",
-       "texto": "Salud bucodental: prevención, diagnóstico y tratamiento de enfermedades de dientes, encías y estructuras de la boca, además de procedimientos clínicos.",
-       "puntos": [
-        "Revisa, limpia y repara dientes, hace extracciones, endodoncias y prótesis, toma radiografías y explica tratamientos.",
-        "Muchos trabajan en consultorio propio, lo que implica administrar un negocio."
+       "tipo": "ficha",
+       "texto": "Odontología forma cirujanos dentistas que previenen, diagnostican y tratan problemas de dientes, encías y boca. Trabajan en consultorios propios, clínicas, hospitales y centros de salud. En Morelos no hay dónde terminarla.",
+       "cifras": [
+        "odontologia.ingreso",
+        "odontologia.duracion",
+        "odontologia.costo_publica",
+        "odontologia.costo_privada"
        ]
       },
       {
-       "tipo": "decision",
-       "pregunta": "Por lo que leíste, ¿qué hace alguien de Odontología?",
-       "opciones": [
-        {
-         "texto": "Revisa, limpia y repara dientes, hace extracciones, endodoncias y prótesis, toma radiografías y explica tratamientos.",
-         "consecuencia": "Exacto: eso es parte del día a día en Odontología.",
-         "mejor": true
-        },
-        {
-         "texto": "Cocina, crea platillos, controla costos e inventarios, dirige equipos de cocina y, si emprende, administra su propio negocio de comida.",
-         "consecuencia": "Eso lo hace alguien de Gastronomía."
-        },
-        {
-         "texto": "Investiga fenómenos físicos, hace simulaciones por computadora o aplica la física en tecnología, energía, medicina, datos o docencia.",
-         "consecuencia": "Eso lo hace alguien de Física."
-        }
-       ]
-      },
-      {
-       "tipo": "completar",
-       "frase": "Odontología es una carrera del área de ___.",
-       "opciones": [
-        "Salud",
-        "Tecnología y ciencias",
-        "Ingenierías"
-       ],
-       "correcta": 0,
-       "revelacion": "Está en Salud. Se parece a Medicina (Médico Cirujano), Enfermería, Químico Farmacéutico Biólogo (QFB)."
-      },
-      {
-       "tipo": "clave",
-       "texto": "Antes de elegir, entiende qué harías cada día, no solo el nombre."
-      },
-      {
-       "tipo": "interes"
+       "tipo": "escena",
+       "texto": "Hoy atiendes tu consultorio dental. Vamos a ver si salvas esos dientes."
       }
      ]
     },
     {
-     "id": "1.2",
-     "titulo": "Dónde trabajas",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Dónde trabaja alguien de Odontología",
-       "texto": "Consultorios propios o de terceros, clínicas dentales, hospitales, salud pública, docencia e investigación;",
-       "puntos": [
-        "Algunas prácticas requieren especialización."
-       ]
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Alguien de Odontología solo puede trabajar en un tipo de lugar.",
-       "respuesta": false,
-       "revelacion": "Puede trabajar en varios: consultorios propios o de terceros, clínicas dentales, hospitales."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Dónde te ves trabajando?",
-       "opciones": [
-        "Consultorios propios o de terceros",
-        "Clínicas dentales",
-        "Hospitales",
-        "Salud pública"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Una carrera abre varias puertas, no una sola."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "1.3",
-     "titulo": "Pregúntale a Rumbo",
+     "id": "1",
+     "titulo": "Los dientes",
      "minutos": 4,
      "tarjetas": [
       {
-       "tipo": "chat",
-       "subtitulo": "Te cuenta cómo es trabajar en Odontología",
-       "intro": [
-        "¡Hola! Junté lo que se sabe de Odontología.",
-        "Pregúntame lo que quieras."
-       ],
-       "temas": [
+       "tipo": "info",
+       "titulo": "Los dientes",
+       "partes": [
         {
-         "q": "¿Qué haces en un día normal?",
-         "a": [
-          "Revisa, limpia y repara dientes, hace extracciones, endodoncias y prótesis, toma radiografías y explica tratamientos.",
-          "Muchos trabajan en consultorio propio, lo que implica administrar un negocio."
-         ]
-        },
-        {
-         "q": "¿Qué es lo más difícil?",
-         "a": [
-          "Se considera una carrera de dificultad alta.",
-          "Muchas prácticas clínicas con pacientes reales y trabajo manual muy fino desde los primeros semestres."
-         ]
-        },
-        {
-         "q": "¿Hay trabajo?",
-         "a": [
-          "La mayoría de quienes la estudian trabaja en algo de su carrera. Es un promedio nacional del IMCO."
-         ]
-        },
-        {
-         "q": "¿Qué necesito para ejercer?",
-         "a": [
-          "Título y cédula profesional.",
-          "El instrumental y los materiales corren por cuenta del alumno y son caros."
-         ]
+         "t": "Los niños tienen 20 dientes de leche, y los adultos, 32 permanentes contando las muelas del juicio. Cada diente tiene una capa externa muy dura, el esmalte; debajo está la dentina, más blanda y sensible; y en el centro, la pulpa, con nervios y vasos sanguíneos. Cuando una caries llega a la dentina, el diente se vuelve sensible a lo frío y lo dulce; si llega a la pulpa, puede doler mucho e infectarse. Los dientes de leche también se cuidan: guardan el espacio para los permanentes."
         }
-       ],
-       "minimo": 2,
-       "auto": true
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Odontología se considera una carrera de dificultad alta.",
-       "respuesta": true,
-       "revelacion": "Se considera de dificultad alta. Muchas prácticas clínicas con pacientes reales y trabajo manual muy fino desde los primeros semestres."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué te llamó más la atención?",
-       "opciones": [
-        "¿Qué haces en un día normal?",
-        "¿Qué es lo más difícil?",
-        "¿Hay trabajo?",
-        "¿Qué necesito para ejercer?"
        ]
       },
       {
-       "tipo": "clave",
-       "texto": "Preguntar a quien ya sabe ahorra muchos errores."
+       "tipo": "pregunta",
+       "pregunta": "¿Cuántos dientes de leche tiene un niño?",
+       "opciones": [
+        "10",
+        "32",
+        "20"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál es la capa más dura del diente?",
+       "opciones": [
+        "La pulpa",
+        "El esmalte",
+        "La encía"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Un papá dice que no importa que su hijo tenga caries en los dientes de leche porque \"se van a caer\". ¿Qué le explicas?",
+       "opciones": [
+        "Que también se cuidan, porque pueden doler, infectarse y guardan el espacio de los permanentes",
+        "Que se los saquen todos",
+        "Que tiene razón"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Un paciente siente dolor fuerte y constante, incluso de noche, en un diente con una caries profunda. ¿Qué parte probablemente está afectada?",
+       "opciones": [
+        "Solo el esmalte",
+        "La pulpa",
+        "Ninguna"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
-     "id": "1.4",
-     "titulo": "Carreras parecidas",
-     "minutos": 3,
+     "id": "2",
+     "titulo": "La caries",
+     "minutos": 4,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Carreras cercanas a Odontología",
-       "puntos": [
-        "Medicina (Médico Cirujano): formación para prevenir, diagnosticar y tratar enfermedades.",
-        "Enfermería: atención integral de pacientes, vigilancia clínica, administración de tratamientos.",
-        "Químico Farmacéutico Biólogo (QFB): ciencias químicas y biológicas aplicadas al análisis, investigación."
+       "titulo": "La caries",
+       "partes": [
+        {
+         "t": "La caries la producen bacterias de la boca que comen azúcares y producen ácidos que disuelven el esmalte. Importa mucho la frecuencia: cada vez que comes algo con azúcar, la boca queda ácida un rato. Por eso es peor tomar sorbos de refresco toda la tarde que tomarse uno de una vez con la comida. La saliva y el flúor ayudan a reparar el esmalte en las primeras etapas, cuando la caries todavía es una mancha blanca."
+        }
        ]
       },
       {
-       "tipo": "emparejar",
-       "pregunta": "Une cada carrera con lo que estudia.",
-       "pares": [
-        [
-         "Medicina (Médico Cirujano)",
-         "Formación para prevenir, diagnosticar y tratar enfermedades"
-        ],
-        [
-         "Enfermería",
-         "Atención integral de pacientes, vigilancia clínica, administración de tratamientos"
-        ],
-        [
-         "Químico Farmacéutico Biólogo (QFB)",
-         "Ciencias químicas y biológicas aplicadas al análisis, investigación"
-        ]
-       ],
-       "revelacion": "Se cruzan en temas, pero cada una tiene su propio enfoque."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Cuál de estas te da curiosidad?",
+       "tipo": "pregunta",
+       "pregunta": "¿Qué produce la caries?",
        "opciones": [
-        "Medicina (Médico Cirujano)",
-        "Enfermería",
-        "Químico Farmacéutico Biólogo (QFB)",
-        "Me quedo con Odontología"
-       ]
+        "El agua fría",
+        "Masticar mucho",
+        "Ácidos de bacterias que comen azúcares"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "clave",
-       "texto": "Si dudas entre dos, compara lo que harías cada día."
+       "tipo": "pregunta",
+       "pregunta": "¿Qué daña más los dientes?",
+       "opciones": [
+        "Tomar sorbos de refresco toda la tarde",
+        "Tomarse uno con la comida",
+        "Igual"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "Ves una mancha blanca opaca en el esmalte de un niño, sin hoyo. ¿Qué haces?",
+       "opciones": [
+        "Nada",
+        "Le sacas el diente",
+        "Refuerzas higiene y aplicas flúor, porque esa etapa todavía se puede revertir"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Una persona come dulces poco a poco, cada hora. Si come la misma cantidad pero toda de una vez, ¿qué pasa?",
+       "opciones": [
+        "Más riesgo",
+        "Menos ataques de ácido y menos riesgo de caries",
+        "Igual"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "teves"
       }
      ]
     }
@@ -224,202 +153,114 @@
   },
   {
    "id": "u2",
+   "titulo": "Prevenir",
+   "sub": "Higiene y encías",
    "lecciones": [
     {
-     "id": "2.1",
-     "titulo": "Mini reto",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Una niña llega con miedo y no quiere abrir la boca. ¿Cómo empiezas?",
-       "opciones": [
-        "Le enseñas los instrumentos y le explicas qué vas a hacer",
-        "Le pides a su mamá que la detenga",
-        "La revisas rápido para no alargarlo"
-       ]
-      },
-      {
-       "tipo": "info",
-       "titulo": "Así lo piensa alguien de Odontología",
-       "texto": "Con calma y explicando se gana la confianza. Odontología pide manos precisas, trabajo fino de cerca y mucho trato con personas nerviosas."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Te gustó pensar en algo así?",
-       "escala": [
-        "Nada",
-        "Mucho"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Los retos de una carrera se parecen a lo que harías en su trabajo."
-      },
-      {
-       "tipo": "interes",
-       "pregunta": "¿Te ves resolviendo retos así?"
-      }
-     ]
-    },
-    {
-     "id": "2.2",
-     "titulo": "Lo que te piden",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Habilidades que usarás en Odontología",
-       "puntos": [
-        "Habilidad manual y paciencia",
-        "Trato con pacientes nerviosos",
-        "Visión espacial",
-        "Disciplina"
-       ]
-      },
-      {
-       "tipo": "completar",
-       "pregunta": "Según lo que leíste, completa la frase.",
-       "frase": "Para Odontología es clave: ___.",
-       "opciones": [
-        "Habilidad manual y paciencia",
-        "Matemáticas fuertes",
-        "Organización"
-       ],
-       "correcta": 0,
-       "revelacion": "Es de las habilidades que más se usan en Odontología."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué tanto se te da esto: trato con pacientes nerviosos?",
-       "escala": [
-        "Me cuesta",
-        "Se me da"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Las habilidades se entrenan; lo importante es que te guste usarlas."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "2.3",
-     "titulo": "Temas que vas a ver",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Temas que te deben gustar",
-       "puntos": [
-        "Salud",
-        "Trabajo manual de precisión",
-        "Emprender un consultorio"
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "¿Cuál de estos temas es más de Odontología?",
-       "opciones": [
-        {
-         "texto": "Salud",
-         "consecuencia": "Sí, es de sus temas centrales.",
-         "mejor": true
-        },
-        {
-         "texto": "Objetos y productos",
-         "consecuencia": "Ese es más de Diseño industrial."
-        },
-        {
-         "texto": "Programar",
-         "consecuencia": "Ese es más de Computación."
-        }
-       ]
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Cuál de estos temas te gusta más?",
-       "opciones": [
-        "Salud",
-        "Trabajo manual de precisión",
-        "Emprender un consultorio",
-        "Ninguno me late"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Si los temas te aburren, la carrera se hace muy larga."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "2.4",
-     "titulo": "Materias clave",
+     "id": "3",
+     "titulo": "Prevenir",
      "minutos": 4,
      "tarjetas": [
       {
-       "tipo": "voltear",
-       "pregunta": "¿Qué materias crees que llevas en cada etapa? Piénsalo y voltea.",
-       "cartas": [
+       "tipo": "info",
+       "titulo": "Prevenir",
+       "partes": [
         {
-         "frente": "Semestres 1-2",
-         "reverso": "Anatomía de cabeza y cuello, Bioquímica, Histología, Materiales dentales"
-        },
-        {
-         "frente": "Semestres 3-4",
-         "reverso": "Operatoria dental, Periodoncia, Radiología, Farmacología"
-        },
-        {
-         "frente": "Semestres 5-6",
-         "reverso": "Endodoncia, Prótesis, Odontopediatría, Cirugía bucal"
-        },
-        {
-         "frente": "Semestres 7 en adelante",
-         "reverso": "Clínica integral, Servicio social"
+         "t": "Lo básico es cepillarse por lo menos dos veces al día con pasta con flúor, sobre todo antes de dormir, y limpiar entre los dientes con hilo dental, porque el cepillo no llega ahí. En niños se usan selladores, una capa que se pone en las muelas para tapar sus surcos, donde se atora la comida. Las visitas al dentista cada seis meses permiten detectar problemas cuando son pequeños y baratos de tratar."
         }
        ]
       },
       {
-       "tipo": "decision",
-       "pregunta": "¿Cuál de estas materias llevarías en Odontología?",
+       "tipo": "pregunta",
+       "pregunta": "¿Cuándo es más importante cepillarse?",
        "opciones": [
+        "Antes de dormir",
+        "No importa",
+        "Solo en la mañana"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Para qué sirve el hilo dental?",
+       "opciones": [
+        "Para limpiar entre los dientes, donde no llega el cepillo",
+        "Para nada",
+        "Para blanquear"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Para qué sirven los selladores en las muelas de los niños?",
+       "opciones": [
+        "Para enderezar",
+        "Para tapar los surcos donde se atora la comida",
+        "Para que brillen"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "teves"
+      }
+     ]
+    },
+    {
+     "id": "4",
+     "titulo": "Las encías",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "Las encías",
+       "partes": [
         {
-         "texto": "Anatomía de cabeza y cuello",
-         "consecuencia": "Sí: es de las primeras materias de Odontología.",
-         "mejor": true
-        },
-        {
-         "texto": "Teoría política",
-         "consecuencia": "Esa es de Ciencias políticas."
-        },
-        {
-         "texto": "Cálculo",
-         "consecuencia": "Esa es de Física."
+         "t": "Si la placa de bacterias se queda en el borde de las encías, estas se inflaman y sangran: eso es gingivitis, y con buena limpieza se revierte. Si no se atiende, puede avanzar a periodontitis, donde se pierde el hueso que sostiene los dientes, y los dientes se aflojan. Fumar empeora mucho las encías. Las encías sanas no sangran al cepillarse; si sangran, no hay que dejar de cepillar, sino cepillar mejor y acudir al dentista."
         }
        ]
       },
       {
-       "tipo": "reflexion",
-       "pregunta": "¿Cuál te da más curiosidad?",
+       "tipo": "pregunta",
+       "pregunta": "Un paciente dice que sus encías sangran al cepillarse y por eso ya casi no se cepilla. ¿Qué le dices?",
        "opciones": [
-        "Anatomía de cabeza y cuello",
-        "Bioquímica",
-        "Histología",
-        "Materiales dentales"
-       ]
+        "Que es normal",
+        "Que deje de cepillarse",
+        "Que debe cepillarse mejor, no menos, y acudir a revisión"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "clave",
-       "texto": "Las primeras materias son la base; muchas veces son las más pesadas."
+       "tipo": "pregunta",
+       "pregunta": "¿Qué es la gingivitis?",
+       "opciones": [
+        "Una caries",
+        "Inflamación de las encías que se revierte con buena limpieza",
+        "Un diente roto"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "¿Qué pasa en la periodontitis?",
+       "opciones": [
+        "Se pierde el hueso que sostiene los dientes",
+        "Los dientes crecen",
+        "Nada"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Qué hábito empeora mucho las encías?",
+       "opciones": [
+        "Fumar",
+        "Tomar agua",
+        "Usar hilo dental"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "teves"
       }
      ]
     }
@@ -427,183 +268,163 @@
   },
   {
    "id": "u3",
+   "titulo": "En el consultorio",
+   "sub": "Infecciones, radiografías y pacientes",
    "lecciones": [
     {
-     "id": "3.1",
-     "titulo": "Un día real",
+     "id": "5",
+     "titulo": "Control de infecciones",
      "minutos": 4,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Un día de trabajo en Odontología",
-       "puntos": [
-        "Revisa, limpia y repara dientes, hace extracciones, endodoncias y prótesis, toma radiografías y explica tratamientos.",
-        "Muchos trabajan en consultorio propio, lo que implica administrar un negocio."
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "¿Qué de esto NO es parte del día de alguien de Odontología?",
-       "opciones": [
+       "titulo": "Control de infecciones",
+       "partes": [
         {
-         "texto": "Cocina, crea platillos, controla costos e inventarios, dirige equipos de cocina y, si emprende, administra su propio negocio de comida.",
-         "consecuencia": "Exacto: eso lo hace alguien de Gastronomía.",
-         "mejor": true
-        },
-        {
-         "texto": "Revisa, limpia y repara dientes, hace extracciones, endodoncias y prótesis, toma radiografías y explica tratamientos.",
-         "consecuencia": "Esto sí lo hace: es parte de su día."
-        },
-        {
-         "texto": "Muchos trabajan en consultorio propio, lo que implica administrar un negocio.",
-         "consecuencia": "Esto sí lo hace: es parte de su día."
+         "t": "En el consultorio se trabaja con sangre y saliva, así que el control de infecciones es estricto. El instrumental que entra a la boca se limpia y se esteriliza en autoclave, que usa vapor a presión y alta temperatura. Se usan guantes nuevos con cada paciente, cubrebocas y lentes de protección. Las superficies se desinfectan entre paciente y paciente. Un instrumento solo lavado, pero no esterilizado, puede transmitir infecciones."
         }
        ]
       },
       {
-       "tipo": "reflexion",
-       "pregunta": "¿Te ves haciendo esto todos los días?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
+       "tipo": "pregunta",
+       "pregunta": "¿Cómo se esteriliza el instrumental dental?",
+       "opciones": [
+        "Con alcohol en un trapo",
+        "Con agua y jabón nada más",
+        "En autoclave, con vapor a presión"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "clave",
-       "texto": "El día a día pesa más que el título."
+       "tipo": "pregunta",
+       "pregunta": "Un asistente quiere usar los mismos guantes con dos pacientes para ahorrar.",
+       "opciones": [
+        "Que los lave",
+        "Está bien",
+        "Le dices que se usan guantes nuevos con cada paciente"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "¿Qué se hace con el sillón y las superficies entre paciente y paciente?",
+       "opciones": [
+        "Se pintan",
+        "Nada",
+        "Se desinfectan"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
-     "id": "3.2",
-     "titulo": "Lo difícil",
+     "id": "6",
+     "titulo": "Radiografías y diagnóstico",
      "minutos": 4,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Lo difícil de Odontología",
-       "texto": "Se considera de dificultad alta.",
-       "puntos": [
-        "Muchas prácticas clínicas con pacientes reales y trabajo manual muy fino desde los primeros semestres."
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "Según lo que leíste, ¿qué es lo que más cuesta en Odontología?",
-       "opciones": [
+       "titulo": "Radiografías y diagnóstico",
+       "partes": [
         {
-         "texto": "Muchas prácticas clínicas con pacientes reales y trabajo manual muy fino desde los primeros semestres.",
-         "consecuencia": "Sí, es de lo que más cuesta en Odontología.",
-         "mejor": true
-        },
-        {
-         "texto": "Mucho trabajo práctico y horas de producción",
-         "consecuencia": "Eso es más de Animación."
-        },
-        {
-         "texto": "Cálculo, Química y Microbiología",
-         "consecuencia": "Eso es más de Ing. Ambiental."
+         "t": "Muchas caries entre los dientes y problemas del hueso no se ven a simple vista, por eso se toman radiografías. Usan dosis bajas de radiación, pero aun así se toman solo cuando hacen falta, se protege al paciente con un mandil de plomo cuando corresponde y se pregunta a las mujeres si pueden estar embarazadas. El diagnóstico junta lo que se ve, lo que se siente al revisar y lo que muestran las radiografías. Con eso se arma un plan de tratamiento que se explica al paciente."
         }
        ]
       },
       {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué tanto te preocupa esto?",
-       "escala": [
-        "Mucho",
-        "Nada"
-       ]
+       "tipo": "pregunta",
+       "pregunta": "¿Por qué se toman radiografías dentales?",
+       "opciones": [
+        "Porque muchas caries y problemas del hueso no se ven a simple vista",
+        "Para cobrar",
+        "Por costumbre"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "clave",
-       "texto": "Saber lo difícil desde antes te ayuda a prepararte."
+       "tipo": "pregunta",
+       "pregunta": "Una paciente podría estar embarazada y necesita una radiografía no urgente. ¿Qué haces?",
+       "opciones": [
+        "La tomas sin preguntar",
+        "Tomas diez",
+        "Lo platicas con ella y se valora si se pospone o se toma con protección"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "¿Con qué se protege al paciente al tomar una radiografía?",
+       "opciones": [
+        "Con un mandil de plomo cuando corresponde",
+        "Con nada",
+        "Con una toalla"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Qué haces después del diagnóstico?",
+       "opciones": [
+        "Lo mandas a casa",
+        "Empiezas sin decir nada",
+        "Explicas al paciente el plan de tratamiento"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
-     "id": "3.3",
-     "titulo": "Historia real",
-     "minutos": 3,
+     "id": "7",
+     "titulo": "El paciente",
+     "minutos": 4,
      "tarjetas": [
       {
-       "tipo": "reflexion",
-       "pregunta": "Si pudieras preguntarle algo a alguien que ya estudia Odontología, ¿qué sería?",
+       "tipo": "info",
+       "titulo": "El paciente",
+       "partes": [
+        {
+         "t": "Muchas personas le tienen miedo al dentista. Explicar qué se va a hacer, avisar antes de cada paso y acordar una señal para detenerse ayuda mucho, sobre todo con niños. Antes de un tratamiento se pide el consentimiento informado: el paciente entiende qué se le hará, los riesgos y las alternativas, y acepta. Ante una urgencia como un diente permanente que se salió por un golpe, el tiempo importa: se toma por la corona, sin tocar la raíz, se guarda en leche y se acude al dentista de inmediato."
+        }
+       ]
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "A un adolescente se le salió un diente permanente completo por un golpe. ¿Qué le dices por teléfono?",
        "opciones": [
-        "¿Qué fue lo más difícil?",
-        "¿Qué te sorprendió?",
-        "¿Volverías a elegirla?",
-        "¿Cómo es un día normal?"
-       ]
+        "Tallarlo con cepillo y esperar a mañana",
+        "Tomarlo por la corona, guardarlo en leche y venir de inmediato",
+        "Tirarlo"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "testimonio",
-       "estado": "pendiente",
-       "perfil": "Estudiante de últimos semestres o egresado de Odontología"
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "Mientras llega esta historia, ¿a quién podrías preguntarle tú?",
+       "tipo": "pregunta",
+       "pregunta": "Un niño tiene mucho miedo. ¿Qué haces?",
        "opciones": [
-        "A un familiar o conocido que la estudió",
-        "A un estudiante de mi ciudad",
-        "A un maestro que la conozca",
-        "Todavía no conozco a nadie"
-       ]
+        "Le gritas",
+        "Lo sujetas sin explicar",
+        "Le explicas cada paso y acuerdan una señal para detenerse"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "clave",
-       "texto": "Una persona real te cuenta lo que ningún folleto dice."
+       "tipo": "pregunta",
+       "pregunta": "¿Qué es el consentimiento informado?",
+       "opciones": [
+        "Que el paciente entiende el tratamiento, sus riesgos y alternativas, y acepta",
+        "Un recibo",
+        "Una firma sin explicación"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "3.4",
-     "titulo": "¿Es para ti?",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Contesta con honestidad. Nadie más ve tus respuestas."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Me siento cómodo trabajando horas en la boca de otra persona?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Tengo buena coordinación con las manos?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Me gustaría tener mi propio consultorio?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Si dijiste que sí a casi todo, vale la pena seguir explorándola."
-      },
-      {
-       "tipo": "interes"
+       "tipo": "teves"
       }
      ]
     }
@@ -611,448 +432,124 @@
   },
   {
    "id": "u4",
+   "titulo": "Examen final",
+   "sub": "10 preguntas · apruebas con 7",
    "lecciones": [
     {
-     "id": "4.1",
-     "titulo": "Cuánto dura y qué estudias",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Cada escuela arma su plan distinto, pero el orden general se parece. Vamos a verlo."
-      },
-      {
-       "tipo": "ordenar",
-       "pregunta": "Ordena lo que estudias, de lo primero a lo último.",
-       "pasos": [
-        "Anatomía de cabeza y cuello, Bioquímica",
-        "Operatoria dental, Periodoncia",
-        "Endodoncia, Prótesis",
-        "Clínica integral, Servicio social"
-       ],
-       "revelacion": "Primero las bases y al final lo más especializado y las prácticas."
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Cuántos años crees que pasan desde que entras hasta que te titulas?",
-       "min": 3,
-       "max": 10,
-       "paso": 1,
-       "unidad": "años",
-       "dato": "odontologia.duracion"
-      },
-      {
-       "tipo": "clave",
-       "texto": "Revisa el mapa curricular de cada escuela: cambia de una a otra."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "4.2",
-     "titulo": "Cómo se entra",
-     "minutos": 4,
+     "id": "ex",
+     "titulo": "Examen final",
+     "minutos": 6,
+     "examen": true,
+     "aprobar": 7,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Cómo se entra en la región",
-       "puntos": [
-        "UNAM: Concurso de selección UNAM (120 reactivos) o pase reglamentado desde CCH/ENP",
-        "UAM: Examen de selección UAM (trimestral; dos procesos al año y procesos extraordinarios)",
-        "Anáhuac: Examen de admisión propio + promedio",
-        "La Salle: Examen de admisión propio + promedio"
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "Según lo que leíste, ¿qué pide UNAM para entrar?",
-       "opciones": [
+       "titulo": "Examen final",
+       "partes": [
         {
-         "texto": "Concurso de selección UNAM (120 reactivos) o pase reglamentado desde CCH/ENP",
-         "consecuencia": "Exacto.",
-         "mejor": true
-        },
-        {
-         "texto": "Examen de selección UAM (trimestral; dos procesos al año y procesos extraordinarios)",
-         "consecuencia": "Eso lo pide UAM."
-        },
-        {
-         "texto": "Examen de admisión propio + promedio",
-         "consecuencia": "Eso lo pide Anáhuac."
+         "t": "Son 10 casos nuevos que mezclan todas las lecciones. Apruebas con 7. Si no, lo repites y las que fallaste regresan con otras palabras."
         }
        ]
       },
       {
-       "tipo": "vf",
-       "afirmacion": "Todas las universidades usan el mismo examen.",
-       "respuesta": false,
-       "revelacion": "Cada una tiene el suyo: revisa la convocatoria de la que te interese."
-      },
-      {
-       "tipo": "clave",
-       "texto": "Conoce el examen de tu escuela desde antes."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "4.3",
-     "titulo": "Dónde, cuánto cuesta y becas",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "escuelas"
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Cuánto crees que cuesta un semestre en una universidad pública?",
-       "min": 0,
-       "max": 60000,
-       "paso": 1000,
-       "unidad": "pesos",
-       "dato": "odontologia.costo_publica"
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Y un semestre en una universidad privada?",
-       "min": 0,
-       "max": 300000,
-       "paso": 5000,
-       "unidad": "pesos",
-       "dato": "odontologia.costo_privada"
-      },
-      {
-       "tipo": "dato",
-       "titulo": "Becas para estudiar Odontología",
-       "dato": "odontologia.becas"
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Una universidad cara garantiza un mejor empleo.",
-       "respuesta": false,
-       "revelacion": "Pesan más lo que aprendes, tus prácticas y tu esfuerzo."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué pesa más para ti al elegir escuela?",
+       "tipo": "pregunta",
+       "pregunta": "¿Cuántos dientes permanentes tiene un adulto, contando las muelas del juicio?",
        "opciones": [
-        "El costo",
-        "Que esté cerca de mi casa",
-        "El prestigio",
-        "Las prácticas que ofrece"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Además de la colegiatura, cuenta transporte y materiales."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "u5",
-   "lecciones": [
-    {
-     "id": "5.1",
-     "titulo": "Qué piden para trabajar",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Qué te piden para trabajar",
-       "puntos": [
-        "Título y cédula profesional.",
-        "El instrumental y los materiales corren por cuenta del alumno y son caros."
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "Según lo que leíste, ¿qué necesitas para ejercer Odontología?",
-       "opciones": [
-        {
-         "texto": "Título y cédula profesional.",
-         "consecuencia": "Exacto.",
-         "mejor": true
-        },
-        {
-         "texto": "Para escuelas públicas, concurso en USICAMM.",
-         "consecuencia": "Eso lo piden en Educación física."
-        },
-        {
-         "texto": "No requiere cédula para la mayoría de puestos",
-         "consecuencia": "Eso lo piden en Ing. Industrial."
-        }
-       ]
-      },
-      {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Cómo te ves?",
-       "a": {
-        "texto": "En una institución o empresa",
-        "dice": "Más estabilidad y un equipo de quien aprender."
-       },
-       "b": {
-        "texto": "Por tu cuenta",
-        "dice": "Más libertad, pero tienes que conseguir clientes."
-       }
-      },
-      {
-       "tipo": "clave",
-       "texto": "Saber qué te piden te ahorra sorpresas al salir."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "5.2",
-     "titulo": "Sueldo y demanda",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Hablemos de dinero sin rodeos. Antes de ver cualquier cifra, apuesta: así recuerdas mejor el dato real."
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Cuánto crees que gana al mes, en promedio, un profesionista de Odontología en México?",
-       "min": 5000,
-       "max": 100000,
-       "paso": 1000,
-       "unidad": "pesos",
-       "dato": "odontologia.ingreso"
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "De cada 100 egresados, ¿cuántos crees que trabajan en algo de su carrera?",
-       "min": 0,
-       "max": 100,
-       "paso": 5,
-       "unidad": "de cada 100",
-       "dato": "odontologia.ocupacion_afin"
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Todos los egresados de Odontología ganan lo mismo.",
-       "respuesta": false,
-       "revelacion": "Cambia con la experiencia, el lugar, la especialidad y si trabajas por tu cuenta."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué tanto pesa el sueldo en tu decisión?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "El promedio orienta, pero tu camino puede ser distinto."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "5.3",
-     "titulo": "Cómo les va al salir",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "chat",
-       "subtitulo": "Te cuenta cómo les va al salir",
-       "intro": [
-        "Te cuento cómo les va a quienes estudian Odontología al salir."
+        "32",
+        "28",
+        "20"
        ],
-       "temas": [
-        {
-         "q": "¿Cuántos trabajan en lo suyo?",
-         "a": [
-          "La mayoría trabaja en algo de su carrera.",
-          "Es un promedio nacional del IMCO."
-         ]
-        },
-        {
-         "q": "¿Muchos hacen posgrado?",
-         "a": [
-          "Pocos hacen posgrado; la mayoría empieza a trabajar."
-         ]
-        },
-        {
-         "q": "¿Hay más hombres o mujeres?",
-         "a": [
-          "Hay más mujeres que hombres.",
-          "Eso no decide nada: cualquiera puede estudiarla."
-         ]
-        },
-        {
-         "q": "¿El trabajo tiene prestaciones?",
-         "a": [
-          "La mayoría tiene un trabajo formal, con prestaciones.",
-          "Las prestaciones son cosas como seguro médico y aguinaldo."
-         ]
-        }
+       "correcta": 0
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Qué capa del diente tiene nervios?",
+       "opciones": [
+        "La corona",
+        "La pulpa",
+        "El esmalte"
        ],
-       "minimo": 2
+       "correcta": 1
       },
       {
-       "tipo": "vf",
-       "afirmacion": "La mayoría de quienes estudian Odontología trabaja en algo de su carrera.",
-       "respuesta": true,
-       "revelacion": "La mayoría trabaja en algo de su carrera. Promedio nacional del IMCO."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué te importa más de tu futuro trabajo?",
+       "tipo": "pregunta",
+       "pregunta": "¿Qué es peor para los dientes?",
        "opciones": [
-        "Que tenga que ver con lo que estudié",
-        "Ganar bien",
-        "Tener prestaciones",
-        "Hacer algo que me guste"
-       ]
+        "Comerla una vez",
+        "Comer azúcar muchas veces al día",
+        "Igual"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "clave",
-       "texto": "Pregunta cómo les va a quienes ya salieron."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "5.4",
-     "titulo": "Después de titularte",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Después de titularte",
-       "puntos": [
-        "Puedes especializarte con cursos, diplomados o una maestría.",
-        "También puedes trabajar desde el inicio y estudiar después.",
-        "Se combina bien con: Medicina (Médico Cirujano), Enfermería, Químico Farmacéutico Biólogo (QFB)."
-       ]
-      },
-      {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Qué harías al terminar?",
-       "a": {
-        "texto": "Trabajar desde el inicio",
-        "dice": "Ganas experiencia y dinero; después decides si estudias más."
-       },
-       "b": {
-        "texto": "Seguir estudiando",
-        "dice": "Te especializas antes; tardas más en empezar a trabajar."
-       }
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Cómo te imaginas después de la carrera?",
+       "tipo": "pregunta",
+       "pregunta": "¿Cuándo es más importante cepillarse?",
        "opciones": [
-        "Trabajando",
-        "En una maestría",
-        "Emprendiendo",
-        "No sé todavía"
-       ]
+        "Antes de dormir",
+        "Al despertar solamente",
+        "Nunca"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "clave",
-       "texto": "Al titularte empieza otra parte del camino, no termina."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "u6",
-   "lecciones": [
-    {
-     "id": "6.1",
-     "titulo": "Lo que sentiste",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Antes de ver tus respuestas: ¿cómo te fue con Odontología?",
+       "tipo": "pregunta",
+       "pregunta": "Las encías sangran al cepillarse.",
        "opciones": [
-        "Me gustó más de lo que pensaba",
-        "Más o menos como esperaba",
-        "Me gustó menos de lo que pensaba"
-       ]
+        "Es normal siempre",
+        "Cepillar mejor y acudir a revisión",
+        "Dejar de cepillar"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "resumen"
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "Viendo tus respuestas, ¿qué pesó más?",
+       "tipo": "pregunta",
+       "pregunta": "¿Qué es la periodontitis?",
        "opciones": [
-        "Lo que sentí al probarla",
-        "Lo que supe de la realidad",
-        "El camino para llegar",
-        "El futuro que ofrece"
-       ]
+        "Un diente nuevo",
+        "Una caries pequeña",
+        "Pérdida del hueso que sostiene los dientes"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "clave",
-       "texto": "Lo que sentiste al probarla vale más que lo que imaginabas."
-      },
-      {
-       "tipo": "interes",
-       "pregunta": "¿Te ves estudiando Odontología?"
-      }
-     ]
-    },
-    {
-     "id": "6.2",
-     "titulo": "Tu veredicto",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Si mañana tuvieras que elegir carrera, ¿Odontología estaría entre tus opciones?",
+       "tipo": "pregunta",
+       "pregunta": "¿Cómo se esteriliza el instrumental?",
        "opciones": [
-        "Sí, entre las primeras",
-        "Sí, pero no arriba",
-        "No creo",
-        "No lo sé"
-       ]
+        "Con agua",
+        "En autoclave",
+        "Con un trapo"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "comparar"
+       "tipo": "pregunta",
+       "pregunta": "¿Por qué se toman radiografías?",
+       "opciones": [
+        "Por gusto",
+        "Para ver lo que no se ve a simple vista",
+        "Para cobrar"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Qué te ayudaría más a decidir?",
-       "a": {
-        "texto": "Hablar con alguien que la estudia",
-        "dice": "Busca a un estudiante o egresado cerca de ti y hazle tus preguntas. Una plática aclara más que diez videos."
-       },
-       "b": {
-        "texto": "Probar otra carrera y comparar",
-        "dice": "Explora otra de tu mapa. Comparar dos caminos reales aclara más que pensar en uno solo."
-       }
+       "tipo": "pregunta",
+       "pregunta": "Un diente permanente se salió por un golpe. ¿Dónde se guarda?",
+       "opciones": [
+        "En leche",
+        "En agua con cloro",
+        "En una servilleta seca"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "veredicto"
-      },
-      {
-       "tipo": "clave",
-       "texto": "Decidir «en duda» también es avanzar."
+       "tipo": "pregunta",
+       "pregunta": "¿Qué incluye el consentimiento informado?",
+       "opciones": [
+        "Solo el precio",
+        "Explicar el tratamiento, los riesgos y las alternativas",
+        "Solo la firma"
+       ],
+       "correcta": 1
       }
      ]
     }

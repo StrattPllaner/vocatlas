@@ -1,0 +1,119 @@
+**Lección 1: Las cuatro fuerzas del vuelo (4 preguntas)**
+
+Un avión en el aire tiene cuatro fuerzas encima. El peso lo jala hacia abajo. La sustentación, que generan las alas, lo empuja hacia arriba. El empuje, que dan los motores, lo mueve hacia adelante. La resistencia del aire lo frena. Para despegar, la sustentación tiene que ser mayor que el peso y el empuje mayor que la resistencia. En vuelo recto y a velocidad constante, las cuatro están equilibradas: sustentación igual al peso y empuje igual a la resistencia. El peso se calcula así:
+
+$$\text{peso en newtons} = \text{masa en kg} \times 9.8$$
+
+Pregunta 1. ¿Qué fuerza generan principalmente las alas? A: la resistencia. B: la sustentación. C: el empuje. Correcta: B.
+
+Pregunta 2. Un avión vuela recto y a velocidad constante. ¿Cómo están las fuerzas? A: equilibradas: sustentación igual al peso y empuje igual a la resistencia. B: el empuje es mucho mayor que la resistencia. C: el peso es mayor que la sustentación. Correcta: A. Si no estuvieran equilibradas, el avión aceleraría, frenaría, subiría o bajaría.
+
+Pregunta 3. Un dron tiene una masa de 2 kg. ¿Cuánto pesa en newtons? A: 9.8. B: 2. C: 19.6. Correcta: C, porque
+
+$$2 \times 9.8 = 19.6$$
+
+Pregunta 4. En un dron que debe despegar en vertical, sus hélices dan un empuje de 15 newtons y pesa 19.6. ¿Qué pasa? A: no despega, porque el empuje es menor que el peso. B: despega pero lento. C: despega. Correcta: A. Para subir en vertical, el empuje tiene que superar al peso.
+
+**Lección 2: Cómo sustenta un ala (4 preguntas)**
+
+El ala desvía el aire hacia abajo y, como reacción, el aire la empuja hacia arriba. Su forma hace que la presión arriba del ala sea menor que la de abajo. La sustentación crece con la velocidad, con el tamaño del ala, con la densidad del aire y con el ángulo de ataque, que es el ángulo entre el ala y el aire que llega. Pero si el ángulo de ataque se pasa de cierto límite, el aire se despega de la parte de arriba del ala y la sustentación cae de golpe. Eso se llama entrada en pérdida, y es peligrosa cerca del suelo. Los flaps son partes del ala que se extienden para dar más sustentación a baja velocidad, en despegues y aterrizajes.
+
+Pregunta 1. ¿Qué es el ángulo de ataque? A: el ángulo de las ruedas. B: el ángulo del avión respecto al suelo. C: el ángulo entre el ala y el aire que le llega. Correcta: C.
+
+Pregunta 2. Un piloto sigue levantando la nariz para subir más y, de pronto, el avión empieza a caer. ¿Qué pasó? A: el motor se apagó. B: se acabó la gasolina. C: entró en pérdida porque el ángulo de ataque se pasó del límite. Correcta: C.
+
+Pregunta 3. ¿Para qué se extienden los flaps al aterrizar? A: para tener más sustentación a baja velocidad. B: para ir más rápido. C: para gastar menos combustible. Correcta: A.
+
+Pregunta 4. Si el avión va más rápido, con todo lo demás igual, ¿qué pasa con la sustentación? A: disminuye. B: aumenta. C: queda igual. Correcta: B.
+
+**Lección 3: La altura y el aire (3 preguntas)**
+
+Mientras más alto estás, el aire es menos denso: hay menos aire en el mismo espacio. Con aire menos denso, las alas generan menos sustentación y los motores dan menos empuje. Por eso en aeropuertos altos, como los de la Ciudad de México o Toluca, los aviones necesitan pistas más largas para despegar. El calor también hace el aire menos denso, así que un día caluroso es peor que uno frío. En cambio, volar alto en crucero ahorra combustible, porque la resistencia también baja con el aire más delgado.
+
+Pregunta 1. ¿Por qué un avión necesita más pista para despegar en la Ciudad de México que en Cancún? A: porque en la Ciudad de México el aire es menos denso por la altura. B: porque la pista es de otro material. C: porque hay más tráfico. Correcta: A.
+
+Pregunta 2. Es un día de mucho calor en un aeropuerto alto y el avión va muy cargado. ¿Qué haces? A: nada, el calor no importa. B: calculas otra vez la distancia de despegue y, si no alcanza, reduces carga. C: despegas más rápido sin calcular. Correcta: B. El calor y la altura juntos reducen la sustentación y el empuje.
+
+Pregunta 3. ¿Por qué los aviones comerciales vuelan tan alto en crucero? A: porque el aire delgado da menos resistencia y se ahorra combustible. B: para que no los vean. C: porque abajo está prohibido. Correcta: A.
+
+**Lección 4: Motores (4 preguntas)**
+
+La mayoría de los aviones comerciales usan motores turbofán. Un ventilador grande en la entrada mete aire; una parte pasa por el centro, donde se comprime, se mezcla con combustible, se quema y sale a gran velocidad, moviendo unas turbinas que hacen girar el ventilador. La mayor parte del empuje la da el aire que el ventilador empuja por fuera del centro. Una medida importante es la relación empuje a peso:
+
+$$\text{relación empuje a peso} = \frac{\text{empuje}}{\text{peso}}$$
+
+Si es mayor que 1, el vehículo podría subir en vertical, como un cohete. Los aviones comerciales tienen una relación menor que 1, y vuelan porque las alas hacen el resto.
+
+Pregunta 1. En un turbofán moderno, ¿de dónde sale la mayor parte del empuje? A: de las ruedas. B: del aire que el ventilador empuja por fuera del centro del motor. C: del humo del escape. Correcta: B.
+
+Pregunta 2. Un cohete pesa 50,000 newtons y su motor da 75,000 de empuje. ¿Cuál es su relación empuje a peso? A: 0.67. B: 25,000. C: 1.5. Correcta: C, porque
+
+$$\frac{75{,}000}{50{,}000} = 1.5$$
+
+Pregunta 3. Con esa relación de 1.5, ¿puede despegar en vertical? A: sí, porque el empuje es mayor que el peso. B: no. C: solo con alas. Correcta: A.
+
+Pregunta 4. Un avión comercial tiene una relación empuje a peso de 0.3. ¿Cómo logra volar? A: sube en vertical. B: el motor lo acelera y las alas generan la sustentación que le falta. C: no puede volar. Correcta: B.
+
+**Lección 5: Materiales (3 preguntas)**
+
+En un avión cada kilo cuenta, porque más peso es más combustible. Por eso se usan materiales ligeros y fuertes: aleaciones de aluminio, titanio en partes calientes y materiales compuestos como la fibra de carbono. Un problema clave es la fatiga: una pieza puede romperse con cargas pequeñas si se repiten miles de veces, como cada despegue y aterrizaje. Por eso se diseña con un factor de seguridad, que dice cuántas veces aguanta la pieza más de lo que se espera:
+
+$$\text{factor de seguridad} = \frac{\text{carga que aguanta}}{\text{carga esperada}}$$
+
+Pregunta 1. ¿Por qué se usa tanta fibra de carbono en aviones nuevos? A: porque es ligera y muy resistente. B: porque es barata. C: porque es bonita. Correcta: A.
+
+Pregunta 2. Una pieza aguanta 30,000 newtons y la carga esperada es de 20,000. ¿Cuál es su factor de seguridad? A: 10,000. B: 1.5. C: 0.67. Correcta: B, porque
+
+$$\frac{30{,}000}{20{,}000} = 1.5$$
+
+Pregunta 3. Una pieza nunca ha recibido una carga mayor a la de diseño, pero aparece una grieta después de muchos años de vuelos. ¿Qué la causó probablemente? A: un golpe que nadie vio. B: la pintura. C: la fatiga por cargas repetidas. Correcta: C.
+
+**Lección 6: Peso, balance y mantenimiento (4 preguntas)**
+
+Antes de cada vuelo se calcula cuánto pesa el avión cargado y dónde queda su centro de gravedad, que es el punto donde se equilibra. Si el centro de gravedad queda fuera de los límites, por ejemplo con toda la carga atrás, el avión se vuelve difícil o imposible de controlar. El mantenimiento sigue programas estrictos: inspecciones por horas de vuelo y por número de ciclos, que son despegue y aterrizaje. Todo queda anotado en la bitácora. En México hay mucha industria de este tipo, sobre todo en Querétaro, donde se fabrican y reparan partes para aviones.
+
+Pregunta 1. ¿Qué pasa si el centro de gravedad queda fuera de los límites? A: nada, solo cambia el consumo. B: vuela más rápido. C: el avión puede volverse difícil o imposible de controlar. Correcta: C.
+
+Pregunta 2. Al cargar el avión, toda la carga pesada se acomodó hasta atrás. ¿Qué haces? A: despegas igual. B: subes más pasajeros adelante sin calcular. C: recalculas el balance y redistribuyes la carga para que el centro de gravedad quede dentro de los límites. Correcta: C.
+
+Pregunta 3. Un mecánico encuentra una pequeña grieta, pero el avión tiene que salir en 20 minutos. A: la pinta para que no se vea. B: lo detiene, lo reporta en la bitácora y se evalúa antes de que vuele. C: lo deja salir y lo revisa después. Correcta: B. En aviación, la seguridad va antes que el horario.
+
+Pregunta 4. ¿Qué es un ciclo para el mantenimiento? A: un despegue y un aterrizaje. B: un año. C: una hora de vuelo. Correcta: A.
+
+**Lección 7: El espacio (3 preguntas)**
+
+Un satélite en órbita no flota: va cayendo todo el tiempo hacia la Tierra, pero va tan rápido de lado que la curva de la Tierra se aleja igual de rápido, así que nunca llega al suelo. Mientras más baja la órbita, más rápido tiene que ir. Los satélites de órbita baja dan una vuelta en unos 90 minutos. Los geoestacionarios están mucho más lejos, a unos 36,000 kilómetros, y tardan un día en dar la vuelta, así que parecen quietos sobre el mismo punto; por eso se usan para televisión. En el espacio no hay aire, así que las alas no sirven y todo se mueve con cohetes.
+
+Pregunta 1. ¿Por qué un satélite no se cae? A: porque tiene alas. B: porque en el espacio no hay gravedad. C: porque va tan rápido de lado que, aunque cae, la Tierra se curva y nunca llega al suelo. Correcta: C.
+
+Pregunta 2. Necesitas un satélite que siempre esté sobre México para dar televisión. ¿Qué órbita usas? A: geoestacionaria. B: cualquiera. C: órbita baja. Correcta: A.
+
+Pregunta 3. ¿Por qué en el espacio no sirven las alas para maniobrar? A: porque hace frío. B: porque no hay aire. C: porque pesan mucho. Correcta: B.
+
+**Examen final**
+
+Pregunta 1. ¿Qué cuatro fuerzas actúan sobre un avión? A: gravedad, motor, ruedas y alas. B: peso, velocidad, altura y aire. C: peso, sustentación, empuje y resistencia. Correcta: C.
+
+Pregunta 2. Un objeto tiene una masa de 5 kg. ¿Cuánto pesa en newtons? A: 14.8. B: 49. C: 5. Correcta: B, porque
+
+$$5 \times 9.8 = 49$$
+
+Pregunta 3. ¿Qué es la entrada en pérdida? A: cuando el avión aterriza. B: cuando el ángulo de ataque se pasa del límite y la sustentación cae de golpe. C: cuando se acaba el combustible. Correcta: B.
+
+Pregunta 4. ¿Por qué en aeropuertos altos se necesitan pistas más largas? A: porque el aire es menos denso. B: por las montañas. C: porque hay más viento. Correcta: A.
+
+Pregunta 5. Un cohete pesa 40,000 newtons y da 60,000 de empuje. ¿Cuál es su relación empuje a peso? A: 20,000. B: 1.5. C: 0.67. Correcta: B, porque
+
+$$\frac{60{,}000}{40{,}000} = 1.5$$
+
+Pregunta 6. ¿Para qué sirven los flaps? A: para tener más sustentación a baja velocidad. B: para enfriar el motor. C: para frenar en tierra. Correcta: A.
+
+Pregunta 7. Una pieza aguanta 45,000 newtons y la carga esperada es de 30,000. ¿Cuál es su factor de seguridad? A: 15,000. B: 0.67. C: 1.5. Correcta: C, porque
+
+$$\frac{45{,}000}{30{,}000} = 1.5$$
+
+Pregunta 8. ¿Qué es la fatiga de un material? A: que se rompe por cargas pequeñas repetidas muchas veces. B: que se calienta. C: que se oxida. Correcta: A.
+
+Pregunta 9. Encuentras una falla poco antes de un vuelo. A: no dices nada. B: la reportas y el avión no sale hasta que se evalúe. C: dejas que salga. Correcta: B.
+
+Pregunta 10. ¿Por qué un satélite geoestacionario parece quieto en el cielo? A: porque está muy cerca. B: porque está detenido. C: porque tarda un día en dar la vuelta, igual que la Tierra. Correcta: C.

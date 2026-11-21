@@ -1,225 +1,160 @@
 {
  "id": "animacion",
- "version": 1,
+ "version": 2,
+ "formato": 2,
  "estado": "completo",
- "generado": true,
- "revision": "Armada automáticamente con la base de carreras de Morelos y CDMX (2026-11-17). Falta que la revise alguien de la carrera.",
+ "revision": "Pendiente de revisión por un profesionista de la carrera. Generado con datos/importar_lecciones.py desde datos/fuentes/lecciones/animacion.lec; no se edita a mano.",
  "unidades": [
   {
    "id": "u1",
+   "titulo": "Darle vida",
+   "sub": "Cuadros y principios",
    "lecciones": [
     {
-     "id": "1.1",
-     "titulo": "Qué es y qué hace",
-     "minutos": 3,
+     "id": "0",
+     "titulo": "Conócela",
+     "minutos": 1,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "¿Qué es Animación?",
-       "texto": "Creación, interpretación y comunicación mediante lenguajes visuales, escénicos, audiovisuales o sonoros. Combina técnica, práctica constante, desarrollo de portafolio y proyectos.",
-       "puntos": [
-        "Crea personajes, escenarios y movimiento para series, videojuegos, publicidad o redes",
-        "Trabaja por proyecto en estudios o como freelance."
+       "tipo": "ficha",
+       "texto": "Animación y Arte Digital forma artistas que dan vida a personajes y mundos en 2D y 3D para series, películas, videojuegos y publicidad. Combina dibujo, actuación y mucha computadora. En Morelos no hay dónde terminarla; las opciones más cercanas están en la Ciudad de México.",
+       "cifras": [
+        "animacion.becas",
+        "animacion.duracion",
+        "animacion.costo_publica",
+        "animacion.costo_privada"
        ]
       },
       {
-       "tipo": "decision",
-       "pregunta": "Por lo que leíste, ¿qué hace alguien de Animación?",
-       "opciones": [
-        {
-         "texto": "Crea personajes, escenarios y movimiento para series, videojuegos, publicidad o redes",
-         "consecuencia": "Exacto: eso es parte del día a día en Animación.",
-         "mejor": true
-        },
-        {
-         "texto": "Usa organismos vivos o sus moléculas para crear productos: vacunas, medicamentos, alimentos, biocombustibles o mejoras agrícolas.",
-         "consecuencia": "Eso lo hace alguien de Biotecnología."
-        },
-        {
-         "texto": "Evalúa a pacientes (medidas, estudios, hábitos), diseña planes de alimentación y da seguimiento.",
-         "consecuencia": "Eso lo hace alguien de Nutrición."
-        }
-       ]
-      },
-      {
-       "tipo": "completar",
-       "frase": "Animación es una carrera del área de ___.",
-       "opciones": [
-        "Arte y comunicación",
-        "Salud",
-        "Ingenierías"
-       ],
-       "correcta": 0,
-       "revelacion": "Está en Arte y comunicación. Se parece a Diseño Gráfico y Comunicación Visual, Ciencias de la Comunicación, Ingeniería en Sistemas Computacionales / Computación."
-      },
-      {
-       "tipo": "clave",
-       "texto": "Antes de elegir, entiende qué harías cada día, no solo el nombre."
-      },
-      {
-       "tipo": "interes"
+       "tipo": "escena",
+       "texto": "Hoy entras a un estudio de animación. Vamos a ver cómo se mueve tu personaje."
       }
      ]
     },
     {
-     "id": "1.2",
-     "titulo": "Dónde trabajas",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Dónde trabaja alguien de Animación",
-       "texto": "Estudios creativos, agencias, productoras, editoriales, museos, instituciones culturales, compañías escénicas, medios, entretenimiento, trabajo independiente y emprendimientos.",
-       "puntos": [
-        "El portafolio y la experiencia son decisivos."
-       ]
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Alguien de Animación solo puede trabajar en un tipo de lugar.",
-       "respuesta": false,
-       "revelacion": "Puede trabajar en varios: estudios creativos, agencias, productoras."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Dónde te ves trabajando?",
-       "opciones": [
-        "Estudios creativos",
-        "Agencias",
-        "Productoras",
-        "Editoriales"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Una carrera abre varias puertas, no una sola."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "1.3",
-     "titulo": "Pregúntale a Rumbo",
+     "id": "1",
+     "titulo": "Cuadros por segundo",
      "minutos": 4,
      "tarjetas": [
       {
-       "tipo": "chat",
-       "subtitulo": "Te cuenta cómo es trabajar en Animación",
-       "intro": [
-        "¡Hola! Junté lo que se sabe de Animación.",
-        "Pregúntame lo que quieras."
-       ],
-       "temas": [
+       "tipo": "info",
+       "titulo": "Cuadros por segundo",
+       "partes": [
         {
-         "q": "¿Qué haces en un día normal?",
-         "a": [
-          "Crea personajes, escenarios y movimiento para series, videojuegos, publicidad o redes",
-          "Trabaja por proyecto en estudios o como freelance."
-         ]
+         "t": "Una animación es una serie de dibujos o imágenes fijas que, pasadas rápido, parecen moverse. Cada imagen es un cuadro, o frame. El cine usa normalmente 24 cuadros por segundo. Para saber cuántos cuadros necesitas:"
         },
         {
-         "q": "¿Qué es lo más difícil?",
-         "a": [
-          "Se considera una carrera de dificultad media.",
-          "Mucho trabajo práctico y horas de producción",
-          "Dibujo y software 3D."
-         ]
+         "f": "cuadros = segundos × cuadros por segundo"
         },
         {
-         "q": "¿Hay trabajo?",
-         "a": [
-          "Cerca de la mitad trabaja en algo de su carrera. Es un promedio nacional del IMCO.",
-          "IMCO no la separa",
-          "Se aproxima con 'Diseño y comunicación gráfica'."
-         ]
-        },
-        {
-         "q": "¿Qué necesito para ejercer?",
-         "a": [
-          "No requiere cédula",
-          "El demo reel lo es todo."
-         ]
+         "t": "En animación tradicional muchas veces se anima \"en dos\": cada dibujo se repite dos cuadros, así que en un segundo hay 12 dibujos distintos. Se ve un poco menos fluido, pero ahorra la mitad del trabajo. Los movimientos rápidos, como un golpe, a veces se animan \"en uno\" para que se vean suaves."
         }
-       ],
-       "minimo": 2,
-       "auto": true
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Animación se considera una carrera de dificultad media.",
-       "respuesta": true,
-       "revelacion": "Se considera de dificultad media. Mucho trabajo práctico y horas de producción"
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué te llamó más la atención?",
-       "opciones": [
-        "¿Qué haces en un día normal?",
-        "¿Qué es lo más difícil?",
-        "¿Hay trabajo?",
-        "¿Qué necesito para ejercer?"
        ]
       },
       {
-       "tipo": "clave",
-       "texto": "Preguntar a quien ya sabe ahorra muchos errores."
+       "tipo": "pregunta",
+       "pregunta": "Un comercial de 10 segundos va a 24 cuadros por segundo. ¿Cuántos cuadros tiene?",
+       "opciones": [
+        "240",
+        "2,400",
+        "34"
+       ],
+       "correcta": 0,
+       "formula": "10 × 24 = 240"
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "Si animas \"en dos\" ese mismo comercial, ¿cuántos dibujos distintos haces?",
+       "opciones": [
+        "120",
+        "240",
+        "480"
+       ],
+       "correcta": 0,
+       "formula": "{240|2} = 120"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Tienes poco tiempo para entregar una escena tranquila de dos personajes platicando. ¿Qué haces?",
+       "opciones": [
+        "La animas a 60 cuadros por segundo",
+        "No la animas",
+        "La animas en dos para ahorrar trabajo"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "En una escena de pelea el golpe se ve brincado. ¿Qué pruebas?",
+       "opciones": [
+        "Quitar el golpe",
+        "Bajar a 6 cuadros por segundo",
+        "Animar ese golpe en uno para que se vea más suave"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
-     "id": "1.4",
-     "titulo": "Carreras parecidas",
-     "minutos": 3,
+     "id": "2",
+     "titulo": "Los principios de la animación",
+     "minutos": 4,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Carreras cercanas a Animación",
-       "puntos": [
-        "Diseño Gráfico y Comunicación Visual: creación, interpretación y comunicación mediante lenguajes visuales, escénicos.",
-        "Ciencias de la Comunicación: análisis de la sociedad, la cultura, el lenguaje.",
-        "Ingeniería en Sistemas Computacionales / Computación: diseño y desarrollo de soluciones digitales. puede incluir programación."
+       "titulo": "Los principios de la animación",
+       "partes": [
+        {
+         "t": "Los animadores clásicos definieron principios para que el movimiento se sienta vivo. Estirar y encoger: una pelota se aplasta al chocar y se estira al caer rápido, sin cambiar de volumen. Anticipación: antes de una acción grande hay un movimiento contrario, como agacharse antes de saltar. Acelerar y frenar: casi nada arranca o para de golpe, así que los dibujos se juntan al inicio y al final del movimiento. Acción continuada: el pelo o la ropa siguen moviéndose un poco después de que el cuerpo se detiene. El timing, que es cuántos cuadros dura una acción, cambia por completo cómo se siente."
+        }
        ]
       },
       {
-       "tipo": "emparejar",
-       "pregunta": "Une cada carrera con lo que estudia.",
-       "pares": [
-        [
-         "Diseño Gráfico y Comunicación Visual",
-         "Creación, interpretación y comunicación mediante lenguajes visuales, escénicos"
-        ],
-        [
-         "Ciencias de la Comunicación",
-         "Análisis de la sociedad, la cultura, el lenguaje"
-        ],
-        [
-         "Ingeniería en Sistemas Computacionales / Computación",
-         "Diseño y desarrollo de soluciones digitales. Puede incluir programación"
-        ]
-       ],
-       "revelacion": "Se cruzan en temas, pero cada una tiene su propio enfoque."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Cuál de estas te da curiosidad?",
+       "tipo": "pregunta",
+       "pregunta": "Un personaje va a saltar. ¿Qué principio le pones antes del salto?",
        "opciones": [
-        "Diseño Gráfico y Comunicación Visual",
-        "Ciencias de la Comunicación",
-        "Ingeniería en Sistemas Computacionales / Computación",
-        "Me quedo con Animación"
-       ]
+        "Que salte sin moverse antes",
+        "Ninguno",
+        "Anticipación: se agacha primero"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "clave",
-       "texto": "Si dudas entre dos, compara lo que harías cada día."
+       "tipo": "pregunta",
+       "pregunta": "Una pelota rebota y se ve rígida, como de piedra. ¿Qué le falta?",
+       "opciones": [
+        "Más color",
+        "Estirar y encoger al caer y al chocar",
+        "Más cuadros quietos"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "Un personaje con capa se detiene de golpe, y la capa también se detiene en seco. ¿Qué principio arregla eso?",
+       "opciones": [
+        "Estirar y encoger",
+        "Acción continuada: la capa sigue un poco y luego se asienta",
+        "Anticipación"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "El mismo movimiento de brazo dura 6 cuadros en una versión y 24 en otra. ¿Qué cambia?",
+       "opciones": [
+        "Nada",
+        "En 6 se siente rápido y enérgico; en 24, lento o cansado",
+        "Solo el color"
+       ],
+       "correcta": 1,
+       "explicacion": "Eso es el timing."
+      },
+      {
+       "tipo": "teves"
       }
      ]
     }
@@ -227,202 +162,172 @@
   },
   {
    "id": "u2",
+   "titulo": "Del papel al 3D",
+   "sub": "Storyboard y pipeline",
    "lecciones": [
     {
-     "id": "2.1",
-     "titulo": "Mini reto",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Tu personaje camina, pero se ve rígido. ¿Qué revisas?",
-       "opciones": [
-        "Cómo se mueven los brazos y el peso del cuerpo al pisar",
-        "Le cambias el color",
-        "Lo haces caminar más rápido"
-       ]
-      },
-      {
-       "tipo": "info",
-       "titulo": "Así lo piensa alguien de Animación",
-       "texto": "El movimiento creíble sale de observar cómo se mueve la gente. Animación es dibujo, paciencia y muchas horas de detalle."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Te gustó pensar en algo así?",
-       "escala": [
-        "Nada",
-        "Mucho"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Los retos de una carrera se parecen a lo que harías en su trabajo."
-      },
-      {
-       "tipo": "interes",
-       "pregunta": "¿Te ves resolviendo retos así?"
-      }
-     ]
-    },
-    {
-     "id": "2.2",
-     "titulo": "Lo que te piden",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Habilidades que usarás en Animación",
-       "puntos": [
-        "Dibujo",
-        "Paciencia (cuadro por cuadro)",
-        "Narrativa visual",
-        "Software 3D"
-       ]
-      },
-      {
-       "tipo": "completar",
-       "pregunta": "Según lo que leíste, completa la frase.",
-       "frase": "Para Animación es clave: ___.",
-       "opciones": [
-        "Dibujo",
-        "Matemáticas y física muy sólidas",
-        "Abstracción"
-       ],
-       "correcta": 0,
-       "revelacion": "Es de las habilidades que más se usan en Animación."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué tanto se te da esto: paciencia (cuadro por cuadro)?",
-       "escala": [
-        "Me cuesta",
-        "Se me da"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Las habilidades se entrenan; lo importante es que te guste usarlas."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "2.3",
-     "titulo": "Temas que vas a ver",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Temas que te deben gustar",
-       "puntos": [
-        "Caricaturas y videojuegos",
-        "Dibujar",
-        "Contar historias"
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "¿Cuál de estos temas es más de Animación?",
-       "opciones": [
-        {
-         "texto": "Caricaturas y videojuegos",
-         "consecuencia": "Sí, es de sus temas centrales.",
-         "mejor": true
-        },
-        {
-         "texto": "Por qué las personas actúan como actúan",
-         "consecuencia": "Ese es más de Psicología."
-        },
-        {
-         "texto": "Biología y química",
-         "consecuencia": "Ese es más de Medicina."
-        }
-       ]
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Cuál de estos temas te gusta más?",
-       "opciones": [
-        "Caricaturas y videojuegos",
-        "Dibujar",
-        "Contar historias",
-        "Ninguno me late"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Si los temas te aburren, la carrera se hace muy larga."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "2.4",
-     "titulo": "Materias clave",
+     "id": "3",
+     "titulo": "Del guion a la pantalla",
      "minutos": 4,
      "tarjetas": [
       {
-       "tipo": "voltear",
-       "pregunta": "¿Qué materias crees que llevas en cada etapa? Piénsalo y voltea.",
-       "cartas": [
+       "tipo": "info",
+       "titulo": "Del guion a la pantalla",
+       "partes": [
         {
-         "frente": "Semestres 1-2",
-         "reverso": "Dibujo y anatomía, Historia de la animación, Narrativa, Fundamentos de diseño"
-        },
-        {
-         "frente": "Semestres 3-4",
-         "reverso": "Animación 2D, Modelado 3D, Guion y storyboard"
-        },
-        {
-         "frente": "Semestres 5-6",
-         "reverso": "Animación 3D, Efectos visuales, Diseño de personajes, Videojuegos"
-        },
-        {
-         "frente": "Semestres 7 en adelante",
-         "reverso": "Producción de cortometraje, Portafolio (demo reel)"
+         "t": "Antes de animar se planea. El guion cuenta la historia. El storyboard la dibuja en viñetas, como cómic, plano por plano. El animatic es ese storyboard puesto en video con tiempos, voces y música provisionales: sirve para ver si la historia funciona antes de gastar meses animando. Cambiar algo en el storyboard toma minutos; cambiarlo con la animación terminada puede tomar semanas. Por eso los problemas de historia se arreglan al principio."
         }
        ]
       },
       {
-       "tipo": "decision",
-       "pregunta": "¿Cuál de estas materias llevarías en Animación?",
+       "tipo": "pregunta",
+       "pregunta": "¿Para qué sirve un animatic?",
        "opciones": [
+        "Para la versión final",
+        "Para el póster",
+        "Para revisar tiempos y si la historia funciona antes de animar"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "En el animatic, el cliente dice que una escena es confusa. ¿Cuándo conviene cambiarla?",
+       "opciones": [
+        "Nunca",
+        "Ahora, antes de animar",
+        "Al final, cuando ya esté animada"
+       ],
+       "correcta": 1,
+       "explicacion": "Es mucho más barato cambiarla ahora."
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Qué es un storyboard?",
+       "opciones": [
+        "El presupuesto",
+        "La música",
+        "La historia dibujada plano por plano en viñetas"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "teves"
+      }
+     ]
+    },
+    {
+     "id": "4",
+     "titulo": "Animación 3D",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "Animación 3D",
+       "partes": [
         {
-         "texto": "Dibujo y anatomía",
-         "consecuencia": "Sí: es de las primeras materias de Animación.",
-         "mejor": true
-        },
-        {
-         "texto": "Cálculo",
-         "consecuencia": "Esa es de Mecatrónica."
-        },
-        {
-         "texto": "Cálculo",
-         "consecuencia": "Esa es de Ing. Eléctrica."
+         "t": "En 3D el trabajo se divide en etapas, que se llaman pipeline. Modelado: se construye el personaje o el objeto con polígonos. Rigging: se le pone un esqueleto con controles para poder moverlo. Texturizado: se le dan color y materiales. Animación: se mueve con fotogramas clave, o keyframes, y la computadora calcula los intermedios. Iluminación y render: se ponen luces y la computadora genera cada cuadro final. Si un modelo tiene un error, todas las etapas que siguen lo heredan."
         }
        ]
       },
       {
-       "tipo": "reflexion",
-       "pregunta": "¿Cuál te da más curiosidad?",
+       "tipo": "pregunta",
+       "pregunta": "¿Qué es el rigging?",
        "opciones": [
-        "Dibujo y anatomía",
-        "Historia de la animación",
-        "Narrativa",
-        "Fundamentos de diseño"
+        "Pintarlo",
+        "Ponerle un esqueleto con controles al modelo para poder moverlo",
+        "Iluminarlo"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Qué hace la computadora cuando pones dos keyframes?",
+       "opciones": [
+        "Hace el render",
+        "Borra el primero",
+        "Calcula los cuadros intermedios entre ellos"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Ya se animaron varias escenas y descubres que el modelo del personaje tiene un brazo mal hecho. ¿Qué pasa?",
+       "opciones": [
+        "Hay que corregir el modelo y revisar todo lo que dependía de él",
+        "Se arregla solo en el render",
+        "Nada"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Un personaje cruza la pantalla en línea recta y a velocidad idéntica todo el tiempo, y se ve robótico. ¿Qué ajustas?",
+       "opciones": [
+        "Que vaya más rápido",
+        "Cambiar su color",
+        "Que acelere al empezar y frene al terminar"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "teves"
+      }
+     ]
+    },
+    {
+     "id": "5",
+     "titulo": "El render",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "El render",
+       "partes": [
+        {
+         "t": "Renderizar es que la computadora calcule la imagen final de cada cuadro con luces, sombras y materiales. Puede tardar desde segundos hasta horas por cuadro. Para saber cuánto tardará todo:"
+        },
+        {
+         "f": "tiempo total = cuadros × minutos por cuadro"
+        },
+        {
+         "t": "Los estudios usan granjas de render: muchas computadoras trabajando al mismo tiempo, cada una con distintos cuadros. Si tienes 10 computadoras, el tiempo se divide más o menos entre 10. Antes del render final se hacen pruebas a baja calidad para no desperdiciar horas."
+        }
        ]
       },
       {
-       "tipo": "clave",
-       "texto": "Las primeras materias son la base; muchas veces son las más pesadas."
+       "tipo": "pregunta",
+       "pregunta": "Un corto tiene 1,200 cuadros y cada uno tarda 3 minutos en renderizar. ¿Cuánto tarda en una computadora?",
+       "opciones": [
+        "400 minutos",
+        "1,203 minutos",
+        "3,600 minutos"
+       ],
+       "correcta": 2,
+       "formula": "1,200 × 3 = 3,600"
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "Si usas 10 computadoras, ¿cuánto tarda más o menos?",
+       "opciones": [
+        "36 minutos",
+        "3,600 minutos",
+        "360 minutos"
+       ],
+       "correcta": 2,
+       "formula": "{3,600|10} = 360"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Vas a mandar a render final una escena por primera vez. ¿Qué haces antes?",
+       "opciones": [
+        "Apagas la computadora",
+        "Una prueba rápida a baja calidad para revisar errores",
+        "Nada, lo mandas directo"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "teves"
       }
      ]
     }
@@ -430,184 +335,114 @@
   },
   {
    "id": "u3",
+   "titulo": "Vivir de esto",
+   "sub": "Clientes y portafolio",
    "lecciones": [
     {
-     "id": "3.1",
-     "titulo": "Un día real",
+     "id": "6",
+     "titulo": "Trabajar con clientes",
      "minutos": 4,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Un día de trabajo en Animación",
-       "puntos": [
-        "Crea personajes, escenarios y movimiento para series, videojuegos, publicidad o redes",
-        "Trabaja por proyecto en estudios o como freelance."
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "¿Qué de esto NO es parte del día de alguien de Animación?",
-       "opciones": [
+       "titulo": "Trabajar con clientes",
+       "partes": [
         {
-         "texto": "Según el área: en clínica escucha y acompaña pacientes en terapia",
-         "consecuencia": "Exacto: eso lo hace alguien de Psicología.",
-         "mejor": true
-        },
-        {
-         "texto": "Crea personajes, escenarios y movimiento para series, videojuegos, publicidad o redes",
-         "consecuencia": "Esto sí lo hace: es parte de su día."
-        },
-        {
-         "texto": "Trabaja por proyecto en estudios o como freelance.",
-         "consecuencia": "Esto sí lo hace: es parte de su día."
+         "t": "La mayoría de los animadores trabajan para estudios, agencias de publicidad o clientes. Un proyecto normal tiene etapas de revisión: el cliente aprueba el storyboard, luego el animatic, luego la animación. Conviene dejar por escrito cuántas rondas de cambios incluye el precio, porque cambios infinitos se comen el tiempo. Las fechas de entrega se calculan hacia atrás desde el día de entrega, contando render y revisiones. Además, no puedes usar personajes, música o marcas de otros sin permiso: tienen derechos de autor."
         }
        ]
       },
       {
-       "tipo": "reflexion",
-       "pregunta": "¿Te ves haciendo esto todos los días?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
+       "tipo": "pregunta",
+       "pregunta": "Un cliente pide su sexta ronda de cambios y el contrato incluía tres.",
+       "opciones": [
+        "Explicas que ya se cubrieron las incluidas y cotizas las extras",
+        "Dejas de contestar",
+        "Los haces gratis para siempre"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "clave",
-       "texto": "El día a día pesa más que el título."
+       "tipo": "pregunta",
+       "pregunta": "Un cliente quiere un comercial con un personaje famoso de una película.",
+       "opciones": [
+        "Le explicas que se necesita permiso del dueño o hacer un personaje original",
+        "Lo copias igual",
+        "Lo copias cambiándole el color"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "La entrega es el viernes y el render tarda dos días. ¿Cuándo debe estar aprobada la animación?",
+       "opciones": [
+        "El viernes en la mañana",
+        "A más tardar el martes o miércoles, para que dé tiempo de renderizar y revisar",
+        "El sábado"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Para qué se pide aprobación del storyboard antes de animar?",
+       "opciones": [
+        "Para no animar algo que el cliente luego rechace",
+        "Por costumbre",
+        "Para cobrar menos"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
-     "id": "3.2",
-     "titulo": "Lo difícil",
+     "id": "7",
+     "titulo": "Tu portafolio",
      "minutos": 4,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Lo difícil de Animación",
-       "texto": "Se considera de dificultad media.",
-       "puntos": [
-        "Mucho trabajo práctico y horas de producción",
-        "Dibujo y software 3D."
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "Según lo que leíste, ¿qué es lo que más cuesta en Animación?",
-       "opciones": [
+       "titulo": "Tu portafolio",
+       "partes": [
         {
-         "texto": "Mucho trabajo práctico y horas de producción",
-         "consecuencia": "Sí, es de lo que más cuesta en Animación.",
-         "mejor": true
-        },
-        {
-         "texto": "Cálculo, Química y Microbiología",
-         "consecuencia": "Eso es más de Ing. Ambiental."
-        },
-        {
-         "texto": "Cálculo, Electromagnetismo y Circuitos eléctricos.",
-         "consecuencia": "Eso es más de Ing. Eléctrica."
+         "t": "En animación, lo que te consigue trabajo es tu demo reel: un video corto con tus mejores trabajos. Los estudios lo ven en segundos, así que lo mejor va al inicio y es mejor que sea corto y fuerte, de uno o dos minutos, a largo y con relleno. Conviene que muestre la especialidad a la que quieres entrar, como animación de personajes, modelado o efectos. Muchos animadores mexicanos trabajan a distancia para estudios de otros países, así que un buen reel y algo de inglés abren muchas puertas."
         }
        ]
       },
       {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué tanto te preocupa esto?",
-       "escala": [
-        "Mucho",
-        "Nada"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Saber lo difícil desde antes te ayuda a prepararte."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "3.3",
-     "titulo": "Historia real",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Si pudieras preguntarle algo a alguien que ya estudia Animación, ¿qué sería?",
+       "tipo": "pregunta",
+       "pregunta": "¿Qué pones al inicio de tu demo reel?",
        "opciones": [
-        "¿Qué fue lo más difícil?",
-        "¿Qué te sorprendió?",
-        "¿Volverías a elegirla?",
-        "¿Cómo es un día normal?"
-       ]
+        "Tu mejor trabajo",
+        "Tus primeros ejercicios",
+        "Los créditos"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "testimonio",
-       "estado": "pendiente",
-       "perfil": "Estudiante de últimos semestres o egresado de Animación"
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "Mientras llega esta historia, ¿a quién podrías preguntarle tú?",
+       "tipo": "pregunta",
+       "pregunta": "Tienes 8 minutos de trabajos, varios regulares. ¿Qué haces?",
        "opciones": [
-        "A un familiar o conocido que la estudió",
-        "A un estudiante de mi ciudad",
-        "A un maestro que la conozca",
-        "Todavía no conozco a nadie"
-       ]
+        "Te quedas con el mejor minuto o dos",
+        "Los pones todos",
+        "Los pones al revés"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "clave",
-       "texto": "Una persona real te cuenta lo que ningún folleto dice."
+       "tipo": "pregunta",
+       "pregunta": "Quieres trabajar animando personajes. ¿Qué debe tener tu reel?",
+       "opciones": [
+        "Solo logotipos",
+        "Sobre todo animación de personajes con buena actuación",
+        "Solo fondos"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "3.4",
-     "titulo": "¿Es para ti?",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Contesta con honestidad. Nadie más ve tus respuestas."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Paso horas dibujando o animando por gusto?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Tengo paciencia para trabajos muy detallados?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Me sirve trabajar por proyecto?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Si dijiste que sí a casi todo, vale la pena seguir explorándola."
-      },
-      {
-       "tipo": "interes"
+       "tipo": "teves"
       }
      ]
     }
@@ -615,450 +450,126 @@
   },
   {
    "id": "u4",
+   "titulo": "Examen final",
+   "sub": "10 preguntas · apruebas con 7",
    "lecciones": [
     {
-     "id": "4.1",
-     "titulo": "Cuánto dura y qué estudias",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Cada escuela arma su plan distinto, pero el orden general se parece. Vamos a verlo."
-      },
-      {
-       "tipo": "ordenar",
-       "pregunta": "Ordena lo que estudias, de lo primero a lo último.",
-       "pasos": [
-        "Dibujo y anatomía, Historia de la animación",
-        "Animación 2D, Modelado 3D",
-        "Animación 3D, Efectos visuales",
-        "Producción de cortometraje, Portafolio (demo reel)"
-       ],
-       "revelacion": "Primero las bases y al final lo más especializado y las prácticas."
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Cuántos años crees que pasan desde que entras hasta que te titulas?",
-       "min": 3,
-       "max": 10,
-       "paso": 1,
-       "unidad": "años",
-       "dato": "animacion.duracion"
-      },
-      {
-       "tipo": "clave",
-       "texto": "Revisa el mapa curricular de cada escuela: cambia de una a otra."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "4.2",
-     "titulo": "Cómo se entra",
-     "minutos": 4,
+     "id": "ex",
+     "titulo": "Examen final",
+     "minutos": 6,
+     "examen": true,
+     "aprobar": 7,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Cómo se entra en la región",
-       "puntos": [
-        "UAM: Examen de selección UAM (trimestral; dos procesos al año y procesos extraordinarios)",
-        "Tec de Monterrey: PAA (Prueba de Aptitud Académica), SAT o ACT + promedio + perfil integral (ensayo, currículum)",
-        "UNITEC: Registro y examen diagnóstico; beca según promedio",
-        "UNAM: Concurso de selección UNAM (120 reactivos) o pase reglamentado desde CCH/ENP"
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "Según lo que leíste, ¿qué pide UAM para entrar?",
-       "opciones": [
+       "titulo": "Examen final",
+       "partes": [
         {
-         "texto": "Examen de selección UAM (trimestral; dos procesos al año y procesos extraordinarios)",
-         "consecuencia": "Exacto.",
-         "mejor": true
-        },
-        {
-         "texto": "PAA (Prueba de Aptitud Académica), SAT o ACT + promedio + perfil integral (ensayo, currículum)",
-         "consecuencia": "Eso lo pide Tec de Monterrey."
-        },
-        {
-         "texto": "Registro y examen diagnóstico; beca según promedio",
-         "consecuencia": "Eso lo pide UNITEC."
+         "t": "Son 10 casos nuevos que mezclan todas las lecciones. Apruebas con 7. Si no, lo repites y las que fallaste regresan con otras palabras."
         }
        ]
       },
       {
-       "tipo": "vf",
-       "afirmacion": "Todas las universidades usan el mismo examen.",
-       "respuesta": false,
-       "revelacion": "Cada una tiene el suyo: revisa la convocatoria de la que te interese."
-      },
-      {
-       "tipo": "clave",
-       "texto": "Conoce el examen de tu escuela desde antes."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "4.3",
-     "titulo": "Dónde, cuánto cuesta y becas",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "escuelas"
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Cuánto crees que cuesta un semestre en una universidad pública?",
-       "min": 0,
-       "max": 60000,
-       "paso": 1000,
-       "unidad": "pesos",
-       "dato": "animacion.costo_publica"
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Y un semestre en una universidad privada?",
-       "min": 0,
-       "max": 300000,
-       "paso": 5000,
-       "unidad": "pesos",
-       "dato": "animacion.costo_privada"
-      },
-      {
-       "tipo": "dato",
-       "titulo": "Becas para estudiar Animación",
-       "dato": "animacion.becas"
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Una universidad cara garantiza un mejor empleo.",
-       "respuesta": false,
-       "revelacion": "Pesan más lo que aprendes, tus prácticas y tu esfuerzo."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué pesa más para ti al elegir escuela?",
+       "tipo": "pregunta",
+       "pregunta": "Una animación de 5 segundos va a 24 cuadros por segundo. ¿Cuántos cuadros tiene?",
        "opciones": [
-        "El costo",
-        "Que esté cerca de mi casa",
-        "El prestigio",
-        "Las prácticas que ofrece"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Además de la colegiatura, cuenta transporte y materiales."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "u5",
-   "lecciones": [
-    {
-     "id": "5.1",
-     "titulo": "Qué piden para trabajar",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Qué te piden para trabajar",
-       "puntos": [
-        "No requiere cédula",
-        "El demo reel lo es todo.",
-        "IMCO no la separa",
-        "Se aproxima con 'Diseño y comunicación gráfica'."
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "Según lo que leíste, ¿qué necesitas para ejercer Animación?",
-       "opciones": [
-        {
-         "texto": "No requiere cédula",
-         "consecuencia": "Exacto.",
-         "mejor": true
-        },
-        {
-         "texto": "No requiere cédula",
-         "consecuencia": "Eso lo piden en Ciberseguridad."
-        },
-        {
-         "texto": "No requiere cédula",
-         "consecuencia": "Eso lo piden en Sociología."
-        }
-       ]
-      },
-      {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Cómo te ves?",
-       "a": {
-        "texto": "En una institución o empresa",
-        "dice": "Más estabilidad y un equipo de quien aprender."
-       },
-       "b": {
-        "texto": "Por tu cuenta",
-        "dice": "Más libertad, pero tienes que conseguir clientes."
-       }
-      },
-      {
-       "tipo": "clave",
-       "texto": "Saber qué te piden te ahorra sorpresas al salir."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "5.2",
-     "titulo": "Sueldo y demanda",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Hablemos de dinero sin rodeos. Antes de ver cualquier cifra, apuesta: así recuerdas mejor el dato real."
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Cuánto crees que gana al mes, en promedio, un profesionista de Animación en México?",
-       "min": 5000,
-       "max": 100000,
-       "paso": 1000,
-       "unidad": "pesos",
-       "dato": "animacion.ingreso"
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "De cada 100 egresados, ¿cuántos crees que trabajan en algo de su carrera?",
-       "min": 0,
-       "max": 100,
-       "paso": 5,
-       "unidad": "de cada 100",
-       "dato": "animacion.ocupacion_afin"
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Todos los egresados de Animación ganan lo mismo.",
-       "respuesta": false,
-       "revelacion": "Cambia con la experiencia, el lugar, la especialidad y si trabajas por tu cuenta."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué tanto pesa el sueldo en tu decisión?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "El promedio orienta, pero tu camino puede ser distinto."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "5.3",
-     "titulo": "Cómo les va al salir",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "chat",
-       "subtitulo": "Te cuenta cómo les va al salir",
-       "intro": [
-        "Te cuento cómo les va a quienes estudian Animación al salir."
+        "120",
+        "29",
+        "240"
        ],
-       "temas": [
-        {
-         "q": "¿Cuántos trabajan en lo suyo?",
-         "a": [
-          "Cerca de la mitad trabaja en algo de su carrera.",
-          "Es un promedio nacional del IMCO."
-         ]
-        },
-        {
-         "q": "¿Muchos hacen posgrado?",
-         "a": [
-          "Pocos hacen posgrado; la mayoría empieza a trabajar."
-         ]
-        },
-        {
-         "q": "¿Hay más hombres o mujeres?",
-         "a": [
-          "Hay más mujeres que hombres.",
-          "Eso no decide nada: cualquiera puede estudiarla."
-         ]
-        },
-        {
-         "q": "¿El trabajo tiene prestaciones?",
-         "a": [
-          "La mayoría tiene un trabajo formal, con prestaciones.",
-          "Las prestaciones son cosas como seguro médico y aguinaldo."
-         ]
-        }
+       "correcta": 0,
+       "formula": "5 × 24 = 120"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Qué principio es agacharse antes de saltar?",
+       "opciones": [
+        "Acción continuada",
+        "Anticipación",
+        "Render"
        ],
-       "minimo": 2
+       "correcta": 1
       },
       {
-       "tipo": "vf",
-       "afirmacion": "La mayoría de quienes estudian Animación trabaja en algo de su carrera.",
-       "respuesta": false,
-       "revelacion": "Cerca de la mitad trabaja en algo de su carrera. Promedio nacional del IMCO."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué te importa más de tu futuro trabajo?",
+       "tipo": "pregunta",
+       "pregunta": "¿Qué es animar \"en dos\"?",
        "opciones": [
-        "Que tenga que ver con lo que estudié",
-        "Ganar bien",
-        "Tener prestaciones",
-        "Hacer algo que me guste"
-       ]
+        "Animar con dos personas",
+        "Repetir cada dibujo dos cuadros",
+        "Hacer dos versiones"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "clave",
-       "texto": "Pregunta cómo les va a quienes ya salieron."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "5.4",
-     "titulo": "Después de titularte",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Después de titularte",
-       "puntos": [
-        "Puedes especializarte con cursos, diplomados o una maestría.",
-        "También puedes trabajar desde el inicio y estudiar después.",
-        "Se combina bien con: Diseño Gráfico y Comunicación Visual, Ciencias de la Comunicación, Ingeniería en Sistemas Computacionales / Computación."
-       ]
-      },
-      {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Qué harías al terminar?",
-       "a": {
-        "texto": "Trabajar desde el inicio",
-        "dice": "Ganas experiencia y dinero; después decides si estudias más."
-       },
-       "b": {
-        "texto": "Seguir estudiando",
-        "dice": "Te especializas antes; tardas más en empezar a trabajar."
-       }
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Cómo te imaginas después de la carrera?",
+       "tipo": "pregunta",
+       "pregunta": "¿Para qué sirve el animatic?",
        "opciones": [
-        "Trabajando",
-        "En una maestría",
-        "Emprendiendo",
-        "No sé todavía"
-       ]
+        "Para el render final",
+        "Para revisar si la historia y los tiempos funcionan antes de animar",
+        "Para cobrar"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "clave",
-       "texto": "Al titularte empieza otra parte del camino, no termina."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "u6",
-   "lecciones": [
-    {
-     "id": "6.1",
-     "titulo": "Lo que sentiste",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Antes de ver tus respuestas: ¿cómo te fue con Animación?",
+       "tipo": "pregunta",
+       "pregunta": "¿Qué etapa del 3D le pone esqueleto y controles al modelo?",
        "opciones": [
-        "Me gustó más de lo que pensaba",
-        "Más o menos como esperaba",
-        "Me gustó menos de lo que pensaba"
-       ]
+        "Texturizado",
+        "Render",
+        "Rigging"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "resumen"
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "Viendo tus respuestas, ¿qué pesó más?",
+       "tipo": "pregunta",
+       "pregunta": "Una escena tiene 600 cuadros y cada uno tarda 2 minutos en renderizar. ¿Cuánto tarda en una computadora?",
        "opciones": [
-        "Lo que sentí al probarla",
-        "Lo que supe de la realidad",
-        "El camino para llegar",
-        "El futuro que ofrece"
-       ]
+        "1,200 minutos",
+        "300 minutos",
+        "602 minutos"
+       ],
+       "correcta": 0,
+       "formula": "600 × 2 = 1,200"
       },
       {
-       "tipo": "clave",
-       "texto": "Lo que sentiste al probarla vale más que lo que imaginabas."
-      },
-      {
-       "tipo": "interes",
-       "pregunta": "¿Te ves estudiando Animación?"
-      }
-     ]
-    },
-    {
-     "id": "6.2",
-     "titulo": "Tu veredicto",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Si mañana tuvieras que elegir carrera, ¿Animación estaría entre tus opciones?",
+       "tipo": "pregunta",
+       "pregunta": "Un objeto se mueve a velocidad idéntica todo el tiempo y se ve robótico. ¿Qué le falta?",
        "opciones": [
-        "Sí, entre las primeras",
-        "Sí, pero no arriba",
-        "No creo",
-        "No lo sé"
-       ]
+        "Acelerar al inicio y frenar al final",
+        "Más tamaño",
+        "Más color"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "comparar"
+       "tipo": "pregunta",
+       "pregunta": "Un cliente quiere cambiar la historia cuando ya está todo animado. ¿Qué habría evitado el problema?",
+       "opciones": [
+        "Aprobar bien el storyboard y el animatic antes de animar",
+        "Nada",
+        "Animar más rápido"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Qué te ayudaría más a decidir?",
-       "a": {
-        "texto": "Hablar con alguien que la estudia",
-        "dice": "Busca a un estudiante o egresado cerca de ti y hazle tus preguntas. Una plática aclara más que diez videos."
-       },
-       "b": {
-        "texto": "Probar otra carrera y comparar",
-        "dice": "Explora otra de tu mapa. Comparar dos caminos reales aclara más que pensar en uno solo."
-       }
+       "tipo": "pregunta",
+       "pregunta": "¿Puedes usar un personaje de una película en un comercial sin permiso?",
+       "opciones": [
+        "Sí",
+        "No, tiene derechos de autor",
+        "Sí, si le cambias el color"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "veredicto"
-      },
-      {
-       "tipo": "clave",
-       "texto": "Decidir «en duda» también es avanzar."
+       "tipo": "pregunta",
+       "pregunta": "¿Cómo debe ser un buen demo reel?",
+       "opciones": [
+        "Sin trabajos",
+        "Largo, con todo lo que has hecho",
+        "Corto, con lo mejor al inicio"
+       ],
+       "correcta": 2
       }
      ]
     }

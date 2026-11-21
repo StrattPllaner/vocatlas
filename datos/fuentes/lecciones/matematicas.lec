@@ -1,0 +1,141 @@
+**Lección 1: Demostrar (4 preguntas)**
+
+En la carrera de Matemáticas no basta con que algo funcione en varios ejemplos: hay que demostrarlo, es decir, probar con lógica que es cierto en todos los casos. Por ejemplo, la suma de dos números pares siempre es par: un par se puede escribir como 2 por algo, y 2 por algo más 2 por otra cosa es 2 por la suma, que es par. En cambio, para probar que una afirmación es falsa basta un solo contraejemplo, un caso donde no se cumple.
+
+Pregunta 1. Alguien dice que todos los números primos son impares. ¿Es cierto? A: sí. B: solo los grandes. C: no; el 2 es primo y es par, y ese contraejemplo basta. Correcta: C.
+
+Pregunta 2. Probaste una regla con 100 ejemplos y siempre funcionó. ¿Ya está demostrada? A: con 50 bastaba. B: no; hay que probar que se cumple en todos los casos. C: sí. Correcta: B.
+
+Pregunta 3. ¿Cuántos contraejemplos necesitas para probar que algo es falso? A: todos. B: uno. C: cien. Correcta: B.
+
+Pregunta 4. ¿Por qué la suma de dos pares siempre es par? A: porque los dos son 2 por algo, y su suma también es 2 por algo. B: no siempre. C: porque lo vi en ejemplos. Correcta: A.
+
+**Lección 2: Patrones (4 preguntas)**
+
+Mucho de las matemáticas es encontrar patrones y escribirlos en fórmulas. Se cuenta que, de niño, Gauss sumó los números del 1 al 100 en segundos: juntó el primero con el último, 1 más 100, el segundo con el penúltimo, 2 más 99, y así; cada par suma 101 y hay 50 pares. Eso da una fórmula para sumar del 1 al n:
+
+$$\text{suma} = \frac{n \times (n + 1)}{2}$$
+
+Pregunta 1. ¿Cuánto suman los números del 1 al 100? A: 5,050. B: 100. C: 10,100. Correcta: A, porque
+
+$$\frac{100 \times 101}{2} = 5{,}050$$
+
+Pregunta 2. ¿Cuánto suman los números del 1 al 10? A: 110. B: 50. C: 55. Correcta: C, porque
+
+$$\frac{10 \times 11}{2} = 55$$
+
+Pregunta 3. En la sucesión 3, 7, 11, 15, ¿qué número sigue? A: 21. B: 19. C: 18. Correcta: B. Cada vez se suman 4.
+
+Pregunta 4. En la sucesión 2, 4, 8, 16, ¿qué número sigue? A: 24. B: 32. C: 20. Correcta: B. Cada número es el doble del anterior.
+
+**Lección 3: Probabilidad (3 preguntas)**
+
+La probabilidad mide qué tan posible es algo. Cuando todos los resultados son igual de probables:
+
+$$\text{probabilidad} = \frac{\text{casos favorables}}{\text{casos posibles}}$$
+
+Con dos dados hay 36 combinaciones posibles. Muchas intuiciones fallan aquí: en un grupo de solo 23 personas, la probabilidad de que dos cumplan años el mismo día ya es mayor que un medio. Y lo que pasó antes no cambia un evento independiente: una moneda no "debe" caer águila porque salieron muchos soles.
+
+Pregunta 1. ¿Cuál es la probabilidad de sacar un 6 al tirar un dado? A: 1 de 6. B: 1 de 2. C: 6 de 6. Correcta: A.
+
+Pregunta 2. Con dos dados, ¿de cuántas formas puedes sumar 7? A: 12. B: 6. C: 1. Correcta: B. Son 1 y 6, 2 y 5, 3 y 4, 4 y 3, 5 y 2, y 6 y 1, así que la probabilidad es
+
+$$\frac{6}{36} = \frac{1}{6}$$
+
+Pregunta 3. Una moneda cayó sol cinco veces seguidas. ¿Qué probabilidad hay de que la siguiente sea águila? A: cero. B: un medio, igual que siempre. C: casi segura. Correcta: B.
+
+**Lección 4: Funciones (4 preguntas)**
+
+Una función relaciona una cantidad con otra. Una función lineal crece siempre lo mismo por cada paso, y su gráfica es una línea recta:
+
+$$y = m \times x + b$$
+
+La pendiente m dice cuánto cambia y cuando x aumenta 1, y b es el valor inicial. Por ejemplo, un taxi que cobra 10 pesos por kilómetro más 30 de banderazo cobra 10 por x más 30. Leer funciones permite predecir: cuánto costará un viaje, cuánto crecerá algo o cuándo dos opciones salen igual.
+
+Pregunta 1. Un taxi cobra 10 pesos por kilómetro más 30 de banderazo. ¿Cuánto cuesta un viaje de 8 kilómetros? A: 38 pesos. B: 80 pesos. C: 110 pesos. Correcta: C, porque
+
+$$10 \times 8 + 30 = 110$$
+
+Pregunta 2. En y igual a 3x más 5, ¿cuál es el valor inicial? A: 3. B: 8. C: 5. Correcta: C.
+
+Pregunta 3. Un plan A cobra 200 al mes y el plan B cobra 100 más 10 por gigabyte. ¿Con cuántos gigabytes cuestan igual? A: 10. B: 100. C: 20. Correcta: A, porque
+
+$$100 + 10 \times 10 = 200$$
+
+Pregunta 4. ¿Cómo es la gráfica de una función lineal? A: un círculo. B: una curva que sube cada vez más rápido. C: una línea recta. Correcta: C.
+
+**Lección 5: Porcentajes que engañan (3 preguntas)**
+
+Los porcentajes se calculan sobre una base, y si la base cambia, el resultado cambia. Si un precio sube 50 por ciento y luego baja 50 por ciento, no regresa al original: termina más bajo, porque la bajada se calcula sobre un número más grande.
+
+$$100 \times 1.5 \times 0.5 = 75$$
+
+Por eso un matemático siempre pregunta "¿por ciento de qué?". También engañan los aumentos sobre cantidades muy pequeñas: pasar de 1 a 2 casos es un aumento del 100 por ciento, aunque sea solo un caso más.
+
+Pregunta 1. Una acción de 200 pesos sube 50 por ciento y luego baja 50 por ciento. ¿En cuánto queda? A: 200 pesos. B: 100 pesos. C: 150 pesos. Correcta: C, porque
+
+$$200 \times 1.5 \times 0.5 = 150$$
+
+Pregunta 2. Un noticiero dice que un delito raro aumentó 100 por ciento en un pueblo. ¿Qué preguntas? A: cuántos casos eran antes y cuántos ahora. B: quién lo dijo y ya. C: nada, es enorme. Correcta: A.
+
+Pregunta 3. Una tienda dice "20 por ciento de descuento y luego otro 20 por ciento". ¿Es lo mismo que 40 por ciento? A: es 50. B: no, es 36 por ciento. C: sí. Correcta: B, porque
+
+$$1 - 0.8 \times 0.8 = 0.36$$
+
+**Lección 6: Crecimiento exponencial (4 preguntas)**
+
+Algo crece de forma exponencial cuando se multiplica por la misma cantidad en cada paso, por ejemplo cuando se duplica. Al principio parece lento, pero luego explota. Si doblas una hoja de papel, su grosor se duplica cada vez; en 10 dobleces ya es más de mil veces más gruesa. Este tipo de crecimiento aparece en contagios, en interés compuesto y en poblaciones. Las personas tienden a subestimarlo porque esperan que crezca en línea recta.
+
+$$\text{después de 3 duplicaciones} = \text{inicio} \times 2 \times 2 \times 2$$
+
+Pregunta 1. Un rumor lo sabe 1 persona, y cada día se duplica quién lo sabe. ¿Cuántas lo saben después de 5 días? A: 32. B: 10. C: 6. Correcta: A, porque
+
+$$1 \times 2 \times 2 \times 2 \times 2 \times 2 = 32$$
+
+Pregunta 2. Un estanque se llena de lirio duplicando su área cada día, y se cubre completo el día 30. ¿Qué día estaba cubierto a la mitad? A: el día 29. B: el día 1. C: el día 15. Correcta: A.
+
+Pregunta 3. ¿Por qué la gente subestima el crecimiento exponencial? A: porque es lento. B: no lo subestima. C: porque espera que crezca en línea recta. Correcta: C.
+
+Pregunta 4. ¿Cuál de estos crece exponencialmente? A: algo que se duplica cada mes. B: algo que no cambia. C: algo que aumenta 5 cada mes. Correcta: A.
+
+**Lección 7: Para qué sirve (3 preguntas)**
+
+Las matemáticas están detrás de casi todo. La seguridad de tus compras en internet usa números primos muy grandes: multiplicarlos es fácil, pero encontrar cuáles se multiplicaron, si el número es enorme, es tan difícil que protege tus datos. Los matemáticos trabajan en investigación y docencia, pero también en bancos, aseguradoras, empresas de tecnología, ciencia de datos y criptografía. El IMCO reporta que Matemáticas está entre las carreras mejor pagadas en México.
+
+Pregunta 1. ¿Qué tipo de números protege muchas compras por internet? A: números negativos. B: números pares. C: números primos muy grandes. Correcta: C.
+
+Pregunta 2. ¿Por qué esos números protegen los datos? A: porque son pequeños. B: porque multiplicarlos es fácil, pero encontrar cuáles se multiplicaron es muy difícil. C: porque son secretos. Correcta: B.
+
+Pregunta 3. ¿Dónde trabaja un matemático además de dar clases? A: en bancos, aseguradoras, tecnología, ciencia de datos y criptografía. B: solo en universidades. C: en ningún otro lugar. Correcta: A.
+
+**Examen final**
+
+Pregunta 1. ¿Cuántos contraejemplos necesitas para probar que algo es falso? A: diez. B: uno. C: mil. Correcta: B.
+
+Pregunta 2. ¿Cuánto suman los números del 1 al 20? A: 200. B: 400. C: 210. Correcta: C, porque
+
+$$\frac{20 \times 21}{2} = 210$$
+
+Pregunta 3. En la sucesión 5, 10, 20, 40, ¿qué sigue? A: 50. B: 80. C: 60. Correcta: B.
+
+Pregunta 4. ¿Cuál es la probabilidad de sacar un número par en un dado? A: 1 de 6. B: 2 de 6. C: 3 de 6. Correcta: C.
+
+Pregunta 5. Un taxi cobra 8 pesos por kilómetro más 20 de banderazo. ¿Cuánto cuesta un viaje de 10 kilómetros? A: 28 pesos. B: 100 pesos. C: 80 pesos. Correcta: B, porque
+
+$$8 \times 10 + 20 = 100$$
+
+Pregunta 6. Un precio de 100 pesos sube 50 por ciento y luego baja 50 por ciento. ¿En cuánto queda? A: 75 pesos. B: 50 pesos. C: 100 pesos. Correcta: A, porque
+
+$$100 \times 1.5 \times 0.5 = 75$$
+
+Pregunta 7. ¿Dos descuentos de 10 por ciento son lo mismo que uno de 20? A: no, son 19 por ciento. B: sí. C: son 25. Correcta: A, porque
+
+$$1 - 0.9 \times 0.9 = 0.19$$
+
+Pregunta 8. Algo empieza en 3 y se duplica 4 veces. ¿En cuánto termina? A: 24. B: 12. C: 48. Correcta: C, porque
+
+$$3 \times 2 \times 2 \times 2 \times 2 = 48$$
+
+Pregunta 9. Un estanque se cubre de lirio el día 20 duplicándose cada día. ¿Qué día estaba a la mitad? A: el 1. B: el 19. C: el 10. Correcta: B.
+
+Pregunta 10. ¿Qué protege muchas compras por internet? A: los números primos muy grandes. B: nada. C: los números pares. Correcta: A.

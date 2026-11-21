@@ -1,227 +1,158 @@
 {
  "id": "mecatronica",
- "version": 1,
+ "version": 2,
+ "formato": 2,
  "estado": "completo",
- "generado": true,
- "revision": "Armada automáticamente con la base de carreras de Morelos y CDMX (2026-11-17). Falta que la revise alguien de la carrera.",
+ "revision": "Pendiente de revisión por un profesionista de la carrera. Generado con datos/importar_lecciones.py desde datos/fuentes/lecciones/mecatronica.lec; no se edita a mano.",
  "unidades": [
   {
    "id": "u1",
+   "titulo": "Máquinas que sienten",
+   "sub": "Sensores, actuadores y control",
    "lecciones": [
     {
-     "id": "1.1",
-     "titulo": "Qué es y qué hace",
-     "minutos": 3,
+     "id": "0",
+     "titulo": "Conócela",
+     "minutos": 1,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "¿Qué es Mecatrónica?",
-       "texto": "Aplicación de matemáticas, ciencias y tecnología para diseñar, construir, operar y mejorar sistemas, productos o procesos. La especialidad define si el trabajo se concentra en infraestructura, energía, manufactura, electrónica, ambiente, transporte o materiales.",
-       "puntos": [
-        "Diseña y programa sistemas automáticos: robots, líneas de producción, máquinas inteligentes.",
-        "Trabaja en plantas automotrices, de manufactura o en desarrollo de productos."
+       "tipo": "ficha",
+       "texto": "Ingeniería Mecatrónica junta mecánica, electrónica y programación para crear máquinas que sienten y deciden: robots, líneas de producción automáticas, drones e impresoras 3D. Trabaja sobre todo en la industria automotriz y de manufactura.",
+       "cifras": [
+        "mecatronica.becas",
+        "mecatronica.duracion",
+        "mecatronica.costo_publica",
+        "mecatronica.costo_privada"
        ]
       },
       {
-       "tipo": "decision",
-       "pregunta": "Por lo que leíste, ¿qué hace alguien de Mecatrónica?",
-       "opciones": [
-        {
-         "texto": "Diseña y programa sistemas automáticos: robots, líneas de producción, máquinas inteligentes.",
-         "consecuencia": "Exacto: eso es parte del día a día en Mecatrónica.",
-         "mejor": true
-        },
-        {
-         "texto": "Estudia seres vivos en campo o laboratorio: monitorea especies, analiza muestras, participa en conservación, investigación, educación ambiental o industria.",
-         "consecuencia": "Eso lo hace alguien de Biología."
-        },
-        {
-         "texto": "Analiza lo que pasa en otros países y cómo afecta a México",
-         "consecuencia": "Eso lo hace alguien de Relaciones internacionales."
-        }
-       ]
-      },
-      {
-       "tipo": "completar",
-       "frase": "Mecatrónica es una carrera del área de ___.",
-       "opciones": [
-        "Ingenierías",
-        "Tecnología y ciencias",
-        "Salud"
-       ],
-       "correcta": 0,
-       "revelacion": "Está en Ingenierías. Se parece a Ingeniería Electrónica y Telecomunicaciones, Ingeniería Mecánica, Ingeniería en Sistemas Computacionales / Computación."
-      },
-      {
-       "tipo": "clave",
-       "texto": "Antes de elegir, entiende qué harías cada día, no solo el nombre."
-      },
-      {
-       "tipo": "interes"
+       "tipo": "escena",
+       "texto": "Hoy automatizas una máquina. Vamos a ver si hace lo que le pides."
       }
      ]
     },
     {
-     "id": "1.2",
-     "titulo": "Dónde trabajas",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Dónde trabaja alguien de Mecatrónica",
-       "texto": "Empresas industriales y tecnológicas, consultoría, construcción, energía, manufactura, telecomunicaciones, software, gobierno, investigación y emprendimiento;",
-       "puntos": [
-        "Depende de la especialidad."
-       ]
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Alguien de Mecatrónica solo puede trabajar en un tipo de lugar.",
-       "respuesta": false,
-       "revelacion": "Puede trabajar en varios: empresas industriales, tecnológicas, consultoría."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Dónde te ves trabajando?",
-       "opciones": [
-        "Empresas industriales",
-        "Tecnológicas",
-        "Consultoría",
-        "Construcción"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Una carrera abre varias puertas, no una sola."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "1.3",
-     "titulo": "Pregúntale a Rumbo",
+     "id": "1",
+     "titulo": "Sensores, control y actuadores",
      "minutos": 4,
      "tarjetas": [
       {
-       "tipo": "chat",
-       "subtitulo": "Te cuenta cómo es trabajar en Mecatrónica",
-       "intro": [
-        "¡Hola! Junté lo que se sabe de Mecatrónica.",
-        "Pregúntame lo que quieras."
-       ],
-       "temas": [
+       "tipo": "info",
+       "titulo": "Sensores, control y actuadores",
+       "partes": [
         {
-         "q": "¿Qué haces en un día normal?",
-         "a": [
-          "Diseña y programa sistemas automáticos: robots, líneas de producción, máquinas inteligentes.",
-          "Trabaja en plantas automotrices, de manufactura o en desarrollo de productos."
-         ]
-        },
-        {
-         "q": "¿Qué es lo más difícil?",
-         "a": [
-          "Se considera una carrera de dificultad alta.",
-          "Junta lo difícil de mecánica, electrónica y programación",
-          "Control automático es el filtro."
-         ]
-        },
-        {
-         "q": "¿Hay trabajo?",
-         "a": [
-          "Cerca de la mitad trabaja en algo de su carrera. Es un promedio nacional del IMCO."
-         ]
-        },
-        {
-         "q": "¿Qué necesito para ejercer?",
-         "a": [
-          "No requiere cédula para la mayoría de puestos."
-         ]
+         "t": "La mecatrónica junta mecánica, electrónica y programación para hacer máquinas que sienten y deciden, como robots, impresoras 3D o líneas de producción automáticas. Todo sistema automático tiene tres partes: sensores, que miden algo, como distancia, temperatura o posición; un controlador, que decide con un programa; y actuadores, que hacen algo, como motores, pistones o válvulas. Si una de las tres falla, el sistema entero falla."
         }
-       ],
-       "minimo": 2,
-       "auto": true
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Mecatrónica se considera una carrera de dificultad baja.",
-       "respuesta": false,
-       "revelacion": "Se considera de dificultad alta. Junta lo difícil de mecánica, electrónica y programación"
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué te llamó más la atención?",
-       "opciones": [
-        "¿Qué haces en un día normal?",
-        "¿Qué es lo más difícil?",
-        "¿Hay trabajo?",
-        "¿Qué necesito para ejercer?"
        ]
       },
       {
-       "tipo": "clave",
-       "texto": "Preguntar a quien ya sabe ahorra muchos errores."
+       "tipo": "pregunta",
+       "pregunta": "Un brazo robótico detecta una caja con una cámara, decide dónde tomarla y la levanta con un motor. ¿Qué es la cámara?",
+       "opciones": [
+        "Un actuador",
+        "El controlador",
+        "Un sensor"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "En una puerta automática de tienda, ¿qué es el motor que abre la puerta?",
+       "opciones": [
+        "Un sensor",
+        "El programa",
+        "Un actuador"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Una puerta automática no abre aunque la gente se acerca. El motor funciona si lo pruebas aparte. ¿Qué revisas?",
+       "opciones": [
+        "El sensor que detecta a las personas",
+        "El color de la puerta",
+        "Nada"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Qué hace el controlador?",
+       "opciones": [
+        "Decide qué hacer con lo que miden los sensores",
+        "Mide la temperatura",
+        "Mueve la puerta"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
-     "id": "1.4",
-     "titulo": "Carreras parecidas",
-     "minutos": 3,
+     "id": "2",
+     "titulo": "Control con retroalimentación",
+     "minutos": 4,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Carreras cercanas a Mecatrónica",
-       "puntos": [
-        "Ingeniería Electrónica y Telecomunicaciones: aplicación de matemáticas, ciencias y tecnología para diseñar, construir.",
-        "Ingeniería Mecánica: aplicación de matemáticas, ciencias y tecnología para diseñar, construir.",
-        "Ingeniería en Sistemas Computacionales / Computación: diseño y desarrollo de soluciones digitales. puede incluir programación.",
-        "Ingeniería en Inteligencia Artificial: diseño y desarrollo de soluciones digitales. puede incluir programación."
+       "titulo": "Control con retroalimentación",
+       "partes": [
+        {
+         "t": "Un sistema de lazo cerrado mide lo que está pasando y corrige. Un termostato mide la temperatura y prende o apaga la calefacción para mantenerla. El controlador compara lo que quiere, que se llama punto de ajuste, con lo que mide, y la diferencia es el error:"
+        },
+        {
+         "f": "error = punto de ajuste − valor medido"
+        },
+        {
+         "t": "Mientras más grande el error, más fuerte corrige. Si corrige demasiado fuerte, el sistema se pasa de un lado a otro y oscila. Ajustar bien el control es gran parte del trabajo."
+        }
        ]
       },
       {
-       "tipo": "emparejar",
-       "pregunta": "Une cada carrera con lo que estudia.",
-       "pares": [
-        [
-         "Ingeniería Electrónica y Telecomunicaciones",
-         "Aplicación de matemáticas, ciencias y tecnología para diseñar, construir"
-        ],
-        [
-         "Ingeniería Mecánica",
-         "Aplicación de matemáticas, ciencias y tecnología para diseñar, construir"
-        ],
-        [
-         "Ingeniería en Sistemas Computacionales / Computación",
-         "Diseño y desarrollo de soluciones digitales. Puede incluir programación"
-        ],
-        [
-         "Ingeniería en Inteligencia Artificial",
-         "Diseño y desarrollo de soluciones digitales. Puede incluir programación"
-        ]
-       ],
-       "revelacion": "Se cruzan en temas, pero cada una tiene su propio enfoque."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Cuál de estas te da curiosidad?",
+       "tipo": "pregunta",
+       "pregunta": "Quieres un horno a 180 grados y está en 150. ¿Cuál es el error?",
        "opciones": [
-        "Ingeniería Electrónica y Telecomunicaciones",
-        "Ingeniería Mecánica",
-        "Ingeniería en Sistemas Computacionales / Computación",
-        "Me quedo con Mecatrónica"
-       ]
+        "Menos 30 grados",
+        "30 grados",
+        "330 grados"
+       ],
+       "correcta": 1,
+       "formula": "180 − 150 = 30"
       },
       {
-       "tipo": "clave",
-       "texto": "Si dudas entre dos, compara lo que harías cada día."
+       "tipo": "pregunta",
+       "pregunta": "Un robot que debe detenerse en una posición se pasa, regresa, se vuelve a pasar y así. ¿Qué pasa probablemente?",
+       "opciones": [
+        "El control corrige demasiado fuerte y oscila",
+        "El robot está cansado",
+        "El sensor es de color"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "¿Qué es un sistema de lazo cerrado?",
+       "opciones": [
+        "Uno apagado",
+        "Uno que mide el resultado y corrige",
+        "Uno que no mide nada"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Un tostador que solo usa un temporizador, sin medir el pan, ¿es de lazo cerrado?",
+       "opciones": [
+        "Sí",
+        "No, es de lazo abierto",
+        "Depende del pan"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "teves"
       }
      ]
     }
@@ -229,202 +160,174 @@
   },
   {
    "id": "u2",
+   "titulo": "Mover",
+   "sub": "Motores, PLC y neumática",
    "lecciones": [
     {
-     "id": "2.1",
-     "titulo": "Mini reto",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Tu robot aspiradora choca siempre con la pared izquierda. ¿Qué revisas?",
-       "opciones": [
-        "El sensor de ese lado",
-        "El código que decide el giro",
-        "Las ruedas y el motor"
-       ]
-      },
-      {
-       "tipo": "info",
-       "titulo": "Así lo piensa alguien de Mecatrónica",
-       "texto": "Depurar un sistema es ir descartando causas entre mecánica, electrónica y código. Mecatrónica junta las tres."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Te gustó pensar en algo así?",
-       "escala": [
-        "Nada",
-        "Mucho"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Los retos de una carrera se parecen a lo que harías en su trabajo."
-      },
-      {
-       "tipo": "interes",
-       "pregunta": "¿Te ves resolviendo retos así?"
-      }
-     ]
-    },
-    {
-     "id": "2.2",
-     "titulo": "Lo que te piden",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Habilidades que usarás en Mecatrónica",
-       "puntos": [
-        "Matemáticas",
-        "Programación",
-        "Habilidad manual",
-        "Integrar varias disciplinas"
-       ]
-      },
-      {
-       "tipo": "completar",
-       "pregunta": "Según lo que leíste, completa la frase.",
-       "frase": "Para Mecatrónica es clave: ___.",
-       "opciones": [
-        "Matemáticas",
-        "Empatía",
-        "Comunicación y motivación de personas"
-       ],
-       "correcta": 0,
-       "revelacion": "Es de las habilidades que más se usan en Mecatrónica."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué tanto se te da esto: programación?",
-       "escala": [
-        "Me cuesta",
-        "Se me da"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Las habilidades se entrenan; lo importante es que te guste usarlas."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "2.3",
-     "titulo": "Temas que vas a ver",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Temas que te deben gustar",
-       "puntos": [
-        "Robots",
-        "Automatización",
-        "Construir y programar"
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "¿Cuál de estos temas es más de Mecatrónica?",
-       "opciones": [
-        {
-         "texto": "Robots",
-         "consecuencia": "Sí, es de sus temas centrales.",
-         "mejor": true
-        },
-        {
-         "texto": "Otros países y culturas",
-         "consecuencia": "Ese es más de Negocios internacionales."
-        },
-        {
-         "texto": "Matemáticas aplicadas al dinero",
-         "consecuencia": "Ese es más de Actuaría."
-        }
-       ]
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Cuál de estos temas te gusta más?",
-       "opciones": [
-        "Robots",
-        "Automatización",
-        "Construir y programar",
-        "Ninguno me late"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Si los temas te aburren, la carrera se hace muy larga."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "2.4",
-     "titulo": "Materias clave",
+     "id": "3",
+     "titulo": "Motores",
      "minutos": 4,
      "tarjetas": [
       {
-       "tipo": "voltear",
-       "pregunta": "¿Qué materias crees que llevas en cada etapa? Piénsalo y voltea.",
-       "cartas": [
+       "tipo": "info",
+       "titulo": "Motores",
+       "partes": [
         {
-         "frente": "Semestres 1-2",
-         "reverso": "Cálculo, Física, Programación, Dibujo CAD"
+         "t": "En mecatrónica se usan distintos motores según la tarea. Un motor de corriente directa gira rápido y es sencillo. Un servomotor gira a una posición exacta y la mantiene, por eso se usa en brazos robóticos. Un motor a pasos avanza en pasos fijos, como 200 pasos por vuelta, y se usa en impresoras 3D. Para calcular cuántos pasos necesitas para girar cierto ángulo:"
         },
         {
-         "frente": "Semestres 3-4",
-         "reverso": "Circuitos, Estática y dinámica, Electrónica digital, Mecanismos"
-        },
-        {
-         "frente": "Semestres 5-6",
-         "reverso": "Control automático, Microcontroladores, Sensores y actuadores, Neumática e hidráulica"
-        },
-        {
-         "frente": "Semestres 7 en adelante",
-         "reverso": "Robótica, Automatización industrial (PLC), Proyecto integrador"
+         "f": "pasos = {ángulo|360} × pasos por vuelta"
         }
        ]
       },
       {
-       "tipo": "decision",
-       "pregunta": "¿Cuál de estas materias llevarías en Mecatrónica?",
+       "tipo": "pregunta",
+       "pregunta": "Un motor a pasos tiene 200 pasos por vuelta. ¿Cuántos pasos necesitas para girar 90 grados?",
        "opciones": [
+        "50",
+        "90",
+        "200"
+       ],
+       "correcta": 0,
+       "formula": "{90|360} × 200 = 50"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Qué motor usas para que la articulación de un robot vaya a una posición exacta y se quede ahí?",
+       "opciones": [
+        "Cualquiera",
+        "Un servomotor",
+        "Un ventilador"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Qué motor suelen usar las impresoras 3D para mover el cabezal con precisión?",
+       "opciones": [
+        "Motores a pasos",
+        "Ninguno",
+        "Motores de lavadora"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "teves"
+      }
+     ]
+    },
+    {
+     "id": "4",
+     "titulo": "PLC y automatización industrial",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "PLC y automatización industrial",
+       "partes": [
         {
-         "texto": "Cálculo",
-         "consecuencia": "Sí: es de las primeras materias de Mecatrónica.",
-         "mejor": true
-        },
-        {
-         "texto": "Fundamentos de mercadotecnia",
-         "consecuencia": "Esa es de Mercadotecnia."
-        },
-        {
-         "texto": "Contabilidad",
-         "consecuencia": "Esa es de Finanzas."
+         "t": "En las fábricas, las máquinas se controlan con PLC, que son computadoras industriales muy resistentes. Leen entradas, como botones y sensores, y controlan salidas, como motores y válvulas, siguiendo un programa que se repite muchas veces por segundo. Todo sistema industrial tiene un paro de emergencia, un botón rojo que detiene todo de inmediato y que debe funcionar aunque falle el programa. Antes de poner a funcionar una línea, se prueba cada entrada y salida."
         }
        ]
       },
       {
-       "tipo": "reflexion",
-       "pregunta": "¿Cuál te da más curiosidad?",
+       "tipo": "pregunta",
+       "pregunta": "¿Qué es un PLC?",
        "opciones": [
-        "Cálculo",
-        "Física",
-        "Programación",
-        "Dibujo CAD"
+        "Un tipo de motor",
+        "Una computadora industrial que controla máquinas",
+        "Un sensor de luz"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Qué debe pasar al presionar el paro de emergencia?",
+       "opciones": [
+        "Termina la pieza y luego para",
+        "Todo se detiene de inmediato, aunque falle el programa",
+        "Nada"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Un operador tapó el botón de paro de emergencia con una caja.",
+       "opciones": [
+        "Lo dejas",
+        "Lo quitas",
+        "Lo despejas de inmediato; debe estar siempre a la mano"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Vas a poner a funcionar una línea nueva. ¿Qué haces antes?",
+       "opciones": [
+        "Pruebas cada entrada y salida",
+        "Nada",
+        "La prendes a toda velocidad"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "teves"
+      }
+     ]
+    },
+    {
+     "id": "5",
+     "titulo": "Neumática",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "Neumática",
+       "partes": [
+        {
+         "t": "Muchas máquinas usan aire comprimido para mover pistones: es rápido, limpio y sencillo. La fuerza de un pistón depende de la presión y del área:"
+        },
+        {
+         "f": "fuerza = presión × área"
+        },
+        {
+         "t": "Si quieres más fuerza con la misma presión, usas un pistón más grande. La hidráulica funciona igual pero con aceite, que aguanta presiones mucho mayores, por eso se usa en prensas y maquinaria pesada. El aire comprimido es peligroso si se apunta a una persona."
+        }
        ]
       },
       {
-       "tipo": "clave",
-       "texto": "Las primeras materias son la base; muchas veces son las más pesadas."
+       "tipo": "pregunta",
+       "pregunta": "Un pistón tiene un área de 0.002 metros cuadrados y trabaja a 600,000 pascales. ¿Qué fuerza da?",
+       "opciones": [
+        "600,000 newtons",
+        "300 newtons",
+        "1,200 newtons"
+       ],
+       "correcta": 2,
+       "formula": "600,000 × 0.002 = 1,200"
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "Necesitas más fuerza y no puedes subir la presión. ¿Qué haces?",
+       "opciones": [
+        "Uno más pequeño",
+        "Usas un pistón de mayor área",
+        "Nada"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Por qué las prensas grandes usan hidráulica en vez de aire?",
+       "opciones": [
+        "Porque el aire es caro",
+        "Por el color",
+        "Porque el aceite aguanta presiones mucho mayores"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "teves"
       }
      ]
     }
@@ -432,184 +335,118 @@
   },
   {
    "id": "u3",
+   "titulo": "Robots de verdad",
+   "sub": "Robots e integración",
    "lecciones": [
     {
-     "id": "3.1",
-     "titulo": "Un día real",
+     "id": "6",
+     "titulo": "Robots",
      "minutos": 4,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Un día de trabajo en Mecatrónica",
-       "puntos": [
-        "Diseña y programa sistemas automáticos: robots, líneas de producción, máquinas inteligentes.",
-        "Trabaja en plantas automotrices, de manufactura o en desarrollo de productos."
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "¿Qué de esto NO es parte del día de alguien de Mecatrónica?",
-       "opciones": [
+       "titulo": "Robots",
+       "partes": [
         {
-         "texto": "Cocina, crea platillos, controla costos e inventarios, dirige equipos de cocina y, si emprende, administra su propio negocio de comida.",
-         "consecuencia": "Exacto: eso lo hace alguien de Gastronomía.",
-         "mejor": true
-        },
-        {
-         "texto": "Diseña y programa sistemas automáticos: robots, líneas de producción, máquinas inteligentes.",
-         "consecuencia": "Esto sí lo hace: es parte de su día."
-        },
-        {
-         "texto": "Trabaja en plantas automotrices, de manufactura o en desarrollo de productos.",
-         "consecuencia": "Esto sí lo hace: es parte de su día."
+         "t": "Un robot industrial tiene varias articulaciones, y el número de movimientos independientes se llama grados de libertad. Un brazo con 6 grados de libertad puede poner su herramienta en casi cualquier posición y orientación. Los robots industriales trabajan dentro de celdas con rejas y sensores, porque se mueven rápido y con mucha fuerza: si una persona entra, el robot se detiene. Los robots colaborativos son más lentos y están diseñados para trabajar junto a personas."
         }
        ]
       },
       {
-       "tipo": "reflexion",
-       "pregunta": "¿Te ves haciendo esto todos los días?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
+       "tipo": "pregunta",
+       "pregunta": "¿Qué son los grados de libertad de un robot?",
+       "opciones": [
+        "El número de movimientos independientes que puede hacer",
+        "Su temperatura",
+        "Cuántas horas puede trabajar"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "clave",
-       "texto": "El día a día pesa más que el título."
+       "tipo": "pregunta",
+       "pregunta": "Un técnico quiere entrar a la celda de un robot industrial mientras está funcionando para \"acomodar una pieza rápido\".",
+       "opciones": [
+        "Le dices que se apure",
+        "Lo dejas",
+        "Lo detienes; el robot debe estar parado y bloqueado antes de entrar"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "¿Qué tipo de robot está diseñado para trabajar junto a personas?",
+       "opciones": [
+        "Un robot colaborativo",
+        "Ninguno",
+        "Uno industrial sin rejas"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Por qué los robots industriales trabajan dentro de rejas?",
+       "opciones": [
+        "Por estética",
+        "Para que no se escapen",
+        "Porque se mueven rápido y con mucha fuerza"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
-     "id": "3.2",
-     "titulo": "Lo difícil",
+     "id": "7",
+     "titulo": "Integrar un proyecto",
      "minutos": 4,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Lo difícil de Mecatrónica",
-       "texto": "Se considera de dificultad alta.",
-       "puntos": [
-        "Junta lo difícil de mecánica, electrónica y programación",
-        "Control automático es el filtro."
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "Según lo que leíste, ¿qué es lo que más cuesta en Mecatrónica?",
-       "opciones": [
+       "titulo": "Integrar un proyecto",
+       "partes": [
         {
-         "texto": "Junta lo difícil de mecánica, electrónica y programación",
-         "consecuencia": "Sí, es de lo que más cuesta en Mecatrónica.",
-         "mejor": true
+         "t": "Un proyecto de mecatrónica junta todo: el diseño mecánico, la electrónica y el programa. Lo más difícil suele ser que las partes funcionen juntas. Por eso se prueba cada parte por separado y luego integradas, paso a paso. Se documenta cómo se conectó todo, para que otro pueda darle mantenimiento. Y antes de automatizar algo, se pregunta si de verdad conviene: cuánto cuesta y en cuánto tiempo se recupera."
         },
         {
-         "texto": "Contabilidad, Matemáticas financieras y Estadística son lo más pesado",
-         "consecuencia": "Eso es más de Negocios."
-        },
-        {
-         "texto": "Lectura teórica (filosofía, psicología educativa) e Investigación educativa.",
-         "consecuencia": "Eso es más de Educación."
+         "f": "meses para recuperar = {costo de la automatización|ahorro por mes}"
         }
        ]
       },
       {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué tanto te preocupa esto?",
-       "escala": [
-        "Mucho",
-        "Nada"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Saber lo difícil desde antes te ayuda a prepararte."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "3.3",
-     "titulo": "Historia real",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Si pudieras preguntarle algo a alguien que ya estudia Mecatrónica, ¿qué sería?",
+       "tipo": "pregunta",
+       "pregunta": "Automatizar una estación cuesta 600,000 pesos y ahorra 50,000 al mes. ¿En cuánto tiempo se recupera?",
        "opciones": [
-        "¿Qué fue lo más difícil?",
-        "¿Qué te sorprendió?",
-        "¿Volverías a elegirla?",
-        "¿Cómo es un día normal?"
-       ]
+        "12 meses",
+        "6 meses",
+        "50 meses"
+       ],
+       "correcta": 0,
+       "formula": "{600,000|50,000} = 12"
       },
       {
-       "tipo": "testimonio",
-       "estado": "pendiente",
-       "perfil": "Estudiante de últimos semestres o egresado de Mecatrónica"
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "Mientras llega esta historia, ¿a quién podrías preguntarle tú?",
+       "tipo": "pregunta",
+       "pregunta": "Armaste todo tu robot de una vez y no funciona. ¿Qué habría ayudado?",
        "opciones": [
-        "A un familiar o conocido que la estudió",
-        "A un estudiante de mi ciudad",
-        "A un maestro que la conozca",
-        "Todavía no conozco a nadie"
-       ]
+        "Armarlo más rápido",
+        "Nada",
+        "Probar cada parte por separado antes de integrarlas"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "clave",
-       "texto": "Una persona real te cuenta lo que ningún folleto dice."
+       "tipo": "pregunta",
+       "pregunta": "¿Por qué se documenta cómo se conectó todo?",
+       "opciones": [
+        "Para alargar el proyecto",
+        "Para que otra persona pueda darle mantenimiento",
+        "Para nada"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "3.4",
-     "titulo": "¿Es para ti?",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Contesta con honestidad. Nadie más ve tus respuestas."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Me gustaría construir un robot desde cero?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Me gusta tanto lo mecánico como lo electrónico?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Disfruto proyectos largos de prueba y error?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Si dijiste que sí a casi todo, vale la pena seguir explorándola."
-      },
-      {
-       "tipo": "interes"
+       "tipo": "teves"
       }
      ]
     }
@@ -617,447 +454,128 @@
   },
   {
    "id": "u4",
+   "titulo": "Examen final",
+   "sub": "10 preguntas · apruebas con 7",
    "lecciones": [
     {
-     "id": "4.1",
-     "titulo": "Cuánto dura y qué estudias",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Cada escuela arma su plan distinto, pero el orden general se parece. Vamos a verlo."
-      },
-      {
-       "tipo": "ordenar",
-       "pregunta": "Ordena lo que estudias, de lo primero a lo último.",
-       "pasos": [
-        "Cálculo, Física",
-        "Circuitos, Estática y dinámica",
-        "Control automático, Microcontroladores",
-        "Robótica, Automatización industrial (PLC)"
-       ],
-       "revelacion": "Primero las bases y al final lo más especializado y las prácticas."
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Cuántos años crees que pasan desde que entras hasta que te titulas?",
-       "min": 3,
-       "max": 10,
-       "paso": 1,
-       "unidad": "años",
-       "dato": "mecatronica.duracion"
-      },
-      {
-       "tipo": "clave",
-       "texto": "Revisa el mapa curricular de cada escuela: cambia de una a otra."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "4.2",
-     "titulo": "Cómo se entra",
-     "minutos": 4,
+     "id": "ex",
+     "titulo": "Examen final",
+     "minutos": 6,
+     "examen": true,
+     "aprobar": 7,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Cómo se entra en la región",
-       "puntos": [
-        "UNAM: Concurso de selección UNAM (120 reactivos) o pase reglamentado desde CCH/ENP",
-        "IPN: Examen de admisión IPN (140 preguntas, hasta 3 horas, incluye sección de inglés)",
-        "UAEM: EXANI-II de CENEVAL + curso propedéutico",
-        "Tec de Monterrey: PAA (Prueba de Aptitud Académica), SAT o ACT + promedio + perfil integral (ensayo, currículum)"
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "Según lo que leíste, ¿qué pide UNAM para entrar?",
-       "opciones": [
+       "titulo": "Examen final",
+       "partes": [
         {
-         "texto": "Concurso de selección UNAM (120 reactivos) o pase reglamentado desde CCH/ENP",
-         "consecuencia": "Exacto.",
-         "mejor": true
-        },
-        {
-         "texto": "Examen de admisión IPN (140 preguntas, hasta 3 horas, incluye sección de inglés)",
-         "consecuencia": "Eso lo pide IPN."
-        },
-        {
-         "texto": "EXANI-II de CENEVAL + curso propedéutico",
-         "consecuencia": "Eso lo pide UAEM."
+         "t": "Son 10 casos nuevos que mezclan todas las lecciones. Apruebas con 7. Si no, lo repites y las que fallaste regresan con otras palabras."
         }
        ]
       },
       {
-       "tipo": "vf",
-       "afirmacion": "Todas las universidades usan el mismo examen.",
-       "respuesta": false,
-       "revelacion": "Cada una tiene el suyo: revisa la convocatoria de la que te interese."
-      },
-      {
-       "tipo": "clave",
-       "texto": "Conoce el examen de tu escuela desde antes."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "4.3",
-     "titulo": "Dónde, cuánto cuesta y becas",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "escuelas"
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Cuánto crees que cuesta un semestre en una universidad pública?",
-       "min": 0,
-       "max": 60000,
-       "paso": 1000,
-       "unidad": "pesos",
-       "dato": "mecatronica.costo_publica"
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Y un semestre en una universidad privada?",
-       "min": 0,
-       "max": 300000,
-       "paso": 5000,
-       "unidad": "pesos",
-       "dato": "mecatronica.costo_privada"
-      },
-      {
-       "tipo": "dato",
-       "titulo": "Becas para estudiar Mecatrónica",
-       "dato": "mecatronica.becas"
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Una universidad cara garantiza un mejor empleo.",
-       "respuesta": false,
-       "revelacion": "Pesan más lo que aprendes, tus prácticas y tu esfuerzo."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué pesa más para ti al elegir escuela?",
+       "tipo": "pregunta",
+       "pregunta": "¿Qué tres partes tiene un sistema automático?",
        "opciones": [
-        "El costo",
-        "Que esté cerca de mi casa",
-        "El prestigio",
-        "Las prácticas que ofrece"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Además de la colegiatura, cuenta transporte y materiales."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "u5",
-   "lecciones": [
-    {
-     "id": "5.1",
-     "titulo": "Qué piden para trabajar",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Qué te piden para trabajar",
-       "puntos": [
-        "No requiere cédula para la mayoría de puestos."
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "Según lo que leíste, ¿qué necesitas para ejercer Mecatrónica?",
-       "opciones": [
-        {
-         "texto": "No requiere cédula para la mayoría de puestos.",
-         "consecuencia": "Exacto.",
-         "mejor": true
-        },
-        {
-         "texto": "Cédula para firmar dictámenes",
-         "consecuencia": "Eso lo piden en Contaduría."
-        },
-        {
-         "texto": "Cédula para firmar proyectos y licencias",
-         "consecuencia": "Eso lo piden en Arquitectura."
-        }
-       ]
-      },
-      {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Cómo te ves?",
-       "a": {
-        "texto": "En una institución o empresa",
-        "dice": "Más estabilidad y un equipo de quien aprender."
-       },
-       "b": {
-        "texto": "Por tu cuenta",
-        "dice": "Más libertad, pero tienes que conseguir clientes."
-       }
-      },
-      {
-       "tipo": "clave",
-       "texto": "Saber qué te piden te ahorra sorpresas al salir."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "5.2",
-     "titulo": "Sueldo y demanda",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Hablemos de dinero sin rodeos. Antes de ver cualquier cifra, apuesta: así recuerdas mejor el dato real."
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Cuánto crees que gana al mes, en promedio, un profesionista de Mecatrónica en México?",
-       "min": 5000,
-       "max": 100000,
-       "paso": 1000,
-       "unidad": "pesos",
-       "dato": "mecatronica.ingreso"
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "De cada 100 egresados, ¿cuántos crees que trabajan en algo de su carrera?",
-       "min": 0,
-       "max": 100,
-       "paso": 5,
-       "unidad": "de cada 100",
-       "dato": "mecatronica.ocupacion_afin"
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Todos los egresados de Mecatrónica ganan lo mismo.",
-       "respuesta": false,
-       "revelacion": "Cambia con la experiencia, el lugar, la especialidad y si trabajas por tu cuenta."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué tanto pesa el sueldo en tu decisión?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "El promedio orienta, pero tu camino puede ser distinto."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "5.3",
-     "titulo": "Cómo les va al salir",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "chat",
-       "subtitulo": "Te cuenta cómo les va al salir",
-       "intro": [
-        "Te cuento cómo les va a quienes estudian Mecatrónica al salir."
+        "Motor, rueda y cable",
+        "Sensores, controlador y actuadores",
+        "Pantalla, teclado y mouse"
        ],
-       "temas": [
-        {
-         "q": "¿Cuántos trabajan en lo suyo?",
-         "a": [
-          "Cerca de la mitad trabaja en algo de su carrera.",
-          "Es un promedio nacional del IMCO."
-         ]
-        },
-        {
-         "q": "¿Muchos hacen posgrado?",
-         "a": [
-          "Pocos hacen posgrado; la mayoría empieza a trabajar."
-         ]
-        },
-        {
-         "q": "¿Hay más hombres o mujeres?",
-         "a": [
-          "Hay más hombres que mujeres.",
-          "Eso no decide nada: cualquiera puede estudiarla."
-         ]
-        },
-        {
-         "q": "¿El trabajo tiene prestaciones?",
-         "a": [
-          "La mayoría tiene un trabajo formal, con prestaciones.",
-          "Las prestaciones son cosas como seguro médico y aguinaldo."
-         ]
-        }
+       "correcta": 1
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Quieres 100 grados y mides 85. ¿Cuál es el error?",
+       "opciones": [
+        "85 grados",
+        "15 grados",
+        "185 grados"
        ],
-       "minimo": 2
+       "correcta": 1,
+       "formula": "100 − 85 = 15"
       },
       {
-       "tipo": "vf",
-       "afirmacion": "La mayoría de quienes estudian Mecatrónica trabaja en algo de su carrera.",
-       "respuesta": true,
-       "revelacion": "Cerca de la mitad trabaja en algo de su carrera. Promedio nacional del IMCO."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué te importa más de tu futuro trabajo?",
+       "tipo": "pregunta",
+       "pregunta": "Un sistema corrige tan fuerte que se pasa de un lado a otro. ¿Qué pasa?",
        "opciones": [
-        "Que tenga que ver con lo que estudié",
-        "Ganar bien",
-        "Tener prestaciones",
-        "Hacer algo que me guste"
-       ]
+        "Está perfecto",
+        "Está apagado",
+        "Oscila"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "clave",
-       "texto": "Pregunta cómo les va a quienes ya salieron."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "5.4",
-     "titulo": "Después de titularte",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Después de titularte",
-       "puntos": [
-        "Puedes especializarte con cursos, diplomados o una maestría.",
-        "También puedes trabajar desde el inicio y estudiar después.",
-        "Se combina bien con: Ingeniería Electrónica y Telecomunicaciones, Ingeniería Mecánica, Ingeniería en Sistemas Computacionales / Computación."
-       ]
-      },
-      {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Qué harías al terminar?",
-       "a": {
-        "texto": "Trabajar desde el inicio",
-        "dice": "Ganas experiencia y dinero; después decides si estudias más."
-       },
-       "b": {
-        "texto": "Seguir estudiando",
-        "dice": "Te especializas antes; tardas más en empezar a trabajar."
-       }
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Cómo te imaginas después de la carrera?",
+       "tipo": "pregunta",
+       "pregunta": "Un motor a pasos de 200 pasos por vuelta. ¿Cuántos pasos para girar 180 grados?",
        "opciones": [
-        "Trabajando",
-        "En una maestría",
-        "Emprendiendo",
-        "No sé todavía"
-       ]
+        "180",
+        "200",
+        "100"
+       ],
+       "correcta": 2,
+       "formula": "{180|360} × 200 = 100"
       },
       {
-       "tipo": "clave",
-       "texto": "Al titularte empieza otra parte del camino, no termina."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "u6",
-   "lecciones": [
-    {
-     "id": "6.1",
-     "titulo": "Lo que sentiste",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Antes de ver tus respuestas: ¿cómo te fue con Mecatrónica?",
+       "tipo": "pregunta",
+       "pregunta": "¿Qué motor mantiene una posición exacta?",
        "opciones": [
-        "Me gustó más de lo que pensaba",
-        "Más o menos como esperaba",
-        "Me gustó menos de lo que pensaba"
-       ]
+        "El servomotor",
+        "El ventilador",
+        "Ninguno"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "resumen"
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "Viendo tus respuestas, ¿qué pesó más?",
+       "tipo": "pregunta",
+       "pregunta": "¿Qué debe hacer el paro de emergencia?",
        "opciones": [
-        "Lo que sentí al probarla",
-        "Lo que supe de la realidad",
-        "El camino para llegar",
-        "El futuro que ofrece"
-       ]
+        "Pausar después",
+        "Detener todo de inmediato",
+        "Nada"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "clave",
-       "texto": "Lo que sentiste al probarla vale más que lo que imaginabas."
-      },
-      {
-       "tipo": "interes",
-       "pregunta": "¿Te ves estudiando Mecatrónica?"
-      }
-     ]
-    },
-    {
-     "id": "6.2",
-     "titulo": "Tu veredicto",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Si mañana tuvieras que elegir carrera, ¿Mecatrónica estaría entre tus opciones?",
+       "tipo": "pregunta",
+       "pregunta": "Un pistón de 0.001 metros cuadrados a 500,000 pascales. ¿Qué fuerza da?",
        "opciones": [
-        "Sí, entre las primeras",
-        "Sí, pero no arriba",
-        "No creo",
-        "No lo sé"
-       ]
+        "5,000 newtons",
+        "500,000 newtons",
+        "500 newtons"
+       ],
+       "correcta": 2,
+       "formula": "500,000 × 0.001 = 500"
       },
       {
-       "tipo": "comparar"
+       "tipo": "pregunta",
+       "pregunta": "¿Qué haces antes de entrar a la celda de un robot?",
+       "opciones": [
+        "Lo detienes y bloqueas",
+        "Nada",
+        "Entras rápido"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Qué te ayudaría más a decidir?",
-       "a": {
-        "texto": "Hablar con alguien que la estudia",
-        "dice": "Busca a un estudiante o egresado cerca de ti y hazle tus preguntas. Una plática aclara más que diez videos."
-       },
-       "b": {
-        "texto": "Probar otra carrera y comparar",
-        "dice": "Explora otra de tu mapa. Comparar dos caminos reales aclara más que pensar en uno solo."
-       }
+       "tipo": "pregunta",
+       "pregunta": "Automatizar cuesta 300,000 pesos y ahorra 25,000 al mes. ¿En cuánto se recupera?",
+       "opciones": [
+        "12 meses",
+        "25 meses",
+        "3 meses"
+       ],
+       "correcta": 0,
+       "formula": "{300,000|25,000} = 12"
       },
       {
-       "tipo": "veredicto"
-      },
-      {
-       "tipo": "clave",
-       "texto": "Decidir «en duda» también es avanzar."
+       "tipo": "pregunta",
+       "pregunta": "¿Cómo se integra un proyecto con menos problemas?",
+       "opciones": [
+        "Sin probar",
+        "Probando cada parte por separado y luego juntas",
+        "Todo de una vez"
+       ],
+       "correcta": 1
       }
      ]
     }

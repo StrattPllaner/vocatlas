@@ -1,0 +1,127 @@
+**Lección 1: Los números del hotel (4 preguntas)**
+
+Un hotel mide su desempeño con pocos números. La ocupación dice qué parte de los cuartos se vendió, y la tarifa promedio dice cuánto se cobró en promedio por cuarto vendido:
+
+$$\text{ocupación} = \frac{\text{cuartos vendidos}}{\text{cuartos disponibles}} \times 100 \qquad \text{tarifa promedio} = \frac{\text{ingreso por cuartos}}{\text{cuartos vendidos}}$$
+
+Un hotel lleno pero con tarifas muy bajas puede ganar menos que uno a media ocupación con buenas tarifas. Por eso los precios cambian según la temporada y la demanda.
+
+Pregunta 1. Un hotel de 80 cuartos vendió 60 una noche. ¿Cuál fue su ocupación? A: 133 por ciento. B: 60 por ciento. C: 75 por ciento. Correcta: C, porque
+
+$$\frac{60}{80} \times 100 = 75$$
+
+Pregunta 2. Ese hotel cobró en total 90,000 pesos por esos 60 cuartos. ¿Cuál es su tarifa promedio? A: 1,125 pesos. B: 1,500 pesos. C: 5,400,000 pesos. Correcta: B, porque
+
+$$\frac{90{,}000}{60} = 1{,}500$$
+
+Pregunta 3. ¿Por qué un hotel sube sus precios en Semana Santa? A: por capricho. B: porque cambian los cuartos. C: porque hay más demanda. Correcta: C.
+
+Pregunta 4. ¿Un hotel lleno siempre gana más? A: nunca. B: no; si sus tarifas son muy bajas, puede ganar menos. C: sí, siempre. Correcta: B.
+
+**Lección 2: El servicio (4 preguntas)**
+
+En turismo, lo que se vende es una experiencia, y la experiencia depende de las personas. Un buen servicio anticipa lo que el huésped necesita, resuelve rápido y con amabilidad, y cumple lo que se prometió. Cuando hay una queja, se escucha sin interrumpir, se pide una disculpa sincera, se resuelve y se da seguimiento. Un huésped cuya queja se resolvió bien muchas veces regresa más leal que uno que nunca tuvo problemas.
+
+Pregunta 1. Un huésped se queja de que el aire acondicionado no funciona. ¿Qué haces? A: lo ignoras. B: le dices que así está. C: lo escuchas, te disculpas, lo resuelves rápido o lo cambias de cuarto, y das seguimiento. Correcta: C.
+
+Pregunta 2. ¿Qué vende realmente el turismo? A: solo comida. B: solo camas. C: una experiencia. Correcta: C.
+
+Pregunta 3. Una familia llega con un bebé y no pidió cuna. ¿Qué es un buen servicio? A: ofrecerle una cuna antes de que la pida. B: cobrarle por preguntar. C: esperar a que se queje. Correcta: A.
+
+Pregunta 4. ¿Qué pasa con un huésped cuya queja se resolvió bien? A: nunca regresa. B: nada. C: muchas veces regresa más leal. Correcta: C.
+
+**Lección 3: Reservaciones (3 preguntas)**
+
+Las reservaciones llegan por la página del hotel, por agencias de viaje en línea y por teléfono. Las agencias en línea traen muchos clientes, pero cobran una comisión por cada reserva:
+
+$$\text{lo que recibe el hotel} = \text{precio} \times (1 - \text{comisión})$$
+
+Algunos hoteles venden más cuartos de los que tienen, porque siempre hay cancelaciones; eso se llama sobreventa. Si fallan los cálculos y un huésped con reservación se queda sin cuarto, el hotel tiene que reubicarlo en otro hotel igual o mejor, y compensarlo.
+
+Pregunta 1. Un cuarto se vende en 2,000 pesos por una agencia en línea que cobra 15 por ciento de comisión. ¿Cuánto recibe el hotel? A: 2,000 pesos. B: 300 pesos. C: 1,700 pesos. Correcta: C, porque
+
+$$2{,}000 \times 0.85 = 1{,}700$$
+
+Pregunta 2. Por la sobreventa, un huésped con reservación confirmada se queda sin cuarto. ¿Qué haces? A: lo reubicas en un hotel igual o mejor y lo compensas. B: le dices que regrese mañana. C: lo mandas a la calle. Correcta: A.
+
+Pregunta 3. ¿Por qué un hotel quiere que reserves en su propia página? A: porque no paga comisión. B: por moda. C: no le importa. Correcta: A.
+
+**Lección 4: Diseñar un viaje (4 preguntas)**
+
+Un profesional del turismo diseña paquetes e itinerarios: transporte, hospedaje, comidas, actividades y guías. Se calculan tiempos realistas de traslado, se dejan márgenes por imprevistos y se arma un precio por persona. Para calcularlo, se suman los costos fijos del grupo, como el autobús, divididos entre las personas, más los costos por persona, como las entradas:
+
+$$\text{costo por persona} = \frac{\text{costos del grupo}}{\text{personas}} + \text{costos por persona}$$
+
+Pregunta 1. Un autobús para un grupo cuesta 12,000 pesos y van 40 personas. Cada entrada cuesta 100 pesos. ¿Cuál es el costo por persona? A: 300 pesos. B: 400 pesos. C: 12,100 pesos. Correcta: B, porque
+
+$$\frac{12{,}000}{40} + 100 = 400$$
+
+Pregunta 2. Si solo van 20 personas, ¿cuánto sale por persona? A: 700 pesos. B: 600 pesos. C: 400 pesos. Correcta: A, porque
+
+$$\frac{12{,}000}{20} + 100 = 700$$
+
+Pregunta 3. Un itinerario pone ir de Cuernavaca a Taxco, recorrer la ciudad y regresar en dos horas. ¿Qué problema tiene? A: los tiempos no son realistas. B: ninguno. C: que es muy largo. Correcta: A.
+
+Pregunta 4. ¿Por qué se dejan márgenes en un itinerario? A: no se dejan. B: para cubrir imprevistos como tráfico o retrasos. C: para aburrirse. Correcta: B.
+
+**Lección 5: Turismo sustentable (3 preguntas)**
+
+El turismo trae empleo y dinero, pero si crece sin control puede dañar lo que la gente viene a ver: playas saturadas, basura en los cerros, agua que no alcanza para los habitantes. La capacidad de carga es cuántos visitantes aguanta un lugar sin dañarse. El turismo sustentable cuida el ambiente, respeta a la comunidad local y busca que los beneficios se queden también en la población, por ejemplo contratando guías y comprando a productores locales.
+
+Pregunta 1. Un pueblo mágico se llena tanto los fines de semana que los habitantes se quedan sin agua y las calles se llenan de basura. ¿Qué concepto se está rebasando? A: la tarifa promedio. B: la ocupación. C: la capacidad de carga. Correcta: C.
+
+Pregunta 2. ¿Qué busca el turismo sustentable? A: construir en todos lados. B: traer la mayor cantidad posible de gente. C: cuidar el ambiente, respetar a la comunidad y que los beneficios se queden también ahí. Correcta: C.
+
+Pregunta 3. Diseñas un recorrido por una comunidad. ¿Qué ayuda a que los beneficios se queden ahí? A: contratar guías locales y comprar a productores de la zona. B: no detenerse. C: llevar todo de fuera. Correcta: A.
+
+**Lección 6: Promoción y reseñas (4 preguntas)**
+
+Hoy muchos viajeros eligen dónde ir por fotos en redes y reseñas en línea. Un destino o un hotel se promociona con imágenes reales, información clara de precios y servicios, y facilidad para reservar. Las reseñas negativas se responden con educación y soluciones, nunca con insultos. Prometer algo que no existe, como "vista al mar" desde un cuarto que no la tiene, trae malas reseñas y quejas formales.
+
+Pregunta 1. Un huésped deja una reseña negativa con razón. ¿Cómo respondes? A: borrando la reseña. B: con educación, reconociendo el problema y explicando cómo se resolverá. C: insultándolo. Correcta: B.
+
+Pregunta 2. Un anuncio muestra una alberca enorme que en realidad es pequeña. ¿Qué pasa probablemente? A: más clientes satisfechos. B: malas reseñas y quejas. C: nada. Correcta: B.
+
+Pregunta 3. ¿Qué ayuda más a promocionar un hotel? A: fotos reales, información clara y reservar fácil. B: fotos falsas. C: no tener página. Correcta: A.
+
+Pregunta 4. ¿Por qué importan tanto las reseñas en línea? A: no importan. B: por moda. C: porque muchos viajeros eligen por ellas. Correcta: C.
+
+**Lección 7: Seguridad del visitante (3 preguntas)**
+
+Quien trabaja en turismo es responsable de la seguridad de sus visitantes. Un hotel tiene rutas de evacuación, extintores y personal capacitado; en Morelos y otros estados sísmicos, también protocolo de sismo. En actividades como senderismo o deportes de aventura, se revisa el equipo, se da una plática de seguridad y se sigue el plan si algo cambia, por ejemplo si se viene una tormenta. Un guía siempre lleva un botiquín y sabe a quién llamar en una emergencia.
+
+Pregunta 1. Vas a guiar un recorrido al cerro y se anuncia una tormenta fuerte. ¿Qué haces? A: subes igual. B: cambias o pospones el recorrido por seguridad. C: dejas que cada quien decida solo. Correcta: B.
+
+Pregunta 2. ¿Qué debe tener un hotel en una zona sísmica? A: solo un letrero. B: rutas de evacuación y protocolo de sismo. C: nada. Correcta: B.
+
+Pregunta 3. ¿Qué lleva siempre un guía? A: un botiquín y contactos de emergencia. B: solo la cámara. C: nada. Correcta: A.
+
+**Examen final**
+
+Pregunta 1. Un hotel de 100 cuartos vendió 85. ¿Cuál fue su ocupación? A: 15 por ciento. B: 85 por ciento. C: 100 por ciento. Correcta: B, porque
+
+$$\frac{85}{100} \times 100 = 85$$
+
+Pregunta 2. Un hotel ganó 60,000 pesos vendiendo 40 cuartos. ¿Cuál es su tarifa promedio? A: 1,500 pesos. B: 2,400,000 pesos. C: 600 pesos. Correcta: A, porque
+
+$$\frac{60{,}000}{40} = 1{,}500$$
+
+Pregunta 3. ¿Qué haces ante una queja? A: ignorarla. B: discutir. C: escuchar, disculparte, resolver y dar seguimiento. Correcta: C.
+
+Pregunta 4. Un cuarto de 1,000 pesos se vende por una agencia que cobra 20 por ciento. ¿Cuánto recibe el hotel? A: 200 pesos. B: 800 pesos. C: 1,000 pesos. Correcta: B, porque
+
+$$1{,}000 \times 0.80 = 800$$
+
+Pregunta 5. Un huésped con reservación se queda sin cuarto. A: nada. B: lo reubicas en otro hotel igual o mejor y lo compensas. C: lo mandas a casa. Correcta: B.
+
+Pregunta 6. Un autobús de 9,000 pesos para 30 personas y entradas de 50. ¿Cuál es el costo por persona? A: 300 pesos. B: 350 pesos. C: 9,050 pesos. Correcta: B, porque
+
+$$\frac{9{,}000}{30} + 50 = 350$$
+
+Pregunta 7. ¿Qué es la capacidad de carga? A: cuántos visitantes aguanta un lugar sin dañarse. B: el tamaño del autobús. C: cuánto pesa una maleta. Correcta: A.
+
+Pregunta 8. ¿Cómo respondes una reseña negativa? A: con educación y soluciones. B: borrándola. C: con insultos. Correcta: A.
+
+Pregunta 9. ¿Qué pasa si prometes algo que no existe en tu anuncio? A: nada. B: más clientes felices. C: malas reseñas y quejas. Correcta: C.
+
+Pregunta 10. Se anuncia una tormenta antes de un recorrido. A: cambias o pospones por seguridad. B: sigues. C: no avisas. Correcta: A.

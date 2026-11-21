@@ -1,227 +1,167 @@
 {
  "id": "fisica",
- "version": 1,
+ "version": 2,
+ "formato": 2,
  "estado": "completo",
- "generado": true,
- "revision": "Armada automáticamente con la base de carreras de Morelos y CDMX (2026-11-17). Falta que la revise alguien de la carrera.",
+ "revision": "Pendiente de revisión por un profesionista de la carrera. Generado con datos/importar_lecciones.py desde datos/fuentes/lecciones/fisica.lec; no se edita a mano.",
  "unidades": [
   {
    "id": "u1",
+   "titulo": "Movimiento y fuerza",
+   "sub": "Velocidad, aceleración y Newton",
    "lecciones": [
     {
-     "id": "1.1",
-     "titulo": "Qué es y qué hace",
-     "minutos": 3,
+     "id": "0",
+     "titulo": "Conócela",
+     "minutos": 1,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "¿Qué es Física?",
-       "texto": "Fundamentos científicos y cuantitativos para explicar fenómenos naturales y resolver problemas mediante experimentación, modelos, análisis de datos y trabajo de laboratorio.",
-       "puntos": [
-        "Investiga fenómenos físicos, hace simulaciones por computadora o aplica la física en tecnología, energía, medicina, datos o docencia."
+       "tipo": "ficha",
+       "texto": "Física forma científicos que explican cómo funciona el universo con matemáticas y experimentos: desde los átomos hasta las galaxias. Trabajan en investigación, docencia, industria, hospitales, tecnología y hasta finanzas, porque saben modelar problemas difíciles.",
+       "cifras": [
+        "fisica.becas",
+        "fisica.duracion",
+        "fisica.costo_publica",
+        "fisica.costo_privada"
        ]
       },
       {
-       "tipo": "decision",
-       "pregunta": "Por lo que leíste, ¿qué hace alguien de Física?",
-       "opciones": [
-        {
-         "texto": "Investiga fenómenos físicos, hace simulaciones por computadora o aplica la física en tecnología, energía, medicina, datos o docencia.",
-         "consecuencia": "Exacto: eso es parte del día a día en Física.",
-         "mejor": true
-        },
-        {
-         "texto": "Analiza datos para entender precios, empleo, comercio o políticas: hace modelos en Excel, R o Python, escribe reportes y recomienda decisiones en bancos, gobierno…",
-         "consecuencia": "Eso lo hace alguien de Economía."
-        },
-        {
-         "texto": "Da clases de educación física, entrena equipos o atletas, diseña programas de actividad física o administra gimnasios y clubes.",
-         "consecuencia": "Eso lo hace alguien de Educación física."
-        }
-       ]
-      },
-      {
-       "tipo": "completar",
-       "frase": "Física es una carrera del área de ___.",
-       "opciones": [
-        "Tecnología y ciencias",
-        "Salud",
-        "Negocios y sociedad"
-       ],
-       "correcta": 0,
-       "revelacion": "Está en Tecnología y ciencias. Se parece a Matemáticas, Ingeniería Aeronáutica y Aeroespacial, Ingeniería Electrónica y Telecomunicaciones."
-      },
-      {
-       "tipo": "clave",
-       "texto": "Antes de elegir, entiende qué harías cada día, no solo el nombre."
-      },
-      {
-       "tipo": "interes"
+       "tipo": "escena",
+       "texto": "Hoy entras al laboratorio de física. Vamos a ver si el mundo se mueve como tú crees."
       }
      ]
     },
     {
-     "id": "1.2",
-     "titulo": "Dónde trabajas",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Dónde trabaja alguien de Física",
-       "texto": "Universidades, centros de investigación, laboratorios, consultoría ambiental, industria, gobierno, análisis de datos, conservación y docencia;",
-       "puntos": [
-        "Algunos puestos valoran mucho el posgrado."
-       ]
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Alguien de Física solo puede trabajar en un tipo de lugar.",
-       "respuesta": false,
-       "revelacion": "Puede trabajar en varios: universidades, centros de investigación, laboratorios."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Dónde te ves trabajando?",
-       "opciones": [
-        "Universidades",
-        "Centros de investigación",
-        "Laboratorios",
-        "Consultoría ambiental"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Una carrera abre varias puertas, no una sola."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "1.3",
-     "titulo": "Pregúntale a Rumbo",
+     "id": "1",
+     "titulo": "Movimiento",
      "minutos": 4,
      "tarjetas": [
       {
-       "tipo": "chat",
-       "subtitulo": "Te cuenta cómo es trabajar en Física",
-       "intro": [
-        "¡Hola! Junté lo que se sabe de Física.",
-        "Pregúntame lo que quieras."
-       ],
-       "temas": [
+       "tipo": "info",
+       "titulo": "Movimiento",
+       "partes": [
         {
-         "q": "¿Qué haces en un día normal?",
-         "a": [
-          "Investiga fenómenos físicos, hace simulaciones por computadora o aplica la física en tecnología, energía, medicina, datos o docencia."
-         ]
+         "t": "La física describe el mundo con pocas ideas y mucha precisión. La velocidad dice qué tan rápido cambia la posición, y la aceleración qué tan rápido cambia la velocidad:"
         },
         {
-         "q": "¿Qué es lo más difícil?",
-         "a": [
-          "Se considera una carrera de dificultad muy alta.",
-          "Cálculo, Mecánica clásica, Electromagnetismo y Mecánica cuántica",
-          "Alta deserción."
-         ]
+         "f": "velocidad = {distancia|tiempo} ;; aceleración = {cambio de velocidad|tiempo}"
         },
         {
-         "q": "¿Hay trabajo?",
-         "a": [
-          "IMCO no publica dato salarial propio para Física",
-          "Muchos egresados terminan en datos, finanzas o tecnología."
-         ]
-        },
-        {
-         "q": "¿Qué necesito para ejercer?",
-         "a": [
-          "No requiere cédula",
-          "La carrera científica pide doctorado."
-         ]
+         "t": "Cerca de la superficie de la Tierra, todo lo que cae libremente acelera unos 9.8 metros por segundo cada segundo, sin importar su masa. Si una pluma cae más lento que una piedra es por la resistencia del aire; en el vacío caen igual."
         }
-       ],
-       "minimo": 2,
-       "auto": true
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Física se considera una carrera de dificultad muy alta.",
-       "respuesta": true,
-       "revelacion": "Se considera de dificultad muy alta. Cálculo, Mecánica clásica, Electromagnetismo y Mecánica cuántica"
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué te llamó más la atención?",
-       "opciones": [
-        "¿Qué haces en un día normal?",
-        "¿Qué es lo más difícil?",
-        "¿Hay trabajo?",
-        "¿Qué necesito para ejercer?"
        ]
       },
       {
-       "tipo": "clave",
-       "texto": "Preguntar a quien ya sabe ahorra muchos errores."
+       "tipo": "pregunta",
+       "pregunta": "Un autobús recorre 120 kilómetros en 2 horas. ¿Cuál es su velocidad promedio?",
+       "opciones": [
+        "122 kilómetros por hora",
+        "60 kilómetros por hora",
+        "240 kilómetros por hora"
+       ],
+       "correcta": 1,
+       "formula": "{120|2} = 60"
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "Un coche pasa de 0 a 20 metros por segundo en 5 segundos. ¿Cuál es su aceleración?",
+       "opciones": [
+        "100",
+        "25",
+        "4 metros por segundo cada segundo"
+       ],
+       "correcta": 2,
+       "formula": "{20|5} = 4"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Dejas caer una piedra. Sin contar el aire, ¿qué velocidad lleva después de 2 segundos?",
+       "opciones": [
+        "19.6 metros por segundo",
+        "2",
+        "9.8"
+       ],
+       "correcta": 0,
+       "formula": "9.8 × 2 = 19.6"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "En el vacío, ¿qué cae más rápido, una pluma o un martillo?",
+       "opciones": [
+        "La pluma",
+        "El martillo",
+        "Caen igual"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
-     "id": "1.4",
-     "titulo": "Carreras parecidas",
-     "minutos": 3,
+     "id": "2",
+     "titulo": "Fuerzas",
+     "minutos": 4,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Carreras cercanas a Física",
-       "puntos": [
-        "Matemáticas: fundamentos científicos y cuantitativos para explicar fenómenos naturales y.",
-        "Ingeniería Aeronáutica y Aeroespacial: aplicación de matemáticas, ciencias y tecnología para diseñar, construir.",
-        "Ingeniería Electrónica y Telecomunicaciones: aplicación de matemáticas, ciencias y tecnología para diseñar, construir.",
-        "Ciencia de Datos: diseño y desarrollo de soluciones digitales. puede incluir programación."
+       "titulo": "Fuerzas",
+       "partes": [
+        {
+         "t": "Newton describió el movimiento con tres leyes. Primera: un objeto sigue quieto o en movimiento recto a velocidad constante si nada lo empuja o lo frena. Segunda: una fuerza neta hace que un objeto acelere, y mientras más masa tiene, más le cuesta:"
+        },
+        {
+         "f": "fuerza = masa × aceleración"
+        },
+        {
+         "t": "Tercera: si empujas algo, ese algo te empuja a ti con la misma fuerza en sentido contrario; así se impulsa un cohete. La fuerza se mide en newtons."
+        }
        ]
       },
       {
-       "tipo": "emparejar",
-       "pregunta": "Une cada carrera con lo que estudia.",
-       "pares": [
-        [
-         "Matemáticas",
-         "Fundamentos científicos y cuantitativos para explicar fenómenos naturales y"
-        ],
-        [
-         "Ingeniería Aeronáutica y Aeroespacial",
-         "Aplicación de matemáticas, ciencias y tecnología para diseñar, construir"
-        ],
-        [
-         "Ingeniería Electrónica y Telecomunicaciones",
-         "Aplicación de matemáticas, ciencias y tecnología para diseñar, construir"
-        ],
-        [
-         "Ciencia de Datos",
-         "Diseño y desarrollo de soluciones digitales. Puede incluir programación"
-        ]
-       ],
-       "revelacion": "Se cruzan en temas, pero cada una tiene su propio enfoque."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Cuál de estas te da curiosidad?",
+       "tipo": "pregunta",
+       "pregunta": "Empujas un carrito de 10 kilos y acelera a 2 metros por segundo cada segundo. ¿Qué fuerza neta le aplicaste?",
        "opciones": [
-        "Matemáticas",
-        "Ingeniería Aeronáutica y Aeroespacial",
-        "Ingeniería Electrónica y Telecomunicaciones",
-        "Me quedo con Física"
-       ]
+        "12 newtons",
+        "5 newtons",
+        "20 newtons"
+       ],
+       "correcta": 2,
+       "formula": "10 × 2 = 20"
       },
       {
-       "tipo": "clave",
-       "texto": "Si dudas entre dos, compara lo que harías cada día."
+       "tipo": "pregunta",
+       "pregunta": "En un autobús que frena de golpe, tu cuerpo se va hacia adelante. ¿Qué ley lo explica?",
+       "opciones": [
+        "La tercera",
+        "La primera: tu cuerpo tiende a seguir moviéndose",
+        "Ninguna"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "¿Cómo avanza un cohete en el espacio, donde no hay aire contra qué empujar?",
+       "opciones": [
+        "Expulsa gases hacia atrás y los gases lo empujan hacia adelante",
+        "No puede avanzar",
+        "Con alas"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Con la misma fuerza, ¿qué acelera más: un carrito vacío o uno lleno?",
+       "opciones": [
+        "El vacío, porque tiene menos masa",
+        "Igual",
+        "El lleno"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "teves"
       }
      ]
     }
@@ -229,202 +169,129 @@
   },
   {
    "id": "u2",
+   "titulo": "Energía y ondas",
+   "sub": "Energía, sonido y luz",
    "lecciones": [
     {
-     "id": "2.1",
-     "titulo": "Mini reto",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Por qué una cuchara metálica enfría más rápido el café? Elige tu idea.",
-       "opciones": [
-        "Conduce el calor hacia el aire",
-        "Revolver mueve el café",
-        "Es el vapor"
-       ]
-      },
-      {
-       "tipo": "info",
-       "titulo": "Así lo piensa alguien de Física",
-       "texto": "Los físicos proponen una explicación y buscan cómo ponerla a prueba. Hay mucha matemática, y a veces la respuesta es que fueron varias cosas a la vez."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Te gustó pensar en algo así?",
-       "escala": [
-        "Nada",
-        "Mucho"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Los retos de una carrera se parecen a lo que harías en su trabajo."
-      },
-      {
-       "tipo": "interes",
-       "pregunta": "¿Te ves resolviendo retos así?"
-      }
-     ]
-    },
-    {
-     "id": "2.2",
-     "titulo": "Lo que te piden",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Habilidades que usarás en Física",
-       "puntos": [
-        "Matemáticas avanzadas",
-        "Pensamiento abstracto",
-        "Programación",
-        "Persistencia"
-       ]
-      },
-      {
-       "tipo": "completar",
-       "pregunta": "Según lo que leíste, completa la frase.",
-       "frase": "Para Física es clave: ___.",
-       "opciones": [
-        "Matemáticas avanzadas",
-        "Curiosidad técnica",
-        "Creatividad práctica"
-       ],
-       "correcta": 0,
-       "revelacion": "Es de las habilidades que más se usan en Física."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué tanto se te da esto: pensamiento abstracto?",
-       "escala": [
-        "Me cuesta",
-        "Se me da"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Las habilidades se entrenan; lo importante es que te guste usarlas."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "2.3",
-     "titulo": "Temas que vas a ver",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Temas que te deben gustar",
-       "puntos": [
-        "Universo y naturaleza",
-        "Investigación",
-        "Tecnología de frontera"
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "¿Cuál de estos temas es más de Física?",
-       "opciones": [
-        {
-         "texto": "Universo y naturaleza",
-         "consecuencia": "Sí, es de sus temas centrales.",
-         "mejor": true
-        },
-        {
-         "texto": "Construcción",
-         "consecuencia": "Ese es más de Ing. Civil."
-        },
-        {
-         "texto": "Robots",
-         "consecuencia": "Ese es más de Mecatrónica."
-        }
-       ]
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Cuál de estos temas te gusta más?",
-       "opciones": [
-        "Universo y naturaleza",
-        "Investigación",
-        "Tecnología de frontera",
-        "Ninguno me late"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Si los temas te aburren, la carrera se hace muy larga."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "2.4",
-     "titulo": "Materias clave",
+     "id": "3",
+     "titulo": "Energía",
      "minutos": 4,
      "tarjetas": [
       {
-       "tipo": "voltear",
-       "pregunta": "¿Qué materias crees que llevas en cada etapa? Piénsalo y voltea.",
-       "cartas": [
+       "tipo": "info",
+       "titulo": "Energía",
+       "partes": [
         {
-         "frente": "Semestres 1-2",
-         "reverso": "Cálculo, Mecánica, Álgebra, Laboratorio de física"
+         "t": "La energía no se crea ni se destruye: solo cambia de forma. Un objeto en movimiento tiene energía cinética, y uno a cierta altura tiene energía potencial:"
         },
         {
-         "frente": "Semestres 3-4",
-         "reverso": "Ecuaciones diferenciales, Electromagnetismo, Ondas y óptica, Termodinámica"
+         "f": "energía potencial = masa × 9.8 × altura"
         },
         {
-         "frente": "Semestres 5-6",
-         "reverso": "Mecánica cuántica, Mecánica analítica, Física estadística, Métodos matemáticos"
-        },
-        {
-         "frente": "Semestres 7 en adelante",
-         "reverso": "Física moderna y optativas, Tesis"
+         "t": "Cuando algo cae, su energía potencial se convierte en cinética. En una montaña rusa, el primer carro sube lo más alto porque esa energía tiene que alcanzar para todo el recorrido. Parte de la energía siempre se convierte en calor por la fricción, por eso nada sube más alto que de donde salió."
         }
        ]
       },
       {
-       "tipo": "decision",
-       "pregunta": "¿Cuál de estas materias llevarías en Física?",
+       "tipo": "pregunta",
+       "pregunta": "Un objeto de 2 kilos está a 10 metros de altura. ¿Qué energía potencial tiene?",
        "opciones": [
+        "20 joules",
+        "12 joules",
+        "196 joules"
+       ],
+       "correcta": 2,
+       "formula": "2 × 9.8 × 10 = 196"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Por qué en una montaña rusa la primera subida es la más alta?",
+       "opciones": [
+        "Porque esa energía tiene que alcanzar para todo el recorrido, y parte se pierde por fricción",
+        "Por casualidad",
+        "Por diseño bonito"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Alguien dice que inventó una máquina que da más energía de la que recibe. ¿Qué piensas?",
+       "opciones": [
+        "Que funciona de noche",
+        "Que es genial",
+        "Que es imposible, porque la energía no se crea"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "teves"
+      }
+     ]
+    },
+    {
+     "id": "4",
+     "titulo": "Ondas y luz",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "Ondas y luz",
+       "partes": [
         {
-         "texto": "Cálculo",
-         "consecuencia": "Sí: es de las primeras materias de Física.",
-         "mejor": true
+         "t": "El sonido y la luz son ondas. La rapidez de una onda es su frecuencia por su longitud de onda:"
         },
         {
-         "texto": "Administración",
-         "consecuencia": "Esa es de Negocios internacionales."
+         "f": "rapidez = frecuencia × longitud de onda"
         },
         {
-         "texto": "Dibujo y anatomía",
-         "consecuencia": "Esa es de Animación."
+         "t": "El sonido viaja en el aire a unos 340 metros por segundo y necesita un medio: en el vacío no hay sonido. La luz viaja a unos 300,000 kilómetros por segundo, muchísimo más rápido. Por eso en una tormenta ves el rayo antes de oír el trueno, y con el tiempo entre los dos puedes calcular qué tan lejos cayó."
         }
        ]
       },
       {
-       "tipo": "reflexion",
-       "pregunta": "¿Cuál te da más curiosidad?",
+       "tipo": "pregunta",
+       "pregunta": "Ves un rayo y oyes el trueno 3 segundos después. ¿A qué distancia cayó, más o menos?",
        "opciones": [
-        "Cálculo",
-        "Mecánica",
-        "Álgebra",
-        "Laboratorio de física"
-       ]
+        "3 metros",
+        "340 metros",
+        "Unos 1,020 metros"
+       ],
+       "correcta": 2,
+       "formula": "340 × 3 = 1,020"
       },
       {
-       "tipo": "clave",
-       "texto": "Las primeras materias son la base; muchas veces son las más pesadas."
+       "tipo": "pregunta",
+       "pregunta": "Una onda de sonido tiene una frecuencia de 340 hertz y viaja a 340 metros por segundo. ¿Cuál es su longitud de onda?",
+       "opciones": [
+        "115,600 metros",
+        "1 metro",
+        "0 metros"
+       ],
+       "correcta": 1,
+       "formula": "{340|340} = 1"
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "En una película se oye una explosión en el espacio. ¿Es realista?",
+       "opciones": [
+        "No, en el vacío no hay medio para el sonido",
+        "Sí",
+        "Solo si es grande"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Por qué ves el rayo antes de oír el trueno?",
+       "opciones": [
+        "Porque los ojos son más rápidos que los oídos",
+        "Porque la luz viaja mucho más rápido que el sonido",
+        "Por casualidad"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "teves"
       }
      ]
     }
@@ -432,183 +299,167 @@
   },
   {
    "id": "u3",
+   "titulo": "El oficio",
+   "sub": "Calor, mediciones y tecnología",
    "lecciones": [
     {
-     "id": "3.1",
-     "titulo": "Un día real",
+     "id": "5",
+     "titulo": "Calor",
      "minutos": 4,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Un día de trabajo en Física",
-       "puntos": [
-        "Investiga fenómenos físicos, hace simulaciones por computadora o aplica la física en tecnología, energía, medicina, datos o docencia."
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "¿Cuál de estas cosas sí hace alguien de Física?",
-       "opciones": [
+       "titulo": "Calor",
+       "partes": [
         {
-         "texto": "Investiga fenómenos físicos, hace simulaciones por computadora o aplica la física en tecnología, energía, medicina, datos o docencia.",
-         "consecuencia": "Sí: es parte de su día.",
-         "mejor": true
-        },
-        {
-         "texto": "Diseña prendas y colecciones, elige telas, trabaja patrones con talleres, sigue tendencias y comercializa: en marcas, retail o con su propia marca.",
-         "consecuencia": "Eso es más de Moda."
-        },
-        {
-         "texto": "Limpia y analiza grandes cantidades de datos, construye modelos que predicen (ventas, fraudes, clientes) y presenta hallazgos con gráficas para que la empresa decida.",
-         "consecuencia": "Eso es más de Ciencia de datos."
+         "t": "El calor pasa siempre de lo caliente a lo frío, hasta que los dos quedan a la misma temperatura. Viaja de tres formas: por conducción, al tocarse, como una cuchara metálica en el café; por convección, con el movimiento de líquidos o gases, como el aire caliente que sube; y por radiación, como el calor del sol, que llega por el vacío. Los metales conducen muy bien el calor; el aire, la madera y el unicel lo conducen mal, por eso sirven como aislantes."
         }
        ]
       },
       {
-       "tipo": "reflexion",
-       "pregunta": "¿Te ves haciendo esto todos los días?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
+       "tipo": "pregunta",
+       "pregunta": "Metes una cuchara de metal en sopa caliente y el mango se calienta. ¿Cómo viajó el calor?",
+       "opciones": [
+        "Por convección",
+        "Por radiación",
+        "Por conducción"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "clave",
-       "texto": "El día a día pesa más que el título."
+       "tipo": "pregunta",
+       "pregunta": "¿Cómo llega el calor del sol a la Tierra, si en el espacio no hay aire?",
+       "opciones": [
+        "Por convección",
+        "Por conducción",
+        "Por radiación"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "¿Por qué los vasos de unicel mantienen caliente el café?",
+       "opciones": [
+        "Porque el unicel conduce mal el calor",
+        "Porque es blanco",
+        "Porque es ligero"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
-     "id": "3.2",
-     "titulo": "Lo difícil",
+     "id": "6",
+     "titulo": "Medir bien",
      "minutos": 4,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Lo difícil de Física",
-       "texto": "Se considera de dificultad muy alta.",
-       "puntos": [
-        "Cálculo, Mecánica clásica, Electromagnetismo y Mecánica cuántica",
-        "Alta deserción."
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "Según lo que leíste, ¿qué es lo que más cuesta en Física?",
-       "opciones": [
+       "titulo": "Medir bien",
+       "partes": [
         {
-         "texto": "Cálculo, Mecánica clásica, Electromagnetismo y Mecánica cuántica",
-         "consecuencia": "Sí, es de lo que más cuesta en Física.",
-         "mejor": true
+         "t": "En física ninguna medición es perfecta: toda tiene incertidumbre. Por eso se mide varias veces y se usa el promedio, y se reporta cuánto puede variar el resultado. Antes de confiar en un resultado se revisa que las unidades estén bien y que el orden de magnitud tenga sentido: si calculas que una persona corre a 300 kilómetros por hora, algo está mal. En un experimento se cambia una variable a la vez y se cuidan las demás."
         },
         {
-         "texto": "Cálculo, Fisicoquímica, Termodinámica y Fenómenos de transporte",
-         "consecuencia": "Eso es más de Ing. Química."
-        },
-        {
-         "texto": "Estadística, Neurociencias y Metodología de la investigación sorprenden a muchos",
-         "consecuencia": "Eso es más de Psicología."
+         "f": "promedio = {suma de las mediciones|número de mediciones}"
         }
        ]
       },
       {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué tanto te preocupa esto?",
-       "escala": [
-        "Mucho",
-        "Nada"
-       ]
+       "tipo": "pregunta",
+       "pregunta": "Mides cuánto tarda en caer una pelota: 1.2, 1.3 y 1.1 segundos. ¿Cuál es el promedio?",
+       "opciones": [
+        "1.3 segundos",
+        "3.6 segundos",
+        "1.2 segundos"
+       ],
+       "correcta": 2,
+       "formula": "{1.2 + 1.3 + 1.1|3} = 1.2"
       },
       {
-       "tipo": "clave",
-       "texto": "Saber lo difícil desde antes te ayuda a prepararte."
+       "tipo": "pregunta",
+       "pregunta": "Tu cálculo dice que un caracol avanza a 50 kilómetros por hora. ¿Qué haces?",
+       "opciones": [
+        "Celebras",
+        "Revisas tus unidades y cálculos, porque no tiene sentido",
+        "Lo reportas así"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "¿Por qué se mide varias veces lo mismo?",
+       "opciones": [
+        "No se hace",
+        "Por gusto",
+        "Porque toda medición tiene error y el promedio es más confiable"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Quieres ver si la longitud de un péndulo cambia su periodo. ¿Qué mantienes igual?",
+       "opciones": [
+        "Todo lo demás, como la masa y el ángulo inicial",
+        "Nada",
+        "Solo el color"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
-     "id": "3.3",
-     "titulo": "Historia real",
-     "minutos": 3,
+     "id": "7",
+     "titulo": "Física de todos los días",
+     "minutos": 4,
      "tarjetas": [
       {
-       "tipo": "reflexion",
-       "pregunta": "Si pudieras preguntarle algo a alguien que ya estudia Física, ¿qué sería?",
+       "tipo": "info",
+       "titulo": "Física de todos los días",
+       "partes": [
+        {
+         "t": "Muchas tecnologías salieron de la física. El GPS de tu celular funciona con satélites que llevan relojes atómicos, y tiene que corregir efectos de la relatividad de Einstein; sin esa corrección, se equivocaría por kilómetros cada día. Los láseres, los paneles solares, las resonancias magnéticas y los chips de las computadoras se basan en la física cuántica. Un físico trabaja en investigación, en la industria, en hospitales, en finanzas, en programación o dando clases, porque su fuerte es modelar problemas con matemáticas."
+        }
+       ]
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Qué teoría tiene que tomar en cuenta el GPS para no equivocarse?",
        "opciones": [
-        "¿Qué fue lo más difícil?",
-        "¿Qué te sorprendió?",
-        "¿Volverías a elegirla?",
-        "¿Cómo es un día normal?"
-       ]
+        "La relatividad de Einstein",
+        "La oferta y la demanda",
+        "La evolución"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "testimonio",
-       "estado": "pendiente",
-       "perfil": "Estudiante de últimos semestres o egresado de Física"
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "Mientras llega esta historia, ¿a quién podrías preguntarle tú?",
+       "tipo": "pregunta",
+       "pregunta": "¿En qué se basan los chips de las computadoras y los láseres?",
        "opciones": [
-        "A un familiar o conocido que la estudió",
-        "A un estudiante de mi ciudad",
-        "A un maestro que la conozca",
-        "Todavía no conozco a nadie"
-       ]
+        "En la química de la cocina",
+        "En la física cuántica",
+        "En la astrología"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "clave",
-       "texto": "Una persona real te cuenta lo que ningún folleto dice."
+       "tipo": "pregunta",
+       "pregunta": "¿Por qué los físicos también trabajan en finanzas o programación?",
+       "opciones": [
+        "Porque no hay trabajo de físico",
+        "Porque saben modelar problemas con matemáticas",
+        "Por casualidad"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "3.4",
-     "titulo": "¿Es para ti?",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Contesta con honestidad. Nadie más ve tus respuestas."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Me pregunto cómo funciona el universo?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Me gustan mucho física y matemáticas?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Haría doctorado?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Si dijiste que sí a casi todo, vale la pena seguir explorándola."
-      },
-      {
-       "tipo": "interes"
+       "tipo": "teves"
       }
      ]
     }
@@ -616,423 +467,129 @@
   },
   {
    "id": "u4",
+   "titulo": "Examen final",
+   "sub": "10 preguntas · apruebas con 7",
    "lecciones": [
     {
-     "id": "4.1",
-     "titulo": "Cuánto dura y qué estudias",
-     "minutos": 4,
+     "id": "ex",
+     "titulo": "Examen final",
+     "minutos": 6,
+     "examen": true,
+     "aprobar": 7,
      "tarjetas": [
       {
-       "tipo": "escena",
-       "texto": "Cada escuela arma su plan distinto, pero el orden general se parece. Vamos a verlo."
+       "tipo": "info",
+       "titulo": "Examen final",
+       "partes": [
+        {
+         "t": "Son 10 casos nuevos que mezclan todas las lecciones. Apruebas con 7. Si no, lo repites y las que fallaste regresan con otras palabras."
+        }
+       ]
       },
       {
-       "tipo": "ordenar",
-       "pregunta": "Ordena lo que estudias, de lo primero a lo último.",
-       "pasos": [
-        "Cálculo, Mecánica",
-        "Ecuaciones diferenciales, Electromagnetismo",
-        "Mecánica cuántica, Mecánica analítica",
-        "Física moderna y optativas, Tesis"
+       "tipo": "pregunta",
+       "pregunta": "Un ciclista recorre 30 kilómetros en 2 horas. ¿Cuál es su velocidad promedio?",
+       "opciones": [
+        "60 kilómetros por hora",
+        "15 kilómetros por hora",
+        "32 kilómetros por hora"
        ],
-       "revelacion": "Primero las bases y al final lo más especializado y las prácticas."
+       "correcta": 1,
+       "formula": "{30|2} = 15"
       },
       {
-       "tipo": "rango",
-       "pregunta": "¿Cuántos años crees que pasan desde que entras hasta que te titulas?",
-       "min": 3,
-       "max": 10,
-       "paso": 1,
-       "unidad": "años",
-       "dato": "fisica.duracion"
-      },
-      {
-       "tipo": "clave",
-       "texto": "Revisa el mapa curricular de cada escuela: cambia de una a otra."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "4.2",
-     "titulo": "Cómo se entra",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Cómo se entra en la región",
-       "puntos": [
-        "UNAM: Concurso de selección UNAM (120 reactivos) o pase reglamentado desde CCH/ENP",
-        "IPN: Examen de admisión IPN (140 preguntas, hasta 3 horas, incluye sección de inglés)",
-        "UAM: Examen de selección UAM (trimestral; dos procesos al año y procesos extraordinarios)",
-        "UAEM: EXANI-II de CENEVAL + curso propedéutico"
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "Según lo que leíste, ¿qué pide UNAM para entrar?",
+       "tipo": "pregunta",
+       "pregunta": "En el vacío, ¿una piedra cae más rápido que una pluma?",
        "opciones": [
-        {
-         "texto": "Concurso de selección UNAM (120 reactivos) o pase reglamentado desde CCH/ENP",
-         "consecuencia": "Exacto.",
-         "mejor": true
-        },
-        {
-         "texto": "Examen de admisión IPN (140 preguntas, hasta 3 horas, incluye sección de inglés)",
-         "consecuencia": "Eso lo pide IPN."
-        },
-        {
-         "texto": "Examen de selección UAM (trimestral; dos procesos al año y procesos extraordinarios)",
-         "consecuencia": "Eso lo pide UAM."
-        }
-       ]
+        "Sí",
+        "No, caen igual",
+        "Depende del color"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "vf",
-       "afirmacion": "Todas las universidades usan el mismo examen.",
-       "respuesta": false,
-       "revelacion": "Cada una tiene el suyo: revisa la convocatoria de la que te interese."
-      },
-      {
-       "tipo": "clave",
-       "texto": "Conoce el examen de tu escuela desde antes."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "4.3",
-     "titulo": "Dónde, cuánto cuesta y becas",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "escuelas"
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Cuánto crees que cuesta un semestre en una universidad pública?",
-       "min": 0,
-       "max": 60000,
-       "paso": 1000,
-       "unidad": "pesos",
-       "dato": "fisica.costo_publica"
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Y un semestre en una universidad privada?",
-       "min": 0,
-       "max": 300000,
-       "paso": 5000,
-       "unidad": "pesos",
-       "dato": "fisica.costo_privada"
-      },
-      {
-       "tipo": "dato",
-       "titulo": "Becas para estudiar Física",
-       "dato": "fisica.becas"
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Una universidad cara garantiza un mejor empleo.",
-       "respuesta": false,
-       "revelacion": "Pesan más lo que aprendes, tus prácticas y tu esfuerzo."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué pesa más para ti al elegir escuela?",
+       "tipo": "pregunta",
+       "pregunta": "Una caja de 5 kilos acelera a 3 metros por segundo cada segundo. ¿Qué fuerza neta tiene?",
        "opciones": [
-        "El costo",
-        "Que esté cerca de mi casa",
-        "El prestigio",
-        "Las prácticas que ofrece"
-       ]
+        "1.7 newtons",
+        "15 newtons",
+        "8 newtons"
+       ],
+       "correcta": 1,
+       "formula": "5 × 3 = 15"
       },
       {
-       "tipo": "clave",
-       "texto": "Además de la colegiatura, cuenta transporte y materiales."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "u5",
-   "lecciones": [
-    {
-     "id": "5.1",
-     "titulo": "Qué piden para trabajar",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Qué te piden para trabajar",
-       "puntos": [
-        "No requiere cédula",
-        "La carrera científica pide doctorado.",
-        "IMCO no publica dato salarial propio para Física",
-        "Muchos egresados terminan en datos, finanzas o tecnología."
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "Según lo que leíste, ¿qué necesitas para ejercer Física?",
+       "tipo": "pregunta",
+       "pregunta": "¿Qué ley explica que te vayas hacia adelante cuando el autobús frena?",
        "opciones": [
-        {
-         "texto": "No requiere cédula",
-         "consecuencia": "Exacto.",
-         "mejor": true
-        },
-        {
-         "texto": "Título y cédula profesional.",
-         "consecuencia": "Eso lo piden en Trabajo social."
-        },
-        {
-         "texto": "No requiere cédula",
-         "consecuencia": "Eso lo piden en Diseño gráfico."
-        }
-       ]
+        "La ley de Ohm",
+        "La tercera",
+        "La primera ley de Newton"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Cómo te ves?",
-       "a": {
-        "texto": "En una institución o empresa",
-        "dice": "Más estabilidad y un equipo de quien aprender."
-       },
-       "b": {
-        "texto": "Por tu cuenta",
-        "dice": "Más libertad, pero tienes que conseguir clientes."
-       }
-      },
-      {
-       "tipo": "clave",
-       "texto": "Saber qué te piden te ahorra sorpresas al salir."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "5.2",
-     "titulo": "Sueldo y demanda",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Hablemos de dinero sin rodeos. Antes de ver cualquier cifra, apuesta: así recuerdas mejor el dato real."
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Cuánto crees que gana al mes, en promedio, un profesionista de Física en México?",
-       "min": 5000,
-       "max": 100000,
-       "paso": 1000,
-       "unidad": "pesos",
-       "dato": "fisica.ingreso"
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "De cada 100 egresados, ¿cuántos crees que trabajan en algo de su carrera?",
-       "min": 0,
-       "max": 100,
-       "paso": 5,
-       "unidad": "de cada 100",
-       "dato": "fisica.ocupacion_afin"
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Todos los egresados de Física ganan lo mismo.",
-       "respuesta": false,
-       "revelacion": "Cambia con la experiencia, el lugar, la especialidad y si trabajas por tu cuenta."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué tanto pesa el sueldo en tu decisión?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "El promedio orienta, pero tu camino puede ser distinto."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "5.3",
-     "titulo": "Cómo les va al salir",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "El futuro",
-       "puntos": [
-        "Pregunta a egresados cómo les fue al salir.",
-        "Revisa Compara Carreras del IMCO."
-       ]
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué tanto te importa encontrar trabajo rápido?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué te importa más de tu futuro trabajo?",
+       "tipo": "pregunta",
+       "pregunta": "Un objeto de 1 kilo está a 5 metros de altura. ¿Qué energía potencial tiene?",
        "opciones": [
-        "Que tenga que ver con lo que estudié",
-        "Ganar bien",
-        "Tener prestaciones",
-        "Hacer algo que me guste"
-       ]
+        "49 joules",
+        "5 joules",
+        "6 joules"
+       ],
+       "correcta": 0,
+       "formula": "1 × 9.8 × 5 = 49"
       },
       {
-       "tipo": "clave",
-       "texto": "Pregunta cómo les va a quienes ya salieron."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "5.4",
-     "titulo": "Después de titularte",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Después de titularte",
-       "puntos": [
-        "Puedes especializarte con cursos, diplomados o una maestría.",
-        "También puedes trabajar desde el inicio y estudiar después.",
-        "Se combina bien con: Matemáticas, Ingeniería Aeronáutica y Aeroespacial, Ingeniería Electrónica y Telecomunicaciones."
-       ]
-      },
-      {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Qué harías al terminar?",
-       "a": {
-        "texto": "Trabajar desde el inicio",
-        "dice": "Ganas experiencia y dinero; después decides si estudias más."
-       },
-       "b": {
-        "texto": "Seguir estudiando",
-        "dice": "Te especializas antes; tardas más en empezar a trabajar."
-       }
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Cómo te imaginas después de la carrera?",
+       "tipo": "pregunta",
+       "pregunta": "¿Se puede crear energía de la nada?",
        "opciones": [
-        "Trabajando",
-        "En una maestría",
-        "Emprendiendo",
-        "No sé todavía"
-       ]
+        "Sí",
+        "No",
+        "Con imanes"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "clave",
-       "texto": "Al titularte empieza otra parte del camino, no termina."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "u6",
-   "lecciones": [
-    {
-     "id": "6.1",
-     "titulo": "Lo que sentiste",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Antes de ver tus respuestas: ¿cómo te fue con Física?",
+       "tipo": "pregunta",
+       "pregunta": "Oyes el trueno 5 segundos después del rayo. ¿A qué distancia cayó, más o menos?",
        "opciones": [
-        "Me gustó más de lo que pensaba",
-        "Más o menos como esperaba",
-        "Me gustó menos de lo que pensaba"
-       ]
+        "1,700 metros",
+        "340 metros",
+        "5 metros"
+       ],
+       "correcta": 0,
+       "formula": "340 × 5 = 1,700"
       },
       {
-       "tipo": "resumen"
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "Viendo tus respuestas, ¿qué pesó más?",
+       "tipo": "pregunta",
+       "pregunta": "¿Hay sonido en el vacío?",
        "opciones": [
-        "Lo que sentí al probarla",
-        "Lo que supe de la realidad",
-        "El camino para llegar",
-        "El futuro que ofrece"
-       ]
+        "No",
+        "Sí",
+        "Solo de noche"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "clave",
-       "texto": "Lo que sentiste al probarla vale más que lo que imaginabas."
-      },
-      {
-       "tipo": "interes",
-       "pregunta": "¿Te ves estudiando Física?"
-      }
-     ]
-    },
-    {
-     "id": "6.2",
-     "titulo": "Tu veredicto",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Si mañana tuvieras que elegir carrera, ¿Física estaría entre tus opciones?",
+       "tipo": "pregunta",
+       "pregunta": "¿Cómo llega el calor del sol?",
        "opciones": [
-        "Sí, entre las primeras",
-        "Sí, pero no arriba",
-        "No creo",
-        "No lo sé"
-       ]
+        "Por radiación",
+        "Por convección",
+        "Por conducción"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "comparar"
-      },
-      {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Qué te ayudaría más a decidir?",
-       "a": {
-        "texto": "Hablar con alguien que la estudia",
-        "dice": "Busca a un estudiante o egresado cerca de ti y hazle tus preguntas. Una plática aclara más que diez videos."
-       },
-       "b": {
-        "texto": "Probar otra carrera y comparar",
-        "dice": "Explora otra de tu mapa. Comparar dos caminos reales aclara más que pensar en uno solo."
-       }
-      },
-      {
-       "tipo": "veredicto"
-      },
-      {
-       "tipo": "clave",
-       "texto": "Decidir «en duda» también es avanzar."
+       "tipo": "pregunta",
+       "pregunta": "Mides 2.0, 2.2 y 2.1 segundos. ¿Cuál es el promedio?",
+       "opciones": [
+        "6.3 segundos",
+        "2.1 segundos",
+        "2.2 segundos"
+       ],
+       "correcta": 1,
+       "formula": "{2.0 + 2.2 + 2.1|3} = 2.1"
       }
      ]
     }

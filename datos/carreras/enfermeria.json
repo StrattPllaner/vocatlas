@@ -1,225 +1,151 @@
 {
  "id": "enfermeria",
- "version": 1,
+ "version": 2,
+ "formato": 2,
  "estado": "completo",
- "generado": true,
- "revision": "Armada automáticamente con la base de carreras de Morelos y CDMX (2026-11-17). Falta que la revise alguien de la carrera.",
+ "revision": "Pendiente de revisión por un profesionista de la carrera. Generado con datos/importar_lecciones.py desde datos/fuentes/lecciones/enfermeria.lec; no se edita a mano.",
  "unidades": [
   {
    "id": "u1",
+   "titulo": "Cuidar sin dañar",
+   "sub": "Manos limpias y medicamentos",
    "lecciones": [
     {
-     "id": "1.1",
-     "titulo": "Qué es y qué hace",
-     "minutos": 3,
+     "id": "0",
+     "titulo": "Conócela",
+     "minutos": 1,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "¿Qué es Enfermería?",
-       "texto": "Atención integral de pacientes, vigilancia clínica, administración de tratamientos, promoción de la salud y acompañamiento durante distintas etapas de la vida.",
-       "puntos": [
-        "Cuida pacientes de forma directa: toma signos vitales, aplica medicamentos y curaciones, vigila su evolución, apoya al médico y orienta a familias.",
-        "Trabaja por turnos (mañana, tarde, noche) en hospital, clínica o a domicilio."
+       "tipo": "ficha",
+       "texto": "Enfermería forma profesionales que cuidan a los pacientes día y noche: dan medicamentos, vigilan signos vitales, previenen complicaciones, educan a las familias y son quienes primero notan cuando alguien empeora. Trabajan en hospitales, centros de salud, escuelas, empresas y atención en casa.",
+       "cifras": [
+        "enfermeria.ingreso",
+        "enfermeria.duracion",
+        "enfermeria.costo_publica",
+        "enfermeria.costo_privada"
        ]
       },
       {
-       "tipo": "decision",
-       "pregunta": "Por lo que leíste, ¿qué hace alguien de Enfermería?",
-       "opciones": [
-        {
-         "texto": "Cuida pacientes de forma directa: toma signos vitales, aplica medicamentos y curaciones, vigila su evolución, apoya al médico y orienta a familias.",
-         "consecuencia": "Exacto: eso es parte del día a día en Enfermería.",
-         "mejor": true
-        },
-        {
-         "texto": "Diseña circuitos y dispositivos, programa microcontroladores, instala redes de telecomunicaciones o trabaja en manufactura de electrónica y semiconductores.",
-         "consecuencia": "Eso lo hace alguien de Ing. Electrónica."
-        },
-        {
-         "texto": "Estudia seres vivos en campo o laboratorio: monitorea especies, analiza muestras, participa en conservación, investigación, educación ambiental o industria.",
-         "consecuencia": "Eso lo hace alguien de Biología."
-        }
-       ]
-      },
-      {
-       "tipo": "completar",
-       "frase": "Enfermería es una carrera del área de ___.",
-       "opciones": [
-        "Salud",
-        "Negocios y sociedad",
-        "Tecnología y ciencias"
-       ],
-       "correcta": 0,
-       "revelacion": "Está en Salud. Se parece a Medicina (Médico Cirujano), Fisioterapia, Nutrición."
-      },
-      {
-       "tipo": "clave",
-       "texto": "Antes de elegir, entiende qué harías cada día, no solo el nombre."
-      },
-      {
-       "tipo": "interes"
+       "tipo": "escena",
+       "texto": "Hoy estás a cargo de un piso del hospital. Vamos a ver si cuidas bien a tus pacientes."
       }
      ]
     },
     {
-     "id": "1.2",
-     "titulo": "Dónde trabajas",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Dónde trabaja alguien de Enfermería",
-       "texto": "Hospitales, clínicas, centros comunitarios, atención domiciliaria, salud ocupacional, instituciones públicas, docencia y gestión de servicios de enfermería."
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Alguien de Enfermería solo puede trabajar en un tipo de lugar.",
-       "respuesta": false,
-       "revelacion": "Puede trabajar en varios: hospitales, clínicas, centros comunitarios."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Dónde te ves trabajando?",
-       "opciones": [
-        "Hospitales",
-        "Clínicas",
-        "Centros comunitarios",
-        "Atención domiciliaria"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Una carrera abre varias puertas, no una sola."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "1.3",
-     "titulo": "Pregúntale a Rumbo",
+     "id": "1",
+     "titulo": "Lavado de manos",
      "minutos": 4,
      "tarjetas": [
       {
-       "tipo": "chat",
-       "subtitulo": "Te cuenta cómo es trabajar en Enfermería",
-       "intro": [
-        "¡Hola! Junté lo que se sabe de Enfermería.",
-        "Pregúntame lo que quieras."
-       ],
-       "temas": [
+       "tipo": "info",
+       "titulo": "Lavado de manos",
+       "partes": [
         {
-         "q": "¿Qué haces en un día normal?",
-         "a": [
-          "Cuida pacientes de forma directa: toma signos vitales, aplica medicamentos y curaciones, vigila su evolución, apoya al médico y orienta a familias.",
-          "Trabaja por turnos (mañana, tarde, noche) en hospital, clínica o a domicilio."
-         ]
-        },
-        {
-         "q": "¿Qué es lo más difícil?",
-         "a": [
-          "Se considera una carrera de dificultad alta.",
-          "Anatomía, Fisiología y Farmacología al inicio",
-          "Después, prácticas clínicas con turnos en hospital."
-         ]
-        },
-        {
-         "q": "¿Hay trabajo?",
-         "a": [
-          "La mayoría de quienes la estudian trabaja en algo de su carrera. Es un promedio nacional del IMCO.",
-          "Muy demandada en hospitales públicos y privados."
-         ]
-        },
-        {
-         "q": "¿Qué necesito para ejercer?",
-         "a": [
-          "Título y cédula profesional."
-         ]
+         "t": "Las manos del personal de salud son la principal forma en que las infecciones pasan de un paciente a otro dentro de un hospital. Por eso la Organización Mundial de la Salud marca cinco momentos para lavarse las manos o usar gel con alcohol: antes de tocar al paciente, antes de hacer un procedimiento limpio o estéril, después de tener contacto con fluidos del cuerpo, después de tocar al paciente y después de tocar lo que está alrededor del paciente, como la cama o el monitor. Los guantes no sustituyen el lavado de manos. Si las manos se ven sucias, se lavan con agua y jabón, no solo con gel."
         }
-       ],
-       "minimo": 2,
-       "auto": true
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Enfermería se considera una carrera de dificultad baja.",
-       "respuesta": false,
-       "revelacion": "Se considera de dificultad alta. Anatomía, Fisiología y Farmacología al inicio"
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué te llamó más la atención?",
-       "opciones": [
-        "¿Qué haces en un día normal?",
-        "¿Qué es lo más difícil?",
-        "¿Hay trabajo?",
-        "¿Qué necesito para ejercer?"
        ]
       },
       {
-       "tipo": "clave",
-       "texto": "Preguntar a quien ya sabe ahorra muchos errores."
+       "tipo": "pregunta",
+       "pregunta": "Vas a revisar a un paciente y luego al de la cama de al lado. ¿Qué haces entre los dos?",
+       "opciones": [
+        "Nada, si no se ven sucias",
+        "Te lavas las manos o usas gel con alcohol",
+        "Solo te secas"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "Usaste guantes para cambiar un pañal. Al quitártelos, ¿qué haces?",
+       "opciones": [
+        "Nada, ya traías guantes",
+        "Te pones otros sin lavarte",
+        "Te lavas las manos de todos modos"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Tus manos tienen sangre visible. ¿Qué usas?",
+       "opciones": [
+        "Una servilleta",
+        "Agua y jabón",
+        "Solo gel con alcohol"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Tocaste el barandal de la cama del paciente, pero no al paciente. ¿Necesitas higiene de manos al salir?",
+       "opciones": [
+        "No",
+        "Solo si lo tocaste mucho",
+        "Sí, también cuenta lo que está alrededor del paciente"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
-     "id": "1.4",
-     "titulo": "Carreras parecidas",
-     "minutos": 3,
+     "id": "2",
+     "titulo": "Dar medicamentos sin errores",
+     "minutos": 4,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Carreras cercanas a Enfermería",
-       "puntos": [
-        "Medicina (Médico Cirujano): formación para prevenir, diagnosticar y tratar enfermedades.",
-        "Fisioterapia: evaluación funcional y rehabilitación de personas. el enfoque concreto.",
-        "Nutrición: alimentación y metabolismo, evaluación del estado nutricional y diseño.",
-        "Químico Farmacéutico Biólogo (QFB): ciencias químicas y biológicas aplicadas al análisis, investigación."
+       "titulo": "Dar medicamentos sin errores",
+       "partes": [
+        {
+         "t": "Un error al dar medicamentos puede dañar gravemente a un paciente. Por eso enfermería revisa siempre los \"correctos\" antes de administrar: paciente correcto, medicamento correcto, dosis correcta, vía correcta y hora correcta. Al paciente se le identifica con dos datos, como su nombre completo y su fecha de nacimiento, nunca solo por el número de cama. Si una indicación no se entiende o parece rara, no se adivina: se pregunta al médico. Y todo lo que se administra se registra."
+        }
        ]
       },
       {
-       "tipo": "emparejar",
-       "pregunta": "Une cada carrera con lo que estudia.",
-       "pares": [
-        [
-         "Medicina (Médico Cirujano)",
-         "Formación para prevenir, diagnosticar y tratar enfermedades"
-        ],
-        [
-         "Fisioterapia",
-         "Evaluación funcional y rehabilitación de personas. El enfoque concreto"
-        ],
-        [
-         "Nutrición",
-         "Alimentación y metabolismo, evaluación del estado nutricional y diseño"
-        ],
-        [
-         "Químico Farmacéutico Biólogo (QFB)",
-         "Ciencias químicas y biológicas aplicadas al análisis, investigación"
-        ]
-       ],
-       "revelacion": "Se cruzan en temas, pero cada una tiene su propio enfoque."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Cuál de estas te da curiosidad?",
+       "tipo": "pregunta",
+       "pregunta": "¿Cómo confirmas que es el paciente correcto?",
        "opciones": [
-        "Medicina (Médico Cirujano)",
-        "Fisioterapia",
-        "Nutrición",
-        "Me quedo con Enfermería"
-       ]
+        "Preguntando \"¿usted es el de la cama 5?\"",
+        "Con dos datos, como su nombre completo y fecha de nacimiento",
+        "Por el número de cama"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "clave",
-       "texto": "Si dudas entre dos, compara lo que harías cada día."
+       "tipo": "pregunta",
+       "pregunta": "La indicación médica tiene una dosis que te parece diez veces más alta de lo normal.",
+       "opciones": [
+        "No la das y la confirmas con el médico",
+        "La das porque el médico la escribió",
+        "Das la mitad"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "¿Qué haces después de dar un medicamento?",
+       "opciones": [
+        "Lo registras",
+        "Lo comentas en el pasillo",
+        "Nada"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Hay dos pacientes con el mismo apellido en el piso. ¿Qué cuidado extra tienes?",
+       "opciones": [
+        "Darles lo mismo a los dos",
+        "Confirmar siempre con dos datos antes de cada medicamento",
+        "Ninguno"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "teves"
       }
      ]
     }
@@ -227,202 +153,171 @@
   },
   {
    "id": "u2",
+   "titulo": "Vigilar",
+   "sub": "Goteo, signos vitales y prevención",
    "lecciones": [
     {
-     "id": "2.1",
-     "titulo": "Mini reto",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Un paciente recién operado dice que le duele más que hace una hora. ¿Qué haces primero?",
-       "opciones": [
-        "Tomarle signos vitales y revisar la herida",
-        "Darle su medicina para el dolor de una vez",
-        "Avisar al médico sin revisarlo"
-       ]
-      },
-      {
-       "tipo": "info",
-       "titulo": "Así lo piensa alguien de Enfermería",
-       "texto": "Primero se revisa y se mide: así le dices al médico qué cambió. Enfermería es observar de cerca, decidir rápido y estar con el paciente día y noche."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Te gustó pensar en algo así?",
-       "escala": [
-        "Nada",
-        "Mucho"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Los retos de una carrera se parecen a lo que harías en su trabajo."
-      },
-      {
-       "tipo": "interes",
-       "pregunta": "¿Te ves resolviendo retos así?"
-      }
-     ]
-    },
-    {
-     "id": "2.2",
-     "titulo": "Lo que te piden",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Habilidades que usarás en Enfermería",
-       "puntos": [
-        "Paciencia y empatía",
-        "Resistencia física",
-        "Atención al detalle",
-        "Trabajo en equipo bajo presión"
-       ]
-      },
-      {
-       "tipo": "completar",
-       "pregunta": "Según lo que leíste, completa la frase.",
-       "frase": "Para Enfermería es clave: ___.",
-       "opciones": [
-        "Paciencia y empatía",
-        "Redacción",
-        "Creatividad"
-       ],
-       "correcta": 0,
-       "revelacion": "Es de las habilidades que más se usan en Enfermería."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué tanto se te da esto: resistencia física?",
-       "escala": [
-        "Me cuesta",
-        "Se me da"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Las habilidades se entrenan; lo importante es que te guste usarlas."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "2.3",
-     "titulo": "Temas que vas a ver",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Temas que te deben gustar",
-       "puntos": [
-        "Salud",
-        "Cuidar a otros",
-        "Biología"
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "¿Cuál de estos temas es más de Enfermería?",
-       "opciones": [
-        {
-         "texto": "Salud",
-         "consecuencia": "Sí, es de sus temas centrales.",
-         "mejor": true
-        },
-        {
-         "texto": "Datos y patrones",
-         "consecuencia": "Ese es más de Ciencia de datos."
-        },
-        {
-         "texto": "Química pura",
-         "consecuencia": "Ese es más de Química."
-        }
-       ]
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Cuál de estos temas te gusta más?",
-       "opciones": [
-        "Salud",
-        "Cuidar a otros",
-        "Biología",
-        "Ninguno me late"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Si los temas te aburren, la carrera se hace muy larga."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "2.4",
-     "titulo": "Materias clave",
+     "id": "3",
+     "titulo": "Calcular un goteo",
      "minutos": 4,
      "tarjetas": [
       {
-       "tipo": "voltear",
-       "pregunta": "¿Qué materias crees que llevas en cada etapa? Piénsalo y voltea.",
-       "cartas": [
+       "tipo": "info",
+       "titulo": "Calcular un goteo",
+       "partes": [
         {
-         "frente": "Semestres 1-2",
-         "reverso": "Anatomía y fisiología, Bioquímica, Fundamentos de enfermería, Psicología"
+         "t": "Muchas soluciones se pasan por la vena con un equipo de venoclisis. Para saber cuántas gotas por minuto deben caer, se usa el factor de goteo del equipo; en un macrogotero común, 20 gotas equivalen a un mililitro."
         },
         {
-         "frente": "Semestres 3-4",
-         "reverso": "Farmacología, Enfermería del adulto, Microbiología, Salud comunitaria"
+         "f": "gotas por minuto = {mililitros × factor de goteo|minutos}"
         },
         {
-         "frente": "Semestres 5-6",
-         "reverso": "Enfermería materno-infantil, Enfermería pediátrica, Cuidados críticos, Administración de servicios"
-        },
-        {
-         "frente": "Semestres 7 en adelante",
-         "reverso": "Prácticas clínicas intensivas, Servicio social"
+         "t": "Si va más rápido de lo indicado, el paciente puede recibir demasiado líquido; si va más lento, no recibe lo que necesita. Por eso se revisa el goteo en cada ronda."
         }
        ]
       },
       {
-       "tipo": "decision",
-       "pregunta": "¿Cuál de estas materias llevarías en Enfermería?",
+       "tipo": "pregunta",
+       "pregunta": "Debes pasar 500 mililitros en 4 horas con un equipo de 20 gotas por mililitro. ¿Cuántas gotas por minuto?",
        "opciones": [
+        "20",
+        "125",
+        "Unas 42"
+       ],
+       "correcta": 2,
+       "formula": "{500 × 20|240} = 41.7"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Debes pasar 1,000 mililitros en 8 horas con el mismo equipo. ¿Cuántas gotas por minuto, más o menos?",
+       "opciones": [
+        "Unas 42",
+        "8",
+        "125"
+       ],
+       "correcta": 0,
+       "formula": "{1,000 × 20|480} = 41.7"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "En tu ronda ves que la solución pasó mucho más rápido de lo indicado.",
+       "opciones": [
+        "Lo dejas así",
+        "La quitas sin avisar",
+        "Ajustas el goteo, revisas cómo está el paciente y avisas"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "teves"
+      }
+     ]
+    },
+    {
+     "id": "4",
+     "titulo": "Signos vitales y alarmas",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "Signos vitales y alarmas",
+       "partes": [
         {
-         "texto": "Anatomía y fisiología",
-         "consecuencia": "Sí: es de las primeras materias de Enfermería.",
-         "mejor": true
-        },
-        {
-         "texto": "Fundamentos de programación",
-         "consecuencia": "Esa es de Computación."
-        },
-        {
-         "texto": "Teorías de la comunicación",
-         "consecuencia": "Esa es de Comunicación."
+         "t": "Enfermería mide los signos vitales varias veces al día y es quien primero nota cuando un paciente empeora. Los rangos normales de un adulto en reposo son, más o menos: pulso de 60 a 100 por minuto, respiración de 12 a 20 por minuto, temperatura de 36.5 a 37.5 grados y saturación de oxígeno de 95 a 100 por ciento. Más que un número aislado, importa el cambio: un paciente que en unas horas pasa de 16 a 28 respiraciones por minuto está empeorando, aunque diga que se siente bien. Ante cambios así, se avisa al médico de inmediato."
         }
        ]
       },
       {
-       "tipo": "reflexion",
-       "pregunta": "¿Cuál te da más curiosidad?",
+       "tipo": "pregunta",
+       "pregunta": "Un paciente tenía 16 respiraciones por minuto en la mañana y ahora tiene 28. ¿Qué haces?",
        "opciones": [
-        "Anatomía y fisiología",
-        "Bioquímica",
-        "Fundamentos de enfermería",
-        "Psicología"
+        "Avisas al médico de inmediato, porque está empeorando",
+        "Esperas al siguiente turno",
+        "Nada, si dice que está bien"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál es una saturación de oxígeno normal?",
+       "opciones": [
+        "De 50 a 60",
+        "De 95 a 100 por ciento",
+        "De 70 a 80"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Un paciente tiene 38.5 grados de temperatura. ¿Cómo está?",
+       "opciones": [
+        "Con fiebre",
+        "Con hipotermia",
+        "Normal"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Qué es más importante vigilar?",
+       "opciones": [
+        "Nada",
+        "Cómo cambian los signos vitales con el tiempo",
+        "Solo un número aislado"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "teves"
+      }
+     ]
+    },
+    {
+     "id": "5",
+     "titulo": "Prevenir daños",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "Prevenir daños",
+       "partes": [
+        {
+         "t": "Mucho del trabajo de enfermería es prevenir. Un paciente que no se mueve puede desarrollar úlceras por presión, que son heridas en la piel donde se apoya el cuerpo, como la cadera o los talones. Se previenen cambiándolo de posición, más o menos cada dos horas, cuidando la piel y usando colchones especiales. Las caídas son otro riesgo, sobre todo en adultos mayores: se baja la cama, se suben los barandales cuando corresponde, se deja el timbre a la mano y se ayuda a caminar."
+        }
        ]
       },
       {
-       "tipo": "clave",
-       "texto": "Las primeras materias son la base; muchas veces son las más pesadas."
+       "tipo": "pregunta",
+       "pregunta": "Un adulto mayor lleva días en cama sin moverse. ¿Qué haces para prevenir úlceras?",
+       "opciones": [
+        "Nada",
+        "Lo dejas igual para que descanse",
+        "Lo cambias de posición seguido y cuidas su piel"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "¿Dónde aparecen más las úlceras por presión?",
+       "opciones": [
+        "Donde el cuerpo se apoya, como la cadera y los talones",
+        "En la cara",
+        "En las manos"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Una paciente mayor quiere ir sola al baño de noche y está mareada.",
+       "opciones": [
+        "Le quitas el timbre",
+        "Le dejas el timbre a la mano y le pides que llame para ayudarla",
+        "La dejas ir sola"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "teves"
       }
      ]
     }
@@ -430,184 +325,114 @@
   },
   {
    "id": "u3",
+   "titulo": "Con las personas",
+   "sub": "Comunicación y ética",
    "lecciones": [
     {
-     "id": "3.1",
-     "titulo": "Un día real",
+     "id": "6",
+     "titulo": "Comunicar bien",
      "minutos": 4,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Un día de trabajo en Enfermería",
-       "puntos": [
-        "Cuida pacientes de forma directa: toma signos vitales, aplica medicamentos y curaciones, vigila su evolución, apoya al médico y orienta a familias.",
-        "Trabaja por turnos (mañana, tarde, noche) en hospital, clínica o a domicilio."
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "¿Qué de esto NO es parte del día de alguien de Enfermería?",
-       "opciones": [
+       "titulo": "Comunicar bien",
+       "partes": [
         {
-         "texto": "Diseña y programa sistemas automáticos: robots, líneas de producción, máquinas inteligentes.",
-         "consecuencia": "Exacto: eso lo hace alguien de Mecatrónica.",
-         "mejor": true
-        },
-        {
-         "texto": "Cuida pacientes de forma directa: toma signos vitales, aplica medicamentos y curaciones, vigila su evolución, apoya al médico y orienta a familias.",
-         "consecuencia": "Esto sí lo hace: es parte de su día."
-        },
-        {
-         "texto": "Trabaja por turnos (mañana, tarde, noche) en hospital, clínica o a domicilio.",
-         "consecuencia": "Esto sí lo hace: es parte de su día."
+         "t": "Al cambiar de turno, enfermería entrega a sus pacientes al siguiente equipo, y ahí se pierde información si no se hace con orden. Un método común es decir: qué está pasando con el paciente, sus antecedentes importantes, cómo lo valoraste y qué recomiendas. Al llamar al médico por un problema se usa el mismo orden, con datos concretos. También se le explica al paciente qué se le va a hacer, con palabras sencillas, y se le pide su consentimiento. Lo que no se registra, para el hospital no se hizo."
         }
        ]
       },
       {
-       "tipo": "reflexion",
-       "pregunta": "¿Te ves haciendo esto todos los días?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
+       "tipo": "pregunta",
+       "pregunta": "Al entregar el turno, ¿qué incluyes de cada paciente?",
+       "opciones": [
+        "Qué le pasa, sus antecedentes importantes, cómo lo encontraste y qué recomiendas",
+        "Solo su número de cama",
+        "Nada, que lo lean en el expediente"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "clave",
-       "texto": "El día a día pesa más que el título."
+       "tipo": "pregunta",
+       "pregunta": "Llamas al médico porque un paciente empeoró. ¿Qué le das?",
+       "opciones": [
+        "Nada, que venga",
+        "Datos concretos: signos vitales, qué cambió y qué necesitas",
+        "\"Está raro\""
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "Vas a poner una sonda y el paciente pregunta qué le vas a hacer.",
+       "opciones": [
+        "Se lo explicas con palabras sencillas antes de empezar",
+        "No le contestas",
+        "Le dices que no se preocupe y lo haces"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Hiciste una curación pero no la anotaste. ¿Qué problema hay?",
+       "opciones": [
+        "Para el hospital es como si no se hubiera hecho",
+        "Ninguno",
+        "Que te sobra tiempo"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
-     "id": "3.2",
-     "titulo": "Lo difícil",
+     "id": "7",
+     "titulo": "Ética del cuidado",
      "minutos": 4,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Lo difícil de Enfermería",
-       "texto": "Se considera de dificultad alta.",
-       "puntos": [
-        "Anatomía, Fisiología y Farmacología al inicio",
-        "Después, prácticas clínicas con turnos en hospital."
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "Según lo que leíste, ¿qué es lo que más cuesta en Enfermería?",
-       "opciones": [
+       "titulo": "Ética del cuidado",
+       "partes": [
         {
-         "texto": "Anatomía, Fisiología y Farmacología al inicio",
-         "consecuencia": "Sí, es de lo que más cuesta en Enfermería.",
-         "mejor": true
-        },
-        {
-         "texto": "Cálculo, Fisicoquímica, Termodinámica y Fenómenos de transporte",
-         "consecuencia": "Eso es más de Ing. Química."
-        },
-        {
-         "texto": "Cálculo, Química y Microbiología",
-         "consecuencia": "Eso es más de Ing. Ambiental."
+         "t": "Enfermería conoce los detalles más íntimos de las personas, así que guarda la confidencialidad: la información del paciente solo se comparte con quien la necesita para atenderlo. Se respeta la dignidad: se cubre al paciente, se toca la puerta y se le habla por su nombre. Se atiende igual a todos, sin importar quiénes sean. Y cuando alguien del equipo hace algo que pone en riesgo a un paciente, se reporta por los canales del hospital."
         }
        ]
       },
       {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué tanto te preocupa esto?",
-       "escala": [
-        "Mucho",
-        "Nada"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Saber lo difícil desde antes te ayuda a prepararte."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "3.3",
-     "titulo": "Historia real",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Si pudieras preguntarle algo a alguien que ya estudia Enfermería, ¿qué sería?",
+       "tipo": "pregunta",
+       "pregunta": "Un vecino del paciente te pregunta en el pasillo qué enfermedad tiene.",
        "opciones": [
-        "¿Qué fue lo más difícil?",
-        "¿Qué te sorprendió?",
-        "¿Volverías a elegirla?",
-        "¿Cómo es un día normal?"
-       ]
+        "Le enseñas el expediente",
+        "Le dices que no puedes dar información",
+        "Le cuentas"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "testimonio",
-       "estado": "pendiente",
-       "perfil": "Estudiante de últimos semestres o egresado de Enfermería"
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "Mientras llega esta historia, ¿a quién podrías preguntarle tú?",
+       "tipo": "pregunta",
+       "pregunta": "Vas a bañar a un paciente en un cuarto compartido.",
        "opciones": [
-        "A un familiar o conocido que la estudió",
-        "A un estudiante de mi ciudad",
-        "A un maestro que la conozca",
-        "Todavía no conozco a nadie"
-       ]
+        "Le pides que lo haga solo",
+        "Lo haces a la vista de todos",
+        "Cierras la cortina y lo cubres"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "clave",
-       "texto": "Una persona real te cuenta lo que ningún folleto dice."
+       "tipo": "pregunta",
+       "pregunta": "Ves que un compañero no se lava las manos entre pacientes.",
+       "opciones": [
+        "No dices nada",
+        "Lo publicas en redes",
+        "Se lo dices y, si sigue, lo reportas por los canales del hospital"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "3.4",
-     "titulo": "¿Es para ti?",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Contesta con honestidad. Nadie más ve tus respuestas."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Me imagino cuidando pacientes en turnos de noche?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Me siento bien siguiendo protocolos con precisión?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Quiero trabajar en salud sin estudiar 7 años?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Si dijiste que sí a casi todo, vale la pena seguir explorándola."
-      },
-      {
-       "tipo": "interes"
+       "tipo": "teves"
       }
      ]
     }
@@ -615,448 +440,125 @@
   },
   {
    "id": "u4",
+   "titulo": "Examen final",
+   "sub": "10 preguntas · apruebas con 7",
    "lecciones": [
     {
-     "id": "4.1",
-     "titulo": "Cuánto dura y qué estudias",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Cada escuela arma su plan distinto, pero el orden general se parece. Vamos a verlo."
-      },
-      {
-       "tipo": "ordenar",
-       "pregunta": "Ordena lo que estudias, de lo primero a lo último.",
-       "pasos": [
-        "Anatomía y fisiología, Bioquímica",
-        "Farmacología, Enfermería del adulto",
-        "Enfermería materno-infantil, Enfermería pediátrica",
-        "Prácticas clínicas intensivas, Servicio social"
-       ],
-       "revelacion": "Primero las bases y al final lo más especializado y las prácticas."
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Cuántos años crees que pasan desde que entras hasta que te titulas?",
-       "min": 3,
-       "max": 10,
-       "paso": 1,
-       "unidad": "años",
-       "dato": "enfermeria.duracion"
-      },
-      {
-       "tipo": "clave",
-       "texto": "Revisa el mapa curricular de cada escuela: cambia de una a otra."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "4.2",
-     "titulo": "Cómo se entra",
-     "minutos": 4,
+     "id": "ex",
+     "titulo": "Examen final",
+     "minutos": 6,
+     "examen": true,
+     "aprobar": 7,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Cómo se entra en la región",
-       "puntos": [
-        "UNAM: Concurso de selección UNAM (120 reactivos) o pase reglamentado desde CCH/ENP",
-        "IPN: Examen de admisión IPN (140 preguntas, hasta 3 horas, incluye sección de inglés)",
-        "UAM: Examen de selección UAM (trimestral; dos procesos al año y procesos extraordinarios)",
-        "UAEM: EXANI-II de CENEVAL + curso propedéutico"
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "Según lo que leíste, ¿qué pide UNAM para entrar?",
-       "opciones": [
+       "titulo": "Examen final",
+       "partes": [
         {
-         "texto": "Concurso de selección UNAM (120 reactivos) o pase reglamentado desde CCH/ENP",
-         "consecuencia": "Exacto.",
-         "mejor": true
-        },
-        {
-         "texto": "Examen de admisión IPN (140 preguntas, hasta 3 horas, incluye sección de inglés)",
-         "consecuencia": "Eso lo pide IPN."
-        },
-        {
-         "texto": "Examen de selección UAM (trimestral; dos procesos al año y procesos extraordinarios)",
-         "consecuencia": "Eso lo pide UAM."
+         "t": "Son 10 casos nuevos que mezclan todas las lecciones. Apruebas con 7. Si no, lo repites y las que fallaste regresan con otras palabras."
         }
        ]
       },
       {
-       "tipo": "vf",
-       "afirmacion": "Todas las universidades usan el mismo examen.",
-       "respuesta": false,
-       "revelacion": "Cada una tiene el suyo: revisa la convocatoria de la que te interese."
-      },
-      {
-       "tipo": "clave",
-       "texto": "Conoce el examen de tu escuela desde antes."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "4.3",
-     "titulo": "Dónde, cuánto cuesta y becas",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "escuelas"
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Cuánto crees que cuesta un semestre en una universidad pública?",
-       "min": 0,
-       "max": 60000,
-       "paso": 1000,
-       "unidad": "pesos",
-       "dato": "enfermeria.costo_publica"
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Y un semestre en una universidad privada?",
-       "min": 0,
-       "max": 300000,
-       "paso": 5000,
-       "unidad": "pesos",
-       "dato": "enfermeria.costo_privada"
-      },
-      {
-       "tipo": "dato",
-       "titulo": "Becas para estudiar Enfermería",
-       "dato": "enfermeria.becas"
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Una universidad cara garantiza un mejor empleo.",
-       "respuesta": false,
-       "revelacion": "Pesan más lo que aprendes, tus prácticas y tu esfuerzo."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué pesa más para ti al elegir escuela?",
+       "tipo": "pregunta",
+       "pregunta": "¿Sustituyen los guantes al lavado de manos?",
        "opciones": [
-        "El costo",
-        "Que esté cerca de mi casa",
-        "El prestigio",
-        "Las prácticas que ofrece"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Además de la colegiatura, cuenta transporte y materiales."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "u5",
-   "lecciones": [
-    {
-     "id": "5.1",
-     "titulo": "Qué piden para trabajar",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Qué te piden para trabajar",
-       "puntos": [
-        "Título y cédula profesional.",
-        "Muy demandada en hospitales públicos y privados."
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "Según lo que leíste, ¿qué necesitas para ejercer Enfermería?",
-       "opciones": [
-        {
-         "texto": "Título y cédula profesional.",
-         "consecuencia": "Exacto.",
-         "mejor": true
-        },
-        {
-         "texto": "Para firmar estudios de impacto ambiental se requieren registros ante SEMARNAT o la autoridad estatal.",
-         "consecuencia": "Eso lo piden en Ing. Ambiental."
-        },
-        {
-         "texto": "No requiere cédula",
-         "consecuencia": "Eso lo piden en Sociología."
-        }
-       ]
-      },
-      {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Cómo te ves?",
-       "a": {
-        "texto": "En una institución o empresa",
-        "dice": "Más estabilidad y un equipo de quien aprender."
-       },
-       "b": {
-        "texto": "Por tu cuenta",
-        "dice": "Más libertad, pero tienes que conseguir clientes."
-       }
-      },
-      {
-       "tipo": "clave",
-       "texto": "Saber qué te piden te ahorra sorpresas al salir."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "5.2",
-     "titulo": "Sueldo y demanda",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Hablemos de dinero sin rodeos. Antes de ver cualquier cifra, apuesta: así recuerdas mejor el dato real."
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Cuánto crees que gana al mes, en promedio, un profesionista de Enfermería en México?",
-       "min": 5000,
-       "max": 100000,
-       "paso": 1000,
-       "unidad": "pesos",
-       "dato": "enfermeria.ingreso"
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "De cada 100 egresados, ¿cuántos crees que trabajan en algo de su carrera?",
-       "min": 0,
-       "max": 100,
-       "paso": 5,
-       "unidad": "de cada 100",
-       "dato": "enfermeria.ocupacion_afin"
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Todos los egresados de Enfermería ganan lo mismo.",
-       "respuesta": false,
-       "revelacion": "Cambia con la experiencia, el lugar, la especialidad y si trabajas por tu cuenta."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué tanto pesa el sueldo en tu decisión?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "El promedio orienta, pero tu camino puede ser distinto."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "5.3",
-     "titulo": "Cómo les va al salir",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "chat",
-       "subtitulo": "Te cuenta cómo les va al salir",
-       "intro": [
-        "Te cuento cómo les va a quienes estudian Enfermería al salir."
+        "A veces",
+        "No",
+        "Sí"
        ],
-       "temas": [
-        {
-         "q": "¿Cuántos trabajan en lo suyo?",
-         "a": [
-          "La mayoría trabaja en algo de su carrera.",
-          "Es un promedio nacional del IMCO."
-         ]
-        },
-        {
-         "q": "¿Muchos hacen posgrado?",
-         "a": [
-          "Pocos hacen posgrado; la mayoría empieza a trabajar."
-         ]
-        },
-        {
-         "q": "¿Hay más hombres o mujeres?",
-         "a": [
-          "Hay más mujeres que hombres.",
-          "Eso no decide nada: cualquiera puede estudiarla."
-         ]
-        },
-        {
-         "q": "¿El trabajo tiene prestaciones?",
-         "a": [
-          "La mayoría tiene un trabajo formal, con prestaciones.",
-          "Las prestaciones son cosas como seguro médico y aguinaldo."
-         ]
-        }
+       "correcta": 1
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Tus manos tienen sangre visible. ¿Qué usas?",
+       "opciones": [
+        "Agua y jabón",
+        "Gel",
+        "Nada"
        ],
-       "minimo": 2
+       "correcta": 0
       },
       {
-       "tipo": "vf",
-       "afirmacion": "La mayoría de quienes estudian Enfermería trabaja en algo de su carrera.",
-       "respuesta": true,
-       "revelacion": "La mayoría trabaja en algo de su carrera. Promedio nacional del IMCO."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué te importa más de tu futuro trabajo?",
+       "tipo": "pregunta",
+       "pregunta": "¿Cómo identificas a un paciente antes de darle un medicamento?",
        "opciones": [
-        "Que tenga que ver con lo que estudié",
-        "Ganar bien",
-        "Tener prestaciones",
-        "Hacer algo que me guste"
-       ]
+        "Por su cara",
+        "Por la cama",
+        "Con dos datos, como nombre completo y fecha de nacimiento"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "clave",
-       "texto": "Pregunta cómo les va a quienes ya salieron."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "5.4",
-     "titulo": "Después de titularte",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Después de titularte",
-       "puntos": [
-        "Puedes especializarte con cursos, diplomados o una maestría.",
-        "También puedes trabajar desde el inicio y estudiar después.",
-        "Se combina bien con: Medicina (Médico Cirujano), Fisioterapia, Nutrición."
-       ]
-      },
-      {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Qué harías al terminar?",
-       "a": {
-        "texto": "Trabajar desde el inicio",
-        "dice": "Ganas experiencia y dinero; después decides si estudias más."
-       },
-       "b": {
-        "texto": "Seguir estudiando",
-        "dice": "Te especializas antes; tardas más en empezar a trabajar."
-       }
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Cómo te imaginas después de la carrera?",
+       "tipo": "pregunta",
+       "pregunta": "Una dosis te parece muy alta.",
        "opciones": [
-        "Trabajando",
-        "En una maestría",
-        "Emprendiendo",
-        "No sé todavía"
-       ]
+        "La das",
+        "Das la mitad",
+        "La confirmas con el médico antes de darla"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "clave",
-       "texto": "Al titularte empieza otra parte del camino, no termina."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "u6",
-   "lecciones": [
-    {
-     "id": "6.1",
-     "titulo": "Lo que sentiste",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Antes de ver tus respuestas: ¿cómo te fue con Enfermería?",
+       "tipo": "pregunta",
+       "pregunta": "Debes pasar 600 mililitros en 5 horas con un equipo de 20 gotas por mililitro. ¿Cuántas gotas por minuto?",
        "opciones": [
-        "Me gustó más de lo que pensaba",
-        "Más o menos como esperaba",
-        "Me gustó menos de lo que pensaba"
-       ]
+        "40",
+        "20",
+        "120"
+       ],
+       "correcta": 0,
+       "formula": "{600 × 20|300} = 40"
       },
       {
-       "tipo": "resumen"
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "Viendo tus respuestas, ¿qué pesó más?",
+       "tipo": "pregunta",
+       "pregunta": "Un paciente pasó de 80 a 125 latidos por minuto en dos horas.",
        "opciones": [
-        "Lo que sentí al probarla",
-        "Lo que supe de la realidad",
-        "El camino para llegar",
-        "El futuro que ofrece"
-       ]
+        "Esperas",
+        "Nada",
+        "Avisas al médico"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "clave",
-       "texto": "Lo que sentiste al probarla vale más que lo que imaginabas."
-      },
-      {
-       "tipo": "interes",
-       "pregunta": "¿Te ves estudiando Enfermería?"
-      }
-     ]
-    },
-    {
-     "id": "6.2",
-     "titulo": "Tu veredicto",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Si mañana tuvieras que elegir carrera, ¿Enfermería estaría entre tus opciones?",
+       "tipo": "pregunta",
+       "pregunta": "¿Cómo se previenen las úlceras por presión?",
        "opciones": [
-        "Sí, entre las primeras",
-        "Sí, pero no arriba",
-        "No creo",
-        "No lo sé"
-       ]
+        "Dejándolo quieto",
+        "Cambiando de posición al paciente seguido y cuidando su piel",
+        "No se previenen"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "comparar"
+       "tipo": "pregunta",
+       "pregunta": "¿Qué dejas a la mano de un paciente con riesgo de caídas?",
+       "opciones": [
+        "Nada",
+        "Sus zapatos en la escalera",
+        "El timbre"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Qué te ayudaría más a decidir?",
-       "a": {
-        "texto": "Hablar con alguien que la estudia",
-        "dice": "Busca a un estudiante o egresado cerca de ti y hazle tus preguntas. Una plática aclara más que diez videos."
-       },
-       "b": {
-        "texto": "Probar otra carrera y comparar",
-        "dice": "Explora otra de tu mapa. Comparar dos caminos reales aclara más que pensar en uno solo."
-       }
+       "tipo": "pregunta",
+       "pregunta": "¿Qué pasa con algo que hiciste pero no registraste?",
+       "opciones": [
+        "Se registra solo",
+        "Para el hospital no se hizo",
+        "Nada"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "veredicto"
-      },
-      {
-       "tipo": "clave",
-       "texto": "Decidir «en duda» también es avanzar."
+       "tipo": "pregunta",
+       "pregunta": "Un desconocido te pregunta por un paciente.",
+       "opciones": [
+        "No das información",
+        "Le das el teléfono del paciente",
+        "Le cuentas todo"
+       ],
+       "correcta": 0
       }
      ]
     }

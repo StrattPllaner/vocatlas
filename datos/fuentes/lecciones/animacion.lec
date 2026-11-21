@@ -1,0 +1,119 @@
+**Lección 1: Cuadros por segundo (4 preguntas)**
+
+Una animación es una serie de dibujos o imágenes fijas que, pasadas rápido, parecen moverse. Cada imagen es un cuadro, o frame. El cine usa normalmente 24 cuadros por segundo. Para saber cuántos cuadros necesitas:
+
+$$\text{cuadros} = \text{segundos} \times \text{cuadros por segundo}$$
+
+En animación tradicional muchas veces se anima "en dos": cada dibujo se repite dos cuadros, así que en un segundo hay 12 dibujos distintos. Se ve un poco menos fluido, pero ahorra la mitad del trabajo. Los movimientos rápidos, como un golpe, a veces se animan "en uno" para que se vean suaves.
+
+Pregunta 1. Un comercial de 10 segundos va a 24 cuadros por segundo. ¿Cuántos cuadros tiene? A: 240. B: 2,400. C: 34. Correcta: A, porque
+
+$$10 \times 24 = 240$$
+
+Pregunta 2. Si animas "en dos" ese mismo comercial, ¿cuántos dibujos distintos haces? A: 120. B: 240. C: 480. Correcta: A, porque
+
+$$\frac{240}{2} = 120$$
+
+Pregunta 3. Tienes poco tiempo para entregar una escena tranquila de dos personajes platicando. ¿Qué haces? A: la animas a 60 cuadros por segundo. B: no la animas. C: la animas en dos para ahorrar trabajo. Correcta: C.
+
+Pregunta 4. En una escena de pelea el golpe se ve brincado. ¿Qué pruebas? A: quitar el golpe. B: bajar a 6 cuadros por segundo. C: animar ese golpe en uno para que se vea más suave. Correcta: C.
+
+**Lección 2: Los principios de la animación (4 preguntas)**
+
+Los animadores clásicos definieron principios para que el movimiento se sienta vivo. Estirar y encoger: una pelota se aplasta al chocar y se estira al caer rápido, sin cambiar de volumen. Anticipación: antes de una acción grande hay un movimiento contrario, como agacharse antes de saltar. Acelerar y frenar: casi nada arranca o para de golpe, así que los dibujos se juntan al inicio y al final del movimiento. Acción continuada: el pelo o la ropa siguen moviéndose un poco después de que el cuerpo se detiene. El timing, que es cuántos cuadros dura una acción, cambia por completo cómo se siente.
+
+Pregunta 1. Un personaje va a saltar. ¿Qué principio le pones antes del salto? A: que salte sin moverse antes. B: ninguno. C: anticipación: se agacha primero. Correcta: C.
+
+Pregunta 2. Una pelota rebota y se ve rígida, como de piedra. ¿Qué le falta? A: más color. B: estirar y encoger al caer y al chocar. C: más cuadros quietos. Correcta: B.
+
+Pregunta 3. Un personaje con capa se detiene de golpe, y la capa también se detiene en seco. ¿Qué principio arregla eso? A: estirar y encoger. B: acción continuada: la capa sigue un poco y luego se asienta. C: anticipación. Correcta: B.
+
+Pregunta 4. El mismo movimiento de brazo dura 6 cuadros en una versión y 24 en otra. ¿Qué cambia? A: nada. B: en 6 se siente rápido y enérgico; en 24, lento o cansado. C: solo el color. Correcta: B. Eso es el timing.
+
+**Lección 3: Del guion a la pantalla (3 preguntas)**
+
+Antes de animar se planea. El guion cuenta la historia. El storyboard la dibuja en viñetas, como cómic, plano por plano. El animatic es ese storyboard puesto en video con tiempos, voces y música provisionales: sirve para ver si la historia funciona antes de gastar meses animando. Cambiar algo en el storyboard toma minutos; cambiarlo con la animación terminada puede tomar semanas. Por eso los problemas de historia se arreglan al principio.
+
+Pregunta 1. ¿Para qué sirve un animatic? A: para la versión final. B: para el póster. C: para revisar tiempos y si la historia funciona antes de animar. Correcta: C.
+
+Pregunta 2. En el animatic, el cliente dice que una escena es confusa. ¿Cuándo conviene cambiarla? A: nunca. B: ahora, antes de animar. C: al final, cuando ya esté animada. Correcta: B. Es mucho más barato cambiarla ahora.
+
+Pregunta 3. ¿Qué es un storyboard? A: el presupuesto. B: la música. C: la historia dibujada plano por plano en viñetas. Correcta: C.
+
+**Lección 4: Animación 3D (4 preguntas)**
+
+En 3D el trabajo se divide en etapas, que se llaman pipeline. Modelado: se construye el personaje o el objeto con polígonos. Rigging: se le pone un esqueleto con controles para poder moverlo. Texturizado: se le dan color y materiales. Animación: se mueve con fotogramas clave, o keyframes, y la computadora calcula los intermedios. Iluminación y render: se ponen luces y la computadora genera cada cuadro final. Si un modelo tiene un error, todas las etapas que siguen lo heredan.
+
+Pregunta 1. ¿Qué es el rigging? A: pintarlo. B: ponerle un esqueleto con controles al modelo para poder moverlo. C: iluminarlo. Correcta: B.
+
+Pregunta 2. ¿Qué hace la computadora cuando pones dos keyframes? A: hace el render. B: borra el primero. C: calcula los cuadros intermedios entre ellos. Correcta: C.
+
+Pregunta 3. Ya se animaron varias escenas y descubres que el modelo del personaje tiene un brazo mal hecho. ¿Qué pasa? A: hay que corregir el modelo y revisar todo lo que dependía de él. B: se arregla solo en el render. C: nada. Correcta: A.
+
+Pregunta 4. Un personaje cruza la pantalla en línea recta y a velocidad idéntica todo el tiempo, y se ve robótico. ¿Qué ajustas? A: que vaya más rápido. B: cambiar su color. C: que acelere al empezar y frene al terminar. Correcta: C.
+
+**Lección 5: El render (3 preguntas)**
+
+Renderizar es que la computadora calcule la imagen final de cada cuadro con luces, sombras y materiales. Puede tardar desde segundos hasta horas por cuadro. Para saber cuánto tardará todo:
+
+$$\text{tiempo total} = \text{cuadros} \times \text{minutos por cuadro}$$
+
+Los estudios usan granjas de render: muchas computadoras trabajando al mismo tiempo, cada una con distintos cuadros. Si tienes 10 computadoras, el tiempo se divide más o menos entre 10. Antes del render final se hacen pruebas a baja calidad para no desperdiciar horas.
+
+Pregunta 1. Un corto tiene 1,200 cuadros y cada uno tarda 3 minutos en renderizar. ¿Cuánto tarda en una computadora? A: 400 minutos. B: 1,203 minutos. C: 3,600 minutos. Correcta: C, porque
+
+$$1{,}200 \times 3 = 3{,}600$$
+
+Pregunta 2. Si usas 10 computadoras, ¿cuánto tarda más o menos? A: 36 minutos. B: 3,600 minutos. C: 360 minutos. Correcta: C, porque
+
+$$\frac{3{,}600}{10} = 360$$
+
+Pregunta 3. Vas a mandar a render final una escena por primera vez. ¿Qué haces antes? A: apagas la computadora. B: una prueba rápida a baja calidad para revisar errores. C: nada, lo mandas directo. Correcta: B.
+
+**Lección 6: Trabajar con clientes (4 preguntas)**
+
+La mayoría de los animadores trabajan para estudios, agencias de publicidad o clientes. Un proyecto normal tiene etapas de revisión: el cliente aprueba el storyboard, luego el animatic, luego la animación. Conviene dejar por escrito cuántas rondas de cambios incluye el precio, porque cambios infinitos se comen el tiempo. Las fechas de entrega se calculan hacia atrás desde el día de entrega, contando render y revisiones. Además, no puedes usar personajes, música o marcas de otros sin permiso: tienen derechos de autor.
+
+Pregunta 1. Un cliente pide su sexta ronda de cambios y el contrato incluía tres. A: explicas que ya se cubrieron las incluidas y cotizas las extras. B: dejas de contestar. C: los haces gratis para siempre. Correcta: A.
+
+Pregunta 2. Un cliente quiere un comercial con un personaje famoso de una película. A: le explicas que se necesita permiso del dueño o hacer un personaje original. B: lo copias igual. C: lo copias cambiándole el color. Correcta: A.
+
+Pregunta 3. La entrega es el viernes y el render tarda dos días. ¿Cuándo debe estar aprobada la animación? A: el viernes en la mañana. B: a más tardar el martes o miércoles, para que dé tiempo de renderizar y revisar. C: el sábado. Correcta: B.
+
+Pregunta 4. ¿Para qué se pide aprobación del storyboard antes de animar? A: para no animar algo que el cliente luego rechace. B: por costumbre. C: para cobrar menos. Correcta: A.
+
+**Lección 7: Tu portafolio (3 preguntas)**
+
+En animación, lo que te consigue trabajo es tu demo reel: un video corto con tus mejores trabajos. Los estudios lo ven en segundos, así que lo mejor va al inicio y es mejor que sea corto y fuerte, de uno o dos minutos, a largo y con relleno. Conviene que muestre la especialidad a la que quieres entrar, como animación de personajes, modelado o efectos. Muchos animadores mexicanos trabajan a distancia para estudios de otros países, así que un buen reel y algo de inglés abren muchas puertas.
+
+Pregunta 1. ¿Qué pones al inicio de tu demo reel? A: tu mejor trabajo. B: tus primeros ejercicios. C: los créditos. Correcta: A.
+
+Pregunta 2. Tienes 8 minutos de trabajos, varios regulares. ¿Qué haces? A: te quedas con el mejor minuto o dos. B: los pones todos. C: los pones al revés. Correcta: A.
+
+Pregunta 3. Quieres trabajar animando personajes. ¿Qué debe tener tu reel? A: solo logotipos. B: sobre todo animación de personajes con buena actuación. C: solo fondos. Correcta: B.
+
+**Examen final**
+
+Pregunta 1. Una animación de 5 segundos va a 24 cuadros por segundo. ¿Cuántos cuadros tiene? A: 120. B: 29. C: 240. Correcta: A, porque
+
+$$5 \times 24 = 120$$
+
+Pregunta 2. ¿Qué principio es agacharse antes de saltar? A: acción continuada. B: anticipación. C: render. Correcta: B.
+
+Pregunta 3. ¿Qué es animar "en dos"? A: animar con dos personas. B: repetir cada dibujo dos cuadros. C: hacer dos versiones. Correcta: B.
+
+Pregunta 4. ¿Para qué sirve el animatic? A: para el render final. B: para revisar si la historia y los tiempos funcionan antes de animar. C: para cobrar. Correcta: B.
+
+Pregunta 5. ¿Qué etapa del 3D le pone esqueleto y controles al modelo? A: texturizado. B: render. C: rigging. Correcta: C.
+
+Pregunta 6. Una escena tiene 600 cuadros y cada uno tarda 2 minutos en renderizar. ¿Cuánto tarda en una computadora? A: 1,200 minutos. B: 300 minutos. C: 602 minutos. Correcta: A, porque
+
+$$600 \times 2 = 1{,}200$$
+
+Pregunta 7. Un objeto se mueve a velocidad idéntica todo el tiempo y se ve robótico. ¿Qué le falta? A: acelerar al inicio y frenar al final. B: más tamaño. C: más color. Correcta: A.
+
+Pregunta 8. Un cliente quiere cambiar la historia cuando ya está todo animado. ¿Qué habría evitado el problema? A: aprobar bien el storyboard y el animatic antes de animar. B: nada. C: animar más rápido. Correcta: A.
+
+Pregunta 9. ¿Puedes usar un personaje de una película en un comercial sin permiso? A: sí. B: no, tiene derechos de autor. C: sí, si le cambias el color. Correcta: B.
+
+Pregunta 10. ¿Cómo debe ser un buen demo reel? A: sin trabajos. B: largo, con todo lo que has hecho. C: corto, con lo mejor al inicio. Correcta: C.

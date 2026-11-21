@@ -1,0 +1,137 @@
+**Lección 1: Voltaje, corriente y resistencia (4 preguntas)**
+
+La electricidad se parece al agua en una manguera. El voltaje es la presión que empuja, la corriente es cuánta electricidad pasa, y la resistencia es qué tan difícil se lo pone el camino. Las tres se relacionan con la ley de Ohm:
+
+$$\text{voltaje} = \text{corriente} \times \text{resistencia}$$
+
+El voltaje se mide en volts, la corriente en amperes y la resistencia en ohms. En las casas de México el voltaje normal es de 127 volts. Con el mismo voltaje, si la resistencia baja, la corriente sube; por eso un cortocircuito, que casi no tiene resistencia, deja pasar una corriente enorme.
+
+Pregunta 1. Una resistencia de 10 ohms está conectada a 120 volts. ¿Cuánta corriente pasa? A: 12 amperes. B: 1,200 amperes. C: 130 amperes. Correcta: A, porque
+
+$$\frac{120}{10} = 12$$
+
+Pregunta 2. Por una resistencia de 20 ohms pasan 3 amperes. ¿Qué voltaje tiene? A: 6.7 volts. B: 23 volts. C: 60 volts. Correcta: C, porque
+
+$$3 \times 20 = 60$$
+
+Pregunta 3. ¿Por qué un cortocircuito es peligroso? A: porque casi no tiene resistencia y pasa una corriente enorme. B: no es peligroso. C: porque baja el voltaje. Correcta: A.
+
+Pregunta 4. ¿Qué voltaje tienen normalmente los contactos de una casa en México? A: 1,000 volts. B: 12 volts. C: 127 volts. Correcta: C.
+
+**Lección 2: Potencia y el recibo de luz (4 preguntas)**
+
+La potencia dice cuánta energía usa un aparato por segundo, y se mide en watts:
+
+$$\text{potencia} = \text{voltaje} \times \text{corriente}$$
+
+La energía que cobra la CFE se mide en kilowatts hora: un aparato de 1,000 watts prendido una hora gasta 1 kilowatt hora.
+
+$$\text{energía en kWh} = \text{potencia en kW} \times \text{horas}$$
+
+Los aparatos que calientan, como planchas, secadoras y calentadores eléctricos, y los que enfrían, como el aire acondicionado, son los que más gastan.
+
+Pregunta 1. Una plancha toma 10 amperes a 127 volts. ¿Cuál es su potencia? A: 137 watts. B: 12.7 watts. C: 1,270 watts. Correcta: C, porque
+
+$$127 \times 10 = 1{,}270$$
+
+Pregunta 2. Un aire acondicionado de 1.5 kilowatts está prendido 8 horas. ¿Cuánta energía gasta? A: 5.3 kilowatts hora. B: 12 kilowatts hora. C: 9.5 kilowatts hora. Correcta: B, porque
+
+$$1.5 \times 8 = 12$$
+
+Pregunta 3. Si cada kilowatt hora cuesta 3 pesos, ¿cuánto cuesta usar ese aire acondicionado ese día? A: 15 pesos. B: 4 pesos. C: 36 pesos. Correcta: C, porque
+
+$$12 \times 3 = 36$$
+
+Pregunta 4. Una familia quiere bajar su recibo de luz. ¿Qué revisa primero? A: los aparatos que calientan o enfrían. B: el reloj de pared. C: el cargador del celular. Correcta: A.
+
+**Lección 3: Serie y paralelo (3 preguntas)**
+
+En un circuito en serie, la corriente pasa por todos los elementos uno tras otro: si uno se apaga o se rompe, se apagan todos, como en algunas series de luces navideñas viejas. En un circuito en paralelo, cada elemento tiene su propio camino y recibe el mismo voltaje: si uno falla, los demás siguen funcionando. Por eso las instalaciones de las casas son en paralelo. En paralelo, cada aparato que conectas suma su corriente a la del circuito.
+
+Pregunta 1. En tu casa se funde un foco y los demás siguen prendidos. ¿Cómo están conectados? A: no están conectados. B: en paralelo. C: en serie. Correcta: B.
+
+Pregunta 2. En una serie de luces se funde un foco y se apaga toda la serie. ¿Cómo están conectados? A: en paralelo. B: en serie. C: con internet. Correcta: B.
+
+Pregunta 3. En un circuito de la cocina conectas una parrilla de 8 amperes y un horno de 7 amperes al mismo tiempo. ¿Cuánta corriente pasa por el circuito? A: 8 amperes. B: 15 amperes. C: 1 ampere. Correcta: B, porque
+
+$$8 + 7 = 15$$
+
+**Lección 4: Protecciones (4 preguntas)**
+
+Cada circuito tiene una pastilla, o interruptor termomagnético, que se bota si pasa más corriente de la que aguanta el cable. Eso evita que el cable se caliente y provoque un incendio. Por eso nunca se cambia una pastilla por una más grande "para que ya no se bote" sin cambiar también el cable. La tierra física lleva a tierra la corriente que se escapa de un aparato dañado, en vez de que pase por una persona. En baños y cocinas se usan contactos con protección contra fugas, que cortan la luz en milésimas de segundo si detectan una fuga.
+
+Pregunta 1. ¿Para qué sirve la pastilla de un circuito? A: para ahorrar. B: para cortar la corriente si pasa más de lo que aguanta el cable. C: para que la luz sea más brillante. Correcta: B.
+
+Pregunta 2. Una pastilla de 15 amperes se bota seguido y el dueño quiere poner una de 40 sin cambiar el cable. ¿Qué le dices? A: que mejor una de 100. B: que está bien. C: que es peligroso, porque el cable se puede calentar e incendiar; hay que revisar la carga o el cable. Correcta: C.
+
+Pregunta 3. ¿Dónde es más importante un contacto con protección contra fugas? A: en baños y cocinas, cerca del agua. B: en el techo. C: en la recámara. Correcta: A.
+
+Pregunta 4. ¿Qué hace la tierra física? A: hace que el aparato gaste menos. B: lleva a tierra la corriente que se escapa de un aparato dañado. C: nada. Correcta: B.
+
+**Lección 5: Llevar la electricidad lejos (3 preguntas)**
+
+La electricidad se genera en centrales, a veces muy lejos de las ciudades, y viaja por líneas de transmisión. En los cables se pierde energía en forma de calor, y esa pérdida crece mucho con la corriente. Para mandar la misma potencia con menos corriente se sube el voltaje, a cientos de miles de volts, con transformadores. Cerca de las ciudades, otros transformadores lo bajan, y el del poste lo deja en el voltaje de las casas.
+
+Pregunta 1. ¿Por qué se transmite la electricidad a voltajes muy altos? A: para mandar la misma potencia con menos corriente y perder menos energía. B: para que sea más peligrosa. C: porque es más barato el poste. Correcta: A.
+
+Pregunta 2. ¿Qué aparato sube o baja el voltaje? A: la pastilla. B: el foco. C: el transformador. Correcta: C.
+
+Pregunta 3. Una línea manda 100,000 watts a 10,000 volts. ¿Cuánta corriente lleva? A: 1,000 amperes. B: 110,000 amperes. C: 10 amperes. Correcta: C, porque
+
+$$\frac{100{,}000}{10{,}000} = 10$$
+
+**Lección 6: Calcular una instalación (4 preguntas)**
+
+Al diseñar la instalación de una casa o un local se suman las cargas de cada circuito y se elige el cable y la pastilla adecuados. Un cable más grueso aguanta más corriente. Los aparatos grandes, como el aire acondicionado, el horno eléctrico o la bomba de agua, llevan su propio circuito. En México, las instalaciones se diseñan siguiendo la norma oficial de instalaciones eléctricas, la NOM-001-SEDE. Para saber qué corriente toma un aparato:
+
+$$\text{corriente} = \frac{\text{potencia}}{\text{voltaje}}$$
+
+Pregunta 1. Un horno eléctrico de 2,540 watts funciona a 127 volts. ¿Qué corriente toma? A: 2 amperes. B: 20 amperes. C: 2,667 amperes. Correcta: B, porque
+
+$$\frac{2{,}540}{127} = 20$$
+
+Pregunta 2. ¿Por qué el aire acondicionado suele llevar su propio circuito? A: porque toma mucha corriente y sobrecargaría un circuito compartido. B: no lo necesita. C: por estética. Correcta: A.
+
+Pregunta 3. ¿Qué cable aguanta más corriente? A: uno más grueso. B: todos igual. C: uno más delgado. Correcta: A.
+
+Pregunta 4. ¿Qué norma se sigue en México para las instalaciones eléctricas? A: ninguna. B: la NOM-001-SEDE. C: la del IMSS. Correcta: B.
+
+**Lección 7: Trabajar seguro (3 preguntas)**
+
+La electricidad no se ve, no se oye y no avisa. Antes de trabajar en un circuito se desenergiza: se baja la pastilla, se pone un candado o una etiqueta para que nadie la suba, y se comprueba con un probador que de verdad no hay voltaje. Se usan herramientas aisladas, guantes y calzado adecuados. Nunca se trabaja con las manos mojadas. En alta tensión, solo personal capacitado se acerca a las líneas.
+
+Pregunta 1. Vas a cambiar un contacto. ¿Qué haces antes? A: le pides a alguien que no toque nada y ya. B: bajas la pastilla, pones una etiqueta y compruebas que no haya voltaje. C: lo cambias con la luz prendida. Correcta: B.
+
+Pregunta 2. ¿Por qué se pone candado o etiqueta en la pastilla que bajaste? A: para que nadie la suba mientras trabajas. B: para que no se pierda. C: para decorar. Correcta: A.
+
+Pregunta 3. Un vecino quiere subir al poste para "arreglar" un cable. A: le ayudas. B: le dices que no, que es peligrosísimo y debe llamar a la CFE. C: le prestas guantes de cocina. Correcta: B.
+
+**Examen final**
+
+Pregunta 1. Una resistencia de 5 ohms está a 20 volts. ¿Cuánta corriente pasa? A: 4 amperes. B: 25 amperes. C: 100 amperes. Correcta: A, porque
+
+$$\frac{20}{5} = 4$$
+
+Pregunta 2. Un aparato toma 5 amperes a 127 volts. ¿Cuál es su potencia? A: 25 watts. B: 132 watts. C: 635 watts. Correcta: C, porque
+
+$$127 \times 5 = 635$$
+
+Pregunta 3. Un aparato de 2 kilowatts está prendido 3 horas. ¿Cuánta energía gasta? A: 5 kilowatts hora. B: 6 kilowatts hora. C: 1.5 kilowatts hora. Correcta: B, porque
+
+$$2 \times 3 = 6$$
+
+Pregunta 4. ¿Cómo están conectados los contactos de una casa? A: en paralelo. B: sin conexión. C: en serie. Correcta: A.
+
+Pregunta 5. ¿Para qué sirve la pastilla? A: para ahorrar. B: para cortar la corriente si se pasa de lo que aguanta el cable. C: para dar más luz. Correcta: B.
+
+Pregunta 6. ¿Se puede cambiar una pastilla por una más grande sin cambiar el cable? A: no, el cable podría calentarse e incendiarse. B: siempre. C: sí. Correcta: A.
+
+Pregunta 7. ¿Por qué se transmite a alto voltaje? A: por costumbre. B: para que sea más peligroso. C: para perder menos energía. Correcta: C.
+
+Pregunta 8. Un calentador de 1,270 watts funciona a 127 volts. ¿Qué corriente toma? A: 1,397 amperes. B: 100 amperes. C: 10 amperes. Correcta: C, porque
+
+$$\frac{1{,}270}{127} = 10$$
+
+Pregunta 9. ¿Dónde son más importantes los contactos con protección contra fugas? A: en baños y cocinas. B: en el garaje solamente. C: en ninguno. Correcta: A.
+
+Pregunta 10. ¿Qué haces antes de trabajar en un circuito? A: mojarte las manos. B: nada. C: desenergizar, etiquetar y comprobar que no haya voltaje. Correcta: C.

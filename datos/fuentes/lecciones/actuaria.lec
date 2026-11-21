@@ -1,0 +1,147 @@
+**Lección 1: Probabilidad (4 preguntas)**
+
+La probabilidad dice qué tan seguido pasa algo. Es un número entre 0 y 1: 0 es que nunca pasa y 1 es que siempre pasa. Los actuarios la sacan de datos reales:
+
+$$\text{probabilidad} = \frac{\text{veces que pasó}}{\text{total de casos}}$$
+
+La probabilidad de que algo no pase es 1 menos la probabilidad de que sí pase. Dos eventos son independientes cuando uno no afecta al otro, y entonces la probabilidad de que pasen los dos es la multiplicación de sus probabilidades. Lo que pasó antes no cambia lo que va a pasar: una moneda no "se acuerda" de que ya salieron cinco soles seguidos.
+
+Pregunta 1. De 1,000 autos asegurados, 50 chocaron en el año. ¿Cuál es la probabilidad de que un auto choque? A: 50. B: 0.5. C: 0.05. Correcta: C, porque
+
+$$\frac{50}{1{,}000} = 0.05$$
+
+Pregunta 2. Con el mismo dato, ¿cuál es la probabilidad de que un auto no choque? A: 0.05. B: 1.05. C: 0.95. Correcta: C, porque
+
+$$1 - 0.05 = 0.95$$
+
+Pregunta 3. Una casa tiene una probabilidad de 0.02 de inundarse en el año y de 0.01 de incendiarse, y una cosa no afecta a la otra. ¿Cuál es la probabilidad de que le pasen las dos el mismo año? A: 0.0002. B: 0.03. C: 0.02. Correcta: A, porque
+
+$$0.02 \times 0.01 = 0.0002$$
+
+Pregunta 4. Un amigo te dice: "Llevo 5 años sin chocar, así que este año seguro me toca". A: su probabilidad sube al doble. B: no; si cada año es independiente, los 5 años sin chocar no cambian la probabilidad de este año. C: tiene razón. Correcta: B.
+
+**Lección 2: Valor esperado (4 preguntas)**
+
+El valor esperado es cuánto pierdes o ganas en promedio si algo se repite muchas veces:
+
+$$\text{pérdida esperada} = \text{probabilidad} \times \text{monto de la pérdida}$$
+
+En los seguros, esa pérdida esperada se llama prima pura: es lo mínimo que la aseguradora necesita cobrarle a cada cliente para pagar los siniestros en promedio. Lo que cobra en realidad siempre es más, porque también paga sueldos y gastos, guarda dinero para los años malos y necesita ganancia. Si cobra menos que la prima pura, pierde dinero aunque tenga muchos clientes.
+
+Pregunta 1. A un celular le roban con una probabilidad de 0.1 al año, y reponerlo cuesta 8,000 pesos. ¿Cuál es la pérdida esperada? A: 800. B: 80. C: 8,000. Correcta: A, porque
+
+$$0.1 \times 8{,}000 = 800$$
+
+Pregunta 2. Una aseguradora cobra 600 pesos al año por ese seguro. A: en promedio pierde 200 pesos por cliente. B: en promedio queda igual. C: en promedio gana. Correcta: A. Cobra menos de los 800 de prima pura.
+
+Pregunta 3. En una rifa se venden 100 boletos de 100 pesos y hay un solo premio de 5,000. ¿Cuánto vale en promedio cada boleto? A: 50. B: 5,000. C: 100. Correcta: A, porque
+
+$$\frac{1}{100} \times 5{,}000 = 50$$
+
+Pagas 100 pesos por algo que en promedio vale 50.
+
+Pregunta 4. ¿Por qué una aseguradora cobra más que la prima pura? A: no debería cobrar más. B: por abuso. C: para pagar gastos, guardar dinero para años malos y tener ganancia. Correcta: C.
+
+**Lección 3: Muchos clientes (3 preguntas)**
+
+Con pocos clientes, el resultado de un año puede ser muy distinto a lo que calculaste. Con muchos clientes, lo que pasa en realidad se acerca cada vez más al promedio esperado. Esto se llama ley de los grandes números y es la razón por la que las aseguradoras funcionan. Pero solo protege si los siniestros son independientes: si un huracán o un terremoto le pega a todos tus clientes al mismo tiempo, tener muchos no te salva. Para eso existe el reaseguro: la aseguradora contrata a su vez un seguro con otra compañía más grande para cubrir las pérdidas enormes.
+
+Pregunta 1. ¿Con qué cartera es más fácil que el resultado real se parezca a tu cálculo? A: da igual. B: con 100,000 clientes. C: con 10 clientes. Correcta: B.
+
+Pregunta 2. Una aseguradora pequeña tiene pocos clientes, y un solo siniestro muy grande podría quebrarla. ¿Qué le conviene? A: cobrarle todo a un solo cliente. B: contratar reaseguro. C: no hacer nada. Correcta: B.
+
+Pregunta 3. Todos tus clientes viven en Acapulco y llega un huracán. ¿Por qué es peligroso? A: porque solo afecta a uno. B: no es peligroso porque son muchos clientes. C: porque los siniestros pasan todos juntos, no son independientes y la ley de los grandes números no te protege. Correcta: C.
+
+**Lección 4: Interés compuesto (4 preguntas)**
+
+Cuando el dinero se invierte, cada año gana intereses, y al año siguiente también gana intereses sobre esos intereses. Eso es el interés compuesto. Para calcularlo, cada año multiplicas por 1 más la tasa. Con una tasa del 10 por ciento, multiplicas por 1.10 una vez por cada año:
+
+$$\text{dinero después de 2 años} = \text{capital} \times 1.10 \times 1.10$$
+
+Por eso empezar a ahorrar unos años antes hace una diferencia enorme, sobre todo en algo de tan largo plazo como una Afore. Los actuarios usan esta cuenta todo el tiempo para pensiones y seguros de vida.
+
+Pregunta 1. Inviertes 10,000 pesos al 10 por ciento anual durante 2 años. ¿Cuánto tienes al final? A: 12,000. B: 11,000. C: 12,100. Correcta: C, porque
+
+$$10{,}000 \times 1.10 \times 1.10 = 12{,}100$$
+
+Pregunta 2. ¿Por qué el interés compuesto da más dinero que el simple? A: porque ganas intereses sobre los intereses. B: dan lo mismo. C: porque el banco te regala dinero. Correcta: A.
+
+Pregunta 3. Inviertes 1,000 pesos al 5 por ciento anual durante 3 años. ¿Cuánto tienes al final? A: 1,050. B: 1,150. C: 1,157.63. Correcta: C, porque
+
+$$1{,}000 \times 1.05 \times 1.05 \times 1.05 = 1{,}157.63$$
+
+Pregunta 4. Dos personas ponen lo mismo cada mes en su Afore hasta los 65 años. Una empieza a los 25 y la otra a los 40. A: la de 40 junta más. B: juntan lo mismo. C: la de 25 junta mucho más, porque su dinero crece durante más años. Correcta: C.
+
+**Lección 5: Valor presente (3 preguntas)**
+
+El valor presente es la cuenta del interés compuesto al revés: dice cuánto vale hoy un dinero que vas a recibir en el futuro. Para un año:
+
+$$\text{valor presente} = \frac{\text{dinero futuro}}{1 + \text{tasa}}$$
+
+Mil pesos hoy valen más que mil pesos dentro de 3 años, porque los de hoy los puedes invertir. Por eso, cuando una aseguradora sabe que en el futuro va a pagar una suma, hoy guarda menos que esa suma y la invierte para que crezca hasta el día del pago. Ese dinero guardado se llama reserva.
+
+Pregunta 1. Te prometen 11,000 pesos dentro de un año y la tasa es del 10 por ciento. ¿Cuánto vale eso hoy? A: 11,000. B: 10,000. C: 9,900. Correcta: B, porque
+
+$$\frac{11{,}000}{1.10} = 10{,}000$$
+
+Pregunta 2. Con una tasa del 8 por ciento, ¿qué te conviene más: 10,000 pesos hoy o 10,000 pesos dentro de 3 años? A: dentro de 3 años. B: da lo mismo. C: hoy. Correcta: C. Los de hoy los puedes invertir y en 3 años tendrías más.
+
+Pregunta 3. Una aseguradora va a pagar un millón de pesos en el futuro, pero hoy guarda menos que eso. ¿Por qué? A: porque no piensa pagar. B: es un error. C: porque ese dinero se invierte y crece hasta el día que tenga que pagar. Correcta: C.
+
+**Lección 6: Seguros de vida y pensiones (4 preguntas)**
+
+Para los seguros de vida, los actuarios usan tablas de mortalidad, que dicen qué probabilidad tiene una persona de morir en el año según su edad. A mayor edad, mayor probabilidad, y por eso el seguro cuesta más. Algunos factores, como fumar, también la suben, y por eso la aseguradora pregunta por ellos. Si el cliente miente, el precio queda mal calculado y la aseguradora puede negarse a pagar. Con las pensiones el riesgo es al revés: que la gente viva más años de los calculados, porque el fondo tendrá que pagar durante más tiempo.
+
+Pregunta 1. Según la tabla, una persona de 30 años tiene una probabilidad de 0.001 de morir en el año. El seguro paga 500,000 pesos. ¿Cuál es la prima pura? A: 500. B: 5,000. C: 50. Correcta: A, porque
+
+$$0.001 \times 500{,}000 = 500$$
+
+Pregunta 2. El mismo seguro para una persona de 60 años, con probabilidad de 0.01. ¿Cuál es la prima pura? A: 5,000. B: 500. C: 50,000. Correcta: A, porque
+
+$$0.01 \times 500{,}000 = 5{,}000$$
+
+Pregunta 3. Un cliente fuma, pero dice que no. ¿Por qué importa? A: porque fumar sube su probabilidad de morir, su precio queda mal calculado y la aseguradora puede negarse a pagar si lo descubre. B: no importa. C: porque así le baja el precio, que es lo justo. Correcta: A.
+
+Pregunta 4. En los últimos años la gente vive más que antes. ¿Qué le pasa a un fondo de pensiones? A: necesita más dinero, porque va a pagar pensiones durante más tiempo. B: no le pasa nada. C: necesita menos dinero. Correcta: A.
+
+**Lección 7: El actuario en el trabajo (3 preguntas)**
+
+El actuario firma los cálculos de las reservas, que es el dinero que la aseguradora necesita tener para pagarles a sus clientes. En México, la Comisión Nacional de Seguros y Fianzas vigila que esas reservas alcancen. Si se calculan bajas a propósito, la empresa se ve más rentable, pero luego no le alcanza para pagar. Los modelos de precios también se revisan para que cobren según el riesgo real medido con datos y no según prejuicios. Y gran parte del trabajo es explicar los resultados a personas que no saben estadística.
+
+Pregunta 1. El director te pide bajar la reserva para que este año aparezcan más ganancias. A: la bajas. B: te niegas, porque si la reserva no alcanza la aseguradora no podrá pagarles a sus clientes, y la Comisión la revisa. C: la bajas solo un poco. Correcta: B.
+
+Pregunta 2. Tu modelo le cobra mucho más caro el seguro de auto a una colonia. A: borras datos al azar hasta que se vea parejo. B: lo dejas así sin revisar. C: revisas qué datos lo explican, como más robos o choques, y que no sea un prejuicio. Correcta: C.
+
+Pregunta 3. Tienes que presentarles tus resultados a directivos que no saben estadística. A: les muestras todas las fórmulas. B: les explicas con palabras sencillas y les das el número que importa para decidir. C: mejor no les presentas nada. Correcta: B.
+
+**Examen final**
+
+Pregunta 1. De 600 casas aseguradas, 30 se inundaron en el año. ¿Cuál es la probabilidad de que una casa se inunde? A: 0.5. B: 0.02. C: 0.05. Correcta: C, porque
+
+$$\frac{30}{600} = 0.05$$
+
+Pregunta 2. Algo tiene una probabilidad de 0.2 de pasar. ¿Cuál es la probabilidad de que no pase? A: 0.2. B: 0.8. C: 1.2. Correcta: B.
+
+Pregunta 3. Hay una probabilidad de 0.05 de perder 20,000 pesos. ¿Cuál es la pérdida esperada? A: 1,000. B: 100. C: 20,000. Correcta: A, porque
+
+$$0.05 \times 20{,}000 = 1{,}000$$
+
+Pregunta 4. ¿Por qué una aseguradora cobra más que la prima pura? A: para que nadie compre el seguro. B: para pagar gastos, guardar dinero para años malos y tener ganancia. C: no cobra más. Correcta: B.
+
+Pregunta 5. ¿Qué pasa cuando una aseguradora tiene más clientes independientes? A: el resultado se vuelve más impredecible. B: el resultado real se parece más a lo calculado. C: no cambia nada. Correcta: B.
+
+Pregunta 6. Inviertes 5,000 pesos al 10 por ciento anual durante 2 años. ¿Cuánto tienes al final? A: 6,050. B: 5,500. C: 6,000. Correcta: A, porque
+
+$$5{,}000 \times 1.10 \times 1.10 = 6{,}050$$
+
+Pregunta 7. Vas a recibir 5,500 pesos dentro de un año y la tasa es del 10 por ciento. ¿Cuánto vale eso hoy? A: 4,950. B: 5,000. C: 5,500. Correcta: B, porque
+
+$$\frac{5{,}500}{1.10} = 5{,}000$$
+
+Pregunta 8. Una persona tiene una probabilidad de 0.002 de morir en el año, y su seguro paga un millón de pesos. ¿Cuál es la prima pura? A: 200. B: 2,000. C: 20,000. Correcta: B, porque
+
+$$0.002 \times 1{,}000{,}000 = 2{,}000$$
+
+Pregunta 9. Todos tus clientes viven en la misma ciudad y hay un terremoto. ¿Qué te protege? A: el reaseguro y tener clientes en distintos lugares. B: la ley de los grandes números, por sí sola. C: nada. Correcta: A.
+
+Pregunta 10. Te piden calcular una reserva más baja para mostrar más ganancias. A: lo haces solo este año. B: te niegas, porque luego no alcanzaría para pagarles a los clientes. C: lo haces. Correcta: B.

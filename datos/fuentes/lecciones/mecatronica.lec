@@ -1,0 +1,127 @@
+**Lección 1: Sensores, control y actuadores (4 preguntas)**
+
+La mecatrónica junta mecánica, electrónica y programación para hacer máquinas que sienten y deciden, como robots, impresoras 3D o líneas de producción automáticas. Todo sistema automático tiene tres partes: sensores, que miden algo, como distancia, temperatura o posición; un controlador, que decide con un programa; y actuadores, que hacen algo, como motores, pistones o válvulas. Si una de las tres falla, el sistema entero falla.
+
+Pregunta 1. Un brazo robótico detecta una caja con una cámara, decide dónde tomarla y la levanta con un motor. ¿Qué es la cámara? A: un actuador. B: el controlador. C: un sensor. Correcta: C.
+
+Pregunta 2. En una puerta automática de tienda, ¿qué es el motor que abre la puerta? A: un sensor. B: el programa. C: un actuador. Correcta: C.
+
+Pregunta 3. Una puerta automática no abre aunque la gente se acerca. El motor funciona si lo pruebas aparte. ¿Qué revisas? A: el sensor que detecta a las personas. B: el color de la puerta. C: nada. Correcta: A.
+
+Pregunta 4. ¿Qué hace el controlador? A: decide qué hacer con lo que miden los sensores. B: mide la temperatura. C: mueve la puerta. Correcta: A.
+
+**Lección 2: Control con retroalimentación (4 preguntas)**
+
+Un sistema de lazo cerrado mide lo que está pasando y corrige. Un termostato mide la temperatura y prende o apaga la calefacción para mantenerla. El controlador compara lo que quiere, que se llama punto de ajuste, con lo que mide, y la diferencia es el error:
+
+$$\text{error} = \text{punto de ajuste} - \text{valor medido}$$
+
+Mientras más grande el error, más fuerte corrige. Si corrige demasiado fuerte, el sistema se pasa de un lado a otro y oscila. Ajustar bien el control es gran parte del trabajo.
+
+Pregunta 1. Quieres un horno a 180 grados y está en 150. ¿Cuál es el error? A: menos 30 grados. B: 30 grados. C: 330 grados. Correcta: B, porque
+
+$$180 - 150 = 30$$
+
+Pregunta 2. Un robot que debe detenerse en una posición se pasa, regresa, se vuelve a pasar y así. ¿Qué pasa probablemente? A: el control corrige demasiado fuerte y oscila. B: el robot está cansado. C: el sensor es de color. Correcta: A.
+
+Pregunta 3. ¿Qué es un sistema de lazo cerrado? A: uno apagado. B: uno que mide el resultado y corrige. C: uno que no mide nada. Correcta: B.
+
+Pregunta 4. Un tostador que solo usa un temporizador, sin medir el pan, ¿es de lazo cerrado? A: sí. B: no, es de lazo abierto. C: depende del pan. Correcta: B.
+
+**Lección 3: Motores (3 preguntas)**
+
+En mecatrónica se usan distintos motores según la tarea. Un motor de corriente directa gira rápido y es sencillo. Un servomotor gira a una posición exacta y la mantiene, por eso se usa en brazos robóticos. Un motor a pasos avanza en pasos fijos, como 200 pasos por vuelta, y se usa en impresoras 3D. Para calcular cuántos pasos necesitas para girar cierto ángulo:
+
+$$\text{pasos} = \frac{\text{ángulo}}{360} \times \text{pasos por vuelta}$$
+
+Pregunta 1. Un motor a pasos tiene 200 pasos por vuelta. ¿Cuántos pasos necesitas para girar 90 grados? A: 50. B: 90. C: 200. Correcta: A, porque
+
+$$\frac{90}{360} \times 200 = 50$$
+
+Pregunta 2. ¿Qué motor usas para que la articulación de un robot vaya a una posición exacta y se quede ahí? A: cualquiera. B: un servomotor. C: un ventilador. Correcta: B.
+
+Pregunta 3. ¿Qué motor suelen usar las impresoras 3D para mover el cabezal con precisión? A: motores a pasos. B: ninguno. C: motores de lavadora. Correcta: A.
+
+**Lección 4: PLC y automatización industrial (4 preguntas)**
+
+En las fábricas, las máquinas se controlan con PLC, que son computadoras industriales muy resistentes. Leen entradas, como botones y sensores, y controlan salidas, como motores y válvulas, siguiendo un programa que se repite muchas veces por segundo. Todo sistema industrial tiene un paro de emergencia, un botón rojo que detiene todo de inmediato y que debe funcionar aunque falle el programa. Antes de poner a funcionar una línea, se prueba cada entrada y salida.
+
+Pregunta 1. ¿Qué es un PLC? A: un tipo de motor. B: una computadora industrial que controla máquinas. C: un sensor de luz. Correcta: B.
+
+Pregunta 2. ¿Qué debe pasar al presionar el paro de emergencia? A: termina la pieza y luego para. B: todo se detiene de inmediato, aunque falle el programa. C: nada. Correcta: B.
+
+Pregunta 3. Un operador tapó el botón de paro de emergencia con una caja. A: lo dejas. B: lo quitas. C: lo despejas de inmediato; debe estar siempre a la mano. Correcta: C.
+
+Pregunta 4. Vas a poner a funcionar una línea nueva. ¿Qué haces antes? A: pruebas cada entrada y salida. B: nada. C: la prendes a toda velocidad. Correcta: A.
+
+**Lección 5: Neumática (3 preguntas)**
+
+Muchas máquinas usan aire comprimido para mover pistones: es rápido, limpio y sencillo. La fuerza de un pistón depende de la presión y del área:
+
+$$\text{fuerza} = \text{presión} \times \text{área}$$
+
+Si quieres más fuerza con la misma presión, usas un pistón más grande. La hidráulica funciona igual pero con aceite, que aguanta presiones mucho mayores, por eso se usa en prensas y maquinaria pesada. El aire comprimido es peligroso si se apunta a una persona.
+
+Pregunta 1. Un pistón tiene un área de 0.002 metros cuadrados y trabaja a 600,000 pascales. ¿Qué fuerza da? A: 600,000 newtons. B: 300 newtons. C: 1,200 newtons. Correcta: C, porque
+
+$$600{,}000 \times 0.002 = 1{,}200$$
+
+Pregunta 2. Necesitas más fuerza y no puedes subir la presión. ¿Qué haces? A: uno más pequeño. B: usas un pistón de mayor área. C: nada. Correcta: B.
+
+Pregunta 3. ¿Por qué las prensas grandes usan hidráulica en vez de aire? A: porque el aire es caro. B: por el color. C: porque el aceite aguanta presiones mucho mayores. Correcta: C.
+
+**Lección 6: Robots (4 preguntas)**
+
+Un robot industrial tiene varias articulaciones, y el número de movimientos independientes se llama grados de libertad. Un brazo con 6 grados de libertad puede poner su herramienta en casi cualquier posición y orientación. Los robots industriales trabajan dentro de celdas con rejas y sensores, porque se mueven rápido y con mucha fuerza: si una persona entra, el robot se detiene. Los robots colaborativos son más lentos y están diseñados para trabajar junto a personas.
+
+Pregunta 1. ¿Qué son los grados de libertad de un robot? A: el número de movimientos independientes que puede hacer. B: su temperatura. C: cuántas horas puede trabajar. Correcta: A.
+
+Pregunta 2. Un técnico quiere entrar a la celda de un robot industrial mientras está funcionando para "acomodar una pieza rápido". A: le dices que se apure. B: lo dejas. C: lo detienes; el robot debe estar parado y bloqueado antes de entrar. Correcta: C.
+
+Pregunta 3. ¿Qué tipo de robot está diseñado para trabajar junto a personas? A: un robot colaborativo. B: ninguno. C: uno industrial sin rejas. Correcta: A.
+
+Pregunta 4. ¿Por qué los robots industriales trabajan dentro de rejas? A: por estética. B: para que no se escapen. C: porque se mueven rápido y con mucha fuerza. Correcta: C.
+
+**Lección 7: Integrar un proyecto (3 preguntas)**
+
+Un proyecto de mecatrónica junta todo: el diseño mecánico, la electrónica y el programa. Lo más difícil suele ser que las partes funcionen juntas. Por eso se prueba cada parte por separado y luego integradas, paso a paso. Se documenta cómo se conectó todo, para que otro pueda darle mantenimiento. Y antes de automatizar algo, se pregunta si de verdad conviene: cuánto cuesta y en cuánto tiempo se recupera.
+
+$$\text{meses para recuperar} = \frac{\text{costo de la automatización}}{\text{ahorro por mes}}$$
+
+Pregunta 1. Automatizar una estación cuesta 600,000 pesos y ahorra 50,000 al mes. ¿En cuánto tiempo se recupera? A: 12 meses. B: 6 meses. C: 50 meses. Correcta: A, porque
+
+$$\frac{600{,}000}{50{,}000} = 12$$
+
+Pregunta 2. Armaste todo tu robot de una vez y no funciona. ¿Qué habría ayudado? A: armarlo más rápido. B: nada. C: probar cada parte por separado antes de integrarlas. Correcta: C.
+
+Pregunta 3. ¿Por qué se documenta cómo se conectó todo? A: para alargar el proyecto. B: para que otra persona pueda darle mantenimiento. C: para nada. Correcta: B.
+
+**Examen final**
+
+Pregunta 1. ¿Qué tres partes tiene un sistema automático? A: motor, rueda y cable. B: sensores, controlador y actuadores. C: pantalla, teclado y mouse. Correcta: B.
+
+Pregunta 2. Quieres 100 grados y mides 85. ¿Cuál es el error? A: 85 grados. B: 15 grados. C: 185 grados. Correcta: B, porque
+
+$$100 - 85 = 15$$
+
+Pregunta 3. Un sistema corrige tan fuerte que se pasa de un lado a otro. ¿Qué pasa? A: está perfecto. B: está apagado. C: oscila. Correcta: C.
+
+Pregunta 4. Un motor a pasos de 200 pasos por vuelta. ¿Cuántos pasos para girar 180 grados? A: 180. B: 200. C: 100. Correcta: C, porque
+
+$$\frac{180}{360} \times 200 = 100$$
+
+Pregunta 5. ¿Qué motor mantiene una posición exacta? A: el servomotor. B: el ventilador. C: ninguno. Correcta: A.
+
+Pregunta 6. ¿Qué debe hacer el paro de emergencia? A: pausar después. B: detener todo de inmediato. C: nada. Correcta: B.
+
+Pregunta 7. Un pistón de 0.001 metros cuadrados a 500,000 pascales. ¿Qué fuerza da? A: 5,000 newtons. B: 500,000 newtons. C: 500 newtons. Correcta: C, porque
+
+$$500{,}000 \times 0.001 = 500$$
+
+Pregunta 8. ¿Qué haces antes de entrar a la celda de un robot? A: lo detienes y bloqueas. B: nada. C: entras rápido. Correcta: A.
+
+Pregunta 9. Automatizar cuesta 300,000 pesos y ahorra 25,000 al mes. ¿En cuánto se recupera? A: 12 meses. B: 25 meses. C: 3 meses. Correcta: A, porque
+
+$$\frac{300{,}000}{25{,}000} = 12$$
+
+Pregunta 10. ¿Cómo se integra un proyecto con menos problemas? A: sin probar. B: probando cada parte por separado y luego juntas. C: todo de una vez. Correcta: B.

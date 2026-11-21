@@ -1,0 +1,117 @@
+**Lección 1: El laboratorio clínico (4 preguntas)**
+
+Muchos QFB trabajan en laboratorios clínicos, donde analizan sangre, orina y otras muestras para ayudar al médico a diagnosticar. Un análisis empieza antes del laboratorio: la muestra debe tomarse bien, en el tubo correcto, con el paciente en ayuno si se pide, y etiquetarse con sus datos en ese momento. Un error en la etiqueta puede hacer que los resultados de una persona se le den a otra. Cada resultado se compara con valores de referencia, que dicen qué es lo esperado en personas sanas.
+
+Pregunta 1. Un tubo de sangre llegó al laboratorio sin etiqueta. ¿Qué haces? A: adivinas de quién es. B: lo procesas igual. C: no se procesa; se pide una nueva muestra correctamente identificada. Correcta: C.
+
+Pregunta 2. Un estudio de glucosa pide ayuno, pero el paciente desayunó. ¿Qué pasa? A: el resultado puede salir alto y no ser confiable. B: sale más bajo. C: nada. Correcta: A.
+
+Pregunta 3. ¿Para qué sirven los valores de referencia? A: para saber qué resultados son esperados en personas sanas. B: para cobrar. C: para nada. Correcta: A.
+
+Pregunta 4. ¿Cuándo se etiqueta una muestra? A: en el momento de tomarla. B: al final del día. C: cuando llega al laboratorio, de memoria. Correcta: A.
+
+**Lección 2: Control de calidad (4 preguntas)**
+
+Un laboratorio no puede confiar solo en sus aparatos. Cada día procesa muestras de control, que tienen un valor conocido, y revisa que el resultado salga dentro de un rango aceptable. Si el control sale fuera de rango, no se entregan los resultados de los pacientes hasta encontrar el problema. Para ver qué tan lejos se fue, se calcula el error:
+
+$$\text{error} = \frac{\text{valor medido} - \text{valor esperado}}{\text{valor esperado}} \times 100$$
+
+Pregunta 1. Un control de glucosa debería dar 100 y da 110. ¿Cuál es el error? A: 10 por ciento. B: 110 por ciento. C: 1 por ciento. Correcta: A, porque
+
+$$\frac{110 - 100}{100} \times 100 = 10$$
+
+Pregunta 2. El control salió fuera de rango esta mañana. ¿Qué haces con los resultados de los pacientes? A: les restas el error a mano y ya. B: no los entregas hasta encontrar y corregir el problema. C: los entregas igual. Correcta: B.
+
+Pregunta 3. ¿Qué es una muestra de control? A: agua. B: la muestra del paciente más importante. C: una muestra con un valor conocido para verificar que el análisis funciona. Correcta: C.
+
+Pregunta 4. Un control debería dar 200 y da 190. ¿Cuál es el error? A: 10 por ciento. B: menos 5 por ciento. C: 190 por ciento. Correcta: B, porque
+
+$$\frac{190 - 200}{200} \times 100 = -5$$
+
+**Lección 3: Medicamentos (3 preguntas)**
+
+Un medicamento tiene un principio activo, que es lo que hace el efecto, y excipientes, que le dan forma, sabor o estabilidad. La dosis importa: muy poca no hace efecto y demasiada puede ser tóxica. Cada medicamento tiene fecha de caducidad y condiciones de almacenamiento; fuera de ellas puede perder efecto. Un medicamento genérico intercambiable tiene el mismo principio activo y ha demostrado funcionar igual que el de patente, aunque cueste menos.
+
+Pregunta 1. ¿Qué es el principio activo? A: el empaque. B: el sabor. C: la sustancia que produce el efecto del medicamento. Correcta: C.
+
+Pregunta 2. Un medicamento dice "consérvese en refrigeración" y pasó una semana al sol. ¿Qué haces? A: lo usas. B: no lo usas; pudo perder su efecto. C: lo metes al refri y ya. Correcta: B.
+
+Pregunta 3. ¿Qué es un genérico intercambiable? A: un medicamento falso. B: un medicamento con el mismo principio activo que demostró funcionar igual que el de patente. C: un dulce. Correcta: B.
+
+**Lección 4: La industria farmacéutica (4 preguntas)**
+
+En la industria, los QFB producen medicamentos siguiendo buenas prácticas de fabricación: cada paso está escrito, se registra y se revisa. Cada lote se analiza antes de liberarse: contenido del principio activo, pureza y, en algunos casos, que esté estéril. Si un lote no cumple, no sale al mercado. En México, la COFEPRIS regula los medicamentos y puede ordenar retirar un lote del mercado si hay un problema.
+
+Pregunta 1. Un lote de tabletas tiene menos principio activo del permitido. A: no se libera. B: se vende igual. C: se vende más barato. Correcta: A.
+
+Pregunta 2. ¿Quién regula los medicamentos en México? A: la COFEPRIS. B: el SAT. C: la SEP. Correcta: A.
+
+Pregunta 3. ¿Por qué cada paso de fabricación se escribe y se registra? A: para que siempre se haga igual y se pueda revisar qué pasó si hay un problema. B: por moda. C: para gastar papel. Correcta: A.
+
+Pregunta 4. Se descubre un problema en un lote que ya está en farmacias. ¿Qué puede pasar? A: se vende más. B: nada. C: se retira del mercado. Correcta: C.
+
+**Lección 5: Microbiología (3 preguntas)**
+
+En microbiología se identifican bacterias y hongos que causan infecciones. Se siembra la muestra en un medio de cultivo, se deja crecer y se identifica el microorganismo. Luego se hace un antibiograma: se prueba qué antibióticos lo detienen y cuáles no. Así el médico elige el antibiótico correcto. Si la muestra se contamina con bacterias de la piel o del ambiente, el resultado puede ser falso, por eso se toma con técnica estéril.
+
+Pregunta 1. ¿Para qué sirve un antibiograma? A: para medir la glucosa. B: para saber qué antibióticos funcionan contra el microorganismo. C: para contar glóbulos rojos. Correcta: B.
+
+Pregunta 2. Un urocultivo sale con tres bacterias distintas y la muestra se tomó sin limpiar la zona. ¿Qué piensas? A: probablemente se contaminó y hay que repetir con buena técnica. B: que es normal. C: el paciente tiene tres infecciones seguro. Correcta: A.
+
+Pregunta 3. ¿Por qué se toman las muestras con técnica estéril? A: por costumbre. B: para no contaminarlas con otros microorganismos. C: no hace falta. Correcta: B.
+
+**Lección 6: Diluciones y concentraciones (4 preguntas)**
+
+En el laboratorio, preparar soluciones exactas es diario. La concentración dice cuánta sustancia hay en cierto volumen. Para diluir se usa la regla de que la cantidad de sustancia no cambia:
+
+$$\text{concentración inicial} \times \text{volumen inicial} = \text{concentración final} \times \text{volumen final}$$
+
+Si una muestra sale demasiado alta para el aparato, se diluye y luego el resultado se multiplica por el factor de dilución. Olvidar multiplicar es un error grave, porque el resultado sale mucho más bajo que el real.
+
+Pregunta 1. Tienes una solución de 50 miligramos por mililitro y necesitas 100 mililitros de 5 miligramos por mililitro. ¿Cuánta usas? A: 50 mililitros. B: 10 mililitros. C: 1 mililitro. Correcta: B, porque
+
+$$\frac{5 \times 100}{50} = 10$$
+
+Pregunta 2. Diluiste una muestra 1 a 10 y el aparato marca 30. ¿Cuál es el resultado real? A: 3. B: 300. C: 30. Correcta: B, porque
+
+$$30 \times 10 = 300$$
+
+Pregunta 3. Se te olvidó multiplicar por el factor de dilución. ¿Qué pasa? A: el resultado sale mucho más bajo que el real. B: sale más alto. C: nada. Correcta: A.
+
+Pregunta 4. ¿Qué no cambia al diluir una solución? A: el volumen. B: la concentración. C: la cantidad de sustancia. Correcta: C.
+
+**Lección 7: El QFB y el paciente (3 preguntas)**
+
+En las farmacias, el QFB puede orientar sobre cómo tomar un medicamento, interacciones y efectos adversos, y detectar errores en recetas. Los antibióticos solo se venden con receta, para frenar la resistencia bacteriana. La farmacovigilancia es reportar los efectos adversos de los medicamentos, para que se conozcan y se prevengan. Y los resultados de laboratorio son confidenciales: se entregan solo al paciente o a quien él autorice.
+
+Pregunta 1. Una persona quiere comprar antibióticos sin receta "para la gripa". A: le explicas que se venden solo con receta y que no sirven contra virus. B: le das la mitad. C: se los vendes. Correcta: A.
+
+Pregunta 2. Un paciente tuvo una reacción rara a un medicamento. ¿Qué se hace? A: se reporta como parte de la farmacovigilancia. B: se oculta. C: nada. Correcta: A.
+
+Pregunta 3. Un vecino pide los resultados de laboratorio de otra persona. A: se los das. B: no se los das sin autorización del paciente. C: le lees solo uno. Correcta: B.
+
+**Examen final**
+
+Pregunta 1. Llega una muestra sin etiqueta. A: se adivina. B: se procesa. C: se pide una nueva. Correcta: C.
+
+Pregunta 2. ¿Para qué sirven los valores de referencia? A: para cobrar. B: para nada. C: para comparar con lo esperado en personas sanas. Correcta: C.
+
+Pregunta 3. Un control debería dar 50 y da 55. ¿Cuál es el error? A: 55 por ciento. B: 5 por ciento. C: 10 por ciento. Correcta: C, porque
+
+$$\frac{55 - 50}{50} \times 100 = 10$$
+
+Pregunta 4. El control salió fuera de rango. A: se entregan. B: se ignoran. C: no se entregan resultados hasta corregir. Correcta: C.
+
+Pregunta 5. ¿Qué es el principio activo? A: el color. B: la caja. C: lo que produce el efecto. Correcta: C.
+
+Pregunta 6. ¿Qué pasa con un lote que no cumple? A: se regala. B: no se libera. C: se vende. Correcta: B.
+
+Pregunta 7. ¿Para qué sirve el antibiograma? A: para medir azúcar. B: para nada. C: para elegir el antibiótico que sí funciona. Correcta: C.
+
+Pregunta 8. Diluiste 1 a 5 y el aparato marca 40. ¿Cuál es el resultado real? A: 40. B: 200. C: 8. Correcta: B, porque
+
+$$40 \times 5 = 200$$
+
+Pregunta 9. ¿Se venden antibióticos sin receta? A: no. B: sí. C: solo los fines de semana. Correcta: A.
+
+Pregunta 10. ¿Qué es la farmacovigilancia? A: vender más. B: reportar efectos adversos de los medicamentos. C: vigilar la farmacia de noche. Correcta: B.

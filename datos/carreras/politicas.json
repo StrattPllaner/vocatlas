@@ -1,224 +1,152 @@
 {
  "id": "politicas",
- "version": 1,
+ "version": 2,
+ "formato": 2,
  "estado": "completo",
- "generado": true,
- "revision": "Armada automáticamente con la base de carreras de Morelos y CDMX (2026-11-17). Falta que la revise alguien de la carrera.",
+ "revision": "Pendiente de revisión por un profesionista de la carrera. Generado con datos/importar_lecciones.py desde datos/fuentes/lecciones/politicas.lec; no se edita a mano.",
  "unidades": [
   {
    "id": "u1",
+   "titulo": "El poder",
+   "sub": "División de poderes y leyes",
    "lecciones": [
     {
-     "id": "1.1",
-     "titulo": "Qué es y qué hace",
-     "minutos": 3,
+     "id": "0",
+     "titulo": "Conócela",
+     "minutos": 1,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "¿Qué es Ciencias políticas?",
-       "texto": "Análisis de instituciones, políticas, conflictos y problemas sociales. Puede enfocarse en investigación, intervención comunitaria, seguridad, gestión pública, cooperación o diseño de políticas.",
-       "puntos": [
-        "Analiza problemas públicos, diseña o evalúa programas de gobierno, asesora a legisladores o candidatos, investiga opinión pública o trabaja en organizaciones civiles."
+       "tipo": "ficha",
+       "texto": "Ciencias Políticas y Administración Pública forma profesionales que estudian cómo se organiza el poder y cómo funciona el gobierno: leyes, elecciones, presupuestos y políticas públicas. Trabajan en el gobierno, el Congreso, organismos autónomos, organizaciones civiles, consultorías e investigación.",
+       "cifras": [
+        "politicas.ingreso",
+        "politicas.duracion",
+        "politicas.costo_publica",
+        "politicas.costo_privada"
        ]
       },
       {
-       "tipo": "decision",
-       "pregunta": "Por lo que leíste, ¿qué hace alguien de Ciencias políticas?",
-       "opciones": [
-        {
-         "texto": "Analiza problemas públicos, diseña o evalúa programas de gobierno, asesora a legisladores o candidatos, investiga opinión pública o trabaja en organizaciones civiles.",
-         "consecuencia": "Exacto: eso es parte del día a día en Ciencias políticas.",
-         "mejor": true
-        },
-        {
-         "texto": "Analiza dónde invertir el dinero de una empresa o clientes, construye modelos de valuación en Excel, evalúa créditos y riesgos y prepara presentaciones para directivos.",
-         "consecuencia": "Eso lo hace alguien de Finanzas."
-        },
-        {
-         "texto": "Opera hoteles, agencias, aerolíneas o destinos: atiende huéspedes, organiza eventos, vende paquetes, gestiona reservaciones y resuelve imprevistos.",
-         "consecuencia": "Eso lo hace alguien de Turismo."
-        }
-       ]
-      },
-      {
-       "tipo": "completar",
-       "frase": "Ciencias políticas es una carrera del área de ___.",
-       "opciones": [
-        "Negocios y sociedad",
-        "Tecnología y ciencias",
-        "Ingenierías"
-       ],
-       "correcta": 0,
-       "revelacion": "Está en Negocios y sociedad. Se parece a Relaciones Internacionales, Derecho, Sociología y Antropología."
-      },
-      {
-       "tipo": "clave",
-       "texto": "Antes de elegir, entiende qué harías cada día, no solo el nombre."
-      },
-      {
-       "tipo": "interes"
+       "tipo": "escena",
+       "texto": "Hoy trabajas en el gobierno. Vamos a ver si tus decisiones resuelven problemas reales."
       }
      ]
     },
     {
-     "id": "1.2",
-     "titulo": "Dónde trabajas",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Dónde trabaja alguien de Ciencias políticas",
-       "texto": "Instituciones públicas y privadas, organizaciones sociales, empresas, centros de investigación, consultoría, docencia y proyectos independientes, según la especialización y experiencia.",
-       "puntos": [
-        "Artes y Diseño"
-       ]
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Alguien de Ciencias políticas solo puede trabajar en un tipo de lugar.",
-       "respuesta": false,
-       "revelacion": "Puede trabajar en varios: instituciones públicas, privadas, organizaciones sociales."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Dónde te ves trabajando?",
-       "opciones": [
-        "Instituciones públicas",
-        "Privadas",
-        "Organizaciones sociales",
-        "Empresas"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Una carrera abre varias puertas, no una sola."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "1.3",
-     "titulo": "Pregúntale a Rumbo",
+     "id": "1",
+     "titulo": "Cómo se organiza el poder",
      "minutos": 4,
      "tarjetas": [
       {
-       "tipo": "chat",
-       "subtitulo": "Te cuenta cómo es trabajar en Ciencias políticas",
-       "intro": [
-        "¡Hola! Junté lo que se sabe de Ciencias políticas.",
-        "Pregúntame lo que quieras."
-       ],
-       "temas": [
+       "tipo": "info",
+       "titulo": "Cómo se organiza el poder",
+       "partes": [
         {
-         "q": "¿Qué haces en un día normal?",
-         "a": [
-          "Analiza problemas públicos, diseña o evalúa programas de gobierno, asesora a legisladores o candidatos, investiga opinión pública o trabaja en organizaciones civiles."
-         ]
-        },
-        {
-         "q": "¿Qué es lo más difícil?",
-         "a": [
-          "Se considera una carrera de dificultad media.",
-          "Lectura teórica abundante, Estadística y Metodología."
-         ]
-        },
-        {
-         "q": "¿Hay trabajo?",
-         "a": [
-          "Menos de la mitad trabaja en algo de su carrera; muchos se mueven a otras áreas. Es un promedio nacional del IMCO."
-         ]
-        },
-        {
-         "q": "¿Qué necesito para ejercer?",
-         "a": [
-          "No requiere cédula."
-         ]
+         "t": "En México el poder público se divide en tres: el Ejecutivo, que gobierna y aplica las leyes; el Legislativo, que hace las leyes; y el Judicial, que resuelve conflictos e interpreta las leyes. Esta división sirve para que ningún poder concentre todo y para que se vigilen entre sí. Además, México es una federación con tres órdenes de gobierno: federal, estatal y municipal. Cada uno tiene sus propias responsabilidades. Por ejemplo, el agua potable, la basura y el alumbrado público son responsabilidad del municipio."
         }
-       ],
-       "minimo": 2,
-       "auto": true
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Ciencias políticas se considera una carrera de dificultad muy alta.",
-       "respuesta": false,
-       "revelacion": "Se considera de dificultad media. Lectura teórica abundante, Estadística y Metodología."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué te llamó más la atención?",
-       "opciones": [
-        "¿Qué haces en un día normal?",
-        "¿Qué es lo más difícil?",
-        "¿Hay trabajo?",
-        "¿Qué necesito para ejercer?"
        ]
       },
       {
-       "tipo": "clave",
-       "texto": "Preguntar a quien ya sabe ahorra muchos errores."
+       "tipo": "pregunta",
+       "pregunta": "¿Qué poder hace las leyes?",
+       "opciones": [
+        "El Ejecutivo",
+        "El Judicial",
+        "El Legislativo"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "Las calles de tu colonia no tienen alumbrado. ¿A qué orden de gobierno le toca?",
+       "opciones": [
+        "A la federación",
+        "Al municipio",
+        "A la Suprema Corte"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Para qué sirve dividir el poder en tres?",
+       "opciones": [
+        "Para que ninguno concentre todo y se vigilen entre sí",
+        "Para tener más empleados",
+        "Por tradición"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Qué poder resuelve conflictos e interpreta las leyes?",
+       "opciones": [
+        "El Judicial",
+        "El Legislativo",
+        "El Ejecutivo"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
-     "id": "1.4",
-     "titulo": "Carreras parecidas",
-     "minutos": 3,
+     "id": "2",
+     "titulo": "Cómo nace una ley",
+     "minutos": 4,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Carreras cercanas a Ciencias políticas",
-       "puntos": [
-        "Relaciones Internacionales: análisis de instituciones, políticas, conflictos y problemas sociales. puede.",
-        "Derecho: sistema jurídico, interpretación de leyes, argumentación.",
-        "Sociología y Antropología: análisis de la sociedad, la cultura, el lenguaje.",
-        "Economía: análisis cuantitativo de decisiones económicas."
+       "titulo": "Cómo nace una ley",
+       "partes": [
+        {
+         "t": "Una ley federal empieza con una iniciativa, que pueden presentar el presidente, los diputados, los senadores, los congresos de los estados o un grupo de ciudadanos que junte suficientes firmas. Se discute en comisiones y luego en el pleno de una cámara; si se aprueba, pasa a la otra cámara. Si las dos la aprueban, el Ejecutivo la publica y entra en vigor. Para aprobar una ley normal basta la mayoría de los presentes, pero para cambiar la Constitución se necesitan dos terceras partes en el Congreso y la aprobación de la mayoría de los congresos estatales."
+        }
        ]
       },
       {
-       "tipo": "emparejar",
-       "pregunta": "Une cada carrera con lo que estudia.",
-       "pares": [
-        [
-         "Relaciones Internacionales",
-         "Análisis de instituciones, políticas, conflictos y problemas sociales. Puede"
-        ],
-        [
-         "Derecho",
-         "Sistema jurídico, interpretación de leyes, argumentación"
-        ],
-        [
-         "Sociología y Antropología",
-         "Análisis de la sociedad, la cultura, el lenguaje"
-        ],
-        [
-         "Economía",
-         "Análisis cuantitativo de decisiones económicas"
-        ]
-       ],
-       "revelacion": "Se cruzan en temas, pero cada una tiene su propio enfoque."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Cuál de estas te da curiosidad?",
+       "tipo": "pregunta",
+       "pregunta": "¿Pueden los ciudadanos presentar una iniciativa de ley?",
        "opciones": [
-        "Relaciones Internacionales",
-        "Derecho",
-        "Sociología y Antropología",
-        "Me quedo con Ciencias políticas"
-       ]
+        "Sí, si juntan suficientes firmas",
+        "Solo los abogados",
+        "No, nunca"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "clave",
-       "texto": "Si dudas entre dos, compara lo que harías cada día."
+       "tipo": "pregunta",
+       "pregunta": "Una cámara aprobó una iniciativa. ¿Qué sigue?",
+       "opciones": [
+        "Pasa a la otra cámara",
+        "Ya es ley",
+        "Se archiva"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "¿Qué se necesita para cambiar la Constitución?",
+       "opciones": [
+        "La firma del presidente solamente",
+        "Dos terceras partes del Congreso y la mayoría de los congresos estatales",
+        "Una encuesta"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "En una cámara de 500 integrantes, ¿cuántos votos son dos terceras partes si votan todos?",
+       "opciones": [
+        "400",
+        "Unos 334",
+        "250"
+       ],
+       "correcta": 1,
+       "formula": "500 × {2|3} = 333.3"
+      },
+      {
+       "tipo": "teves"
       }
      ]
     }
@@ -226,202 +154,121 @@
   },
   {
    "id": "u2",
+   "titulo": "Gobernar",
+   "sub": "Políticas públicas y presupuesto",
    "lecciones": [
     {
-     "id": "2.1",
-     "titulo": "Mini reto",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Tu municipio quiere reducir los accidentes en una avenida. ¿Qué propones primero?",
-       "opciones": [
-        "Revisar dónde y por qué ocurren los accidentes",
-        "Poner más policías sin revisar nada",
-        "Cerrar la avenida"
-       ]
-      },
-      {
-       "tipo": "info",
-       "titulo": "Así lo piensa alguien de Ciencias políticas",
-       "texto": "Una buena política pública empieza por entender el problema con datos. La carrera mezcla análisis, lectura y gobierno."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Te gustó pensar en algo así?",
-       "escala": [
-        "Nada",
-        "Mucho"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Los retos de una carrera se parecen a lo que harías en su trabajo."
-      },
-      {
-       "tipo": "interes",
-       "pregunta": "¿Te ves resolviendo retos así?"
-      }
-     ]
-    },
-    {
-     "id": "2.2",
-     "titulo": "Lo que te piden",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Habilidades que usarás en Ciencias políticas",
-       "puntos": [
-        "Análisis y redacción",
-        "Negociación",
-        "Pensamiento crítico",
-        "Hablar en público"
-       ]
-      },
-      {
-       "tipo": "completar",
-       "pregunta": "Según lo que leíste, completa la frase.",
-       "frase": "Para Ciencias políticas es clave: ___.",
-       "opciones": [
-        "Análisis y redacción",
-        "Abstracción",
-        "Ciencias"
-       ],
-       "correcta": 0,
-       "revelacion": "Es de las habilidades que más se usan en Ciencias políticas."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué tanto se te da esto: negociación?",
-       "escala": [
-        "Me cuesta",
-        "Se me da"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Las habilidades se entrenan; lo importante es que te guste usarlas."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "2.3",
-     "titulo": "Temas que vas a ver",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Temas que te deben gustar",
-       "puntos": [
-        "Política y gobierno",
-        "Cambiar las cosas en la sociedad",
-        "Debate"
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "¿Cuál de estos temas es más de Ciencias políticas?",
-       "opciones": [
-        {
-         "texto": "Política y gobierno",
-         "consecuencia": "Sí, es de sus temas centrales.",
-         "mejor": true
-        },
-        {
-         "texto": "Salud",
-         "consecuencia": "Ese es más de Enfermería."
-        },
-        {
-         "texto": "Máquinas y motores",
-         "consecuencia": "Ese es más de Ing. Mecánica."
-        }
-       ]
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Cuál de estos temas te gusta más?",
-       "opciones": [
-        "Política y gobierno",
-        "Cambiar las cosas en la sociedad",
-        "Debate",
-        "Ninguno me late"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Si los temas te aburren, la carrera se hace muy larga."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "2.4",
-     "titulo": "Materias clave",
+     "id": "3",
+     "titulo": "Las políticas públicas",
      "minutos": 4,
      "tarjetas": [
       {
-       "tipo": "voltear",
-       "pregunta": "¿Qué materias crees que llevas en cada etapa? Piénsalo y voltea.",
-       "cartas": [
+       "tipo": "info",
+       "titulo": "Las políticas públicas",
+       "partes": [
         {
-         "frente": "Semestres 1-2",
-         "reverso": "Teoría política, Historia de México, Sociología, Economía"
-        },
-        {
-         "frente": "Semestres 3-4",
-         "reverso": "Sistema político mexicano, Estadística, Derecho constitucional"
-        },
-        {
-         "frente": "Semestres 5-6",
-         "reverso": "Políticas públicas, Administración pública, Análisis electoral, Gestión municipal"
-        },
-        {
-         "frente": "Semestres 7 en adelante",
-         "reverso": "Seminario de investigación, Prácticas en gobierno u organizaciones"
+         "t": "Una política pública es lo que el gobierno decide hacer ante un problema. Tiene un ciclo: se define el problema con datos, se comparan alternativas, se elige y se diseña una, se implementa y se evalúa. Definir mal el problema lleva a soluciones equivocadas: si los jóvenes dejan la escuela porque necesitan trabajar, construir más escuelas no lo resuelve. Evaluar con datos permite saber si una política funcionó o si hay que corregirla."
         }
        ]
       },
       {
-       "tipo": "decision",
-       "pregunta": "¿Cuál de estas materias llevarías en Ciencias políticas?",
+       "tipo": "pregunta",
+       "pregunta": "En un municipio muchos jóvenes dejan la prepa para trabajar. ¿Qué política ataca mejor esa causa?",
        "opciones": [
+        "Pintar las escuelas",
+        "Un apoyo económico o horarios compatibles con el trabajo",
+        "Más exámenes"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Qué es lo primero en el ciclo de una política pública?",
+       "opciones": [
+        "Evaluar",
+        "Definir bien el problema con datos",
+        "Hacer publicidad"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Para qué sirve evaluar una política?",
+       "opciones": [
+        "Para saber si funcionó y corregirla si no",
+        "No sirve",
+        "Para cerrarla siempre"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "teves"
+      }
+     ]
+    },
+    {
+     "id": "4",
+     "titulo": "El presupuesto",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "El presupuesto",
+       "partes": [
         {
-         "texto": "Teoría política",
-         "consecuencia": "Sí: es de las primeras materias de Ciencias políticas.",
-         "mejor": true
+         "t": "Cada año, la Cámara de Diputados aprueba el Presupuesto de Egresos: cuánto dinero se gastará y en qué. El dinero sale sobre todo de los impuestos. Como no alcanza para todo, cada peso que se da a algo se le quita a otra cosa. Analizar un presupuesto incluye ver qué porcentaje va a cada área:"
         },
         {
-         "texto": "Cálculo",
-         "consecuencia": "Esa es de Ing. Mecánica."
+         "f": "porcentaje = {gasto del área|presupuesto total} × 100"
         },
         {
-         "texto": "Dibujo y bocetaje",
-         "consecuencia": "Esa es de Diseño industrial."
+         "t": "Además de cuánto se gasta, importa si se gasta bien: un programa con mucho dinero y mal diseñado puede no servir."
         }
        ]
       },
       {
-       "tipo": "reflexion",
-       "pregunta": "¿Cuál te da más curiosidad?",
+       "tipo": "pregunta",
+       "pregunta": "Un municipio tiene un presupuesto de 200 millones y gasta 30 en seguridad. ¿Qué porcentaje es?",
        "opciones": [
-        "Teoría política",
-        "Historia de México",
-        "Sociología",
-        "Economía"
-       ]
+        "6.7 por ciento",
+        "30 por ciento",
+        "15 por ciento"
+       ],
+       "correcta": 2,
+       "formula": "{30|200} × 100 = 15"
       },
       {
-       "tipo": "clave",
-       "texto": "Las primeras materias son la base; muchas veces son las más pesadas."
+       "tipo": "pregunta",
+       "pregunta": "¿Quién aprueba el Presupuesto de Egresos federal?",
+       "opciones": [
+        "La Cámara de Diputados",
+        "El Senado solo",
+        "La Suprema Corte"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "Un gobierno sube mucho el dinero de un programa, pero nadie sabe si funciona. ¿Qué falta?",
+       "opciones": [
+        "Nada",
+        "Más dinero",
+        "Evaluar sus resultados"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿De dónde sale principalmente el dinero del gobierno?",
+       "opciones": [
+        "De regalos",
+        "De la lotería",
+        "De los impuestos"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "teves"
       }
      ]
     }
@@ -429,182 +276,164 @@
   },
   {
    "id": "u3",
+   "titulo": "Democracia",
+   "sub": "Elecciones, encuestas y transparencia",
    "lecciones": [
     {
-     "id": "3.1",
-     "titulo": "Un día real",
+     "id": "5",
+     "titulo": "Elecciones",
      "minutos": 4,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Un día de trabajo en Ciencias políticas",
-       "puntos": [
-        "Analiza problemas públicos, diseña o evalúa programas de gobierno, asesora a legisladores o candidatos, investiga opinión pública o trabaja en organizaciones civiles."
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "¿Cuál de estas cosas sí hace alguien de Ciencias políticas?",
-       "opciones": [
+       "titulo": "Elecciones",
+       "partes": [
         {
-         "texto": "Analiza problemas públicos, diseña o evalúa programas de gobierno, asesora a legisladores o candidatos, investiga opinión pública o trabaja en organizaciones civiles.",
-         "consecuencia": "Sí: es parte de su día.",
-         "mejor": true
-        },
-        {
-         "texto": "Mide y reduce la contaminación: diseña plantas de tratamiento de agua, gestiona residuos…",
-         "consecuencia": "Eso es más de Ing. Ambiental."
-        },
-        {
-         "texto": "Diseña, prueba o mantiene máquinas y equipos (motores, bombas, líneas de producción, sistemas de aire acondicionado) usando software CAD y trabajo en planta.",
-         "consecuencia": "Eso es más de Ing. Mecánica."
+         "t": "En una democracia, la ciudadanía elige a sus representantes con el voto libre y secreto. En México, las elecciones las organiza una autoridad electoral autónoma, no el gobierno, y las casillas las atienden ciudadanos sorteados. Hay cargos de mayoría, donde gana quien tiene más votos, y de representación proporcional, que reparten lugares según el porcentaje de votos de cada partido. Los resultados se pueden impugnar ante tribunales electorales."
         }
        ]
       },
       {
-       "tipo": "reflexion",
-       "pregunta": "¿Te ves haciendo esto todos los días?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
+       "tipo": "pregunta",
+       "pregunta": "¿Quién atiende las casillas el día de la elección?",
+       "opciones": [
+        "Ciudadanos sorteados",
+        "La policía",
+        "Los partidos"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "clave",
-       "texto": "El día a día pesa más que el título."
+       "tipo": "pregunta",
+       "pregunta": "¿Por qué la autoridad electoral debe ser autónoma?",
+       "opciones": [
+        "Por moda",
+        "Para que el gobierno no controle las elecciones",
+        "Para gastar más"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "Un partido obtiene el 20 por ciento de los votos en un sistema que reparte 100 lugares proporcionalmente. ¿Cuántos le tocarían, más o menos?",
+       "opciones": [
+        "50",
+        "20",
+        "2"
+       ],
+       "correcta": 1,
+       "formula": "100 × 0.20 = 20"
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
-     "id": "3.2",
-     "titulo": "Lo difícil",
+     "id": "6",
+     "titulo": "Opinión pública y encuestas",
      "minutos": 4,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Lo difícil de Ciencias políticas",
-       "texto": "Se considera de dificultad media.",
-       "puntos": [
-        "Lectura teórica abundante, Estadística y Metodología."
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "Según lo que leíste, ¿qué es lo que más cuesta en Ciencias políticas?",
-       "opciones": [
+       "titulo": "Opinión pública y encuestas",
+       "partes": [
         {
-         "texto": "Lectura teórica abundante, Estadística y Metodología.",
-         "consecuencia": "Sí, es de lo que más cuesta en Ciencias políticas.",
-         "mejor": true
-        },
-        {
-         "texto": "Patronaje y Confección exigen precisión",
-         "consecuencia": "Eso es más de Moda."
-        },
-        {
-         "texto": "Combina Cálculo, Electrónica y Biología",
-         "consecuencia": "Eso es más de Biomédica."
+         "t": "Las encuestas de opinión preguntan a una muestra de personas para estimar lo que piensa toda la población. Tienen margen de error: si una encuesta dice 45 por ciento con un margen de 3 puntos, el valor real probablemente está entre 42 y 48. Si dos opciones están separadas por menos que el margen, se considera un empate técnico. La forma de preguntar cambia las respuestas, así que una buena encuesta usa preguntas neutrales y dice cómo se hizo."
         }
        ]
       },
       {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué tanto te preocupa esto?",
-       "escala": [
-        "Mucho",
-        "Nada"
-       ]
+       "tipo": "pregunta",
+       "pregunta": "Una encuesta da 45 por ciento con un margen de error de 3 puntos. ¿Entre qué valores está probablemente el resultado real?",
+       "opciones": [
+        "Exactamente 45",
+        "Entre 0 y 100",
+        "Entre 42 y 48"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "clave",
-       "texto": "Saber lo difícil desde antes te ayuda a prepararte."
+       "tipo": "pregunta",
+       "pregunta": "Una opción tiene 40 por ciento y otra 38, con un margen de 3 puntos. ¿Qué se puede decir?",
+       "opciones": [
+        "Que gana la segunda",
+        "Que hay un empate técnico",
+        "Que gana la primera seguro"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál pregunta es más neutral?",
+       "opciones": [
+        "\"¿Verdad que la nueva ley es un desastre?\"",
+        "\"¿No le parece excelente la nueva ley?\"",
+        "\"¿Aprueba o desaprueba la nueva ley de tránsito?\""
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Qué debe informar una buena encuesta?",
+       "opciones": [
+        "Solo el resultado",
+        "Cómo se hizo, a cuántas personas y con qué margen de error",
+        "Quién la pagó y ya"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
-     "id": "3.3",
-     "titulo": "Historia real",
-     "minutos": 3,
+     "id": "7",
+     "titulo": "Transparencia",
+     "minutos": 4,
      "tarjetas": [
       {
-       "tipo": "reflexion",
-       "pregunta": "Si pudieras preguntarle algo a alguien que ya estudia Ciencias políticas, ¿qué sería?",
+       "tipo": "info",
+       "titulo": "Transparencia",
+       "partes": [
+        {
+         "t": "En México, cualquier persona puede pedir información pública a las instituciones de gobierno, sin tener que explicar para qué la quiere. Eso permite saber en qué se gasta el dinero, cómo se toman decisiones y cuánto ganan los funcionarios. Hay información que se puede reservar, como datos personales o de seguridad, pero la regla general es que la información es pública. Un profesional de la administración pública trabaja con apego a la ley y rinde cuentas."
+        }
+       ]
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Necesitas explicar para qué quieres información pública al pedirla?",
        "opciones": [
-        "¿Qué fue lo más difícil?",
-        "¿Qué te sorprendió?",
-        "¿Volverías a elegirla?",
-        "¿Cómo es un día normal?"
-       ]
+        "No",
+        "Sí, siempre",
+        "Solo si eres periodista"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "testimonio",
-       "estado": "pendiente",
-       "perfil": "Estudiante de últimos semestres o egresado de Ciencias políticas"
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "Mientras llega esta historia, ¿a quién podrías preguntarle tú?",
+       "tipo": "pregunta",
+       "pregunta": "¿Qué información se puede reservar?",
        "opciones": [
-        "A un familiar o conocido que la estudió",
-        "A un estudiante de mi ciudad",
-        "A un maestro que la conozca",
-        "Todavía no conozco a nadie"
-       ]
+        "Nada",
+        "Todo",
+        "Datos personales o de seguridad, por ejemplo"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "clave",
-       "texto": "Una persona real te cuenta lo que ningún folleto dice."
+       "tipo": "pregunta",
+       "pregunta": "Trabajas en un municipio y te piden ocultar en qué se gastó un contrato.",
+       "opciones": [
+        "Te niegas, porque esa información es pública y se debe rendir cuentas",
+        "Lo ocultas",
+        "Borras los papeles"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "3.4",
-     "titulo": "¿Es para ti?",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Contesta con honestidad. Nadie más ve tus respuestas."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Sigo las noticias políticas por gusto?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Me interesa cómo se toman las decisiones del gobierno?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Me veo en el servicio público?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Si dijiste que sí a casi todo, vale la pena seguir explorándola."
-      },
-      {
-       "tipo": "interes"
+       "tipo": "teves"
       }
      ]
     }
@@ -612,447 +441,125 @@
   },
   {
    "id": "u4",
+   "titulo": "Examen final",
+   "sub": "10 preguntas · apruebas con 7",
    "lecciones": [
     {
-     "id": "4.1",
-     "titulo": "Cuánto dura y qué estudias",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Cada escuela arma su plan distinto, pero el orden general se parece. Vamos a verlo."
-      },
-      {
-       "tipo": "ordenar",
-       "pregunta": "Ordena lo que estudias, de lo primero a lo último.",
-       "pasos": [
-        "Teoría política, Historia de México",
-        "Sistema político mexicano, Estadística",
-        "Políticas públicas, Administración pública",
-        "Seminario de investigación, Prácticas en gobierno u organizaciones"
-       ],
-       "revelacion": "Primero las bases y al final lo más especializado y las prácticas."
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Cuántos años crees que pasan desde que entras hasta que te titulas?",
-       "min": 3,
-       "max": 10,
-       "paso": 1,
-       "unidad": "años",
-       "dato": "politicas.duracion"
-      },
-      {
-       "tipo": "clave",
-       "texto": "Revisa el mapa curricular de cada escuela: cambia de una a otra."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "4.2",
-     "titulo": "Cómo se entra",
-     "minutos": 4,
+     "id": "ex",
+     "titulo": "Examen final",
+     "minutos": 6,
+     "examen": true,
+     "aprobar": 7,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Cómo se entra en la región",
-       "puntos": [
-        "UNAM: Concurso de selección UNAM (120 reactivos) o pase reglamentado desde CCH/ENP",
-        "UAM: Examen de selección UAM (trimestral; dos procesos al año y procesos extraordinarios)",
-        "UAEM: EXANI-II de CENEVAL + curso propedéutico",
-        "IBERO: Examen de admisión propio + promedio de bachillerato"
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "Según lo que leíste, ¿qué pide UNAM para entrar?",
-       "opciones": [
+       "titulo": "Examen final",
+       "partes": [
         {
-         "texto": "Concurso de selección UNAM (120 reactivos) o pase reglamentado desde CCH/ENP",
-         "consecuencia": "Exacto.",
-         "mejor": true
-        },
-        {
-         "texto": "Examen de selección UAM (trimestral; dos procesos al año y procesos extraordinarios)",
-         "consecuencia": "Eso lo pide UAM."
-        },
-        {
-         "texto": "EXANI-II de CENEVAL + curso propedéutico",
-         "consecuencia": "Eso lo pide UAEM."
+         "t": "Son 10 casos nuevos que mezclan todas las lecciones. Apruebas con 7. Si no, lo repites y las que fallaste regresan con otras palabras."
         }
        ]
       },
       {
-       "tipo": "vf",
-       "afirmacion": "Todas las universidades usan el mismo examen.",
-       "respuesta": false,
-       "revelacion": "Cada una tiene el suyo: revisa la convocatoria de la que te interese."
-      },
-      {
-       "tipo": "clave",
-       "texto": "Conoce el examen de tu escuela desde antes."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "4.3",
-     "titulo": "Dónde, cuánto cuesta y becas",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "escuelas"
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Cuánto crees que cuesta un semestre en una universidad pública?",
-       "min": 0,
-       "max": 60000,
-       "paso": 1000,
-       "unidad": "pesos",
-       "dato": "politicas.costo_publica"
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Y un semestre en una universidad privada?",
-       "min": 0,
-       "max": 300000,
-       "paso": 5000,
-       "unidad": "pesos",
-       "dato": "politicas.costo_privada"
-      },
-      {
-       "tipo": "dato",
-       "titulo": "Becas para estudiar Ciencias políticas",
-       "dato": "politicas.becas"
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Una universidad cara garantiza un mejor empleo.",
-       "respuesta": false,
-       "revelacion": "Pesan más lo que aprendes, tus prácticas y tu esfuerzo."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué pesa más para ti al elegir escuela?",
+       "tipo": "pregunta",
+       "pregunta": "¿Qué poder aplica las leyes y gobierna?",
        "opciones": [
-        "El costo",
-        "Que esté cerca de mi casa",
-        "El prestigio",
-        "Las prácticas que ofrece"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Además de la colegiatura, cuenta transporte y materiales."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "u5",
-   "lecciones": [
-    {
-     "id": "5.1",
-     "titulo": "Qué piden para trabajar",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Qué te piden para trabajar",
-       "puntos": [
-        "No requiere cédula."
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "Según lo que leíste, ¿qué necesitas para ejercer Ciencias políticas?",
-       "opciones": [
-        {
-         "texto": "No requiere cédula.",
-         "consecuencia": "Exacto.",
-         "mejor": true
-        },
-        {
-         "texto": "No requiere cédula para la mayoría de puestos.",
-         "consecuencia": "Eso lo piden en Ing. Mecánica."
-        },
-        {
-         "texto": "Título y cédula profesional.",
-         "consecuencia": "Eso lo piden en Veterinaria."
-        }
-       ]
-      },
-      {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Cómo te ves?",
-       "a": {
-        "texto": "En una institución o empresa",
-        "dice": "Más estabilidad y un equipo de quien aprender."
-       },
-       "b": {
-        "texto": "Por tu cuenta",
-        "dice": "Más libertad, pero tienes que conseguir clientes."
-       }
-      },
-      {
-       "tipo": "clave",
-       "texto": "Saber qué te piden te ahorra sorpresas al salir."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "5.2",
-     "titulo": "Sueldo y demanda",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Hablemos de dinero sin rodeos. Antes de ver cualquier cifra, apuesta: así recuerdas mejor el dato real."
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Cuánto crees que gana al mes, en promedio, un profesionista de Ciencias políticas en México?",
-       "min": 5000,
-       "max": 100000,
-       "paso": 1000,
-       "unidad": "pesos",
-       "dato": "politicas.ingreso"
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "De cada 100 egresados, ¿cuántos crees que trabajan en algo de su carrera?",
-       "min": 0,
-       "max": 100,
-       "paso": 5,
-       "unidad": "de cada 100",
-       "dato": "politicas.ocupacion_afin"
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Todos los egresados de Ciencias políticas ganan lo mismo.",
-       "respuesta": false,
-       "revelacion": "Cambia con la experiencia, el lugar, la especialidad y si trabajas por tu cuenta."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué tanto pesa el sueldo en tu decisión?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "El promedio orienta, pero tu camino puede ser distinto."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "5.3",
-     "titulo": "Cómo les va al salir",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "chat",
-       "subtitulo": "Te cuenta cómo les va al salir",
-       "intro": [
-        "Te cuento cómo les va a quienes estudian Ciencias políticas al salir."
+        "El Judicial",
+        "El Ejecutivo",
+        "El Legislativo"
        ],
-       "temas": [
-        {
-         "q": "¿Cuántos trabajan en lo suyo?",
-         "a": [
-          "Menos de la mitad trabaja en algo de su carrera.",
-          "Es un promedio nacional del IMCO."
-         ]
-        },
-        {
-         "q": "¿Muchos hacen posgrado?",
-         "a": [
-          "Pocos hacen posgrado; la mayoría empieza a trabajar."
-         ]
-        },
-        {
-         "q": "¿Hay más hombres o mujeres?",
-         "a": [
-          "Hay más mujeres que hombres.",
-          "Eso no decide nada: cualquiera puede estudiarla."
-         ]
-        },
-        {
-         "q": "¿El trabajo tiene prestaciones?",
-         "a": [
-          "La mayoría tiene un trabajo formal, con prestaciones.",
-          "Las prestaciones son cosas como seguro médico y aguinaldo."
-         ]
-        }
+       "correcta": 1
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿A quién le toca la recolección de basura?",
+       "opciones": [
+        "Al municipio",
+        "Al Senado",
+        "A la federación"
        ],
-       "minimo": 2
+       "correcta": 0
       },
       {
-       "tipo": "vf",
-       "afirmacion": "La mayoría de quienes estudian Ciencias políticas trabaja en algo de su carrera.",
-       "respuesta": false,
-       "revelacion": "Menos de la mitad trabaja en algo de su carrera. Promedio nacional del IMCO."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué te importa más de tu futuro trabajo?",
+       "tipo": "pregunta",
+       "pregunta": "¿Qué pasa con una ley aprobada por las dos cámaras?",
        "opciones": [
-        "Que tenga que ver con lo que estudié",
-        "Ganar bien",
-        "Tener prestaciones",
-        "Hacer algo que me guste"
-       ]
+        "Se archiva",
+        "Se vota otra vez en la calle",
+        "El Ejecutivo la publica y entra en vigor"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "clave",
-       "texto": "Pregunta cómo les va a quienes ya salieron."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "5.4",
-     "titulo": "Después de titularte",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Después de titularte",
-       "puntos": [
-        "Puedes especializarte con cursos, diplomados o una maestría.",
-        "También puedes trabajar desde el inicio y estudiar después.",
-        "Se combina bien con: Relaciones Internacionales, Derecho, Sociología y Antropología."
-       ]
-      },
-      {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Qué harías al terminar?",
-       "a": {
-        "texto": "Trabajar desde el inicio",
-        "dice": "Ganas experiencia y dinero; después decides si estudias más."
-       },
-       "b": {
-        "texto": "Seguir estudiando",
-        "dice": "Te especializas antes; tardas más en empezar a trabajar."
-       }
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Cómo te imaginas después de la carrera?",
+       "tipo": "pregunta",
+       "pregunta": "¿Qué es lo primero en una política pública?",
        "opciones": [
-        "Trabajando",
-        "En una maestría",
-        "Emprendiendo",
-        "No sé todavía"
-       ]
+        "Evaluarla",
+        "Anunciarla",
+        "Definir bien el problema"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "clave",
-       "texto": "Al titularte empieza otra parte del camino, no termina."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "u6",
-   "lecciones": [
-    {
-     "id": "6.1",
-     "titulo": "Lo que sentiste",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Antes de ver tus respuestas: ¿cómo te fue con Ciencias políticas?",
+       "tipo": "pregunta",
+       "pregunta": "Un estado gasta 50 millones en salud de un presupuesto de 250. ¿Qué porcentaje es?",
        "opciones": [
-        "Me gustó más de lo que pensaba",
-        "Más o menos como esperaba",
-        "Me gustó menos de lo que pensaba"
-       ]
+        "50 por ciento",
+        "20 por ciento",
+        "5 por ciento"
+       ],
+       "correcta": 1,
+       "formula": "{50|250} × 100 = 20"
       },
       {
-       "tipo": "resumen"
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "Viendo tus respuestas, ¿qué pesó más?",
+       "tipo": "pregunta",
+       "pregunta": "¿Quién aprueba el Presupuesto de Egresos federal?",
        "opciones": [
-        "Lo que sentí al probarla",
-        "Lo que supe de la realidad",
-        "El camino para llegar",
-        "El futuro que ofrece"
-       ]
+        "La autoridad electoral",
+        "Los municipios",
+        "La Cámara de Diputados"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "clave",
-       "texto": "Lo que sentiste al probarla vale más que lo que imaginabas."
-      },
-      {
-       "tipo": "interes",
-       "pregunta": "¿Te ves estudiando Ciencias políticas?"
-      }
-     ]
-    },
-    {
-     "id": "6.2",
-     "titulo": "Tu veredicto",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Si mañana tuvieras que elegir carrera, ¿Ciencias políticas estaría entre tus opciones?",
+       "tipo": "pregunta",
+       "pregunta": "¿Quién organiza las elecciones en México?",
        "opciones": [
-        "Sí, entre las primeras",
-        "Sí, pero no arriba",
-        "No creo",
-        "No lo sé"
-       ]
+        "Los partidos",
+        "Una autoridad electoral autónoma",
+        "El presidente"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "comparar"
+       "tipo": "pregunta",
+       "pregunta": "Una encuesta da 50 por ciento con margen de 4 puntos. ¿Entre qué valores está probablemente?",
+       "opciones": [
+        "Entre 46 y 54",
+        "Exactamente 50",
+        "Entre 40 y 60"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Qué te ayudaría más a decidir?",
-       "a": {
-        "texto": "Hablar con alguien que la estudia",
-        "dice": "Busca a un estudiante o egresado cerca de ti y hazle tus preguntas. Una plática aclara más que diez videos."
-       },
-       "b": {
-        "texto": "Probar otra carrera y comparar",
-        "dice": "Explora otra de tu mapa. Comparar dos caminos reales aclara más que pensar en uno solo."
-       }
+       "tipo": "pregunta",
+       "pregunta": "Dos opciones están a 1 punto con un margen de 3. ¿Qué es?",
+       "opciones": [
+        "Un empate técnico",
+        "Un error",
+        "Una victoria clara"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "veredicto"
-      },
-      {
-       "tipo": "clave",
-       "texto": "Decidir «en duda» también es avanzar."
+       "tipo": "pregunta",
+       "pregunta": "¿Necesitas decir para qué quieres información pública?",
+       "opciones": [
+        "Sí",
+        "Solo los mayores de 30",
+        "No"
+       ],
+       "correcta": 2
       }
      ]
     }

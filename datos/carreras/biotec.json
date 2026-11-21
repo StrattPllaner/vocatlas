@@ -1,225 +1,151 @@
 {
  "id": "biotec",
- "version": 1,
+ "version": 2,
+ "formato": 2,
  "estado": "completo",
- "generado": true,
- "revision": "Armada automáticamente con la base de carreras de Morelos y CDMX (2026-11-17). Falta que la revise alguien de la carrera.",
+ "revision": "Pendiente de revisión por un profesionista de la carrera. Generado con datos/importar_lecciones.py desde datos/fuentes/lecciones/biotec.lec; no se edita a mano.",
  "unidades": [
   {
    "id": "u1",
+   "titulo": "Microorganismos que trabajan",
+   "sub": "Fermentación y enzimas",
    "lecciones": [
     {
-     "id": "1.1",
-     "titulo": "Qué es y qué hace",
-     "minutos": 3,
+     "id": "0",
+     "titulo": "Conócela",
+     "minutos": 1,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "¿Qué es Biotecnología?",
-       "texto": "Estudio interdisciplinario de su campo profesional, con bases teóricas, métodos de análisis y aplicación práctica en organizaciones, instituciones, investigación o proyectos especializados.",
-       "puntos": [
-        "Usa organismos vivos o sus moléculas para crear productos: vacunas, medicamentos, alimentos, biocombustibles o mejoras agrícolas.",
-        "Trabaja en laboratorio, industria o investigación."
+       "tipo": "ficha",
+       "texto": "Biotecnología forma profesionales que usan seres vivos, sobre todo microorganismos y enzimas, para producir alimentos, medicinas, vacunas y materiales. Trabajan en laboratorios, en la industria de alimentos y farmacéutica, y en investigación.",
+       "cifras": [
+        "biotec.becas",
+        "biotec.duracion",
+        "biotec.costo_publica",
+        "biotec.costo_privada"
        ]
       },
       {
-       "tipo": "decision",
-       "pregunta": "Por lo que leíste, ¿qué hace alguien de Biotecnología?",
-       "opciones": [
-        {
-         "texto": "Usa organismos vivos o sus moléculas para crear productos: vacunas, medicamentos, alimentos, biocombustibles o mejoras agrícolas.",
-         "consecuencia": "Exacto: eso es parte del día a día en Biotecnología.",
-         "mejor": true
-        },
-        {
-         "texto": "Trabaja en laboratorios clínicos (analiza sangre y muestras), en la industria farmacéutica (fabrica y controla la calidad de medicamentos), en hospitales o en regulación sanitaria.",
-         "consecuencia": "Eso lo hace alguien de QFB."
-        },
-        {
-         "texto": "Calcula riesgos con modelos estadísticos: cuánto debe costar un seguro, cuánto debe ahorrar un fondo de pensiones o qué tan probable es que un cliente no…",
-         "consecuencia": "Eso lo hace alguien de Actuaría."
-        }
-       ]
-      },
-      {
-       "tipo": "completar",
-       "frase": "Biotecnología es una carrera del área de ___.",
-       "opciones": [
-        "Tecnología y ciencias",
-        "Arte y comunicación",
-        "Ingenierías"
-       ],
-       "correcta": 0,
-       "revelacion": "Está en Tecnología y ciencias. Se parece a Biología, Químico Farmacéutico Biólogo (QFB), Ingeniería Química."
-      },
-      {
-       "tipo": "clave",
-       "texto": "Antes de elegir, entiende qué harías cada día, no solo el nombre."
-      },
-      {
-       "tipo": "interes"
+       "tipo": "escena",
+       "texto": "Hoy pones a trabajar a los microorganismos. Vamos a ver si te hacen caso."
       }
      ]
     },
     {
-     "id": "1.2",
-     "titulo": "Dónde trabajas",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Dónde trabaja alguien de Biotecnología",
-       "texto": "Laboratorios clínicos e industriales, farmacéuticas, hospitales, alimentos, biotecnología, control de calidad, investigación, regulación y docencia."
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Alguien de Biotecnología solo puede trabajar en un tipo de lugar.",
-       "respuesta": false,
-       "revelacion": "Puede trabajar en varios: laboratorios clínicos e industriales, farmacéuticas, hospitales."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Dónde te ves trabajando?",
-       "opciones": [
-        "Laboratorios clínicos e industriales",
-        "Farmacéuticas",
-        "Hospitales",
-        "Alimentos"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Una carrera abre varias puertas, no una sola."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "1.3",
-     "titulo": "Pregúntale a Rumbo",
+     "id": "1",
+     "titulo": "Fermentación",
      "minutos": 4,
      "tarjetas": [
       {
-       "tipo": "chat",
-       "subtitulo": "Te cuenta cómo es trabajar en Biotecnología",
-       "intro": [
-        "¡Hola! Junté lo que se sabe de Biotecnología.",
-        "Pregúntame lo que quieras."
-       ],
-       "temas": [
+       "tipo": "info",
+       "titulo": "Fermentación",
+       "partes": [
         {
-         "q": "¿Qué haces en un día normal?",
-         "a": [
-          "Usa organismos vivos o sus moléculas para crear productos: vacunas, medicamentos, alimentos, biocombustibles o mejoras agrícolas.",
-          "Trabaja en laboratorio, industria o investigación."
-         ]
-        },
-        {
-         "q": "¿Qué es lo más difícil?",
-         "a": [
-          "Se considera una carrera de dificultad alta.",
-          "Química orgánica, Bioquímica y Biología molecular, más cálculos de ingeniería."
-         ]
-        },
-        {
-         "q": "¿Hay trabajo?",
-         "a": [
-          "Cerca de la mitad trabaja en algo de su carrera. Es un promedio nacional del IMCO.",
-          "Morelos es fuerte en biotecnología (UNAM campus Morelos, Instituto de Biotecnología)."
-         ]
-        },
-        {
-         "q": "¿Qué necesito para ejercer?",
-         "a": [
-          "No requiere cédula para la mayoría de puestos",
-          "La investigación pide posgrado."
-         ]
+         "t": "La biotecnología usa seres vivos, sobre todo microorganismos, para producir cosas útiles. La más antigua es la fermentación. Las levaduras, que son hongos de una sola célula, se comen el azúcar y, sin oxígeno, producen alcohol y dióxido de carbono. Así se hacen el pan, la cerveza, el vino y el pulque. En el pan, el dióxido de carbono hace que la masa se infle y el alcohol se evapora al hornear. Las bacterias del yogurt hacen otra fermentación: convierten el azúcar de la leche en ácido láctico, que la espesa y le da su sabor ácido. Cada microorganismo trabaja mejor a cierta temperatura."
         }
-       ],
-       "minimo": 2,
-       "auto": true
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Biotecnología se considera una carrera de dificultad alta.",
-       "respuesta": true,
-       "revelacion": "Se considera de dificultad alta. Química orgánica, Bioquímica y Biología molecular, más cálculos de ingeniería."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué te llamó más la atención?",
-       "opciones": [
-        "¿Qué haces en un día normal?",
-        "¿Qué es lo más difícil?",
-        "¿Hay trabajo?",
-        "¿Qué necesito para ejercer?"
        ]
       },
       {
-       "tipo": "clave",
-       "texto": "Preguntar a quien ya sabe ahorra muchos errores."
+       "tipo": "pregunta",
+       "pregunta": "¿Qué hace que la masa del pan se infle?",
+       "opciones": [
+        "El dióxido de carbono que producen las levaduras",
+        "El agua",
+        "La sal"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "¿Qué producen las bacterias del yogurt a partir del azúcar de la leche?",
+       "opciones": [
+        "Alcohol",
+        "Ácido láctico",
+        "Oxígeno"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Una panadería deja la masa en un cuarto muy frío y no crece. ¿Qué pasó probablemente?",
+       "opciones": [
+        "Se acabó la harina",
+        "Con el frío las levaduras trabajan muy lento",
+        "La masa es de mala calidad"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Alguien mete la levadura en agua hirviendo para \"activarla\" y la masa no crece. ¿Por qué?",
+       "opciones": [
+        "Así debe ser",
+        "El agua hirviendo mató a las levaduras",
+        "Le faltó sal"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
-     "id": "1.4",
-     "titulo": "Carreras parecidas",
-     "minutos": 3,
+     "id": "2",
+     "titulo": "Enzimas",
+     "minutos": 4,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Carreras cercanas a Biotecnología",
-       "puntos": [
-        "Biología: estudio científico de los seres vivos, los ecosistemas.",
-        "Químico Farmacéutico Biólogo (QFB): ciencias químicas y biológicas aplicadas al análisis, investigación.",
-        "Ingeniería Química: ciencias químicas y biológicas aplicadas al análisis, investigación.",
-        "Ingeniería Biomédica: aplicación de matemáticas, ciencias y tecnología para diseñar, construir."
+       "titulo": "Enzimas",
+       "partes": [
+        {
+         "t": "Las enzimas son proteínas que aceleran reacciones químicas en los seres vivos. Cada enzima hace un trabajo específico, como una llave que solo abre su cerradura. Funcionan mejor a cierta temperatura y cierta acidez: si se calientan demasiado, cambian de forma y dejan de servir, y eso se llama desnaturalización. La industria las usa todo el tiempo: en detergentes que quitan manchas de comida, en jugos para que salgan más claros, en quesos y en medicinas. La lactasa, por ejemplo, rompe el azúcar de la leche y se usa para hacer leche deslactosada."
+        }
        ]
       },
       {
-       "tipo": "emparejar",
-       "pregunta": "Une cada carrera con lo que estudia.",
-       "pares": [
-        [
-         "Biología",
-         "Estudio científico de los seres vivos, los ecosistemas"
-        ],
-        [
-         "Químico Farmacéutico Biólogo (QFB)",
-         "Ciencias químicas y biológicas aplicadas al análisis, investigación"
-        ],
-        [
-         "Ingeniería Química",
-         "Ciencias químicas y biológicas aplicadas al análisis, investigación"
-        ],
-        [
-         "Ingeniería Biomédica",
-         "Aplicación de matemáticas, ciencias y tecnología para diseñar, construir"
-        ]
-       ],
-       "revelacion": "Se cruzan en temas, pero cada una tiene su propio enfoque."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Cuál de estas te da curiosidad?",
+       "tipo": "pregunta",
+       "pregunta": "¿Qué pasa si una enzima se calienta demasiado?",
        "opciones": [
-        "Biología",
-        "Químico Farmacéutico Biólogo (QFB)",
-        "Ingeniería Química",
-        "Me quedo con Biotecnología"
-       ]
+        "Cambia de forma y deja de funcionar",
+        "Trabaja más rápido para siempre",
+        "Se convierte en azúcar"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "clave",
-       "texto": "Si dudas entre dos, compara lo que harías cada día."
+       "tipo": "pregunta",
+       "pregunta": "¿Qué enzima se usa para hacer leche deslactosada?",
+       "opciones": [
+        "La lactasa",
+        "La sal",
+        "La levadura"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "Un detergente con enzimas no quita bien las manchas cuando se lava con agua hirviendo. ¿Por qué?",
+       "opciones": [
+        "La ropa es nueva",
+        "Le faltó jabón",
+        "El calor desnaturalizó las enzimas"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Una enzima rompe proteínas, pero no grasas. ¿Por qué?",
+       "opciones": [
+        "Cada enzima es específica para su trabajo",
+        "Porque está descompuesta",
+        "Porque es barata"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "teves"
       }
      ]
     }
@@ -227,202 +153,122 @@
   },
   {
    "id": "u2",
+   "titulo": "El ADN",
+   "sub": "PCR e ingeniería genética",
    "lecciones": [
     {
-     "id": "2.1",
-     "titulo": "Mini reto",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Quieres que una bacteria produzca insulina. ¿Qué resuelves primero?",
-       "opciones": [
-        "Qué gen necesita",
-        "Cómo meterlo en la bacteria",
-        "Cómo comprobar que funciona"
-       ]
-      },
-      {
-       "tipo": "info",
-       "titulo": "Así lo piensa alguien de Biotecnología",
-       "texto": "Se trabaja por ciclos de hipótesis, experimento y revisión, y a veces los resultados no salen. Mucho laboratorio y paciencia."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Te gustó pensar en algo así?",
-       "escala": [
-        "Nada",
-        "Mucho"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Los retos de una carrera se parecen a lo que harías en su trabajo."
-      },
-      {
-       "tipo": "interes",
-       "pregunta": "¿Te ves resolviendo retos así?"
-      }
-     ]
-    },
-    {
-     "id": "2.2",
-     "titulo": "Lo que te piden",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Habilidades que usarás en Biotecnología",
-       "puntos": [
-        "Ciencias sólidas",
-        "Trabajo de laboratorio",
-        "Paciencia experimental",
-        "Inglés científico"
-       ]
-      },
-      {
-       "tipo": "completar",
-       "pregunta": "Según lo que leíste, completa la frase.",
-       "frase": "Para Biotecnología es clave: ___.",
-       "opciones": [
-        "Ciencias sólidas",
-        "Matemáticas avanzadas",
-        "Organización"
-       ],
-       "correcta": 0,
-       "revelacion": "Es de las habilidades que más se usan en Biotecnología."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué tanto se te da esto: trabajo de laboratorio?",
-       "escala": [
-        "Me cuesta",
-        "Se me da"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Las habilidades se entrenan; lo importante es que te guste usarlas."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "2.3",
-     "titulo": "Temas que vas a ver",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Temas que te deben gustar",
-       "puntos": [
-        "Biología y química",
-        "Investigación",
-        "Innovación"
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "¿Cuál de estos temas es más de Biotecnología?",
-       "opciones": [
-        {
-         "texto": "Biología y química",
-         "consecuencia": "Sí, es de sus temas centrales.",
-         "mejor": true
-        },
-        {
-         "texto": "Cocinar",
-         "consecuencia": "Ese es más de Gastronomía."
-        },
-        {
-         "texto": "Otros países",
-         "consecuencia": "Ese es más de Relaciones internacionales."
-        }
-       ]
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Cuál de estos temas te gusta más?",
-       "opciones": [
-        "Biología y química",
-        "Investigación",
-        "Innovación",
-        "Ninguno me late"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Si los temas te aburren, la carrera se hace muy larga."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "2.4",
-     "titulo": "Materias clave",
+     "id": "3",
+     "titulo": "El ADN y la PCR",
      "minutos": 4,
      "tarjetas": [
       {
-       "tipo": "voltear",
-       "pregunta": "¿Qué materias crees que llevas en cada etapa? Piénsalo y voltea.",
-       "cartas": [
+       "tipo": "info",
+       "titulo": "El ADN y la PCR",
+       "partes": [
         {
-         "frente": "Semestres 1-2",
-         "reverso": "Cálculo, Química, Biología celular, Física"
+         "t": "El ADN es la molécula que guarda las instrucciones de un ser vivo. A veces hay muy poquito, por ejemplo en una muestra de saliva, y se necesita más para estudiarlo. La PCR es una técnica que copia un pedazo específico de ADN muchas veces. En cada ciclo, la cantidad se duplica:"
         },
         {
-         "frente": "Semestres 3-4",
-         "reverso": "Química orgánica, Bioquímica, Microbiología, Genética"
+         "f": "copias después de 3 ciclos = copias iniciales × 2 × 2 × 2"
         },
         {
-         "frente": "Semestres 5-6",
-         "reverso": "Biología molecular, Ingeniería genética, Bioprocesos, Bioinformática"
-        },
-        {
-         "frente": "Semestres 7 en adelante",
-         "reverso": "Escalamiento industrial, Bioseguridad, Proyecto de investigación"
+         "t": "Después de 10 ciclos, una copia se vuelve 1,024; después de 30, más de mil millones. Por eso la PCR es tan sensible, y por eso también cualquier contaminación de otra muestra se multiplica y puede dar un resultado falso."
         }
        ]
       },
       {
-       "tipo": "decision",
-       "pregunta": "¿Cuál de estas materias llevarías en Biotecnología?",
+       "tipo": "pregunta",
+       "pregunta": "Empiezas con 1 copia de ADN y haces 3 ciclos de PCR. ¿Cuántas copias tienes?",
        "opciones": [
+        "3",
+        "6",
+        "8"
+       ],
+       "correcta": 2,
+       "formula": "1 × 2 × 2 × 2 = 8"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Si empiezas con 5 copias y haces 2 ciclos, ¿cuántas tienes?",
+       "opciones": [
+        "10",
+        "7",
+        "20"
+       ],
+       "correcta": 2,
+       "formula": "5 × 2 × 2 = 20"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Una prueba de PCR sale positiva en una muestra que debería ser negativa, y la técnica usó la misma pipeta para varias muestras. ¿Qué pasó probablemente?",
+       "opciones": [
+        "La muestra era positiva",
+        "La máquina se descompuso",
+        "Se contaminó con ADN de otra muestra"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "teves"
+      }
+     ]
+    },
+    {
+     "id": "4",
+     "titulo": "Ingeniería genética",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "Ingeniería genética",
+       "partes": [
         {
-         "texto": "Cálculo",
-         "consecuencia": "Sí: es de las primeras materias de Biotecnología.",
-         "mejor": true
-        },
-        {
-         "texto": "Anatomía",
-         "consecuencia": "Esa es de Educación física."
-        },
-        {
-         "texto": "Técnicas culinarias básicas",
-         "consecuencia": "Esa es de Gastronomía."
+         "t": "La ingeniería genética le pone a un organismo un gen de otro para que produzca algo nuevo. El ejemplo más famoso es la insulina: antes se sacaba del páncreas de animales, y hoy se produce poniendo el gen humano de la insulina en bacterias o levaduras, que la fabrican en grandes tanques. Así se producen también vacunas, enzimas y otras medicinas. Los cultivos transgénicos, como algunas variedades de maíz y soya, se modifican para resistir plagas o herbicidas. En México, el maíz transgénico es un tema muy debatido, porque aquí se originó el maíz y hay muchas variedades nativas que proteger."
         }
        ]
       },
       {
-       "tipo": "reflexion",
-       "pregunta": "¿Cuál te da más curiosidad?",
+       "tipo": "pregunta",
+       "pregunta": "¿Cómo se produce hoy la mayor parte de la insulina?",
        "opciones": [
-        "Cálculo",
-        "Química",
-        "Biología celular",
-        "Física"
-       ]
+        "De páncreas de vaca",
+        "Con bacterias o levaduras a las que se les puso el gen humano de la insulina",
+        "De plantas"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "clave",
-       "texto": "Las primeras materias son la base; muchas veces son las más pesadas."
+       "tipo": "pregunta",
+       "pregunta": "¿Qué es un organismo transgénico?",
+       "opciones": [
+        "Uno al que se le puso un gen de otra especie",
+        "Uno silvestre",
+        "Uno muy grande"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "¿Por qué el maíz transgénico es tan debatido en México?",
+       "opciones": [
+        "Porque aquí se originó el maíz y hay muchas variedades nativas que se quieren proteger",
+        "Porque nadie come maíz",
+        "Porque es más caro"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Qué ventaja tuvo producir insulina con microorganismos?",
+       "opciones": [
+        "Ninguna",
+        "Que es más bonita",
+        "Se puede producir en grandes cantidades y de forma más constante"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "teves"
       }
      ]
     }
@@ -430,183 +276,170 @@
   },
   {
    "id": "u3",
+   "titulo": "Del frasco al tanque",
+   "sub": "Diluciones, escalamiento y ética",
    "lecciones": [
     {
-     "id": "3.1",
-     "titulo": "Un día real",
+     "id": "5",
+     "titulo": "Diluciones en el laboratorio",
      "minutos": 4,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Un día de trabajo en Biotecnología",
-       "puntos": [
-        "Usa organismos vivos o sus moléculas para crear productos: vacunas, medicamentos, alimentos, biocombustibles o mejoras agrícolas.",
-        "Trabaja en laboratorio, industria o investigación."
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "¿Qué de esto NO es parte del día de alguien de Biotecnología?",
-       "opciones": [
+       "titulo": "Diluciones en el laboratorio",
+       "partes": [
         {
-         "texto": "Diseña prendas y colecciones, elige telas, trabaja patrones con talleres, sigue tendencias y comercializa: en marcas, retail o con su propia marca.",
-         "consecuencia": "Exacto: eso lo hace alguien de Moda.",
-         "mejor": true
+         "t": "En el laboratorio casi siempre hay que preparar soluciones a partir de otras más concentradas. La regla es que la cantidad de sustancia no cambia al agregar agua, solo se reparte en más volumen:"
         },
         {
-         "texto": "Usa organismos vivos o sus moléculas para crear productos: vacunas, medicamentos, alimentos, biocombustibles o mejoras agrícolas.",
-         "consecuencia": "Esto sí lo hace: es parte de su día."
+         "f": "concentración inicial × volumen inicial = concentración final × volumen final"
         },
         {
-         "texto": "Trabaja en laboratorio, industria o investigación.",
-         "consecuencia": "Esto sí lo hace: es parte de su día."
+         "t": "Si diluyes 1 a 10, tomas una parte de la solución y la completas a 10 partes con agua, y la concentración queda diez veces menor. Un error en una dilución puede arruinar un experimento completo, por eso se anota todo."
         }
        ]
       },
       {
-       "tipo": "reflexion",
-       "pregunta": "¿Te ves haciendo esto todos los días?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
+       "tipo": "pregunta",
+       "pregunta": "Tienes una solución a 10 gramos por litro y necesitas 100 mililitros a 1 gramo por litro. ¿Cuánta solución original usas?",
+       "opciones": [
+        "1 mililitro",
+        "10 mililitros, y completas con agua hasta 100",
+        "100 mililitros"
+       ],
+       "correcta": 1,
+       "formula": "{1 × 100|10} = 10"
       },
       {
-       "tipo": "clave",
-       "texto": "El día a día pesa más que el título."
+       "tipo": "pregunta",
+       "pregunta": "Diluyes una muestra 1 a 10. ¿Cómo queda su concentración?",
+       "opciones": [
+        "Diez veces menor",
+        "Diez veces mayor",
+        "Igual"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "No anotaste cuánto diluiste una muestra. ¿Qué haces?",
+       "opciones": [
+        "Usas el resultado igual",
+        "Adivinas",
+        "Repites la dilución anotando todo"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
-     "id": "3.2",
-     "titulo": "Lo difícil",
+     "id": "6",
+     "titulo": "Del laboratorio a la fábrica",
      "minutos": 4,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Lo difícil de Biotecnología",
-       "texto": "Se considera de dificultad alta.",
-       "puntos": [
-        "Química orgánica, Bioquímica y Biología molecular, más cálculos de ingeniería."
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "Según lo que leíste, ¿qué es lo que más cuesta en Biotecnología?",
-       "opciones": [
+       "titulo": "Del laboratorio a la fábrica",
+       "partes": [
         {
-         "texto": "Química orgánica, Bioquímica y Biología molecular, más cálculos de ingeniería.",
-         "consecuencia": "Sí, es de lo que más cuesta en Biotecnología.",
-         "mejor": true
-        },
-        {
-         "texto": "Lectura teórica (filosofía, psicología educativa) e Investigación educativa.",
-         "consecuencia": "Eso es más de Educación."
-        },
-        {
-         "texto": "Los primeros dos años de ciencias básicas (Anatomía, Bioquímica, Fisiología) son el gran filtro",
-         "consecuencia": "Eso es más de Medicina."
+         "t": "Lo que funciona en un frasco no siempre funciona en un tanque de miles de litros. Pasar de pequeño a grande se llama escalamiento. En un biorreactor hay que controlar temperatura, acidez, oxígeno y mezcla para que los microorganismos estén bien. Si entra otro microorganismo, puede comerse los nutrientes o producir sustancias dañinas, y se pierde todo el lote. Por eso todo se esteriliza y se trabaja con mucho cuidado. Un lote perdido en un tanque grande puede costar muchísimo dinero."
         }
        ]
       },
       {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué tanto te preocupa esto?",
-       "escala": [
-        "Mucho",
-        "Nada"
-       ]
+       "tipo": "pregunta",
+       "pregunta": "¿Qué es el escalamiento?",
+       "opciones": [
+        "Hacer el proceso más lento",
+        "Pasar un proceso de pequeño a grande",
+        "Subir escaleras"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "clave",
-       "texto": "Saber lo difícil desde antes te ayuda a prepararte."
+       "tipo": "pregunta",
+       "pregunta": "En un biorreactor la temperatura subió mucho durante la noche. ¿Qué puede pasar?",
+       "opciones": [
+        "Que los microorganismos dejen de producir o se mueran",
+        "Nada",
+        "Que produzcan el doble"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "Un lote se contaminó con otra bacteria. ¿Qué haces?",
+       "opciones": [
+        "Lo descartas de forma segura y buscas por dónde entró la contaminación",
+        "Lo vendes igual",
+        "Lo mezclas con otro lote"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Por qué se esteriliza todo antes de empezar?",
+       "opciones": [
+        "Para que huela mejor",
+        "Por costumbre",
+        "Para que solo crezca el microorganismo que quieres"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
-     "id": "3.3",
-     "titulo": "Historia real",
-     "minutos": 3,
+     "id": "7",
+     "titulo": "Bioseguridad y ética",
+     "minutos": 4,
      "tarjetas": [
       {
-       "tipo": "reflexion",
-       "pregunta": "Si pudieras preguntarle algo a alguien que ya estudia Biotecnología, ¿qué sería?",
+       "tipo": "info",
+       "titulo": "Bioseguridad y ética",
+       "partes": [
+        {
+         "t": "En biotecnología se trabaja con organismos vivos, así que hay reglas para proteger a las personas y al ambiente. Los laboratorios tienen niveles de bioseguridad según el riesgo de lo que se maneja. Los residuos biológicos se esterilizan antes de tirarlos. Los organismos modificados no se pueden liberar al ambiente sin permiso. Y los datos de experimentos se reportan completos, aunque no salgan como esperabas. Usar muestras de personas requiere su consentimiento."
+        }
+       ]
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Terminaste un experimento con bacterias. ¿Qué haces con los cultivos?",
        "opciones": [
-        "¿Qué fue lo más difícil?",
-        "¿Qué te sorprendió?",
-        "¿Volverías a elegirla?",
-        "¿Cómo es un día normal?"
-       ]
+        "Los esterilizas antes de desecharlos",
+        "Los tiras a la basura normal",
+        "Los tiras al drenaje"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "testimonio",
-       "estado": "pendiente",
-       "perfil": "Estudiante de últimos semestres o egresado de Biotecnología"
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "Mientras llega esta historia, ¿a quién podrías preguntarle tú?",
+       "tipo": "pregunta",
+       "pregunta": "Quieres usar muestras de saliva de tus compañeros para un estudio genético.",
        "opciones": [
-        "A un familiar o conocido que la estudió",
-        "A un estudiante de mi ciudad",
-        "A un maestro que la conozca",
-        "Todavía no conozco a nadie"
-       ]
+        "Las compras",
+        "Les pides su consentimiento y les explicas para qué",
+        "Las tomas sin decir nada"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "clave",
-       "texto": "Una persona real te cuenta lo que ningún folleto dice."
+       "tipo": "pregunta",
+       "pregunta": "Una planta modificada en tu laboratorio parece resistente a plagas y alguien quiere sembrarla en el campo.",
+       "opciones": [
+        "La regalas",
+        "Se necesita evaluación y permiso antes de liberarla",
+        "La siembras ya"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "3.4",
-     "titulo": "¿Es para ti?",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Contesta con honestidad. Nadie más ve tus respuestas."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Me apasiona la biología a nivel molecular?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Me veo en un laboratorio?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Estaría dispuesto a hacer posgrado?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Si dijiste que sí a casi todo, vale la pena seguir explorándola."
-      },
-      {
-       "tipo": "interes"
+       "tipo": "teves"
       }
      ]
     }
@@ -614,449 +447,126 @@
   },
   {
    "id": "u4",
+   "titulo": "Examen final",
+   "sub": "10 preguntas · apruebas con 7",
    "lecciones": [
     {
-     "id": "4.1",
-     "titulo": "Cuánto dura y qué estudias",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Cada escuela arma su plan distinto, pero el orden general se parece. Vamos a verlo."
-      },
-      {
-       "tipo": "ordenar",
-       "pregunta": "Ordena lo que estudias, de lo primero a lo último.",
-       "pasos": [
-        "Cálculo, Química",
-        "Química orgánica, Bioquímica",
-        "Biología molecular, Ingeniería genética",
-        "Escalamiento industrial, Bioseguridad"
-       ],
-       "revelacion": "Primero las bases y al final lo más especializado y las prácticas."
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Cuántos años crees que pasan desde que entras hasta que te titulas?",
-       "min": 3,
-       "max": 10,
-       "paso": 1,
-       "unidad": "años",
-       "dato": "biotec.duracion"
-      },
-      {
-       "tipo": "clave",
-       "texto": "Revisa el mapa curricular de cada escuela: cambia de una a otra."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "4.2",
-     "titulo": "Cómo se entra",
-     "minutos": 4,
+     "id": "ex",
+     "titulo": "Examen final",
+     "minutos": 6,
+     "examen": true,
+     "aprobar": 7,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Cómo se entra en la región",
-       "puntos": [
-        "UNAM: Concurso de selección UNAM (120 reactivos) o pase reglamentado desde CCH/ENP",
-        "IPN: Examen de admisión IPN (140 preguntas, hasta 3 horas, incluye sección de inglés)",
-        "UAM: Examen de selección UAM (trimestral; dos procesos al año y procesos extraordinarios)",
-        "UAEM: EXANI-II de CENEVAL + curso propedéutico"
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "Según lo que leíste, ¿qué pide UNAM para entrar?",
-       "opciones": [
+       "titulo": "Examen final",
+       "partes": [
         {
-         "texto": "Concurso de selección UNAM (120 reactivos) o pase reglamentado desde CCH/ENP",
-         "consecuencia": "Exacto.",
-         "mejor": true
-        },
-        {
-         "texto": "Examen de admisión IPN (140 preguntas, hasta 3 horas, incluye sección de inglés)",
-         "consecuencia": "Eso lo pide IPN."
-        },
-        {
-         "texto": "Examen de selección UAM (trimestral; dos procesos al año y procesos extraordinarios)",
-         "consecuencia": "Eso lo pide UAM."
+         "t": "Son 10 casos nuevos que mezclan todas las lecciones. Apruebas con 7. Si no, lo repites y las que fallaste regresan con otras palabras."
         }
        ]
       },
       {
-       "tipo": "vf",
-       "afirmacion": "Todas las universidades usan el mismo examen.",
-       "respuesta": false,
-       "revelacion": "Cada una tiene el suyo: revisa la convocatoria de la que te interese."
-      },
-      {
-       "tipo": "clave",
-       "texto": "Conoce el examen de tu escuela desde antes."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "4.3",
-     "titulo": "Dónde, cuánto cuesta y becas",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "escuelas"
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Cuánto crees que cuesta un semestre en una universidad pública?",
-       "min": 0,
-       "max": 60000,
-       "paso": 1000,
-       "unidad": "pesos",
-       "dato": "biotec.costo_publica"
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Y un semestre en una universidad privada?",
-       "min": 0,
-       "max": 300000,
-       "paso": 5000,
-       "unidad": "pesos",
-       "dato": "biotec.costo_privada"
-      },
-      {
-       "tipo": "dato",
-       "titulo": "Becas para estudiar Biotecnología",
-       "dato": "biotec.becas"
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Una universidad cara garantiza un mejor empleo.",
-       "respuesta": false,
-       "revelacion": "Pesan más lo que aprendes, tus prácticas y tu esfuerzo."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué pesa más para ti al elegir escuela?",
+       "tipo": "pregunta",
+       "pregunta": "¿Qué producen las levaduras al fermentar azúcar sin oxígeno?",
        "opciones": [
-        "El costo",
-        "Que esté cerca de mi casa",
-        "El prestigio",
-        "Las prácticas que ofrece"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Además de la colegiatura, cuenta transporte y materiales."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "u5",
-   "lecciones": [
-    {
-     "id": "5.1",
-     "titulo": "Qué piden para trabajar",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Qué te piden para trabajar",
-       "puntos": [
-        "No requiere cédula para la mayoría de puestos",
-        "La investigación pide posgrado.",
-        "Morelos es fuerte en biotecnología (UNAM campus Morelos, Instituto de Biotecnología)."
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "Según lo que leíste, ¿qué necesitas para ejercer Biotecnología?",
-       "opciones": [
-        {
-         "texto": "No requiere cédula para la mayoría de puestos",
-         "consecuencia": "Exacto.",
-         "mejor": true
-        },
-        {
-         "texto": "Cédula para firmar proyectos y licencias",
-         "consecuencia": "Eso lo piden en Arquitectura."
-        },
-        {
-         "texto": "Título y cédula para litigar.",
-         "consecuencia": "Eso lo piden en Derecho."
-        }
-       ]
-      },
-      {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Cómo te ves?",
-       "a": {
-        "texto": "En una institución o empresa",
-        "dice": "Más estabilidad y un equipo de quien aprender."
-       },
-       "b": {
-        "texto": "Por tu cuenta",
-        "dice": "Más libertad, pero tienes que conseguir clientes."
-       }
-      },
-      {
-       "tipo": "clave",
-       "texto": "Saber qué te piden te ahorra sorpresas al salir."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "5.2",
-     "titulo": "Sueldo y demanda",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Hablemos de dinero sin rodeos. Antes de ver cualquier cifra, apuesta: así recuerdas mejor el dato real."
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Cuánto crees que gana al mes, en promedio, un profesionista de Biotecnología en México?",
-       "min": 5000,
-       "max": 100000,
-       "paso": 1000,
-       "unidad": "pesos",
-       "dato": "biotec.ingreso"
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "De cada 100 egresados, ¿cuántos crees que trabajan en algo de su carrera?",
-       "min": 0,
-       "max": 100,
-       "paso": 5,
-       "unidad": "de cada 100",
-       "dato": "biotec.ocupacion_afin"
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Todos los egresados de Biotecnología ganan lo mismo.",
-       "respuesta": false,
-       "revelacion": "Cambia con la experiencia, el lugar, la especialidad y si trabajas por tu cuenta."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué tanto pesa el sueldo en tu decisión?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "El promedio orienta, pero tu camino puede ser distinto."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "5.3",
-     "titulo": "Cómo les va al salir",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "chat",
-       "subtitulo": "Te cuenta cómo les va al salir",
-       "intro": [
-        "Te cuento cómo les va a quienes estudian Biotecnología al salir."
+        "Oxígeno",
+        "Leche",
+        "Alcohol y dióxido de carbono"
        ],
-       "temas": [
-        {
-         "q": "¿Cuántos trabajan en lo suyo?",
-         "a": [
-          "Cerca de la mitad trabaja en algo de su carrera.",
-          "Es un promedio nacional del IMCO."
-         ]
-        },
-        {
-         "q": "¿Muchos hacen posgrado?",
-         "a": [
-          "Pocos hacen posgrado; la mayoría empieza a trabajar."
-         ]
-        },
-        {
-         "q": "¿Hay más hombres o mujeres?",
-         "a": [
-          "Hay más mujeres que hombres.",
-          "Eso no decide nada: cualquiera puede estudiarla."
-         ]
-        },
-        {
-         "q": "¿El trabajo tiene prestaciones?",
-         "a": [
-          "La mayoría tiene un trabajo formal, con prestaciones.",
-          "Las prestaciones son cosas como seguro médico y aguinaldo."
-         ]
-        }
+       "correcta": 2
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Qué pasa con una enzima que se calienta demasiado?",
+       "opciones": [
+        "Funciona mejor",
+        "Se desnaturaliza y deja de funcionar",
+        "Nada"
        ],
-       "minimo": 2
+       "correcta": 1
       },
       {
-       "tipo": "vf",
-       "afirmacion": "La mayoría de quienes estudian Biotecnología trabaja en algo de su carrera.",
-       "respuesta": false,
-       "revelacion": "Cerca de la mitad trabaja en algo de su carrera. Promedio nacional del IMCO."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué te importa más de tu futuro trabajo?",
+       "tipo": "pregunta",
+       "pregunta": "Empiezas con 2 copias de ADN y haces 3 ciclos de PCR. ¿Cuántas copias tienes?",
        "opciones": [
-        "Que tenga que ver con lo que estudié",
-        "Ganar bien",
-        "Tener prestaciones",
-        "Hacer algo que me guste"
-       ]
+        "16",
+        "8",
+        "6"
+       ],
+       "correcta": 0,
+       "formula": "2 × 2 × 2 × 2 = 16"
       },
       {
-       "tipo": "clave",
-       "texto": "Pregunta cómo les va a quienes ya salieron."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "5.4",
-     "titulo": "Después de titularte",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Después de titularte",
-       "puntos": [
-        "Puedes especializarte con cursos, diplomados o una maestría.",
-        "También puedes trabajar desde el inicio y estudiar después.",
-        "Se combina bien con: Biología, Químico Farmacéutico Biólogo (QFB), Ingeniería Química."
-       ]
-      },
-      {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Qué harías al terminar?",
-       "a": {
-        "texto": "Trabajar desde el inicio",
-        "dice": "Ganas experiencia y dinero; después decides si estudias más."
-       },
-       "b": {
-        "texto": "Seguir estudiando",
-        "dice": "Te especializas antes; tardas más en empezar a trabajar."
-       }
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Cómo te imaginas después de la carrera?",
+       "tipo": "pregunta",
+       "pregunta": "¿Por qué la PCR es tan sensible a la contaminación?",
        "opciones": [
-        "Trabajando",
-        "En una maestría",
-        "Emprendiendo",
-        "No sé todavía"
-       ]
+        "Porque cualquier ADN extra también se copia muchas veces",
+        "No es sensible",
+        "Porque es lenta"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "clave",
-       "texto": "Al titularte empieza otra parte del camino, no termina."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "u6",
-   "lecciones": [
-    {
-     "id": "6.1",
-     "titulo": "Lo que sentiste",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Antes de ver tus respuestas: ¿cómo te fue con Biotecnología?",
+       "tipo": "pregunta",
+       "pregunta": "¿Cómo se produce hoy la insulina?",
        "opciones": [
-        "Me gustó más de lo que pensaba",
-        "Más o menos como esperaba",
-        "Me gustó menos de lo que pensaba"
-       ]
+        "De animales",
+        "Con microorganismos que tienen el gen humano de la insulina",
+        "De plantas"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "resumen"
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "Viendo tus respuestas, ¿qué pesó más?",
+       "tipo": "pregunta",
+       "pregunta": "Tienes una solución a 20 gramos por litro y necesitas 100 mililitros a 2 gramos por litro. ¿Cuánta solución original usas?",
        "opciones": [
-        "Lo que sentí al probarla",
-        "Lo que supe de la realidad",
-        "El camino para llegar",
-        "El futuro que ofrece"
-       ]
+        "20 mililitros",
+        "2 mililitros",
+        "10 mililitros"
+       ],
+       "correcta": 2,
+       "formula": "{2 × 100|20} = 10"
       },
       {
-       "tipo": "clave",
-       "texto": "Lo que sentiste al probarla vale más que lo que imaginabas."
-      },
-      {
-       "tipo": "interes",
-       "pregunta": "¿Te ves estudiando Biotecnología?"
-      }
-     ]
-    },
-    {
-     "id": "6.2",
-     "titulo": "Tu veredicto",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Si mañana tuvieras que elegir carrera, ¿Biotecnología estaría entre tus opciones?",
+       "tipo": "pregunta",
+       "pregunta": "¿Qué es el escalamiento?",
        "opciones": [
-        "Sí, entre las primeras",
-        "Sí, pero no arriba",
-        "No creo",
-        "No lo sé"
-       ]
+        "Un tipo de enzima",
+        "Una prueba de ADN",
+        "Pasar un proceso del laboratorio a la producción grande"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "comparar"
+       "tipo": "pregunta",
+       "pregunta": "Un lote del biorreactor se contaminó.",
+       "opciones": [
+        "Se vende",
+        "Se descarta de forma segura y se busca la causa",
+        "Se mezcla"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Qué te ayudaría más a decidir?",
-       "a": {
-        "texto": "Hablar con alguien que la estudia",
-        "dice": "Busca a un estudiante o egresado cerca de ti y hazle tus preguntas. Una plática aclara más que diez videos."
-       },
-       "b": {
-        "texto": "Probar otra carrera y comparar",
-        "dice": "Explora otra de tu mapa. Comparar dos caminos reales aclara más que pensar en uno solo."
-       }
+       "tipo": "pregunta",
+       "pregunta": "¿Se puede liberar al campo una planta modificada sin permiso?",
+       "opciones": [
+        "Sí",
+        "Si es pequeña, sí",
+        "No"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "veredicto"
-      },
-      {
-       "tipo": "clave",
-       "texto": "Decidir «en duda» también es avanzar."
+       "tipo": "pregunta",
+       "pregunta": "¿Qué necesitas para usar muestras de personas en un estudio?",
+       "opciones": [
+        "Pagarles siempre",
+        "Su consentimiento",
+        "Nada"
+       ],
+       "correcta": 1
       }
      ]
     }

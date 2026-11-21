@@ -1,224 +1,151 @@
 {
  "id": "sociologia",
- "version": 1,
+ "version": 2,
+ "formato": 2,
  "estado": "completo",
- "generado": true,
- "revision": "Armada automáticamente con la base de carreras de Morelos y CDMX (2026-11-17). Falta que la revise alguien de la carrera.",
+ "revision": "Pendiente de revisión por un profesionista de la carrera. Generado con datos/importar_lecciones.py desde datos/fuentes/lecciones/sociologia.lec; no se edita a mano.",
  "unidades": [
   {
    "id": "u1",
+   "titulo": "Mirar la sociedad",
+   "sub": "Lo social y cómo se investiga",
    "lecciones": [
     {
-     "id": "1.1",
-     "titulo": "Qué es y qué hace",
-     "minutos": 3,
+     "id": "0",
+     "titulo": "Conócela",
+     "minutos": 1,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "¿Qué es Sociología?",
-       "texto": "Análisis de la sociedad, la cultura, el lenguaje, las ideas y sus transformaciones. Desarrolla investigación, escritura, análisis crítico, divulgación y trabajo documental.",
-       "puntos": [
-        "Investiga problemas sociales con encuestas, entrevistas y datos",
-        "Trabaja en gobierno, encuestadoras, ONG, universidades o en áreas de impacto social de empresas."
+       "tipo": "ficha",
+       "texto": "Sociología y Antropología forman profesionales que estudian cómo funciona la sociedad y la diversidad de culturas humanas, con encuestas, entrevistas y trabajo de campo. Trabajan en investigación, gobierno, organizaciones civiles, empresas, museos y encuestadoras.",
+       "cifras": [
+        "sociologia.ingreso",
+        "sociologia.duracion",
+        "sociologia.costo_publica",
+        "sociologia.costo_privada"
        ]
       },
       {
-       "tipo": "decision",
-       "pregunta": "Por lo que leíste, ¿qué hace alguien de Sociología?",
-       "opciones": [
-        {
-         "texto": "Investiga problemas sociales con encuestas, entrevistas y datos",
-         "consecuencia": "Exacto: eso es parte del día a día en Sociología.",
-         "mejor": true
-        },
-        {
-         "texto": "Diseña, opera o mejora procesos industriales que transforman materias primas en productos (combustibles, plásticos, alimentos, medicamentos), cuidando seguridad, costos y medio ambiente.",
-         "consecuencia": "Eso lo hace alguien de Ing. Química."
-        },
-        {
-         "texto": "Analiza dónde invertir el dinero de una empresa o clientes, construye modelos de valuación en Excel, evalúa créditos y riesgos y prepara presentaciones para directivos.",
-         "consecuencia": "Eso lo hace alguien de Finanzas."
-        }
-       ]
-      },
-      {
-       "tipo": "completar",
-       "frase": "Sociología es una carrera del área de ___.",
-       "opciones": [
-        "Negocios y sociedad",
-        "Salud",
-        "Arte y comunicación"
-       ],
-       "correcta": 0,
-       "revelacion": "Está en Negocios y sociedad. Se parece a Trabajo Social, Ciencias Políticas y Administración Pública, Psicología."
-      },
-      {
-       "tipo": "clave",
-       "texto": "Antes de elegir, entiende qué harías cada día, no solo el nombre."
-      },
-      {
-       "tipo": "interes"
+       "tipo": "escena",
+       "texto": "Hoy sales a investigar a una comunidad. Vamos a ver qué descubres."
       }
      ]
     },
     {
-     "id": "1.2",
-     "titulo": "Dónde trabajas",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Dónde trabaja alguien de Sociología",
-       "texto": "Instituciones públicas y privadas, organizaciones sociales, empresas, centros de investigación, consultoría, docencia y proyectos independientes, según la especialización y experiencia."
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Alguien de Sociología solo puede trabajar en un tipo de lugar.",
-       "respuesta": false,
-       "revelacion": "Puede trabajar en varios: instituciones públicas, privadas, organizaciones sociales."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Dónde te ves trabajando?",
-       "opciones": [
-        "Instituciones públicas",
-        "Privadas",
-        "Organizaciones sociales",
-        "Empresas"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Una carrera abre varias puertas, no una sola."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "1.3",
-     "titulo": "Pregúntale a Rumbo",
+     "id": "1",
+     "titulo": "Ver lo social",
      "minutos": 4,
      "tarjetas": [
       {
-       "tipo": "chat",
-       "subtitulo": "Te cuenta cómo es trabajar en Sociología",
-       "intro": [
-        "¡Hola! Junté lo que se sabe de Sociología.",
-        "Pregúntame lo que quieras."
-       ],
-       "temas": [
+       "tipo": "info",
+       "titulo": "Ver lo social",
+       "partes": [
         {
-         "q": "¿Qué haces en un día normal?",
-         "a": [
-          "Investiga problemas sociales con encuestas, entrevistas y datos",
-          "Trabaja en gobierno, encuestadoras, ONG, universidades o en áreas de impacto social de empresas."
-         ]
-        },
-        {
-         "q": "¿Qué es lo más difícil?",
-         "a": [
-          "Se considera una carrera de dificultad media.",
-          "Teoría social densa y Metodología cuantitativa y cualitativa."
-         ]
-        },
-        {
-         "q": "¿Hay trabajo?",
-         "a": [
-          "Menos de la mitad trabaja en algo de su carrera; muchos se mueven a otras áreas. Es un promedio nacional del IMCO."
-         ]
-        },
-        {
-         "q": "¿Qué necesito para ejercer?",
-         "a": [
-          "No requiere cédula",
-          "La carrera académica pide posgrado."
-         ]
+         "t": "La sociología estudia cómo la sociedad influye en la vida de las personas. Una idea central es ver la conexión entre los problemas personales y las estructuras sociales. Si una persona no encuentra trabajo, puede ser un problema personal; si millones no lo encuentran, hay algo en la economía o en la sociedad que lo explica. La antropología estudia la diversidad de culturas: cómo viven, piensan y se organizan distintos grupos humanos. Las dos buscan entender, con evidencia, por qué la gente actúa como actúa."
         }
-       ],
-       "minimo": 2,
-       "auto": true
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Sociología se considera una carrera de dificultad muy alta.",
-       "respuesta": false,
-       "revelacion": "Se considera de dificultad media. Teoría social densa y Metodología cuantitativa y cualitativa."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué te llamó más la atención?",
-       "opciones": [
-        "¿Qué haces en un día normal?",
-        "¿Qué es lo más difícil?",
-        "¿Hay trabajo?",
-        "¿Qué necesito para ejercer?"
        ]
       },
       {
-       "tipo": "clave",
-       "texto": "Preguntar a quien ya sabe ahorra muchos errores."
+       "tipo": "pregunta",
+       "pregunta": "En un país, millones de jóvenes no encuentran empleo. ¿Cómo lo ve un sociólogo?",
+       "opciones": [
+        "Como un problema que también tiene causas sociales y económicas, no solo personales",
+        "Como flojera de cada uno",
+        "Como mala suerte"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "¿Qué estudia la antropología?",
+       "opciones": [
+        "Los planetas",
+        "La diversidad de culturas humanas",
+        "Solo los fósiles"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Qué buscan la sociología y la antropología?",
+       "opciones": [
+        "Entender con evidencia por qué la gente actúa como actúa",
+        "Juzgar a las personas",
+        "Vender productos"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Una alumna deja la escuela para cuidar a sus hermanos, y en su comunidad muchas jóvenes hacen lo mismo. ¿Qué te dice eso?",
+       "opciones": [
+        "Nada",
+        "Que todas son iguales",
+        "Que hay un patrón social que vale la pena estudiar"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
-     "id": "1.4",
-     "titulo": "Carreras parecidas",
-     "minutos": 3,
+     "id": "2",
+     "titulo": "Cómo se investiga",
+     "minutos": 4,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Carreras cercanas a Sociología",
-       "puntos": [
-        "Trabajo Social: análisis de instituciones, políticas, conflictos y problemas sociales. puede.",
-        "Ciencias Políticas y Administración Pública: análisis de instituciones, políticas, conflictos y problemas sociales. puede.",
-        "Psicología: conducta, emociones, cognición y procesos mentales. en el enfoque.",
-        "Pedagogía y Ciencias de la Educación: procesos de enseñanza y aprendizaje, diseño didáctico."
+       "titulo": "Cómo se investiga",
+       "partes": [
+        {
+         "t": "Hay métodos cuantitativos, que miden con números, como las encuestas, y métodos cualitativos, que buscan entender a profundidad, como las entrevistas y la observación. La etnografía es un método muy usado en antropología: el investigador convive con un grupo por un tiempo largo para entender su vida desde dentro. Cada método responde preguntas distintas: una encuesta te dice cuántos piensan algo; una entrevista te ayuda a entender por qué."
+        }
        ]
       },
       {
-       "tipo": "emparejar",
-       "pregunta": "Une cada carrera con lo que estudia.",
-       "pares": [
-        [
-         "Trabajo Social",
-         "Análisis de instituciones, políticas, conflictos y problemas sociales. Puede"
-        ],
-        [
-         "Ciencias Políticas y Administración Pública",
-         "Análisis de instituciones, políticas, conflictos y problemas sociales. Puede"
-        ],
-        [
-         "Psicología",
-         "Conducta, emociones, cognición y procesos mentales. En el enfoque"
-        ],
-        [
-         "Pedagogía y Ciencias de la Educación",
-         "Procesos de enseñanza y aprendizaje, diseño didáctico"
-        ]
-       ],
-       "revelacion": "Se cruzan en temas, pero cada una tiene su propio enfoque."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Cuál de estas te da curiosidad?",
+       "tipo": "pregunta",
+       "pregunta": "Quieres saber qué porcentaje de jóvenes de Morelos usa transporte público. ¿Qué método usas?",
        "opciones": [
-        "Trabajo Social",
-        "Ciencias Políticas y Administración Pública",
-        "Psicología",
-        "Me quedo con Sociología"
-       ]
+        "Adivinar",
+        "Una encuesta",
+        "Una sola entrevista"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "clave",
-       "texto": "Si dudas entre dos, compara lo que harías cada día."
+       "tipo": "pregunta",
+       "pregunta": "Quieres entender por qué unos jóvenes eligen migrar. ¿Qué método ayuda más a entender sus razones?",
+       "opciones": [
+        "Ninguno",
+        "Entrevistas a profundidad",
+        "Contar cuántos son y ya"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "¿Qué es la etnografía?",
+       "opciones": [
+        "Un mapa",
+        "Convivir por un tiempo largo con un grupo para entender su vida desde dentro",
+        "Una encuesta por teléfono"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Qué te da una encuesta y qué te da una entrevista?",
+       "opciones": [
+        "Nada",
+        "La encuesta cuántos; la entrevista por qué",
+        "Lo mismo"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "teves"
       }
      ]
     }
@@ -226,201 +153,174 @@
   },
   {
    "id": "u2",
+   "titulo": "Medir y comprender",
+   "sub": "Muestras, desigualdad y cultura",
    "lecciones": [
     {
-     "id": "2.1",
-     "titulo": "Mini reto",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Muchos jóvenes de tu colonia dejan la escuela. ¿Cómo lo investigas?",
-       "opciones": [
-        "Platicas con ellos y sus familias y buscas datos",
-        "Supones que no les gusta estudiar",
-        "Publicas tu opinión en redes"
-       ]
-      },
-      {
-       "tipo": "info",
-       "titulo": "Así lo piensa alguien de Sociología",
-       "texto": "Se escucha a la gente y se buscan datos antes de concluir. Sociología es investigar cómo vivimos juntos."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Te gustó pensar en algo así?",
-       "escala": [
-        "Nada",
-        "Mucho"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Los retos de una carrera se parecen a lo que harías en su trabajo."
-      },
-      {
-       "tipo": "interes",
-       "pregunta": "¿Te ves resolviendo retos así?"
-      }
-     ]
-    },
-    {
-     "id": "2.2",
-     "titulo": "Lo que te piden",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Habilidades que usarás en Sociología",
-       "puntos": [
-        "Curiosidad",
-        "Análisis",
-        "Redacción",
-        "Trabajo de campo con personas"
-       ]
-      },
-      {
-       "tipo": "completar",
-       "pregunta": "Según lo que leíste, completa la frase.",
-       "frase": "Para Sociología es clave: ___.",
-       "opciones": [
-        "Curiosidad",
-        "Comunicación y motivación de personas",
-        "Matemáticas"
-       ],
-       "correcta": 0,
-       "revelacion": "Es de las habilidades que más se usan en Sociología."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué tanto se te da esto: análisis?",
-       "escala": [
-        "Me cuesta",
-        "Se me da"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Las habilidades se entrenan; lo importante es que te guste usarlas."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "2.3",
-     "titulo": "Temas que vas a ver",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Temas que te deben gustar",
-       "puntos": [
-        "Desigualdad y cambio social",
-        "Culturas",
-        "Investigar"
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "¿Cuál de estos temas es más de Sociología?",
-       "opciones": [
-        {
-         "texto": "Desigualdad y cambio social",
-         "consecuencia": "Sí, es de sus temas centrales.",
-         "mejor": true
-        },
-        {
-         "texto": "Biología y química",
-         "consecuencia": "Ese es más de Biotecnología."
-        },
-        {
-         "texto": "Hacking ético",
-         "consecuencia": "Ese es más de Ciberseguridad."
-        }
-       ]
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Cuál de estos temas te gusta más?",
-       "opciones": [
-        "Desigualdad y cambio social",
-        "Culturas",
-        "Investigar",
-        "Ninguno me late"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Si los temas te aburren, la carrera se hace muy larga."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "2.4",
-     "titulo": "Materias clave",
+     "id": "3",
+     "titulo": "Que la muestra represente",
      "minutos": 4,
      "tarjetas": [
       {
-       "tipo": "voltear",
-       "pregunta": "¿Qué materias crees que llevas en cada etapa? Piénsalo y voltea.",
-       "cartas": [
+       "tipo": "info",
+       "titulo": "Que la muestra represente",
+       "partes": [
         {
-         "frente": "Semestres 1-2",
-         "reverso": "Teoría sociológica clásica, Historia, Introducción a la antropología"
+         "t": "Una encuesta solo vale si la muestra se parece a la población que quieres estudiar. Si estudias a todos los jóvenes de un estado y solo preguntas en una universidad privada, dejas fuera a muchos. Para saber qué parte de la muestra dio cierta respuesta:"
         },
         {
-         "frente": "Semestres 3-4",
-         "reverso": "Estadística, Métodos cualitativos, Teoría contemporánea"
+         "f": "porcentaje = {personas con esa respuesta|total de personas} × 100"
         },
         {
-         "frente": "Semestres 5-6",
-         "reverso": "Sociología urbana / rural, Desigualdad, Demografía, Trabajo de campo"
-        },
-        {
-         "frente": "Semestres 7 en adelante",
-         "reverso": "Tesis, Prácticas de investigación"
+         "t": "Además, la forma de preguntar cambia las respuestas, así que las preguntas se escriben de manera neutral."
         }
        ]
       },
       {
-       "tipo": "decision",
-       "pregunta": "¿Cuál de estas materias llevarías en Sociología?",
+       "tipo": "pregunta",
+       "pregunta": "De 400 personas encuestadas, 100 dijeron que confían en su vecindario. ¿Qué porcentaje es?",
        "opciones": [
+        "100 por ciento",
+        "25 por ciento",
+        "4 por ciento"
+       ],
+       "correcta": 1,
+       "formula": "{100|400} × 100 = 25"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Quieres estudiar a los adultos mayores de un municipio y solo encuestas por Instagram. ¿Qué problema hay?",
+       "opciones": [
+        "Dejas fuera a muchos que no usan Instagram",
+        "Que es rápido",
+        "Ninguno"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál pregunta es más neutral?",
+       "opciones": [
+        "\"¿No te encanta el parque?\"",
+        "\"¿Verdad que el nuevo parque es un desperdicio?\"",
+        "\"¿Qué opinas del nuevo parque?\""
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "teves"
+      }
+     ]
+    },
+    {
+     "id": "4",
+     "titulo": "Desigualdad",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "Desigualdad",
+       "partes": [
         {
-         "texto": "Teoría sociológica clásica",
-         "consecuencia": "Sí: es de las primeras materias de Sociología.",
-         "mejor": true
+         "t": "La desigualdad es la distancia entre quienes tienen más y quienes tienen menos: en ingreso, educación, salud u oportunidades. En México, en promedio, el lugar donde naces y la situación de tu familia influyen mucho en lo que lograrás; a eso se le llama baja movilidad social. Los sociólogos miden la desigualdad con datos, como comparar el ingreso del grupo más rico con el del más pobre, y estudian qué políticas la reducen."
         },
         {
-         "texto": "Fundamentos de programación",
-         "consecuencia": "Esa es de Computación."
-        },
-        {
-         "texto": "Cálculo",
-         "consecuencia": "Esa es de Biotecnología."
+         "f": "veces más = {ingreso del grupo más rico|ingreso del grupo más pobre}"
         }
        ]
       },
       {
-       "tipo": "reflexion",
-       "pregunta": "¿Cuál te da más curiosidad?",
+       "tipo": "pregunta",
+       "pregunta": "El 10 por ciento más rico gana en promedio 60,000 pesos al mes y el 10 por ciento más pobre, 3,000. ¿Cuántas veces más gana el grupo más rico?",
        "opciones": [
-        "Teoría sociológica clásica",
-        "Historia",
-        "Introducción a la antropología"
+        "20 veces",
+        "2 veces",
+        "57,000 veces"
+       ],
+       "correcta": 0,
+       "formula": "{60,000|3,000} = 20"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Qué es la movilidad social?",
+       "opciones": [
+        "Mudarse de casa",
+        "Tener coche",
+        "La posibilidad de mejorar tu situación respecto a la de tu familia de origen"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Si en un país casi todos los hijos terminan en la misma situación económica que sus padres, ¿cómo es su movilidad social?",
+       "opciones": [
+        "Perfecta",
+        "Alta",
+        "Baja"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Qué mide la desigualdad?",
+       "opciones": [
+        "La distancia entre quienes tienen más y quienes tienen menos",
+        "El clima",
+        "El tamaño del país"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "teves"
+      }
+     ]
+    },
+    {
+     "id": "5",
+     "titulo": "Cultura",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "Cultura",
+       "partes": [
+        {
+         "t": "La cultura es la forma de vida que un grupo aprende y comparte: su lengua, costumbres, creencias, comida y fiestas. El etnocentrismo es juzgar otras culturas con los valores de la propia, como si la tuya fuera la normal. La antropología propone primero entender cada práctica en su contexto antes de juzgarla. México es muy diverso: se hablan 68 lenguas indígenas, además del español, con cientos de variantes."
+        }
        ]
       },
       {
-       "tipo": "clave",
-       "texto": "Las primeras materias son la base; muchas veces son las más pesadas."
+       "tipo": "pregunta",
+       "pregunta": "¿Qué es el etnocentrismo?",
+       "opciones": [
+        "Estudiar el centro de la ciudad",
+        "Viajar",
+        "Juzgar otras culturas con los valores de la propia"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "¿Cuántas lenguas indígenas se reconocen en México?",
+       "opciones": [
+        "3",
+        "68",
+        "Ninguna"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Visitas una comunidad con una costumbre que no conoces. ¿Qué haces primero?",
+       "opciones": [
+        "Burlarte",
+        "Intentar entender su sentido en su contexto",
+        "Decirles que la cambien"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "teves"
       }
      ]
     }
@@ -428,183 +328,114 @@
   },
   {
    "id": "u3",
+   "titulo": "Con responsabilidad",
+   "sub": "Ética y el trabajo",
    "lecciones": [
     {
-     "id": "3.1",
-     "titulo": "Un día real",
+     "id": "6",
+     "titulo": "Ética en la investigación",
      "minutos": 4,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Un día de trabajo en Sociología",
-       "puntos": [
-        "Investiga problemas sociales con encuestas, entrevistas y datos",
-        "Trabaja en gobierno, encuestadoras, ONG, universidades o en áreas de impacto social de empresas."
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "¿Qué de esto NO es parte del día de alguien de Sociología?",
-       "opciones": [
+       "titulo": "Ética en la investigación",
+       "partes": [
         {
-         "texto": "Evalúa lesiones o limitaciones de movimiento y diseña rutinas de ejercicio, masaje y terapias para recuperar a pacientes: deportistas, adultos mayores…",
-         "consecuencia": "Exacto: eso lo hace alguien de Fisioterapia.",
-         "mejor": true
-        },
-        {
-         "texto": "Investiga problemas sociales con encuestas, entrevistas y datos",
-         "consecuencia": "Esto sí lo hace: es parte de su día."
-        },
-        {
-         "texto": "Trabaja en gobierno, encuestadoras, ONG, universidades o en áreas de impacto social de empresas.",
-         "consecuencia": "Esto sí lo hace: es parte de su día."
+         "t": "Investigar a personas trae responsabilidades. Se pide consentimiento informado: la persona sabe de qué trata el estudio y decide si participa. Se protege su identidad, sobre todo en temas delicados. Se devuelven los resultados a la comunidad cuando es posible, y no se usa la información en su contra. Los datos se reportan como salieron, aunque no confirmen lo que el investigador esperaba."
         }
        ]
       },
       {
-       "tipo": "reflexion",
-       "pregunta": "¿Te ves haciendo esto todos los días?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "El día a día pesa más que el título."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "3.2",
-     "titulo": "Lo difícil",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Lo difícil de Sociología",
-       "texto": "Se considera de dificultad media.",
-       "puntos": [
-        "Teoría social densa y Metodología cuantitativa y cualitativa."
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "Según lo que leíste, ¿qué es lo que más cuesta en Sociología?",
+       "tipo": "pregunta",
+       "pregunta": "¿Qué haces antes de entrevistar a alguien para tu estudio?",
        "opciones": [
-        {
-         "texto": "Teoría social densa y Metodología cuantitativa y cualitativa.",
-         "consecuencia": "Sí, es de lo que más cuesta en Sociología.",
-         "mejor": true
-        },
-        {
-         "texto": "Anatomía, Fisiología y Farmacología al inicio",
-         "consecuencia": "Eso es más de Enfermería."
-        },
-        {
-         "texto": "Talleres con muchas entregas y críticas",
-         "consecuencia": "Eso es más de Diseño gráfico."
-        }
-       ]
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué tanto te preocupa esto?",
-       "escala": [
-        "Mucho",
+        "Le explicas el estudio y le pides su consentimiento",
+        "Lo grabas sin avisar",
         "Nada"
-       ]
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "clave",
-       "texto": "Saber lo difícil desde antes te ayuda a prepararte."
+       "tipo": "pregunta",
+       "pregunta": "Entrevistaste a personas sobre un tema delicado en su comunidad. ¿Qué haces con sus nombres?",
+       "opciones": [
+        "Los publicas",
+        "Los proteges para que no se les identifique",
+        "Los compartes en redes"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "Tus resultados no confirman tu hipótesis.",
+       "opciones": [
+        "No los publicas nunca",
+        "Los reportas como salieron",
+        "Los cambias"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Qué es bueno hacer con los resultados de un estudio en una comunidad?",
+       "opciones": [
+        "Compartirlos con la comunidad cuando sea posible",
+        "Esconderlos",
+        "Venderlos"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
-     "id": "3.3",
-     "titulo": "Historia real",
-     "minutos": 3,
+     "id": "7",
+     "titulo": "El trabajo del sociólogo y del antropólogo",
+     "minutos": 4,
      "tarjetas": [
       {
-       "tipo": "reflexion",
-       "pregunta": "Si pudieras preguntarle algo a alguien que ya estudia Sociología, ¿qué sería?",
+       "tipo": "info",
+       "titulo": "El trabajo del sociólogo y del antropólogo",
+       "partes": [
+        {
+         "t": "Un sociólogo o antropólogo trabaja en investigación, en gobierno diseñando y evaluando programas sociales, en organizaciones civiles, en empresas estudiando a consumidores o trabajadores, en museos, en encuestadoras y en medios. Su fuerte es entender a las personas y a los grupos con evidencia. Antes de lanzar un programa en una comunidad, un antropólogo puede ayudar a que sea pertinente para su cultura y no fracase por imponer algo que no tiene sentido ahí."
+        }
+       ]
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Un programa de gobierno fracasó en una comunidad porque no tomó en cuenta su lengua ni sus costumbres. ¿Qué habría ayudado?",
        "opciones": [
-        "¿Qué fue lo más difícil?",
-        "¿Qué te sorprendió?",
-        "¿Volverías a elegirla?",
-        "¿Cómo es un día normal?"
-       ]
+        "Un estudio previo con la comunidad",
+        "Nada",
+        "Más publicidad"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "testimonio",
-       "estado": "pendiente",
-       "perfil": "Estudiante de últimos semestres o egresado de Sociología"
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "Mientras llega esta historia, ¿a quién podrías preguntarle tú?",
+       "tipo": "pregunta",
+       "pregunta": "¿Dónde puede trabajar un sociólogo?",
        "opciones": [
-        "A un familiar o conocido que la estudió",
-        "A un estudiante de mi ciudad",
-        "A un maestro que la conozca",
-        "Todavía no conozco a nadie"
-       ]
+        "Solo en universidades",
+        "En ningún lado",
+        "En investigación, gobierno, organizaciones, empresas y encuestadoras"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "clave",
-       "texto": "Una persona real te cuenta lo que ningún folleto dice."
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál es el fuerte de estas carreras?",
+       "opciones": [
+        "Diseñar motores",
+        "Hacer cálculos estructurales",
+        "Entender a las personas y los grupos con evidencia"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "3.4",
-     "titulo": "¿Es para ti?",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Contesta con honestidad. Nadie más ve tus respuestas."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Me pregunto por qué la sociedad funciona como funciona?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Me imagino haciendo entrevistas en comunidades?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Me gusta investigar y escribir?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Si dijiste que sí a casi todo, vale la pena seguir explorándola."
-      },
-      {
-       "tipo": "interes"
+       "tipo": "teves"
       }
      ]
     }
@@ -612,448 +443,126 @@
   },
   {
    "id": "u4",
+   "titulo": "Examen final",
+   "sub": "10 preguntas · apruebas con 7",
    "lecciones": [
     {
-     "id": "4.1",
-     "titulo": "Cuánto dura y qué estudias",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Cada escuela arma su plan distinto, pero el orden general se parece. Vamos a verlo."
-      },
-      {
-       "tipo": "ordenar",
-       "pregunta": "Ordena lo que estudias, de lo primero a lo último.",
-       "pasos": [
-        "Teoría sociológica clásica, Historia",
-        "Estadística, Métodos cualitativos",
-        "Sociología urbana / rural, Desigualdad",
-        "Tesis, Prácticas de investigación"
-       ],
-       "revelacion": "Primero las bases y al final lo más especializado y las prácticas."
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Cuántos años crees que pasan desde que entras hasta que te titulas?",
-       "min": 3,
-       "max": 10,
-       "paso": 1,
-       "unidad": "años",
-       "dato": "sociologia.duracion"
-      },
-      {
-       "tipo": "clave",
-       "texto": "Revisa el mapa curricular de cada escuela: cambia de una a otra."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "4.2",
-     "titulo": "Cómo se entra",
-     "minutos": 4,
+     "id": "ex",
+     "titulo": "Examen final",
+     "minutos": 6,
+     "examen": true,
+     "aprobar": 7,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Cómo se entra en la región",
-       "puntos": [
-        "UNAM: Concurso de selección UNAM (120 reactivos) o pase reglamentado desde CCH/ENP",
-        "UAM: Examen de selección UAM (trimestral; dos procesos al año y procesos extraordinarios)",
-        "UAEM: EXANI-II de CENEVAL + curso propedéutico",
-        "IBERO: Examen de admisión propio + promedio de bachillerato"
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "Según lo que leíste, ¿qué pide UNAM para entrar?",
-       "opciones": [
+       "titulo": "Examen final",
+       "partes": [
         {
-         "texto": "Concurso de selección UNAM (120 reactivos) o pase reglamentado desde CCH/ENP",
-         "consecuencia": "Exacto.",
-         "mejor": true
-        },
-        {
-         "texto": "Examen de selección UAM (trimestral; dos procesos al año y procesos extraordinarios)",
-         "consecuencia": "Eso lo pide UAM."
-        },
-        {
-         "texto": "EXANI-II de CENEVAL + curso propedéutico",
-         "consecuencia": "Eso lo pide UAEM."
+         "t": "Son 10 casos nuevos que mezclan todas las lecciones. Apruebas con 7. Si no, lo repites y las que fallaste regresan con otras palabras."
         }
        ]
       },
       {
-       "tipo": "vf",
-       "afirmacion": "Todas las universidades usan el mismo examen.",
-       "respuesta": false,
-       "revelacion": "Cada una tiene el suyo: revisa la convocatoria de la que te interese."
-      },
-      {
-       "tipo": "clave",
-       "texto": "Conoce el examen de tu escuela desde antes."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "4.3",
-     "titulo": "Dónde, cuánto cuesta y becas",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "escuelas"
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Cuánto crees que cuesta un semestre en una universidad pública?",
-       "min": 0,
-       "max": 60000,
-       "paso": 1000,
-       "unidad": "pesos",
-       "dato": "sociologia.costo_publica"
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Y un semestre en una universidad privada?",
-       "min": 0,
-       "max": 300000,
-       "paso": 5000,
-       "unidad": "pesos",
-       "dato": "sociologia.costo_privada"
-      },
-      {
-       "tipo": "dato",
-       "titulo": "Becas para estudiar Sociología",
-       "dato": "sociologia.becas"
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Una universidad cara garantiza un mejor empleo.",
-       "respuesta": false,
-       "revelacion": "Pesan más lo que aprendes, tus prácticas y tu esfuerzo."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué pesa más para ti al elegir escuela?",
+       "tipo": "pregunta",
+       "pregunta": "Millones no encuentran empleo. ¿Cómo lo ve la sociología?",
        "opciones": [
-        "El costo",
-        "Que esté cerca de mi casa",
-        "El prestigio",
-        "Las prácticas que ofrece"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Además de la colegiatura, cuenta transporte y materiales."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "u5",
-   "lecciones": [
-    {
-     "id": "5.1",
-     "titulo": "Qué piden para trabajar",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Qué te piden para trabajar",
-       "puntos": [
-        "No requiere cédula",
-        "La carrera académica pide posgrado."
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "Según lo que leíste, ¿qué necesitas para ejercer Sociología?",
-       "opciones": [
-        {
-         "texto": "No requiere cédula",
-         "consecuencia": "Exacto.",
-         "mejor": true
-        },
-        {
-         "texto": "No requiere cédula",
-         "consecuencia": "Eso lo piden en Ciencia de datos."
-        },
-        {
-         "texto": "No requiere cédula para la mayoría de puestos.",
-         "consecuencia": "Eso lo piden en Ing. Mecánica."
-        }
-       ]
-      },
-      {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Cómo te ves?",
-       "a": {
-        "texto": "En una institución o empresa",
-        "dice": "Más estabilidad y un equipo de quien aprender."
-       },
-       "b": {
-        "texto": "Por tu cuenta",
-        "dice": "Más libertad, pero tienes que conseguir clientes."
-       }
-      },
-      {
-       "tipo": "clave",
-       "texto": "Saber qué te piden te ahorra sorpresas al salir."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "5.2",
-     "titulo": "Sueldo y demanda",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Hablemos de dinero sin rodeos. Antes de ver cualquier cifra, apuesta: así recuerdas mejor el dato real."
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Cuánto crees que gana al mes, en promedio, un profesionista de Sociología en México?",
-       "min": 5000,
-       "max": 100000,
-       "paso": 1000,
-       "unidad": "pesos",
-       "dato": "sociologia.ingreso"
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "De cada 100 egresados, ¿cuántos crees que trabajan en algo de su carrera?",
-       "min": 0,
-       "max": 100,
-       "paso": 5,
-       "unidad": "de cada 100",
-       "dato": "sociologia.ocupacion_afin"
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Todos los egresados de Sociología ganan lo mismo.",
-       "respuesta": false,
-       "revelacion": "Cambia con la experiencia, el lugar, la especialidad y si trabajas por tu cuenta."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué tanto pesa el sueldo en tu decisión?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "El promedio orienta, pero tu camino puede ser distinto."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "5.3",
-     "titulo": "Cómo les va al salir",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "chat",
-       "subtitulo": "Te cuenta cómo les va al salir",
-       "intro": [
-        "Te cuento cómo les va a quienes estudian Sociología al salir."
+        "También con causas sociales y económicas",
+        "Solo como falta de esfuerzo",
+        "Como suerte"
        ],
-       "temas": [
-        {
-         "q": "¿Cuántos trabajan en lo suyo?",
-         "a": [
-          "Menos de la mitad trabaja en algo de su carrera.",
-          "Es un promedio nacional del IMCO."
-         ]
-        },
-        {
-         "q": "¿Muchos hacen posgrado?",
-         "a": [
-          "Pocos hacen posgrado; la mayoría empieza a trabajar."
-         ]
-        },
-        {
-         "q": "¿Hay más hombres o mujeres?",
-         "a": [
-          "Hay más mujeres que hombres.",
-          "Eso no decide nada: cualquiera puede estudiarla."
-         ]
-        },
-        {
-         "q": "¿El trabajo tiene prestaciones?",
-         "a": [
-          "La mayoría tiene un trabajo formal, con prestaciones.",
-          "Las prestaciones son cosas como seguro médico y aguinaldo."
-         ]
-        }
+       "correcta": 0
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Qué método te dice cuántas personas piensan algo?",
+       "opciones": [
+        "Una entrevista",
+        "Una encuesta",
+        "Un dibujo"
        ],
-       "minimo": 2
+       "correcta": 1
       },
       {
-       "tipo": "vf",
-       "afirmacion": "La mayoría de quienes estudian Sociología trabaja en algo de su carrera.",
-       "respuesta": false,
-       "revelacion": "Menos de la mitad trabaja en algo de su carrera. Promedio nacional del IMCO."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué te importa más de tu futuro trabajo?",
+       "tipo": "pregunta",
+       "pregunta": "¿Qué es la etnografía?",
        "opciones": [
-        "Que tenga que ver con lo que estudié",
-        "Ganar bien",
-        "Tener prestaciones",
-        "Hacer algo que me guste"
-       ]
+        "Convivir con un grupo para entenderlo desde dentro",
+        "Una ley",
+        "Un censo"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "clave",
-       "texto": "Pregunta cómo les va a quienes ya salieron."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "5.4",
-     "titulo": "Después de titularte",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Después de titularte",
-       "puntos": [
-        "Puedes especializarte con cursos, diplomados o una maestría.",
-        "También puedes trabajar desde el inicio y estudiar después.",
-        "Se combina bien con: Trabajo Social, Ciencias Políticas y Administración Pública, Psicología."
-       ]
-      },
-      {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Qué harías al terminar?",
-       "a": {
-        "texto": "Trabajar desde el inicio",
-        "dice": "Ganas experiencia y dinero; después decides si estudias más."
-       },
-       "b": {
-        "texto": "Seguir estudiando",
-        "dice": "Te especializas antes; tardas más en empezar a trabajar."
-       }
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Cómo te imaginas después de la carrera?",
+       "tipo": "pregunta",
+       "pregunta": "De 500 personas, 150 respondieron que sí. ¿Qué porcentaje es?",
        "opciones": [
-        "Trabajando",
-        "En una maestría",
-        "Emprendiendo",
-        "No sé todavía"
-       ]
+        "50 por ciento",
+        "15 por ciento",
+        "30 por ciento"
+       ],
+       "correcta": 2,
+       "formula": "{150|500} × 100 = 30"
       },
       {
-       "tipo": "clave",
-       "texto": "Al titularte empieza otra parte del camino, no termina."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "u6",
-   "lecciones": [
-    {
-     "id": "6.1",
-     "titulo": "Lo que sentiste",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Antes de ver tus respuestas: ¿cómo te fue con Sociología?",
+       "tipo": "pregunta",
+       "pregunta": "Solo encuestas en redes a adultos mayores. ¿Qué problema hay?",
        "opciones": [
-        "Me gustó más de lo que pensaba",
-        "Más o menos como esperaba",
-        "Me gustó menos de lo que pensaba"
-       ]
+        "Dejas fuera a quienes no usan redes",
+        "Ninguno",
+        "Es más barato"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "resumen"
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "Viendo tus respuestas, ¿qué pesó más?",
+       "tipo": "pregunta",
+       "pregunta": "Un grupo gana 40,000 y otro 4,000. ¿Cuántas veces más gana el primero?",
        "opciones": [
-        "Lo que sentí al probarla",
-        "Lo que supe de la realidad",
-        "El camino para llegar",
-        "El futuro que ofrece"
-       ]
+        "36,000 veces",
+        "4 veces",
+        "10 veces"
+       ],
+       "correcta": 2,
+       "formula": "{40,000|4,000} = 10"
       },
       {
-       "tipo": "clave",
-       "texto": "Lo que sentiste al probarla vale más que lo que imaginabas."
-      },
-      {
-       "tipo": "interes",
-       "pregunta": "¿Te ves estudiando Sociología?"
-      }
-     ]
-    },
-    {
-     "id": "6.2",
-     "titulo": "Tu veredicto",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Si mañana tuvieras que elegir carrera, ¿Sociología estaría entre tus opciones?",
+       "tipo": "pregunta",
+       "pregunta": "¿Qué es el etnocentrismo?",
        "opciones": [
-        "Sí, entre las primeras",
-        "Sí, pero no arriba",
-        "No creo",
-        "No lo sé"
-       ]
+        "Un tipo de encuesta",
+        "Un museo",
+        "Juzgar otras culturas con los valores de la propia"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "comparar"
+       "tipo": "pregunta",
+       "pregunta": "¿Qué pides antes de entrevistar a alguien?",
+       "opciones": [
+        "Nada",
+        "Dinero",
+        "Su consentimiento informado"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Qué te ayudaría más a decidir?",
-       "a": {
-        "texto": "Hablar con alguien que la estudia",
-        "dice": "Busca a un estudiante o egresado cerca de ti y hazle tus preguntas. Una plática aclara más que diez videos."
-       },
-       "b": {
-        "texto": "Probar otra carrera y comparar",
-        "dice": "Explora otra de tu mapa. Comparar dos caminos reales aclara más que pensar en uno solo."
-       }
+       "tipo": "pregunta",
+       "pregunta": "¿Qué haces con la identidad de quienes participan en un tema delicado?",
+       "opciones": [
+        "La publicas",
+        "La proteges",
+        "La vendes"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "veredicto"
-      },
-      {
-       "tipo": "clave",
-       "texto": "Decidir «en duda» también es avanzar."
+       "tipo": "pregunta",
+       "pregunta": "¿Qué es baja movilidad social?",
+       "opciones": [
+        "Que los hijos casi siempre quedan en la misma situación que sus padres",
+        "Que nadie se muda",
+        "Que hay pocos autos"
+       ],
+       "correcta": 0
       }
      ]
     }

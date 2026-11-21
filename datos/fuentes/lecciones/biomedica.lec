@@ -1,0 +1,119 @@
+**Lección 1: Las señales del cuerpo (4 preguntas)**
+
+El cuerpo produce señales que se pueden medir. El corazón, por ejemplo, genera pequeñas corrientes eléctricas que un electrocardiograma registra con electrodos pegados en la piel. Cada latido deja un pico alto llamado onda R. Si mides el tiempo entre dos picos R, puedes calcular la frecuencia cardiaca:
+
+$$\text{latidos por minuto} = \frac{60}{\text{segundos entre dos picos R}}$$
+
+Las señales del cuerpo son muy pequeñas, de milésimas de volt, así que hay que amplificarlas. El problema es que también se amplifica el ruido: interferencias de los cables de la luz, movimientos del paciente o electrodos mal pegados.
+
+Pregunta 1. En un electrocardiograma hay 0.8 segundos entre dos picos R. ¿Cuál es la frecuencia cardiaca? A: 75 latidos por minuto. B: 80. C: 48. Correcta: A, porque
+
+$$\frac{60}{0.8} = 75$$
+
+Pregunta 2. Si hay 0.5 segundos entre picos, ¿cuál es la frecuencia? A: 50. B: 30. C: 120. Correcta: C, porque
+
+$$\frac{60}{0.5} = 120$$
+
+Pregunta 3. La señal sale llena de ruido y el paciente se está moviendo mucho. ¿Qué revisas primero? A: que el paciente esté quieto y los electrodos bien pegados. B: nada, así son. C: cambias el monitor por uno nuevo. Correcta: A.
+
+Pregunta 4. ¿Por qué hay que amplificar las señales del cuerpo? A: porque son muy grandes. B: porque son muy pequeñas. C: para que se vean de colores. Correcta: B.
+
+**Lección 2: Equipos médicos en el hospital (4 preguntas)**
+
+Un ingeniero biomédico en un hospital se encarga de que los equipos funcionen y sean seguros: monitores, ventiladores, bombas de infusión, desfibriladores y más. Hace mantenimiento preventivo, que es revisar y ajustar antes de que algo falle, y mantenimiento correctivo, que es reparar cuando ya falló. También calibra: compara lo que marca el equipo contra un patrón conocido. Un equipo mal calibrado puede dar una medicina de más o de menos. Todo se registra en un inventario con su historial, y un equipo que no pasa las pruebas se retira hasta repararlo.
+
+Pregunta 1. ¿Qué es el mantenimiento preventivo? A: revisar y ajustar antes de que falle. B: comprar uno nuevo. C: reparar cuando ya se descompuso. Correcta: A.
+
+Pregunta 2. Una bomba de infusión debe pasar 100 mililitros por hora, pero en la prueba pasa 120. ¿Qué haces? A: la retiras, la calibras o reparas y la pruebas antes de volver a usarla. B: la dejas, solo es un poco más. C: le avisas a la enfermera que le reste mentalmente. Correcta: A. Veinte por ciento de más en una medicina puede ser peligroso.
+
+Pregunta 3. ¿Para qué sirve calibrar un equipo? A: para que lo que marca coincida con el valor real. B: para que se vea nuevo. C: para que gaste menos luz. Correcta: A.
+
+Pregunta 4. Un desfibrilador no pasó su revisión mensual, pero es el único del piso. A: lo dejas sin decir nada. B: lo marcas como fuera de servicio, avisas y consigues uno de reemplazo mientras se repara. C: lo pintas. Correcta: B.
+
+**Lección 3: Seguridad eléctrica (3 preguntas)**
+
+La corriente eléctrica que pasa por el corazón puede ser muy peligrosa, incluso en cantidades pequeñas. Por eso los equipos médicos tienen reglas estrictas. La tierra física es un cable que lleva a tierra cualquier corriente que se escape, en vez de que pase por la persona. Un cable dañado, un enchufe sin tierra o una extensión barata pueden ser un riesgo. En quirófanos y terapia intensiva el riesgo es mayor, porque el paciente puede tener catéteres que llegan cerca del corazón.
+
+Pregunta 1. ¿Para qué sirve la tierra física de un equipo? A: para que el equipo pese más. B: para que la corriente que se escape vaya a tierra y no por la persona. C: para ahorrar luz. Correcta: B.
+
+Pregunta 2. En terapia intensiva conectaron un monitor con una extensión barata sin tierra. ¿Qué haces? A: lo cambias a un contacto adecuado con tierra y retiras la extensión. B: lo dejas. C: le pones cinta. Correcta: A.
+
+Pregunta 3. El cable de un equipo tiene el aislante roto. A: lo cubres con la mano. B: lo retiras de servicio hasta cambiar el cable. C: lo sigues usando con cuidado. Correcta: B.
+
+**Lección 4: Biomateriales (4 preguntas)**
+
+Un biomaterial es un material que se pone dentro o en contacto con el cuerpo, como una prótesis de cadera, un stent o una sutura. Tiene que ser biocompatible: que el cuerpo no lo rechace ni le cause daño. Se usan el titanio, que es fuerte y ligero; algunos plásticos médicos, y cerámicas. Además, todo lo que entra al cuerpo debe estar estéril, sin ningún microorganismo vivo. Algunos materiales se diseñan para disolverse con el tiempo, como ciertas suturas, y otros para durar décadas.
+
+Pregunta 1. ¿Qué significa que un material sea biocompatible? A: que es bonito. B: que el cuerpo no lo rechaza ni le causa daño. C: que es barato. Correcta: B.
+
+Pregunta 2. ¿Por qué el titanio se usa tanto en prótesis? A: porque es fuerte, ligero y biocompatible. B: porque es brillante. C: porque es el más barato. Correcta: A.
+
+Pregunta 3. Una caja de implantes llegó con el empaque estéril roto. A: no se usan hasta volver a esterilizarlos según el procedimiento o reemplazarlos. B: los usas igual. C: los lavas con agua. Correcta: A.
+
+Pregunta 4. Para cerrar una herida interna se quiere un hilo que no haya que retirar después. ¿Qué tipo eliges? A: uno de algodón. B: uno de acero. C: uno que se disuelve con el tiempo. Correcta: C.
+
+**Lección 5: Prótesis y biomecánica (3 preguntas)**
+
+La biomecánica estudia las fuerzas en el cuerpo. Los huesos y músculos trabajan como palancas. El torque, que es lo que hace girar una articulación, depende de la fuerza y de qué tan lejos está del punto de giro:
+
+$$\text{torque} = \text{fuerza} \times \text{distancia al punto de giro}$$
+
+Por eso cargar algo con el brazo estirado cansa mucho más que con el brazo pegado al cuerpo. Una prótesis de pierna tiene que aguantar varias veces el peso de la persona, porque al caminar y correr las fuerzas son mayores que estando parado. Además debe ajustarse bien al muñón para no lastimar.
+
+Pregunta 1. Una persona sostiene 50 newtons con el brazo estirado, a 0.6 metros del hombro. ¿Qué torque hace el hombro? A: 50.6. B: 83. C: 30 newton metro. Correcta: C, porque
+
+$$50 \times 0.6 = 30$$
+
+Pregunta 2. Si acerca el objeto a 0.2 metros, ¿qué torque hace? A: 250. B: 30. C: 10 newton metro. Correcta: C, porque
+
+$$50 \times 0.2 = 10$$
+
+Pregunta 3. ¿Por qué una prótesis de pierna debe aguantar más que el peso de la persona? A: no hace falta. B: porque al caminar y correr las fuerzas son mayores que al estar parado. C: para que pese más. Correcta: B.
+
+**Lección 6: Imágenes médicas (4 preguntas)**
+
+Hay varias formas de ver dentro del cuerpo. Los rayos X atraviesan los tejidos blandos pero no tanto los huesos, por eso sirven para fracturas; usan radiación, así que se evitan exposiciones innecesarias, sobre todo en embarazadas. La tomografía usa rayos X desde muchos ángulos para hacer cortes. El ultrasonido usa sonido, no radiación, y por eso se usa en el embarazo. La resonancia magnética usa un imán muy potente y ondas de radio: no tiene radiación, pero ningún objeto de metal puede entrar al cuarto, porque el imán lo jala con muchísima fuerza.
+
+Pregunta 1. ¿Qué estudio se usa para ver a un bebé durante el embarazo? A: rayos X. B: tomografía. C: ultrasonido. Correcta: C. No usa radiación.
+
+Pregunta 2. Un camillero quiere entrar al cuarto de resonancia con un tanque de oxígeno de metal. A: lo detienes, porque el imán puede jalar el tanque con gran fuerza y lastimar a alguien. B: lo dejas pasar. C: le dices que entre rápido. Correcta: A.
+
+Pregunta 3. ¿Para qué sirven sobre todo los rayos X simples? A: para ver huesos y fracturas. B: para ver el pensamiento. C: para medir la presión. Correcta: A.
+
+Pregunta 4. Un paciente tiene un marcapasos antiguo y le van a hacer resonancia. ¿Qué haces? A: se lo quitas. B: avisas y se revisa si su marcapasos es compatible antes del estudio. C: nada. Correcta: B.
+
+**Lección 7: Normas y diseño de dispositivos (3 preguntas)**
+
+Para vender un dispositivo médico en México se necesita registro sanitario de la COFEPRIS. Antes hay que probar que es seguro y que funciona, con pruebas de laboratorio y, en muchos casos, con estudios en personas. El diseño se documenta paso a paso: qué necesita el usuario, qué riesgos hay y cómo se reducen. Un dispositivo puede funcionar perfecto en el laboratorio y fallar en el hospital porque el personal no entiende cómo usarlo; por eso también se prueba con usuarios reales.
+
+Pregunta 1. ¿Qué se necesita para vender un dispositivo médico en México? A: solo un logo. B: nada. C: registro sanitario de la COFEPRIS. Correcta: C.
+
+Pregunta 2. Tu monitor funciona bien en el laboratorio, pero las enfermeras se confunden con los botones. A: no es tu problema. B: rediseñas la interfaz y la pruebas con enfermeras. C: les das un manual de 200 páginas. Correcta: B.
+
+Pregunta 3. Descubres un riesgo en tu dispositivo justo antes de lanzarlo. A: lo documentas y lo corriges antes de lanzarlo. B: lo escondes. C: lo lanzas igual. Correcta: A.
+
+**Examen final**
+
+Pregunta 1. Hay 1 segundo entre dos picos R. ¿Cuál es la frecuencia cardiaca? A: 1. B: 100. C: 60. Correcta: C, porque
+
+$$\frac{60}{1} = 60$$
+
+Pregunta 2. ¿Qué es el mantenimiento preventivo? A: tirar el equipo. B: revisar antes de que falle. C: reparar cuando ya falló. Correcta: B.
+
+Pregunta 3. Un equipo no pasa su prueba de calibración. A: se usa con cuidado. B: se retira y se repara antes de usarlo. C: se ignora. Correcta: B.
+
+Pregunta 4. ¿Para qué sirve la tierra física? A: para que funcione más rápido. B: para que la corriente que se escapa no pase por la persona. C: para ahorrar energía. Correcta: B.
+
+Pregunta 5. ¿Qué significa biocompatible? A: que es de plástico. B: que el cuerpo no lo rechaza ni le hace daño. C: que es caro. Correcta: B.
+
+Pregunta 6. Una persona sostiene 40 newtons a 0.5 metros del hombro. ¿Qué torque hace? A: 20 newton metro. B: 40.5. C: 80. Correcta: A, porque
+
+$$40 \times 0.5 = 20$$
+
+Pregunta 7. ¿Qué estudio no usa radiación y sí usa un imán? A: los rayos X. B: la tomografía. C: la resonancia magnética. Correcta: C.
+
+Pregunta 8. ¿Puede entrar un objeto de metal al cuarto de resonancia? A: solo si es pequeño. B: sí. C: no, el imán lo jala con muchísima fuerza. Correcta: C.
+
+Pregunta 9. ¿Quién da el registro sanitario de los dispositivos médicos en México? A: el SAT. B: el IMSS. C: la COFEPRIS. Correcta: C.
+
+Pregunta 10. Un empaque estéril llegó roto. A: se usa igual. B: se sopla. C: no se usa sin volver a esterilizar o reemplazar. Correcta: C.

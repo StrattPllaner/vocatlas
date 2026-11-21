@@ -1,0 +1,143 @@
+**Lección 1: Movimiento (4 preguntas)**
+
+La física describe el mundo con pocas ideas y mucha precisión. La velocidad dice qué tan rápido cambia la posición, y la aceleración qué tan rápido cambia la velocidad:
+
+$$\text{velocidad} = \frac{\text{distancia}}{\text{tiempo}} \qquad \text{aceleración} = \frac{\text{cambio de velocidad}}{\text{tiempo}}$$
+
+Cerca de la superficie de la Tierra, todo lo que cae libremente acelera unos 9.8 metros por segundo cada segundo, sin importar su masa. Si una pluma cae más lento que una piedra es por la resistencia del aire; en el vacío caen igual.
+
+Pregunta 1. Un autobús recorre 120 kilómetros en 2 horas. ¿Cuál es su velocidad promedio? A: 122 kilómetros por hora. B: 60 kilómetros por hora. C: 240 kilómetros por hora. Correcta: B, porque
+
+$$\frac{120}{2} = 60$$
+
+Pregunta 2. Un coche pasa de 0 a 20 metros por segundo en 5 segundos. ¿Cuál es su aceleración? A: 100. B: 25. C: 4 metros por segundo cada segundo. Correcta: C, porque
+
+$$\frac{20}{5} = 4$$
+
+Pregunta 3. Dejas caer una piedra. Sin contar el aire, ¿qué velocidad lleva después de 2 segundos? A: 19.6 metros por segundo. B: 2. C: 9.8. Correcta: A, porque
+
+$$9.8 \times 2 = 19.6$$
+
+Pregunta 4. En el vacío, ¿qué cae más rápido, una pluma o un martillo? A: la pluma. B: el martillo. C: caen igual. Correcta: C.
+
+**Lección 2: Fuerzas (4 preguntas)**
+
+Newton describió el movimiento con tres leyes. Primera: un objeto sigue quieto o en movimiento recto a velocidad constante si nada lo empuja o lo frena. Segunda: una fuerza neta hace que un objeto acelere, y mientras más masa tiene, más le cuesta:
+
+$$\text{fuerza} = \text{masa} \times \text{aceleración}$$
+
+Tercera: si empujas algo, ese algo te empuja a ti con la misma fuerza en sentido contrario; así se impulsa un cohete. La fuerza se mide en newtons.
+
+Pregunta 1. Empujas un carrito de 10 kilos y acelera a 2 metros por segundo cada segundo. ¿Qué fuerza neta le aplicaste? A: 12 newtons. B: 5 newtons. C: 20 newtons. Correcta: C, porque
+
+$$10 \times 2 = 20$$
+
+Pregunta 2. En un autobús que frena de golpe, tu cuerpo se va hacia adelante. ¿Qué ley lo explica? A: la tercera. B: la primera: tu cuerpo tiende a seguir moviéndose. C: ninguna. Correcta: B.
+
+Pregunta 3. ¿Cómo avanza un cohete en el espacio, donde no hay aire contra qué empujar? A: expulsa gases hacia atrás y los gases lo empujan hacia adelante. B: no puede avanzar. C: con alas. Correcta: A.
+
+Pregunta 4. Con la misma fuerza, ¿qué acelera más: un carrito vacío o uno lleno? A: el vacío, porque tiene menos masa. B: igual. C: el lleno. Correcta: A.
+
+**Lección 3: Energía (3 preguntas)**
+
+La energía no se crea ni se destruye: solo cambia de forma. Un objeto en movimiento tiene energía cinética, y uno a cierta altura tiene energía potencial:
+
+$$\text{energía potencial} = \text{masa} \times 9.8 \times \text{altura}$$
+
+Cuando algo cae, su energía potencial se convierte en cinética. En una montaña rusa, el primer carro sube lo más alto porque esa energía tiene que alcanzar para todo el recorrido. Parte de la energía siempre se convierte en calor por la fricción, por eso nada sube más alto que de donde salió.
+
+Pregunta 1. Un objeto de 2 kilos está a 10 metros de altura. ¿Qué energía potencial tiene? A: 20 joules. B: 12 joules. C: 196 joules. Correcta: C, porque
+
+$$2 \times 9.8 \times 10 = 196$$
+
+Pregunta 2. ¿Por qué en una montaña rusa la primera subida es la más alta? A: porque esa energía tiene que alcanzar para todo el recorrido, y parte se pierde por fricción. B: por casualidad. C: por diseño bonito. Correcta: A.
+
+Pregunta 3. Alguien dice que inventó una máquina que da más energía de la que recibe. ¿Qué piensas? A: que funciona de noche. B: que es genial. C: que es imposible, porque la energía no se crea. Correcta: C.
+
+**Lección 4: Ondas y luz (4 preguntas)**
+
+El sonido y la luz son ondas. La rapidez de una onda es su frecuencia por su longitud de onda:
+
+$$\text{rapidez} = \text{frecuencia} \times \text{longitud de onda}$$
+
+El sonido viaja en el aire a unos 340 metros por segundo y necesita un medio: en el vacío no hay sonido. La luz viaja a unos 300,000 kilómetros por segundo, muchísimo más rápido. Por eso en una tormenta ves el rayo antes de oír el trueno, y con el tiempo entre los dos puedes calcular qué tan lejos cayó.
+
+Pregunta 1. Ves un rayo y oyes el trueno 3 segundos después. ¿A qué distancia cayó, más o menos? A: 3 metros. B: 340 metros. C: unos 1,020 metros. Correcta: C, porque
+
+$$340 \times 3 = 1{,}020$$
+
+Pregunta 2. Una onda de sonido tiene una frecuencia de 340 hertz y viaja a 340 metros por segundo. ¿Cuál es su longitud de onda? A: 115,600 metros. B: 1 metro. C: 0 metros. Correcta: B, porque
+
+$$\frac{340}{340} = 1$$
+
+Pregunta 3. En una película se oye una explosión en el espacio. ¿Es realista? A: no, en el vacío no hay medio para el sonido. B: sí. C: solo si es grande. Correcta: A.
+
+Pregunta 4. ¿Por qué ves el rayo antes de oír el trueno? A: porque los ojos son más rápidos que los oídos. B: porque la luz viaja mucho más rápido que el sonido. C: por casualidad. Correcta: B.
+
+**Lección 5: Calor (3 preguntas)**
+
+El calor pasa siempre de lo caliente a lo frío, hasta que los dos quedan a la misma temperatura. Viaja de tres formas: por conducción, al tocarse, como una cuchara metálica en el café; por convección, con el movimiento de líquidos o gases, como el aire caliente que sube; y por radiación, como el calor del sol, que llega por el vacío. Los metales conducen muy bien el calor; el aire, la madera y el unicel lo conducen mal, por eso sirven como aislantes.
+
+Pregunta 1. Metes una cuchara de metal en sopa caliente y el mango se calienta. ¿Cómo viajó el calor? A: por convección. B: por radiación. C: por conducción. Correcta: C.
+
+Pregunta 2. ¿Cómo llega el calor del sol a la Tierra, si en el espacio no hay aire? A: por convección. B: por conducción. C: por radiación. Correcta: C.
+
+Pregunta 3. ¿Por qué los vasos de unicel mantienen caliente el café? A: porque el unicel conduce mal el calor. B: porque es blanco. C: porque es ligero. Correcta: A.
+
+**Lección 6: Medir bien (4 preguntas)**
+
+En física ninguna medición es perfecta: toda tiene incertidumbre. Por eso se mide varias veces y se usa el promedio, y se reporta cuánto puede variar el resultado. Antes de confiar en un resultado se revisa que las unidades estén bien y que el orden de magnitud tenga sentido: si calculas que una persona corre a 300 kilómetros por hora, algo está mal. En un experimento se cambia una variable a la vez y se cuidan las demás.
+
+$$\text{promedio} = \frac{\text{suma de las mediciones}}{\text{número de mediciones}}$$
+
+Pregunta 1. Mides cuánto tarda en caer una pelota: 1.2, 1.3 y 1.1 segundos. ¿Cuál es el promedio? A: 1.3 segundos. B: 3.6 segundos. C: 1.2 segundos. Correcta: C, porque
+
+$$\frac{1.2 + 1.3 + 1.1}{3} = 1.2$$
+
+Pregunta 2. Tu cálculo dice que un caracol avanza a 50 kilómetros por hora. ¿Qué haces? A: celebras. B: revisas tus unidades y cálculos, porque no tiene sentido. C: lo reportas así. Correcta: B.
+
+Pregunta 3. ¿Por qué se mide varias veces lo mismo? A: no se hace. B: por gusto. C: porque toda medición tiene error y el promedio es más confiable. Correcta: C.
+
+Pregunta 4. Quieres ver si la longitud de un péndulo cambia su periodo. ¿Qué mantienes igual? A: todo lo demás, como la masa y el ángulo inicial. B: nada. C: solo el color. Correcta: A.
+
+**Lección 7: Física de todos los días (3 preguntas)**
+
+Muchas tecnologías salieron de la física. El GPS de tu celular funciona con satélites que llevan relojes atómicos, y tiene que corregir efectos de la relatividad de Einstein; sin esa corrección, se equivocaría por kilómetros cada día. Los láseres, los paneles solares, las resonancias magnéticas y los chips de las computadoras se basan en la física cuántica. Un físico trabaja en investigación, en la industria, en hospitales, en finanzas, en programación o dando clases, porque su fuerte es modelar problemas con matemáticas.
+
+Pregunta 1. ¿Qué teoría tiene que tomar en cuenta el GPS para no equivocarse? A: la relatividad de Einstein. B: la oferta y la demanda. C: la evolución. Correcta: A.
+
+Pregunta 2. ¿En qué se basan los chips de las computadoras y los láseres? A: en la química de la cocina. B: en la física cuántica. C: en la astrología. Correcta: B.
+
+Pregunta 3. ¿Por qué los físicos también trabajan en finanzas o programación? A: porque no hay trabajo de físico. B: porque saben modelar problemas con matemáticas. C: por casualidad. Correcta: B.
+
+**Examen final**
+
+Pregunta 1. Un ciclista recorre 30 kilómetros en 2 horas. ¿Cuál es su velocidad promedio? A: 60 kilómetros por hora. B: 15 kilómetros por hora. C: 32 kilómetros por hora. Correcta: B, porque
+
+$$\frac{30}{2} = 15$$
+
+Pregunta 2. En el vacío, ¿una piedra cae más rápido que una pluma? A: sí. B: no, caen igual. C: depende del color. Correcta: B.
+
+Pregunta 3. Una caja de 5 kilos acelera a 3 metros por segundo cada segundo. ¿Qué fuerza neta tiene? A: 1.7 newtons. B: 15 newtons. C: 8 newtons. Correcta: B, porque
+
+$$5 \times 3 = 15$$
+
+Pregunta 4. ¿Qué ley explica que te vayas hacia adelante cuando el autobús frena? A: la ley de Ohm. B: la tercera. C: la primera ley de Newton. Correcta: C.
+
+Pregunta 5. Un objeto de 1 kilo está a 5 metros de altura. ¿Qué energía potencial tiene? A: 49 joules. B: 5 joules. C: 6 joules. Correcta: A, porque
+
+$$1 \times 9.8 \times 5 = 49$$
+
+Pregunta 6. ¿Se puede crear energía de la nada? A: sí. B: no. C: con imanes. Correcta: B.
+
+Pregunta 7. Oyes el trueno 5 segundos después del rayo. ¿A qué distancia cayó, más o menos? A: 1,700 metros. B: 340 metros. C: 5 metros. Correcta: A, porque
+
+$$340 \times 5 = 1{,}700$$
+
+Pregunta 8. ¿Hay sonido en el vacío? A: no. B: sí. C: solo de noche. Correcta: A.
+
+Pregunta 9. ¿Cómo llega el calor del sol? A: por radiación. B: por convección. C: por conducción. Correcta: A.
+
+Pregunta 10. Mides 2.0, 2.2 y 2.1 segundos. ¿Cuál es el promedio? A: 6.3 segundos. B: 2.1 segundos. C: 2.2 segundos. Correcta: B, porque
+
+$$\frac{2.0 + 2.2 + 2.1}{3} = 2.1$$

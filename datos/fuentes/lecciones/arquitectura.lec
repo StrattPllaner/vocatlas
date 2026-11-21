@@ -1,0 +1,131 @@
+**Lección 1: Escala y planos (4 preguntas)**
+
+Un arquitecto dibuja edificios mucho más chicos de lo que son, usando una escala. En escala 1:100, un centímetro en el plano son 100 centímetros, o sea un metro, en la realidad. Para pasar del plano a la realidad:
+
+$$\text{medida real} = \text{medida en el plano} \times \text{escala}$$
+
+Hay distintos tipos de dibujo. La planta es el edificio visto desde arriba, como si lo cortaras horizontalmente a la altura de la cintura. El corte es una rebanada vertical que muestra alturas. La fachada es como se ve desde afuera. Leer bien un plano es lo primero que se aprende en la carrera.
+
+Pregunta 1. En un plano a escala 1:100, una pared mide 5 centímetros. ¿Cuánto mide en la realidad? A: 500 metros. B: 50 centímetros. C: 5 metros. Correcta: C, porque
+
+$$5 \times 100 = 500 \text{ cm} = 5 \text{ m}$$
+
+Pregunta 2. ¿Qué dibujo muestra el edificio visto desde arriba, cortado a la altura de la cintura? A: la fachada. B: el corte. C: la planta. Correcta: C.
+
+Pregunta 3. Quieres mostrarle a un cliente qué tan alto es el techo de la sala y cómo queda la escalera. ¿Qué dibujo usas? A: la planta. B: el croquis de ubicación. C: un corte. Correcta: C.
+
+Pregunta 4. Un terreno de 20 metros de largo tiene que caber en tu hoja a escala 1:200. ¿Cuánto mide en el plano? A: 1 centímetro. B: 10 centímetros. C: 40 centímetros. Correcta: B, porque
+
+$$\frac{2{,}000 \text{ cm}}{200} = 10 \text{ cm}$$
+
+**Lección 2: El cuerpo humano manda (4 preguntas)**
+
+Los espacios se diseñan para las personas que los van a usar. A eso se le llama ergonomía y antropometría: medidas del cuerpo. Una puerta normal mide unos 90 centímetros de ancho, y para una silla de ruedas no debe ser menor a eso. Un pasillo cómodo para una persona mide alrededor de un metro. Una silla de ruedas necesita un círculo de 1.5 metros para dar la vuelta. Un escalón cómodo tiene unos 17 centímetros de alto y unos 28 de huella, que es donde pisas. Diseñar pensando en todos, incluidos adultos mayores y personas con discapacidad, se llama diseño universal.
+
+Pregunta 1. Diseñas el baño de una clínica. ¿Qué espacio necesita una silla de ruedas para girar? A: 50 centímetros. B: no necesita espacio. C: un círculo de 1.5 metros. Correcta: C.
+
+Pregunta 2. Un cliente quiere escalones de 25 centímetros de alto para ahorrar espacio. ¿Qué le dices? A: que son demasiado altos e incómodos, y conviene que ronden los 17. B: que está perfecto. C: que mejor de 40. Correcta: A.
+
+Pregunta 3. En una escuela, una puerta de salón mide 70 centímetros de ancho. ¿Qué problema tiene? A: no pasa bien una silla de ruedas. B: es demasiado ancha. C: ninguno. Correcta: A.
+
+Pregunta 4. ¿Qué es el diseño universal? A: diseñar igual en todo el mundo. B: diseñar solo edificios grandes. C: diseñar espacios que puedan usar todas las personas, incluidas las que tienen alguna discapacidad. Correcta: C.
+
+**Lección 3: Sol, viento y clima (3 preguntas)**
+
+Un buen edificio aprovecha el clima para gastar menos energía. En México, el sol pasa más por el sur durante gran parte del año, así que las fachadas que dan al poniente reciben el sol fuerte de la tarde y se calientan mucho. Para refrescar se usa ventilación cruzada: ventanas en lados opuestos para que el aire atraviese el espacio. Los aleros, las celosías y los árboles dan sombra. En climas cálidos como el de Cuernavaca, los techos altos y los muros gruesos ayudan a mantener el interior fresco.
+
+Pregunta 1. La recámara principal da al poniente, con un ventanal grande sin protección. ¿Qué problema tendrá? A: se calentará mucho en las tardes. B: ninguno. C: estará muy fría. Correcta: A.
+
+Pregunta 2. Un salón tiene ventanas solo en una pared y se siente encerrado y caluroso. ¿Qué propones? A: poner más focos. B: abrir ventanas en la pared opuesta para tener ventilación cruzada. C: cerrar las ventanas. Correcta: B.
+
+Pregunta 3. ¿Qué elementos ayudan a dar sombra a una fachada? A: vidrios más grandes. B: aleros, celosías y árboles. C: pintura brillante. Correcta: B.
+
+**Lección 4: Estructura básica (4 preguntas)**
+
+Todo edificio tiene que llevar su peso y el de lo que tiene dentro hasta el suelo. Las cargas bajan de la losa a las vigas, de las vigas a las columnas o muros de carga, y de ahí a la cimentación, que las reparte en el terreno. Si quitas una columna o un muro de carga sin reforzar, esas cargas no tienen por dónde bajar. En zonas sísmicas como gran parte del centro y sur de México, el diseño también tiene que resistir sismos, y eso lo calcula un ingeniero estructural junto con el arquitecto. La carga sobre una columna se estima así:
+
+$$\text{carga} = \text{área que sostiene} \times \text{peso por metro cuadrado}$$
+
+Pregunta 1. ¿En qué orden bajan las cargas? A: losa, vigas, columnas, cimentación y terreno. B: ventanas, puertas, piso. C: terreno, columnas, losa. Correcta: A.
+
+Pregunta 2. Un cliente quiere tirar un muro para hacer la sala más grande, y ese muro carga la losa de arriba. ¿Qué haces? A: lo tiras poco a poco. B: consultas al ingeniero estructural para poner una viga o reforzar antes de quitarlo. C: lo tiras sin más. Correcta: B.
+
+Pregunta 3. Una columna sostiene 20 metros cuadrados de losa, y cada metro cuadrado pesa 800 kilos. ¿Cuánto carga? A: 820 kilos. B: 40 kilos. C: 16,000 kilos. Correcta: C, porque
+
+$$20 \times 800 = 16{,}000$$
+
+Pregunta 4. ¿Por qué en el centro de México el diseño estructural es tan importante? A: porque es zona de sismos. B: por el tráfico. C: porque llueve. Correcta: A.
+
+**Lección 5: El terreno y el reglamento (3 preguntas)**
+
+Cada municipio tiene reglas sobre cuánto puedes construir. El COS, coeficiente de ocupación del suelo, dice qué parte del terreno puedes cubrir en planta baja. El CUS, coeficiente de utilización del suelo, dice cuántos metros cuadrados puedes construir en total, sumando todos los pisos.
+
+$$\text{área en planta baja} = \text{área del terreno} \times \text{COS} \qquad \text{área total} = \text{área del terreno} \times \text{CUS}$$
+
+La parte que queda libre ayuda a que el agua de lluvia se filtre al suelo. Antes de diseñar, siempre se revisan estas reglas y la licencia de construcción.
+
+Pregunta 1. Un terreno de 200 metros cuadrados tiene un COS de 0.6. ¿Cuánto puedes cubrir en planta baja? A: 120 metros cuadrados. B: 200 metros cuadrados. C: 60 metros cuadrados. Correcta: A, porque
+
+$$200 \times 0.6 = 120$$
+
+Pregunta 2. El mismo terreno tiene un CUS de 1.8. ¿Cuántos metros cuadrados puedes construir en total? A: 360. B: 180. C: 200. Correcta: A, porque
+
+$$200 \times 1.8 = 360$$
+
+Pregunta 3. Un cliente quiere construir un piso más del que permite el reglamento. A: lo construyes sin licencia. B: le explicas el límite y buscas otra solución dentro de lo permitido. C: lo diseñas igual. Correcta: B. Una obra fuera de reglamento puede ser clausurada.
+
+**Lección 6: El cliente y el programa (4 preguntas)**
+
+Antes de dibujar, el arquitecto escucha. El programa arquitectónico es la lista de espacios que necesita el cliente, con sus tamaños aproximados y cómo se relacionan: qué debe estar junto a qué. Por ejemplo, la cocina cerca del comedor, y las recámaras lejos del ruido de la calle. El presupuesto define qué tan grande y con qué materiales se puede construir. Un buen diseño responde a la vida real del cliente, no solo a cómo se ve. Lo que el cliente pide y lo que necesita no siempre es lo mismo, y parte del trabajo es aclararlo.
+
+Pregunta 1. ¿Qué es el programa arquitectónico? A: el software para dibujar. B: la lista de espacios que necesita el cliente y cómo se relacionan. C: el contrato. Correcta: B.
+
+Pregunta 2. Una familia con tres niños pequeños quiere la recámara de los papás en el tercer piso, lejos de los niños. ¿Qué haces? A: les preguntas cómo es su rutina y les explicas las ventajas de tener las recámaras cerca mientras los niños son pequeños. B: les dices que están mal. C: lo dibujas sin comentar. Correcta: A.
+
+Pregunta 3. El cliente quiere 300 metros cuadrados, pero su presupuesto alcanza para 180. A: diseñas 300 igual. B: usas materiales malos para que alcance. C: le explicas la diferencia y priorizan los espacios, o se plantea construir por etapas. Correcta: C.
+
+Pregunta 4. ¿Dónde conviene poner la cocina? A: junto a las recámaras. B: cerca del comedor. C: en el último piso, lejos de todo. Correcta: B.
+
+**Lección 7: La obra (3 preguntas)**
+
+Cuando se construye, el arquitecto supervisa que la obra se haga como está en los planos. Revisa medidas, materiales y calidad, y resuelve los problemas que aparecen. Los cambios durante la obra cuestan más que los cambios en el papel. También cuida el presupuesto: se calcula la cantidad de material con las medidas, y se suele sumar un desperdicio, por ejemplo de 5 a 10 por ciento.
+
+$$\text{material a comprar} = \text{área} \times (1 + \text{desperdicio})$$
+
+Pregunta 1. Tienes que poner piso en 50 metros cuadrados con 10 por ciento de desperdicio. ¿Cuánto compras? A: 50 metros cuadrados. B: 60 metros cuadrados. C: 55 metros cuadrados. Correcta: C, porque
+
+$$50 \times 1.10 = 55$$
+
+Pregunta 2. En la obra ves que pusieron una ventana más chica de lo que dice el plano. A: la dejas así. B: cambias el plano para que coincida. C: lo reportas y pides que se corrija según el plano o que se documente el cambio con el cliente. Correcta: C.
+
+Pregunta 3. ¿Por qué conviene decidir todo antes de empezar a construir? A: no conviene. B: porque los cambios en obra cuestan más que en el papel. C: porque así lo dice la escuela. Correcta: B.
+
+**Examen final**
+
+Pregunta 1. En un plano a escala 1:50, una pared mide 8 centímetros. ¿Cuánto mide en la realidad? A: 4 metros. B: 8 metros. C: 40 centímetros. Correcta: A, porque
+
+$$8 \times 50 = 400 \text{ cm} = 4 \text{ m}$$
+
+Pregunta 2. ¿Qué dibujo muestra la altura de los espacios? A: la ubicación. B: el corte. C: la planta. Correcta: B.
+
+Pregunta 3. ¿Qué espacio necesita una silla de ruedas para girar? A: 60 centímetros. B: un círculo de 1.5 metros. C: 3 metros. Correcta: B.
+
+Pregunta 4. ¿Qué es la ventilación cruzada? A: cerrar todas las ventanas. B: ventanas en lados opuestos para que el aire atraviese el espacio. C: un ventilador de techo. Correcta: B.
+
+Pregunta 5. ¿Qué fachada se calienta más en las tardes en México? A: la que da al poniente. B: todas igual. C: la que da al oriente. Correcta: A.
+
+Pregunta 6. Un cliente quiere tirar un muro que carga la losa. A: lo tiras. B: lo tiras de noche. C: consultas al ingeniero estructural y refuerzas antes. Correcta: C.
+
+Pregunta 7. Un terreno de 300 metros cuadrados tiene un COS de 0.7. ¿Cuánto puedes cubrir en planta baja? A: 70 metros cuadrados. B: 210 metros cuadrados. C: 300 metros cuadrados. Correcta: B, porque
+
+$$300 \times 0.7 = 210$$
+
+Pregunta 8. Una columna sostiene 15 metros cuadrados y cada metro cuadrado pesa 600 kilos. ¿Cuánto carga? A: 9,000 kilos. B: 615 kilos. C: 40 kilos. Correcta: A, porque
+
+$$15 \times 600 = 9{,}000$$
+
+Pregunta 9. Necesitas piso para 80 metros cuadrados con 5 por ciento de desperdicio. ¿Cuánto compras? A: 84 metros cuadrados. B: 85 metros cuadrados. C: 80 metros cuadrados. Correcta: A, porque
+
+$$80 \times 1.05 = 84$$
+
+Pregunta 10. El presupuesto del cliente no alcanza para todo lo que pide. A: no le dices nada. B: usas materiales malos. C: priorizan espacios o se construye por etapas. Correcta: C.

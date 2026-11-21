@@ -1,0 +1,135 @@
+**Lección 1: Balance de materia (4 preguntas)**
+
+Un ingeniero químico diseña y opera los procesos que transforman materias primas en productos a gran escala: gasolina, plásticos, alimentos, medicinas, cemento. La herramienta más básica es el balance de materia: lo que entra a un proceso tiene que salir o acumularse dentro.
+
+$$\text{lo que entra} = \text{lo que sale} + \text{lo que se acumula}$$
+
+Si en un tanque entra más de lo que sale, el nivel sube. Si al hacer el balance falta material, hay una fuga, un error de medición o una reacción que no tomaste en cuenta.
+
+Pregunta 1. A un tanque entran 100 litros por minuto y salen 80. ¿Qué pasa con el nivel? A: se queda igual. B: sube 20 litros por minuto. C: baja. Correcta: B, porque
+
+$$100 - 80 = 20$$
+
+Pregunta 2. Un proceso recibe 1,000 kilos al día y sus salidas suman 950, sin acumulación. ¿Qué haces? A: buscas los 50 kilos que faltan: una fuga, un error de medición o algo no contabilizado. B: cambias los números. C: nada. Correcta: A.
+
+Pregunta 3. A un mezclador entran 300 kilos de agua y 200 de jarabe, y no se acumula nada. ¿Cuánto sale? A: 500 kilos. B: 100 kilos. C: 300 kilos. Correcta: A, porque
+
+$$300 + 200 = 500$$
+
+Pregunta 4. ¿Qué dice el balance de materia? A: lo que entra sale o se acumula. B: la materia desaparece. C: nada. Correcta: A.
+
+**Lección 2: Mezclas y concentraciones (4 preguntas)**
+
+Muchos procesos mezclan corrientes con distinta concentración. La concentración de la mezcla se calcula sumando lo que aporta cada corriente:
+
+$$\text{concentración de la mezcla} = \frac{\text{masa 1} \times \text{concentración 1} + \text{masa 2} \times \text{concentración 2}}{\text{masa 1} + \text{masa 2}}$$
+
+Así se calcula, por ejemplo, cuánto jugo concentrado y cuánta agua hay que mezclar para obtener un jugo con el azúcar que pide la receta. Un error aquí hace que miles de litros salgan fuera de especificación.
+
+Pregunta 1. Mezclas 100 kilos de una solución al 20 por ciento con 100 kilos de agua pura. ¿A qué concentración queda? A: 40 por ciento. B: 10 por ciento. C: 20 por ciento. Correcta: B, porque
+
+$$\frac{100 \times 20 + 100 \times 0}{200} = 10$$
+
+Pregunta 2. Mezclas 50 kilos al 40 por ciento con 150 kilos al 0 por ciento. ¿A qué concentración queda? A: 20 por ciento. B: 40 por ciento. C: 10 por ciento. Correcta: C, porque
+
+$$\frac{50 \times 40}{200} = 10$$
+
+Pregunta 3. Un lote de 5,000 litros salió con menos azúcar de lo especificado. ¿Qué revisas? A: las cantidades y concentraciones de cada corriente que se mezcló. B: nada. C: el color del tanque. Correcta: A.
+
+Pregunta 4. ¿Qué pasa con la concentración al agregar agua a una solución? A: baja. B: sube. C: no cambia. Correcta: A.
+
+**Lección 3: Separar (3 preguntas)**
+
+Después de una reacción casi siempre hay que separar el producto de lo demás. La destilación separa líquidos por su punto de ebullición: el que hierve a menor temperatura se evapora primero y luego se condensa. Así se separa el alcohol del agua o se divide el petróleo en gasolina, diésel y otros. La filtración separa sólidos de líquidos, y la evaporación quita agua para concentrar algo, como al hacer sal o leche en polvo. Separar suele ser la parte que más energía gasta de una planta.
+
+Pregunta 1. ¿Cómo separa la destilación dos líquidos? A: por su precio. B: por su punto de ebullición. C: por su color. Correcta: B.
+
+Pregunta 2. Quieres sacar la sal del agua de mar. ¿Qué proceso usas? A: filtración con papel. B: evaporación. C: congelación rápida. Correcta: B.
+
+Pregunta 3. ¿Qué parte de una planta suele gastar más energía? A: la oficina. B: el estacionamiento. C: las separaciones. Correcta: C.
+
+**Lección 4: Energía y calor (4 preguntas)**
+
+Calentar y enfriar cuesta mucha energía y dinero en una planta. La energía necesaria para calentar un líquido depende de su masa, de cuánto quieres subir la temperatura y de su calor específico. El agua necesita unos 4.18 kilojoules por cada kilo y cada grado:
+
+$$\text{energía} = \text{masa} \times \text{calor específico} \times \text{cambio de temperatura}$$
+
+Los intercambiadores de calor aprovechan el calor de una corriente caliente para calentar otra fría, en vez de desperdiciarlo. Eso ahorra combustible.
+
+Pregunta 1. ¿Cuánta energía se necesita para calentar 10 kilos de agua de 20 a 30 grados? A: unos 418 kilojoules. B: 300 kilojoules. C: 41.8 kilojoules. Correcta: A, porque
+
+$$10 \times 4.18 \times 10 = 418$$
+
+Pregunta 2. Una corriente sale caliente de un reactor y otra entra fría. ¿Qué propones? A: tirar el calor al aire. B: un intercambiador de calor para aprovechar ese calor. C: nada. Correcta: B.
+
+Pregunta 3. Si duplicas la masa de agua que calientas, con el mismo cambio de temperatura, ¿qué pasa con la energía? A: se reduce a la mitad. B: no cambia. C: se duplica. Correcta: C.
+
+Pregunta 4. ¿Por qué importa tanto la energía en una planta? A: por estética. B: no importa. C: porque calentar y enfriar cuesta mucho dinero. Correcta: C.
+
+**Lección 5: Reactores (3 preguntas)**
+
+En el reactor ocurre la transformación química. La conversión dice qué parte de la materia prima reaccionó:
+
+$$\text{conversión} = \frac{\text{materia prima que reaccionó}}{\text{materia prima que entró}} \times 100$$
+
+Lo que no reacciona muchas veces se separa y se recircula al reactor. La temperatura, la presión y los catalizadores, que aceleran una reacción sin gastarse, se ajustan para obtener más producto y menos subproductos indeseados.
+
+Pregunta 1. Entran 500 kilos de materia prima y reaccionan 400. ¿Cuál es la conversión? A: 20 por ciento. B: 80 por ciento. C: 125 por ciento. Correcta: B, porque
+
+$$\frac{400}{500} \times 100 = 80$$
+
+Pregunta 2. ¿Qué se hace con la materia prima que no reaccionó? A: se vende como producto. B: se separa y se recircula al reactor. C: se tira siempre. Correcta: B.
+
+Pregunta 3. ¿Qué hace un catalizador? A: la detiene. B: le da color. C: acelera la reacción sin gastarse. Correcta: C.
+
+**Lección 6: Seguridad de procesos (4 preguntas)**
+
+En una planta química hay sustancias inflamables, tóxicas o a alta presión. Por eso se diseña con capas de protección: controles automáticos, alarmas, válvulas de alivio que liberan presión antes de que un tanque reviente, y procedimientos claros. Antes de cambiar algo en el proceso, se analiza qué podría salir mal. Muchos accidentes graves en la historia empezaron por cambios pequeños sin análisis o por alarmas que se apagaron porque "sonaban mucho".
+
+Pregunta 1. ¿Para qué sirve una válvula de alivio? A: para decorar. B: para liberar presión antes de que un equipo reviente. C: para llenar más rápido. Correcta: B.
+
+Pregunta 2. Una alarma de alta presión suena seguido y un operador quiere desconectarla. A: se le baja el volumen. B: se desconecta. C: no se desconecta; se investiga por qué suena. Correcta: C.
+
+Pregunta 3. Quieres cambiar una tubería por una de otro material para ahorrar. ¿Qué haces antes? A: analizas si aguanta la presión, la temperatura y las sustancias. B: la cambias. C: nada. Correcta: A.
+
+Pregunta 4. ¿Qué causó muchos accidentes graves en la historia? A: la mala suerte y ya. B: cambios sin análisis y alarmas ignoradas. C: nada. Correcta: B.
+
+**Lección 7: Ambiente y escala (3 preguntas)**
+
+Las plantas generan residuos y emisiones que se tratan antes de liberarse, cumpliendo las normas ambientales. Un buen ingeniero busca reducir los residuos desde el proceso, por ejemplo recirculando materiales. Además, lo que funciona en el laboratorio cambia al hacerse en grande: mezclar, calentar y enfriar miles de litros no es igual que en un vaso. Por eso se pasa por una planta piloto antes de construir la planta completa.
+
+Pregunta 1. ¿Por qué se construye una planta piloto? A: para probar el proceso a escala intermedia antes de la planta completa. B: para jugar. C: para ahorrar papel. Correcta: A.
+
+Pregunta 2. Una planta puede tratar su agua residual o tirarla al río para ahorrar. A: la tira. B: la trata y cumple las normas. C: la tira de noche. Correcta: B.
+
+Pregunta 3. ¿Cuál es una forma de reducir residuos desde el proceso? A: tirar todo junto. B: producir más. C: recircular materiales que no reaccionaron. Correcta: C.
+
+**Examen final**
+
+Pregunta 1. A un tanque entran 50 litros por minuto y salen 70. ¿Qué pasa con el nivel? A: baja 20 litros por minuto. B: sube. C: igual. Correcta: A, porque
+
+$$50 - 70 = -20$$
+
+Pregunta 2. ¿Qué dice el balance de materia? A: nada. B: la materia se crea. C: lo que entra sale o se acumula. Correcta: C.
+
+Pregunta 3. Mezclas 200 kilos al 30 por ciento con 100 kilos de agua pura. ¿A qué concentración queda? A: 30 por ciento. B: 20 por ciento. C: 10 por ciento. Correcta: B, porque
+
+$$\frac{200 \times 30}{300} = 20$$
+
+Pregunta 4. ¿Cómo separa la destilación? A: por color. B: por tamaño. C: por punto de ebullición. Correcta: C.
+
+Pregunta 5. ¿Cuánta energía se necesita para calentar 5 kilos de agua 20 grados? A: 100 kilojoules. B: 25 kilojoules. C: unos 418 kilojoules. Correcta: C, porque
+
+$$5 \times 4.18 \times 20 = 418$$
+
+Pregunta 6. ¿Para qué sirve un intercambiador de calor? A: para aprovechar el calor de una corriente en otra. B: para nada. C: para enfriar la oficina. Correcta: A.
+
+Pregunta 7. Entran 200 kilos y reaccionan 150. ¿Cuál es la conversión? A: 75 por ciento. B: 25 por ciento. C: 133 por ciento. Correcta: A, porque
+
+$$\frac{150}{200} \times 100 = 75$$
+
+Pregunta 8. ¿Qué hace un catalizador? A: la enfría. B: acelera la reacción sin gastarse. C: la frena. Correcta: B.
+
+Pregunta 9. Una alarma suena mucho. A: se investiga la causa, no se desconecta. B: se apaga. C: se ignora. Correcta: A.
+
+Pregunta 10. ¿Por qué existe la planta piloto? A: para vender. B: por gusto. C: porque lo que funciona en pequeño cambia al hacerse grande. Correcta: C.

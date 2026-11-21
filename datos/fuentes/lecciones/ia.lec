@@ -1,0 +1,115 @@
+**Lección 1: Aprender de ejemplos (4 preguntas)**
+
+En la programación tradicional, una persona escribe las reglas. En el aprendizaje automático, la computadora encuentra las reglas a partir de muchos ejemplos. Para enseñarle a distinguir fotos de perros y gatos, le das miles de fotos ya etiquetadas, y el modelo ajusta sus números internos hasta equivocarse lo menos posible. A eso se le llama entrenar. Después se prueba con fotos que nunca vio, para saber si de verdad aprendió. Los datos se suelen dividir: una parte para entrenar y otra, separada, para probar.
+
+$$\text{datos de prueba} = \text{total de datos} \times 0.20$$
+
+Pregunta 1. ¿Qué hace un modelo de aprendizaje automático al entrenar? A: nada. B: copia reglas escritas por una persona. C: ajusta sus números internos con muchos ejemplos para equivocarse menos. Correcta: C.
+
+Pregunta 2. Tienes 10,000 fotos y apartas el 20 por ciento para probar. ¿Cuántas fotos son de prueba? A: 200. B: 2,000. C: 8,000. Correcta: B, porque
+
+$$10{,}000 \times 0.20 = 2{,}000$$
+
+Pregunta 3. ¿Por qué se prueba con fotos que el modelo nunca vio? A: para que tarde más. B: para saber si aprendió o solo memorizó. C: no hace falta. Correcta: B.
+
+Pregunta 4. ¿Qué necesitas para entrenar un modelo que reconozca frutas en fotos? A: un solo dibujo. B: muchas fotos de frutas con su etiqueta. C: nada. Correcta: B.
+
+**Lección 2: Una neurona artificial (4 preguntas)**
+
+Las redes neuronales están hechas de muchas unidades sencillas llamadas neuronas artificiales. Cada una recibe números, multiplica cada uno por un peso, que indica qué tan importante es, los suma y pasa el resultado a la siguiente capa.
+
+$$\text{salida} = \text{entrada 1} \times \text{peso 1} + \text{entrada 2} \times \text{peso 2}$$
+
+Entrenar es encontrar los pesos que hacen que la red acierte. Una red grande tiene millones o miles de millones de pesos, por eso necesita muchísimos datos y computadoras potentes.
+
+Pregunta 1. Una neurona recibe 2 y 4, con pesos de 0.5 y 0.25. ¿Cuál es su salida? A: 2. B: 0.75. C: 6. Correcta: A, porque
+
+$$2 \times 0.5 + 4 \times 0.25 = 2$$
+
+Pregunta 2. Una neurona recibe 3 y 1, con pesos de 2 y 1. ¿Cuál es su salida? A: 3. B: 7. C: 4. Correcta: B, porque
+
+$$3 \times 2 + 1 \times 1 = 7$$
+
+Pregunta 3. ¿Qué significa entrenar una red neuronal? A: encontrar los pesos que la hacen acertar. B: pintarla. C: conectarla a internet. Correcta: A.
+
+Pregunta 4. ¿Por qué los modelos grandes necesitan tantas computadoras? A: porque tienen muchísimos pesos que ajustar con muchísimos datos. B: no las necesitan. C: por moda. Correcta: A.
+
+**Lección 3: Medir los errores (3 preguntas)**
+
+En un modelo que decide sí o no, hay dos tipos de error. Un falso positivo es decir que sí cuando era no, como marcar un correo normal como spam. Un falso negativo es decir que no cuando era sí, como dejar pasar un spam. Cuál es peor depende del problema. En un detector de enfermedades, un falso negativo puede ser grave, porque una persona enferma se va sin atención. En un filtro de spam, un falso positivo molesta más, porque pierdes un correo importante.
+
+Pregunta 1. Tu filtro manda a spam la carta de aceptación de la universidad. ¿Qué tipo de error es? A: falso positivo. B: acierto. C: falso negativo. Correcta: A.
+
+Pregunta 2. Un modelo que detecta una enfermedad dice "sano" a una persona enferma. ¿Qué tipo de error es? A: falso negativo. B: acierto. C: falso positivo. Correcta: A.
+
+Pregunta 3. En un detector de fraudes bancarios, ¿qué conviene revisar además de la exactitud? A: cuántos fraudes deja pasar y cuántas compras normales bloquea. B: nada. C: el color de la app. Correcta: A.
+
+**Lección 4: Datos con sesgo (4 preguntas)**
+
+Un modelo aprende lo que hay en sus datos, incluidos sus errores e injusticias. Si un sistema de reconocimiento de caras se entrena casi solo con fotos de personas de piel clara, funciona peor con personas de piel oscura. Si un modelo para contratar se entrena con decisiones pasadas que discriminaban a mujeres, repetirá esa discriminación. Por eso se revisa con qué datos se entrenó un modelo y se mide cómo funciona para distintos grupos antes de usarlo.
+
+Pregunta 1. Un reconocedor de voz se entrenó casi solo con voces de un país y falla con acentos mexicanos. ¿Qué pasó? A: la computadora está cansada. B: sus datos no representaban esos acentos. C: los acentos están mal. Correcta: B.
+
+Pregunta 2. Un modelo para revisar solicitudes de empleo rechaza más a mujeres porque aprendió de decisiones pasadas. ¿Qué haces? A: lo usas igual. B: quitas a las mujeres de los datos. C: lo revisas y corriges antes de usarlo. Correcta: C.
+
+Pregunta 3. ¿Qué se mide antes de usar un modelo con personas? A: solo qué tan rápido es. B: cómo funciona para distintos grupos. C: nada. Correcta: B.
+
+Pregunta 4. ¿Un modelo puede ser más justo que los datos con que se entrenó, sin hacer nada? A: solo si es grande. B: sí, siempre. C: no; aprende lo que hay en sus datos. Correcta: C.
+
+**Lección 5: Modelos de lenguaje (3 preguntas)**
+
+Los asistentes que escriben texto son modelos de lenguaje: aprendieron de enormes cantidades de texto a predecir qué palabra sigue. Por eso escriben con fluidez, pero pueden equivocarse con mucha seguridad e incluso inventar datos o citas que no existen. Esos errores se llaman alucinaciones. Un ingeniero en inteligencia artificial diseña sistemas que reducen esos errores, por ejemplo dándole al modelo documentos confiables para consultar, y siempre se verifican los datos importantes.
+
+Pregunta 1. ¿Qué aprendieron a hacer los modelos de lenguaje? A: buscar en internet siempre. B: pensar igual que una persona. C: predecir qué palabra sigue a partir de mucho texto. Correcta: C.
+
+Pregunta 2. Un asistente te da una cita de un libro con página y todo, pero no la encuentras en el libro. ¿Qué pasó probablemente? A: la página se borró. B: el libro está mal. C: la inventó; es una alucinación. Correcta: C.
+
+Pregunta 3. Vas a usar un asistente para tu tarea de historia. ¿Qué haces con las fechas que te da? A: las copias tal cual. B: las cambias al azar. C: las verificas en fuentes confiables. Correcta: C.
+
+**Lección 6: Construir un sistema (4 preguntas)**
+
+Un sistema de inteligencia artificial en la vida real es mucho más que el modelo. Hay que juntar y limpiar datos, entrenar, probar, ponerlo a funcionar y vigilarlo, porque el mundo cambia y el modelo se puede volver viejo. Antes de entrenar un modelo enorme conviene probar algo sencillo, que a veces es suficiente. Y siempre se pregunta si de verdad hace falta inteligencia artificial: algunos problemas se resuelven mejor con una regla simple.
+
+Pregunta 1. Una tienda quiere avisar cuando un producto tenga menos de 10 piezas. ¿Necesita inteligencia artificial? A: sí, una red neuronal. B: sí, un modelo enorme. C: no, basta con una regla simple. Correcta: C.
+
+Pregunta 2. Un modelo que predecía ventas funcionaba bien hace dos años y ahora falla mucho. ¿Qué pasó probablemente? A: se cansó. B: cambiaron las condiciones y hay que reentrenarlo con datos nuevos. C: nada. Correcta: B.
+
+Pregunta 3. ¿Por qué conviene probar primero un modelo sencillo? A: porque los grandes no sirven. B: porque a veces basta y es más barato. C: no conviene. Correcta: B.
+
+Pregunta 4. Ya pusiste a funcionar tu modelo. ¿Qué sigue? A: olvidarte de él. B: borrar los datos. C: vigilar cómo se comporta con datos reales. Correcta: C.
+
+**Lección 7: Ética y seguridad (3 preguntas)**
+
+La inteligencia artificial puede usarse mal. Con ella se hacen videos falsos de personas reales, llamados deepfakes, que pueden dañar su reputación o engañar a otros. Los datos personales usados para entrenar deben obtenerse con permiso y cuidarse. Cuando un sistema toma decisiones importantes sobre personas, como dar un crédito, debe poder explicarse y revisarse por un humano. Un ingeniero responsable piensa en cómo podría usarse mal su sistema antes de lanzarlo.
+
+Pregunta 1. Un amigo quiere hacer un video falso de un compañero diciendo cosas que no dijo, "de broma". A: lo subes a redes. B: le dices que no, porque puede dañar a esa persona. C: le ayudas. Correcta: B.
+
+Pregunta 2. Un sistema niega un crédito y nadie puede explicar por qué. ¿Qué falta? A: que se pueda explicar y que una persona pueda revisarlo. B: nada. C: más colores. Correcta: A.
+
+Pregunta 3. Antes de lanzar tu sistema, ¿qué te preguntas? A: solo cuánto cuesta. B: nada. C: cómo podría usarse mal y cómo evitarlo. Correcta: C.
+
+**Examen final**
+
+Pregunta 1. ¿Cómo aprende un modelo de aprendizaje automático? A: no aprende. B: con muchos ejemplos. C: con reglas escritas a mano. Correcta: B.
+
+Pregunta 2. Tienes 5,000 ejemplos y apartas el 20 por ciento para probar. ¿Cuántos son de prueba? A: 100. B: 1,000. C: 4,000. Correcta: B, porque
+
+$$5{,}000 \times 0.20 = 1{,}000$$
+
+Pregunta 3. Una neurona recibe 4 y 2, con pesos de 0.5 y 1. ¿Cuál es su salida? A: 4. B: 6. C: 1.5. Correcta: A, porque
+
+$$4 \times 0.5 + 2 \times 1 = 4$$
+
+Pregunta 4. Un filtro marca como spam un correo importante. ¿Qué error es? A: falso positivo. B: acierto. C: falso negativo. Correcta: A.
+
+Pregunta 5. Un detector dice "sano" a alguien enfermo. ¿Qué error es? A: acierto. B: falso positivo. C: falso negativo. Correcta: C.
+
+Pregunta 6. ¿Qué aprende un modelo de datos injustos? A: a repetir esa injusticia. B: nada. C: a ser justo solo. Correcta: A.
+
+Pregunta 7. ¿Qué es una alucinación de un modelo de lenguaje? A: un dibujo. B: un dato inventado dicho con seguridad. C: un error de ortografía. Correcta: B.
+
+Pregunta 8. ¿Qué haces con un dato importante que te dio un asistente? A: lo verificas. B: lo copias. C: lo ignoras. Correcta: A.
+
+Pregunta 9. Un problema se resuelve con una regla simple. ¿Usas inteligencia artificial? A: no hace falta. B: sí, siempre. C: sí, la más grande. Correcta: A.
+
+Pregunta 10. ¿Qué es un deepfake? A: un tipo de cable. B: un filtro de spam. C: un video falso de una persona real hecho con inteligencia artificial. Correcta: C.

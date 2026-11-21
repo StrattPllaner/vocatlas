@@ -1,0 +1,133 @@
+**Lección 1: Componentes básicos (4 preguntas)**
+
+Un circuito electrónico se arma con componentes. El resistor limita la corriente. El LED da luz, pero solo funciona en un sentido y se quema si le pasa demasiada corriente, por eso siempre lleva un resistor en serie. El capacitor guarda carga por un momento. El transistor funciona como un interruptor o amplificador controlado por una señal pequeña. Para calcular el resistor de un LED se usa la ley de Ohm con el voltaje que sobra:
+
+$$\text{resistencia} = \frac{\text{voltaje de la fuente} - \text{voltaje del LED}}{\text{corriente del LED}}$$
+
+Pregunta 1. Conectas un LED directo a una batería de 9 volts, sin resistor, y se quema. ¿Por qué? A: le pasó demasiada corriente. B: le faltó corriente. C: la batería estaba vacía. Correcta: A.
+
+Pregunta 2. Una fuente de 5 volts, un LED de 2 volts y quieres 0.02 amperes. ¿Qué resistor necesitas? A: 150 ohms. B: 100 ohms. C: 250 ohms. Correcta: A, porque
+
+$$\frac{5 - 2}{0.02} = 150$$
+
+Pregunta 3. Conectaste un LED y no prende, aunque el circuito está bien. ¿Qué revisas? A: nada. B: que no esté al revés, porque solo funciona en un sentido. C: el color de los cables. Correcta: B.
+
+Pregunta 4. ¿Qué componente funciona como interruptor controlado por una señal pequeña? A: el resistor. B: el transistor. C: el cable. Correcta: B.
+
+**Lección 2: Analógico y digital (4 preguntas)**
+
+Una señal analógica puede tomar cualquier valor dentro de un rango, como el voltaje de un micrófono que sigue la forma del sonido. Una señal digital solo tiene dos estados, 0 y 1, por ejemplo 0 volts y 5 volts. Las computadoras y los microcontroladores trabajan en digital, así que las señales del mundo real se convierten con un convertidor analógico a digital. Mientras más bits tiene el convertidor, más finos son los pasos: con 10 bits divide el rango en 1,024 niveles.
+
+$$\text{tamaño de cada paso} = \frac{\text{rango de voltaje}}{\text{número de niveles}}$$
+
+Pregunta 1. ¿Cuántos estados tiene una señal digital? A: dos, 0 y 1. B: diez. C: infinitos. Correcta: A.
+
+Pregunta 2. Un sensor de temperatura da un voltaje que cambia poco a poco. ¿Qué tipo de señal es? A: digital. B: ninguna. C: analógica. Correcta: C.
+
+Pregunta 3. Un convertidor divide 5 volts en 1,024 niveles. ¿De qué tamaño es cada paso, más o menos? A: 1,024 volts. B: 5 volts. C: 0.005 volts. Correcta: C, porque
+
+$$\frac{5}{1{,}024} = 0.0049$$
+
+Pregunta 4. ¿Para qué sirve un convertidor analógico a digital? A: para hacer ruido. B: para cargar baterías. C: para que un microcontrolador pueda leer señales del mundo real. Correcta: C.
+
+**Lección 3: Microcontroladores y sensores (3 preguntas)**
+
+Un microcontrolador es una pequeña computadora en un chip, como los de las placas Arduino. Lee sensores, decide con un programa y controla actuadores, como motores, luces o bocinas. Por ejemplo, un riego automático lee la humedad de la tierra y, si está seca, prende una bomba. Los motores y bombas suelen necesitar más corriente de la que da el microcontrolador, así que se controlan a través de un transistor o un relevador, nunca directo.
+
+Pregunta 1. Haces un riego automático. ¿Qué sensor necesitas? A: uno de humedad de la tierra. B: uno de sonido. C: uno de luz solar únicamente. Correcta: A.
+
+Pregunta 2. Conectas un motor directo a un pin del Arduino y el Arduino se reinicia o se daña. ¿Qué faltó? A: un motor más grande. B: controlarlo a través de un transistor o relevador con su propia fuente. C: nada. Correcta: B.
+
+Pregunta 3. ¿Qué hace un microcontrolador? A: solo da luz. B: lee sensores, decide con un programa y controla actuadores. C: solo guarda fotos. Correcta: B.
+
+**Lección 4: Señales y frecuencia (4 preguntas)**
+
+Muchas señales se repiten. El periodo es cuánto tarda en repetirse un ciclo, y la frecuencia es cuántos ciclos hay por segundo, medida en hertz:
+
+$$\text{frecuencia} = \frac{1}{\text{periodo}}$$
+
+La corriente de las casas en México cambia a 60 hertz. El oído humano escucha más o menos de 20 a 20,000 hertz. Las ondas de radio, el wifi y los celulares usan frecuencias mucho más altas, de millones o miles de millones de hertz. Un osciloscopio es el instrumento que dibuja la señal para medirla.
+
+Pregunta 1. Una señal se repite cada 0.01 segundos. ¿Cuál es su frecuencia? A: 0.01 hertz. B: 100 hertz. C: 10 hertz. Correcta: B, porque
+
+$$\frac{1}{0.01} = 100$$
+
+Pregunta 2. ¿A qué frecuencia cambia la corriente de las casas en México? A: un millón de hertz. B: 60 hertz. C: 5 hertz. Correcta: B.
+
+Pregunta 3. Un sonido de 50,000 hertz, ¿lo puede escuchar una persona? A: solo de noche. B: sí. C: no, está arriba de lo que capta el oído humano. Correcta: C.
+
+Pregunta 4. ¿Qué instrumento dibuja una señal para medirla? A: el termómetro. B: la regla. C: el osciloscopio. Correcta: C.
+
+**Lección 5: Velocidad de internet (3 preguntas)**
+
+La velocidad de internet se mide en megabits por segundo, pero el tamaño de los archivos se mide en megabytes. Un byte tiene 8 bits. Así que para saber cuánto tarda una descarga:
+
+$$\text{segundos} = \frac{\text{tamaño en megabytes} \times 8}{\text{velocidad en megabits por segundo}}$$
+
+Por eso una conexión de 100 megabits por segundo baja más o menos 12.5 megabytes por segundo, no 100. En la práctica sale un poco más lento por el ruido y por otras personas usando la misma red.
+
+Pregunta 1. Quieres bajar un archivo de 100 megabytes con 50 megabits por segundo. ¿Cuánto tarda, en teoría? A: 16 segundos. B: 50 segundos. C: 2 segundos. Correcta: A, porque
+
+$$\frac{100 \times 8}{50} = 16$$
+
+Pregunta 2. ¿Cuántos bits tiene un byte? A: 10. B: 1,000. C: 8. Correcta: C.
+
+Pregunta 3. Un cliente contrató 100 megabits por segundo y se queja porque su descarga va a 12 megabytes por segundo. ¿Qué le explicas? A: que es normal, porque 100 megabits son unos 12.5 megabytes. B: que cambie de computadora. C: que lo están robando. Correcta: A.
+
+**Lección 6: Wifi y antenas (4 preguntas)**
+
+El wifi transmite con ondas de radio, normalmente en 2.4 o 5 gigahertz. La banda de 2.4 llega más lejos y atraviesa mejor las paredes, pero es más lenta y tiene más interferencia, porque la usan muchos aparatos. La de 5 es más rápida, pero alcanza menos y se bloquea más con muros. El concreto, el metal y el agua debilitan la señal. Para cubrir una casa grande conviene poner el módem en un lugar central y alto, o usar repetidores o una red de varios equipos.
+
+Pregunta 1. ¿Qué banda de wifi llega más lejos y atraviesa mejor las paredes? A: 5 gigahertz. B: 2.4 gigahertz. C: igual. Correcta: B.
+
+Pregunta 2. El módem está en un rincón de la cochera, detrás de una puerta de metal, y en las recámaras no hay señal. ¿Qué propones? A: comprar más celulares. B: nada. C: moverlo a un lugar central y alto, o agregar repetidores. Correcta: C.
+
+Pregunta 3. Quieres la conexión más rápida y estás en el mismo cuarto que el módem. ¿Qué banda conviene? A: 5 gigahertz. B: 2.4 gigahertz. C: ninguna. Correcta: A.
+
+Pregunta 4. ¿Qué materiales debilitan más la señal? A: concreto, metal y agua. B: aire. C: papel. Correcta: A.
+
+**Lección 7: Baterías y reparación (3 preguntas)**
+
+La capacidad de una batería se mide en miliamperes hora. Para estimar cuánto dura:
+
+$$\text{horas} = \frac{\text{capacidad en mAh}}{\text{consumo en mA}}$$
+
+Al reparar equipos se usa el multímetro para medir voltaje, corriente y resistencia, y se revisa paso a paso desde la fuente de energía. Los chips se pueden dañar con electricidad estática, por eso se usan pulseras antiestáticas. Las baterías de litio hinchadas o golpeadas son peligrosas: pueden incendiarse.
+
+Pregunta 1. Una batería de 2,000 mAh alimenta un aparato que consume 100 mA. ¿Cuánto dura, más o menos? A: 2 horas. B: 20 horas. C: 200 horas. Correcta: B, porque
+
+$$\frac{2{,}000}{100} = 20$$
+
+Pregunta 2. Un celular no prende. ¿Por dónde empiezas a revisar? A: por la cámara. B: por la funda. C: por la alimentación: cargador, cable y batería. Correcta: C.
+
+Pregunta 3. Abres un celular y la batería está hinchada. A: la cargas toda la noche. B: la aplastas para que quepa. C: no la perforas ni la presionas; la retiras con cuidado y se desecha de forma segura. Correcta: C.
+
+**Examen final**
+
+Pregunta 1. ¿Por qué un LED necesita un resistor? A: para dar más luz. B: para limitar la corriente y que no se queme. C: no lo necesita. Correcta: B.
+
+Pregunta 2. Una fuente de 9 volts, un LED de 3 volts y quieres 0.02 amperes. ¿Qué resistor necesitas? A: 300 ohms. B: 450 ohms. C: 150 ohms. Correcta: A, porque
+
+$$\frac{9 - 3}{0.02} = 300$$
+
+Pregunta 3. ¿Cuántos estados tiene una señal digital? A: tres. B: dos. C: infinitos. Correcta: B.
+
+Pregunta 4. ¿Cómo se controla un motor con un microcontrolador? A: directo al pin. B: a través de un transistor o relevador. C: no se puede. Correcta: B.
+
+Pregunta 5. Una señal se repite cada 0.02 segundos. ¿Cuál es su frecuencia? A: 20 hertz. B: 0.02 hertz. C: 50 hertz. Correcta: C, porque
+
+$$\frac{1}{0.02} = 50$$
+
+Pregunta 6. Un archivo de 50 megabytes con 100 megabits por segundo. ¿Cuánto tarda, en teoría? A: 2 segundos. B: 4 segundos. C: 50 segundos. Correcta: B, porque
+
+$$\frac{50 \times 8}{100} = 4$$
+
+Pregunta 7. ¿Qué banda de wifi es más rápida pero alcanza menos? A: 5 gigahertz. B: ninguna. C: 2.4 gigahertz. Correcta: A.
+
+Pregunta 8. Una batería de 3,000 mAh y un consumo de 150 mA. ¿Cuánto dura? A: 20 horas. B: 450 horas. C: 2 horas. Correcta: A, porque
+
+$$\frac{3{,}000}{150} = 20$$
+
+Pregunta 9. ¿Para qué se usa la pulsera antiestática? A: para medir voltaje. B: por moda. C: para no dañar los chips con electricidad estática. Correcta: C.
+
+Pregunta 10. ¿Qué haces con una batería de litio hinchada? A: la retiras con cuidado y se desecha de forma segura. B: la cargas. C: la aplastas. Correcta: A.

@@ -1,202 +1,151 @@
 {
  "id": "disindustrial",
- "version": 1,
+ "version": 2,
+ "formato": 2,
  "estado": "completo",
- "generado": true,
- "revision": "Armada automáticamente con la base de carreras de Morelos y CDMX (2026-11-17). Falta que la revise alguien de la carrera.",
+ "revision": "Pendiente de revisión por un profesionista de la carrera. Generado con datos/importar_lecciones.py desde datos/fuentes/lecciones/disindustrial.lec; no se edita a mano.",
  "unidades": [
   {
    "id": "u1",
+   "titulo": "Para quién",
+   "sub": "Personas y proceso",
    "lecciones": [
     {
-     "id": "1.1",
-     "titulo": "Qué es y qué hace",
-     "minutos": 3,
+     "id": "0",
+     "titulo": "Conócela",
+     "minutos": 1,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "¿Qué es Diseño industrial?",
-       "texto": "Creación, interpretación y comunicación mediante lenguajes visuales, escénicos, audiovisuales o sonoros. Combina técnica, práctica constante, desarrollo de portafolio y proyectos."
+       "tipo": "ficha",
+       "texto": "Diseño Industrial forma diseñadores de objetos que se fabrican en serie: muebles, herramientas, electrodomésticos, juguetes y empaques. Combinan creatividad, observación de las personas, materiales y procesos de fabricación.",
+       "cifras": [
+        "disindustrial.ingreso",
+        "disindustrial.duracion",
+        "disindustrial.costo_publica",
+        "disindustrial.costo_privada"
+       ]
       },
       {
-       "tipo": "vf",
-       "afirmacion": "Con el nombre de la carrera ya sabes cómo es Diseño industrial.",
-       "respuesta": false,
-       "revelacion": "El nombre dice poco: lo que importa es qué harías cada día."
-      },
-      {
-       "tipo": "completar",
-       "frase": "Diseño industrial es una carrera del área de ___.",
-       "opciones": [
-        "Arte y comunicación",
-        "Negocios y sociedad",
-        "Ingenierías"
-       ],
-       "correcta": 0,
-       "revelacion": "Está en Arte y comunicación. Se parece a Arquitectura, Diseño Gráfico y Comunicación Visual, Ingeniería Mecatrónica."
-      },
-      {
-       "tipo": "clave",
-       "texto": "Antes de elegir, entiende qué harías cada día, no solo el nombre."
-      },
-      {
-       "tipo": "interes"
+       "tipo": "escena",
+       "texto": "Hoy diseñas un objeto que miles de personas van a usar. Vamos a ver si lo entienden."
       }
      ]
     },
     {
-     "id": "1.2",
-     "titulo": "Dónde trabajas",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Dónde trabaja alguien de Diseño industrial",
-       "texto": "Estudios creativos, agencias, productoras, editoriales, museos, instituciones culturales, compañías escénicas, medios, entretenimiento, trabajo independiente y emprendimientos.",
-       "puntos": [
-        "El portafolio y la experiencia son decisivos."
-       ]
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Alguien de Diseño industrial solo puede trabajar en un tipo de lugar.",
-       "respuesta": false,
-       "revelacion": "Puede trabajar en varios: estudios creativos, agencias, productoras."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Dónde te ves trabajando?",
-       "opciones": [
-        "Estudios creativos",
-        "Agencias",
-        "Productoras",
-        "Editoriales"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Una carrera abre varias puertas, no una sola."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "1.3",
-     "titulo": "Pregúntale a Rumbo",
+     "id": "1",
+     "titulo": "Diseñar para personas",
      "minutos": 4,
      "tarjetas": [
       {
-       "tipo": "chat",
-       "subtitulo": "Te cuenta cómo es trabajar en Diseño industrial",
-       "intro": [
-        "¡Hola! Junté lo que se sabe de Diseño industrial.",
-        "Pregúntame lo que quieras."
-       ],
-       "temas": [
+       "tipo": "info",
+       "titulo": "Diseñar para personas",
+       "partes": [
         {
-         "q": "¿Qué es lo más difícil?",
-         "a": [
-          "Se considera una carrera de dificultad media-alta.",
-          "Talleres de proyecto, Materiales y procesos de manufactura, modelado 3D."
-         ]
-        },
-        {
-         "q": "¿Hay trabajo?",
-         "a": [
-          "Menos de la mitad trabaja en algo de su carrera; muchos se mueven a otras áreas. Es un promedio nacional del IMCO."
-         ]
-        },
-        {
-         "q": "¿Qué necesito para ejercer?",
-         "a": [
-          "No requiere cédula",
-          "El portafolio es clave."
-         ]
+         "t": "Un diseñador industrial diseña objetos que se fabrican en serie: sillas, licuadoras, herramientas, empaques, juguetes. Todo empieza por quién lo va a usar. Las personas son de muchos tamaños, así que se usan tablas de medidas del cuerpo llamadas antropométricas. Normalmente se diseña para que el objeto funcione desde la persona chica hasta la grande, del percentil 5 al 95, que cubre a 90 de cada 100 personas. Para algo que todos deben alcanzar, como un botón de emergencia, se piensa en la persona más bajita; para algo por donde todos deben pasar, como una puerta, en la más alta."
         }
-       ],
-       "minimo": 2,
-       "auto": true
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Diseño industrial se considera una carrera de dificultad media-alta.",
-       "respuesta": true,
-       "revelacion": "Se considera de dificultad media-alta. Talleres de proyecto, Materiales y procesos de manufactura, modelado 3D."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué te llamó más la atención?",
-       "opciones": [
-        "¿Qué es lo más difícil?",
-        "¿Hay trabajo?",
-        "¿Qué necesito para ejercer?"
        ]
       },
       {
-       "tipo": "clave",
-       "texto": "Preguntar a quien ya sabe ahorra muchos errores."
+       "tipo": "pregunta",
+       "pregunta": "¿Para quién diseñas la altura de un botón que todos deben alcanzar?",
+       "opciones": [
+        "Para la persona más bajita",
+        "Para la más alta",
+        "Para el diseñador"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "¿Y la altura de una puerta, por donde todos deben pasar sin agacharse?",
+       "opciones": [
+        "Para la persona más alta",
+        "Para un niño",
+        "Para la más bajita"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Diseñas un asiento de autobús solo con tus propias medidas. ¿Qué problema hay?",
+       "opciones": [
+        "Puede no servirle a gente más alta, más baja o más ancha que tú",
+        "Que es más barato",
+        "Ninguno"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Qué parte de la población cubre diseñar del percentil 5 al 95?",
+       "opciones": [
+        "90 de cada 100 personas",
+        "Todas",
+        "La mitad"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
-     "id": "1.4",
-     "titulo": "Carreras parecidas",
-     "minutos": 3,
+     "id": "2",
+     "titulo": "El proceso de diseño",
+     "minutos": 4,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Carreras cercanas a Diseño industrial",
-       "puntos": [
-        "Arquitectura: diseño y planificación de edificios, espacios y ciudades.",
-        "Diseño Gráfico y Comunicación Visual: creación, interpretación y comunicación mediante lenguajes visuales, escénicos.",
-        "Ingeniería Mecatrónica: aplicación de matemáticas, ciencias y tecnología para diseñar, construir.",
-        "Diseño de Modas y Textil: creación, interpretación y comunicación mediante lenguajes visuales, escénicos."
+       "titulo": "El proceso de diseño",
+       "partes": [
+        {
+         "t": "El diseño no empieza dibujando. Primero se investiga: se observa a las personas usando productos parecidos, se les pregunta y se buscan problemas reales. Luego se generan muchas ideas en bocetos rápidos, sin enamorarse de la primera. Las mejores se convierten en prototipos, desde modelos de cartón hasta piezas impresas en 3D, y se prueban con usuarios. Lo que falla se corrige y se vuelve a probar. Es más barato equivocarse con un prototipo de cartón que con mil piezas fabricadas."
+        }
        ]
       },
       {
-       "tipo": "emparejar",
-       "pregunta": "Une cada carrera con lo que estudia.",
-       "pares": [
-        [
-         "Arquitectura",
-         "Diseño y planificación de edificios, espacios y ciudades"
-        ],
-        [
-         "Diseño Gráfico y Comunicación Visual",
-         "Creación, interpretación y comunicación mediante lenguajes visuales, escénicos"
-        ],
-        [
-         "Ingeniería Mecatrónica",
-         "Aplicación de matemáticas, ciencias y tecnología para diseñar, construir"
-        ],
-        [
-         "Diseño de Modas y Textil",
-         "Creación, interpretación y comunicación mediante lenguajes visuales, escénicos"
-        ]
-       ],
-       "revelacion": "Se cruzan en temas, pero cada una tiene su propio enfoque."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Cuál de estas te da curiosidad?",
+       "tipo": "pregunta",
+       "pregunta": "¿Qué haces antes de dibujar una nueva silla para escuelas?",
        "opciones": [
-        "Arquitectura",
-        "Diseño Gráfico y Comunicación Visual",
-        "Ingeniería Mecatrónica",
-        "Me quedo con Diseño industrial"
-       ]
+        "Copias una de internet",
+        "Dibujas la silla más bonita que se te ocurra",
+        "Observas a los alumnos usando sus sillas actuales y les preguntas"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "clave",
-       "texto": "Si dudas entre dos, compara lo que harías cada día."
+       "tipo": "pregunta",
+       "pregunta": "¿Por qué se hacen muchos bocetos al principio?",
+       "opciones": [
+        "Porque es obligatorio",
+        "Para explorar varias ideas sin quedarse con la primera",
+        "Para gastar papel"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "Tu prototipo de cartón muestra que el mango se resbala de la mano. ¿Qué haces?",
+       "opciones": [
+        "Lo corriges y vuelves a probar",
+        "Lo mandas a fabricar igual",
+        "Culpas al usuario"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Por qué se prueba con prototipos baratos?",
+       "opciones": [
+        "No se prueban",
+        "Para que se vean feos",
+        "Porque equivocarse ahí cuesta mucho menos que con piezas fabricadas"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "teves"
       }
      ]
     }
@@ -204,202 +153,122 @@
   },
   {
    "id": "u2",
+   "titulo": "Cómo se hace",
+   "sub": "Forma, materiales y procesos",
    "lecciones": [
     {
-     "id": "2.1",
-     "titulo": "Mini reto",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Diseñas una silla para un salón de clases. ¿Qué piensas primero?",
-       "opciones": [
-        "Quién la usa, cuánto aguanta y cómo se apila",
-        "Que se vea muy original",
-        "Que sea de un material caro"
-       ]
-      },
-      {
-       "tipo": "info",
-       "titulo": "Así lo piensa alguien de Diseño industrial",
-       "texto": "Un objeto bien diseñado funciona, se fabrica y dura. La carrera junta dibujo, modelado en 3D y prototipos."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Te gustó pensar en algo así?",
-       "escala": [
-        "Nada",
-        "Mucho"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Los retos de una carrera se parecen a lo que harías en su trabajo."
-      },
-      {
-       "tipo": "interes",
-       "pregunta": "¿Te ves resolviendo retos así?"
-      }
-     ]
-    },
-    {
-     "id": "2.2",
-     "titulo": "Lo que te piden",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Habilidades que usarás en Diseño industrial",
-       "puntos": [
-        "Creatividad práctica",
-        "Dibujo y modelado 3D",
-        "Habilidad manual",
-        "Entender materiales"
-       ]
-      },
-      {
-       "tipo": "completar",
-       "pregunta": "Según lo que leíste, completa la frase.",
-       "frase": "Para Diseño industrial es clave: ___.",
-       "opciones": [
-        "Creatividad práctica",
-        "Redacción",
-        "Química y matemáticas fuertes"
-       ],
-       "correcta": 0,
-       "revelacion": "Es de las habilidades que más se usan en Diseño industrial."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué tanto se te da esto: dibujo y modelado 3d?",
-       "escala": [
-        "Me cuesta",
-        "Se me da"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Las habilidades se entrenan; lo importante es que te guste usarlas."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "2.3",
-     "titulo": "Temas que vas a ver",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Temas que te deben gustar",
-       "puntos": [
-        "Objetos y productos",
-        "Construir prototipos",
-        "Arte y tecnología"
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "¿Cuál de estos temas es más de Diseño industrial?",
-       "opciones": [
-        {
-         "texto": "Objetos y productos",
-         "consecuencia": "Sí, es de sus temas centrales.",
-         "mejor": true
-        },
-        {
-         "texto": "Deporte",
-         "consecuencia": "Ese es más de Educación física."
-        },
-        {
-         "texto": "Cómo funciona el país y el dinero",
-         "consecuencia": "Ese es más de Economía."
-        }
-       ]
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Cuál de estos temas te gusta más?",
-       "opciones": [
-        "Objetos y productos",
-        "Construir prototipos",
-        "Arte y tecnología",
-        "Ninguno me late"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Si los temas te aburren, la carrera se hace muy larga."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "2.4",
-     "titulo": "Materias clave",
+     "id": "3",
+     "titulo": "Forma y uso",
      "minutos": 4,
      "tarjetas": [
       {
-       "tipo": "voltear",
-       "pregunta": "¿Qué materias crees que llevas en cada etapa? Piénsalo y voltea.",
-       "cartas": [
+       "tipo": "info",
+       "titulo": "Forma y uso",
+       "partes": [
         {
-         "frente": "Semestres 1-2",
-         "reverso": "Dibujo y bocetaje, Geometría, Teoría del diseño, Maquetas"
-        },
-        {
-         "frente": "Semestres 3-4",
-         "reverso": "Materiales, Procesos de manufactura, Ergonomía, Modelado 3D (CAD)"
-        },
-        {
-         "frente": "Semestres 5-6",
-         "reverso": "Diseño de producto, Prototipado (impresión 3D, taller), Diseño sustentable, Mercadotecnia"
-        },
-        {
-         "frente": "Semestres 7 en adelante",
-         "reverso": "Proyecto con empresa, Portafolio"
+         "t": "Un buen objeto se entiende solo: su forma dice cómo se usa. Una manija que invita a jalar, un botón que parece presionable, un hueco que sugiere dónde poner los dedos. Cuando un objeto necesita un letrero de \"jale\" o \"empuje\", muchas veces es porque su forma confunde. También se piensa en el error: un buen diseño hace difícil equivocarse, como un enchufe que solo entra de una forma."
         }
        ]
       },
       {
-       "tipo": "decision",
-       "pregunta": "¿Cuál de estas materias llevarías en Diseño industrial?",
+       "tipo": "pregunta",
+       "pregunta": "Una puerta con manija de jalar tiene un letrero que dice \"empuje\". ¿Qué problema de diseño hay?",
        "opciones": [
+        "La forma de la manija sugiere lo contrario de lo que hay que hacer",
+        "Ninguno",
+        "Que el letrero es chico"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Para qué sirve que un conector solo entre de una forma?",
+       "opciones": [
+        "Para que sea más caro",
+        "Para que sea difícil equivocarse",
+        "Por estética"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "En unas pruebas, la gente no encuentra cómo abrir tu empaque.",
+       "opciones": [
+        "Pones instrucciones larguísimas",
+        "Lo dejas",
+        "Rediseñas para que la forma muestre por dónde se abre"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "teves"
+      }
+     ]
+    },
+    {
+     "id": "4",
+     "titulo": "Materiales y procesos",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "Materiales y procesos",
+       "partes": [
         {
-         "texto": "Dibujo y bocetaje",
-         "consecuencia": "Sí: es de las primeras materias de Diseño industrial.",
-         "mejor": true
+         "t": "Cada material se fabrica con ciertos procesos. Muchas piezas de plástico se hacen por inyección: el plástico derretido se mete a un molde de acero. El molde es muy caro, pero después cada pieza sale baratísima y rapidísima. Por eso la inyección conviene cuando se van a hacer muchas piezas. El costo por pieza se calcula así:"
         },
         {
-         "texto": "Contabilidad básica",
-         "consecuencia": "Esa es de Contaduría."
+         "f": "costo por pieza = {costo del molde|número de piezas} + material y proceso de cada pieza"
         },
         {
-         "texto": "Cálculo",
-         "consecuencia": "Esa es de Ing. Mecánica."
+         "t": "Para pocas piezas convienen otros procesos, como la impresión 3D o el maquinado, que no necesitan molde."
         }
        ]
       },
       {
-       "tipo": "reflexion",
-       "pregunta": "¿Cuál te da más curiosidad?",
+       "tipo": "pregunta",
+       "pregunta": "Un molde cuesta 200,000 pesos y cada pieza cuesta 5 pesos de material. Si haces 10,000 piezas, ¿cuánto cuesta cada una?",
        "opciones": [
-        "Dibujo y bocetaje",
-        "Geometría",
-        "Teoría del diseño",
-        "Maquetas"
-       ]
+        "5 pesos",
+        "25 pesos",
+        "200,005 pesos"
+       ],
+       "correcta": 1,
+       "formula": "{200,000|10,000} + 5 = 25"
       },
       {
-       "tipo": "clave",
-       "texto": "Las primeras materias son la base; muchas veces son las más pesadas."
+       "tipo": "pregunta",
+       "pregunta": "Si haces 100,000 piezas con el mismo molde, ¿cuánto cuesta cada una?",
+       "opciones": [
+        "7 pesos",
+        "25 pesos",
+        "2 pesos"
+       ],
+       "correcta": 0,
+       "formula": "{200,000|100,000} + 5 = 7"
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "Necesitas 20 piezas para un prototipo. ¿Qué proceso conviene?",
+       "opciones": [
+        "Ninguno",
+        "Impresión 3D o maquinado, sin molde",
+        "Inyección con un molde de 200,000 pesos"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Por qué la inyección conviene para muchas piezas?",
+       "opciones": [
+        "No conviene",
+        "Porque el costo del molde se reparte entre muchas",
+        "Porque el molde es barato"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "teves"
       }
      ]
     }
@@ -407,173 +276,163 @@
   },
   {
    "id": "u3",
+   "titulo": "Al mundo real",
+   "sub": "Sustentabilidad, fábrica y registro",
    "lecciones": [
     {
-     "id": "3.1",
-     "titulo": "Un día real",
+     "id": "5",
+     "titulo": "Sustentabilidad",
      "minutos": 4,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Un día de trabajo en Diseño industrial",
-       "puntos": [
-        "Revisa con alguien que la ejerza cómo es su día."
-       ]
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué parte del día te gustaría más?",
-       "opciones": [
-        "Trabajar con personas",
-        "Resolver problemas",
-        "Crear algo",
-        "Organizar"
-       ]
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Te ves haciendo esto todos los días?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "El día a día pesa más que el título."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "3.2",
-     "titulo": "Lo difícil",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Lo difícil de Diseño industrial",
-       "texto": "Se considera de dificultad media-alta.",
-       "puntos": [
-        "Talleres de proyecto, Materiales y procesos de manufactura, modelado 3D."
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "Según lo que leíste, ¿qué es lo que más cuesta en Diseño industrial?",
-       "opciones": [
+       "titulo": "Sustentabilidad",
+       "partes": [
         {
-         "texto": "Talleres de proyecto, Materiales y procesos de manufactura, modelado 3D.",
-         "consecuencia": "Sí, es de lo que más cuesta en Diseño industrial.",
-         "mejor": true
-        },
-        {
-         "texto": "Muchas matemáticas (Álgebra lineal, Probabilidad, Optimización) y Programación avanzada.",
-         "consecuencia": "Eso es más de Inteligencia artificial."
-        },
-        {
-         "texto": "Derecho aduanero, Logística internacional y Finanzas internacionales",
-         "consecuencia": "Eso es más de Negocios internacionales."
+         "t": "Un producto tiene un ciclo de vida: se extraen materiales, se fabrica, se transporta, se usa y al final se tira, se repara o se recicla. El diseñador decide mucho de ese impacto desde el principio. Un objeto que se puede desarmar y reparar dura más. Uno hecho de un solo material es más fácil de reciclar que uno con varios materiales pegados. Hacer piezas más ligeras ahorra material y transporte."
         }
        ]
       },
       {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué tanto te preocupa esto?",
-       "escala": [
-        "Mucho",
-        "Nada"
-       ]
+       "tipo": "pregunta",
+       "pregunta": "Un empaque tiene cartón pegado a plástico de forma que no se pueden separar. ¿Qué problema tiene?",
+       "opciones": [
+        "Es difícil de reciclar",
+        "Ninguno",
+        "Es muy fuerte"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "clave",
-       "texto": "Saber lo difícil desde antes te ayuda a prepararte."
+       "tipo": "pregunta",
+       "pregunta": "¿Qué hace que un producto dure más?",
+       "opciones": [
+        "Que sea de colores",
+        "Que esté sellado con pegamento",
+        "Que se pueda desarmar y reparar"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "¿Qué es el ciclo de vida de un producto?",
+       "opciones": [
+        "Su garantía",
+        "Cuánto tiempo está en la tienda",
+        "Desde que se sacan sus materiales hasta que se desecha o recicla"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
-     "id": "3.3",
-     "titulo": "Historia real",
-     "minutos": 3,
+     "id": "6",
+     "titulo": "Producir de verdad",
+     "minutos": 4,
      "tarjetas": [
       {
-       "tipo": "reflexion",
-       "pregunta": "Si pudieras preguntarle algo a alguien que ya estudia Diseño industrial, ¿qué sería?",
-       "opciones": [
-        "¿Qué fue lo más difícil?",
-        "¿Qué te sorprendió?",
-        "¿Volverías a elegirla?",
-        "¿Cómo es un día normal?"
+       "tipo": "info",
+       "titulo": "Producir de verdad",
+       "partes": [
+        {
+         "t": "Un diseño bonito que no se puede fabricar no sirve. El diseñador trabaja con ingenieros y fábricas para que las piezas salgan bien del molde, se puedan armar rápido y cuesten lo que el cliente puede pagar. Por ejemplo, las piezas de plástico inyectado necesitan paredes de grosor parejo y pequeñas inclinaciones para salir del molde. Menos piezas y menos tornillos significan armado más barato. El precio final tiene que dejar ganancia a la fábrica y a la tienda."
+        }
        ]
       },
       {
-       "tipo": "testimonio",
-       "estado": "pendiente",
-       "perfil": "Estudiante de últimos semestres o egresado de Diseño industrial"
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "Mientras llega esta historia, ¿a quién podrías preguntarle tú?",
+       "tipo": "pregunta",
+       "pregunta": "Tu diseño tiene 15 tornillos distintos. ¿Qué propones?",
        "opciones": [
-        "A un familiar o conocido que la estudió",
-        "A un estudiante de mi ciudad",
-        "A un maestro que la conozca",
-        "Todavía no conozco a nadie"
-       ]
+        "Agregar más",
+        "Reducir piezas y tornillos para armar más fácil y barato",
+        "Dejarlo"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "clave",
-       "texto": "Una persona real te cuenta lo que ningún folleto dice."
+       "tipo": "pregunta",
+       "pregunta": "¿Por qué las piezas inyectadas necesitan paredes de grosor parejo?",
+       "opciones": [
+        "Por estética",
+        "Para que salgan bien del molde sin deformarse",
+        "No lo necesitan"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "Tu cliente quiere vender una lámpara en 300 pesos y tu diseño cuesta 280 de fabricar. ¿Qué problema hay?",
+       "opciones": [
+        "No deja ganancia suficiente para fábrica y tienda; hay que bajar costos",
+        "Ninguno",
+        "Que es barata"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Con quién trabaja el diseñador para que el producto se pueda fabricar?",
+       "opciones": [
+        "Solo con el cliente",
+        "Con ingenieros y la fábrica",
+        "Con nadie"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
-     "id": "3.4",
-     "titulo": "¿Es para ti?",
-     "minutos": 3,
+     "id": "7",
+     "titulo": "Proteger tu diseño",
+     "minutos": 4,
      "tarjetas": [
       {
-       "tipo": "escena",
-       "texto": "Contesta con honestidad. Nadie más ve tus respuestas."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Me fijo en cómo están hechos los objetos?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
+       "tipo": "info",
+       "titulo": "Proteger tu diseño",
+       "partes": [
+        {
+         "t": "En México, el aspecto nuevo de un objeto se puede registrar como diseño industrial ante el IMPI, y un invento que resuelve un problema técnico de forma nueva se puede patentar. Así otros no pueden copiarlo legalmente durante cierto tiempo. Para registrarlo tiene que ser nuevo: si lo publicas en redes antes, puedes perder la novedad. Y copiar el diseño protegido de otra empresa puede traerte demandas."
+        }
        ]
       },
       {
-       "tipo": "reflexion",
-       "pregunta": "¿Me gusta construir maquetas o prototipos?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
+       "tipo": "pregunta",
+       "pregunta": "¿Dónde se registra un diseño industrial en México?",
+       "opciones": [
+        "En el SAT",
+        "En el IMSS",
+        "En el IMPI"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "reflexion",
-       "pregunta": "¿Me interesa mezclar arte con ingeniería?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
+       "tipo": "pregunta",
+       "pregunta": "Quieres registrar tu diseño, pero ya lo subiste a redes hace un año. ¿Qué riesgo hay?",
+       "opciones": [
+        "Ninguno",
+        "Que se vuelva más valioso",
+        "Que ya no se considere nuevo"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "clave",
-       "texto": "Si dijiste que sí a casi todo, vale la pena seguir explorándola."
+       "tipo": "pregunta",
+       "pregunta": "Un cliente te pide copiar exactamente una silla famosa protegida.",
+       "opciones": [
+        "La copias",
+        "Le propones un diseño propio",
+        "La copias cambiándole el color"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "interes"
+       "tipo": "teves"
       }
      ]
     }
@@ -581,448 +440,125 @@
   },
   {
    "id": "u4",
+   "titulo": "Examen final",
+   "sub": "10 preguntas · apruebas con 7",
    "lecciones": [
     {
-     "id": "4.1",
-     "titulo": "Cuánto dura y qué estudias",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Cada escuela arma su plan distinto, pero el orden general se parece. Vamos a verlo."
-      },
-      {
-       "tipo": "ordenar",
-       "pregunta": "Ordena lo que estudias, de lo primero a lo último.",
-       "pasos": [
-        "Dibujo y bocetaje, Geometría",
-        "Materiales, Procesos de manufactura",
-        "Diseño de producto, Prototipado (impresión 3D, taller)",
-        "Proyecto con empresa, Portafolio"
-       ],
-       "revelacion": "Primero las bases y al final lo más especializado y las prácticas."
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Cuántos años crees que pasan desde que entras hasta que te titulas?",
-       "min": 3,
-       "max": 10,
-       "paso": 1,
-       "unidad": "años",
-       "dato": "disindustrial.duracion"
-      },
-      {
-       "tipo": "clave",
-       "texto": "Revisa el mapa curricular de cada escuela: cambia de una a otra."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "4.2",
-     "titulo": "Cómo se entra",
-     "minutos": 4,
+     "id": "ex",
+     "titulo": "Examen final",
+     "minutos": 6,
+     "examen": true,
+     "aprobar": 7,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Cómo se entra en la región",
-       "puntos": [
-        "UNAM: Concurso de selección UNAM (120 reactivos) o pase reglamentado desde CCH/ENP",
-        "UAM: Examen de selección UAM (trimestral; dos procesos al año y procesos extraordinarios)",
-        "Tec de Monterrey: PAA (Prueba de Aptitud Académica), SAT o ACT + promedio + perfil integral (ensayo, currículum)",
-        "IBERO: Examen de admisión propio + promedio de bachillerato"
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "Según lo que leíste, ¿qué pide UNAM para entrar?",
-       "opciones": [
+       "titulo": "Examen final",
+       "partes": [
         {
-         "texto": "Concurso de selección UNAM (120 reactivos) o pase reglamentado desde CCH/ENP",
-         "consecuencia": "Exacto.",
-         "mejor": true
-        },
-        {
-         "texto": "Examen de selección UAM (trimestral; dos procesos al año y procesos extraordinarios)",
-         "consecuencia": "Eso lo pide UAM."
-        },
-        {
-         "texto": "PAA (Prueba de Aptitud Académica), SAT o ACT + promedio + perfil integral (ensayo, currículum)",
-         "consecuencia": "Eso lo pide Tec de Monterrey."
+         "t": "Son 10 casos nuevos que mezclan todas las lecciones. Apruebas con 7. Si no, lo repites y las que fallaste regresan con otras palabras."
         }
        ]
       },
       {
-       "tipo": "vf",
-       "afirmacion": "Todas las universidades usan el mismo examen.",
-       "respuesta": false,
-       "revelacion": "Cada una tiene el suyo: revisa la convocatoria de la que te interese."
-      },
-      {
-       "tipo": "clave",
-       "texto": "Conoce el examen de tu escuela desde antes."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "4.3",
-     "titulo": "Dónde, cuánto cuesta y becas",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "escuelas"
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Cuánto crees que cuesta un semestre en una universidad pública?",
-       "min": 0,
-       "max": 60000,
-       "paso": 1000,
-       "unidad": "pesos",
-       "dato": "disindustrial.costo_publica"
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Y un semestre en una universidad privada?",
-       "min": 0,
-       "max": 300000,
-       "paso": 5000,
-       "unidad": "pesos",
-       "dato": "disindustrial.costo_privada"
-      },
-      {
-       "tipo": "dato",
-       "titulo": "Becas para estudiar Diseño industrial",
-       "dato": "disindustrial.becas"
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Una universidad cara garantiza un mejor empleo.",
-       "respuesta": false,
-       "revelacion": "Pesan más lo que aprendes, tus prácticas y tu esfuerzo."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué pesa más para ti al elegir escuela?",
+       "tipo": "pregunta",
+       "pregunta": "¿Para quién se diseña la altura de un botón que todos deben alcanzar?",
        "opciones": [
-        "El costo",
-        "Que esté cerca de mi casa",
-        "El prestigio",
-        "Las prácticas que ofrece"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Además de la colegiatura, cuenta transporte y materiales."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "u5",
-   "lecciones": [
-    {
-     "id": "5.1",
-     "titulo": "Qué piden para trabajar",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Qué te piden para trabajar",
-       "puntos": [
-        "No requiere cédula",
-        "El portafolio es clave."
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "Según lo que leíste, ¿qué necesitas para ejercer Diseño industrial?",
-       "opciones": [
-        {
-         "texto": "No requiere cédula",
-         "consecuencia": "Exacto.",
-         "mejor": true
-        },
-        {
-         "texto": "No requiere cédula",
-         "consecuencia": "Eso lo piden en Ciencia de datos."
-        },
-        {
-         "texto": "Para ser agente aduanal se requiere patente",
-         "consecuencia": "Eso lo piden en Negocios internacionales."
-        }
-       ]
-      },
-      {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Cómo te ves?",
-       "a": {
-        "texto": "En una institución o empresa",
-        "dice": "Más estabilidad y un equipo de quien aprender."
-       },
-       "b": {
-        "texto": "Por tu cuenta",
-        "dice": "Más libertad, pero tienes que conseguir clientes."
-       }
-      },
-      {
-       "tipo": "clave",
-       "texto": "Saber qué te piden te ahorra sorpresas al salir."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "5.2",
-     "titulo": "Sueldo y demanda",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Hablemos de dinero sin rodeos. Antes de ver cualquier cifra, apuesta: así recuerdas mejor el dato real."
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Cuánto crees que gana al mes, en promedio, un profesionista de Diseño industrial en México?",
-       "min": 5000,
-       "max": 100000,
-       "paso": 1000,
-       "unidad": "pesos",
-       "dato": "disindustrial.ingreso"
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "De cada 100 egresados, ¿cuántos crees que trabajan en algo de su carrera?",
-       "min": 0,
-       "max": 100,
-       "paso": 5,
-       "unidad": "de cada 100",
-       "dato": "disindustrial.ocupacion_afin"
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Todos los egresados de Diseño industrial ganan lo mismo.",
-       "respuesta": false,
-       "revelacion": "Cambia con la experiencia, el lugar, la especialidad y si trabajas por tu cuenta."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué tanto pesa el sueldo en tu decisión?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "El promedio orienta, pero tu camino puede ser distinto."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "5.3",
-     "titulo": "Cómo les va al salir",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "chat",
-       "subtitulo": "Te cuenta cómo les va al salir",
-       "intro": [
-        "Te cuento cómo les va a quienes estudian Diseño industrial al salir."
+        "Para el promedio",
+        "Para la más alta",
+        "Para la persona más bajita"
        ],
-       "temas": [
-        {
-         "q": "¿Cuántos trabajan en lo suyo?",
-         "a": [
-          "Menos de la mitad trabaja en algo de su carrera.",
-          "Es un promedio nacional del IMCO."
-         ]
-        },
-        {
-         "q": "¿Muchos hacen posgrado?",
-         "a": [
-          "Pocos hacen posgrado; la mayoría empieza a trabajar."
-         ]
-        },
-        {
-         "q": "¿Hay más hombres o mujeres?",
-         "a": [
-          "Hay más mujeres que hombres.",
-          "Eso no decide nada: cualquiera puede estudiarla."
-         ]
-        },
-        {
-         "q": "¿El trabajo tiene prestaciones?",
-         "a": [
-          "La mayoría tiene un trabajo formal, con prestaciones.",
-          "Las prestaciones son cosas como seguro médico y aguinaldo."
-         ]
-        }
+       "correcta": 2
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Qué haces antes de dibujar?",
+       "opciones": [
+        "Investigar a los usuarios",
+        "Fabricar",
+        "Elegir colores"
        ],
-       "minimo": 2
+       "correcta": 0
       },
       {
-       "tipo": "vf",
-       "afirmacion": "La mayoría de quienes estudian Diseño industrial trabaja en algo de su carrera.",
-       "respuesta": false,
-       "revelacion": "Menos de la mitad trabaja en algo de su carrera. Promedio nacional del IMCO."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué te importa más de tu futuro trabajo?",
+       "tipo": "pregunta",
+       "pregunta": "¿Por qué se hacen prototipos baratos?",
        "opciones": [
-        "Que tenga que ver con lo que estudié",
-        "Ganar bien",
-        "Tener prestaciones",
-        "Hacer algo que me guste"
-       ]
+        "Para venderlos",
+        "Para equivocarse barato antes de fabricar",
+        "No se hacen"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "clave",
-       "texto": "Pregunta cómo les va a quienes ya salieron."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "5.4",
-     "titulo": "Después de titularte",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Después de titularte",
-       "puntos": [
-        "Puedes especializarte con cursos, diplomados o una maestría.",
-        "También puedes trabajar desde el inicio y estudiar después.",
-        "Se combina bien con: Arquitectura, Diseño Gráfico y Comunicación Visual, Ingeniería Mecatrónica."
-       ]
-      },
-      {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Qué harías al terminar?",
-       "a": {
-        "texto": "Trabajar desde el inicio",
-        "dice": "Ganas experiencia y dinero; después decides si estudias más."
-       },
-       "b": {
-        "texto": "Seguir estudiando",
-        "dice": "Te especializas antes; tardas más en empezar a trabajar."
-       }
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Cómo te imaginas después de la carrera?",
+       "tipo": "pregunta",
+       "pregunta": "Una puerta necesita un letrero de \"empuje\". ¿Qué suele indicar?",
        "opciones": [
-        "Trabajando",
-        "En una maestría",
-        "Emprendiendo",
-        "No sé todavía"
-       ]
+        "Nada",
+        "Que está bien diseñada",
+        "Que su forma confunde"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "clave",
-       "texto": "Al titularte empieza otra parte del camino, no termina."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "u6",
-   "lecciones": [
-    {
-     "id": "6.1",
-     "titulo": "Lo que sentiste",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Antes de ver tus respuestas: ¿cómo te fue con Diseño industrial?",
+       "tipo": "pregunta",
+       "pregunta": "Un molde de 100,000 pesos y 4 pesos de material por pieza. Si haces 20,000 piezas, ¿cuánto cuesta cada una?",
        "opciones": [
-        "Me gustó más de lo que pensaba",
-        "Más o menos como esperaba",
-        "Me gustó menos de lo que pensaba"
-       ]
+        "5 pesos",
+        "4 pesos",
+        "9 pesos"
+       ],
+       "correcta": 2,
+       "formula": "{100,000|20,000} + 4 = 9"
       },
       {
-       "tipo": "resumen"
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "Viendo tus respuestas, ¿qué pesó más?",
+       "tipo": "pregunta",
+       "pregunta": "Necesitas 10 piezas para pruebas. ¿Qué proceso conviene?",
        "opciones": [
-        "Lo que sentí al probarla",
-        "Lo que supe de la realidad",
-        "El camino para llegar",
-        "El futuro que ofrece"
-       ]
+        "Impresión 3D",
+        "Inyección con molde",
+        "Ninguno"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "clave",
-       "texto": "Lo que sentiste al probarla vale más que lo que imaginabas."
-      },
-      {
-       "tipo": "interes",
-       "pregunta": "¿Te ves estudiando Diseño industrial?"
-      }
-     ]
-    },
-    {
-     "id": "6.2",
-     "titulo": "Tu veredicto",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Si mañana tuvieras que elegir carrera, ¿Diseño industrial estaría entre tus opciones?",
+       "tipo": "pregunta",
+       "pregunta": "¿Qué producto es más fácil de reciclar?",
        "opciones": [
-        "Sí, entre las primeras",
-        "Sí, pero no arriba",
-        "No creo",
-        "No lo sé"
-       ]
+        "Igual",
+        "Uno de muchos materiales pegados",
+        "Uno de un solo material"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "comparar"
+       "tipo": "pregunta",
+       "pregunta": "¿Qué hace más barato el armado?",
+       "opciones": [
+        "Más piezas",
+        "Menos piezas y tornillos",
+        "Más pegamento"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Qué te ayudaría más a decidir?",
-       "a": {
-        "texto": "Hablar con alguien que la estudia",
-        "dice": "Busca a un estudiante o egresado cerca de ti y hazle tus preguntas. Una plática aclara más que diez videos."
-       },
-       "b": {
-        "texto": "Probar otra carrera y comparar",
-        "dice": "Explora otra de tu mapa. Comparar dos caminos reales aclara más que pensar en uno solo."
-       }
+       "tipo": "pregunta",
+       "pregunta": "¿Dónde registras tu diseño en México?",
+       "opciones": [
+        "En el banco",
+        "En el IMPI",
+        "En la escuela"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "veredicto"
-      },
-      {
-       "tipo": "clave",
-       "texto": "Decidir «en duda» también es avanzar."
+       "tipo": "pregunta",
+       "pregunta": "¿Qué puede pasar si publicas tu diseño antes de registrarlo?",
+       "opciones": [
+        "Perder la novedad para registrarlo",
+        "Nada",
+        "Se registra solo"
+       ],
+       "correcta": 0
       }
      ]
     }

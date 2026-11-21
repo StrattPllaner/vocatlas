@@ -1,219 +1,159 @@
 {
  "id": "educfisica",
- "version": 1,
+ "version": 2,
+ "formato": 2,
  "estado": "completo",
- "generado": true,
- "revision": "Armada automáticamente con la base de carreras de Morelos y CDMX (2026-11-17). Falta que la revise alguien de la carrera.",
+ "revision": "Pendiente de revisión por un profesionista de la carrera. Generado con datos/importar_lecciones.py desde datos/fuentes/lecciones/educfisica.lec; no se edita a mano.",
  "unidades": [
   {
    "id": "u1",
+   "titulo": "El cuerpo en movimiento",
+   "sub": "Intensidad y calentamiento",
    "lecciones": [
     {
-     "id": "1.1",
-     "titulo": "Qué es y qué hace",
-     "minutos": 3,
+     "id": "0",
+     "titulo": "Conócela",
+     "minutos": 1,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "¿Qué es Educación física?",
-       "texto": "Procesos de enseñanza y aprendizaje, diseño didáctico, evaluación y desarrollo de materiales educativos. La orientación determina el nivel escolar o la asignatura en la que se puede ejercer.",
-       "puntos": [
-        "Da clases de educación física, entrena equipos o atletas, diseña programas de actividad física o administra gimnasios y clubes."
+       "tipo": "ficha",
+       "texto": "Educación Física y Ciencias del Deporte forma profesionales que enseñan a moverse, entrenan deportistas y promueven la actividad física para la salud. Trabajan en escuelas, clubes, gimnasios, equipos deportivos y programas comunitarios.",
+       "cifras": [
+        "educfisica.ingreso",
+        "educfisica.duracion",
+        "educfisica.costo_publica",
+        "educfisica.costo_privada"
        ]
       },
       {
-       "tipo": "decision",
-       "pregunta": "Por lo que leíste, ¿qué hace alguien de Educación física?",
-       "opciones": [
-        {
-         "texto": "Da clases de educación física, entrena equipos o atletas, diseña programas de actividad física o administra gimnasios y clubes.",
-         "consecuencia": "Exacto: eso es parte del día a día en Educación física.",
-         "mejor": true
-        },
-        {
-         "texto": "Analiza datos para entender precios, empleo, comercio o políticas: hace modelos en Excel, R o Python, escribe reportes y recomienda decisiones en bancos, gobierno…",
-         "consecuencia": "Eso lo hace alguien de Economía."
-        },
-        {
-         "texto": "Trabaja en laboratorios clínicos (analiza sangre y muestras), en la industria farmacéutica (fabrica y controla la calidad de medicamentos), en hospitales o en regulación sanitaria.",
-         "consecuencia": "Eso lo hace alguien de QFB."
-        }
-       ]
-      },
-      {
-       "tipo": "completar",
-       "frase": "Educación física es una carrera del área de ___.",
-       "opciones": [
-        "Salud",
-        "Tecnología y ciencias",
-        "Negocios y sociedad"
-       ],
-       "correcta": 0,
-       "revelacion": "Está en Salud. Se parece a Fisioterapia, Nutrición, Pedagogía y Ciencias de la Educación."
-      },
-      {
-       "tipo": "clave",
-       "texto": "Antes de elegir, entiende qué harías cada día, no solo el nombre."
-      },
-      {
-       "tipo": "interes"
+       "tipo": "escena",
+       "texto": "Hoy das la clase en la cancha. Vamos a ver si todos se mueven y nadie se lastima."
       }
      ]
     },
     {
-     "id": "1.2",
-     "titulo": "Dónde trabajas",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Dónde trabaja alguien de Educación física",
-       "texto": "Escuelas públicas y privadas, capacitación empresarial, diseño educativo, editoriales, educación especial, gestión académica y proyectos sociales;",
-       "puntos": [
-        "Para plazas públicas pueden existir procesos de admisión."
-       ]
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Alguien de Educación física solo puede trabajar en un tipo de lugar.",
-       "respuesta": false,
-       "revelacion": "Puede trabajar en varios: escuelas públicas, privadas, capacitación empresarial."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Dónde te ves trabajando?",
-       "opciones": [
-        "Escuelas públicas",
-        "Privadas",
-        "Capacitación empresarial",
-        "Diseño educativo"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Una carrera abre varias puertas, no una sola."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "1.3",
-     "titulo": "Pregúntale a Rumbo",
+     "id": "1",
+     "titulo": "El corazón en el ejercicio",
      "minutos": 4,
      "tarjetas": [
       {
-       "tipo": "chat",
-       "subtitulo": "Te cuenta cómo es trabajar en Educación física",
-       "intro": [
-        "¡Hola! Junté lo que se sabe de Educación física.",
-        "Pregúntame lo que quieras."
-       ],
-       "temas": [
+       "tipo": "info",
+       "titulo": "El corazón en el ejercicio",
+       "partes": [
         {
-         "q": "¿Qué haces en un día normal?",
-         "a": [
-          "Da clases de educación física, entrena equipos o atletas, diseña programas de actividad física o administra gimnasios y clubes."
-         ]
+         "t": "La intensidad del ejercicio se puede guiar con la frecuencia cardiaca. Una estimación sencilla de la frecuencia máxima es:"
         },
         {
-         "q": "¿Qué es lo más difícil?",
-         "a": [
-          "Se considera una carrera de dificultad media.",
-          "Anatomía, Fisiología del ejercicio y mucha práctica deportiva."
-         ]
+         "f": "frecuencia máxima = 220 − edad"
         },
         {
-         "q": "¿Hay trabajo?",
-         "a": [
-          "Cerca de la mitad trabaja en algo de su carrera. Es un promedio nacional del IMCO."
-         ]
-        },
-        {
-         "q": "¿Qué necesito para ejercer?",
-         "a": [
-          "Para escuelas públicas, concurso en USICAMM."
-         ]
+         "t": "Es solo una aproximación; cada persona varía. Para mejorar la resistencia sin agotarse, mucha gente entrena entre el 60 y el 80 por ciento de su máxima. Otra forma sencilla de medir la intensidad es la prueba del habla: si puedes platicar pero no cantar, vas a una intensidad moderada. Si no puedes decir más de unas palabras, vas muy intenso."
         }
-       ],
-       "minimo": 2,
-       "auto": true
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Educación física se considera una carrera de dificultad media.",
-       "respuesta": true,
-       "revelacion": "Se considera de dificultad media. Anatomía, Fisiología del ejercicio y mucha práctica deportiva."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué te llamó más la atención?",
-       "opciones": [
-        "¿Qué haces en un día normal?",
-        "¿Qué es lo más difícil?",
-        "¿Hay trabajo?",
-        "¿Qué necesito para ejercer?"
        ]
       },
       {
-       "tipo": "clave",
-       "texto": "Preguntar a quien ya sabe ahorra muchos errores."
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál es la frecuencia máxima estimada de una persona de 20 años?",
+       "opciones": [
+        "180",
+        "200",
+        "220"
+       ],
+       "correcta": 1,
+       "formula": "220 − 20 = 200"
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "Para esa persona, ¿cuál es el 70 por ciento de su máxima?",
+       "opciones": [
+        "140",
+        "70",
+        "200"
+       ],
+       "correcta": 0,
+       "formula": "200 × 0.70 = 140"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Un alumno corre y puede platicar con su compañero, pero no cantar. ¿A qué intensidad va?",
+       "opciones": [
+        "Máxima",
+        "Moderada",
+        "Está parado"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Qué tan exacta es la fórmula de 220 menos la edad?",
+       "opciones": [
+        "Es solo una aproximación; cada persona varía",
+        "Solo sirve en niños",
+        "Es exacta para todos"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
-     "id": "1.4",
-     "titulo": "Carreras parecidas",
-     "minutos": 3,
+     "id": "2",
+     "titulo": "Calentar y enfriar",
+     "minutos": 4,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Carreras cercanas a Educación física",
-       "puntos": [
-        "Fisioterapia: evaluación funcional y rehabilitación de personas. el enfoque concreto.",
-        "Nutrición: alimentación y metabolismo, evaluación del estado nutricional y diseño.",
-        "Pedagogía y Ciencias de la Educación: procesos de enseñanza y aprendizaje, diseño didáctico."
+       "titulo": "Calentar y enfriar",
+       "partes": [
+        {
+         "t": "Antes de una actividad intensa se calienta: unos minutos de movimiento suave que suben poco a poco la temperatura del cuerpo y la frecuencia cardiaca, más movimientos parecidos a los del deporte, como trotar, mover articulaciones y hacer desplazamientos. Los estiramientos largos y quietos se dejan mejor para después. Al terminar se enfría: se baja la intensidad poco a poco en vez de parar de golpe. Calentar bien prepara al cuerpo y ayuda a rendir mejor."
+        }
        ]
       },
       {
-       "tipo": "emparejar",
-       "pregunta": "Une cada carrera con lo que estudia.",
-       "pares": [
-        [
-         "Fisioterapia",
-         "Evaluación funcional y rehabilitación de personas. El enfoque concreto"
-        ],
-        [
-         "Nutrición",
-         "Alimentación y metabolismo, evaluación del estado nutricional y diseño"
-        ],
-        [
-         "Pedagogía y Ciencias de la Educación",
-         "Procesos de enseñanza y aprendizaje, diseño didáctico"
-        ]
-       ],
-       "revelacion": "Se cruzan en temas, pero cada una tiene su propio enfoque."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Cuál de estas te da curiosidad?",
+       "tipo": "pregunta",
+       "pregunta": "¿Qué es un buen calentamiento antes de jugar fútbol?",
        "opciones": [
-        "Fisioterapia",
-        "Nutrición",
-        "Pedagogía y Ciencias de la Educación",
-        "Me quedo con Educación física"
-       ]
+        "Empezar a correr a toda velocidad",
+        "Trote suave, movilidad y desplazamientos parecidos al juego",
+        "Sentarse a estirar diez minutos sin moverse"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "clave",
-       "texto": "Si dudas entre dos, compara lo que harías cada día."
+       "tipo": "pregunta",
+       "pregunta": "¿Cuándo conviene hacer estiramientos largos y quietos?",
+       "opciones": [
+        "Justo antes de un sprint",
+        "Después de la actividad",
+        "Nunca"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "Un grupo termina una carrera intensa y todos se sientan de golpe. ¿Qué les falta?",
+       "opciones": [
+        "Correr más",
+        "Bajar la intensidad poco a poco, caminando unos minutos",
+        "Nada"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Para qué sirve el calentamiento?",
+       "opciones": [
+        "Para preparar el cuerpo poco a poco para la actividad",
+        "Para perder tiempo",
+        "Para cansarse antes"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "teves"
       }
      ]
     }
@@ -221,201 +161,170 @@
   },
   {
    "id": "u2",
+   "titulo": "Entrenar seguro",
+   "sub": "Progresión, calor y lesiones",
    "lecciones": [
     {
-     "id": "2.1",
-     "titulo": "Mini reto",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "En tu clase hay alumnos que odian el deporte. ¿Qué haces?",
-       "opciones": [
-        "Buscas actividades donde todos puedan participar",
-        "Los pones a correr hasta que les guste",
-        "Los dejas sentados"
-       ]
-      },
-      {
-       "tipo": "info",
-       "titulo": "Así lo piensa alguien de Educación física",
-       "texto": "Se trata de que todos se muevan, no solo los buenos. La carrera mezcla cuerpo humano, enseñanza y entrenamiento."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Te gustó pensar en algo así?",
-       "escala": [
-        "Nada",
-        "Mucho"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Los retos de una carrera se parecen a lo que harías en su trabajo."
-      },
-      {
-       "tipo": "interes",
-       "pregunta": "¿Te ves resolviendo retos así?"
-      }
-     ]
-    },
-    {
-     "id": "2.2",
-     "titulo": "Lo que te piden",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Habilidades que usarás en Educación física",
-       "puntos": [
-        "Condición física",
-        "Liderazgo de grupos",
-        "Paciencia",
-        "Motivación"
-       ]
-      },
-      {
-       "tipo": "completar",
-       "pregunta": "Según lo que leíste, completa la frase.",
-       "frase": "Para Educación física es clave: ___.",
-       "opciones": [
-        "Condición física",
-        "Matemáticas",
-        "Paciencia y empatía"
-       ],
-       "correcta": 0,
-       "revelacion": "Es de las habilidades que más se usan en Educación física."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué tanto se te da esto: liderazgo de grupos?",
-       "escala": [
-        "Me cuesta",
-        "Se me da"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Las habilidades se entrenan; lo importante es que te guste usarlas."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "2.3",
-     "titulo": "Temas que vas a ver",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Temas que te deben gustar",
-       "puntos": [
-        "Deporte",
-        "Enseñar",
-        "Salud"
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "¿Cuál de estos temas es más de Educación física?",
-       "opciones": [
-        {
-         "texto": "Deporte",
-         "consecuencia": "Sí, es de sus temas centrales.",
-         "mejor": true
-        },
-        {
-         "texto": "Alimentación y salud",
-         "consecuencia": "Ese es más de Nutrición."
-        },
-        {
-         "texto": "Cocinar",
-         "consecuencia": "Ese es más de Gastronomía."
-        }
-       ]
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Cuál de estos temas te gusta más?",
-       "opciones": [
-        "Deporte",
-        "Enseñar",
-        "Salud",
-        "Ninguno me late"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Si los temas te aburren, la carrera se hace muy larga."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "2.4",
-     "titulo": "Materias clave",
+     "id": "3",
+     "titulo": "Cómo mejora el cuerpo",
      "minutos": 4,
      "tarjetas": [
       {
-       "tipo": "voltear",
-       "pregunta": "¿Qué materias crees que llevas en cada etapa? Piénsalo y voltea.",
-       "cartas": [
+       "tipo": "info",
+       "titulo": "Cómo mejora el cuerpo",
+       "partes": [
         {
-         "frente": "Semestres 1-2",
-         "reverso": "Anatomía, Teoría del deporte, Didáctica de la educación física"
+         "t": "El cuerpo mejora cuando se le pide un poco más de lo que está acostumbrado y luego descansa. Eso se llama sobrecarga progresiva. Si se aumenta demasiado rápido, aparecen el cansancio excesivo y las lesiones. Una regla práctica es no subir el volumen semanal más de un 10 por ciento a la vez."
         },
         {
-         "frente": "Semestres 3-4",
-         "reverso": "Fisiología del ejercicio, Entrenamiento deportivo, Psicología del deporte"
+         "f": "nuevo volumen = volumen actual × 1.10"
         },
         {
-         "frente": "Semestres 5-6",
-         "reverso": "Nutrición deportiva, Administración deportiva, Deporte adaptado"
-        },
-        {
-         "frente": "Semestres 7 en adelante",
-         "reverso": "Prácticas en escuelas o clubes"
+         "t": "El descanso es parte del entrenamiento: es cuando el cuerpo se recupera y se adapta. Además, lo que no se practica se pierde poco a poco."
         }
        ]
       },
       {
-       "tipo": "decision",
-       "pregunta": "¿Cuál de estas materias llevarías en Educación física?",
+       "tipo": "pregunta",
+       "pregunta": "Un alumno corre 10 kilómetros por semana. Con la regla del 10 por ciento, ¿hasta cuánto puede subir la próxima semana?",
        "opciones": [
+        "10 kilómetros",
+        "20 kilómetros",
+        "11 kilómetros"
+       ],
+       "correcta": 2,
+       "formula": "10 × 1.10 = 11"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Qué pasa si el entrenamiento sube demasiado rápido?",
+       "opciones": [
+        "Más riesgo de lesiones y cansancio excesivo",
+        "Mejoras el doble",
+        "Nada"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Por qué el descanso es parte del entrenamiento?",
+       "opciones": [
+        "Para perder condición",
+        "No lo es",
+        "Porque es cuando el cuerpo se recupera y se adapta"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "teves"
+      }
+     ]
+    },
+    {
+     "id": "4",
+     "titulo": "Calor e hidratación",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "Calor e hidratación",
+       "partes": [
         {
-         "texto": "Anatomía",
-         "consecuencia": "Sí: es de las primeras materias de Educación física.",
-         "mejor": true
-        },
-        {
-         "texto": "Taller de proyectos I",
-         "consecuencia": "Esa es de Arquitectura."
-        },
-        {
-         "texto": "Cálculo I y II",
-         "consecuencia": "Esa es de Matemáticas."
+         "t": "En climas calurosos, como el de buena parte de Morelos, el cuerpo pierde mucha agua sudando. La deshidratación baja el rendimiento y, en casos graves, puede llevar a un golpe de calor, que es una emergencia. Señales de alarma: mareo, confusión, dolor de cabeza fuerte, náusea, piel muy caliente o dejar de sudar. Ante esas señales se detiene la actividad, se lleva a la persona a la sombra, se le enfría y se pide ayuda médica. Para prevenir, se toman pausas para beber agua y se evitan las horas de más calor."
         }
        ]
       },
       {
-       "tipo": "reflexion",
-       "pregunta": "¿Cuál te da más curiosidad?",
+       "tipo": "pregunta",
+       "pregunta": "Es mediodía, hace mucho calor y tienes clase de educación física al aire libre. ¿Qué haces?",
        "opciones": [
-        "Anatomía",
-        "Teoría del deporte",
-        "Didáctica de la educación física"
+        "Prohíbes tomar agua",
+        "Haces una carrera larga al sol",
+        "Buscas sombra, bajas la intensidad y das pausas para tomar agua"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Un alumno está confundido, mareado y con la piel muy caliente después de correr al sol. ¿Qué haces?",
+       "opciones": [
+        "Le dices que siga",
+        "Lo mandas solo a la enfermería caminando",
+        "Detienes la actividad, lo llevas a la sombra, lo enfrías y pides ayuda médica"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál es una señal de alarma de golpe de calor?",
+       "opciones": [
+        "Confusión y piel muy caliente",
+        "Tener hambre",
+        "Sonreír"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Cuándo es mejor programar actividades intensas en un lugar caluroso?",
+       "opciones": [
+        "Temprano en la mañana o en la tarde, cuando baja el calor",
+        "Da igual",
+        "Al mediodía"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "teves"
+      }
+     ]
+    },
+    {
+     "id": "5",
+     "titulo": "Lesiones",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "Lesiones",
+       "partes": [
+        {
+         "t": "En la actividad física pueden pasar torceduras, golpes y caídas. Ante una torcedura leve se detiene la actividad, se pone hielo envuelto en un trapo por ratos y se eleva la parte lastimada. Si hay deformidad, mucho dolor o no puede apoyar, se inmoviliza y se busca atención médica. Un golpe fuerte en la cabeza es especial: si después hay mareo, confusión, dolor de cabeza o vómito, la persona no regresa al juego ese día y la debe valorar un médico."
+        }
        ]
       },
       {
-       "tipo": "clave",
-       "texto": "Las primeras materias son la base; muchas veces son las más pesadas."
+       "tipo": "pregunta",
+       "pregunta": "Una alumna se tuerce el tobillo y puede apoyar con poco dolor. ¿Qué haces?",
+       "opciones": [
+        "Le das un masaje fuerte",
+        "La sacas del juego, le pones hielo envuelto y elevas el pie",
+        "Le dices que siga jugando"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "Un alumno choca de cabeza con otro y después dice que está mareado.",
+       "opciones": [
+        "Regresa en cinco minutos",
+        "Le das agua y sigue",
+        "No regresa al juego y lo valora un médico"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Un alumno cae y su brazo se ve deformado.",
+       "opciones": [
+        "Le dices que lo mueva",
+        "Intentas acomodarlo tú",
+        "Lo inmovilizas y buscas atención médica de inmediato"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "teves"
       }
      ]
     }
@@ -423,182 +332,114 @@
   },
   {
    "id": "u3",
+   "titulo": "Enseñar",
+   "sub": "Enseñar y planear la sesión",
    "lecciones": [
     {
-     "id": "3.1",
-     "titulo": "Un día real",
+     "id": "6",
+     "titulo": "Enseñar a moverse",
      "minutos": 4,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Un día de trabajo en Educación física",
-       "puntos": [
-        "Da clases de educación física, entrena equipos o atletas, diseña programas de actividad física o administra gimnasios y clubes."
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "¿Cuál de estas cosas sí hace alguien de Educación física?",
-       "opciones": [
+       "titulo": "Enseñar a moverse",
+       "partes": [
         {
-         "texto": "Da clases de educación física, entrena equipos o atletas, diseña programas de actividad física o administra gimnasios y clubes.",
-         "consecuencia": "Sí: es parte de su día.",
-         "mejor": true
-        },
-        {
-         "texto": "Diseña, opera o mejora procesos industriales que transforman materias primas en productos (combustibles, plásticos, alimentos, medicamentos), cuidando seguridad, costos y medio ambiente.",
-         "consecuencia": "Eso es más de Ing. Química."
-        },
-        {
-         "texto": "Investiga qué quieren los clientes, crea campañas en redes y medios, mide resultados (clics, ventas) y ajusta estrategias para marcas o agencias.",
-         "consecuencia": "Eso es más de Mercadotecnia."
+         "t": "Un profesor de educación física enseña habilidades, no solo pone a jugar. Divide lo difícil en pasos, demuestra, deja practicar mucho y corrige con pocos consejos a la vez. Adapta las actividades para que todos participen: con distintos niveles de dificultad y reglas que incluyan a quien tiene menos habilidad o alguna discapacidad. Los juegos donde se elimina a los alumnos dejan sentados justo a los que más necesitan moverse. El objetivo es que todos disfruten moverse y lo sigan haciendo de adultos."
         }
        ]
       },
       {
-       "tipo": "reflexion",
-       "pregunta": "¿Te ves haciendo esto todos los días?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
+       "tipo": "pregunta",
+       "pregunta": "En un juego de eliminación, los alumnos menos hábiles salen primero y pasan la clase sentados. ¿Qué propones?",
+       "opciones": [
+        "Que jueguen solo los buenos",
+        "Dejarlo así",
+        "Cambiar las reglas para que nadie quede fuera mucho tiempo"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "clave",
-       "texto": "El día a día pesa más que el título."
+       "tipo": "pregunta",
+       "pregunta": "Estás enseñando a lanzar el balón y un alumno comete cinco errores. ¿Qué haces?",
+       "opciones": [
+        "No le dices nada",
+        "Le corriges uno o dos a la vez",
+        "Le dices los cinco al mismo tiempo"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "Un alumno usa silla de ruedas. ¿Qué haces en una clase de básquetbol?",
+       "opciones": [
+        "Lo mandas a la biblioteca",
+        "Lo dejas mirando",
+        "Adaptas las reglas y actividades para que participe"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál es el gran objetivo de la educación física?",
+       "opciones": [
+        "Cansar a los alumnos",
+        "Que todos disfruten moverse y lo sigan haciendo toda la vida",
+        "Elegir a los mejores"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
-     "id": "3.2",
-     "titulo": "Lo difícil",
+     "id": "7",
+     "titulo": "Planear una sesión",
      "minutos": 4,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Lo difícil de Educación física",
-       "texto": "Se considera de dificultad media.",
-       "puntos": [
-        "Anatomía, Fisiología del ejercicio y mucha práctica deportiva."
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "Según lo que leíste, ¿qué es lo que más cuesta en Educación física?",
-       "opciones": [
+       "titulo": "Planear una sesión",
+       "partes": [
         {
-         "texto": "Anatomía, Fisiología del ejercicio y mucha práctica deportiva.",
-         "consecuencia": "Sí, es de lo que más cuesta en Educación física.",
-         "mejor": true
-        },
-        {
-         "texto": "Química orgánica, Fisicoquímica y Bioquímica",
-         "consecuencia": "Eso es más de QFB."
-        },
-        {
-         "texto": "Cálculo, Estática y Mecánica de materiales",
-         "consecuencia": "Eso es más de Ing. Civil."
+         "t": "Una sesión se planea con un objetivo claro, por ejemplo mejorar el pase en voleibol. Tiene calentamiento, una parte principal y un cierre. Se calcula el tiempo para que los alumnos pasen la mayor parte moviéndose, y no haciendo fila. Con un grupo grande se trabaja en estaciones o equipos pequeños. Antes de empezar se revisa que el espacio y el material sean seguros, y que haya agua y un plan si alguien se lastima."
         }
        ]
       },
       {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué tanto te preocupa esto?",
-       "escala": [
-        "Mucho",
-        "Nada"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Saber lo difícil desde antes te ayuda a prepararte."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "3.3",
-     "titulo": "Historia real",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Si pudieras preguntarle algo a alguien que ya estudia Educación física, ¿qué sería?",
+       "tipo": "pregunta",
+       "pregunta": "En tu clase de 50 minutos, los alumnos pasaron 30 haciendo fila. ¿Qué cambias?",
        "opciones": [
-        "¿Qué fue lo más difícil?",
-        "¿Qué te sorprendió?",
-        "¿Volverías a elegirla?",
-        "¿Cómo es un día normal?"
-       ]
+        "Nada",
+        "Organizas estaciones o equipos pequeños para que se muevan más",
+        "Haces filas más largas"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "testimonio",
-       "estado": "pendiente",
-       "perfil": "Estudiante de últimos semestres o egresado de Educación física"
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "Mientras llega esta historia, ¿a quién podrías preguntarle tú?",
+       "tipo": "pregunta",
+       "pregunta": "Antes de la clase ves vidrios en la cancha.",
        "opciones": [
-        "A un familiar o conocido que la estudió",
-        "A un estudiante de mi ciudad",
-        "A un maestro que la conozca",
-        "Todavía no conozco a nadie"
-       ]
+        "Empiezas igual",
+        "Los quitas o cambias de espacio antes de empezar",
+        "Les dices que tengan cuidado"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "clave",
-       "texto": "Una persona real te cuenta lo que ningún folleto dice."
+       "tipo": "pregunta",
+       "pregunta": "¿Qué partes tiene una sesión?",
+       "opciones": [
+        "Calentamiento, parte principal y cierre",
+        "Solo el juego",
+        "Solo la teoría"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "3.4",
-     "titulo": "¿Es para ti?",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Contesta con honestidad. Nadie más ve tus respuestas."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿El deporte es una parte central de mi vida?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Me gusta enseñar a grupos?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Me veo como entrenador o maestro?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Si dijiste que sí a casi todo, vale la pena seguir explorándola."
-      },
-      {
-       "tipo": "interes"
+       "tipo": "teves"
       }
      ]
     }
@@ -606,435 +447,126 @@
   },
   {
    "id": "u4",
+   "titulo": "Examen final",
+   "sub": "10 preguntas · apruebas con 7",
    "lecciones": [
     {
-     "id": "4.1",
-     "titulo": "Cuánto dura y qué estudias",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Cada escuela arma su plan distinto, pero el orden general se parece. Vamos a verlo."
-      },
-      {
-       "tipo": "ordenar",
-       "pregunta": "Ordena lo que estudias, de lo primero a lo último.",
-       "pasos": [
-        "Anatomía, Teoría del deporte",
-        "Fisiología del ejercicio, Entrenamiento deportivo",
-        "Nutrición deportiva, Administración deportiva",
-        "Prácticas en escuelas o clubes"
-       ],
-       "revelacion": "Primero las bases y al final lo más especializado y las prácticas."
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Cuántos años crees que pasan desde que entras hasta que te titulas?",
-       "min": 3,
-       "max": 10,
-       "paso": 1,
-       "unidad": "años",
-       "dato": "educfisica.duracion"
-      },
-      {
-       "tipo": "clave",
-       "texto": "Revisa el mapa curricular de cada escuela: cambia de una a otra."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "4.2",
-     "titulo": "Cómo se entra",
-     "minutos": 4,
+     "id": "ex",
+     "titulo": "Examen final",
+     "minutos": 6,
+     "examen": true,
+     "aprobar": 7,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Cómo se entra en la región",
-       "puntos": [
-        "UAEM: EXANI-II de CENEVAL + curso propedéutico",
-        "La Salle: Examen de admisión propio + promedio"
-       ]
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Ya sabes qué examen pide la escuela que te interesa?",
-       "opciones": [
-        "Sí",
-        "Más o menos",
-        "Todavía no"
-       ]
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Todas las universidades usan el mismo examen.",
-       "respuesta": false,
-       "revelacion": "Cada una tiene el suyo: revisa la convocatoria de la que te interese."
-      },
-      {
-       "tipo": "clave",
-       "texto": "Conoce el examen de tu escuela desde antes."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "4.3",
-     "titulo": "Dónde, cuánto cuesta y becas",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "escuelas"
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Cuánto crees que cuesta un semestre en una universidad pública?",
-       "min": 0,
-       "max": 60000,
-       "paso": 1000,
-       "unidad": "pesos",
-       "dato": "educfisica.costo_publica"
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Y un semestre en una universidad privada?",
-       "min": 0,
-       "max": 300000,
-       "paso": 5000,
-       "unidad": "pesos",
-       "dato": "educfisica.costo_privada"
-      },
-      {
-       "tipo": "dato",
-       "titulo": "Becas para estudiar Educación física",
-       "dato": "educfisica.becas"
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Una universidad cara garantiza un mejor empleo.",
-       "respuesta": false,
-       "revelacion": "Pesan más lo que aprendes, tus prácticas y tu esfuerzo."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué pesa más para ti al elegir escuela?",
-       "opciones": [
-        "El costo",
-        "Que esté cerca de mi casa",
-        "El prestigio",
-        "Las prácticas que ofrece"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Además de la colegiatura, cuenta transporte y materiales."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "u5",
-   "lecciones": [
-    {
-     "id": "5.1",
-     "titulo": "Qué piden para trabajar",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Qué te piden para trabajar",
-       "puntos": [
-        "Para escuelas públicas, concurso en USICAMM."
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "Según lo que leíste, ¿qué necesitas para ejercer Educación física?",
-       "opciones": [
+       "titulo": "Examen final",
+       "partes": [
         {
-         "texto": "Para escuelas públicas, concurso en USICAMM.",
-         "consecuencia": "Exacto.",
-         "mejor": true
-        },
-        {
-         "texto": "No requiere cédula.",
-         "consecuencia": "Eso lo piden en Moda."
-        },
-        {
-         "texto": "No requiere cédula",
-         "consecuencia": "Eso lo piden en Diseño industrial."
+         "t": "Son 10 casos nuevos que mezclan todas las lecciones. Apruebas con 7. Si no, lo repites y las que fallaste regresan con otras palabras."
         }
        ]
       },
       {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Cómo te ves?",
-       "a": {
-        "texto": "En una institución o empresa",
-        "dice": "Más estabilidad y un equipo de quien aprender."
-       },
-       "b": {
-        "texto": "Por tu cuenta",
-        "dice": "Más libertad, pero tienes que conseguir clientes."
-       }
-      },
-      {
-       "tipo": "clave",
-       "texto": "Saber qué te piden te ahorra sorpresas al salir."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "5.2",
-     "titulo": "Sueldo y demanda",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Hablemos de dinero sin rodeos. Antes de ver cualquier cifra, apuesta: así recuerdas mejor el dato real."
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Cuánto crees que gana al mes, en promedio, un profesionista de Educación física en México?",
-       "min": 5000,
-       "max": 100000,
-       "paso": 1000,
-       "unidad": "pesos",
-       "dato": "educfisica.ingreso"
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "De cada 100 egresados, ¿cuántos crees que trabajan en algo de su carrera?",
-       "min": 0,
-       "max": 100,
-       "paso": 5,
-       "unidad": "de cada 100",
-       "dato": "educfisica.ocupacion_afin"
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Todos los egresados de Educación física ganan lo mismo.",
-       "respuesta": false,
-       "revelacion": "Cambia con la experiencia, el lugar, la especialidad y si trabajas por tu cuenta."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué tanto pesa el sueldo en tu decisión?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "El promedio orienta, pero tu camino puede ser distinto."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "5.3",
-     "titulo": "Cómo les va al salir",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "chat",
-       "subtitulo": "Te cuenta cómo les va al salir",
-       "intro": [
-        "Te cuento cómo les va a quienes estudian Educación física al salir."
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál es la frecuencia máxima estimada de una persona de 40 años?",
+       "opciones": [
+        "220",
+        "180",
+        "140"
        ],
-       "temas": [
-        {
-         "q": "¿Cuántos trabajan en lo suyo?",
-         "a": [
-          "Cerca de la mitad trabaja en algo de su carrera.",
-          "Es un promedio nacional del IMCO."
-         ]
-        },
-        {
-         "q": "¿Muchos hacen posgrado?",
-         "a": [
-          "Pocos hacen posgrado; la mayoría empieza a trabajar."
-         ]
-        },
-        {
-         "q": "¿Hay más hombres o mujeres?",
-         "a": [
-          "Hay más hombres que mujeres.",
-          "Eso no decide nada: cualquiera puede estudiarla."
-         ]
-        },
-        {
-         "q": "¿El trabajo tiene prestaciones?",
-         "a": [
-          "La mayoría tiene un trabajo formal, con prestaciones.",
-          "Las prestaciones son cosas como seguro médico y aguinaldo."
-         ]
-        }
+       "correcta": 1,
+       "formula": "220 − 40 = 180"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Qué es la prueba del habla?",
+       "opciones": [
+        "Si puedes platicar pero no cantar, vas a intensidad moderada",
+        "Cantar mientras corres",
+        "No hablar"
        ],
-       "minimo": 2
+       "correcta": 0
       },
       {
-       "tipo": "vf",
-       "afirmacion": "La mayoría de quienes estudian Educación física trabaja en algo de su carrera.",
-       "respuesta": false,
-       "revelacion": "Cerca de la mitad trabaja en algo de su carrera. Promedio nacional del IMCO."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué te importa más de tu futuro trabajo?",
+       "tipo": "pregunta",
+       "pregunta": "¿Cuándo conviene estirar largo y quieto?",
        "opciones": [
-        "Que tenga que ver con lo que estudié",
-        "Ganar bien",
-        "Tener prestaciones",
-        "Hacer algo que me guste"
-       ]
+        "Antes de un sprint",
+        "Nunca",
+        "Después de la actividad"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "clave",
-       "texto": "Pregunta cómo les va a quienes ya salieron."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "5.4",
-     "titulo": "Después de titularte",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Después de titularte",
-       "puntos": [
-        "Puedes especializarte con cursos, diplomados o una maestría.",
-        "También puedes trabajar desde el inicio y estudiar después.",
-        "Se combina bien con: Fisioterapia, Nutrición, Pedagogía y Ciencias de la Educación."
-       ]
-      },
-      {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Qué harías al terminar?",
-       "a": {
-        "texto": "Trabajar desde el inicio",
-        "dice": "Ganas experiencia y dinero; después decides si estudias más."
-       },
-       "b": {
-        "texto": "Seguir estudiando",
-        "dice": "Te especializas antes; tardas más en empezar a trabajar."
-       }
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Cómo te imaginas después de la carrera?",
+       "tipo": "pregunta",
+       "pregunta": "Un alumno corre 20 kilómetros por semana. Con la regla del 10 por ciento, ¿hasta cuánto puede subir?",
        "opciones": [
-        "Trabajando",
-        "En una maestría",
-        "Emprendiendo",
-        "No sé todavía"
-       ]
+        "40 kilómetros",
+        "22 kilómetros",
+        "30 kilómetros"
+       ],
+       "correcta": 1,
+       "formula": "20 × 1.10 = 22"
       },
       {
-       "tipo": "clave",
-       "texto": "Al titularte empieza otra parte del camino, no termina."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "u6",
-   "lecciones": [
-    {
-     "id": "6.1",
-     "titulo": "Lo que sentiste",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Antes de ver tus respuestas: ¿cómo te fue con Educación física?",
+       "tipo": "pregunta",
+       "pregunta": "¿Por qué es importante el descanso?",
        "opciones": [
-        "Me gustó más de lo que pensaba",
-        "Más o menos como esperaba",
-        "Me gustó menos de lo que pensaba"
-       ]
+        "El cuerpo se recupera y se adapta",
+        "Para perder condición",
+        "No es importante"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "resumen"
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "Viendo tus respuestas, ¿qué pesó más?",
+       "tipo": "pregunta",
+       "pregunta": "Un alumno está confundido y con la piel muy caliente tras correr al sol.",
        "opciones": [
-        "Lo que sentí al probarla",
-        "Lo que supe de la realidad",
-        "El camino para llegar",
-        "El futuro que ofrece"
-       ]
+        "Lo llevas a la sombra, lo enfrías y pides ayuda médica",
+        "Sigue corriendo",
+        "Lo ignoras"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "clave",
-       "texto": "Lo que sentiste al probarla vale más que lo que imaginabas."
-      },
-      {
-       "tipo": "interes",
-       "pregunta": "¿Te ves estudiando Educación física?"
-      }
-     ]
-    },
-    {
-     "id": "6.2",
-     "titulo": "Tu veredicto",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Si mañana tuvieras que elegir carrera, ¿Educación física estaría entre tus opciones?",
+       "tipo": "pregunta",
+       "pregunta": "Un alumno se golpea la cabeza y está mareado.",
        "opciones": [
-        "Sí, entre las primeras",
-        "Sí, pero no arriba",
-        "No creo",
-        "No lo sé"
-       ]
+        "No regresa al juego y lo valora un médico",
+        "Sigue jugando",
+        "Regresa en cinco minutos"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "comparar"
+       "tipo": "pregunta",
+       "pregunta": "¿Qué haces ante una torcedura leve?",
+       "opciones": [
+        "Calor fuerte",
+        "Seguir jugando",
+        "Detener, hielo envuelto y elevar"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Qué te ayudaría más a decidir?",
-       "a": {
-        "texto": "Hablar con alguien que la estudia",
-        "dice": "Busca a un estudiante o egresado cerca de ti y hazle tus preguntas. Una plática aclara más que diez videos."
-       },
-       "b": {
-        "texto": "Probar otra carrera y comparar",
-        "dice": "Explora otra de tu mapa. Comparar dos caminos reales aclara más que pensar en uno solo."
-       }
+       "tipo": "pregunta",
+       "pregunta": "¿Qué problema tienen los juegos de eliminación?",
+       "opciones": [
+        "Dejan sentados a quienes más necesitan moverse",
+        "Ninguno",
+        "Son muy cortos"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "veredicto"
-      },
-      {
-       "tipo": "clave",
-       "texto": "Decidir «en duda» también es avanzar."
+       "tipo": "pregunta",
+       "pregunta": "¿Qué revisas antes de empezar una clase?",
+       "opciones": [
+        "Solo la música",
+        "Nada",
+        "Que el espacio y el material sean seguros"
+       ],
+       "correcta": 2
       }
      ]
     }

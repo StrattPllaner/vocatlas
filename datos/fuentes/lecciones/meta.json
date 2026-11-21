@@ -1,47 +1,2253 @@
 {
  "_nota": "Datos de cada carrera con lecciones de formato 2 (explicación + preguntas de 3 opciones + examen). El texto de las lecciones está en <id>.lec; datos/importar_lecciones.py lo convierte en datos/carreras/<id>.json.",
- "medicina": {
-  "entrada": "Medicina forma médicos generales que diagnostican y tratan enfermedades. En el Tec dura 13 semestres y en la UAEM de Morelos, que es pública, 12. Para especializarte presentas el ENARM, y solo una parte de los aspirantes consigue lugar.",
-  "cifras": ["medicina.ingreso", "medicina.costo_tec", "medicina.costo_publica", "medicina.enarm"],
-  "gancho": "Ahora vas a ver si piensas como médico.",
+ "actuaria": {
+  "entrada": "Actuaría forma actuarios: personas que usan matemáticas y estadística para medir el riesgo y ponerle precio. Calculan cuánto debe costar un seguro, cuánto dinero necesita un fondo de pensiones y qué tan probable es una pérdida. En Morelos no hay dónde terminarla; la opción pública más cercana es la UNAM, en la Ciudad de México.",
+  "cifras": [
+   "actuaria.becas",
+   "actuaria.duracion",
+   "actuaria.costo_publica",
+   "actuaria.costo_privada"
+  ],
+  "gancho": "Hoy trabajas en una aseguradora. Vamos a ver si te salen las cuentas del riesgo.",
   "unidades": [
-   ["El cuerpo", "Corazón y signos vitales", ["entrada", 1, 2]],
-   ["Pensar como médico", "Diagnóstico y medicinas", [3, 4]],
-   ["En la práctica", "Urgencias, comunidad y ética", [5, 6, 7]],
-   ["Examen final", "10 preguntas · apruebas con 7", ["examen"]]
+   [
+    "El riesgo",
+    "Probabilidad y valor esperado",
+    [
+     "entrada",
+     1,
+     2
+    ]
+   ],
+   [
+    "Muchos clientes y el tiempo",
+    "Grandes números, interés y valor presente",
+    [
+     3,
+     4,
+     5
+    ]
+   ],
+   [
+    "Seguros de verdad",
+    "Vida, pensiones y ética",
+    [
+     6,
+     7
+    ]
+   ],
+   [
+    "Examen final",
+    "10 preguntas · apruebas con 7",
+    [
+     "examen"
+    ]
+   ]
+  ]
+ },
+ "aeroespacial": {
+  "entrada": "Ingeniería Aeronáutica y Aeroespacial forma ingenieros que diseñan, fabrican y mantienen aviones, drones, satélites y sus partes. En México mucha de esta industria está en Querétaro, Chihuahua y Baja California. En Morelos no hay dónde terminarla.",
+  "cifras": [
+   "aeroespacial.ingreso",
+   "aeroespacial.duracion",
+   "aeroespacial.costo_publica",
+   "aeroespacial.costo_privada"
+  ],
+  "gancho": "Hoy eres ingeniero en un hangar. Vamos a ver si tu avión vuela.",
+  "unidades": [
+   [
+    "Cómo vuela",
+    "Fuerzas y alas",
+    [
+     "entrada",
+     1,
+     2
+    ]
+   ],
+   [
+    "Aire y motores",
+    "Altura y empuje",
+    [
+     3,
+     4
+    ]
+   ],
+   [
+    "Construir y cuidar",
+    "Materiales, balance y el espacio",
+    [
+     5,
+     6,
+     7
+    ]
+   ],
+   [
+    "Examen final",
+    "10 preguntas · apruebas con 7",
+    [
+     "examen"
+    ]
+   ]
+  ]
+ },
+ "ambiental": {
+  "entrada": "Ingeniería Ambiental forma ingenieros que cuidan el agua, el aire y el suelo. Diseñan plantas de tratamiento, manejan residuos, miden contaminación, calculan huellas de carbono y estudian el impacto de nuevos proyectos. Trabajan en gobierno, consultorías, industria y organizaciones ambientales.",
+  "cifras": [
+   "ambiental.ingreso",
+   "ambiental.duracion",
+   "ambiental.costo_publica",
+   "ambiental.costo_privada"
+  ],
+  "gancho": "Hoy cuidas el ambiente de una ciudad. Vamos a ver qué decides.",
+  "unidades": [
+   [
+    "Agua y aire",
+    "Contaminación y cómo se mide",
+    [
+     "entrada",
+     1,
+     2
+    ]
+   ],
+   [
+    "Basura y carbono",
+    "Residuos y huella de carbono",
+    [
+     3,
+     4
+    ]
+   ],
+   [
+    "Soluciones",
+    "Lluvia, impacto ambiental y energía",
+    [
+     5,
+     6,
+     7
+    ]
+   ],
+   [
+    "Examen final",
+    "10 preguntas · apruebas con 7",
+    [
+     "examen"
+    ]
+   ]
+  ]
+ },
+ "animacion": {
+  "entrada": "Animación y Arte Digital forma artistas que dan vida a personajes y mundos en 2D y 3D para series, películas, videojuegos y publicidad. Combina dibujo, actuación y mucha computadora. En Morelos no hay dónde terminarla; las opciones más cercanas están en la Ciudad de México.",
+  "cifras": [
+   "animacion.becas",
+   "animacion.duracion",
+   "animacion.costo_publica",
+   "animacion.costo_privada"
+  ],
+  "gancho": "Hoy entras a un estudio de animación. Vamos a ver cómo se mueve tu personaje.",
+  "unidades": [
+   [
+    "Darle vida",
+    "Cuadros y principios",
+    [
+     "entrada",
+     1,
+     2
+    ]
+   ],
+   [
+    "Del papel al 3D",
+    "Storyboard y pipeline",
+    [
+     3,
+     4,
+     5
+    ]
+   ],
+   [
+    "Vivir de esto",
+    "Clientes y portafolio",
+    [
+     6,
+     7
+    ]
+   ],
+   [
+    "Examen final",
+    "10 preguntas · apruebas con 7",
+    [
+     "examen"
+    ]
+   ]
+  ]
+ },
+ "arquitectura": {
+  "entrada": "Arquitectura forma arquitectos que diseñan casas, escuelas, hospitales y ciudades pensando en las personas que los van a usar, en el clima, en la estructura y en el presupuesto. Luego supervisan que la obra se construya como se diseñó.",
+  "cifras": [
+   "arquitectura.ingreso",
+   "arquitectura.duracion",
+   "arquitectura.costo_publica",
+   "arquitectura.costo_privada"
+  ],
+  "gancho": "Hoy diseñas una casa de verdad. Vamos a ver si la gente puede vivir en ella.",
+  "unidades": [
+   [
+    "Dibujar espacios",
+    "Planos y medidas humanas",
+    [
+     "entrada",
+     1,
+     2
+    ]
+   ],
+   [
+    "Que funcione",
+    "Clima, estructura y reglamento",
+    [
+     3,
+     4,
+     5
+    ]
+   ],
+   [
+    "De la idea a la obra",
+    "Cliente y construcción",
+    [
+     6,
+     7
+    ]
+   ],
+   [
+    "Examen final",
+    "10 preguntas · apruebas con 7",
+    [
+     "examen"
+    ]
+   ]
+  ]
+ },
+ "biologia": {
+  "entrada": "Biología forma científicos que estudian a los seres vivos: desde las bacterias y las células hasta los bosques y los océanos. Trabajan en el campo, en laboratorios, en áreas naturales protegidas, en consultorías ambientales y dando clases.",
+  "cifras": [
+   "biologia.ingreso",
+   "biologia.duracion",
+   "biologia.costo_publica",
+   "biologia.costo_privada"
+  ],
+  "gancho": "Hoy sales al campo y entras al laboratorio. Vamos a ver si piensas como bióloga o biólogo.",
+  "unidades": [
+   [
+    "Pensar como científico",
+    "Método científico y herencia",
+    [
+     "entrada",
+     1,
+     2
+    ]
+   ],
+   [
+    "La vida en conjunto",
+    "Ecosistemas, biodiversidad y conteos",
+    [
+     3,
+     4,
+     5
+    ]
+   ],
+   [
+    "Lo pequeño y el trabajo",
+    "Microorganismos y el día a día",
+    [
+     6,
+     7
+    ]
+   ],
+   [
+    "Examen final",
+    "10 preguntas · apruebas con 7",
+    [
+     "examen"
+    ]
+   ]
+  ]
+ },
+ "biomedica": {
+  "entrada": "Ingeniería Biomédica junta la ingeniería con la medicina. Forma ingenieros que diseñan, mantienen y cuidan equipos médicos, prótesis, materiales que van dentro del cuerpo y sistemas de imagen. Trabajan en hospitales, empresas de dispositivos médicos e investigación. En Morelos no hay dónde terminarla.",
+  "cifras": [
+   "biomedica.becas",
+   "biomedica.duracion",
+   "biomedica.costo_publica",
+   "biomedica.costo_privada"
+  ],
+  "gancho": "Hoy eres la ingeniera o el ingeniero del hospital. Vamos a ver si los equipos están seguros.",
+  "unidades": [
+   [
+    "Medir el cuerpo",
+    "Señales y equipos médicos",
+    [
+     "entrada",
+     1,
+     2
+    ]
+   ],
+   [
+    "Seguro y compatible",
+    "Electricidad y biomateriales",
+    [
+     3,
+     4
+    ]
+   ],
+   [
+    "Diseñar para el cuerpo",
+    "Prótesis, imágenes y normas",
+    [
+     5,
+     6,
+     7
+    ]
+   ],
+   [
+    "Examen final",
+    "10 preguntas · apruebas con 7",
+    [
+     "examen"
+    ]
+   ]
+  ]
+ },
+ "biotec": {
+  "entrada": "Biotecnología forma profesionales que usan seres vivos, sobre todo microorganismos y enzimas, para producir alimentos, medicinas, vacunas y materiales. Trabajan en laboratorios, en la industria de alimentos y farmacéutica, y en investigación.",
+  "cifras": [
+   "biotec.becas",
+   "biotec.duracion",
+   "biotec.costo_publica",
+   "biotec.costo_privada"
+  ],
+  "gancho": "Hoy pones a trabajar a los microorganismos. Vamos a ver si te hacen caso.",
+  "unidades": [
+   [
+    "Microorganismos que trabajan",
+    "Fermentación y enzimas",
+    [
+     "entrada",
+     1,
+     2
+    ]
+   ],
+   [
+    "El ADN",
+    "PCR e ingeniería genética",
+    [
+     3,
+     4
+    ]
+   ],
+   [
+    "Del frasco al tanque",
+    "Diluciones, escalamiento y ética",
+    [
+     5,
+     6,
+     7
+    ]
+   ],
+   [
+    "Examen final",
+    "10 preguntas · apruebas con 7",
+    [
+     "examen"
+    ]
+   ]
+  ]
+ },
+ "ciberseguridad": {
+  "entrada": "Ingeniería en Ciberseguridad forma especialistas que protegen sistemas, redes y datos de ataques. Revisan fallas, responden a incidentes, enseñan a la gente a no caer en engaños y, con permiso, atacan sistemas para encontrar sus puntos débiles. En Morelos no hay dónde terminarla.",
+  "cifras": [
+   "ciberseguridad.becas",
+   "ciberseguridad.duracion",
+   "ciberseguridad.costo_publica",
+   "ciberseguridad.costo_privada"
+  ],
+  "gancho": "Hoy cuidas los sistemas de una empresa. Vamos a ver si te pueden engañar.",
+  "unidades": [
+   [
+    "Lo básico",
+    "Contraseñas y engaños",
+    [
+     "entrada",
+     1,
+     2
+    ]
+   ],
+   [
+    "Proteger",
+    "Doble factor, cifrado y respaldos",
+    [
+     3,
+     4,
+     5
+    ]
+   ],
+   [
+    "Cuando atacan",
+    "Incidentes y hacking ético",
+    [
+     6,
+     7
+    ]
+   ],
+   [
+    "Examen final",
+    "10 preguntas · apruebas con 7",
+    [
+     "examen"
+    ]
+   ]
+  ]
+ },
+ "civil": {
+  "entrada": "Ingeniería Civil forma ingenieros que diseñan y construyen edificios, puentes, carreteras, presas y redes de agua y drenaje. Calculan que las estructuras aguanten su peso y los sismos, y supervisan las obras.",
+  "cifras": [
+   "civil.ingreso",
+   "civil.duracion",
+   "civil.costo_publica",
+   "civil.costo_privada"
+  ],
+  "gancho": "Hoy estás a cargo de una obra. Vamos a ver si lo que construyes se queda en pie.",
+  "unidades": [
+   [
+    "Lo que aguanta",
+    "Fuerzas y materiales",
+    [
+     "entrada",
+     1,
+     2
+    ]
+   ],
+   [
+    "Suelo y sismos",
+    "Cimentación y seguridad",
+    [
+     3,
+     4
+    ]
+   ],
+   [
+    "Servicios y obra",
+    "Agua, caminos y responsabilidad",
+    [
+     5,
+     6,
+     7
+    ]
+   ],
+   [
+    "Examen final",
+    "10 preguntas · apruebas con 7",
+    [
+     "examen"
+    ]
+   ]
+  ]
+ },
+ "comext": {
+  "entrada": "Comercio Exterior, o Negocios Internacionales, forma profesionales que compran y venden entre países. Manejan aduanas, tratados, tipo de cambio, transporte y documentos, y buscan nuevos mercados para productos mexicanos. Trabajan en empresas exportadoras, agencias aduanales y de logística.",
+  "cifras": [
+   "comext.ingreso",
+   "comext.duracion",
+   "comext.costo_publica",
+   "comext.costo_privada"
+  ],
+  "gancho": "Hoy mandas mercancía a otro país. Vamos a ver si llega sin problemas.",
+  "unidades": [
+   [
+    "Cruzar fronteras",
+    "Importar, exportar y tipo de cambio",
+    [
+     "entrada",
+     1,
+     2
+    ]
+   ],
+   [
+    "Las reglas",
+    "Incoterms, aranceles y tratados",
+    [
+     3,
+     4
+    ]
+   ],
+   [
+    "Que llegue",
+    "Logística, documentos y mercados",
+    [
+     5,
+     6,
+     7
+    ]
+   ],
+   [
+    "Examen final",
+    "10 preguntas · apruebas con 7",
+    [
+     "examen"
+    ]
+   ]
+  ]
+ },
+ "computacion": {
+  "entrada": "Computación, o Sistemas Computacionales, forma programadores e ingenieros que crean software: apps, páginas web, sistemas para empresas y bases de datos. Resuelven problemas con lógica y trabajan casi siempre en equipo, en empresas de tecnología o en el área de sistemas de cualquier empresa.",
+  "cifras": [
+   "computacion.ingreso",
+   "computacion.duracion",
+   "computacion.costo_publica",
+   "computacion.costo_privada"
+  ],
+  "gancho": "Hoy le programas una solución a un cliente. Vamos a ver si piensas como programador.",
+  "unidades": [
+   [
+    "Pensar en pasos",
+    "Algoritmos y binario",
+    [
+     "entrada",
+     1,
+     2
+    ]
+   ],
+   [
+    "Datos",
+    "Búsquedas y bases de datos",
+    [
+     3,
+     4
+    ]
+   ],
+   [
+    "Hacer software de verdad",
+    "Errores, equipo y clientes",
+    [
+     5,
+     6,
+     7
+    ]
+   ],
+   [
+    "Examen final",
+    "10 preguntas · apruebas con 7",
+    [
+     "examen"
+    ]
+   ]
+  ]
+ },
+ "comunicacion": {
+  "entrada": "Ciencias de la Comunicación forma profesionales que informan, explican y convencen: periodistas, creadores de contenido, productores de audio y video, y responsables de redes y comunicación de empresas y gobiernos.",
+  "cifras": [
+   "comunicacion.ingreso",
+   "comunicacion.duracion",
+   "comunicacion.costo_publica",
+   "comunicacion.costo_privada"
+  ],
+  "gancho": "Hoy estás en una redacción. Vamos a ver si lo que publicas es cierto y le llega a la gente.",
+  "unidades": [
+   [
+    "Informar",
+    "Noticias y verificación",
+    [
+     "entrada",
+     1,
+     2
+    ]
+   ],
+   [
+    "Llegar a la gente",
+    "Mensaje, público y redes",
+    [
+     3,
+     4
+    ]
+   ],
+   [
+    "Con responsabilidad",
+    "Crisis, ética y producción",
+    [
+     5,
+     6,
+     7
+    ]
+   ],
+   [
+    "Examen final",
+    "10 preguntas · apruebas con 7",
+    [
+     "examen"
+    ]
+   ]
+  ]
+ },
+ "contaduria": {
+  "entrada": "Contaduría forma contadores públicos. Llevan las cuentas de empresas y personas, calculan sus impuestos y revisan que la información financiera sea cierta. Trabajan en despachos, en empresas, en el gobierno o por su cuenta con sus propios clientes.",
+  "cifras": [
+   "contaduria.ingreso",
+   "contaduria.duracion",
+   "contaduria.costo_publica",
+   "contaduria.costo_privada"
+  ],
+  "gancho": "Hoy llevas las cuentas de varios negocios. Vamos a ver si te cuadran.",
+  "unidades": [
+   [
+    "Las cuentas",
+    "Ecuación contable y estados financieros",
+    [
+     "entrada",
+     1,
+     2
+    ]
+   ],
+   [
+    "Los impuestos",
+    "IVA, ISR y fechas del SAT",
+    [
+     3,
+     4
+    ]
+   ],
+   [
+    "El trabajo real",
+    "Depreciación, auditoría y clientes",
+    [
+     5,
+     6,
+     7
+    ]
+   ],
+   [
+    "Examen final",
+    "10 preguntas · apruebas con 7",
+    [
+     "examen"
+    ]
+   ]
+  ]
+ },
+ "criminologia": {
+  "entrada": "Criminología y Criminalística forma profesionales que estudian por qué ocurren los delitos y cómo prevenirlos, y que analizan los indicios de una escena para ayudar a la justicia. Trabajan en fiscalías, servicios periciales, prevención del delito, cárceles y atención a víctimas.",
+  "cifras": [
+   "criminologia.ingreso",
+   "criminologia.duracion",
+   "criminologia.costo_publica",
+   "criminologia.costo_privada"
+  ],
+  "gancho": "Hoy llegas a una escena. Vamos a ver si cuidas cada pista.",
+  "unidades": [
+   [
+    "La escena",
+    "Indicios, huellas y custodia",
+    [
+     "entrada",
+     1,
+     2
+    ]
+   ],
+   [
+    "Entender el delito",
+    "Causas y datos",
+    [
+     3,
+     4
+    ]
+   ],
+   [
+    "Justicia",
+    "Juicio, peritaje y prevención",
+    [
+     5,
+     6,
+     7
+    ]
+   ],
+   [
+    "Examen final",
+    "10 preguntas · apruebas con 7",
+    [
+     "examen"
+    ]
+   ]
+  ]
+ },
+ "datos": {
+  "entrada": "Ciencia de Datos forma profesionales que usan estadística y programación para sacar respuestas de los datos: qué está pasando, por qué y qué podría pasar después. Trabajan en empresas, bancos, gobierno y tecnología. En Morelos no hay dónde terminarla.",
+  "cifras": [
+   "datos.becas",
+   "datos.duracion",
+   "datos.costo_publica",
+   "datos.costo_privada"
+  ],
+  "gancho": "Hoy te llegan miles de datos. Vamos a ver si te dicen la verdad.",
+  "unidades": [
+   [
+    "Resumir",
+    "Promedio, mediana y muestras",
+    [
+     "entrada",
+     1,
+     2
+    ]
+   ],
+   [
+    "No caer en trampas",
+    "Causas y datos sucios",
+    [
+     3,
+     4
+    ]
+   ],
+   [
+    "Mostrar y predecir",
+    "Gráficas, modelos y ética",
+    [
+     5,
+     6,
+     7
+    ]
+   ],
+   [
+    "Examen final",
+    "10 preguntas · apruebas con 7",
+    [
+     "examen"
+    ]
+   ]
   ]
  },
  "derecho": {
   "entrada": "Un abogado aplica las leyes para defender a personas y empresas, resolver conflictos y evitar problemas legales. La carrera dura entre 4 y 5 años y necesitas tu cédula profesional para ejercer.",
-  "cifras": ["derecho.ingreso", "derecho.duracion", "derecho.costo_publica", "derecho.costo_privada"],
+  "cifras": [
+   "derecho.ingreso",
+   "derecho.duracion",
+   "derecho.costo_publica",
+   "derecho.costo_privada"
+  ],
   "gancho": "Ahora vas a ver si piensas como abogado.",
   "unidades": [
-   ["Las reglas", "Qué ley manda y contratos", ["entrada", 1, 2]],
-   ["Lo penal", "Delitos, defensa y detenciones", [3, 4]],
-   ["En la práctica", "Trabajo, amparo y ética", [5, 6, 7]],
-   ["Examen final", "10 preguntas · apruebas con 7", ["examen"]]
+   [
+    "Las reglas",
+    "Qué ley manda y contratos",
+    [
+     "entrada",
+     1,
+     2
+    ]
+   ],
+   [
+    "Lo penal",
+    "Delitos, defensa y detenciones",
+    [
+     3,
+     4
+    ]
+   ],
+   [
+    "En la práctica",
+    "Trabajo, amparo y ética",
+    [
+     5,
+     6,
+     7
+    ]
+   ],
+   [
+    "Examen final",
+    "10 preguntas · apruebas con 7",
+    [
+     "examen"
+    ]
+   ]
   ]
  },
- "psicologia": {
-  "entrada": "Un psicólogo estudia cómo piensan, sienten y se comportan las personas, y las ayuda en clínicas, escuelas y empresas. La carrera dura entre 4 y 5 años. Para atender pacientes necesitas tu cédula, y muchos estudian una maestría.",
-  "cifras": ["psicologia.ingreso", "psicologia.duracion", "psicologia.costo_publica", "psicologia.costo_privada"],
-  "gancho": "Ahora vas a ver si piensas como psicólogo.",
+ "disindustrial": {
+  "entrada": "Diseño Industrial forma diseñadores de objetos que se fabrican en serie: muebles, herramientas, electrodomésticos, juguetes y empaques. Combinan creatividad, observación de las personas, materiales y procesos de fabricación.",
+  "cifras": [
+   "disindustrial.ingreso",
+   "disindustrial.duracion",
+   "disindustrial.costo_publica",
+   "disindustrial.costo_privada"
+  ],
+  "gancho": "Hoy diseñas un objeto que miles de personas van a usar. Vamos a ver si lo entienden.",
   "unidades": [
-   ["Mente y conducta", "El cerebro y cómo aprendemos", ["entrada", 1, 2]],
-   ["Conocer a las personas", "Desarrollo y evaluación", [3, 4]],
-   ["En la práctica", "Ansiedad, ética y empresas", [5, 6, 7]],
-   ["Examen final", "10 preguntas · apruebas con 7", ["examen"]]
+   [
+    "Para quién",
+    "Personas y proceso",
+    [
+     "entrada",
+     1,
+     2
+    ]
+   ],
+   [
+    "Cómo se hace",
+    "Forma, materiales y procesos",
+    [
+     3,
+     4
+    ]
+   ],
+   [
+    "Al mundo real",
+    "Sustentabilidad, fábrica y registro",
+    [
+     5,
+     6,
+     7
+    ]
+   ],
+   [
+    "Examen final",
+    "10 preguntas · apruebas con 7",
+    [
+     "examen"
+    ]
+   ]
+  ]
+ },
+ "economia": {
+  "entrada": "Economía forma profesionales que estudian cómo las personas, las empresas y los gobiernos usan recursos que no alcanzan para todo. Analizan precios, inflación, empleo y políticas públicas con datos. Trabajan en bancos, el Banco de México, gobierno, empresas, consultorías e investigación.",
+  "cifras": [
+   "economia.ingreso",
+   "economia.duracion",
+   "economia.costo_publica",
+   "economia.costo_privada"
+  ],
+  "gancho": "Hoy te toca explicar la economía del país. Vamos a ver si los números te cuadran.",
+  "unidades": [
+   [
+    "Los precios",
+    "Oferta, demanda e inflación",
+    [
+     "entrada",
+     1,
+     2
+    ]
+   ],
+   [
+    "La economía del país",
+    "Banxico y el PIB",
+    [
+     3,
+     4
+    ]
+   ],
+   [
+    "Decidir mejor",
+    "Costo de oportunidad, empleo y políticas",
+    [
+     5,
+     6,
+     7
+    ]
+   ],
+   [
+    "Examen final",
+    "10 preguntas · apruebas con 7",
+    [
+     "examen"
+    ]
+   ]
+  ]
+ },
+ "educacion": {
+  "entrada": "Pedagogía y Ciencias de la Educación forma profesionales que enseñan, diseñan clases y materiales, evalúan aprendizajes y mejoran escuelas. Trabajan como docentes, en orientación, en capacitación de empresas, en diseño de cursos en línea y en el gobierno.",
+  "cifras": [
+   "educacion.ingreso",
+   "educacion.duracion",
+   "educacion.costo_publica",
+   "educacion.costo_privada"
+  ],
+  "gancho": "Hoy tienes un grupo de 30 alumnos. Vamos a ver si aprenden contigo.",
+  "unidades": [
+   [
+    "Cómo se aprende",
+    "Aprendizaje y planeación",
+    [
+     "entrada",
+     1,
+     2
+    ]
+   ],
+   [
+    "Evaluar e incluir",
+    "Evaluación y diversidad",
+    [
+     3,
+     4
+    ]
+   ],
+   [
+    "En el salón",
+    "Retroalimentación, grupo y familias",
+    [
+     5,
+     6,
+     7
+    ]
+   ],
+   [
+    "Examen final",
+    "10 preguntas · apruebas con 7",
+    [
+     "examen"
+    ]
+   ]
+  ]
+ },
+ "educfisica": {
+  "entrada": "Educación Física y Ciencias del Deporte forma profesionales que enseñan a moverse, entrenan deportistas y promueven la actividad física para la salud. Trabajan en escuelas, clubes, gimnasios, equipos deportivos y programas comunitarios.",
+  "cifras": [
+   "educfisica.ingreso",
+   "educfisica.duracion",
+   "educfisica.costo_publica",
+   "educfisica.costo_privada"
+  ],
+  "gancho": "Hoy das la clase en la cancha. Vamos a ver si todos se mueven y nadie se lastima.",
+  "unidades": [
+   [
+    "El cuerpo en movimiento",
+    "Intensidad y calentamiento",
+    [
+     "entrada",
+     1,
+     2
+    ]
+   ],
+   [
+    "Entrenar seguro",
+    "Progresión, calor y lesiones",
+    [
+     3,
+     4,
+     5
+    ]
+   ],
+   [
+    "Enseñar",
+    "Enseñar y planear la sesión",
+    [
+     6,
+     7
+    ]
+   ],
+   [
+    "Examen final",
+    "10 preguntas · apruebas con 7",
+    [
+     "examen"
+    ]
+   ]
+  ]
+ },
+ "electrica": {
+  "entrada": "Ingeniería Eléctrica forma ingenieros que generan, transmiten y distribuyen la electricidad, y que diseñan las instalaciones de casas, edificios y fábricas. Trabajan en la CFE, en plantas de energía, en la industria y en proyectos de energía solar.",
+  "cifras": [
+   "electrica.ingreso",
+   "electrica.duracion",
+   "electrica.costo_publica",
+   "electrica.costo_privada"
+  ],
+  "gancho": "Hoy diseñas la instalación de un edificio. Vamos a ver si prende y si es seguro.",
+  "unidades": [
+   [
+    "Lo básico",
+    "Ohm, potencia y el recibo",
+    [
+     "entrada",
+     1,
+     2
+    ]
+   ],
+   [
+    "Circuitos seguros",
+    "Serie, paralelo y protecciones",
+    [
+     3,
+     4
+    ]
+   ],
+   [
+    "De la planta a la casa",
+    "Transmisión, instalaciones y seguridad",
+    [
+     5,
+     6,
+     7
+    ]
+   ],
+   [
+    "Examen final",
+    "10 preguntas · apruebas con 7",
+    [
+     "examen"
+    ]
+   ]
+  ]
+ },
+ "electronica": {
+  "entrada": "Ingeniería Electrónica y Telecomunicaciones forma ingenieros que diseñan circuitos, aparatos electrónicos, sensores y sistemas de comunicación como redes, internet y telefonía. Trabajan en empresas de electrónica, telecomunicaciones, automotriz y manufactura.",
+  "cifras": [
+   "electronica.ingreso",
+   "electronica.duracion",
+   "electronica.costo_publica",
+   "electronica.costo_privada"
+  ],
+  "gancho": "Hoy armas un circuito y conectas una red. Vamos a ver si funcionan.",
+  "unidades": [
+   [
+    "Componentes y señales",
+    "Circuitos, analógico y digital",
+    [
+     "entrada",
+     1,
+     2
+    ]
+   ],
+   [
+    "Que piense y se comunique",
+    "Microcontroladores y frecuencia",
+    [
+     3,
+     4
+    ]
+   ],
+   [
+    "Conectados",
+    "Internet, wifi y baterías",
+    [
+     5,
+     6,
+     7
+    ]
+   ],
+   [
+    "Examen final",
+    "10 preguntas · apruebas con 7",
+    [
+     "examen"
+    ]
+   ]
+  ]
+ },
+ "enfermeria": {
+  "entrada": "Enfermería forma profesionales que cuidan a los pacientes día y noche: dan medicamentos, vigilan signos vitales, previenen complicaciones, educan a las familias y son quienes primero notan cuando alguien empeora. Trabajan en hospitales, centros de salud, escuelas, empresas y atención en casa.",
+  "cifras": [
+   "enfermeria.ingreso",
+   "enfermeria.duracion",
+   "enfermeria.costo_publica",
+   "enfermeria.costo_privada"
+  ],
+  "gancho": "Hoy estás a cargo de un piso del hospital. Vamos a ver si cuidas bien a tus pacientes.",
+  "unidades": [
+   [
+    "Cuidar sin dañar",
+    "Manos limpias y medicamentos",
+    [
+     "entrada",
+     1,
+     2
+    ]
+   ],
+   [
+    "Vigilar",
+    "Goteo, signos vitales y prevención",
+    [
+     3,
+     4,
+     5
+    ]
+   ],
+   [
+    "Con las personas",
+    "Comunicación y ética",
+    [
+     6,
+     7
+    ]
+   ],
+   [
+    "Examen final",
+    "10 preguntas · apruebas con 7",
+    [
+     "examen"
+    ]
+   ]
+  ]
+ },
+ "finanzas": {
+  "entrada": "Finanzas forma profesionales que deciden cómo conseguir, invertir y cuidar el dinero de empresas, bancos y personas. Analizan riesgos, evalúan proyectos y administran inversiones. En Morelos no hay dónde terminarla; las opciones más cercanas están en la Ciudad de México.",
+  "cifras": [
+   "finanzas.ingreso",
+   "finanzas.duracion",
+   "finanzas.costo_publica",
+   "finanzas.costo_privada"
+  ],
+  "gancho": "Hoy manejas el dinero de una empresa. Vamos a ver si lo haces crecer sin arriesgarlo de más.",
+  "unidades": [
+   [
+    "El valor del dinero",
+    "Interés y riesgo",
+    [
+     "entrada",
+     1,
+     2
+    ]
+   ],
+   [
+    "Leer números",
+    "Créditos y estados financieros",
+    [
+     3,
+     4
+    ]
+   ],
+   [
+    "Decidir",
+    "Proyectos, finanzas personales y ética",
+    [
+     5,
+     6,
+     7
+    ]
+   ],
+   [
+    "Examen final",
+    "10 preguntas · apruebas con 7",
+    [
+     "examen"
+    ]
+   ]
+  ]
+ },
+ "fisica": {
+  "entrada": "Física forma científicos que explican cómo funciona el universo con matemáticas y experimentos: desde los átomos hasta las galaxias. Trabajan en investigación, docencia, industria, hospitales, tecnología y hasta finanzas, porque saben modelar problemas difíciles.",
+  "cifras": [
+   "fisica.becas",
+   "fisica.duracion",
+   "fisica.costo_publica",
+   "fisica.costo_privada"
+  ],
+  "gancho": "Hoy entras al laboratorio de física. Vamos a ver si el mundo se mueve como tú crees.",
+  "unidades": [
+   [
+    "Movimiento y fuerza",
+    "Velocidad, aceleración y Newton",
+    [
+     "entrada",
+     1,
+     2
+    ]
+   ],
+   [
+    "Energía y ondas",
+    "Energía, sonido y luz",
+    [
+     3,
+     4
+    ]
+   ],
+   [
+    "El oficio",
+    "Calor, mediciones y tecnología",
+    [
+     5,
+     6,
+     7
+    ]
+   ],
+   [
+    "Examen final",
+    "10 preguntas · apruebas con 7",
+    [
+     "examen"
+    ]
+   ]
+  ]
+ },
+ "fisioterapia": {
+  "entrada": "Fisioterapia forma profesionales que ayudan a las personas a recuperar el movimiento y a vivir con menos dolor después de lesiones, cirugías, enfermedades o con la edad. Su herramienta principal es el ejercicio. Trabajan en hospitales, clínicas, equipos deportivos y consultorios propios.",
+  "cifras": [
+   "fisioterapia.ingreso",
+   "fisioterapia.duracion",
+   "fisioterapia.costo_publica",
+   "fisioterapia.costo_privada"
+  ],
+  "gancho": "Hoy atiendes tu consultorio de fisioterapia. Vamos a ver si tus pacientes se recuperan.",
+  "unidades": [
+   [
+    "Valorar",
+    "Evaluación y señales de alarma",
+    [
+     "entrada",
+     1,
+     2
+    ]
+   ],
+   [
+    "Tratar",
+    "Ejercicio y lesiones",
+    [
+     3,
+     4
+    ]
+   ],
+   [
+    "Para cada persona",
+    "Postura, adultos mayores y comunicación",
+    [
+     5,
+     6,
+     7
+    ]
+   ],
+   [
+    "Examen final",
+    "10 preguntas · apruebas con 7",
+    [
+     "examen"
+    ]
+   ]
+  ]
+ },
+ "gastronomia": {
+  "entrada": "Gastronomía forma chefs y profesionales de alimentos y bebidas. Aprenden técnicas de cocina, cocina mexicana e internacional, higiene, costos y cómo dirigir una cocina o un restaurante. Trabajan en restaurantes, hoteles, banquetes, industria de alimentos o en su propio negocio.",
+  "cifras": [
+   "gastronomia.ingreso",
+   "gastronomia.duracion",
+   "gastronomia.costo_publica",
+   "gastronomia.costo_privada"
+  ],
+  "gancho": "Hoy estás a cargo de la cocina. Vamos a ver si sale rico, seguro y con ganancia.",
+  "unidades": [
+   [
+    "Cocina segura y rentable",
+    "Inocuidad y costos",
+    [
+     "entrada",
+     1,
+     2
+    ]
+   ],
+   [
+    "Técnica",
+    "Cocción y recetas",
+    [
+     3,
+     4
+    ]
+   ],
+   [
+    "El restaurante",
+    "Organización, cocina mexicana y servicio",
+    [
+     5,
+     6,
+     7
+    ]
+   ],
+   [
+    "Examen final",
+    "10 preguntas · apruebas con 7",
+    [
+     "examen"
+    ]
+   ]
+  ]
+ },
+ "grafico": {
+  "entrada": "Diseño Gráfico forma diseñadores que comunican con imágenes, letras y color: logos, carteles, empaques, páginas web, redes sociales y publicaciones. Trabajan en agencias, estudios, empresas, editoriales o por su cuenta.",
+  "cifras": [
+   "grafico.ingreso",
+   "grafico.duracion",
+   "grafico.costo_publica",
+   "grafico.costo_privada"
+  ],
+  "gancho": "Hoy te llega un cliente con un encargo. Vamos a ver si tu diseño comunica.",
+  "unidades": [
+   [
+    "Que se entienda",
+    "Jerarquía y tipografía",
+    [
+     "entrada",
+     1,
+     2
+    ]
+   ],
+   [
+    "Que se vea bien",
+    "Color e impresión",
+    [
+     3,
+     4
+    ]
+   ],
+   [
+    "El oficio",
+    "Marca, clientes y derechos",
+    [
+     5,
+     6,
+     7
+    ]
+   ],
+   [
+    "Examen final",
+    "10 preguntas · apruebas con 7",
+    [
+     "examen"
+    ]
+   ]
+  ]
+ },
+ "ia": {
+  "entrada": "Ingeniería en Inteligencia Artificial forma ingenieros que crean sistemas que aprenden de datos: reconocen imágenes y voz, entienden texto, recomiendan productos o detectan fraudes. Combinan programación, matemáticas y mucha responsabilidad con las personas.",
+  "cifras": [
+   "ia.becas",
+   "ia.duracion",
+   "ia.costo_publica",
+   "ia.costo_privada"
+  ],
+  "gancho": "Hoy entrenas tu primer modelo. Vamos a ver si aprende bien.",
+  "unidades": [
+   [
+    "Cómo aprende",
+    "Ejemplos y neuronas",
+    [
+     "entrada",
+     1,
+     2
+    ]
+   ],
+   [
+    "Errores y sesgos",
+    "Medir y corregir",
+    [
+     3,
+     4
+    ]
+   ],
+   [
+    "En el mundo real",
+    "Lenguaje, sistemas y ética",
+    [
+     5,
+     6,
+     7
+    ]
+   ],
+   [
+    "Examen final",
+    "10 preguntas · apruebas con 7",
+    [
+     "examen"
+    ]
+   ]
+  ]
+ },
+ "industrial": {
+  "entrada": "Ingeniería Industrial forma ingenieros que hacen que fábricas, hospitales, bancos y empresas de logística funcionen mejor: producen más, con mejor calidad, menos desperdicio y más seguridad. Trabajan en manufactura, logística, servicios y consultoría.",
+  "cifras": [
+   "industrial.ingreso",
+   "industrial.duracion",
+   "industrial.costo_publica",
+   "industrial.costo_privada"
+  ],
+  "gancho": "Hoy te dan una fábrica que va lenta. Vamos a ver si la haces funcionar mejor.",
+  "unidades": [
+   [
+    "Producir mejor",
+    "Productividad y cuello de botella",
+    [
+     "entrada",
+     1,
+     2
+    ]
+   ],
+   [
+    "Calidad y materiales",
+    "Defectos e inventarios",
+    [
+     3,
+     4
+    ]
+   ],
+   [
+    "La planta",
+    "Distribución, seguridad y capacidad",
+    [
+     5,
+     6,
+     7
+    ]
+   ],
+   [
+    "Examen final",
+    "10 preguntas · apruebas con 7",
+    [
+     "examen"
+    ]
+   ]
+  ]
+ },
+ "matematicas": {
+  "entrada": "Matemáticas forma matemáticos que demuestran ideas con lógica, encuentran patrones y construyen modelos para resolver problemas. Trabajan en investigación y docencia, pero también en bancos, aseguradoras, tecnología, ciencia de datos y criptografía.",
+  "cifras": [
+   "matematicas.ingreso",
+   "matematicas.duracion",
+   "matematicas.costo_publica",
+   "matematicas.costo_privada"
+  ],
+  "gancho": "Hoy piensas como matemático. Vamos a ver si los patrones te salen.",
+  "unidades": [
+   [
+    "Pensar en matemáticas",
+    "Demostrar y encontrar patrones",
+    [
+     "entrada",
+     1,
+     2
+    ]
+   ],
+   [
+    "Herramientas",
+    "Probabilidad y funciones",
+    [
+     3,
+     4
+    ]
+   ],
+   [
+    "Que no te engañen",
+    "Porcentajes, crecimiento y aplicaciones",
+    [
+     5,
+     6,
+     7
+    ]
+   ],
+   [
+    "Examen final",
+    "10 preguntas · apruebas con 7",
+    [
+     "examen"
+    ]
+   ]
+  ]
+ },
+ "mecanica": {
+  "entrada": "Ingeniería Mecánica forma ingenieros que diseñan, fabrican y mantienen máquinas: motores, vehículos, equipos industriales, sistemas de aire acondicionado y herramientas. Trabajan en la industria automotriz, manufactura, energía y mantenimiento.",
+  "cifras": [
+   "mecanica.ingreso",
+   "mecanica.duracion",
+   "mecanica.costo_publica",
+   "mecanica.costo_privada"
+  ],
+  "gancho": "Hoy estás en el taller de diseño. Vamos a ver si tu máquina funciona.",
+  "unidades": [
+   [
+    "Fuerza y movimiento",
+    "Palancas y engranes",
+    [
+     "entrada",
+     1,
+     2
+    ]
+   ],
+   [
+    "Que aguante",
+    "Eficiencia, materiales y calor",
+    [
+     3,
+     4,
+     5
+    ]
+   ],
+   [
+    "Máquinas reales",
+    "Mantenimiento y diseño",
+    [
+     6,
+     7
+    ]
+   ],
+   [
+    "Examen final",
+    "10 preguntas · apruebas con 7",
+    [
+     "examen"
+    ]
+   ]
+  ]
+ },
+ "mecatronica": {
+  "entrada": "Ingeniería Mecatrónica junta mecánica, electrónica y programación para crear máquinas que sienten y deciden: robots, líneas de producción automáticas, drones e impresoras 3D. Trabaja sobre todo en la industria automotriz y de manufactura.",
+  "cifras": [
+   "mecatronica.becas",
+   "mecatronica.duracion",
+   "mecatronica.costo_publica",
+   "mecatronica.costo_privada"
+  ],
+  "gancho": "Hoy automatizas una máquina. Vamos a ver si hace lo que le pides.",
+  "unidades": [
+   [
+    "Máquinas que sienten",
+    "Sensores, actuadores y control",
+    [
+     "entrada",
+     1,
+     2
+    ]
+   ],
+   [
+    "Mover",
+    "Motores, PLC y neumática",
+    [
+     3,
+     4,
+     5
+    ]
+   ],
+   [
+    "Robots de verdad",
+    "Robots e integración",
+    [
+     6,
+     7
+    ]
+   ],
+   [
+    "Examen final",
+    "10 preguntas · apruebas con 7",
+    [
+     "examen"
+    ]
+   ]
+  ]
+ },
+ "medicina": {
+  "entrada": "Medicina forma médicos generales que diagnostican y tratan enfermedades. En el Tec dura 13 semestres y en la UAEM de Morelos, que es pública, 12. Para especializarte presentas el ENARM, y solo una parte de los aspirantes consigue lugar.",
+  "cifras": [
+   "medicina.ingreso",
+   "medicina.costo_tec",
+   "medicina.costo_publica",
+   "medicina.enarm"
+  ],
+  "gancho": "Ahora vas a ver si piensas como médico.",
+  "unidades": [
+   [
+    "El cuerpo",
+    "Corazón y signos vitales",
+    [
+     "entrada",
+     1,
+     2
+    ]
+   ],
+   [
+    "Pensar como médico",
+    "Diagnóstico y medicinas",
+    [
+     3,
+     4
+    ]
+   ],
+   [
+    "En la práctica",
+    "Urgencias, comunidad y ética",
+    [
+     5,
+     6,
+     7
+    ]
+   ],
+   [
+    "Examen final",
+    "10 preguntas · apruebas con 7",
+    [
+     "examen"
+    ]
+   ]
+  ]
+ },
+ "mercadotecnia": {
+  "entrada": "Mercadotecnia forma profesionales que entienden qué necesita la gente y cómo hacer que un producto llegue a ella: investigan, definen precios, crean campañas y miden resultados. Trabajan en empresas, agencias de publicidad, marketing digital o con sus propias marcas.",
+  "cifras": [
+   "mercadotecnia.ingreso",
+   "mercadotecnia.duracion",
+   "mercadotecnia.costo_publica",
+   "mercadotecnia.costo_privada"
+  ],
+  "gancho": "Hoy lanzas un producto nuevo. Vamos a ver si alguien lo compra.",
+  "unidades": [
+   [
+    "El cliente",
+    "Segmentación y propuesta de valor",
+    [
+     "entrada",
+     1,
+     2
+    ]
+   ],
+   [
+    "Medir",
+    "Investigación y métricas",
+    [
+     3,
+     4
+    ]
+   ],
+   [
+    "La campaña",
+    "Precio, historias y responsabilidad",
+    [
+     5,
+     6,
+     7
+    ]
+   ],
+   [
+    "Examen final",
+    "10 preguntas · apruebas con 7",
+    [
+     "examen"
+    ]
+   ]
+  ]
+ },
+ "moda": {
+  "entrada": "Diseño de Modas y Textil forma diseñadores que crean ropa y accesorios: eligen telas, hacen patrones, costean y planean colecciones. Trabajan en marcas, talleres, la industria textil o con su propia marca. En Morelos no hay dónde terminarla.",
+  "cifras": [
+   "moda.ingreso",
+   "moda.duracion",
+   "moda.costo_publica",
+   "moda.costo_privada"
+  ],
+  "gancho": "Hoy diseñas tu primera colección. Vamos a ver si se vende y se puede usar.",
+  "unidades": [
+   [
+    "Materiales y medidas",
+    "Telas y patrones",
+    [
+     "entrada",
+     1,
+     2
+    ]
+   ],
+   [
+    "Producir",
+    "Tallas y costos",
+    [
+     3,
+     4
+    ]
+   ],
+   [
+    "Tu marca",
+    "Colección, sustentabilidad y respeto",
+    [
+     5,
+     6,
+     7
+    ]
+   ],
+   [
+    "Examen final",
+    "10 preguntas · apruebas con 7",
+    [
+     "examen"
+    ]
+   ]
   ]
  },
  "negocios": {
   "entrada": "Un administrador hace que una empresa funcione y gane dinero: decide qué hacer, organiza a la gente, cuida el dinero y revisa que todo salga como se planeó. Puede trabajar en cualquier empresa, desde una tiendita hasta una multinacional, o abrir su propio negocio. La carrera dura alrededor de 4 años.",
-  "cifras": ["negocios.ingreso", "negocios.duracion", "negocios.costo_publica", "negocios.costo_privada"],
+  "cifras": [
+   "negocios.ingreso",
+   "negocios.duracion",
+   "negocios.costo_publica",
+   "negocios.costo_privada"
+  ],
   "gancho": "Hoy eres el gerente de una cafetería. Vamos a ver cómo la manejas.",
   "unidades": [
-   ["Tu cafetería", "Las funciones y las cuentas", ["entrada", 1, 2]],
-   ["Dinero y clientes", "Flujo de efectivo y marketing", [3, 4]],
-   ["Equipo y estrategia", "Personas, operaciones y FODA", [5, 6, 7]],
-   ["Examen final", "10 preguntas · apruebas con 7", ["examen"]]
+   [
+    "Tu cafetería",
+    "Las funciones y las cuentas",
+    [
+     "entrada",
+     1,
+     2
+    ]
+   ],
+   [
+    "Dinero y clientes",
+    "Flujo de efectivo y marketing",
+    [
+     3,
+     4
+    ]
+   ],
+   [
+    "Equipo y estrategia",
+    "Personas, operaciones y FODA",
+    [
+     5,
+     6,
+     7
+    ]
+   ],
+   [
+    "Examen final",
+    "10 preguntas · apruebas con 7",
+    [
+     "examen"
+    ]
+   ]
+  ]
+ },
+ "nutricion": {
+  "entrada": "Nutrición forma profesionales que ayudan a las personas a comer mejor según su edad, salud, cultura y presupuesto. Dan consulta, trabajan en hospitales, escuelas, programas de salud pública, la industria de alimentos y el deporte.",
+  "cifras": [
+   "nutricion.ingreso",
+   "nutricion.duracion",
+   "nutricion.costo_publica",
+   "nutricion.costo_privada"
+  ],
+  "gancho": "Hoy abres tu consultorio de nutrición. Vamos a ver si tus consejos sirven en la vida real.",
+  "unidades": [
+   [
+    "Lo que comemos",
+    "Energía y el Plato del Bien Comer",
+    [
+     "entrada",
+     1,
+     2
+    ]
+   ],
+   [
+    "En la consulta",
+    "Etiquetas, consulta y mitos",
+    [
+     3,
+     4,
+     5
+    ]
+   ],
+   [
+    "Más allá del consultorio",
+    "Comunidad y límites",
+    [
+     6,
+     7
+    ]
+   ],
+   [
+    "Examen final",
+    "10 preguntas · apruebas con 7",
+    [
+     "examen"
+    ]
+   ]
+  ]
+ },
+ "odontologia": {
+  "entrada": "Odontología forma cirujanos dentistas que previenen, diagnostican y tratan problemas de dientes, encías y boca. Trabajan en consultorios propios, clínicas, hospitales y centros de salud. En Morelos no hay dónde terminarla.",
+  "cifras": [
+   "odontologia.ingreso",
+   "odontologia.duracion",
+   "odontologia.costo_publica",
+   "odontologia.costo_privada"
+  ],
+  "gancho": "Hoy atiendes tu consultorio dental. Vamos a ver si salvas esos dientes.",
+  "unidades": [
+   [
+    "Dientes y caries",
+    "Cómo son y cómo se dañan",
+    [
+     "entrada",
+     1,
+     2
+    ]
+   ],
+   [
+    "Prevenir",
+    "Higiene y encías",
+    [
+     3,
+     4
+    ]
+   ],
+   [
+    "En el consultorio",
+    "Infecciones, radiografías y pacientes",
+    [
+     5,
+     6,
+     7
+    ]
+   ],
+   [
+    "Examen final",
+    "10 preguntas · apruebas con 7",
+    [
+     "examen"
+    ]
+   ]
+  ]
+ },
+ "politicas": {
+  "entrada": "Ciencias Políticas y Administración Pública forma profesionales que estudian cómo se organiza el poder y cómo funciona el gobierno: leyes, elecciones, presupuestos y políticas públicas. Trabajan en el gobierno, el Congreso, organismos autónomos, organizaciones civiles, consultorías e investigación.",
+  "cifras": [
+   "politicas.ingreso",
+   "politicas.duracion",
+   "politicas.costo_publica",
+   "politicas.costo_privada"
+  ],
+  "gancho": "Hoy trabajas en el gobierno. Vamos a ver si tus decisiones resuelven problemas reales.",
+  "unidades": [
+   [
+    "El poder",
+    "División de poderes y leyes",
+    [
+     "entrada",
+     1,
+     2
+    ]
+   ],
+   [
+    "Gobernar",
+    "Políticas públicas y presupuesto",
+    [
+     3,
+     4
+    ]
+   ],
+   [
+    "Democracia",
+    "Elecciones, encuestas y transparencia",
+    [
+     5,
+     6,
+     7
+    ]
+   ],
+   [
+    "Examen final",
+    "10 preguntas · apruebas con 7",
+    [
+     "examen"
+    ]
+   ]
+  ]
+ },
+ "psicologia": {
+  "entrada": "Un psicólogo estudia cómo piensan, sienten y se comportan las personas, y las ayuda en clínicas, escuelas y empresas. La carrera dura entre 4 y 5 años. Para atender pacientes necesitas tu cédula, y muchos estudian una maestría.",
+  "cifras": [
+   "psicologia.ingreso",
+   "psicologia.duracion",
+   "psicologia.costo_publica",
+   "psicologia.costo_privada"
+  ],
+  "gancho": "Ahora vas a ver si piensas como psicólogo.",
+  "unidades": [
+   [
+    "Mente y conducta",
+    "El cerebro y cómo aprendemos",
+    [
+     "entrada",
+     1,
+     2
+    ]
+   ],
+   [
+    "Conocer a las personas",
+    "Desarrollo y evaluación",
+    [
+     3,
+     4
+    ]
+   ],
+   [
+    "En la práctica",
+    "Ansiedad, ética y empresas",
+    [
+     5,
+     6,
+     7
+    ]
+   ],
+   [
+    "Examen final",
+    "10 preguntas · apruebas con 7",
+    [
+     "examen"
+    ]
+   ]
+  ]
+ },
+ "qfb": {
+  "entrada": "Químico Farmacéutico Biólogo forma profesionales que analizan muestras en laboratorios clínicos, producen y controlan la calidad de medicamentos, trabajan en microbiología y orientan sobre el uso de medicinas en farmacias y hospitales.",
+  "cifras": [
+   "qfb.becas",
+   "qfb.duracion",
+   "qfb.costo_publica",
+   "qfb.costo_privada"
+  ],
+  "gancho": "Hoy entras al laboratorio clínico. Vamos a ver si tus resultados son confiables.",
+  "unidades": [
+   [
+    "El laboratorio",
+    "Muestras y control de calidad",
+    [
+     "entrada",
+     1,
+     2
+    ]
+   ],
+   [
+    "Medicamentos",
+    "Cómo son y cómo se fabrican",
+    [
+     3,
+     4
+    ]
+   ],
+   [
+    "Precisión y personas",
+    "Microbiología, diluciones y pacientes",
+    [
+     5,
+     6,
+     7
+    ]
+   ],
+   [
+    "Examen final",
+    "10 preguntas · apruebas con 7",
+    [
+     "examen"
+    ]
+   ]
+  ]
+ },
+ "quimica": {
+  "entrada": "Química forma científicos que estudian de qué está hecha la materia y cómo se transforma. Trabajan en laboratorios de análisis, control de calidad, investigación, la industria de alimentos, farmacéutica, de pinturas o cosméticos, y en el cuidado del ambiente.",
+  "cifras": [
+   "quimica.ingreso",
+   "quimica.duracion",
+   "quimica.costo_publica",
+   "quimica.costo_privada"
+  ],
+  "gancho": "Hoy te pones la bata. Vamos a ver si tus reacciones salen como esperas.",
+  "unidades": [
+   [
+    "La materia",
+    "Átomos y el mol",
+    [
+     "entrada",
+     1,
+     2
+    ]
+   ],
+   [
+    "Transformaciones",
+    "Reacciones, ácidos y seguridad",
+    [
+     3,
+     4,
+     5
+    ]
+   ],
+   [
+    "El químico en acción",
+    "Análisis y química verde",
+    [
+     6,
+     7
+    ]
+   ],
+   [
+    "Examen final",
+    "10 preguntas · apruebas con 7",
+    [
+     "examen"
+    ]
+   ]
+  ]
+ },
+ "quimicaing": {
+  "entrada": "Ingeniería Química forma ingenieros que diseñan y operan los procesos que convierten materias primas en productos a gran escala: combustibles, plásticos, alimentos, medicinas y más, cuidando la seguridad, la energía y el ambiente.",
+  "cifras": [
+   "quimicaing.ingreso",
+   "quimicaing.duracion",
+   "quimicaing.costo_publica",
+   "quimicaing.costo_privada"
+  ],
+  "gancho": "Hoy operas una planta química. Vamos a ver si tus balances cuadran y nadie corre peligro.",
+  "unidades": [
+   [
+    "Balances",
+    "Materia y mezclas",
+    [
+     "entrada",
+     1,
+     2
+    ]
+   ],
+   [
+    "Transformar",
+    "Separaciones, energía y reactores",
+    [
+     3,
+     4,
+     5
+    ]
+   ],
+   [
+    "Operar en grande",
+    "Seguridad, ambiente y escala",
+    [
+     6,
+     7
+    ]
+   ],
+   [
+    "Examen final",
+    "10 preguntas · apruebas con 7",
+    [
+     "examen"
+    ]
+   ]
+  ]
+ },
+ "rrii": {
+  "entrada": "Relaciones Internacionales forma profesionales que entienden cómo se relacionan los países, las organizaciones internacionales y las empresas a través de las fronteras: diplomacia, comercio, migración y conflictos. Trabajan en el Servicio Exterior, organismos internacionales, empresas, organizaciones civiles y medios.",
+  "cifras": [
+   "rrii.becas",
+   "rrii.duracion",
+   "rrii.costo_publica",
+   "rrii.costo_privada"
+  ],
+  "gancho": "Hoy representas a México ante el mundo. Vamos a ver cómo negocias.",
+  "unidades": [
+   [
+    "El mundo y sus reglas",
+    "Tratados y diplomacia",
+    [
+     "entrada",
+     1,
+     2
+    ]
+   ],
+   [
+    "Intereses en juego",
+    "Negociación, comercio y migración",
+    [
+     3,
+     4,
+     5
+    ]
+   ],
+   [
+    "Analizar y actuar",
+    "Conflictos y el trabajo",
+    [
+     6,
+     7
+    ]
+   ],
+   [
+    "Examen final",
+    "10 preguntas · apruebas con 7",
+    [
+     "examen"
+    ]
+   ]
+  ]
+ },
+ "sociologia": {
+  "entrada": "Sociología y Antropología forman profesionales que estudian cómo funciona la sociedad y la diversidad de culturas humanas, con encuestas, entrevistas y trabajo de campo. Trabajan en investigación, gobierno, organizaciones civiles, empresas, museos y encuestadoras.",
+  "cifras": [
+   "sociologia.ingreso",
+   "sociologia.duracion",
+   "sociologia.costo_publica",
+   "sociologia.costo_privada"
+  ],
+  "gancho": "Hoy sales a investigar a una comunidad. Vamos a ver qué descubres.",
+  "unidades": [
+   [
+    "Mirar la sociedad",
+    "Lo social y cómo se investiga",
+    [
+     "entrada",
+     1,
+     2
+    ]
+   ],
+   [
+    "Medir y comprender",
+    "Muestras, desigualdad y cultura",
+    [
+     3,
+     4,
+     5
+    ]
+   ],
+   [
+    "Con responsabilidad",
+    "Ética y el trabajo",
+    [
+     6,
+     7
+    ]
+   ],
+   [
+    "Examen final",
+    "10 preguntas · apruebas con 7",
+    [
+     "examen"
+    ]
+   ]
+  ]
+ },
+ "trabajosocial": {
+  "entrada": "Trabajo Social forma profesionales que acompañan a personas, familias y comunidades para enfrentar problemas sociales y ejercer sus derechos. Trabajan en hospitales, escuelas, el DIF, juzgados, programas sociales y organizaciones civiles.",
+  "cifras": [
+   "trabajosocial.ingreso",
+   "trabajosocial.duracion",
+   "trabajosocial.costo_publica",
+   "trabajosocial.costo_privada"
+  ],
+  "gancho": "Hoy te llegan varios casos difíciles. Vamos a ver cómo ayudas.",
+  "unidades": [
+   [
+    "Intervenir",
+    "Diagnóstico y entrevista",
+    [
+     "entrada",
+     1,
+     2
+    ]
+   ],
+   [
+    "Apoyar",
+    "Recursos, estudios y protección",
+    [
+     3,
+     4,
+     5
+    ]
+   ],
+   [
+    "Comunidad y cuidado",
+    "Comunidades y autocuidado",
+    [
+     6,
+     7
+    ]
+   ],
+   [
+    "Examen final",
+    "10 preguntas · apruebas con 7",
+    [
+     "examen"
+    ]
+   ]
+  ]
+ },
+ "turismo": {
+  "entrada": "Turismo y Hotelería forma profesionales que diseñan y operan experiencias de viaje: hoteles, agencias, restaurantes, eventos y destinos. Combinan servicio, números y cuidado de los lugares que se visitan. En Morelos hay mucho turismo de fin de semana y pueblos mágicos.",
+  "cifras": [
+   "turismo.ingreso",
+   "turismo.duracion",
+   "turismo.costo_publica",
+   "turismo.costo_privada"
+  ],
+  "gancho": "Hoy diriges un hotel lleno de huéspedes. Vamos a ver si se van felices.",
+  "unidades": [
+   [
+    "El hotel",
+    "Números y servicio",
+    [
+     "entrada",
+     1,
+     2
+    ]
+   ],
+   [
+    "Vender viajes",
+    "Reservaciones e itinerarios",
+    [
+     3,
+     4
+    ]
+   ],
+   [
+    "Destinos que duren",
+    "Sustentabilidad, promoción y seguridad",
+    [
+     5,
+     6,
+     7
+    ]
+   ],
+   [
+    "Examen final",
+    "10 preguntas · apruebas con 7",
+    [
+     "examen"
+    ]
+   ]
+  ]
+ },
+ "veterinaria": {
+  "entrada": "Medicina Veterinaria y Zootecnia forma médicos veterinarios que cuidan la salud de mascotas, ganado y fauna silvestre, y que protegen la salud pública vigilando enfermedades que pasan de animales a personas y la seguridad de la carne y la leche.",
+  "cifras": [
+   "veterinaria.ingreso",
+   "veterinaria.duracion",
+   "veterinaria.costo_publica",
+   "veterinaria.costo_privada"
+  ],
+  "gancho": "Hoy atiendes la clínica veterinaria. Vamos a ver si entiendes a pacientes que no hablan.",
+  "unidades": [
+   [
+    "Pacientes que no hablan",
+    "Revisión y prevención",
+    [
+     "entrada",
+     1,
+     2
+    ]
+   ],
+   [
+    "Cuidar sin dañar",
+    "Dosis y tóxicos",
+    [
+     3,
+     4
+    ]
+   ],
+   [
+    "Salud de todos",
+    "Zoonosis, producción y dueños",
+    [
+     5,
+     6,
+     7
+    ]
+   ],
+   [
+    "Examen final",
+    "10 preguntas · apruebas con 7",
+    [
+     "examen"
+    ]
+   ]
   ]
  }
 }

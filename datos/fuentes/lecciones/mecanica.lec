@@ -1,0 +1,135 @@
+**Lección 1: Palancas y torque (4 preguntas)**
+
+Las máquinas multiplican fuerza o velocidad. La forma más simple es la palanca. El torque, que es lo que hace girar algo, depende de la fuerza y de la distancia al punto de giro:
+
+$$\text{torque} = \text{fuerza} \times \text{distancia}$$
+
+Por eso es más fácil aflojar una tuerca con una llave larga: con la misma fuerza logras más torque. En una palanca en equilibrio, el torque de un lado es igual al del otro: puedes levantar algo pesado con poca fuerza si empujas lejos del punto de apoyo.
+
+Pregunta 1. Aplicas 50 newtons en una llave de 0.4 metros. ¿Qué torque logras? A: 125. B: 50.4. C: 20 newton metro. Correcta: C, porque
+
+$$50 \times 0.4 = 20$$
+
+Pregunta 2. Una tuerca no se afloja. ¿Qué cambio te ayuda más? A: una llave más corta. B: usar una llave más larga. C: empujar más cerca de la tuerca. Correcta: B.
+
+Pregunta 3. En una palanca, una piedra de 600 newtons está a 0.5 metros del apoyo. ¿Qué fuerza necesitas a 1.5 metros del otro lado para equilibrarla? A: 1,800 newtons. B: 200 newtons. C: 600 newtons. Correcta: B, porque
+
+$$\frac{600 \times 0.5}{1.5} = 200$$
+
+Pregunta 4. ¿Qué dos cosas determinan el torque? A: el color y el peso. B: solo la fuerza. C: la fuerza y la distancia al punto de giro. Correcta: C.
+
+**Lección 2: Engranes (4 preguntas)**
+
+Los engranes transmiten giro de un eje a otro. Si un engrane chico mueve uno grande, el grande gira más lento pero con más torque; si uno grande mueve uno chico, el chico gira más rápido pero con menos fuerza. Las vueltas se calculan con los dientes:
+
+$$\text{vueltas del engrane de salida} = \text{vueltas del de entrada} \times \frac{\text{dientes de entrada}}{\text{dientes de salida}}$$
+
+Así funcionan las velocidades de una bicicleta: en subida usas un plato chico adelante y un piñón grande atrás para tener más fuerza.
+
+Pregunta 1. Un engrane de 20 dientes gira 300 vueltas por minuto y mueve uno de 60 dientes. ¿A cuántas vueltas gira el grande? A: 900. B: 300. C: 100. Correcta: C, porque
+
+$$300 \times \frac{20}{60} = 100$$
+
+Pregunta 2. En ese caso, ¿el engrane grande tiene más o menos torque que el chico? A: igual. B: menos. C: más. Correcta: C.
+
+Pregunta 3. En una bicicleta vas en subida y no puedes pedalear. ¿Qué cambio haces? A: uno que te haga ir más rápido. B: uno que te dé más fuerza aunque avances más lento. C: ninguno. Correcta: B.
+
+Pregunta 4. Un engrane de 40 dientes a 100 vueltas por minuto mueve uno de 10 dientes. ¿A cuántas vueltas gira el chico? A: 100. B: 400. C: 25. Correcta: B, porque
+
+$$100 \times \frac{40}{10} = 400$$
+
+**Lección 3: Eficiencia (3 preguntas)**
+
+Ninguna máquina entrega toda la energía que recibe: una parte se pierde en calor por fricción, ruido o vibración. La eficiencia dice qué parte se aprovecha:
+
+$$\text{eficiencia} = \frac{\text{energía útil que sale}}{\text{energía que entra}}$$
+
+Un motor de gasolina de coche aprovecha más o menos un tercio de la energía del combustible; el resto se va como calor. Un motor eléctrico suele ser mucho más eficiente. Lubricar, alinear y dar mantenimiento ayudan a no perder eficiencia.
+
+Pregunta 1. Un motor recibe 1,000 watts y entrega 850 watts útiles. ¿Cuál es su eficiencia? A: 0.85. B: 1.18. C: 150. Correcta: A, porque
+
+$$\frac{850}{1{,}000} = 0.85$$
+
+Pregunta 2. ¿A dónde va la energía que no se aprovecha? A: sobre todo a calor por fricción. B: regresa al enchufe. C: desaparece. Correcta: A.
+
+Pregunta 3. Una banda transportadora empezó a gastar más energía y sus rodamientos rechinan. ¿Qué revisas? A: la lubricación y el estado de los rodamientos. B: el color de la banda. C: nada. Correcta: A.
+
+**Lección 4: Resistencia de materiales (4 preguntas)**
+
+Para que una pieza no se rompa, se calcula el esfuerzo que soporta:
+
+$$\text{esfuerzo} = \frac{\text{fuerza}}{\text{área}}$$
+
+Cada material aguanta cierto esfuerzo antes de deformarse para siempre o romperse. El acero aguanta mucho; el aluminio es más ligero pero aguanta menos. Se diseña con un factor de seguridad, para que la pieza aguante varias veces la carga esperada. Además, las esquinas filosas concentran el esfuerzo y son puntos donde suelen empezar las grietas; por eso se redondean.
+
+Pregunta 1. Una barra con un área de 0.001 metros cuadrados carga 5,000 newtons. ¿Qué esfuerzo tiene? A: 5,000. B: 5,000,000 newtons por metro cuadrado. C: 5 newtons por metro cuadrado. Correcta: B, porque
+
+$$\frac{5{,}000}{0.001} = 5{,}000{,}000$$
+
+Pregunta 2. Si quieres bajar el esfuerzo en una pieza con la misma carga, ¿qué haces? A: hacerla más delgada. B: aumentar su área. C: pintarla. Correcta: B.
+
+Pregunta 3. Una pieza se rompe siempre en la misma esquina filosa. ¿Qué cambias? A: la haces más filosa. B: redondeas la esquina para que no concentre el esfuerzo. C: nada. Correcta: B.
+
+Pregunta 4. ¿Para qué sirve el factor de seguridad? A: para que pese menos. B: para nada. C: para que la pieza aguante más que la carga esperada. Correcta: C.
+
+**Lección 5: Calor y motores (3 preguntas)**
+
+Los motores de combustión convierten calor en movimiento, y generan mucho calor que hay que sacar. Por eso los coches tienen radiador y anticongelante: si el sistema de enfriamiento falla, el motor se sobrecalienta y se puede dañar gravemente. Los materiales se dilatan con el calor, así que las piezas que se calientan se diseñan con espacio para crecer. En una casa, el aire acondicionado y el refrigerador no "crean frío": sacan calor de un lugar y lo llevan a otro.
+
+Pregunta 1. La aguja de temperatura de un coche sube al rojo. ¿Qué haces? A: sigues hasta casa. B: aceleras. C: te detienes y apagas el motor para que no se dañe. Correcta: C.
+
+Pregunta 2. ¿Qué hace un refrigerador? A: saca el calor de adentro y lo lleva afuera. B: nada. C: crea frío. Correcta: A.
+
+Pregunta 3. ¿Por qué las vías del tren tienen pequeños espacios entre tramos? A: para que el metal pueda dilatarse con el calor. B: por ahorro. C: por error. Correcta: A.
+
+**Lección 6: Mantenimiento (4 preguntas)**
+
+En una fábrica, una máquina parada cuesta mucho dinero. El mantenimiento preventivo revisa, limpia, lubrica y cambia piezas antes de que fallen, según un calendario. El mantenimiento predictivo usa mediciones, como vibración, temperatura o ruido, para detectar que algo va a fallar. El correctivo repara después de la falla, y suele ser el más caro porque detiene la producción sin aviso. Un buen ingeniero lleva un registro de cada máquina para planear.
+
+Pregunta 1. Un motor empezó a vibrar más de lo normal, aunque todavía funciona. ¿Qué haces? A: esperas a que se descomponga. B: nada. C: lo programas para revisión antes de que falle. Correcta: C.
+
+Pregunta 2. ¿Qué tipo de mantenimiento suele ser el más caro? A: el predictivo. B: el correctivo, después de la falla. C: el preventivo. Correcta: B.
+
+Pregunta 3. ¿Qué es el mantenimiento preventivo? A: reparar al fallar. B: revisar y cambiar piezas antes de que fallen, según un calendario. C: no hacer nada. Correcta: B.
+
+Pregunta 4. ¿Para qué sirve llevar un registro de cada máquina? A: para decorar. B: para nada. C: para planear el mantenimiento y ver patrones de fallas. Correcta: C.
+
+**Lección 7: Diseñar y fabricar (3 preguntas)**
+
+Un ingeniero mecánico diseña piezas en programas de CAD, que crean modelos en 3D y planos. Ninguna pieza sale exactamente de la medida: por eso los planos tienen tolerancias, que dicen cuánto se puede variar. Una flecha que debe entrar en un rodamiento necesita tolerancias muy precisas; una tapa decorativa, no tanto. Tolerancias más estrictas de lo necesario encarecen la pieza sin razón. Antes de fabricar miles, se hacen prototipos y pruebas.
+
+Pregunta 1. ¿Qué es una tolerancia en un plano? A: la paciencia del ingeniero. B: cuánto puede variar la medida de una pieza. C: el color. Correcta: B.
+
+Pregunta 2. Pides una tolerancia de milésimas de milímetro para una tapa decorativa. ¿Qué pasa? A: la pieza sale mucho más cara sin necesidad. B: sale mejor y más barata. C: nada. Correcta: A.
+
+Pregunta 3. ¿Para qué se usan los programas de CAD? A: para diseñar piezas en 3D y hacer planos. B: para hacer videos. C: para cobrar. Correcta: A.
+
+**Examen final**
+
+Pregunta 1. Aplicas 40 newtons en una llave de 0.5 metros. ¿Qué torque logras? A: 80. B: 40.5. C: 20 newton metro. Correcta: C, porque
+
+$$40 \times 0.5 = 20$$
+
+Pregunta 2. ¿Qué te ayuda a aflojar una tuerca muy apretada? A: una llave más larga. B: nada. C: una más corta. Correcta: A.
+
+Pregunta 3. Un engrane de 30 dientes a 200 vueltas por minuto mueve uno de 60. ¿A cuántas gira el grande? A: 100. B: 200. C: 400. Correcta: A, porque
+
+$$200 \times \frac{30}{60} = 100$$
+
+Pregunta 4. Un motor recibe 2,000 watts y entrega 1,600 útiles. ¿Cuál es su eficiencia? A: 400. B: 0.8. C: 1.25. Correcta: B, porque
+
+$$\frac{1{,}600}{2{,}000} = 0.8$$
+
+Pregunta 5. ¿A dónde se va la energía que no aprovecha una máquina? A: desaparece. B: a la luz. C: sobre todo a calor. Correcta: C.
+
+Pregunta 6. Una barra con área de 0.002 metros cuadrados carga 10,000 newtons. ¿Qué esfuerzo tiene? A: 5,000,000 newtons por metro cuadrado. B: 10,002. C: 20 newtons por metro cuadrado. Correcta: A, porque
+
+$$\frac{10{,}000}{0.002} = 5{,}000{,}000$$
+
+Pregunta 7. ¿Por qué se redondean las esquinas de una pieza? A: para que pese más. B: por estética. C: para no concentrar el esfuerzo. Correcta: C.
+
+Pregunta 8. La temperatura del motor sube al rojo. A: aceleras. B: te detienes y apagas. C: sigues. Correcta: B.
+
+Pregunta 9. ¿Qué mantenimiento usa mediciones de vibración para anticipar fallas? A: el predictivo. B: el correctivo. C: ninguno. Correcta: A.
+
+Pregunta 10. ¿Qué es una tolerancia? A: cuánto puede variar una medida. B: un tipo de tornillo. C: el material. Correcta: A.

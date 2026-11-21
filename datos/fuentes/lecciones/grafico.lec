@@ -1,0 +1,109 @@
+**Lección 1: Jerarquía visual (4 preguntas)**
+
+Un buen diseño le dice al ojo por dónde empezar. Eso es la jerarquía visual: lo más importante se ve primero, por su tamaño, su color, su contraste o su posición. Si todo es grande y llamativo, nada destaca. El espacio en blanco, que es el espacio vacío alrededor de los elementos, no es desperdicio: ayuda a que lo importante respire y se lea mejor. En un cartel, por ejemplo, el ojo debería ver primero el mensaje principal, luego los datos clave, como fecha y lugar, y al final los detalles.
+
+Pregunta 1. En un cartel de un concierto, ¿qué debe verse primero? A: el aviso de privacidad. B: los logos de los patrocinadores. C: el nombre del evento o del artista. Correcta: C.
+
+Pregunta 2. Un cliente pide que todo en su volante esté en letra grande y en rojo "para que se note". ¿Qué le explicas? A: que si todo destaca, nada destaca. B: que tiene razón. C: que mejor todo en amarillo. Correcta: A.
+
+Pregunta 3. ¿Para qué sirve el espacio en blanco? A: para que lo importante respire y se lea mejor. B: para ahorrar tinta. C: es un error. Correcta: A.
+
+Pregunta 4. ¿Con qué puedes hacer que un elemento destaque? A: con tamaño, color, contraste o posición. B: solo con el tamaño. C: no se puede. Correcta: A.
+
+**Lección 2: Tipografía (4 preguntas)**
+
+La tipografía es el diseño de las letras. Para textos largos se usan letras fáciles de leer, en un tamaño cómodo y con buen espacio entre líneas. Mezclar demasiadas fuentes hace que un diseño se vea desordenado; casi siempre bastan una o dos. Las letras muy decorativas sirven para un título corto, pero no para un párrafo. También importa el contraste: texto gris claro sobre fondo blanco se lee mal, sobre todo en pantallas y para personas con baja visión.
+
+Pregunta 1. Un menú usa cinco fuentes distintas. ¿Qué problema tiene? A: que tiene pocas. B: se ve desordenado; con una o dos basta. C: ninguno. Correcta: B.
+
+Pregunta 2. ¿Dónde conviene usar una letra muy decorativa? A: en un contrato de diez páginas. B: en un título corto. C: en las instrucciones de un medicamento. Correcta: B.
+
+Pregunta 3. Una página web pone texto gris claro sobre fondo blanco. ¿Qué problema hay? A: poco contraste: se lee mal. B: que se ve elegante y ya. C: ninguno. Correcta: A.
+
+Pregunta 4. ¿Qué ayuda a leer un texto largo? A: letra clara, tamaño cómodo y buen espacio entre líneas. B: todo en mayúsculas. C: letra muy pequeña. Correcta: A.
+
+**Lección 3: Color (3 preguntas)**
+
+Las pantallas forman los colores con luz: rojo, verde y azul, que se llama RGB. Las imprentas usan tintas: cian, magenta, amarillo y negro, que se llama CMYK. Un color muy brillante en pantalla puede salir más apagado impreso, porque las tintas no alcanzan todos los colores de la luz. Por eso los archivos para imprimir se preparan en CMYK y se piden pruebas de color. Además, los colores se eligen por contraste y por lo que comunican, no solo porque se ven bonitos.
+
+Pregunta 1. ¿Qué modo de color se usa para imprimir? A: RGB. B: cualquiera. C: CMYK. Correcta: C.
+
+Pregunta 2. Un logo verde neón se ve increíble en pantalla, pero en la impresión salió opaco. ¿Por qué? A: las tintas no alcanzan algunos colores de la pantalla. B: la impresora está rota. C: por casualidad. Correcta: A.
+
+Pregunta 3. Un póster va a imprimirse en miles de copias. ¿Qué pides antes? A: que lo impriman en blanco y negro. B: nada. C: una prueba de color. Correcta: C.
+
+**Lección 4: Imprimir bien (4 preguntas)**
+
+Para imprimir con calidad, las imágenes necesitan suficiente resolución: normalmente 300 puntos por pulgada al tamaño final. Para saber cuántos píxeles necesitas:
+
+$$\text{píxeles} = \text{pulgadas} \times 300$$
+
+Una imagen sacada de internet suele tener muy pocos píxeles y se ve pixeleada al imprimir grande. También se deja rebase: el fondo se extiende unos milímetros más allá del corte, para que no queden orillas blancas si la guillotina se mueve un poco. Y los textos importantes se alejan de la orilla.
+
+Pregunta 1. Un volante mide 6 pulgadas de ancho. ¿Cuántos píxeles de ancho necesita su imagen a 300 puntos por pulgada? A: 50. B: 1,800. C: 306. Correcta: B, porque
+
+$$6 \times 300 = 1{,}800$$
+
+Pregunta 2. Una lona mide 10 pulgadas de alto en la parte de la foto. ¿Cuántos píxeles necesita a 300? A: 30. B: 3,000. C: 310. Correcta: B, porque
+
+$$10 \times 300 = 3{,}000$$
+
+Pregunta 3. ¿Para qué sirve el rebase? A: para poner el logo. B: para gastar más papel. C: para que no queden orillas blancas si el corte se mueve un poco. Correcta: C.
+
+Pregunta 4. El cliente manda un logo de 200 por 200 píxeles sacado de WhatsApp para una lona enorme. A: lo estiras. B: le pides el archivo original en vector o en alta resolución. C: lo imprimes así. Correcta: B.
+
+**Lección 5: Identidad de marca (3 preguntas)**
+
+Una identidad de marca es más que un logo: incluye colores, tipografías, estilo de fotos y la forma de usarlos, todo explicado en un manual de marca. Un buen logo funciona en grande y en chiquito, a color y en una sola tinta, en un anuncio y en un sello. Por eso los logos se hacen en vectores, que se pueden agrandar sin perder calidad. Antes de diseñar se investiga a la empresa, a su público y a su competencia.
+
+Pregunta 1. ¿Qué incluye una identidad de marca? A: solo los colores. B: logo, colores, tipografías y reglas de uso. C: solo el logo. Correcta: B.
+
+Pregunta 2. Tu logo se ve bien en grande, pero en el ícono de una app no se entiende. ¿Qué haces? A: lo agrandas. B: lo dejas así. C: lo simplificas o haces una versión reducida. Correcta: C.
+
+Pregunta 3. ¿Por qué los logos se hacen en vectores? A: porque se pueden agrandar sin perder calidad. B: por moda. C: porque pesan más. Correcta: A.
+
+**Lección 6: El cliente y el brief (4 preguntas)**
+
+Todo proyecto empieza con un brief: un documento que dice qué se necesita, para quién, para qué, en qué formato, con qué presupuesto y para cuándo. Sin brief, el diseñador adivina. Se presentan pocas propuestas bien pensadas, no veinte. Los cambios se acuerdan desde el inicio: cuántas rondas incluye el precio. Y se diseña para el público del cliente, no para el gusto personal del diseñador.
+
+Pregunta 1. ¿Qué es un brief? A: un documento con qué se necesita, para quién, para qué y para cuándo. B: un logo. C: la factura. Correcta: A.
+
+Pregunta 2. Un cliente solo dice "hazme algo bonito". ¿Qué haces? A: diseñas lo que te guste a ti. B: haces 50 opciones. C: le haces preguntas para armar el brief. Correcta: C.
+
+Pregunta 3. Diseñas un folleto para adultos mayores y te gusta mucho la letra muy pequeña y delgada. A: usas varias. B: usas la que te gusta. C: eliges letra clara y grande porque es para ese público. Correcta: C.
+
+Pregunta 4. ¿Por qué conviene acordar desde el inicio cuántas rondas de cambios incluye el precio? A: por desconfianza. B: para evitar cambios infinitos sin pago. C: no conviene. Correcta: B.
+
+**Lección 7: Derechos de autor (3 preguntas)**
+
+No todo lo que está en internet se puede usar. Las fotos, ilustraciones y tipografías tienen dueño, y usarlas sin licencia en un trabajo comercial puede traer demandas. Hay bancos de imágenes gratuitos con licencias que permiten usarlas, y bancos de pago. Algunas fuentes son gratis solo para uso personal. Copiar el logo o el diseño de otra marca no es inspiración, es plagio. Tu propio trabajo también está protegido.
+
+Pregunta 1. Un cliente te pide usar una foto que encontró en Google para su anuncio. A: le quitas la marca de agua. B: buscas una con licencia que lo permita o una de un banco de imágenes. C: la usas. Correcta: B.
+
+Pregunta 2. Una fuente dice "gratis para uso personal". ¿Puedes usarla en el logo de una empresa? A: si le cambias el color. B: no sin comprar la licencia comercial. C: sí. Correcta: B.
+
+Pregunta 3. Un cliente quiere un logo idéntico al de una marca famosa con otro nombre. A: lo copias. B: lo copias al revés. C: le propones un diseño original. Correcta: C.
+
+**Examen final**
+
+Pregunta 1. ¿Qué es la jerarquía visual? A: el color del fondo. B: el tamaño del papel. C: el orden en que el ojo ve los elementos según su importancia. Correcta: C.
+
+Pregunta 2. Si todo en un diseño destaca, ¿qué pasa? A: se lee más rápido. B: nada destaca. C: todo se ve mejor. Correcta: B.
+
+Pregunta 3. ¿Cuántas fuentes suelen bastar en un diseño? A: una o dos. B: siete. C: diez. Correcta: A.
+
+Pregunta 4. ¿Qué modo de color se usa para imprimir? A: CMYK. B: ninguno. C: RGB. Correcta: A.
+
+Pregunta 5. Una imagen de 8 pulgadas de ancho a 300 puntos por pulgada. ¿Cuántos píxeles necesita? A: 37. B: 2,400. C: 308. Correcta: B, porque
+
+$$8 \times 300 = 2{,}400$$
+
+Pregunta 6. ¿Para qué sirve el rebase? A: para ahorrar. B: para decorar. C: para que no queden orillas blancas al cortar. Correcta: C.
+
+Pregunta 7. ¿Por qué un logo se hace en vector? A: para que pese más. B: para que sea de colores. C: para agrandarlo sin perder calidad. Correcta: C.
+
+Pregunta 8. El cliente dice "hazme algo bonito". A: le haces preguntas para armar el brief. B: le cobras doble. C: haces lo que te guste. Correcta: A.
+
+Pregunta 9. ¿Puedes usar en un anuncio una foto de Google sin licencia? A: no. B: si es pequeña. C: sí. Correcta: A.
+
+Pregunta 10. Una fuente es gratis solo para uso personal. ¿La usas en un logo comercial? A: si nadie se entera. B: no sin licencia comercial. C: sí. Correcta: B.

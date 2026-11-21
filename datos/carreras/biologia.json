@@ -1,227 +1,153 @@
 {
  "id": "biologia",
- "version": 1,
+ "version": 2,
+ "formato": 2,
  "estado": "completo",
- "generado": true,
- "revision": "Armada automáticamente con la base de carreras de Morelos y CDMX (2026-11-17). Falta que la revise alguien de la carrera.",
+ "revision": "Pendiente de revisión por un profesionista de la carrera. Generado con datos/importar_lecciones.py desde datos/fuentes/lecciones/biologia.lec; no se edita a mano.",
  "unidades": [
   {
    "id": "u1",
+   "titulo": "Pensar como científico",
+   "sub": "Método científico y herencia",
    "lecciones": [
     {
-     "id": "1.1",
-     "titulo": "Qué es y qué hace",
-     "minutos": 3,
+     "id": "0",
+     "titulo": "Conócela",
+     "minutos": 1,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "¿Qué es Biología?",
-       "texto": "Estudio científico de los seres vivos, los ecosistemas, la Tierra y sus procesos. Incluye trabajo de campo o laboratorio, análisis de muestras, modelación y conservación o aprovechamiento responsable.",
-       "puntos": [
-        "Estudia seres vivos en campo o laboratorio: monitorea especies, analiza muestras, participa en conservación, investigación, educación ambiental o industria."
+       "tipo": "ficha",
+       "texto": "Biología forma científicos que estudian a los seres vivos: desde las bacterias y las células hasta los bosques y los océanos. Trabajan en el campo, en laboratorios, en áreas naturales protegidas, en consultorías ambientales y dando clases.",
+       "cifras": [
+        "biologia.ingreso",
+        "biologia.duracion",
+        "biologia.costo_publica",
+        "biologia.costo_privada"
        ]
       },
       {
-       "tipo": "decision",
-       "pregunta": "Por lo que leíste, ¿qué hace alguien de Biología?",
-       "opciones": [
-        {
-         "texto": "Estudia seres vivos en campo o laboratorio: monitorea especies, analiza muestras, participa en conservación, investigación, educación ambiental o industria.",
-         "consecuencia": "Exacto: eso es parte del día a día en Biología.",
-         "mejor": true
-        },
-        {
-         "texto": "Crea logotipos, campañas, empaques, publicaciones y contenido digital",
-         "consecuencia": "Eso lo hace alguien de Diseño gráfico."
-        },
-        {
-         "texto": "Según el área: en clínica escucha y acompaña pacientes en terapia",
-         "consecuencia": "Eso lo hace alguien de Psicología."
-        }
-       ]
-      },
-      {
-       "tipo": "completar",
-       "frase": "Biología es una carrera del área de ___.",
-       "opciones": [
-        "Tecnología y ciencias",
-        "Salud",
-        "Negocios y sociedad"
-       ],
-       "correcta": 0,
-       "revelacion": "Está en Tecnología y ciencias. Se parece a Biotecnología e Ingeniería Bioquímica, Medicina Veterinaria y Zootecnia, Ingeniería Ambiental y Desarrollo Sustentable."
-      },
-      {
-       "tipo": "clave",
-       "texto": "Antes de elegir, entiende qué harías cada día, no solo el nombre."
-      },
-      {
-       "tipo": "interes"
+       "tipo": "escena",
+       "texto": "Hoy sales al campo y entras al laboratorio. Vamos a ver si piensas como bióloga o biólogo."
       }
      ]
     },
     {
-     "id": "1.2",
-     "titulo": "Dónde trabajas",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Dónde trabaja alguien de Biología",
-       "texto": "Universidades, centros de investigación, laboratorios, consultoría ambiental, industria, gobierno, análisis de datos, conservación y docencia;",
-       "puntos": [
-        "Algunos puestos valoran mucho el posgrado."
-       ]
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Alguien de Biología solo puede trabajar en un tipo de lugar.",
-       "respuesta": false,
-       "revelacion": "Puede trabajar en varios: universidades, centros de investigación, laboratorios."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Dónde te ves trabajando?",
-       "opciones": [
-        "Universidades",
-        "Centros de investigación",
-        "Laboratorios",
-        "Consultoría ambiental"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Una carrera abre varias puertas, no una sola."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "1.3",
-     "titulo": "Pregúntale a Rumbo",
+     "id": "1",
+     "titulo": "El método científico",
      "minutos": 4,
      "tarjetas": [
       {
-       "tipo": "chat",
-       "subtitulo": "Te cuenta cómo es trabajar en Biología",
-       "intro": [
-        "¡Hola! Junté lo que se sabe de Biología.",
-        "Pregúntame lo que quieras."
-       ],
-       "temas": [
+       "tipo": "info",
+       "titulo": "El método científico",
+       "partes": [
         {
-         "q": "¿Qué haces en un día normal?",
-         "a": [
-          "Estudia seres vivos en campo o laboratorio: monitorea especies, analiza muestras, participa en conservación, investigación, educación ambiental o industria."
-         ]
-        },
-        {
-         "q": "¿Qué es lo más difícil?",
-         "a": [
-          "Se considera una carrera de dificultad media-alta.",
-          "Química, Bioquímica, Genética y Estadística",
-          "Muchas prácticas de campo y laboratorio."
-         ]
-        },
-        {
-         "q": "¿Hay trabajo?",
-         "a": [
-          "Menos de la mitad trabaja en algo de su carrera; muchos se mueven a otras áreas. Es un promedio nacional del IMCO.",
-          "Mejor con posgrado."
-         ]
-        },
-        {
-         "q": "¿Qué necesito para ejercer?",
-         "a": [
-          "No requiere cédula",
-          "La investigación pide maestría y doctorado."
-         ]
+         "t": "Un biólogo no adivina: pregunta, propone una hipótesis y la pone a prueba con un experimento. En un buen experimento solo cambias una cosa a la vez, que se llama variable independiente, y mides lo que pasa, que es la variable dependiente. Siempre hay un grupo control, al que no le haces el cambio, para comparar. Además se repite con varios individuos, porque un solo caso puede salir así por casualidad. Si los resultados no apoyan tu hipótesis, no los cambias: cambias la hipótesis."
         }
-       ],
-       "minimo": 2,
-       "auto": true
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Biología se considera una carrera de dificultad media-alta.",
-       "respuesta": true,
-       "revelacion": "Se considera de dificultad media-alta. Química, Bioquímica, Genética y Estadística"
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué te llamó más la atención?",
-       "opciones": [
-        "¿Qué haces en un día normal?",
-        "¿Qué es lo más difícil?",
-        "¿Hay trabajo?",
-        "¿Qué necesito para ejercer?"
        ]
       },
       {
-       "tipo": "clave",
-       "texto": "Preguntar a quien ya sabe ahorra muchos errores."
+       "tipo": "pregunta",
+       "pregunta": "Quieres saber si un fertilizante hace crecer más las plantas de frijol. ¿Cuál es el grupo control?",
+       "opciones": [
+        "Plantas iguales, en las mismas condiciones, pero sin fertilizante",
+        "Plantas con el doble de fertilizante",
+        "Plantas de otra especie"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "En tu experimento, a las plantas con fertilizante también les diste más luz. ¿Qué problema hay?",
+       "opciones": [
+        "Ninguno",
+        "Ya no sabes si crecieron por el fertilizante o por la luz",
+        "Crecieron demasiado"
+       ],
+       "correcta": 1,
+       "explicacion": "Solo debes cambiar una variable a la vez."
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Probaste el fertilizante en una sola planta y creció más. ¿Puedes concluir que funciona?",
+       "opciones": [
+        "Sí, si es una planta grande",
+        "No; necesitas varias plantas en cada grupo, porque una sola pudo salir así por casualidad",
+        "Sí"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Tus resultados muestran que el fertilizante no hizo ninguna diferencia, pero tu jefe esperaba que sí.",
+       "opciones": [
+        "Quitas las plantas que no crecieron",
+        "Cambias los números",
+        "Reportas lo que salió"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
-     "id": "1.4",
-     "titulo": "Carreras parecidas",
-     "minutos": 3,
+     "id": "2",
+     "titulo": "Herencia",
+     "minutos": 4,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Carreras cercanas a Biología",
-       "puntos": [
-        "Biotecnología e Ingeniería Bioquímica: estudio interdisciplinario de su campo profesional, con bases teóricas.",
-        "Medicina Veterinaria y Zootecnia: formación para prevenir, diagnosticar y tratar enfermedades.",
-        "Ingeniería Ambiental y Desarrollo Sustentable: aplicación de matemáticas, ciencias y tecnología para diseñar, construir.",
-        "Químico Farmacéutico Biólogo (QFB): ciencias químicas y biológicas aplicadas al análisis, investigación."
+       "titulo": "Herencia",
+       "partes": [
+        {
+         "t": "Cada característica heredada depende de genes, y tienes dos copias de cada gen: una de tu mamá y otra de tu papá. Las versiones de un gen se llaman alelos. Un alelo dominante se nota aunque solo tengas una copia; uno recesivo solo se nota si tienes dos copias. Si los dos papás tienen una copia dominante y una recesiva, cada hijo tiene una probabilidad de 1 entre 4 de recibir dos recesivas. Eso se ve con un cuadro de Punnett, que combina los alelos de cada papá. En proporción, de cada 4 hijos se esperan 3 con la característica dominante y 1 con la recesiva."
+        }
        ]
       },
       {
-       "tipo": "emparejar",
-       "pregunta": "Une cada carrera con lo que estudia.",
-       "pares": [
-        [
-         "Biotecnología e Ingeniería Bioquímica",
-         "Estudio interdisciplinario de su campo profesional, con bases teóricas"
-        ],
-        [
-         "Medicina Veterinaria y Zootecnia",
-         "Formación para prevenir, diagnosticar y tratar enfermedades"
-        ],
-        [
-         "Ingeniería Ambiental y Desarrollo Sustentable",
-         "Aplicación de matemáticas, ciencias y tecnología para diseñar, construir"
-        ],
-        [
-         "Químico Farmacéutico Biólogo (QFB)",
-         "Ciencias químicas y biológicas aplicadas al análisis, investigación"
-        ]
-       ],
-       "revelacion": "Se cruzan en temas, pero cada una tiene su propio enfoque."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Cuál de estas te da curiosidad?",
+       "tipo": "pregunta",
+       "pregunta": "¿Cuándo se nota una característica recesiva?",
        "opciones": [
-        "Biotecnología e Ingeniería Bioquímica",
-        "Medicina Veterinaria y Zootecnia",
-        "Ingeniería Ambiental y Desarrollo Sustentable",
-        "Me quedo con Biología"
-       ]
+        "Nunca",
+        "Cuando tienes dos copias del alelo recesivo",
+        "Con una sola copia"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "clave",
-       "texto": "Si dudas entre dos, compara lo que harías cada día."
+       "tipo": "pregunta",
+       "pregunta": "Dos plantas de chícharo tienen cada una un alelo de flor morada, que es dominante, y uno de flor blanca, que es recesivo. ¿Qué proporción de hijos tendrá flor blanca?",
+       "opciones": [
+        "1 de cada 4",
+        "La mitad",
+        "Ninguno"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "De esa cruza nacen 400 plantas. ¿Cuántas esperas con flor blanca, más o menos?",
+       "opciones": [
+        "100",
+        "300",
+        "200"
+       ],
+       "correcta": 0,
+       "formula": "{400|4} = 100"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Dos papás con ojos cafés tienen un hijo con ojos azules. ¿Es posible?",
+       "opciones": [
+        "Sí, si los dos tenían una copia recesiva escondida",
+        "No, es imposible",
+        "Solo si uno tiene ojos azules"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "teves"
       }
      ]
     }
@@ -229,202 +155,174 @@
   },
   {
    "id": "u2",
+   "titulo": "La vida en conjunto",
+   "sub": "Ecosistemas, biodiversidad y conteos",
    "lecciones": [
     {
-     "id": "2.1",
-     "titulo": "Mini reto",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Las ranas de un lago están desapareciendo. ¿Qué haces primero?",
-       "opciones": [
-        "Tomas muestras de agua y cuentas cuántas quedan",
-        "Traes ranas de otro lugar",
-        "Cierras el lago"
-       ]
-      },
-      {
-       "tipo": "info",
-       "titulo": "Así lo piensa alguien de Biología",
-       "texto": "Primero se observa y se mide para entender la causa. Biología es mucho trabajo de campo, datos y paciencia."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Te gustó pensar en algo así?",
-       "escala": [
-        "Nada",
-        "Mucho"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Los retos de una carrera se parecen a lo que harías en su trabajo."
-      },
-      {
-       "tipo": "interes",
-       "pregunta": "¿Te ves resolviendo retos así?"
-      }
-     ]
-    },
-    {
-     "id": "2.2",
-     "titulo": "Lo que te piden",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Habilidades que usarás en Biología",
-       "puntos": [
-        "Curiosidad científica",
-        "Observación",
-        "Trabajo de campo",
-        "Paciencia"
-       ]
-      },
-      {
-       "tipo": "completar",
-       "pregunta": "Según lo que leíste, completa la frase.",
-       "frase": "Para Biología es clave: ___.",
-       "opciones": [
-        "Curiosidad científica",
-        "Precisión en laboratorio",
-        "Creatividad"
-       ],
-       "correcta": 0,
-       "revelacion": "Es de las habilidades que más se usan en Biología."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué tanto se te da esto: observación?",
-       "escala": [
-        "Me cuesta",
-        "Se me da"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Las habilidades se entrenan; lo importante es que te guste usarlas."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "2.3",
-     "titulo": "Temas que vas a ver",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Temas que te deben gustar",
-       "puntos": [
-        "Naturaleza y animales",
-        "Ciencia",
-        "Conservación"
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "¿Cuál de estos temas es más de Biología?",
-       "opciones": [
-        {
-         "texto": "Naturaleza y animales",
-         "consecuencia": "Sí, es de sus temas centrales.",
-         "mejor": true
-        },
-        {
-         "texto": "Química y biología",
-         "consecuencia": "Ese es más de QFB."
-        },
-        {
-         "texto": "Salud",
-         "consecuencia": "Ese es más de Odontología."
-        }
-       ]
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Cuál de estos temas te gusta más?",
-       "opciones": [
-        "Naturaleza y animales",
-        "Ciencia",
-        "Conservación",
-        "Ninguno me late"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Si los temas te aburren, la carrera se hace muy larga."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "2.4",
-     "titulo": "Materias clave",
+     "id": "3",
+     "titulo": "Ecosistemas",
      "minutos": 4,
      "tarjetas": [
       {
-       "tipo": "voltear",
-       "pregunta": "¿Qué materias crees que llevas en cada etapa? Piénsalo y voltea.",
-       "cartas": [
+       "tipo": "info",
+       "titulo": "Ecosistemas",
+       "partes": [
         {
-         "frente": "Semestres 1-2",
-         "reverso": "Biología celular, Química, Matemáticas, Zoología y botánica"
+         "t": "En un ecosistema la energía entra con el sol. Las plantas la capturan con la fotosíntesis; los herbívoros se comen a las plantas, y los carnívoros a los herbívoros. Eso es una cadena alimenticia, y cada paso se llama nivel trófico. En cada paso solo pasa más o menos el 10 por ciento de la energía al siguiente nivel, porque el resto se gasta en vivir. Por eso hay muchas más plantas que herbívoros, y muchos más herbívoros que carnívoros grandes."
         },
         {
-         "frente": "Semestres 3-4",
-         "reverso": "Bioquímica, Genética, Ecología, Estadística"
-        },
-        {
-         "frente": "Semestres 5-6",
-         "reverso": "Evolución, Fisiología, Microbiología, Biología molecular"
-        },
-        {
-         "frente": "Semestres 7 en adelante",
-         "reverso": "Prácticas de campo, Tesis"
+         "f": "energía del siguiente nivel = energía del nivel anterior × 0.10"
         }
        ]
       },
       {
-       "tipo": "decision",
-       "pregunta": "¿Cuál de estas materias llevarías en Biología?",
+       "tipo": "pregunta",
+       "pregunta": "Las plantas de un pastizal capturan 10,000 unidades de energía. ¿Cuánta llega a los herbívoros, más o menos?",
        "opciones": [
+        "1,000",
+        "10,000",
+        "100"
+       ],
+       "correcta": 0,
+       "formula": "10,000 × 0.10 = 1,000"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Y de los herbívoros, ¿cuánta llega a los carnívoros?",
+       "opciones": [
+        "10",
+        "100",
+        "1,000"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "En una zona se cazan casi todos los coyotes. ¿Qué pasa probablemente con los conejos y el pasto?",
+       "opciones": [
+        "Los conejos aumentan y se comen más pasto",
+        "Los conejos desaparecen",
+        "No pasa nada"
+       ],
+       "correcta": 0
+      },
+      {
+       "tipo": "teves"
+      }
+     ]
+    },
+    {
+     "id": "4",
+     "titulo": "Biodiversidad en México",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "Biodiversidad en México",
+       "partes": [
         {
-         "texto": "Biología celular",
-         "consecuencia": "Sí: es de las primeras materias de Biología.",
-         "mejor": true
-        },
-        {
-         "texto": "Teoría sociológica clásica",
-         "consecuencia": "Esa es de Sociología."
-        },
-        {
-         "texto": "Anatomía y fisiología",
-         "consecuencia": "Esa es de Enfermería."
+         "t": "México es uno de los países megadiversos: está entre los que tienen más especies del mundo. Muchas de ellas son endémicas, es decir, solo viven aquí, como el ajolote de Xochimilco. Las principales amenazas son la pérdida de hábitat, las especies invasoras que llegan de otros lugares y desplazan a las nativas, la contaminación y el comercio ilegal. Proteger el hábitat suele ser más eficaz que proteger una especie aislada. En México, la NOM-059 es la lista oficial de especies en riesgo."
         }
        ]
       },
       {
-       "tipo": "reflexion",
-       "pregunta": "¿Cuál te da más curiosidad?",
+       "tipo": "pregunta",
+       "pregunta": "¿Qué significa que una especie sea endémica?",
        "opciones": [
-        "Biología celular",
-        "Química",
-        "Matemáticas",
-        "Zoología y botánica"
+        "Que es muy común",
+        "Que solo vive en un lugar",
+        "Que es peligrosa"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Unos peces de otro país se liberan en un lago de Michoacán y empiezan a comerse los huevos de los peces nativos. ¿Qué son?",
+       "opciones": [
+        "Una especie endémica",
+        "Una especie en extinción",
+        "Una especie invasora"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Quieres salvar una especie de rana que vive en un bosque que están talando. ¿Qué ayuda más a largo plazo?",
+       "opciones": [
+        "Pintar las ranas",
+        "Llevar unas ranas a un zoológico y ya",
+        "Proteger el bosque donde vive"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "Alguien te ofrece vender ajolotes sacados de Xochimilco.",
+       "opciones": [
+        "Los vendes en redes",
+        "Los compras",
+        "No participas; es una especie en riesgo y sacarlos de su hábitat es ilegal"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "teves"
+      }
+     ]
+    },
+    {
+     "id": "5",
+     "titulo": "Contar animales en el campo",
+     "minutos": 4,
+     "tarjetas": [
+      {
+       "tipo": "info",
+       "titulo": "Contar animales en el campo",
+       "partes": [
+        {
+         "t": "Los biólogos no pueden contar a todos los animales de un bosque, así que estiman. Un método es captura y recaptura. Atrapas algunos animales, los marcas y los sueltas. Días después atrapas otro grupo y cuentas cuántos traen marca. Si una parte pequeña trae marca, es que la población es grande:"
+        },
+        {
+         "f": "población = {marcados la primera vez × atrapados la segunda vez|marcados que volviste a atrapar}"
+        },
+        {
+         "t": "El método funciona si la marca no lastima al animal ni cambia su comportamiento, y si los marcados se mezclan con los demás."
+        }
        ]
       },
       {
-       "tipo": "clave",
-       "texto": "Las primeras materias son la base; muchas veces son las más pesadas."
+       "tipo": "pregunta",
+       "pregunta": "Marcas 50 ratones. Días después atrapas 40, y 10 traen marca. ¿Cuántos ratones hay, más o menos?",
+       "opciones": [
+        "90",
+        "200",
+        "100"
+       ],
+       "correcta": 1,
+       "formula": "{50 × 40|10} = 200"
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "Si en la segunda captura casi todos traen marca, ¿qué te dice?",
+       "opciones": [
+        "Nada",
+        "Que la población es pequeña",
+        "Que es enorme"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "La marca que usaste hace que los ratones sean más fáciles de ver para las lechuzas. ¿Qué problema hay?",
+       "opciones": [
+        "Ninguno",
+        "Los marcados se mueren más, así que el cálculo sale mal y además los dañas",
+        "Así es mejor"
+       ],
+       "correcta": 1
+      },
+      {
+       "tipo": "teves"
       }
      ]
     }
@@ -432,183 +330,121 @@
   },
   {
    "id": "u3",
+   "titulo": "Lo pequeño y el trabajo",
+   "sub": "Microorganismos y el día a día",
    "lecciones": [
     {
-     "id": "3.1",
-     "titulo": "Un día real",
+     "id": "6",
+     "titulo": "Microorganismos",
      "minutos": 4,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Un día de trabajo en Biología",
-       "puntos": [
-        "Estudia seres vivos en campo o laboratorio: monitorea especies, analiza muestras, participa en conservación, investigación, educación ambiental o industria."
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "¿Cuál de estas cosas sí hace alguien de Biología?",
-       "opciones": [
+       "titulo": "Microorganismos",
+       "partes": [
         {
-         "texto": "Estudia seres vivos en campo o laboratorio: monitorea especies, analiza muestras, participa en conservación, investigación, educación ambiental o industria.",
-         "consecuencia": "Sí: es parte de su día.",
-         "mejor": true
+         "t": "Las bacterias son seres de una sola célula. Muchas son útiles, como las que hacen el yogurt o las que viven en tu intestino, y algunas causan enfermedades. En buenas condiciones, una bacteria se divide en dos cada cierto tiempo, así que su número se duplica una y otra vez:"
         },
         {
-         "texto": "Cocina, crea platillos, controla costos e inventarios, dirige equipos de cocina y, si emprende, administra su propio negocio de comida.",
-         "consecuencia": "Eso es más de Gastronomía."
+         "f": "bacterias después de 3 divisiones = bacterias al inicio × 2 × 2 × 2"
         },
         {
-         "texto": "Analiza problemas públicos, diseña o evalúa programas de gobierno, asesora a legisladores o candidatos, investiga opinión pública o trabaja en organizaciones civiles.",
-         "consecuencia": "Eso es más de Ciencias políticas."
+         "t": "Por eso una pequeña contaminación en comida puede volverse grande en pocas horas si no se refrigera. Los antibióticos matan bacterias, pero no virus, y usarlos mal ayuda a que aparezcan bacterias resistentes."
         }
        ]
       },
       {
-       "tipo": "reflexion",
-       "pregunta": "¿Te ves haciendo esto todos los días?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
+       "tipo": "pregunta",
+       "pregunta": "Empiezas con 100 bacterias que se duplican cada hora. ¿Cuántas hay después de 3 horas?",
+       "opciones": [
+        "600",
+        "800",
+        "300"
+       ],
+       "correcta": 1,
+       "formula": "100 × 2 × 2 × 2 = 800"
       },
       {
-       "tipo": "clave",
-       "texto": "El día a día pesa más que el título."
+       "tipo": "pregunta",
+       "pregunta": "¿Por qué la comida se echa a perder más rápido fuera del refrigerador?",
+       "opciones": [
+        "Por el ruido",
+        "Por la luz",
+        "Porque con calor las bacterias se multiplican más rápido"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "interes"
+       "tipo": "pregunta",
+       "pregunta": "Alguien quiere tomar antibióticos para la gripa, que es causada por un virus.",
+       "opciones": [
+        "Le sirven si toma el doble",
+        "Le sirven",
+        "No le sirven, porque los antibióticos no matan virus"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Por qué es malo usar antibióticos cuando no hacen falta?",
+       "opciones": [
+        "Porque son caros y ya",
+        "No es malo",
+        "Porque ayuda a que aparezcan bacterias resistentes"
+       ],
+       "correcta": 2
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
-     "id": "3.2",
-     "titulo": "Lo difícil",
+     "id": "7",
+     "titulo": "El trabajo del biólogo",
      "minutos": 4,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Lo difícil de Biología",
-       "texto": "Se considera de dificultad media-alta.",
-       "puntos": [
-        "Química, Bioquímica, Genética y Estadística",
-        "Muchas prácticas de campo y laboratorio."
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "Según lo que leíste, ¿qué es lo que más cuesta en Biología?",
-       "opciones": [
+       "titulo": "El trabajo del biólogo",
+       "partes": [
         {
-         "texto": "Química, Bioquímica, Genética y Estadística",
-         "consecuencia": "Sí, es de lo que más cuesta en Biología.",
-         "mejor": true
-        },
-        {
-         "texto": "Idiomas, Administración y prácticas en hoteles o agencias.",
-         "consecuencia": "Eso es más de Turismo."
-        },
-        {
-         "texto": "Teoría social densa y Metodología cuantitativa y cualitativa.",
-         "consecuencia": "Eso es más de Sociología."
+         "t": "Un biólogo puede trabajar en el campo, estudiando plantas y animales; en el laboratorio, con células, ADN o microorganismos; en museos, zoológicos y áreas naturales protegidas; en consultorías que hacen estudios de impacto ambiental, o dando clases. Mucho del trabajo es tomar datos con cuidado: anotar dónde, cuándo y cómo se tomó cada muestra. Un dato sin esa información sirve poco. También se trabaja con permisos, porque para colectar especies silvestres en México se necesita autorización."
         }
        ]
       },
       {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué tanto te preocupa esto?",
-       "escala": [
-        "Mucho",
-        "Nada"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Saber lo difícil desde antes te ayuda a prepararte."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "3.3",
-     "titulo": "Historia real",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Si pudieras preguntarle algo a alguien que ya estudia Biología, ¿qué sería?",
+       "tipo": "pregunta",
+       "pregunta": "Colectas plantas en una sierra, pero no anotas dónde ni cuándo tomaste cada una. ¿Qué problema hay?",
        "opciones": [
-        "¿Qué fue lo más difícil?",
-        "¿Qué te sorprendió?",
-        "¿Volverías a elegirla?",
-        "¿Cómo es un día normal?"
-       ]
+        "Ninguno",
+        "Así es más rápido",
+        "Los ejemplares sirven poco porque no se sabe de dónde vienen"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "testimonio",
-       "estado": "pendiente",
-       "perfil": "Estudiante de últimos semestres o egresado de Biología"
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "Mientras llega esta historia, ¿a quién podrías preguntarle tú?",
+       "tipo": "pregunta",
+       "pregunta": "Quieres colectar insectos en un área natural protegida para tu tesis. ¿Qué necesitas?",
        "opciones": [
-        "A un familiar o conocido que la estudió",
-        "A un estudiante de mi ciudad",
-        "A un maestro que la conozca",
-        "Todavía no conozco a nadie"
-       ]
+        "Un permiso de colecta",
+        "Nada",
+        "Hacerlo de noche"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "clave",
-       "texto": "Una persona real te cuenta lo que ningún folleto dice."
+       "tipo": "pregunta",
+       "pregunta": "¿Dónde puede trabajar un biólogo?",
+       "opciones": [
+        "En el campo, laboratorios, áreas protegidas, consultorías y escuelas",
+        "Solo en zoológicos",
+        "Solo en hospitales"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "3.4",
-     "titulo": "¿Es para ti?",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Contesta con honestidad. Nadie más ve tus respuestas."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Me imagino días enteros en campo tomando datos?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Me interesa investigar?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Haría posgrado para trabajar en lo que me gusta?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Si dijiste que sí a casi todo, vale la pena seguir explorándola."
-      },
-      {
-       "tipo": "interes"
+       "tipo": "teves"
       }
      ]
     }
@@ -616,449 +452,127 @@
   },
   {
    "id": "u4",
+   "titulo": "Examen final",
+   "sub": "10 preguntas · apruebas con 7",
    "lecciones": [
     {
-     "id": "4.1",
-     "titulo": "Cuánto dura y qué estudias",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Cada escuela arma su plan distinto, pero el orden general se parece. Vamos a verlo."
-      },
-      {
-       "tipo": "ordenar",
-       "pregunta": "Ordena lo que estudias, de lo primero a lo último.",
-       "pasos": [
-        "Biología celular, Química",
-        "Bioquímica, Genética",
-        "Evolución, Fisiología",
-        "Prácticas de campo, Tesis"
-       ],
-       "revelacion": "Primero las bases y al final lo más especializado y las prácticas."
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Cuántos años crees que pasan desde que entras hasta que te titulas?",
-       "min": 3,
-       "max": 10,
-       "paso": 1,
-       "unidad": "años",
-       "dato": "biologia.duracion"
-      },
-      {
-       "tipo": "clave",
-       "texto": "Revisa el mapa curricular de cada escuela: cambia de una a otra."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "4.2",
-     "titulo": "Cómo se entra",
-     "minutos": 4,
+     "id": "ex",
+     "titulo": "Examen final",
+     "minutos": 6,
+     "examen": true,
+     "aprobar": 7,
      "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Cómo se entra en la región",
-       "puntos": [
-        "UNAM: Concurso de selección UNAM (120 reactivos) o pase reglamentado desde CCH/ENP",
-        "IPN: Examen de admisión IPN (140 preguntas, hasta 3 horas, incluye sección de inglés)",
-        "UAM: Examen de selección UAM (trimestral; dos procesos al año y procesos extraordinarios)",
-        "UAEM: EXANI-II de CENEVAL + curso propedéutico"
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "Según lo que leíste, ¿qué pide UNAM para entrar?",
-       "opciones": [
+       "titulo": "Examen final",
+       "partes": [
         {
-         "texto": "Concurso de selección UNAM (120 reactivos) o pase reglamentado desde CCH/ENP",
-         "consecuencia": "Exacto.",
-         "mejor": true
-        },
-        {
-         "texto": "Examen de admisión IPN (140 preguntas, hasta 3 horas, incluye sección de inglés)",
-         "consecuencia": "Eso lo pide IPN."
-        },
-        {
-         "texto": "Examen de selección UAM (trimestral; dos procesos al año y procesos extraordinarios)",
-         "consecuencia": "Eso lo pide UAM."
+         "t": "Son 10 casos nuevos que mezclan todas las lecciones. Apruebas con 7. Si no, lo repites y las que fallaste regresan con otras palabras."
         }
        ]
       },
       {
-       "tipo": "vf",
-       "afirmacion": "Todas las universidades usan el mismo examen.",
-       "respuesta": false,
-       "revelacion": "Cada una tiene el suyo: revisa la convocatoria de la que te interese."
-      },
-      {
-       "tipo": "clave",
-       "texto": "Conoce el examen de tu escuela desde antes."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "4.3",
-     "titulo": "Dónde, cuánto cuesta y becas",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "escuelas"
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Cuánto crees que cuesta un semestre en una universidad pública?",
-       "min": 0,
-       "max": 60000,
-       "paso": 1000,
-       "unidad": "pesos",
-       "dato": "biologia.costo_publica"
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Y un semestre en una universidad privada?",
-       "min": 0,
-       "max": 300000,
-       "paso": 5000,
-       "unidad": "pesos",
-       "dato": "biologia.costo_privada"
-      },
-      {
-       "tipo": "dato",
-       "titulo": "Becas para estudiar Biología",
-       "dato": "biologia.becas"
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Una universidad cara garantiza un mejor empleo.",
-       "respuesta": false,
-       "revelacion": "Pesan más lo que aprendes, tus prácticas y tu esfuerzo."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué pesa más para ti al elegir escuela?",
+       "tipo": "pregunta",
+       "pregunta": "¿Para qué sirve el grupo control en un experimento?",
        "opciones": [
-        "El costo",
-        "Que esté cerca de mi casa",
-        "El prestigio",
-        "Las prácticas que ofrece"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "Además de la colegiatura, cuenta transporte y materiales."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "u5",
-   "lecciones": [
-    {
-     "id": "5.1",
-     "titulo": "Qué piden para trabajar",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Qué te piden para trabajar",
-       "puntos": [
-        "No requiere cédula",
-        "La investigación pide maestría y doctorado.",
-        "Mejor con posgrado."
-       ]
-      },
-      {
-       "tipo": "decision",
-       "pregunta": "Según lo que leíste, ¿qué necesitas para ejercer Biología?",
-       "opciones": [
-        {
-         "texto": "No requiere cédula",
-         "consecuencia": "Exacto.",
-         "mejor": true
-        },
-        {
-         "texto": "Título y cédula profesional.",
-         "consecuencia": "Eso lo piden en Odontología."
-        },
-        {
-         "texto": "No requiere cédula",
-         "consecuencia": "Eso lo piden en Gastronomía."
-        }
-       ]
-      },
-      {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Cómo te ves?",
-       "a": {
-        "texto": "En una institución o empresa",
-        "dice": "Más estabilidad y un equipo de quien aprender."
-       },
-       "b": {
-        "texto": "Por tu cuenta",
-        "dice": "Más libertad, pero tienes que conseguir clientes."
-       }
-      },
-      {
-       "tipo": "clave",
-       "texto": "Saber qué te piden te ahorra sorpresas al salir."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "5.2",
-     "titulo": "Sueldo y demanda",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "escena",
-       "texto": "Hablemos de dinero sin rodeos. Antes de ver cualquier cifra, apuesta: así recuerdas mejor el dato real."
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "¿Cuánto crees que gana al mes, en promedio, un profesionista de Biología en México?",
-       "min": 5000,
-       "max": 100000,
-       "paso": 1000,
-       "unidad": "pesos",
-       "dato": "biologia.ingreso"
-      },
-      {
-       "tipo": "rango",
-       "pregunta": "De cada 100 egresados, ¿cuántos crees que trabajan en algo de su carrera?",
-       "min": 0,
-       "max": 100,
-       "paso": 5,
-       "unidad": "de cada 100",
-       "dato": "biologia.ocupacion_afin"
-      },
-      {
-       "tipo": "vf",
-       "afirmacion": "Todos los egresados de Biología ganan lo mismo.",
-       "respuesta": false,
-       "revelacion": "Cambia con la experiencia, el lugar, la especialidad y si trabajas por tu cuenta."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué tanto pesa el sueldo en tu decisión?",
-       "escala": [
-        "No va conmigo",
-        "Va mucho conmigo"
-       ]
-      },
-      {
-       "tipo": "clave",
-       "texto": "El promedio orienta, pero tu camino puede ser distinto."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "5.3",
-     "titulo": "Cómo les va al salir",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "chat",
-       "subtitulo": "Te cuenta cómo les va al salir",
-       "intro": [
-        "Te cuento cómo les va a quienes estudian Biología al salir."
+        "Para comparar con un grupo al que no se le hizo el cambio",
+        "Para que el experimento sea más rápido",
+        "Para tener más datos"
        ],
-       "temas": [
-        {
-         "q": "¿Cuántos trabajan en lo suyo?",
-         "a": [
-          "Menos de la mitad trabaja en algo de su carrera.",
-          "Es un promedio nacional del IMCO."
-         ]
-        },
-        {
-         "q": "¿Muchos hacen posgrado?",
-         "a": [
-          "Pocos hacen posgrado; la mayoría empieza a trabajar."
-         ]
-        },
-        {
-         "q": "¿Hay más hombres o mujeres?",
-         "a": [
-          "Hay casi el mismo número de hombres y mujeres.",
-          "Eso no decide nada: cualquiera puede estudiarla."
-         ]
-        },
-        {
-         "q": "¿El trabajo tiene prestaciones?",
-         "a": [
-          "La mayoría tiene un trabajo formal, con prestaciones.",
-          "Las prestaciones son cosas como seguro médico y aguinaldo."
-         ]
-        }
+       "correcta": 0
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Cuántas variables debes cambiar a la vez en un experimento?",
+       "opciones": [
+        "Dos",
+        "Todas",
+        "Una"
        ],
-       "minimo": 2
+       "correcta": 2
       },
       {
-       "tipo": "vf",
-       "afirmacion": "La mayoría de quienes estudian Biología trabaja en algo de su carrera.",
-       "respuesta": false,
-       "revelacion": "Menos de la mitad trabaja en algo de su carrera. Promedio nacional del IMCO."
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Qué te importa más de tu futuro trabajo?",
+       "tipo": "pregunta",
+       "pregunta": "Dos papás tienen cada uno un alelo dominante y uno recesivo. ¿Qué probabilidad tiene un hijo de mostrar la característica recesiva?",
        "opciones": [
-        "Que tenga que ver con lo que estudié",
-        "Ganar bien",
-        "Tener prestaciones",
-        "Hacer algo que me guste"
-       ]
+        "3 de cada 4",
+        "1 de cada 4",
+        "1 de cada 2"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "clave",
-       "texto": "Pregunta cómo les va a quienes ya salieron."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    },
-    {
-     "id": "5.4",
-     "titulo": "Después de titularte",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Después de titularte",
-       "puntos": [
-        "Puedes especializarte con cursos, diplomados o una maestría.",
-        "También puedes trabajar desde el inicio y estudiar después.",
-        "Se combina bien con: Biotecnología e Ingeniería Bioquímica, Medicina Veterinaria y Zootecnia, Ingeniería Ambiental y Desarrollo Sustentable."
-       ]
-      },
-      {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Qué harías al terminar?",
-       "a": {
-        "texto": "Trabajar desde el inicio",
-        "dice": "Ganas experiencia y dinero; después decides si estudias más."
-       },
-       "b": {
-        "texto": "Seguir estudiando",
-        "dice": "Te especializas antes; tardas más en empezar a trabajar."
-       }
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "¿Cómo te imaginas después de la carrera?",
+       "tipo": "pregunta",
+       "pregunta": "Las plantas de un ecosistema capturan 50,000 unidades de energía. ¿Cuánta llega a los herbívoros, más o menos?",
        "opciones": [
-        "Trabajando",
-        "En una maestría",
-        "Emprendiendo",
-        "No sé todavía"
-       ]
+        "500",
+        "50,000",
+        "5,000"
+       ],
+       "correcta": 2,
+       "formula": "50,000 × 0.10 = 5,000"
       },
       {
-       "tipo": "clave",
-       "texto": "Al titularte empieza otra parte del camino, no termina."
-      },
-      {
-       "tipo": "interes"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "u6",
-   "lecciones": [
-    {
-     "id": "6.1",
-     "titulo": "Lo que sentiste",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Antes de ver tus respuestas: ¿cómo te fue con Biología?",
+       "tipo": "pregunta",
+       "pregunta": "¿Qué es una especie endémica?",
        "opciones": [
-        "Me gustó más de lo que pensaba",
-        "Más o menos como esperaba",
-        "Me gustó menos de lo que pensaba"
-       ]
+        "Una que solo vive en un lugar",
+        "Una invasora",
+        "Una que está en todo el mundo"
+       ],
+       "correcta": 0
       },
       {
-       "tipo": "resumen"
-      },
-      {
-       "tipo": "reflexion",
-       "pregunta": "Viendo tus respuestas, ¿qué pesó más?",
+       "tipo": "pregunta",
+       "pregunta": "Marcas 30 lagartijas. Después atrapas 20, y 5 traen marca. ¿Cuántas hay, más o menos?",
        "opciones": [
-        "Lo que sentí al probarla",
-        "Lo que supe de la realidad",
-        "El camino para llegar",
-        "El futuro que ofrece"
-       ]
+        "150",
+        "120",
+        "50"
+       ],
+       "correcta": 1,
+       "formula": "{30 × 20|5} = 120"
       },
       {
-       "tipo": "clave",
-       "texto": "Lo que sentiste al probarla vale más que lo que imaginabas."
-      },
-      {
-       "tipo": "interes",
-       "pregunta": "¿Te ves estudiando Biología?"
-      }
-     ]
-    },
-    {
-     "id": "6.2",
-     "titulo": "Tu veredicto",
-     "minutos": 3,
-     "tarjetas": [
-      {
-       "tipo": "reflexion",
-       "pregunta": "Si mañana tuvieras que elegir carrera, ¿Biología estaría entre tus opciones?",
+       "tipo": "pregunta",
+       "pregunta": "Empiezas con 50 bacterias que se duplican cada hora. ¿Cuántas hay después de 2 horas?",
        "opciones": [
-        "Sí, entre las primeras",
-        "Sí, pero no arriba",
-        "No creo",
-        "No lo sé"
-       ]
+        "200",
+        "100",
+        "150"
+       ],
+       "correcta": 0,
+       "formula": "50 × 2 × 2 = 200"
       },
       {
-       "tipo": "comparar"
+       "tipo": "pregunta",
+       "pregunta": "¿Los antibióticos sirven contra los virus?",
+       "opciones": [
+        "Solo contra la gripa",
+        "Sí",
+        "No"
+       ],
+       "correcta": 2
       },
       {
-       "tipo": "dos_caminos",
-       "pregunta": "¿Qué te ayudaría más a decidir?",
-       "a": {
-        "texto": "Hablar con alguien que la estudia",
-        "dice": "Busca a un estudiante o egresado cerca de ti y hazle tus preguntas. Una plática aclara más que diez videos."
-       },
-       "b": {
-        "texto": "Probar otra carrera y comparar",
-        "dice": "Explora otra de tu mapa. Comparar dos caminos reales aclara más que pensar en uno solo."
-       }
+       "tipo": "pregunta",
+       "pregunta": "¿Qué suele proteger mejor a una especie en riesgo?",
+       "opciones": [
+        "No hacer nada",
+        "Cuidar su hábitat",
+        "Llevarla a un zoológico"
+       ],
+       "correcta": 1
       },
       {
-       "tipo": "veredicto"
-      },
-      {
-       "tipo": "clave",
-       "texto": "Decidir «en duda» también es avanzar."
+       "tipo": "pregunta",
+       "pregunta": "Tus resultados no apoyan tu hipótesis.",
+       "opciones": [
+        "Reportas los resultados y revisas la hipótesis",
+        "No los publicas nunca",
+        "Cambias los datos"
+       ],
+       "correcta": 0
       }
      ]
     }

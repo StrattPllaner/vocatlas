@@ -1,0 +1,109 @@
+**Lección 1: Diseñar para personas (4 preguntas)**
+
+Un diseñador industrial diseña objetos que se fabrican en serie: sillas, licuadoras, herramientas, empaques, juguetes. Todo empieza por quién lo va a usar. Las personas son de muchos tamaños, así que se usan tablas de medidas del cuerpo llamadas antropométricas. Normalmente se diseña para que el objeto funcione desde la persona chica hasta la grande, del percentil 5 al 95, que cubre a 90 de cada 100 personas. Para algo que todos deben alcanzar, como un botón de emergencia, se piensa en la persona más bajita; para algo por donde todos deben pasar, como una puerta, en la más alta.
+
+Pregunta 1. ¿Para quién diseñas la altura de un botón que todos deben alcanzar? A: para la persona más bajita. B: para la más alta. C: para el diseñador. Correcta: A.
+
+Pregunta 2. ¿Y la altura de una puerta, por donde todos deben pasar sin agacharse? A: para la persona más alta. B: para un niño. C: para la más bajita. Correcta: A.
+
+Pregunta 3. Diseñas un asiento de autobús solo con tus propias medidas. ¿Qué problema hay? A: puede no servirle a gente más alta, más baja o más ancha que tú. B: que es más barato. C: ninguno. Correcta: A.
+
+Pregunta 4. ¿Qué parte de la población cubre diseñar del percentil 5 al 95? A: 90 de cada 100 personas. B: todas. C: la mitad. Correcta: A.
+
+**Lección 2: El proceso de diseño (4 preguntas)**
+
+El diseño no empieza dibujando. Primero se investiga: se observa a las personas usando productos parecidos, se les pregunta y se buscan problemas reales. Luego se generan muchas ideas en bocetos rápidos, sin enamorarse de la primera. Las mejores se convierten en prototipos, desde modelos de cartón hasta piezas impresas en 3D, y se prueban con usuarios. Lo que falla se corrige y se vuelve a probar. Es más barato equivocarse con un prototipo de cartón que con mil piezas fabricadas.
+
+Pregunta 1. ¿Qué haces antes de dibujar una nueva silla para escuelas? A: copias una de internet. B: dibujas la silla más bonita que se te ocurra. C: observas a los alumnos usando sus sillas actuales y les preguntas. Correcta: C.
+
+Pregunta 2. ¿Por qué se hacen muchos bocetos al principio? A: porque es obligatorio. B: para explorar varias ideas sin quedarse con la primera. C: para gastar papel. Correcta: B.
+
+Pregunta 3. Tu prototipo de cartón muestra que el mango se resbala de la mano. ¿Qué haces? A: lo corriges y vuelves a probar. B: lo mandas a fabricar igual. C: culpas al usuario. Correcta: A.
+
+Pregunta 4. ¿Por qué se prueba con prototipos baratos? A: no se prueban. B: para que se vean feos. C: porque equivocarse ahí cuesta mucho menos que con piezas fabricadas. Correcta: C.
+
+**Lección 3: Forma y uso (3 preguntas)**
+
+Un buen objeto se entiende solo: su forma dice cómo se usa. Una manija que invita a jalar, un botón que parece presionable, un hueco que sugiere dónde poner los dedos. Cuando un objeto necesita un letrero de "jale" o "empuje", muchas veces es porque su forma confunde. También se piensa en el error: un buen diseño hace difícil equivocarse, como un enchufe que solo entra de una forma.
+
+Pregunta 1. Una puerta con manija de jalar tiene un letrero que dice "empuje". ¿Qué problema de diseño hay? A: la forma de la manija sugiere lo contrario de lo que hay que hacer. B: ninguno. C: que el letrero es chico. Correcta: A.
+
+Pregunta 2. ¿Para qué sirve que un conector solo entre de una forma? A: para que sea más caro. B: para que sea difícil equivocarse. C: por estética. Correcta: B.
+
+Pregunta 3. En unas pruebas, la gente no encuentra cómo abrir tu empaque. A: pones instrucciones larguísimas. B: lo dejas. C: rediseñas para que la forma muestre por dónde se abre. Correcta: C.
+
+**Lección 4: Materiales y procesos (4 preguntas)**
+
+Cada material se fabrica con ciertos procesos. Muchas piezas de plástico se hacen por inyección: el plástico derretido se mete a un molde de acero. El molde es muy caro, pero después cada pieza sale baratísima y rapidísima. Por eso la inyección conviene cuando se van a hacer muchas piezas. El costo por pieza se calcula así:
+
+$$\text{costo por pieza} = \frac{\text{costo del molde}}{\text{número de piezas}} + \text{material y proceso de cada pieza}$$
+
+Para pocas piezas convienen otros procesos, como la impresión 3D o el maquinado, que no necesitan molde.
+
+Pregunta 1. Un molde cuesta 200,000 pesos y cada pieza cuesta 5 pesos de material. Si haces 10,000 piezas, ¿cuánto cuesta cada una? A: 5 pesos. B: 25 pesos. C: 200,005 pesos. Correcta: B, porque
+
+$$\frac{200{,}000}{10{,}000} + 5 = 25$$
+
+Pregunta 2. Si haces 100,000 piezas con el mismo molde, ¿cuánto cuesta cada una? A: 7 pesos. B: 25 pesos. C: 2 pesos. Correcta: A, porque
+
+$$\frac{200{,}000}{100{,}000} + 5 = 7$$
+
+Pregunta 3. Necesitas 20 piezas para un prototipo. ¿Qué proceso conviene? A: ninguno. B: impresión 3D o maquinado, sin molde. C: inyección con un molde de 200,000 pesos. Correcta: B.
+
+Pregunta 4. ¿Por qué la inyección conviene para muchas piezas? A: no conviene. B: porque el costo del molde se reparte entre muchas. C: porque el molde es barato. Correcta: B.
+
+**Lección 5: Sustentabilidad (3 preguntas)**
+
+Un producto tiene un ciclo de vida: se extraen materiales, se fabrica, se transporta, se usa y al final se tira, se repara o se recicla. El diseñador decide mucho de ese impacto desde el principio. Un objeto que se puede desarmar y reparar dura más. Uno hecho de un solo material es más fácil de reciclar que uno con varios materiales pegados. Hacer piezas más ligeras ahorra material y transporte.
+
+Pregunta 1. Un empaque tiene cartón pegado a plástico de forma que no se pueden separar. ¿Qué problema tiene? A: es difícil de reciclar. B: ninguno. C: es muy fuerte. Correcta: A.
+
+Pregunta 2. ¿Qué hace que un producto dure más? A: que sea de colores. B: que esté sellado con pegamento. C: que se pueda desarmar y reparar. Correcta: C.
+
+Pregunta 3. ¿Qué es el ciclo de vida de un producto? A: su garantía. B: cuánto tiempo está en la tienda. C: desde que se sacan sus materiales hasta que se desecha o recicla. Correcta: C.
+
+**Lección 6: Producir de verdad (4 preguntas)**
+
+Un diseño bonito que no se puede fabricar no sirve. El diseñador trabaja con ingenieros y fábricas para que las piezas salgan bien del molde, se puedan armar rápido y cuesten lo que el cliente puede pagar. Por ejemplo, las piezas de plástico inyectado necesitan paredes de grosor parejo y pequeñas inclinaciones para salir del molde. Menos piezas y menos tornillos significan armado más barato. El precio final tiene que dejar ganancia a la fábrica y a la tienda.
+
+Pregunta 1. Tu diseño tiene 15 tornillos distintos. ¿Qué propones? A: agregar más. B: reducir piezas y tornillos para armar más fácil y barato. C: dejarlo. Correcta: B.
+
+Pregunta 2. ¿Por qué las piezas inyectadas necesitan paredes de grosor parejo? A: por estética. B: para que salgan bien del molde sin deformarse. C: no lo necesitan. Correcta: B.
+
+Pregunta 3. Tu cliente quiere vender una lámpara en 300 pesos y tu diseño cuesta 280 de fabricar. ¿Qué problema hay? A: no deja ganancia suficiente para fábrica y tienda; hay que bajar costos. B: ninguno. C: que es barata. Correcta: A.
+
+Pregunta 4. ¿Con quién trabaja el diseñador para que el producto se pueda fabricar? A: solo con el cliente. B: con ingenieros y la fábrica. C: con nadie. Correcta: B.
+
+**Lección 7: Proteger tu diseño (3 preguntas)**
+
+En México, el aspecto nuevo de un objeto se puede registrar como diseño industrial ante el IMPI, y un invento que resuelve un problema técnico de forma nueva se puede patentar. Así otros no pueden copiarlo legalmente durante cierto tiempo. Para registrarlo tiene que ser nuevo: si lo publicas en redes antes, puedes perder la novedad. Y copiar el diseño protegido de otra empresa puede traerte demandas.
+
+Pregunta 1. ¿Dónde se registra un diseño industrial en México? A: en el SAT. B: en el IMSS. C: en el IMPI. Correcta: C.
+
+Pregunta 2. Quieres registrar tu diseño, pero ya lo subiste a redes hace un año. ¿Qué riesgo hay? A: ninguno. B: que se vuelva más valioso. C: que ya no se considere nuevo. Correcta: C.
+
+Pregunta 3. Un cliente te pide copiar exactamente una silla famosa protegida. A: la copias. B: le propones un diseño propio. C: la copias cambiándole el color. Correcta: B.
+
+**Examen final**
+
+Pregunta 1. ¿Para quién se diseña la altura de un botón que todos deben alcanzar? A: para el promedio. B: para la más alta. C: para la persona más bajita. Correcta: C.
+
+Pregunta 2. ¿Qué haces antes de dibujar? A: investigar a los usuarios. B: fabricar. C: elegir colores. Correcta: A.
+
+Pregunta 3. ¿Por qué se hacen prototipos baratos? A: para venderlos. B: para equivocarse barato antes de fabricar. C: no se hacen. Correcta: B.
+
+Pregunta 4. Una puerta necesita un letrero de "empuje". ¿Qué suele indicar? A: nada. B: que está bien diseñada. C: que su forma confunde. Correcta: C.
+
+Pregunta 5. Un molde de 100,000 pesos y 4 pesos de material por pieza. Si haces 20,000 piezas, ¿cuánto cuesta cada una? A: 5 pesos. B: 4 pesos. C: 9 pesos. Correcta: C, porque
+
+$$\frac{100{,}000}{20{,}000} + 4 = 9$$
+
+Pregunta 6. Necesitas 10 piezas para pruebas. ¿Qué proceso conviene? A: impresión 3D. B: inyección con molde. C: ninguno. Correcta: A.
+
+Pregunta 7. ¿Qué producto es más fácil de reciclar? A: igual. B: uno de muchos materiales pegados. C: uno de un solo material. Correcta: C.
+
+Pregunta 8. ¿Qué hace más barato el armado? A: más piezas. B: menos piezas y tornillos. C: más pegamento. Correcta: B.
+
+Pregunta 9. ¿Dónde registras tu diseño en México? A: en el banco. B: en el IMPI. C: en la escuela. Correcta: B.
+
+Pregunta 10. ¿Qué puede pasar si publicas tu diseño antes de registrarlo? A: perder la novedad para registrarlo. B: nada. C: se registra solo. Correcta: A.

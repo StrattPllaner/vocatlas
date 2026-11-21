@@ -1,0 +1,135 @@
+**Lección 1: Productividad (4 preguntas)**
+
+Un ingeniero industrial hace que las empresas produzcan más y mejor con los mismos recursos. La productividad compara lo que sale con lo que entra:
+
+$$\text{productividad} = \frac{\text{unidades producidas}}{\text{recursos usados}}$$
+
+Por ejemplo, piezas por hora de trabajo. Mejorar la productividad no significa trabajar más duro, sino eliminar lo que no agrega valor: esperas, movimientos de más, transportes innecesarios, inventario acumulado y defectos que hay que rehacer.
+
+Pregunta 1. Una línea produce 400 piezas en 8 horas. ¿Cuál es su productividad? A: 408. B: 3,200 piezas por hora. C: 50 piezas por hora. Correcta: C, porque
+
+$$\frac{400}{8} = 50$$
+
+Pregunta 2. Después de una mejora, produce 480 piezas en las mismas 8 horas. ¿Cuál es su nueva productividad? A: 50. B: 60 piezas por hora. C: 3,840. Correcta: B, porque
+
+$$\frac{480}{8} = 60$$
+
+Pregunta 3. Los trabajadores caminan 30 metros cada vez que necesitan una herramienta. ¿Qué tipo de desperdicio es? A: movimiento innecesario. B: valor agregado. C: calidad. Correcta: A.
+
+Pregunta 4. ¿Mejorar la productividad significa que la gente trabaje más horas? A: sí, sin descanso. B: no, significa eliminar lo que no agrega valor. C: sí. Correcta: B.
+
+**Lección 2: El cuello de botella (4 preguntas)**
+
+Un proceso con varias estaciones solo puede ir tan rápido como su estación más lenta, que se llama cuello de botella. Si una estación hace 60 piezas por hora y la siguiente solo 40, la línea entera sale a 40, y entre las dos se acumula inventario. Mejorar una estación que no es el cuello de botella no aumenta la producción total. Por eso lo primero es encontrar el cuello de botella y concentrar ahí las mejoras.
+
+Pregunta 1. Tres estaciones hacen 50, 30 y 45 piezas por hora. ¿Cuánto produce la línea por hora? A: 30. B: 50. C: 125. Correcta: A.
+
+Pregunta 2. En esa línea, ¿qué estación conviene mejorar primero? A: la de 30. B: la de 50. C: la de 45. Correcta: A.
+
+Pregunta 3. Antes de una estación siempre hay una pila enorme de piezas esperando. ¿Qué te indica? A: que esa estación probablemente es el cuello de botella. B: que sobran trabajadores. C: que todo está bien. Correcta: A.
+
+Pregunta 4. Un gerente compra una máquina más rápida para la primera estación, que no es el cuello de botella. ¿Qué pasa con la producción total? A: baja a cero. B: se duplica. C: no aumenta. Correcta: C.
+
+**Lección 3: Calidad (3 preguntas)**
+
+La calidad se mide. Un indicador común es el porcentaje de defectos:
+
+$$\text{porcentaje de defectos} = \frac{\text{piezas defectuosas}}{\text{piezas producidas}} \times 100$$
+
+Es mejor prevenir los defectos en el proceso que revisarlos al final. Cuando aparece un problema, se busca la causa raíz, por ejemplo preguntando "¿por qué?" varias veces, en vez de solo corregir el síntoma. Y se prefieren dispositivos que hagan imposible el error, como una pieza que solo entra en la posición correcta.
+
+Pregunta 1. De 2,000 piezas, 40 salieron defectuosas. ¿Cuál es el porcentaje de defectos? A: 2 por ciento. B: 40 por ciento. C: 5 por ciento. Correcta: A, porque
+
+$$\frac{40}{2{,}000} \times 100 = 2$$
+
+Pregunta 2. Una máquina produce piezas defectuosas y cada día alguien las aparta al final. ¿Qué es mejor? A: nada. B: encontrar la causa raíz en la máquina y corregirla. C: contratar más inspectores. Correcta: B.
+
+Pregunta 3. Los operadores a veces colocan una pieza al revés. ¿Qué solución es más confiable? A: pegar un letrero. B: regañarlos. C: rediseñar para que solo entre en la posición correcta. Correcta: C.
+
+**Lección 4: Inventarios (4 preguntas)**
+
+Tener inventario cuesta: ocupa espacio, inmoviliza dinero y se puede echar a perder o volverse obsoleto. Pero tener muy poco hace que falten materiales y se detenga la producción. Un punto de reorden dice cuándo pedir más:
+
+$$\text{punto de reorden} = \text{consumo diario} \times \text{días que tarda en llegar el pedido} + \text{inventario de seguridad}$$
+
+El inventario de seguridad cubre imprevistos, como un proveedor que se atrasa.
+
+Pregunta 1. Una fábrica usa 100 piezas al día, el proveedor tarda 5 días y quieren 200 de seguridad. ¿En qué punto piden más? A: cuando queden 500. B: cuando queden 700. C: cuando queden 100. Correcta: B, porque
+
+$$100 \times 5 + 200 = 700$$
+
+Pregunta 2. ¿Para qué sirve el inventario de seguridad? A: para decorar el almacén. B: para cubrir imprevistos, como retrasos del proveedor. C: para nada. Correcta: B.
+
+Pregunta 3. Un almacén está lleno de material que no se ha usado en dos años. ¿Qué problema hay? A: ninguno. B: dinero y espacio inmovilizados, y riesgo de que se vuelva inútil. C: que hay poco. Correcta: B.
+
+Pregunta 4. La línea se detuvo porque se acabó un tornillo de 2 pesos. ¿Qué faltó? A: más tornillos de todo. B: nada. C: un buen control de inventario con punto de reorden. Correcta: C.
+
+**Lección 5: Distribución de la planta (3 preguntas)**
+
+La forma en que se acomodan las máquinas y estaciones cambia mucho la eficiencia. Se busca que el material siga un flujo ordenado, sin regresar ni cruzarse, y que las distancias sean cortas entre estaciones que se pasan material seguido. Un diagrama de recorrido ayuda a ver por dónde se mueve el material. Las 5S, que son clasificar, ordenar, limpiar, estandarizar y mantener, ayudan a que cada cosa tenga su lugar.
+
+Pregunta 1. El material va de la estación 1 a la 5, regresa a la 2 y luego a la 4. ¿Qué problema hay? A: que hay pocas estaciones. B: ninguno. C: un flujo desordenado con regresos y recorridos largos. Correcta: C.
+
+Pregunta 2. ¿Qué buscan las 5S? A: que cada cosa tenga su lugar y el área esté ordenada y limpia. B: tener cinco supervisores. C: trabajar cinco horas. Correcta: A.
+
+Pregunta 3. Dos estaciones se pasan material cien veces al día y están en extremos de la nave. ¿Qué propones? A: alejarlas más. B: acercarlas. C: nada. Correcta: B.
+
+**Lección 6: Seguridad y ergonomía (4 preguntas)**
+
+En una planta, la seguridad va primero. Las máquinas peligrosas llevan guardas que impiden meter las manos, y antes de dar mantenimiento se bloquean y etiquetan para que nadie las encienda. Se usa equipo de protección, como lentes, guantes y calzado de seguridad. La ergonomía ajusta el trabajo a la persona: alturas correctas, poco peso por levantar y pocos movimientos repetitivos, para evitar lesiones. Un accidente casi siempre tiene causas en el sistema, no solo en el trabajador.
+
+Pregunta 1. Un operador quitó la guarda de una prensa "porque estorba". ¿Qué haces? A: lo dejas. B: lo felicitas por la rapidez. C: detienes la máquina y se vuelve a poner la guarda antes de seguir. Correcta: C.
+
+Pregunta 2. ¿Qué se hace antes de dar mantenimiento a una máquina? A: bloquearla y etiquetarla para que nadie la encienda. B: nada. C: dejarla prendida. Correcta: A.
+
+Pregunta 3. Un trabajador levanta cajas de 30 kilos desde el piso cientos de veces al día y le duele la espalda. ¿Qué propones? A: que trabaje más rápido. B: subir la altura de las cajas, usar ayudas mecánicas o reducir el peso. C: que aguante. Correcta: B.
+
+Pregunta 4. Hubo un accidente. ¿Qué haces además de atender al lesionado? A: culpar al trabajador y ya. B: nada. C: buscar las causas en el sistema para que no se repita. Correcta: C.
+
+**Lección 7: Tiempos y capacidad (3 preguntas)**
+
+Para planear la producción se mide cuánto tarda cada tarea, con estudios de tiempos. Con eso se calcula la capacidad: cuántas piezas se pueden hacer en un turno.
+
+$$\text{capacidad} = \frac{\text{tiempo disponible}}{\text{tiempo por pieza}}$$
+
+Así se sabe si se puede aceptar un pedido grande, cuántas personas o máquinas se necesitan y cuándo se puede entregar. Prometer una fecha sin hacer esta cuenta es una receta para quedar mal con el cliente.
+
+Pregunta 1. Un turno tiene 480 minutos disponibles y cada pieza tarda 4 minutos. ¿Cuántas piezas se pueden hacer? A: 120. B: 1,920. C: 484. Correcta: A, porque
+
+$$\frac{480}{4} = 120$$
+
+Pregunta 2. Un cliente pide 600 piezas en 3 turnos, con esa misma capacidad de 120 por turno. ¿Alcanza? A: no, en 3 turnos solo salen 360. B: sobra. C: sí. Correcta: A, porque
+
+$$120 \times 3 = 360$$
+
+Pregunta 3. Ventas promete una fecha de entrega sin preguntarle a producción. ¿Qué riesgo hay? A: ninguno. B: entregar antes. C: no cumplir y quedar mal con el cliente. Correcta: C.
+
+**Examen final**
+
+Pregunta 1. Una línea produce 300 piezas en 6 horas. ¿Cuál es su productividad? A: 306. B: 50 piezas por hora. C: 1,800. Correcta: B, porque
+
+$$\frac{300}{6} = 50$$
+
+Pregunta 2. Tres estaciones hacen 70, 40 y 60 piezas por hora. ¿Cuánto produce la línea? A: 170. B: 70. C: 40. Correcta: C.
+
+Pregunta 3. ¿Qué estación conviene mejorar primero? A: la más rápida. B: el cuello de botella. C: cualquiera. Correcta: B.
+
+Pregunta 4. De 5,000 piezas, 50 salieron defectuosas. ¿Cuál es el porcentaje de defectos? A: 50 por ciento. B: 10 por ciento. C: 1 por ciento. Correcta: C, porque
+
+$$\frac{50}{5{,}000} \times 100 = 1$$
+
+Pregunta 5. ¿Qué es mejor ante defectos frecuentes? A: inspeccionar más al final. B: ignorarlos. C: encontrar la causa raíz. Correcta: C.
+
+Pregunta 6. Una fábrica usa 50 piezas al día, el proveedor tarda 4 días y quiere 100 de seguridad. ¿En qué punto pide? A: 154. B: 300. C: 200. Correcta: B, porque
+
+$$50 \times 4 + 100 = 300$$
+
+Pregunta 7. ¿Qué buscan las 5S? A: más turnos. B: orden y limpieza, con cada cosa en su lugar. C: más inventario. Correcta: B.
+
+Pregunta 8. Alguien quitó la guarda de una máquina. A: se detiene y se vuelve a poner. B: se deja. C: se premia. Correcta: A.
+
+Pregunta 9. Un turno de 480 minutos y 6 minutos por pieza. ¿Cuántas piezas salen? A: 80. B: 486. C: 2,880. Correcta: A, porque
+
+$$\frac{480}{6} = 80$$
+
+Pregunta 10. ¿Qué haces antes de prometer una fecha de entrega? A: calcular la capacidad. B: decir que sí. C: nada. Correcta: A.

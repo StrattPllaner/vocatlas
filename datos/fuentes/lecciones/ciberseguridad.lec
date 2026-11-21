@@ -1,0 +1,107 @@
+**Lección 1: Contraseñas (4 preguntas)**
+
+Una contraseña débil se puede adivinar probando todas las combinaciones. El número de combinaciones depende de cuántos caracteres posibles hay y de qué tan larga es. Un PIN de 4 dígitos tiene:
+
+$$10 \times 10 \times 10 \times 10 = 10{,}000 \text{ combinaciones}$$
+
+Una computadora prueba eso en un instante. Cada carácter extra multiplica las combinaciones, así que la longitud es lo que más ayuda. Una frase larga, como cuatro palabras al azar, es más fuerte y fácil de recordar que una palabra corta con símbolos. Y nunca se repite la misma contraseña en varios sitios: si se filtra de uno, prueban la misma en todos los demás.
+
+Pregunta 1. ¿Cuántas combinaciones tiene un PIN de 3 dígitos? A: 1,000. B: 30. C: 300. Correcta: A, porque
+
+$$10 \times 10 \times 10 = 1{,}000$$
+
+Pregunta 2. ¿Qué hace más fuerte una contraseña? A: que sea más larga. B: que sea tu fecha de nacimiento. C: que sea igual en todos lados. Correcta: A.
+
+Pregunta 3. Se filtró la base de datos de una tienda en línea donde usabas la misma contraseña que en tu correo. ¿Qué haces? A: nada, era solo la tienda. B: esperas a ver qué pasa. C: cambias la contraseña de tu correo y de todo lo que la compartía. Correcta: C.
+
+Pregunta 4. ¿Cuál contraseña es más fuerte? A: "P@ss1". B: "tortuga-lámpara-volcán-azul". C: "123456". Correcta: B. Es mucho más larga.
+
+**Lección 2: Phishing (4 preguntas)**
+
+El phishing es un engaño para que entregues tus datos o des clic en algo peligroso. Llega como correo, mensaje o llamada que parece de tu banco, de una paquetería o de tu jefe. Señales comunes: urgencia ("tu cuenta se bloqueará hoy"), un remitente o enlace que no coincide con el sitio real, errores de redacción y peticiones de contraseñas o códigos. Ningún banco te pide tu contraseña o el código que te llega por SMS. Si dudas, no uses el enlace del mensaje: entra tú mismo a la app o llama al número oficial.
+
+Pregunta 1. Te llega un SMS: "Tu tarjeta fue bloqueada. Entra aquí para desbloquearla: banco-seguro-mx.info". ¿Qué haces? A: lo reenvías a tus amigos. B: no das clic y revisas desde la app oficial del banco. C: entras y pones tus datos. Correcta: B.
+
+Pregunta 2. Alguien que dice ser del banco te llama y te pide el código que te acaba de llegar por mensaje. A: le das la mitad. B: cuelgas; el banco nunca pide ese código. C: se lo das. Correcta: B.
+
+Pregunta 3. Un correo dice venir de tu jefe y te pide comprar tarjetas de regalo urgentes y mandarle los códigos. ¿Qué haces? A: le respondes al correo preguntando si es él. B: las compras rápido. C: confirmas con tu jefe por otro medio antes de hacer nada. Correcta: C.
+
+Pregunta 4. ¿Qué señal es típica del phishing? A: mucha urgencia y un enlace raro. B: un saludo amable. C: que llegue de día. Correcta: A.
+
+**Lección 3: Doble factor y actualizaciones (3 preguntas)**
+
+La verificación en dos pasos pide algo más además de la contraseña, como un código de una app o una llave física. Así, aunque roben tu contraseña, no pueden entrar. Es de las protecciones más efectivas que existen. La otra es actualizar: las actualizaciones, también llamadas parches, corrigen fallas de seguridad que los atacantes ya conocen. Un sistema sin actualizar es como una casa con una puerta rota que todos saben que está rota.
+
+Pregunta 1. Le robaron la contraseña a alguien que tenía activada la verificación en dos pasos. ¿Qué pasa? A: se borra la cuenta. B: el atacante todavía necesita el segundo factor para entrar. C: entra sin problema. Correcta: B.
+
+Pregunta 2. Una empresa no ha instalado las actualizaciones de sus servidores en dos años "para no romper nada". ¿Qué riesgo tiene? A: que los servidores se vean viejos. B: ninguno. C: tiene fallas de seguridad conocidas que los atacantes pueden usar. Correcta: C.
+
+Pregunta 3. ¿Para qué sirve un parche de seguridad? A: para que la computadora sea más lenta. B: para cambiar el color. C: para corregir una falla que podría aprovechar un atacante. Correcta: C.
+
+**Lección 4: Cifrado (4 preguntas)**
+
+Cifrar es convertir información en algo ilegible para quien no tiene la clave. Cuando un sitio usa HTTPS, lo que mandas viaja cifrado: alguien en la misma red de wifi no puede leer tu contraseña. Pero HTTPS no garantiza que el sitio sea honesto; un sitio falso también puede tener HTTPS. Los discos de computadoras y celulares también se pueden cifrar, para que si se pierden nadie pueda leer los datos. Las contraseñas bien guardadas no se almacenan tal cual, sino transformadas con un hash, para que si se filtra la base de datos no se vean directamente.
+
+Pregunta 1. ¿Qué protege el HTTPS? A: que tu computadora no tenga virus. B: que el sitio sea honesto. C: que lo que mandas viaje cifrado. Correcta: C.
+
+Pregunta 2. Un sitio tiene candado de HTTPS, pero el nombre es "bancomer-seguridad-login.com". ¿Es seguro? A: no necesariamente; un sitio falso también puede tener HTTPS. B: sí, porque dice seguridad. C: sí, tiene candado. Correcta: A.
+
+Pregunta 3. A una empleada se le pierde la laptop de la empresa. ¿Qué medida habría protegido los datos? A: tener un fondo de pantalla bonito. B: tener el disco cifrado. C: nada. Correcta: B.
+
+Pregunta 4. Revisas una base de datos y las contraseñas de los usuarios están guardadas tal cual, en texto normal. A: lo reportas, porque deben guardarse con un hash seguro. B: está bien. C: las copias para ti. Correcta: A.
+
+**Lección 5: Respaldos y ransomware (3 preguntas)**
+
+El ransomware es un programa que cifra los archivos de una empresa y pide un rescate para devolverlos. La mejor defensa es tener respaldos que el atacante no pueda alcanzar. Una regla clásica es la 3-2-1: tres copias de los datos, en dos tipos de almacenamiento distintos, y una fuera del lugar, por ejemplo en la nube o desconectada. Un respaldo que nunca se ha probado puede no servir el día que lo necesitas. Pagar el rescate no garantiza que devuelvan los archivos.
+
+Pregunta 1. ¿Qué dice la regla 3-2-1 de respaldos? A: tres copias, en dos tipos de almacenamiento, y una fuera del lugar. B: tres contraseñas y dos usuarios. C: respaldar cada 3 años. Correcta: A.
+
+Pregunta 2. Una empresa tenía su único respaldo en un disco siempre conectado al mismo servidor, y el ransomware cifró los dos. ¿Qué faltó? A: más memoria. B: una pantalla más grande. C: un respaldo separado o desconectado. Correcta: C.
+
+Pregunta 3. ¿Por qué hay que probar los respaldos? A: para gastar tiempo. B: no hace falta. C: para saber que de verdad se pueden recuperar cuando se necesiten. Correcta: C.
+
+**Lección 6: Responder a un incidente (4 preguntas)**
+
+Cuando hay un ataque, se sigue un orden. Primero se detecta y se confirma. Luego se contiene: se aísla el equipo infectado de la red para que no se extienda. Después se elimina la amenaza, se recupera el sistema desde respaldos limpios y al final se analiza qué pasó para que no se repita. Mientras tanto se conservan las evidencias, como los registros del sistema, que se llaman logs. Apagar todo de golpe o borrar archivos puede destruir pistas importantes.
+
+Pregunta 1. Una computadora de la oficina parece tener un virus que se está extendiendo. ¿Qué haces primero? A: la desconectas de la red para contenerlo. B: le instalas juegos. C: esperas al lunes. Correcta: A.
+
+Pregunta 2. ¿Para qué sirven los logs en un incidente? A: para decorar. B: para saber qué pasó, cuándo y cómo. C: para nada. Correcta: B.
+
+Pregunta 3. Después de recuperar los sistemas, ¿qué falta? A: culpar a alguien. B: nada, ya terminó. C: analizar cómo entró el ataque y corregirlo para que no se repita. Correcta: C.
+
+Pregunta 4. Un compañero quiere borrar todo rápido para "limpiar". ¿Qué le dices? A: que primero se guarden las evidencias y los logs. B: que sí. C: que lo haga de noche. Correcta: A.
+
+**Lección 7: Hacking ético y la ley (3 preguntas)**
+
+Un pentester, o hacker ético, ataca los sistemas de una empresa para encontrar fallas antes que los criminales. La diferencia con un delincuente es el permiso: se trabaja con autorización por escrito, con un alcance definido y reportando todo lo que se encuentra. Entrar a un sistema sin permiso es delito, aunque tu intención sea buena. Si encuentras una falla en un sitio por tu cuenta, lo correcto es reportarla al dueño por sus canales oficiales, sin aprovecharla ni publicarla.
+
+Pregunta 1. ¿Qué diferencia a un hacker ético de un delincuente? A: ninguna. B: el permiso por escrito y el alcance acordado. C: que el ético usa una computadora más cara. Correcta: B.
+
+Pregunta 2. Descubres por accidente que un sitio de tu escuela deja ver datos de otros alumnos. A: descargas todo. B: lo publicas en redes. C: lo reportas a la escuela sin descargar ni compartir los datos. Correcta: C.
+
+Pregunta 3. Te contratan para probar el sitio web de una empresa, y encuentras una forma de entrar a su sistema de nómina, que no estaba en el contrato. A: lo vendes. B: te detienes y lo reportas, porque está fuera del alcance. C: entras a ver los sueldos. Correcta: B.
+
+**Examen final**
+
+Pregunta 1. ¿Cuántas combinaciones tiene un PIN de 4 dígitos? A: 10,000. B: 1,000. C: 40. Correcta: A, porque
+
+$$10 \times 10 \times 10 \times 10 = 10{,}000$$
+
+Pregunta 2. ¿Qué ayuda más a que una contraseña sea fuerte? A: la longitud. B: usar tu nombre. C: repetirla en varios sitios. Correcta: A.
+
+Pregunta 3. ¿Un banco te pide el código que te llegó por SMS en una llamada? A: sí. B: no, nunca. C: solo en domingo. Correcta: B.
+
+Pregunta 4. ¿Qué hace la verificación en dos pasos? A: apaga la cuenta. B: pide algo más además de la contraseña. C: duplica tu contraseña. Correcta: B.
+
+Pregunta 5. ¿Un sitio con HTTPS siempre es honesto? A: solo si es verde. B: sí. C: no; también un sitio falso puede tenerlo. Correcta: C.
+
+Pregunta 6. ¿Cómo deben guardarse las contraseñas en una base de datos? A: con un hash seguro. B: tal cual. C: en un papel. Correcta: A.
+
+Pregunta 7. ¿Cuál es la mejor defensa contra el ransomware? A: pagar siempre. B: respaldos separados y probados. C: apagar el monitor. Correcta: B.
+
+Pregunta 8. Hay un virus extendiéndose. ¿Qué haces primero? A: aislar el equipo de la red. B: ignorarlo. C: borrar todo. Correcta: A.
+
+Pregunta 9. ¿Qué necesitas para hacer pruebas de seguridad a una empresa? A: nada. B: una buena intención. C: su autorización por escrito. Correcta: C.
+
+Pregunta 10. Encuentras una falla en un sitio por tu cuenta. A: la usas. B: la reportas al dueño sin aprovecharla. C: la publicas. Correcta: B.
