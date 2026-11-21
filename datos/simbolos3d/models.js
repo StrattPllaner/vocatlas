@@ -147,6 +147,7 @@ export const MODELS={
     K.lathe([[0.01,-4],[28,-4],[33,4],[31,5],[26,-1],[0.01,-1]],'#2B3540',{parent:g});
     K.cyl(14,14,1.6,WH,{p:[-2,0,2],parent:g,s:[1,1,0.8]});K.sph(6,YE,{p:[0,1,2],s:[1,0.6,1],parent:g});
     K.cyl(3,3,36,BR,{m:'wood',p:[48,2,0],r:[0,0,90],parent:g});
+    [16,10].forEach(r=>K.tor(r,0.8,'#3A4652',{p:[0,-4.4,0],r:[90,0,0],parent:g}));K.box(10,0.8,3,'#5B6670',{p:[0,-4.6,0],parent:g,rad:0.3});
   },
   // Plumilla de pluma fuente dorada
   'grafico.a'(K){
@@ -1051,6 +1052,7 @@ export const MODELS={
     K.cyl(31,31,3,YE,{p:[0,0.5,0],s:[1,1,1.08]});
     K.cyl(40,40,2.4,'#E3B526',{p:[0,-1,9],s:[1,1,1.12],seg:64});
     K.tor(29,3.4,'#F8DA6A',{p:[0,0,0],r:[0,90,0],arc:180,s:[1,1,1.08]});
+    const st=K.group({p:[0,13,29.4],r:[-26,0,0]});K.cyl(7,7,1,'#E2683E',{r:[90,0,0],parent:st});K.box(6,1.6,1.4,WH,{rad:0.5,parent:st});
   },
 
   // Llave perica con quijadas y tornillo sinfín
