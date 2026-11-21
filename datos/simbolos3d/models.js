@@ -38,6 +38,92 @@ const PU='#8E5BB5',TE='#2FA39A',OR='#F08A2E',PK='#F3A3B5',GL='#AEE0F2';const GY=
 
 const circ=(cx,cy,r,n,a0,a1)=>{a0=a0==null?0:a0;a1=a1==null?Math.PI*2:a1;const o=[];for(let i=0;i<n;i++){const a=a0+(a1-a0)*i/(n-(Math.abs(a1-a0-Math.PI*2)<1e-6?0:1));o.push([cx+Math.cos(a)*r,cy+Math.sin(a)*r])}return o};
 export const MODELS={
+  // Puente colgante: torres, cables, tirantes, tablero y agua
+  'civil.b'(K){
+    K.box(96,4,14,'#B23A2E',{p:[0,-6,0],rad:1});
+    [-26,26].forEach(x=>{K.box(6,60,4,RE,{p:[x,10,5]});K.box(6,60,4,RE,{p:[x,10,-5]});[30,14,-2].forEach(y=>K.box(6,3,10,RE,{p:[x,y,0]}))});
+    [5,-5].forEach(z=>{const c=[[-48,-4,z]];for(let i=0;i<=20;i++){const x=-26+i*2.6;c.push([x,38-28*Math.sin(Math.PI*i/20),z])}c.push([48,-4,z]);
+      K.tube([[-48,-4,z],[-26,38,z]],0.8,'#7A2A22',{nocap:true});K.tube(c.slice(1,-1),0.8,'#7A2A22',{nocap:true});K.tube([[26,38,z],[48,-4,z]],0.8,'#7A2A22',{nocap:true});
+      for(let i=1;i<20;i+=2){const x=-26+i*2.6,y=38-28*Math.sin(Math.PI*i/20);K.cyl(0.35,0.35,y+4,'#7A2A22',{p:[x,(y-4)/2,z]})}});
+    K.box(100,4,40,BL,{p:[0,-26,0],rad:2,m:'glass'});
+  },
+  // Barco carguero con contenedores de colores y puente de mando
+  'comext.a'(K){
+    K.ext('M-46 0 H46 L36 22 H-40 Z',30,RE,{bevel:2});
+    K.box(92,2,31,WH,{p:[0,0.5,0],rad:0.6});K.box(92,2,31.4,WH,{p:[0,-8,0],rad:0.6});
+    const C=[OR,BL,GR,YE,RE,BL];
+    for(let i=0;i<4;i++)for(let j=0;j<2;j++)K.box(16,10,12,C[(i+j*3)%6],{p:[-30+i*17,7,-7+j*14],rad:1});
+    for(let i=0;i<3;i++)K.box(16,10,12,C[(i+2)%6],{p:[-22+i*17,17.4,0],rad:1});
+    K.box(12,24,20,WH,{p:[38,13,0],rad:2});K.box(12.4,4,20.4,GL,{p:[38,20,0],rad:1});
+    K.box(120,2,60,'#5FB4E8',{p:[0,-24,0],rad:1});
+  },
+
+  // Contenedor de carga corrugado con puertas y cerrojos
+  'comext.b'(K){
+    K.box(84,40,36,OR,{rad:1.2});
+    for(let i=0;i<14;i++)[18.4,-18.4].forEach(z=>K.box(2.4,36,1,'#C9661E',{p:[-36+i*5.6,0,z],rad:0.4}));
+    K.box(1,36,32,'#C9661E',{p:[42.4,0,0],rad:0.4});
+    [-6,6].forEach(z=>K.cyl(0.9,0.9,34,ST,{m:'metal',p:[43,0,z]}));
+    [[42,20,18],[-42,20,18],[42,-20,18],[-42,-20,18],[42,20,-18],[-42,20,-18],[42,-20,-18],[-42,-20,-18]].forEach(p=>K.box(5,5,5,'#9A4A16',{p,rad:1}));
+  },
+  // Micrófono de estudio con rejilla, soporte y base
+  'comunicacion.a'(K){
+    K.cap(13,22,ST,{m:'metal',p:[0,16,0]});
+    for(let i=0;i<6;i++)K.tor(13.1,0.5,'#6B7884',{m:'metal',p:[0,6+i*5,0],r:[90,0,0]});
+    K.cyl(13.4,13.4,4,BK,{p:[0,6,0]});
+    K.tor(18,2,BK,{arc:180,r:[0,0,180],p:[0,4,0]});
+    K.cyl(2.4,2.4,30,BK,{p:[0,-28,0]});K.cyl(16,18,4,BK,{p:[0,-44,0]});
+  },
+  // Periódico doblado con titular, foto y columnas
+  'comunicacion.b'(K){
+    K.box(60,78,4,'#F4F2EC',{rad:1});K.box(58,76,1,'#E9E6DE',{p:[4,-2,-2.6],rad:1});
+    [2.2,-2.2].forEach(z=>{const g=K.group({p:[0,0,z],r:[0,z<0?180:0,0]});
+      K.box(50,5,0.6,'#2B3540',{p:[0,30,0],rad:0.4,parent:g});K.box(22,16,0.6,'#A9B6C2',{p:[-12,12,0],rad:0.4,parent:g});
+      for(let i=0;i<4;i++)K.box(20,1.4,0.6,'#8A939C',{p:[14,18-i*4,0],rad:0.3,parent:g});
+      for(let i=0;i<7;i++)K.box(50,1.4,0.6,'#8A939C',{p:[0,-4-i*4.6,0],rad:0.3,parent:g})});
+  },
+  // Calculadora: pantalla con números, teclado de 20 teclas
+  'contaduria.a'(K){
+    K.box(54,80,10,'#4A5560',{rad:5});K.box(44,18,1,'#BFD8B0',{p:[0,24,5.2],rad:1.4});
+    const t=K.group({p:[6,24,5.9]});[[-10,'M'],[-2,'M'],[6,'M']].forEach(([x])=>{});
+    [-12,-4,4].forEach((x,i)=>{K.box(5,9,0.4,'#2F4A2F',{p:[x+8,24,5.9],rad:0.3})});
+    for(let r=0;r<5;r++)for(let c=0;c<4;c++)K.box(9,7,3,c==3?(r==4?OR:'#9AA3AC'):WH,{p:[-15+c*10,8-r*9.5,5.4],rad:1.6});
+  },
+  // Recibo con borde dentado y renglones
+  'contaduria.b'(K){
+    const zig=[];for(let i=0;i<=10;i++)zig.push([-26+i*5.2,i%2?-44:-40]);
+    K.shape([[-26,44],[26,44],...zig.reverse()],null,2,WH,{bevel:0.6});
+    [1.4,-1.4].forEach(z=>{[30,22,14,6].forEach((y,i)=>K.box(i==3?24:40,1.6,0.4,'#9AA3AC',{p:[i==3?-8:0,y,z],rad:0.4}));K.box(40,2,0.4,GR,{p:[0,-14,z],rad:0.5});K.box(20,1.6,0.4,'#3A4048',{p:[10,-24,z],rad:0.4})});
+  },
+  // Lupa con huella digital en el lente
+  'criminologia.a'(K){
+    K.tor(26,4.4,'#3A4048',{});K.cyl(26,26,2,GL,{m:'glass',r:[90,0,0]});
+    const g=K.group({p:[0,0,1.4]});
+    for(let i=0;i<6;i++)K.tor(4+i*3,0.5,NA,{arc:220,r:[0,0,-20],parent:g});
+    K.tube([[18,-18,0],[24,-24,0]],4,ST,{m:'metal'});K.tube([[24,-24,0],[46,-46,0]],5,'#2B3540',{});
+  },
+  // Placa de policía: escudo con estrella dorada
+  'criminologia.b'(K){
+    K.ext('M0 -46 C10 -40 24 -40 34 -42 C36 -10 30 22 0 46 C-30 22 -36 -10 -34 -42 C-24 -40 -10 -40 0 -46 Z',10,ST,{m:'metal',bevel:2.4});
+    [6.6,-6.6].forEach(z=>{K.ext('M0 -34 C8 -30 16 -30 24 -32 C24 -8 20 14 0 32 C-20 14 -24 -8 -24 -32 C-16 -30 -8 -30 0 -34 Z',1,'#2C5E91',{bevel:0.6,p:[0,0,z]});
+      K.cyl(12,12,1.6,GO,{m:'gold',p:[0,-4,z*1.2],r:[90,0,0]});K.ext('M0 -9 L2.6 -3 L9 -2.8 L4 1.4 L5.6 8 L0 4.4 L-5.6 8 L-4 1.4 L-9 -2.8 L-2.6 -3 Z',1,'#B8861C',{m:'gold',bevel:0.4,p:[0,-4,z*1.32]})});
+  },
+  // Gráfica de barras con lupa
+  'datos.a'(K){
+    [[-26,20,BL],[-8,36,TE],[10,26,OR]].forEach(([x,h,c])=>K.box(14,h,14,c,{p:[x,-30+h/2,0],rad:2}));
+    K.box(60,2,22,'#D5DCE2',{p:[-8,-31,0],rad:0.8});
+    K.tor(13,3,'#2B3540',{p:[18,18,10]});K.cyl(13,13,1.6,GL,{m:'glass',p:[18,18,10],r:[90,0,0]});K.tube([[27,9,10],[40,-4,10]],3.4,'#2B3540',{});
+  },
+  // Gráfica de pastel con una rebanada levantada
+  'datos.b'(K){
+    const g=K.group({r:[-30,0,0]});
+    const sec=(a0,a1,r)=>{const o=[[0,0]];for(let i=0;i<=32;i++){const a=a0+(a1-a0)*i/32;o.push([Math.cos(a)*r,Math.sin(a)*r])}return o};
+    K.shape(sec(Math.PI*0.5,Math.PI*1.6,36),null,12,BL,{bevel:1.4,parent:g});
+    K.shape(sec(Math.PI*1.6,Math.PI*2.25,36),null,12,TE,{bevel:1.4,parent:g});
+    const mid=Math.PI*0.25;K.shape(sec(0,Math.PI*0.5,36).map(p=>p),null,12,YE,{bevel:1.4,parent:g,p:[Math.cos(mid)*8,Math.sin(mid)*8,6]});
+  },
+
+
   // Dado con puntos en las seis caras
   'actuaria.a'(K){
     K.box(56,56,56,WH,{rad:9});
