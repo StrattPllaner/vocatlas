@@ -1,83 +1,292 @@
-# Vocatlas · Currículo de carreras y revisión del test de intereses
+# Vocatlas · Currículo de carreras, versión 2
 
-Fecha: 14 de noviembre de 2026. Fase 1 del plan. **Nada de esto está programado todavía: espero tu aprobación.**
+Fecha: 21 de noviembre de 2026. Reemplaza la versión del 14 de noviembre. **Nada de esta versión está programado todavía: espero tu aprobación.**
+
+Esta versión cambia tres cosas:
+- Cada lección sigue los ingredientes que la investigación sobre orientación vocacional ha encontrado que sí funcionan.
+- Ya no todo es texto: hay explicaciones animadas, video, interactivos y audio.
+- Rumbo habla.
+
+Lo que sigue vigente de la versión anterior está al final, en los anexos: las dinámicas por área, las otras carreras, el test de intereses y las fuentes.
 
 ## 0. Lo que necesito que decidas
 
-1. **Estructura de 21 lecciones por carrera** (sección 2). Si la apruebas, es la misma para las 20 carreras.
-2. **Cuándo se gana el Rumbo de la carrera.** Hoy se gana al completar la carrera (4 lecciones). Con 21 lecciones eso tarda de una a dos horas. Propongo: el Rumbo se gana al terminar la unidad 2 (Pruébala) y el sello al terminar la unidad 6. Quien ya los ganó los conserva.
-3. **Test de intereses** (sección 9). No pude obtener los reactivos oficiales en español: solo se entregan con una cuenta gratuita de desarrollador que debe registrar el dueño de la app. Necesito que te registres y me pases el acceso, o que me digas que dejo la estructura lista sin preguntas.
-4. **Datos con fuente** (sección 6). No escribí ninguna cifra. Todas quedan como pendientes hasta verificarlas una por una; dime si las verifico yo en la fase 3 o si las llenas tú.
-5. **Testimonios.** Quedan como plantilla. Hace falta entrevistar al menos a una persona por carrera.
+1. **¿21 lecciones o 9 paradas en Medicina?** Pediste aplicarlo "a las 21 lecciones de Medicina". Hoy Medicina tiene 9 paradas en el formato 2 (20 de noviembre): una tarjeta de entrada, 7 lecciones de explicación con casos y un examen final de 10 preguntas.
+   - **Propuesta:** volver a 21 lecciones en 6 unidades y reutilizar todo el contenido del formato 2 dentro de ellas (sección 9).
+   - Si prefieres conservar las 9 paradas, la misma estructura de pasos aplica; solo cambia cuántas lecciones hay.
+2. **Claridad.** El mapa ya muestra un anillo de "Claridad" en porcentaje, que se calcula con tu avance.
+   - **Propuesta:** que la escala nueva del 1 al 5, al empezar y al terminar cada carrera (sección 7), se muestre en el Atlas por carrera.
+   - El anillo se queda como está.
+3. **Texto de Rumbo siempre visible.** El globo con lo que dice Rumbo sale siempre, por accesibilidad. La investigación sobre aprendizaje con multimedia encontró que repetir en pantalla, palabra por palabra, lo que se narra puede distraer.
+   - **Propuesta:** el globo muestra frases cortas, el estudiante avanza a su ritmo, y hay un botón para ocultar el globo cuando hay sonido.
+4. **Dónde guardar los videos.** No conviene meterlos al repositorio: GitHub Pages limita cada sitio publicado a 1 GB y recomienda no pasar de 100 GB de descarga al mes.
+   - **Propuesta:** un servicio de video que entregue la calidad según la conexión. Lo eliges tú cuando haya videos; mientras, el componente queda listo con su estado vacío.
+5. **Revisión médica.** ¿Quién revisa? Necesito un nombre o un rol (por ejemplo, un médico general con cédula) para la lista de la sección 9.4.
 
-## 1. Principios de diseño instruccional
+## 1. Principios de orientación (base en evidencia)
 
-- **Primero haces, luego te explico.** Cada dato llega después de que el estudiante apostó por una respuesta. Nunca hay dos tarjetas de solo lectura seguidas.
-- **Una idea por lección.** Cada lección cierra con una idea clave de una línea.
-- **Lo real antes que lo bonito.** La unidad 3 existe para que nadie elija una carrera por la versión de las series.
-- **El estudiante se mide a sí mismo.** Al final de cada unidad contesta qué tanto le interesó y qué tan capaz se sintió. Con eso se arma su veredicto; no lo decide la app.
-- **Sin datos inventados.** Si no hay cifra verificada, la tarjeta lo dice y enseña dónde buscarla.
-- **Sesiones cortas.** Una lección dura de tres a cinco minutos y se puede dejar a la mitad.
-
-## 2. Estructura común: 6 unidades, 21 lecciones
-
-| Unidad | Lección | Parada | Actividad principal |
-|---|---|---|---|
-| **1. Conócela** | 1.1 Qué es y qué resuelve | Sello | Decisión en un escenario |
-| | 1.2 A quién ayudas | Sello | Clasificar |
-| | 1.3 Mitos y realidades | Sello | Verdadero o falso con revelación |
-| | 1.4 Carreras parecidas | Sello | Emparejar y comparar |
-| **2. Pruébala** | 2.1 a 2.4 Cuatro retos | Hexágono | Dinámica propia del área (sección 4) |
-| **3. La realidad** | 3.1 Un día real | Pergamino | Armar un día |
-| | 3.2 Lo difícil | Sello | Decisión en un escenario |
-| | 3.3 Historia real | Pergamino | Testimonio (plantilla) con preguntas |
-| | 3.4 ¿Quién lo disfruta? | Brújula | Reflexión personal |
-| **4. El camino** | 4.1 Cuánto dura y qué estudias | Sello | Ordenar etapas |
-| | 4.2 Cómo se entra | Sello | Verdadero o falso |
-| | 4.3 Dónde, cuánto cuesta y becas | Sello | Adivinar un rango y ver la cifra |
-| **5. El futuro** | 5.1 Dónde se trabaja | Sello | Emparejar |
-| | 5.2 Sueldo y demanda | Sello | Adivinar un rango y ver la cifra |
-| | 5.3 Cómo la cambia la tecnología | Brújula | Elegir entre dos caminos |
-| | 5.4 Después de titularte | Sello | Elegir entre dos caminos |
-| **6. Tu veredicto** | 6.1 Lo que sentiste | Brújula | Repaso de tus propias respuestas |
-| | 6.2 Tu veredicto | Parada grande | Comparar carreras y decidir |
-
-- **Cierre de unidad:** la última lección de cada unidad termina con las dos preguntas de autoevaluación y abre el cofre.
-- **Duración:** 21 lecciones de 3 a 5 minutos dan entre 63 y 105 minutos por carrera.
-- **Avance en el mapa:** la carrera se pinta en proporción a las 21 lecciones. Lo que ya hiciste se respeta: "Qué haces" cuenta como 1.1, el mini reto como 2.1 y tu calificación como 6.2.
-
-### Anatomía de una lección (5 a 8 tarjetas)
-
-1. **Gancho:** una situación o pregunta, máximo 40 palabras.
-2. **Apuesta:** el estudiante responde antes de saber.
-3. **Revelación:** qué pasa en la realidad y por qué.
-4. **Segunda interacción**, con otra dinámica.
-5. **Revelación o dato con fuente.**
-6. **Idea clave**, una línea.
-7. **Pregunta de interés:** "¿Te ves haciendo esto?" con tres respuestas: sí, no sé, no.
-
-## 3. Tipos de tarjeta
-
-| Tipo | Qué hace el estudiante | Campos en el catálogo |
+| Principio | Qué dice la evidencia | Cómo se ve en Vocatlas |
 |---|---|---|
-| `escena` | Lee una situación corta | `texto`, `ilustracion` |
-| `decision` | Elige qué haría | `pregunta`, `opciones[]` con `texto`, `consecuencia`, `mejor` |
-| `vf` | Verdadero o falso | `afirmacion`, `respuesta`, `revelacion` |
-| `rango` | Mueve un deslizador y ve la cifra | `pregunta`, `min`, `max`, `unidad`, `dato` (referencia a un dato con fuente) |
-| `ordenar` | Acomoda pasos | `pasos[]` en el orden correcto, `revelacion` |
-| `emparejar` | Une pares | `pares[]`, `revelacion` |
-| `clasificar` | Manda cada elemento a su grupo | `grupos[]`, `elementos[]` con `grupo` |
-| `dos_caminos` | Elige entre A y B, sin respuesta correcta | `a`, `b`, `que_dice_de_ti` |
-| `armar_dia` | Coloca actividades en un horario | `bloques[]`, `actividades[]`, `dia_real` |
-| `reflexion` | Contesta sobre sí mismo | `pregunta`, `escala` u `opciones[]` |
-| `comparar` | Ve dos carreras lado a lado | `criterios[]` |
-| `testimonio` | Lee una historia real | `persona`, `sorprendio`, `dificil`, `recomendaria`, `estado` |
-| `dato` | Ve una cifra con su fuente | `dato` (referencia), o estado vacío |
-| `clave` | Idea clave de la lección | `texto` |
-| `interes` | "¿Te ves haciendo esto?" | fija |
-| `autoevaluacion` | Interés y capacidad de la unidad | fija |
+| Ejercicios escritos sobre uno mismo | Uno de los cinco ingredientes que más efecto tienen en las intervenciones de elección de carrera (Brown y Ryan Krane, 2000; Brown et al., 2003; replicado por Whiston et al., 2017) | Cada lección cierra con dos preguntas sobre el estudiante; hay respuestas abiertas cortas en las unidades 3 y 6 |
+| Retroalimentación personalizada | Mismo grupo de ingredientes | La respuesta de Rumbo cambia según lo que eligió y según sus reflexiones anteriores |
+| Información del mundo laboral | Mismo grupo de ingredientes; la OCDE encontró que explorar ocupaciones y tener un plan claro durante la secundaria se asocia con mejores resultados laborales años después (OCDE, 2021) | Cifras con fuente y fecha de `cifras.json`, y la tarjeta de mito contra realidad |
+| Modelos a seguir | Mismo grupo de ingredientes; en la teoría sociocognitiva, ver a alguien parecido lograrlo aumenta la confianza (Lent, Brown y Hackett, 1994) | Voz real en video o audio: jóvenes de escuelas públicas y privadas y de distintos estados |
+| Apoyo de su red | Mismo grupo de ingredientes | Actividad "Platícalo": una pregunta para hacerle a alguien de confianza, y después anota qué le dijeron |
+| Avance realista | La OCDE recomienda corregir expectativas poco realistas desde la escuela | Unidad 3 "La realidad", con lo bueno y lo difícil |
+| Confianza por logros | En la teoría sociocognitiva, la experiencia de lograr algo es la fuente más fuerte de confianza | Mini prácticas con dificultad que sube poco a poco; el error se repasa, no se castiga |
+| Los retos solos no bastan | En los metaanálisis, el efecto viene de combinar ingredientes, no de uno solo | Ninguna práctica va sola: siempre la acompañan reflexión, un dato real o una persona real |
+| Recuerdo y repaso | Recordar lo aprendido (más que releerlo) mejora la memoria a largo plazo (Roediger y Karpicke, 2006), sobre todo con repasos espaciados (Cepeda et al., 2006) | Al volver a la app, dos preguntas rápidas de lo visto antes; se suma al repaso de lo fallado que ya existe |
 
-## 4. Dinámicas propias por área (unidad 2)
+Sobre las lecciones cortas: no encontré un metaanálisis sólido que mida su efecto en orientación vocacional. Por eso cada lección dura de 3 a 5 minutos por diseño (sesiones que caben en un recreo), no porque haya evidencia de que lo corto funcione mejor. Hay que medirlo con estudiantes (sección 7).
+
+## 2. Estructura de cada lección
+
+Entre seis y ocho pasos. Los formatos rotan para que dos lecciones seguidas no se sientan iguales.
+
+| Paso | Qué hace el estudiante | Obligatorio |
+|---|---|---|
+| **Gancho** | Una escena concreta que lo pone en el lugar del profesionista. Máximo 40 palabras, o una ilustración narrada | Sí |
+| **Decisión** | Elige qué haría; cada opción tiene su consecuencia | Una interacción es obligatoria: decisión o mini práctica |
+| **Revelación** | Qué pasa en la vida real; con dato verificado y su fuente cuando aplica | Sí |
+| **Mito contra realidad** | Una afirmación común que se confirma o se corrige | No |
+| **Mini práctica** | Un reto un poco más difícil que el de la lección anterior | Ver "Decisión" |
+| **Voz real** | Testimonio corto en video o audio, con transcripción | No (al menos uno por unidad) |
+| **Reflexión** | "¿Cómo te sentiste haciendo esto?" (cinco caritas) y "¿Te ves haciéndolo cada día?" (1 a 5) | **Sí, siempre al final** |
+| **Idea clave** | Una línea | Sí |
+
+**Reglas que revisa un script antes de publicar**
+- Nunca más de dos pasos seguidos de solo texto.
+- Al menos un formato que no sea texto por lección.
+- Gancho, una interacción, revelación y reflexión en cada lección.
+- Ningún número escrito fuera de `cifras.json`.
+- Máximo 40 palabras por paso de texto.
+
+**Retroalimentación personalizada.** Rumbo responde según:
+- La opción que eligió el estudiante.
+- Su reflexión: si dijo que se sintió mal pero contestó bien, se lo hace notar.
+- El patrón de la unidad: si le gustan las prácticas pero no la realidad, se lo dice en 6.1.
+
+## 3. Formatos multimedia
+
+Regla: cada lección tiene al menos un formato que no es texto, elegido según lo que mejor explica ese contenido.
+
+### a) Explicación animada narrada por Rumbo
+
+Sirve para explicar procesos paso a paso.
+
+- **Cómo se hace:** se construye dentro de la app con las ilustraciones del sistema de #art, en SVG animado por etapas. No es video.
+- **Duración:** de 30 a 60 segundos en total, en 3 a 6 etapas.
+- **Narración:** Rumbo narra cada etapa con una o dos frases.
+- **Controles:** pausa, etapa anterior, etapa siguiente y repetir. La barra de avance va marcada por etapas.
+- **Al final:** una pregunta sobre el proceso.
+- **Sin sonido:** cada etapa muestra su frase en el globo de Rumbo y avanza al tocar.
+- **Catálogo:** el guion vive en `datos/guiones/<carrera>.json`, separado del código:
+
+```json
+{"id": "med-urgencias", "titulo": "El recorrido de un paciente en urgencias", "revisar": "medico",
+ "etapas": [
+  {"escena": "llegada", "dice": "Llega alguien a urgencias. Lo primero no es la fila: es ver qué tan grave está."},
+  {"escena": "triaje", "dice": "En el triaje lo clasifican por riesgo. El que no respira bien pasa antes que el que grita."}
+ ],
+ "pregunta": {"texto": "¿Qué decide quién pasa primero?", "opciones": ["Quién llegó antes", "Quién tiene más riesgo", "Quién se queja más"], "correcta": 1}}
+```
+
+### b) Video real
+
+Sirve para testimonios, un día real y lugares de trabajo.
+
+- **Formato:** vertical, de 30 a 90 segundos.
+- **Subtítulos:** siempre activados, en archivo WebVTT.
+- **Controles:** miniatura, velocidad (0.75×, 1×, 1.25× y 1.5×) y botón "Leer la transcripción".
+- **Carga:** el video se descarga solo cuando el estudiante lo abre, en la calidad que permita la conexión.
+- **Sin video todavía:** se muestra un estado vacío con la ilustración del lugar, Rumbo y el texto "Este video llega pronto". Nunca se muestra un hueco.
+- **Permisos:** no se usan videos de terceros. Si en algún caso propongo incrustar uno público, te diré cuál y con qué permiso, y esperaré tu aprobación.
+
+### c) Interactivos visuales
+
+- **Diagrama que se toca para descubrir sus partes:** el corazón, el cuerpo humano, un circuito, el plano de una casa.
+- **Línea de tiempo arrastrable:** los semestres de la carrera o un día de trabajo.
+- **Comparador visual de cifras:** barras con cifras de `cifras.json`, como en "¿Cuánto ganan?".
+- **Ritmo:** tocar al compás. En Medicina se usa para el ritmo de la RCP.
+
+### d) Audio
+
+Frases de testimonios en audio, de 10 a 20 segundos, siempre con su transcripción. Se graban junto con el video, o por teléfono si la persona no quiere salir a cuadro.
+
+## 4. Rumbo habla
+
+- **Cuándo habla:**
+  - Presenta cada lección.
+  - Narra las explicaciones animadas.
+  - Da la retroalimentación.
+  - Acompaña la reflexión final.
+- **Cómo habla:** frases cortas, en español de México, tuteando, cálido y sin sonar a comercial. Ejemplo: "Escogiste escuchar primero. Así empiezan casi todos los diagnósticos."
+- **Globo y boca:** mientras habla aparece un globo con el texto. Su boca se mueve con 5 formas: cerrada, entreabierta, abierta, redonda (o, u) y ancha (e, i).
+- **Cómo se sincroniza la boca:**
+  - Con la voz del navegador, la boca sigue los avisos de palabra de la voz. Cada palabra se parte en sílabas y a cada vocal le toca su forma.
+  - Algunas voces de Android no mandan esos avisos. En ese caso la boca se mueve con un ritmo calculado por el largo del texto.
+  - Con audios grabados, la boca seguirá el volumen real del audio.
+- **Manos:** gesticula con las manos que ya tiene (señalar, abrir, contar con los dedos) según la etiqueta de cada frase.
+- **Voz por ahora:** la síntesis de voz del navegador (Web Speech API). Elige la mejor voz en español de México que haya en el dispositivo, prefiriendo las de mayor calidad. Si no hay, usa otra voz en español.
+- **Para cambiar a audios grabados:** cada línea de diálogo tiene un `id` y su texto en el catálogo. Si existe `media/voz/<id>.mp3`, se usa ese audio con el mismo texto como subtítulo; si no, se usa la voz del navegador.
+- **Nunca arranca solo:** el sonido empieza solo después de que el estudiante toca algo, como piden los navegadores.
+- **Controles:**
+  - Botón de silenciar siempre visible; la preferencia se guarda en el dispositivo.
+  - Velocidad de voz ajustable (lenta, normal o rápida).
+  - Botón "Saltar" en cada narración.
+- **Accesibilidad:** todo lo que dice Rumbo se puede leer. Hay un historial de lo que dijo en la lección, para quien está en un lugar sin audio o tiene discapacidad auditiva.
+
+## 5. Contenido y datos
+
+- No se inventan cifras, sueldos, costos, porcentajes ni testimonios. Cada dato va con fuente y fecha en `datos/cifras.json`; si falta, se queda pendiente y la tarjeta lo dice.
+- Los guiones de las explicaciones animadas y todo lo que dice Rumbo van en el catálogo (`datos/guiones/`), separados del código, para que tú y un profesional del área los revisen.
+- Cada tarjeta o guion lleva una marca de revisión:
+  - `medico`: lo revisa un profesional del área.
+  - `oficial`: se confirma en una fuente oficial.
+  - `listo`: ya se revisó.
+- `docs/REVISION_MEDICINA.md` se genera solo a partir de esas marcas.
+
+## 6. Ejemplos de multimedia por carrera
+
+| Carrera | Explicación animada | Interactivo | Video que conviene grabar |
+|---|---|---|---|
+| Medicina | El recorrido de un paciente en urgencias | Corazón que se toca; ritmo de RCP | Un día de una persona en servicio social |
+| Derecho | Las etapas de un juicio | Línea de tiempo de un juicio | Una pasante en el juzgado |
+| Ing. Civil | Cómo se construye un puente | Elegir el puente según el peso | Una ingeniera en la obra |
+| Computación | Cómo viaja un dato por internet | Bloques para depurar | Un desarrollador en su primer empleo |
+| Arquitectura | De la idea a la maqueta | Plano de casa que se toca | Una estudiante en semana de entrega |
+
+## 7. Medición (todo se guarda en el dispositivo)
+
+- **Claridad por carrera:**
+  - Al empezar y al terminar cada carrera, el estudiante contesta: "¿Qué tan seguro te sientes de si esta carrera es para ti?" en una escala del 1 al 5, con etiquetas en los extremos ("Nada seguro" y "Muy seguro").
+  - El Atlas muestra la respuesta de antes y la de después de cada carrera.
+  - Se mide si el estudiante sabe si la carrera es para él, no si le gusta: terminar seguro de que "no es para mí" también cuenta como avance.
+- **Uso de formatos:** por cada formato (animada, video, interactivo, audio, texto) se cuenta cuántas veces se abrió, se terminó, se saltó y se repitió.
+- **Mostrar los datos:** en #art hay una tabla con estas cuentas para revisarlas. No se envía nada a ningún servidor.
+
+## 8. Rendimiento y celular
+
+- **Explicaciones animadas:** van a 60 cuadros por segundo en un celular de gama media; solo animan movimiento y transparencia. Se prueban con el CPU frenado 4 veces.
+- **Video:** se descarga solo cuando el estudiante lo abre; nunca se precarga. Su miniatura es una imagen chica.
+- **Voz:** la del navegador no pesa nada. Cada audio grabado se descarga cuando hace falta.
+- **Pantalla:** primero celular. Los controles miden al menos 44 px y los subtítulos al menos 16 px, sobre un fondo que se pueda leer.
+
+## 9. Medicina: 21 lecciones con la estructura nueva
+
+Las 21 lecciones reutilizan el contenido del formato 2: las 7 lecciones de explicación y el examen final. Las explicaciones del formato 2 se vuelven pasos de revelación o explicaciones animadas, y sus casos de 3 opciones se vuelven decisiones y mini prácticas.
+
+En la tabla:
+- "No texto" es el formato principal de la lección.
+- Las celdas marcadas con (m) necesitan revisión médica.
+- Las marcadas con (o) se confirman en fuente oficial.
+
+### 9.1 Unidad 1 · Conócela
+
+| Lección | Gancho | Interacción | Revelación o dato | No texto | Idea clave |
+|---|---|---|---|---|---|
+| 1.1 Qué hace un médico | Alguien llega con presión en el pecho | Decisión: ¿qué haces primero? | Escuchar es el inicio del diagnóstico (m) | **Animada:** el recorrido de un paciente en urgencias (m) | Medicina es decidir con información incompleta para cuidar a alguien |
+| 1.2 A quién ayudas | Un pueblo, un quirófano, un laboratorio | Clasificar casos por lugar | No todo es hospital | **Interactivo:** mapa de lugares de trabajo que se toca | También se previene y se investiga |
+| 1.3 Mitos | "Hay que ser de puro 10" | Tres mitos contra realidad | Aspirantes por lugar: dato pendiente | **Video:** estudiante de primeros semestres (estado vacío) | Pesa más la constancia que el promedio |
+| 1.4 Carreras parecidas | ¿Quién diagnostica, quién cuida, quién rehabilita? | Emparejar | Ingreso promedio de Medicina y 5 carreras de salud (IMCO 2026, verificado) | **Comparador visual de cifras** | Hay muchas formas de trabajar en salud |
+
+### 9.2 Unidad 2 · Pruébala (contenido del formato 2, lecciones 1 a 4)
+
+| Lección | Gancho | Interacción | Revelación o dato | No texto | Idea clave |
+|---|---|---|---|---|---|
+| 2.1 El corazón (m) | Un atleta con un lado del corazón más grueso | Casos 1 a 4 del formato 2, de fácil a difícil | Infarto: cada minuto cuenta | **Interactivo:** corazón que se toca para descubrir sus partes y **animada:** el recorrido de la sangre | El corazón son dos bombas |
+| 2.2 Signos vitales (m) | Una paciente con tres números raros | Casos del formato 2 | Rangos normales | **Interactivo:** deslizadores de signos vitales con zonas de color | Varios números raros juntos casi siempre significan algo |
+| 2.3 Pensar como médico (m) | "El peor dolor de cabeza de mi vida" | Decisión encadenada de historia clínica | Señales de alarma | **Audio:** Rumbo actúa a la paciente y el estudiante elige qué preguntar | Primero se descarta lo que puede matar |
+| 2.4 Medicinas y dosis (m) | Un niño de 20 kg y un jarabe | Mini práctica de cálculo en el pizarrón, en tres niveles | Antibiótico contra virus | **Animada:** cómo se calcula una dosis (medicina inventada, Rumbocilina) | La dosis de un niño sale de su peso |
+
+### 9.3 Unidad 3 · La realidad
+
+| Lección | Gancho | Interacción | Revelación o dato | No texto | Idea clave |
+|---|---|---|---|---|---|
+| 3.1 Urgencias (m) | Tres pacientes al mismo tiempo | Ordenar por riesgo; luego el orden de revisión: vía aérea, respiración, circulación | RCP: profundidad y ritmo (m) | **Interactivo de ritmo:** compresiones al compás | Lo urgente no siempre es lo que más grita |
+| 3.2 Un día real | Te toca guardia de 24 horas | **Línea de tiempo arrastrable:** el día de un interno | Las guardias cambian tu rutina completa (o) | **Video:** un día real (estado vacío) | Las guardias marcan el ritmo |
+| 3.3 Lo difícil | Dar una mala noticia | Decisión: qué decir, en tres turnos (m) | Lo bueno y lo difícil, con honestidad | **Audio:** frase de una médica joven (estado vacío) | Es una carrera larga: se aguanta mejor con un porqué claro |
+| 3.4 Historia real | ¿Quién estudia Medicina? | Preguntas sobre el testimonio | Testimonio real con permiso | **Video:** testimonio (estado vacío) + **Platícalo** con tu familia | Te debe gustar la gente, no solo la biología |
+
+### 9.4 Unidad 4 · El camino
+
+| Lección | Gancho | Interacción | Revelación o dato | No texto | Idea clave |
+|---|---|---|---|---|---|
+| 4.1 Cuánto dura | Tienes 17 años: ¿a qué edad terminas? | **Línea de tiempo arrastrable:** ciencias básicas, ciclos clínicos, internado y servicio social (o) | Duración de 6 a 7 años (por confirmar) | Línea de tiempo | El título es apenas la mitad si quieres especialidad |
+| 4.2 Cómo se entra | Examen de admisión y examen de especialidad | Mito contra realidad | 15,779 de 44,911 aspirantes consiguieron lugar en el ENARM 2025 (verificado) | **Comparador visual** de lugares contra aspirantes | Entrar es competido: se prepara con tiempo |
+| 4.3 Dónde y cuánto cuesta | Pública o privada | Rango: adivina el costo | Costos (por confirmar) y becas (verificado) | **Comparador visual** + **Platícalo:** cuánto puede apoyar tu familia | Pública o privada cambia el costo, no el esfuerzo |
+
+### 9.5 Unidad 5 · El futuro
+
+| Lección | Gancho | Interacción | Revelación o dato | No texto | Idea clave |
+|---|---|---|---|---|---|
+| 5.1 Medicina en la comunidad (m) | Quince personas enfermas después de una boda | Casos del formato 2 (brote, dengue, deshidratación) | El servicio social te pone a cuidar a un pueblo (o) | **Animada:** cómo se investiga un brote (m) | Se cuida al pueblo, no solo al paciente |
+| 5.2 Dónde se trabaja y cuánto se gana | ¿Hospital o consultorio? | Emparejar lugares | 27,823 pesos al mes; 81 de cada 100 trabajan en lo suyo (IMCO 2026, verificado) | **Comparador visual** (el mismo de "¿Cuánto ganan?") | El ingreso sube con la especialidad, pero tarda |
+| 5.3 Decisiones difíciles (m) | Una sola cama de terapia intensiva | Casos de ética del formato 2 | Las cuatro reglas de la ética médica | **Animada:** las cuatro reglas con un caso | Decidir bien también es decidir justo |
+| 5.4 Tecnología y después | La IA lee una radiografía | Elegir entre dos caminos | Especialidad, salud pública e investigación | **Video:** residente (estado vacío) | Al titularte eliges otra vez |
+
+### 9.6 Unidad 6 · Tu veredicto
+
+| Lección | Gancho | Interacción | Revelación o dato | No texto | Idea clave |
+|---|---|---|---|---|---|
+| 6.1 Examen y lo que sentiste | Diez casos | Examen final del formato 2: 10 preguntas, se aprueba con 7 (m) | Tus reflexiones de las cinco unidades | **Gráfica** de tus reflexiones | Lo que sentiste al probarla vale más que lo que imaginabas |
+| 6.2 Tu veredicto | ¿Qué haces con Medicina? | La guardo, la descarto o sigo en duda | Claridad del 1 al 5, antes y después | **Comparador** con tus otras carreras + **Platícalo** | Decidir "en duda" también es avanzar |
+
+**Revisión médica antes de publicar:** 1.1, 2.1, 2.2, 2.3, 2.4, 3.1, 3.3, 5.1, 5.3, 6.1 y las animaciones de 1.1, 2.1, 2.4, 5.1 y 5.3. Las 29 tarjetas marcadas hoy en `docs/REVISION_MEDICINA.md` se conservan.
+
+## 10. Videos que conviene grabar para Medicina
+
+Todos verticales, con subtítulos, sin pacientes reconocibles a cuadro y con la autorización firmada de `docs/TESTIMONIOS.md`. Si la persona es menor de edad, también firma su madre, padre o tutor. Cuando se grabe en un hospital o centro de salud, hace falta un permiso por escrito de la institución.
+
+| # | Video | Objetivo | Duración | A quién entrevistar | Guion corto de preguntas |
+|---|---|---|---|---|---|
+| 1 | Primeros semestres | Romper el mito de "puro 10" y mostrar cómo se estudia | 60 s | Estudiante de 1.º o 2.º año de una universidad pública, de un estado que no sea CDMX | ¿Por qué elegiste Medicina? ¿Qué te sorprendió del primer semestre? ¿Cuántas horas estudias en un día normal? ¿Qué le dirías a alguien de prepa que no es de 10? |
+| 2 | Un día de internado | Mostrar la realidad de las guardias | 90 s | Interna o interno de pregrado, de universidad privada | ¿A qué hora empieza tu día? ¿Cómo es una guardia? ¿Qué es lo más pesado? ¿Qué te hace seguir? |
+| 3 | Servicio social en comunidad | Mostrar que la medicina también cuida a un pueblo | 90 s | Médica o médico pasante en un centro de salud rural | ¿Dónde estás y qué atiendes? ¿Qué no te enseñaron en la escuela? ¿Cómo es estar lejos de casa? ¿Qué aprendiste de la comunidad? |
+| 4 | Lo difícil | Hablar con honestidad de lo duro | 60 s | Médica general con menos de 5 años de egresada | ¿Qué fue lo más difícil de la carrera? ¿Cómo diste tu primera mala noticia? ¿Te volverías a inscribir? |
+| 5 | Prepararse para el ENARM | Mostrar el camino a la especialidad | 60 s | Residente de primer año | ¿Cómo te preparaste? ¿Qué pasa si no te quedas a la primera? ¿Por qué elegiste tu especialidad? |
+| 6 | No todo es hospital | Mostrar salud pública o investigación | 60 s | Médico en salud pública, epidemiología o investigación | ¿Qué haces en un día normal? ¿Cómo llegaste ahí? ¿Ves pacientes? ¿A quién le recomendarías este camino? |
+| 7 | Lugar de trabajo | Que vean un consultorio o un centro de salud por dentro, sin pacientes | 30 s | Toma de recorrido narrada por quien trabaja ahí | Recorrido: dónde se recibe al paciente, dónde se revisa, qué hay en el botiquín |
+| 8 | Audio: una frase | Frase corta para la lección 3.3 | 15 s | Cualquiera de las personas anteriores | "Lo que nadie me dijo de Medicina fue…" |
+
+Que las personas sean diversas: mujeres y hombres, escuelas públicas y privadas, y al menos tres estados distintos.
+
+## 11. Verificación
+
+- En #art:
+  - Una explicación animada completa de Medicina narrada por Rumbo.
+  - El componente de video con su estado vacío.
+  - Rumbo hablando con sus formas de boca.
+- Recorrer tres lecciones completas de Medicina en celular, iPad y computadora, con y sin sonido. En cada una se verifica que:
+  - Nunca haya más de dos pasos seguidos de solo texto.
+  - Todo lo que dice Rumbo se pueda leer.
+  - Nada se encime.
+- Corregir y repetir hasta que todo pase, mínimo dos rondas.
+
+## 12. Orden de trabajo
+
+1. **Este documento.** Espero tu aprobación.
+2. **Rumbo hablando y una explicación animada** ("El recorrido de un paciente en urgencias"). Espero tu aprobación.
+3. **Todo aplicado a las lecciones de Medicina**, con su verificación.
+
+## Fuentes de la sección 1
+
+- Brown, S. D., y Ryan Krane, N. E. (2000). Four (or five) sessions and a cloud of dust: Old assumptions and new observations about career counseling. En S. D. Brown y R. W. Lent (eds.), *Handbook of Counseling Psychology* (3.ª ed.). Wiley.
+- Brown, S. D., Ryan Krane, N. E., Brecheisen, J., Castelino, P., Budisin, I., Miller, M., y Edens, L. (2003). Critical ingredients of career choice interventions: More analyses and new hypotheses. *Journal of Vocational Behavior, 62*(3), 411-428.
+- Whiston, S. C., Li, Y., Goodrich Mitts, N., y Wright, L. (2017). Effectiveness of career choice interventions: A meta-analytic replication and extension. *Journal of Vocational Behavior, 100*, 175-184.
+- Lent, R. W., Brown, S. D., y Hackett, G. (1994). Toward a unifying social cognitive theory of career and academic interest, choice, and performance. *Journal of Vocational Behavior, 45*(1), 79-122.
+- OCDE (2021). Covacevich, C., Mann, A., Santos, C., y Champaud, J. *Indicators of teenage career readiness: An analysis of longitudinal data from eight countries*. OECD Education Working Papers, n.º 258. Proyecto Career Readiness: https://www.oecd.org/education/career-readiness/
+- Roediger, H. L., y Karpicke, J. D. (2006). Test-enhanced learning. *Psychological Science, 17*(3), 249-255.
+- Cepeda, N. J., Pashler, H., Vul, E., Wixted, J. T., y Rohrer, D. (2006). Distributed practice in verbal recall tasks. *Psychological Bulletin, 132*(3), 354-380.
+- Mayer, R. E. (2020). *Multimedia Learning* (3.ª ed.). Cambridge University Press. Fuente del punto 3 de la sección 0: los principios de segmentar, de narrar con imágenes y de no repetir el mismo texto que se narra.
+
+Verificado en línea el 21 de noviembre de 2026: el documento de la OCDE (n.º 258, octubre de 2021, [registro](https://econpapers.repec.org/RePEc:oec:eduaab:258-en)), los datos de Whiston et al. (2017) ([registro](https://www.econbiz.de/Record/effectiveness-of-career-choice-interventions-a-meta-analytic-replication-and-extension/10011720945)) y el límite de 1 GB de GitHub Pages ([documentación](https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits)). Las demás referencias son textos clásicos del área; confirmo sus páginas exactas antes de publicar algo que las cite dentro de la app.
+
+---
+
+# Anexos (siguen vigentes de la versión del 14 de noviembre)
+
+## Anexo A. Dinámicas propias por área (unidad 2)
 
 | Área | Dinámicas | Se construyen sobre |
 |---|---|---|
@@ -89,182 +298,7 @@ Fecha: 14 de noviembre de 2026. Fase 1 del plan. **Nada de esto está programado
 
 Son seis dinámicas nuevas que hay que programar: `armar`, `bloques`, `patron`, `presupuesto`, `encuadre` y `componer`. Las demás reutilizan tarjetas comunes.
 
-## 5. Recorrido de las cinco carreras completas
-
-Las tablas dan el contenido específico de cada lección. Las tarjetas palabra por palabra se escriben en la fase 3, cuando apruebes esto; al final de la sección hay dos lecciones completas como muestra del tono.
-
-Lo que dice "dato" se llena solo con cifra verificada (sección 6). Los puntos marcados con (v) son afirmaciones sobre trámites o reglas que hay que confirmar en fuente oficial antes de publicarlas.
-
-### 5.1 Medicina
-
-| Lección | Contenido | Idea clave |
-|---|---|---|
-| 1.1 Qué es | Llega alguien con dolor de pecho: ¿qué haces primero? Preguntar, revisar, pedir estudios, decidir. | Medicina es decidir con información incompleta para cuidar a alguien. |
-| 1.2 A quién ayudas | Clasificar casos: consulta, urgencias, quirófano, prevención en una comunidad, investigación. | No todo es hospital: también se previene y se investiga. |
-| 1.3 Mitos | "Hay que ser de puro 10." "Todos terminan operando." "Si te impresiona la sangre, no puedes." "Sales ganando muy bien." | Pesa más la constancia que el promedio. |
-| 1.4 Parecidas | Enfermería, Odontología, Nutrición, Fisioterapia, Psicología, Químico farmacobiólogo: quién diagnostica, quién cuida, quién rehabilita. | Hay muchas formas de trabajar en salud sin ser médico. |
-| 2.1 Triaje | Cinco pacientes llegan a urgencias al mismo tiempo. Ordénalos por gravedad. | Lo urgente no siempre es lo que más grita. |
-| 2.2 Síntoma y estudio | Unir cada caso con el estudio que más ayuda: electrocardiograma, radiografía, glucosa en sangre, biometría. | Un estudio se pide para contestar una pregunta. |
-| 2.3 Procedimiento | Ordenar los pasos para curar una herida: lavado de manos, guantes, limpieza, cierre, indicaciones. | El orden evita infecciones. |
-| 2.4 Hablar con el paciente | Una señora no quiere tomar su tratamiento. Eliges qué decir en tres turnos. | Escuchar también es parte del tratamiento. |
-| 3.1 Un día real | Armar el día de un interno: pase de visita, consulta, guardia, clase, dormir. | Las guardias cambian tu rutina completa. |
-| 3.2 Lo difícil | Decisiones con cansancio, dar malas noticias, años sin ingreso propio, materias pesadas como Anatomía, Bioquímica y Farmacología. | Es una carrera larga: se aguanta mejor con un porqué claro. |
-| 3.3 Historia real | Plantilla de testimonio: estudiante en internado o médico recién egresado. | Pendiente de entrevista. |
-| 3.4 ¿Quién lo disfruta? | ¿Aguantas estudiar mucho por años? ¿Te gusta tratar con gente en sus peores días? ¿Toleras no saber la respuesta? | Te debe gustar la gente, no solo la biología. |
-| 4.1 Cuánto dura | Ordenar etapas: ciencias básicas, ciclos clínicos, internado, servicio social, título; después, especialidad (v). Duración: dato. | El título es apenas la mitad si quieres especialidad. |
-| 4.2 Cómo se entra | Examen de admisión y promedio, cupo limitado; para especialidad existe un examen nacional (v). | Entrar es competido: se prepara con tiempo. |
-| 4.3 Dónde y cuánto | Escuelas en tu estado, costo en pública y privada, becas: datos. | Pública o privada cambia el costo, no el esfuerzo. |
-| 5.1 Dónde se trabaja | Emparejar: hospital público, consultorio propio, hospital privado, salud pública, investigación, docencia. | Muchos médicos combinan dos trabajos. |
-| 5.2 Sueldo y demanda | Adivina el ingreso mensual promedio y cuántos trabajan en lo que estudiaron: datos. | El ingreso sube mucho con la especialidad, pero tarda. |
-| 5.3 Tecnología | Telemedicina, análisis de imágenes con IA, expediente electrónico: ¿la usarías o desconfiarías? | La tecnología ayuda a decidir; la responsabilidad sigue siendo tuya. |
-| 5.4 Después | Especialidad, maestría en salud pública, investigación o consultorio propio. | Al titularte eliges otra vez. |
-| 6.1 Lo que sentiste | Tus respuestas de interés y capacidad en las cinco unidades, en una gráfica simple. | Lo que sentiste al probarla vale más que lo que imaginabas. |
-| 6.2 Veredicto | Comparar con tus otras carreras y decidir: la guardo, la descarto o sigo en duda. | Decidir "en duda" también es avanzar. |
-
-### 5.2 Computación
-
-| Lección | Contenido | Idea clave |
-|---|---|---|
-| 1.1 Qué es | Una tiendita quiere vender por internet: ¿qué harías primero? Entender el problema, diseñar, programar, probar. | Programar es la última parte: primero se entiende el problema. |
-| 1.2 A quién ayudas | Clasificar productos: una app de banco, un videojuego, el sistema de un hospital, un modelo de IA, la seguridad de una red. | Casi todas las industrias necesitan software. |
-| 1.3 Mitos | "Es puro videojuego." "Hay que ser genio de mate." "Trabajas solo y callado." "Ya sé usar la compu, ya la hice." | Se trabaja en equipo y se aprende toda la vida. |
-| 1.4 Parecidas | Ing. en software, Sistemas, Ciencia de datos, Mecatrónica, Diseño digital: quién teoriza, quién construye, quién analiza. | Los nombres cambian por escuela: revisa el plan de estudios. |
-| 2.1 Depurar | Un robot debe llegar a la meta con bloques de avanzar y girar. El programa tiene un error: encuéntralo. | Depurar es buscar con método, no adivinar. |
-| 2.2 Algoritmo | Ordenar los pasos para que una máquina haga un sándwich sin ambigüedades. | La computadora hace lo que dices, no lo que quieres. |
-| 2.3 Buscar rápido | Adivina un número del 1 al 100 con el menor número de preguntas. | Una buena estrategia vale más que una máquina rápida. |
-| 2.4 Diseñar para alguien | Una app para la cafetería de la escuela: tienes tiempo para tres funciones de ocho. | Decidir qué no hacer también es ingeniería. |
-| 3.1 Un día real | Armar el día de una desarrolladora: reunión corta, programar, revisar código de otro, un error en producción. | Se lee y corrige más código del que se escribe. |
-| 3.2 Lo difícil | Frustración de errores que duran horas, mucho tiempo sentado, actualizarse siempre, materias pesadas como Cálculo, Matemáticas discretas y Estructuras de datos. | La frustración es parte del trabajo diario. |
-| 3.3 Historia real | Plantilla de testimonio: estudiante de últimos semestres o egresada con primer empleo. | Pendiente de entrevista. |
-| 3.4 ¿Quién lo disfruta? | ¿Te gusta resolver acertijos? ¿Toleras equivocarte muchas veces? ¿Aprendes por tu cuenta? | Se disfruta si te gusta entender cómo funciona algo. |
-| 4.1 Cuánto dura | Ordenar etapas: fundamentos y matemáticas, algoritmos, sistemas (bases de datos, redes), especialización y proyecto. Duración: dato. | Los primeros semestres son más matemáticas que programación. |
-| 4.2 Cómo se entra | Examen de admisión con peso en matemáticas; no necesitas saber programar antes. | Se puede empezar de cero. |
-| 4.3 Dónde y cuánto | Escuelas en tu estado, costo, becas: datos. | El portafolio de proyectos pesa junto con el título. |
-| 5.1 Dónde se trabaja | Emparejar: empresa de software, banco, startup, gobierno, por tu cuenta y a distancia. | Se puede trabajar para otro país desde tu ciudad. |
-| 5.2 Sueldo y demanda | Ingreso promedio y ocupación: datos. | La demanda es alta, pero piden demostrar lo que sabes hacer. |
-| 5.3 Tecnología | Asistentes de IA que escriben código: ¿los usas para avanzar o prefieres entender todo tú? | Cambian las herramientas; entender el problema sigue siendo tuyo. |
-| 5.4 Después | Maestría, certificaciones, emprender un producto o especializarte en seguridad, datos o IA. | Aquí se estudia siempre, con o sin posgrado. |
-| 6.1 y 6.2 | Igual que en todas las carreras. | |
-
-### 5.3 Derecho
-
-| Lección | Contenido | Idea clave |
-|---|---|---|
-| 1.1 Qué es | A tu vecina no le devuelven el depósito de la renta: ¿qué harías? Leer el contrato, hablar, negociar, demandar. | El derecho resuelve conflictos con reglas; el juicio es el último recurso. |
-| 1.2 A quién ayudas | Clasificar casos por materia: penal, civil, familiar, laboral, mercantil. | Hay muchas ramas y casi nadie las ejerce todas. |
-| 1.3 Mitos | "Es memorizar leyes." "Todo es pelear en juicios como en las series." "Para ejercer hay que pasar un examen nacional" (v). "Hay que ser bueno para discutir." | Se trata de leer con cuidado y argumentar por escrito. |
-| 1.4 Parecidas | Ciencias políticas, Criminología, Relaciones internacionales, Administración pública, Trabajo social. | Si te atrae la justicia, hay más de un camino. |
-| 2.1 Analizar un caso | Compraste un celular usado y salió con reporte de robo. ¿Hubo contrato? ¿Quién responde? | Primero los hechos, luego la regla, al final la conclusión. |
-| 2.2 Negociar | Representas a un inquilino. Eliges tres argumentos de seis para llegar a un acuerdo. | Un buen acuerdo evita un mal juicio. |
-| 2.3 Redactar sin huecos | Tres versiones de una cláusula: elige la que no se presta a dos lecturas. | Una palabra ambigua puede costar un juicio. |
-| 2.4 Los dos lados | El mismo caso desde la defensa y desde la acusación: ¿qué prueba le sirve a cada quien? | Defender a alguien no es estar de acuerdo con lo que hizo. |
-| 3.1 Un día real | Armar el día de una pasante: juzgado, redactar un escrito, atender a un cliente, revisar expedientes. | Se lee y se escribe casi todo el día. |
-| 3.2 Lo difícil | Trámites lentos, mucha lectura, clientes en crisis, empezar como pasante con poco sueldo, materias como Derecho procesal y Amparo. | Se avanza con paciencia y orden. |
-| 3.3 Historia real | Plantilla de testimonio: pasante o abogada recién titulada. | Pendiente de entrevista. |
-| 3.4 ¿Quién lo disfruta? | ¿Te gusta leer con lupa? ¿Te incomoda la injusticia? ¿Puedes defender una postura que no es la tuya? | Lo disfruta quien goza armar un buen argumento. |
-| 4.1 Cuánto dura | Ordenar etapas: materias base (constitucional, civil, penal), procesales, especialidad, prácticas y servicio social, titulación. Duración: dato. | Las prácticas en un despacho o juzgado enseñan tanto como las clases. |
-| 4.2 Cómo se entra | Examen de admisión con peso en lectura y redacción; requisitos de la escuela. | Leer mucho desde hoy es la mejor preparación. |
-| 4.3 Dónde y cuánto | Escuelas en tu estado, costo, becas: datos. | Hay muchas escuelas: revisa que el programa tenga reconocimiento oficial (v). |
-| 5.1 Dónde se trabaja | Emparejar: despacho, juzgado, fiscalía, notaría, empresa, gobierno, organización civil. | Litigar es solo una de las salidas. |
-| 5.2 Sueldo y demanda | Ingreso promedio y ocupación: datos. | Es una carrera con muchos egresados: especializarte te distingue. |
-| 5.3 Tecnología | Juicios en línea, búsqueda de precedentes con IA, contratos automáticos. | La máquina encuentra textos; decidir qué es justo sigue siendo humano. |
-| 5.4 Después | Maestría, carrera judicial, notaría, despacho propio (v). | Varios caminos piden concursos o exámenes adicionales. |
-| 6.1 y 6.2 | Igual que en todas las carreras. | |
-
-### 5.4 Arquitectura
-
-| Lección | Contenido | Idea clave |
-|---|---|---|
-| 1.1 Qué es | Una familia de cinco tiene un terreno pequeño: ¿qué preguntas primero? Cómo viven, cuánto tienen, dónde da el sol. | Se diseña para cómo vive la gente, no para la foto. |
-| 1.2 A quién ayudas | Clasificar proyectos: casa, escuela, parque, restauración de un edificio viejo, interior de una tienda. | Un arquitecto también diseña ciudad y espacio público. |
-| 1.3 Mitos | "Es dibujar bonito." "Es lo mismo que Ing. civil." "Hay que nacer sabiendo dibujar." "Solo diseñas casas." | El dibujo se aprende; lo esencial es pensar el espacio. |
-| 1.4 Parecidas | Ing. civil, Diseño de interiores, Urbanismo, Diseño industrial, Arquitectura de paisaje. | El arquitecto decide el espacio; el ingeniero civil, que no se caiga. |
-| 2.1 Componer una casa | Mueve cocina, sala, baño y dos recámaras en un terreno con una sola fachada a la calle. | Cada decisión mueve luz, privacidad y recorridos. |
-| 2.2 El sol | Elige hacia dónde abren las ventanas en un clima caluroso y ve cómo queda la casa a mediodía. | La orientación es gratis y cambia todo. |
-| 2.3 Presupuesto | Tres materiales para el mismo muro: costo, duración y temperatura. Tienes un tope. | Diseñar es elegir qué sacrificar. |
-| 2.4 Criticar un espacio | Evalúa tu propio salón de clases con cuatro criterios: función, luz, circulación y contexto. | La crítica es con criterios, no con gustos. |
-| 3.1 Un día real | Armar el día de un estudiante en semana de entrega: taller, maqueta, corrección, software, desvelo. | Las entregas marcan el ritmo de la carrera. |
-| 3.2 Lo difícil | Desveladas, costo de materiales y de impresión, crítica pública de tu trabajo, materias como Estructuras y Taller de diseño. | Aprendes a que critiquen tu trabajo sin tomarlo personal. |
-| 3.3 Historia real | Plantilla de testimonio: estudiante de taller avanzado o arquitecta en su primer despacho. | Pendiente de entrevista. |
-| 3.4 ¿Quién lo disfruta? | ¿Te fijas en cómo están hechos los lugares? ¿Aguantas rehacer algo tres veces? ¿Te gusta trabajar con las manos y con la compu? | Lo disfruta quien no puede entrar a un lugar sin analizarlo. |
-| 4.1 Cuánto dura | Ordenar etapas: representación y taller básico, construcción y estructuras, urbanismo e historia, prácticas, proyecto de titulación. Duración: dato. | El taller de diseño está en casi todos los semestres. |
-| 4.2 Cómo se entra | Examen de admisión; algunas escuelas piden prueba de aptitud o dibujo (v). | No piden que ya dibujes perfecto. |
-| 4.3 Dónde y cuánto | Escuelas en tu estado, costo, becas y gasto en materiales: datos. | Además de la colegiatura, cuenta materiales y computadora. |
-| 5.1 Dónde se trabaja | Emparejar: despacho, constructora, gobierno, interiorismo, modelado digital, restauración, por tu cuenta. | Muchos empiezan dibujando proyectos de otros. |
-| 5.2 Sueldo y demanda | Ingreso promedio y ocupación: datos. | El ingreso crece con experiencia y con clientes propios. |
-| 5.3 Tecnología | Modelado en 3D, recorridos virtuales, imágenes generadas con IA: ¿herramienta o atajo? | La imagen la hace una máquina; el criterio, tú. |
-| 5.4 Después | Maestría, especializarte en sustentabilidad o restauración, perito o director de obra (v), despacho propio. | Firmar una obra pide requisitos adicionales. |
-| 6.1 y 6.2 | Igual que en todas las carreras. | |
-
-### 5.5 Veterinaria
-
-| Lección | Contenido | Idea clave |
-|---|---|---|
-| 1.1 Qué es | Llega un perro que no come desde ayer y su dueño está nervioso: ¿qué haces primero? Tu paciente no habla. | Atiendes al animal y también a la persona que lo trae. |
-| 1.2 A quién ayudas | Clasificar: mascotas, animales de granja, fauna silvestre, revisar que la carne y la leche sean seguras, laboratorio. | No todo es perros y gatos: también es lo que comemos. |
-| 1.3 Mitos | "Es jugar con perritos." "Solo se atienden mascotas." "Con amar a los animales basta." "Es una medicina más fácil." | Amar a los animales ayuda, pero no alcanza. |
-| 1.4 Parecidas | Biología, Agronomía, Zootecnia, Medicina, Biotecnología. | El veterinario cura y también cuida la producción de alimentos. |
-| 2.1 Triaje | Sala de espera: un atropellado, un golpe de calor, una vacuna, un gato que no orina, un cachorro con diarrea. Ordena. | Cada especie avisa distinto que está grave. |
-| 2.2 Síntoma y estudio | Unir caso con estudio: radiografía, análisis de sangre, de heces, ultrasonido. | Sin palabras del paciente, los estudios hablan por él. |
-| 2.3 Hablar con el dueño | El tratamiento cuesta más de lo que la familia puede pagar. Eliges qué decir en tres turnos. | Ser honesto con los costos es parte del cuidado. |
-| 2.4 Algo pasa en la granja | Las gallinas ponen menos huevo. Revisa alimento, agua, luz y temperatura: encuentra la causa. | En producción se cuida al grupo, no solo al individuo. |
-| 3.1 Un día real | Armar el día en una clínica: consultas, una cirugía, una urgencia, limpiar, llamar a dueños. | Hay más limpieza y papeleo de lo que parece. |
-| 3.2 Lo difícil | Eutanasia, mordidas y rasguños, dueños que no pueden pagar, trabajo en campo, materias como Anatomía comparada y Farmacología. | Vas a ver animales sufrir y no siempre podrás salvarlos. |
-| 3.3 Historia real | Plantilla de testimonio: estudiante en prácticas o veterinario de clínica o de campo. | Pendiente de entrevista. |
-| 3.4 ¿Quién lo disfruta? | ¿Aguantas olores, sangre y suciedad? ¿Puedes dar una mala noticia? ¿Te ves trabajando en un rancho? | Te deben interesar los animales también cuando no son tiernos. |
-| 4.1 Cuánto dura | Ordenar etapas: ciencias básicas de varias especies, medicina y zootecnia por especie, prácticas clínicas y de campo, servicio social. Duración: dato. | Estudias varias especies, no una sola. |
-| 4.2 Cómo se entra | Examen de admisión con peso en biología y química; cupo según la escuela. | Biología y química de prepa sí se usan. |
-| 4.3 Dónde y cuánto | Escuelas en tu estado, costo, becas: datos. | Fíjate si la escuela tiene hospital y prácticas de campo. |
-| 5.1 Dónde se trabaja | Emparejar: clínica, rancho, rastro e inocuidad de alimentos, laboratorio, zoológico, gobierno, industria farmacéutica. | La clínica de mascotas es solo una parte del empleo. |
-| 5.2 Sueldo y demanda | Ingreso promedio y ocupación: datos. | El ingreso varía mucho según la rama. |
-| 5.3 Tecnología | Collares con sensores, telemedicina veterinaria, análisis de imágenes. | Los datos ayudan a detectar antes; revisar al animal sigue siendo a mano. |
-| 5.4 Después | Especialidad por especie, maestría en producción o salud pública, clínica propia. | Poner tu clínica pide saber de negocio. |
-| 6.1 y 6.2 | Igual que en todas las carreras. | |
-
-### 5.6 Muestra de tono: lección 2.1 de Medicina, tarjeta por tarjeta
-
-1. **Escena.** "Son las 2 de la mañana en urgencias. Eres la única persona de guardia y acaban de entrar cinco pacientes al mismo tiempo."
-2. **Ordenar.** "¿A quién atiendes primero? Acomódalos." Señor de 60 con dolor en el pecho y sudor frío · Niña con fiebre que juega con un celular · Joven con el tobillo torcido · Señora que no puede respirar bien · Hombre con una cortada en la mano que ya no sangra.
-3. **Revelación.** "Primero quien no puede respirar y quien tiene dolor de pecho: su vida corre peligro en minutos. La cortada y el tobillo pueden esperar aunque duelan más."
-4. **Verdadero o falso.** "El paciente que más se queja es el más grave." Falso: "Quien puede gritar, respira. A veces el más grave es el más callado."
-5. **Decisión.** "La mamá de la niña te reclama porque llegó antes que el señor. ¿Qué le dices?" Tres opciones con su consecuencia.
-6. **Idea clave.** "Lo urgente no siempre es lo que más grita."
-7. **Interés.** "¿Te ves tomando decisiones así?"
-
-### 5.7 Muestra de tono: lección 2.1 de Computación
-
-1. **Escena.** "Este robot debe llegar a la bandera. Alguien ya escribió el programa, pero el robot termina en el agua."
-2. **Bloques.** Programa: avanzar 2 · girar a la derecha · avanzar 3 · girar a la derecha · avanzar 1. "Corre el programa y mira dónde falla."
-3. **Decisión.** "¿Cuál bloque cambiarías?" El estudiante toca un bloque y elige su reemplazo.
-4. **Revelación.** "El segundo giro era a la izquierda. El error estaba en un solo bloque, pero se notó tres pasos después."
-5. **Verdadero o falso.** "Un buen programador casi no comete errores." Falso: "Todos se equivocan todo el día. Lo que cambia es qué tan rápido encuentran el error."
-6. **Idea clave.** "Depurar es buscar con método, no adivinar."
-7. **Interés.** "¿Te ves buscando errores así?"
-
-## 6. Datos y fuentes
-
-Cada cifra vive en el catálogo como un dato separado, con valor, unidad, fuente, enlace y fecha de consulta. Una tarjeta nunca trae el número escrito: apunta al dato. Si el dato está pendiente, la tarjeta muestra: "Todavía no tenemos esta cifra verificada. Puedes buscarla en" y el nombre de la fuente.
-
-| Dato por carrera | Fuente sugerida | Estado hoy |
-|---|---|---|
-| Ingreso mensual promedio | Compara Carreras, IMCO | Pendiente |
-| Tasa de ocupación e informalidad | Compara Carreras, IMCO | Pendiente |
-| Número de profesionistas y distribución por sexo | Observatorio Laboral, STPS | Pendiente |
-| En qué trabajan los egresados | Observatorio Laboral, STPS | Pendiente |
-| Matrícula y egresados por estado | Anuarios estadísticos de ANUIES | Pendiente |
-| Duración del plan y etapas | Sitio oficial de cada universidad | Pendiente |
-| Requisitos y examen de admisión | Sitio oficial de cada universidad | Pendiente |
-| Costo en pública y privada | Sitio oficial de cada universidad | Pendiente |
-| Escuelas por estado | ANUIES y sitios oficiales | Pendiente |
-| Becas | Sitios oficiales de gobierno y universidades | Pendiente |
-
-No consulté estas fuentes todavía: verificar 10 datos de 20 carreras es trabajo de la fase 3 y lo haré dato por dato, guardando el enlace y la fecha. Lo que no pueda verificar se queda pendiente.
-
-### Testimonios
-
-Plantilla por carrera: quién es (nombre de pila, etapa, tipo de escuela, estado), qué te sorprendió, qué fue lo más difícil, a quién se la recomendarías y a quién no. Estado: sin entrevista. La lección 3.3 se muestra como "Llega pronto" hasta tener una historia real con permiso de quien la cuenta.
-
-## 7. Las otras 15 carreras: estructura lista para llenarse
+## Anexo B. Otras carreras: mito principal, retos y carreras parecidas
 
 Usan las mismas 21 lecciones. Esta tabla fija lo que cambia: el mito principal de 1.3, los cuatro retos de la unidad 2 y las carreras parecidas de 1.4. Falta escribir sus tarjetas.
 
@@ -286,43 +320,7 @@ Usan las mismas 21 lecciones. Esta tabla fija lo que cambia: el mito principal d
 | Comunicación | "Es salir en la tele" | Mensaje de una campaña para un público · Verificar una noticia · Titular sin engañar · Entrevistar eligiendo preguntas | Periodismo, Mercadotecnia, Cine |
 | Cine | "Es ser director famoso" | Elegir el encuadre · Ordenar una escena en el montaje · Presupuesto de un cortometraje · Criticar una escena con criterios | Comunicación, Animación, Artes visuales |
 
-## 8. Formato del catálogo
-
-El contenido vive en archivos de datos separados del código: uno por carrera (`datos/carreras/medicina.json`) y uno de cifras (`datos/cifras.json`). La app los carga cuando abres la carrera y los guarda para usarse sin conexión.
-
-```json
-{
-  "id": "medicina",
-  "version": 1,
-  "unidades": [
-    {
-      "id": "u2", "titulo": "Pruébala",
-      "lecciones": [
-        {
-          "id": "2.1", "titulo": "Triaje", "parada": "hexagono", "minutos": 4,
-          "tarjetas": [
-            {"tipo": "escena", "texto": "Son las 2 de la mañana en urgencias..."},
-            {"tipo": "ordenar", "pregunta": "¿A quién atiendes primero?", "pasos": ["...", "..."], "revelacion": "..."},
-            {"tipo": "vf", "afirmacion": "...", "respuesta": false, "revelacion": "..."},
-            {"tipo": "clave", "texto": "Lo urgente no siempre es lo que más grita."},
-            {"tipo": "interes"}
-          ]
-        }
-      ]
-    }
-  ]
-}
-```
-
-```json
-{
-  "medicina.ingreso": {"valor": null, "unidad": "MXN al mes", "fuente": "Compara Carreras, IMCO", "url": null, "consultado": null, "estado": "pendiente"}
-}
-```
-
-Un script revisará antes de publicar: máximo de palabras por tarjeta, que no haya dos tarjetas de lectura seguidas, que cada lección cierre con idea clave y pregunta de interés, y que ningún número aparezca escrito fuera de `cifras.json`.
-
-## 9. Test de intereses: revisión de la licencia
+## Anexo C. Test de intereses: revisión de la licencia
 
 Revisé el sitio oficial del O*NET Resource Center el 14 de noviembre de 2026. No soy abogado: esto es mi lectura de las páginas.
 
@@ -361,15 +359,7 @@ Revisé el sitio oficial del O*NET Resource Center el 14 de noviembre de 2026. N
 
 Mientras tanto, en la fase 4 puedo construir todo el test (pantallas, pausa y retoma, puntajes, resultados, historial) con el banco de preguntas vacío.
 
-## 10. Qué habría que validar con estudiantes reales
-
-- Si 21 lecciones se sienten como un recorrido o como tarea.
-- Si las preguntas de "qué tan capaz te sentiste" desaniman a quien le fue mal en un reto.
-- Si los retos de la unidad 2 se entienden sin instrucciones.
-- Si la unidad 3 asusta de más o informa.
-- Si ganar el Rumbo al terminar la unidad 2 motiva a seguir o hace que abandonen ahí.
-
-## Fuentes
+## Fuentes del anexo C
 
 - [O*NET Interest Profiler](https://www.onetcenter.org/IP.html)
 - [Licencia de las Career Exploration Tools](https://www.onetcenter.org/license_tools.html)
