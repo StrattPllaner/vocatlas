@@ -88,7 +88,7 @@ var TORRE=(function(I){
  function zAt(a){return FH*a/360+ISLE+70}
  function proj(a,rot,lift,r){r=r||R;var t=(a-rot+45)*D2R,x=Math.cos(t)*r,y=Math.sin(t)*r,z=zAt(a)+(lift||0),b=P(x,y,z),ax=P(0,0,z),d=Math.cos((a-rot)*D2R),k=1+PF*d;
   return {x:ax[0]+(b[0]-ax[0])*k,y:ax[1]+(b[1]-ax[1])*k+d*8,d:d,k:k}}
- var LAY=["sh","ed","bp","tp","ro","ri","pl"],RIBS=LAY.map(function(l){return '<path class="tw-rib L-'+l+' k0" data-l="'+l+'" data-k="0"/><path class="tw-rib L-'+l+' k1" data-l="'+l+'" data-k="1"/>'}).join("");
+ var LAY=["pl"],RIBS=LAY.map(function(l){return '<path class="tw-rib L-'+l+' k0" data-l="'+l+'" data-k="0"/><path class="tw-rib L-'+l+' k1" data-l="'+l+'" data-k="1"/>'}).join("");
  function angles(u,m){var o=[];for(var i=0;i<m;i++)o.push(u*360+(i+.5)*360/m);return o}
  /* ---------- el suelo: la isla de la carrera, igual a las del mapa (playa, acantilado, ladera y pasto de su área),
     tan grande que cubre lo de abajo de orilla a orilla; encima, el edificio de la carrera y los árboles y objetos de su bioma ---------- */
@@ -113,11 +113,11 @@ var TORRE=(function(I){
   for(var k=0;k<60;k++){var a=rnd()*Math.PI*2,r=rnd()*need,x=Math.cos(a)*r,y=Math.sin(a)*r;if(!vis(x,y,60))continue;var t=rnd(),cc=t<.6?look.grass2:t<.85?"#D3B886":"#BDB6AA",rr=14+rnd()*26,q=P(x,y,0);
    h+='<ellipse cx="'+f1(q[0])+'" cy="'+f1(q[1])+'" rx="'+f1(rr*1.3)+'" ry="'+f1(rr*.62)+'" fill="'+cc+'" opacity="'+(t<.6?.8:.55)+'"/>'}
   h+='</g><path d="'+dp+'" fill="none" stroke="#C8F0A8" stroke-width="1.4" opacity=".7"/>';
-  /* el edificio de la carrera, el mismo del mapa, a un lado de la espiral; luego árboles y objetos de su bioma */
-  var objs=[],BX=150,BY=30;
+  /* el edificio de la carrera, el mismo del mapa, en el centro: la escalera de caracol arranca desde ahí; luego árboles y objetos de su bioma */
+  var objs=[],BX=0,BY=0;
   var bld=typeof ART!=="undefined"&&ART.has(id)?ART.get(id,2,null,{noPlat:true}):E.generic(bio,c.color||"#3F7DA6",7);
-  if(bld){var bq=P(BX,BY,0);objs.push({k:BX+BY,s:'<g transform="translate('+f1(bq[0])+' '+f1(bq[1])+') scale(1.15)">'+bld+'</g>'})}
-  var B=E.BIOME[bio]||E.BIOME.ciudad,placed=[[BX,BY,80],[0,0,108]],want=Math.round(vw*vh/9500);
+  if(bld){var bq=P(BX,BY,0);objs.push({k:BX+BY,s:'<g transform="translate('+f1(bq[0])+' '+f1(bq[1])+') scale(1.45)">'+bld+'</g>'})}
+  var B=E.BIOME[bio]||E.BIOME.ciudad,placed=[[0,0,112]],want=Math.round(vw*vh/9500);
   function inP(x,y,ex){var r=Math.hypot(x,y),t=Math.atan2(y,x);return r<rad(t,ex)}
   for(var tr=0;tr<600&&objs.length<want+1;tr++){var a2=rnd()*Math.PI*2,r2=Math.sqrt(rnd())*(need+20),x2=Math.cos(a2)*r2,y2=Math.sin(a2)*r2;
    if(!vis(x2,y2,30)||!inP(x2,y2,18))continue;var ok=true;placed.forEach(function(o){if(Math.hypot(o[0]-x2,o[1]-y2)<(o[2]||16))ok=false});if(!ok)continue;placed.push([x2,y2]);
@@ -127,6 +127,33 @@ var TORRE=(function(I){
   return '<svg class="tw-ground" viewBox="'+f1(vx)+' '+f1(vy)+' '+f1(vw)+' '+f1(vh)+'" preserveAspectRatio="xMidYMin slice" aria-hidden="true">'+h+'</svg>'}
  function symZ(u){return zAt(u*360+180)-48}
 
+ /* ---------- nubes: bolitas con volumen (luz arriba a la izquierda, panza azulada, orilla suave) ---------- */
+ function puffs(tint){var out=[],L=[[[64,68,48]],[[54,72,38],[80,68,34],[62,48,32]],[[72,72,40],[44,70,30],[62,46,34]],[[64,64,52]]];
+  L.forEach(function(blobs,bi){var c=document.createElement("canvas");c.width=c.height=128;var g=c.getContext("2d");
+   blobs.forEach(function(b){var r=g.createRadialGradient(b[0]-b[2]*.25,b[1]-b[2]*.3,b[2]*.1,b[0],b[1],b[2]);
+    r.addColorStop(0,"rgba(255,255,255,1)");r.addColorStop(.6,"rgba(251,252,255,.97)");r.addColorStop(.84,"rgba(232,238,248,.75)");r.addColorStop(1,"rgba(220,228,242,0)");
+    g.fillStyle=r;g.beginPath();g.arc(b[0],b[1],b[2],0,7);g.fill()});
+   g.globalCompositeOperation="source-atop";
+   var sh=g.createLinearGradient(0,40,0,124);if(bi===3){sh.addColorStop(0,"rgba(150,168,204,.35)");sh.addColorStop(1,"rgba(112,132,176,.8)")}else{sh.addColorStop(0,"rgba(160,178,212,0)");sh.addColorStop(.5,"rgba(160,178,212,.18)");sh.addColorStop(.78,"rgba(140,160,200,.5)");sh.addColorStop(1,"rgba(118,140,186,.8)")}g.fillStyle=sh;g.fillRect(0,0,128,128);
+   var hl=g.createRadialGradient(46,38,2,46,38,40);hl.addColorStop(0,"rgba(255,250,236,.85)");hl.addColorStop(1,"rgba(255,250,236,0)");g.fillStyle=hl;g.fillRect(0,0,128,128);
+   if(tint){g.fillStyle=tint;g.globalAlpha=.34;g.fillRect(0,0,128,128);g.globalAlpha=1}
+   out.push(c)});return out}
+ function hsh(a,j){var x=Math.sin(a*12.9898+j*78.233)*43758.5453;return x-Math.floor(x)}
+ /* dibuja la banda de nubes en dos lienzos del tamaño de la pantalla (atrás y adelante de los símbolos) */
+ function clouds(S,rot,sc0,vh){var dpr=Math.min(2,window.devicePixelRatio||1),W=Math.round(S.Wp*dpr),top=sc0-140,H=Math.round((vh+280)*dpr),k=S.k,HW=17;
+  [S.cb,S.cf].forEach(function(c){if(!c)return;if(c.width!==W||c.height!==H){c.width=W;c.height=H;c.style.width=S.Wp+"px";c.style.height=(vh+280)+"px"}c.style.transform="translateY("+f1(top)+"px)";c.getContext("2d").clearRect(0,0,W,H)});
+  if(!S.cb||!S.cf)return;
+  var P2=[],ymin=top-60,ymax=top+vh+340;
+  for(var a=S.a0;a<=S.a1+.1;a+=6){var q=proj(a,rot),py=(q.y-S.ytop)*k;if(py<ymin||py>ymax)continue;var kind=a<=S.doneA?1:0,n=Math.round(a/6);
+   /* bultos grandes y de tamaños distintos: uno al centro y, alternando, uno por orilla; la base más plana y sombreada */
+   for(var j=-1;j<=1;j++){if(j!==0&&(n+j+3)%2)continue;var hj=hsh(a,j),big=hj>.72?1.45:1,r=R+j*HW*.62+(hj-.5)*6,lf=(j===0?6:2)+hj*7*big,p=proj(a,rot,lf,r),sz=(HW*(j===0?1.85:1.5)+hj*10)*big*k*p.k;
+    P2.push({x:(p.x+S.xs)*k,y:(p.y-S.ytop)*k-top,s:sz,d:q.d+j*.02*(q.d<0?-1:1)+lf*.001,b:q.d<0,v:Math.floor(hj*3)%3,t:kind,al:1})}
+   var hb=hsh(a,9),pb=proj(a,rot,-3,R+(hb-.5)*10);P2.push({x:(pb.x+S.xs)*k,y:(pb.y-S.ytop)*k-top,s:HW*2*k*pb.k,d:q.d-.04,b:q.d<0,v:3,t:kind,al:1});
+   if(n%3===0){var hw=hsh(a,5),pw=proj(a,rot,-6,R+(hw-.5)*22);P2.push({x:(pw.x+S.xs)*k,y:(pw.y-S.ytop)*k-top,s:HW*4*k*pw.k,d:q.d-.06,b:q.d<0,v:0,t:kind,al:.18})}}
+  P2.sort(function(a,b){return a.d-b.d});
+  var gb=S.cb.getContext("2d"),gf=S.cf.getContext("2d");
+  for(var i=0;i<P2.length;i++){var o=P2[i],g=o.b?gb:gf,sp=(o.t?S.sprD:S.spr)[o.v];g.globalAlpha=o.al;g.drawImage(sp,(o.x-o.s/2)*dpr,(o.y-o.s*.55)*dpr,o.s*dpr,o.s*dpr)}
+  gb.globalAlpha=gf.globalAlpha=1}
  /* ---------- arma la escena ---------- */
  function build(o){
   var id=o.id,host=o.host,A=[];
@@ -140,7 +167,7 @@ var TORRE=(function(I){
   var h='<div class="tw-scene" style="height:'+SH2+'px"><div class="tw-clouds" aria-hidden="true"><i></i><i></i><i></i><i></i></div>'+
    '<div class="tw-gwrap" style="top:'+f1(gTop)+'px">'+ground(id,(-gx)/k,ytop+(gTop-padT)/k,gW/k,(SH2-gTop)/k)+'</div>'+
    '<div class="tw-stage" style="width:'+Wp+'px;height:'+Hp+'px;top:'+padT+'px">'+
-   '<svg class="tw-l tw-pb" viewBox="'+(-xs)+' '+ytop+' '+Wd+' '+Hd+'" aria-hidden="true">'+RIBS+'</svg>';
+   '<canvas class="tw-cv tw-cb" aria-hidden="true"></canvas><svg class="tw-l tw-pb" viewBox="'+(-xs)+' '+ytop+' '+Wd+' '+Hd+'" aria-hidden="true">'+RIBS+'</svg>';
   var sw=230*k,sh=230*k;
   for(var f=0;f<nf;f++){var u=o.units[f]||{done:0},L2=u.items?u.items.filter(function(it){return it.lid}):[],p=L2.length?u.done/L2.length:0,c=toPx(P(0,0,symZ(f)));
    var im=symImg(id,f);
@@ -149,15 +176,15 @@ var TORRE=(function(I){
    h+='<span class="tw-ul s-'+(u.state||"lock")+'" data-u="'+f+'">'+(f+1)+' · '+esc(u.t||"")+'</span>'}
   var stc=toPx(P(0,0,zAt(a1)+70));
   h+='<div class="tw-sym tw-starw" style="left:'+f1(stc.x-55*k)+'px;top:'+f1(stc.y-55*k)+'px;width:'+f1(110*k)+'px;height:'+f1(110*k)+'px"><svg viewBox="-50 -50 100 100" aria-hidden="true">'+star(o.mastered)+'</svg></div>';
-  h+='<svg class="tw-l tw-pf" viewBox="'+(-xs)+' '+ytop+' '+Wd+' '+Hd+'" aria-hidden="true">'+RIBS+'</svg>';
+  h+='<canvas class="tw-cv tw-cf" aria-hidden="true"></canvas><svg class="tw-l tw-pf" viewBox="'+(-xs)+' '+ytop+' '+Wd+' '+Hd+'" aria-hidden="true">'+RIBS+'</svg>';
   A.forEach(function(it){h+='<button type="button" class="rt3-n tw-n s-'+it.state+(it.chest!=null?" is-chest":"")+'" data-i="'+it.k2+'" aria-label="'+(it.lid?it.lid+" ":"")+esc(it.n)+(it.state==="done"?", hecha":it.state==="lock"?", todavía no":it.state==="soon"?", llega pronto":"")+'">'+o.nodeHTML(it)+'</button>'});
   h+='<div class="tw-globe" id="twGlobe" hidden></div><div class="tw-rb" id="lpRb"><div class="tw-ship">'+PLANE+'<div class="tw-pilot">'+o.rb+'</div></div></div></div></div>';
   host.innerHTML=h;
-  var S={host:host,k:k,xs:xs,ytop:ytop,toPx:toPx,items:A,padT:padT,a0:a0,a1:a1,rb:host.querySelector("#lpRb"),ship:host.querySelector(".tw-ship"),sc:host.closest(".tw-wrap")||host.parentNode,
+  var S={host:host,k:k,Wp:Wp,xs:xs,ytop:ytop,toPx:toPx,items:A,padT:padT,a0:a0,a1:a1,rb:host.querySelector("#lpRb"),ship:host.querySelector(".tw-ship"),sc:host.closest(".tw-wrap")||host.parentNode,
    ul:host.querySelectorAll(".tw-ul"),pb:host.querySelectorAll(".tw-pb path"),pf:host.querySelectorAll(".tw-pf path"),btn:{},cur:o.cur,rot:A[o.cur]?A[o.cur].a:0,base:Math.round(58*Math.min(1.2,k))};
-  host.__S=S;setTimeout(function(){live3d(host)},60);
+  S.cb=host.querySelector(".tw-cb");S.cf=host.querySelector(".tw-cf");S.spr=puffs(null);S.sprD=puffs((byId[id]||{}).color||"#3F7DA6");host.__S=S;setTimeout(function(){live3d(host)},60);
   /* al subir o bajar, la espiral gira: el tramo que queda a media pantalla siempre viene al frente */
-  if(S.sc&&!S.sc.__twScroll){var tk=0;S.sc.__twScroll=1;S.sc.addEventListener("scroll",function(){var s2=S.sc.__S2||S;if(s2.raf||performance.now()<(s2.quiet||0)||tk)return;tk=requestAnimationFrame(function(){tk=0;var a=angleAtScroll(s2);if(a!=null&&Math.abs(a-s2.rot)>.3){s2.rot=a;render(s2)}})},{passive:true})}
+  if(S.sc&&!S.sc.__twScroll){var tk=0;S.sc.__twScroll=1;S.sc.addEventListener("scroll",function(){var s2=S.sc.__S2||S;if(s2.raf||tk)return;tk=requestAnimationFrame(function(){tk=0;if(performance.now()>=(s2.quiet||0)){var a=angleAtScroll(s2);if(a!=null)s2.rot=a}render(s2)})},{passive:true})}
   if(S.sc)S.sc.__S2=S;
   A.forEach(function(it){S.btn[it.k2]=host.querySelector('.tw-n[data-i="'+it.k2+'"]')});
   S.first=o.units.map(function(u){var it=u.items[0];return it?A.indexOf(it):null});
@@ -166,19 +193,12 @@ var TORRE=(function(I){
 
  /* ---------- dibuja con el giro actual: camino (atrás y adelante), botones, etiquetas y Rumbo ---------- */
  function render(S,rbA,arc){
-  /* el camino es una banda de nubes: cara de arriba blanca, orillas esponjadas que siguen la perspectiva, panza azulada y destellos */
-  var rot=S.rot,st=4,HW=17,TH=9,sc0=S.sc?S.sc.scrollTop-S.padT:0,vh=S.sc?S.sc.clientHeight:900,pyMin=sc0-350,pyMax=sc0+vh+350,run=null,n=0,seg={b:{},f:{}};
-  LAY.forEach(function(l){seg.b[l]=["",""];seg.f[l]=["",""]});
-  function pt(q){return f1(q.x)+" "+f1(q.y)}
-  function flush(){if(run&&run.c.length>1){var g=seg[run.side],k=run.kind,rim=run.side==="f"?run.o:run.i,rb=run.side==="f"?run.ob:run.ib;
-    g.tp[k]+="M"+run.o.join("L")+"L"+run.i.slice().reverse().join("L")+"Z";g.ed[k]+="M"+rim.join("L")+"L"+rb.slice().reverse().join("L")+"Z";
-    g.sh[k]+="M"+run.c.join("L");g.pl[k]+="M"+run.c.join("L");g.bp[k]+="M"+rb.join("L");g.ro[k]+="M"+run.o.join("L");g.ri[k]+="M"+run.i.join("L")}run=null}
-  for(var a=S.a0;a<=S.a1+.1;a+=st,n++){var q=proj(a,rot),py=(q.y-S.ytop)*S.k;if(py<pyMin||py>pyMax){flush();continue}
-   var side=q.d<0?"b":"f",kind=a<=S.doneA?1:0,key=side+kind,o=pt(proj(a,rot,0,R+HW)),i2=pt(proj(a,rot,0,R-HW)),ob=pt(proj(a,rot,-TH,R+HW)),ib=pt(proj(a,rot,-TH,R-HW)),c=pt(q);
-   if(run&&run.key!==key){var last=run;flush();run={key:key,side:side,kind:kind,o:[last.o[last.o.length-1]],i:[last.i[last.i.length-1]],ob:[last.ob[last.ob.length-1]],ib:[last.ib[last.ib.length-1]],c:[last.c[last.c.length-1]],sm:""}}
-   if(!run)run={key:key,side:side,kind:kind,o:[],i:[],ob:[],ib:[],c:[],sm:""};
-   run.o.push(o);run.i.push(i2);run.ob.push(ob);run.ib.push(ib);run.c.push(c)}
-  flush();
+  /* el camino es una banda de nubes (lienzos) con destellos que viajan por el centro (svg) */
+  var rot=S.rot,sc0=S.sc?S.sc.scrollTop-S.padT:0,vh=S.sc?S.sc.clientHeight:900,pyMin=sc0-350,pyMax=sc0+vh+350,run=null,seg={b:{pl:["",""]},f:{pl:["",""]}};
+  clouds(S,rot,sc0,vh);
+  for(var a=S.a0;a<=S.a1+.1;a+=5){var q=proj(a,rot,6),py=(q.y-S.ytop)*S.k;if(py<pyMin||py>pyMax){run=null;continue}
+   var side=q.d<0?"b":"f",kind=a<=S.doneA?1:0,key=side+kind,c=f1(q.x)+" "+f1(q.y);
+   if(run&&run.key===key)seg[side].pl[kind]+="L"+c;else{seg[side].pl[kind]+=(run?"M"+run.c+"L":"M")+c}run={key:key,c:c}}
   [[S.pb,"b"],[S.pf,"f"]].forEach(function(x){for(var pi=0;pi<x[0].length;pi++){var e=x[0][pi];e.setAttribute("d",seg[x[1]][e.getAttribute("data-l")][e.getAttribute("data-k")])}});
   S.items.forEach(function(it){var b=S.btn[it.k2];if(!b)return;var q=proj(it.a,rot),p=S.toPx(q),sc=.8+.2*(q.d+1)/2,bz=it.chest!=null?S.base*1.15:S.base;
    it.px=p.x;it.py=p.y;it.sz=bz*sc;it.d=q.d;

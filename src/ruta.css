@@ -568,7 +568,7 @@ img.tw-img.tw-back{opacity:.62;filter:saturate(.7)}
 .tw-ship.is-flying{transform:rotate(-6deg)}
 .tw-plane{position:absolute;left:0;bottom:0;width:100%;height:auto;z-index:2;overflow:visible}
 .tw-propw{position:absolute;left:-3%;top:15%;width:13%;height:auto;z-index:3;overflow:visible}
-.tw-pilot{position:absolute;left:47%;bottom:52%;width:52px;height:52px;z-index:1;transform:translateX(-50%)}
+.tw-pilot{position:absolute;left:47%;bottom:60%;width:62px;height:62px;z-index:1;transform:translateX(-50%)}
 .tw-pilot .rb{width:100%;height:100%}
 .tw-prop{transform-box:fill-box;transform-origin:center;animation:twProp .18s linear infinite}
 @keyframes twProp{50%{transform:scaleY(.15)}}
@@ -596,28 +596,16 @@ img.tw-img.tw-back{opacity:.62;filter:saturate(.7)}
 
 /* ===== camino de caracol místico: piedra lavanda con halo y destellos que viajan ===== */
 .tw-rib{fill:none;stroke-linecap:round;stroke-linejoin:round}
-/* camino de caracol: banda de nubes. Las orillas son bolitas (trazos de largo cero con punta redonda) que siguen la perspectiva */
-.tw-rib.L-sh{stroke:rgba(255,255,255,.35);stroke-width:62}
-.tw-rib.L-sh.k1{stroke:color-mix(in srgb,var(--c) 30%,transparent)}
-.tw-rib.L-ed{fill:#C9D8F2;stroke:#C9D8F2;stroke-width:2}
-.tw-rib.L-bp{stroke:#B7C9EA;stroke-width:17;stroke-dasharray:.1 11}
-.tw-rib.L-tp{fill:#FFFFFF;stroke:#FFFFFF;stroke-width:3}
-.tw-rib.L-ro{stroke:#FFFFFF;stroke-width:19;stroke-dasharray:.1 12}
-.tw-rib.L-ri{stroke:#F3F7FF;stroke-width:13;stroke-dasharray:.1 10;stroke-dashoffset:5}
-.tw-rib.k1.L-ed{fill:color-mix(in srgb,var(--c) 55%,#9FB4DA);stroke:color-mix(in srgb,var(--c) 55%,#9FB4DA)}
-.tw-rib.k1.L-bp{stroke:color-mix(in srgb,var(--c) 60%,#9FB4DA)}
-.tw-rib.k1.L-tp{fill:color-mix(in srgb,var(--c) 30%,#FFFFFF);stroke:color-mix(in srgb,var(--c) 30%,#FFFFFF)}
-.tw-rib.k1.L-ro{stroke:color-mix(in srgb,var(--c) 22%,#FFFFFF)}
-.tw-rib.k1.L-ri{stroke:color-mix(in srgb,var(--c) 26%,#FFFFFF)}
-.tw-rib.L-pl{stroke-width:3.6;stroke-dasharray:.1 26;animation:twGlint 3.4s linear infinite}
+/* camino de caracol: nubes en lienzos (atrás y adelante de los símbolos) y destellos dorados que viajan por el centro */
+.tw-cv{position:absolute;left:0;top:0;pointer-events:none;will-change:transform}
+.tw-stage .tw-cb{z-index:1}.tw-stage .tw-cf{z-index:4}
+.tw-stage .tw-cb{opacity:.92}
+.tw-rib.L-pl{stroke-width:3.4;stroke-dasharray:.1 28;animation:twGlint 3.4s linear infinite}
 .tw-rib.L-pl.k0{stroke:#FFD45C}
 .tw-rib.L-pl.k1{stroke:#FFFFFF}
-.tw-pf .tw-rib.L-pl.k0{filter:drop-shadow(0 0 2px #FFE7A0)}
-.tw-stage .tw-pb{opacity:.8}
-.tw-pb .L-pl{stroke-width:2.6}
-@keyframes twGlint{to{stroke-dashoffset:-52}}
-.lp-dark .tw-rib.L-tp.k0{fill:#E4EAF8;stroke:#E4EAF8}.lp-dark .tw-rib.L-ro.k0{stroke:#E4EAF8}.lp-dark .tw-rib.L-ri.k0{stroke:#D8E0F2}
-.lp-dark .tw-rib.L-ed.k0{fill:#8C9FC8;stroke:#8C9FC8}.lp-dark .tw-rib.L-bp.k0{stroke:#7F93BF}.lp-dark .tw-rib.L-sh.k0{stroke:rgba(190,210,255,.18)}
+.tw-pb .L-pl{stroke-width:2.4;opacity:.7}
+@keyframes twGlint{to{stroke-dashoffset:-56}}
+.lp-dark .tw-cv{filter:brightness(.82) saturate(.9)}
 /* el suelo: isla de orilla a orilla */
 .tw-gwrap{position:absolute;left:0;right:0;bottom:0;z-index:0;pointer-events:none;overflow:hidden}
 .tw-ground{display:block;width:100%;height:100%}

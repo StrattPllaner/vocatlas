@@ -51,7 +51,6 @@ export const MODELS={
     // cabina abierta y parabrisas
     K.tor(5.4,1.1,DK,{r:[90,0,0],p:[-4,10.2,0]});
     K.cyl(5,5,1,DK,{p:[-4,9.6,0]});
-    K.box(0.8,5,9,'#BFE3F5',{m:'glass',p:[-11,12.6,0],r:[0,0,-28],rad:0.3});
     // ala baja
     const wing=[[-22,0],[0,0],[-3,56],[-17,56]];
     [1,-1].forEach(s=>K.shape(wing.map(p=>[p[0],p[1]*s]),[],3,YL,{r:[90,0,0],p:[-4,-7,0],bevel:1}));
