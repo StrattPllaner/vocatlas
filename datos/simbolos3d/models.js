@@ -34,10 +34,141 @@ export function kit(material,g){
   return K;
 }
 
-const PU='#8E5BB5';const GY='#8C96A0',ST='#A9B6C2',BK='#3A4048',WH='#F3F1EA',RE='#DE4A3C',BL='#3F82C4',GR='#4FAE5B',YE='#F6CD3B',BR='#8A5A36',WO='#B9804B',GO='#E8B53C',NA='#2D4A6E',CR='#F0E2C2',SK='#E7A97C';
+const PU='#8E5BB5',TE='#2FA39A';const GY='#8C96A0',ST='#A9B6C2',BK='#3A4048',WH='#F3F1EA',RE='#DE4A3C',BL='#3F82C4',GR='#4FAE5B',YE='#F6CD3B',BR='#8A5A36',WO='#B9804B',GO='#E8B53C',NA='#2D4A6E',CR='#F0E2C2',SK='#E7A97C';
 
 const circ=(cx,cy,r,n,a0,a1)=>{a0=a0==null?0:a0;a1=a1==null?Math.PI*2:a1;const o=[];for(let i=0;i<n;i++){const a=a0+(a1-a0)*i/(n-(Math.abs(a1-a0-Math.PI*2)<1e-6?0:1));o.push([cx+Math.cos(a)*r,cy+Math.sin(a)*r])}return o};
 export const MODELS={
+  // Cofia de enfermera con cruz roja al frente
+  'enfermeria.a'(K){
+    K.lathe([[0.01,0],[31,0],[30,4],[24,16],[14,24],[0.01,26]],WH,{s:[1,1,0.8]});
+    K.box(66,6,30,WH,{p:[0,0,2],rad:3});
+    K.box(14,4,1,RE,{p:[0,14,23.6],rad:0.6});K.box(4,14,1,RE,{p:[0,14,23.6],rad:0.6});
+    K.box(14,4,1,RE,{p:[0,14,-23.6],rad:0.6});K.box(4,14,1,RE,{p:[0,14,-23.6],rad:0.6});
+  },
+  // Bolsa de suero colgando con puerto, cámara de goteo y tubo
+  'o_suero.a'(K){
+    K.box(44,54,10,'#EEF6FA',{m:'glass',p:[0,8,0],rad:5});
+    K.box(40,30,7,'#F2D36B',{p:[0,-2,0],rad:3.4});
+    K.box(26,10,1,WH,{p:[0,24,5.4],rad:1});K.box(18,1.2,1.2,'#7FA8D6',{p:[0,25,6],rad:0.4});
+    K.tor(4,1.2,'#C9D3DA',{p:[0,39,0]});
+    for(let i=0;i<4;i++)K.box(5,0.7,0.6,'#C9A23A',{p:[-16,-10+i*6,5.3],rad:0.2});
+    K.cyl(3,3,6,'#E6ECEF',{p:[0,-22,0]});K.cyl(4.2,4.2,12,'#EEF6FA',{m:'glass',p:[0,-31,0]});K.cyl(1,1,16,'#C9D3DA',{p:[0,-44,0]});
+  },
+  // Curita con almohadilla y orificios, en relieve
+  'o_curita.a'(K){
+    const g=K.group({r:[0,0,-35]});
+    K.box(84,24,3,'#E8B98C',{rad:1.4,parent:g});
+    [-36,36].forEach(x=>K.cyl(12,12,3,'#E8B98C',{p:[x*0.9,0,0],r:[90,0,0],parent:g}));
+    K.box(30,20,3.6,'#F6E2CC',{rad:1.2,parent:g});
+    for(const x of [-28,-20,20,28])for(const y of [-5,5])[1.6,-1.6].forEach(z=>K.cyl(0.9,0.9,0.4,'#B8875C',{p:[x,y,z],r:[90,0,0],parent:g}));
+  },
+  // Cubrebocas con pliegues y ligas
+  'o_cubrebocas.a'(K){
+    const g=K.group({});
+    for(let i=0;i<3;i++)K.box(60,11,4,'#CFE8F7',{p:[0,10-i*10,-i*0.6],rad:2,parent:g});
+    K.box(60,34,1.2,'#BFE0F5',{p:[0,0,-2.6],rad:0.6,parent:g});
+    K.box(14,1.2,2,'#9AC4E0',{p:[0,16,2],rad:0.5,parent:g});
+    [-1,1].forEach(sd=>K.tube([[sd*30,12,-1],[sd*44,10,-8],[sd*44,-10,-8],[sd*30,-12,-1]],1,'#E6EEF4',{parent:g,nocap:true}));
+  },
+  // Sillón dental reclinado con lámpara
+  'o_sillon.a'(K){
+    K.cyl(16,18,3,ST,{m:'metal',p:[0,-34,0]});K.cyl(5,5,22,ST,{m:'metal',p:[0,-22,0]});
+    K.box(36,6,22,TE,{p:[4,-8,0],rad:3});
+    K.box(30,6,22,TE,{p:[-22,6,0],r:[0,0,-40],rad:3});
+    K.box(26,6,18,TE,{p:[30,-14,0],r:[0,0,22],rad:3});
+    K.box(14,6,16,'#2B8A82',{p:[-34,20,0],r:[0,0,-55],rad:3});
+    [[-11],[11]].forEach(([z])=>K.box(20,3,4,'#2B8A82',{p:[4,0,z],rad:1.4}));
+    K.tube([[-30,-34,-14],[-30,30,-14],[-20,40,-10],[-6,38,-4]],1.6,GY,{m:'metal'});
+    K.cyl(7,5,5,ST,{m:'metal',p:[-4,34,0],r:[30,0,0]});K.cyl(5,5,0.6,'#FFF1B0',{p:[-4,31.6,1.4],r:[30,0,0]});
+  },
+  // Cepillo de dientes con cerdas
+  'odontologia.b'(K){
+    const g=K.group({r:[0,0,-30]});
+    K.box(10,70,6,BL,{p:[0,-12,0],rad:3,parent:g});K.box(12,20,7,'#7FC8F0',{p:[0,-34,0],rad:3,parent:g});
+    K.box(10,22,4,BL,{p:[0,32,0],rad:2,parent:g});
+    for(let r=0;r<6;r++)for(let c=0;c<3;c++)K.cyl(1.2,1.2,10,c==1?'#7FC8F0':WH,{p:[-3+c*3,24+r*3.2,6.5],r:[90,0,0],parent:g});
+  },
+  // Espejo dental: mango, cuello y espejo
+  'o_espejo.a'(K){
+    const g=K.group({r:[0,0,-35]});
+    K.cyl(2.6,2.2,56,ST,{m:'metal',p:[0,-12,0],parent:g});
+    for(let i=0;i<6;i++)K.tor(2.7,0.4,'#8994A0',{m:'metal',p:[0,-30+i*3,0],r:[90,0,0],parent:g});
+    K.tube([[0,16,0],[0,26,0],[2,32,2]],1,ST,{m:'metal',parent:g});
+    const m=K.group({p:[3,38,3],r:[50,0,0],parent:g});K.cyl(8,8,2.4,'#8994A0',{m:'metal',parent:m});K.cyl(7,7,2.6,'#DDF1FA',{m:'glass',parent:m});
+  },
+  // Pasta de dientes: tubo con pliegue y tapa
+  'o_pasta.a'(K){
+    const g=K.group({r:[0,0,-15]});
+    K.lathe([[0.01,-34],[10,-33],[12,-20],[12,24],[9,30],[5,32],[0.01,32]],WH,{s:[1,1,0.55],parent:g});
+    K.box(26,4,5,'#D5DCE2',{p:[0,-36,0],rad:1,parent:g});
+    for(let i=0;i<5;i++)K.box(26,0.6,5.6,'#A9B6C2',{p:[0,-37.5+i*0.8,0],rad:0.2,parent:g});
+    K.cyl(6,6,10,BL,{p:[0,37,0],parent:g});
+    for(let i=0;i<10;i++){const a=i/10*Math.PI*2;K.box(0.8,9,0.8,'#2C5E91',{p:[Math.cos(a)*6.1,37,Math.sin(a)*6.1],parent:g})}
+    K.box(16,22,0.8,BL,{p:[0,0,6.7],rad:1,parent:g});K.box(16,22,0.8,BL,{p:[0,0,-6.7],rad:1,parent:g});
+  },
+  // Hilo dental: dispensador con tapa y hilo saliendo
+  'o_hilo.a'(K){
+    K.box(44,40,22,WH,{p:[0,-8,0],rad:6});K.box(46,14,24,'#5FB4D9',{p:[0,16,0],rad:6});
+    K.box(22,10,1,'#E3F2F9',{p:[0,-8,11.4],rad:1.4});K.box(16,1.4,1.4,'#5FB4D9',{p:[0,-8,12],rad:0.5});
+    K.tube([[16,22,0],[24,34,0],[34,38,0]],0.6,'#DDEFF7',{});
+  },
+  // Camilla con colchón, almohada, barandal y ruedas
+  'o_camilla.a'(K){
+    K.box(80,6,30,'#5FB4D9',{p:[0,6,0],rad:3});K.box(20,6,24,WH,{p:[-28,11,0],rad:3});
+    K.box(84,2,30,ST,{m:'metal',p:[0,2,0],rad:0.8});
+    [[-34,-12],[-34,12],[34,-12],[34,12]].forEach(([x,z])=>{K.cyl(1.4,1.4,26,ST,{m:'metal',p:[x,-12,z]});K.cyl(3.4,3.4,2.6,BK,{p:[x,-27,z],r:[90,0,0]})});
+    K.cyl(1.2,1.2,70,ST,{m:'metal',p:[0,-20,12],r:[0,0,90]});K.cyl(1.2,1.2,70,ST,{m:'metal',p:[0,-20,-12],r:[0,0,90]});
+    K.tube([[-30,2,16],[-30,14,16],[30,14,16],[30,2,16]],1,ST,{m:'metal',tension:0.1});
+  },
+  // Mancuerna hexagonal
+  'fisioterapia.b'(K){
+    K.cyl(4,4,40,ST,{m:'metal',r:[0,0,90]});
+    for(let i=0;i<14;i++)K.tor(4.05,0.35,'#7C8792',{m:'metal',p:[-9+i*1.4,0,0],r:[0,90,0]});
+    [-1,1].forEach(sd=>{K.cyl(14,14,18,BK,{p:[sd*28,0,0],r:[0,0,90],seg:6});K.cyl(5,5,18.4,ST,{m:'metal',p:[sd*28,0,0],r:[0,0,90]})});
+  },
+  // Muleta de antebrazo con abrazadera, agarradera y regatón
+  'o_muleta.a'(K){
+    K.cyl(2.6,2.6,70,ST,{m:'metal',p:[0,-6,0]});
+    for(let i=0;i<6;i++)K.cyl(0.8,0.8,0.4,'#3A4048',{p:[0,-30+i*5,2.6],r:[90,0,0]});
+    K.box(6,8,6,'#3A4048',{p:[0,30,0],rad:2});K.tube([[0,32,0],[0,40,-4]],2.4,ST,{m:'metal'});
+    K.tor(8,2.6,'#3A4048',{p:[0,46,-8],arc:220,r:[90,0,-20]});
+    K.box(22,7,8,'#2B3540',{p:[10,10,0],rad:3});
+    K.cyl(3.8,3,8,'#2B3540',{p:[0,-44,0]});
+  },
+  // Cápsula de dos colores
+  'qfb.a'(K){
+    const g=K.group({r:[0,0,-50]});
+    K.cap(12,26,RE,{p:[0,-9,0],parent:g});K.cap(12.4,24,WH,{p:[0,10,0],parent:g});
+  },
+  // Frasco de medicina con tapa estriada y etiqueta con cruz
+  'qfb.b'(K){
+    K.box(44,50,30,'#C9852F',{m:'glass',p:[0,-6,0],rad:8});
+    K.cyl(12,12,6,'#C9852F',{m:'glass',p:[0,21,0]});
+    K.cyl(16,16,12,WH,{p:[0,28,0]});for(let i=0;i<24;i++){const a=i/24*Math.PI*2;K.box(0.8,11,0.8,'#D9DCD6',{p:[Math.cos(a)*16.1,28,Math.sin(a)*16.1]})}
+    [15.2,-15.2].forEach(z=>{K.box(36,24,0.8,WH,{p:[0,-6,z],rad:1});K.box(12,4,1.4,RE,{p:[0,-6,z],rad:0.5});K.box(4,12,1.4,RE,{p:[0,-6,z],rad:0.5})});
+  },
+  // Blíster de pastillas con burbujas
+  'o_blister.a'(K){
+    K.box(64,74,2,'#DCE2E8',{rad:3});
+    for(let r=0;r<3;r++)for(let c=0;c<2;c++){const p=[-14+c*28,-22+r*22,1];K.sph(9,'#EEF6FA',{m:'glass',p,s:[1,0.8,0.5]});
+      K.cap(5,6,r==0&&c==1?'#F2A94C':WH,{p:[p[0],p[1],2],r:[0,0,90]})}
+    K.box(64,74,0.6,'#C9D0D6',{p:[0,0,-1.3],rad:3});
+  },
+  // Gotero con perilla de hule y vidrio
+  'o_gotero.a'(K){
+    const g=K.group({r:[0,0,-20]});
+    K.cap(8,10,RE,{p:[0,32,0],parent:g});K.cyl(9,9,4,'#3A4048',{p:[0,22,0],parent:g});
+    K.lathe([[0.01,-34],[1.2,-33],[3,-20],[5,-6],[5,20],[0.01,20]],'#E6F4FA',{m:'glass',parent:g});
+    K.lathe([[0.01,-32],[1,-31],[2.6,-20],[4,-8],[4,2],[0.01,2]],'#8FC4E6',{parent:g});
+    K.sph(2.6,'#8FC4E6',{p:[0,-42,0],s:[1,1.3,1],parent:g});
+  },
+  // Mortero con mano
+  'o_mortero.a'(K){
+    K.lathe([[0.01,-24],[16,-24],[17,-20],[26,-6],[30,10],[28,12],[24,0],[0.01,-8]],'#E9E3D6');
+    K.cyl(24,24,1,'#B8AF9E',{p:[0,6,0]});
+    K.cap(4.5,40,'#D5CEC0',{p:[12,20,0],r:[0,0,-35]});
+  },
+
   // Llave española: boca abierta inclinada 15° arriba, estrella cerrada abajo, mango con rebaje
   'mecanica.a'(K){
     const g=K.group({r:[0,0,-40]});
