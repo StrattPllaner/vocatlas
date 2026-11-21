@@ -21,6 +21,9 @@ export function kit(material,g){
     tube(pts,r,c,o){o=o||{};const v=pts.map(p=>new THREE.Vector3(p[0],p[1],p[2]||0));const path=new THREE.CatmullRomCurve3(v,!!o.closed,'catmullrom',o.tension==null?0.5:o.tension);
       const m=add(new THREE.TubeGeometry(path,Math.max(24,v.length*12),r,18,!!o.closed),c,o.m,o);
       if(!o.closed&&!o.nocap)[v[0],v[v.length-1]].forEach(p=>add(new THREE.SphereGeometry(r,18,12),c,o.m,{p:[p.x,p.y,p.z],parent:o.parent}));return m},
+    shape(outer,holes,depth,c,o){o=o||{};const sh=new THREE.Shape(outer.map(p=>new THREE.Vector2(p[0],p[1])));(holes||[]).forEach(h=>sh.holes.push(new THREE.Path(h.map(p=>new THREE.Vector2(p[0],p[1])))));
+      const bv=o.bevel==null?Math.min(1.5,depth*0.25):o.bevel;const geo=new THREE.ExtrudeGeometry(sh,{depth:depth,bevelEnabled:bv>0,bevelThickness:bv,bevelSize:bv*0.8,bevelSegments:4,curveSegments:24});geo.translate(0,0,-depth/2);return add(geo,c,o.m,o)},
+    cap(r,len,c,o){o=o||{};return add(new THREE.CapsuleGeometry(r,len,8,20),c,o.m,o)},
     // extrusión de un contorno 2D (en coordenadas con y hacia arriba), centrada en z
     ext(d,depth,c,o){o=o||{};const data=new SVGLoader().parse('<svg xmlns="http://www.w3.org/2000/svg"><path transform="scale(1,-1)" d="'+d+'"/></svg>');const shapes=[];data.paths.forEach(p=>SVGLoader.createShapes(p).forEach(s=>shapes.push(s)));
       const bv=o.bevel==null?Math.min(2,depth*0.3):o.bevel;
@@ -31,9 +34,108 @@ export function kit(material,g){
   return K;
 }
 
-const GY='#8C96A0',ST='#A9B6C2',BK='#3A4048',WH='#F3F1EA',RE='#DE4A3C',BL='#3F82C4',GR='#4FAE5B',YE='#F6CD3B',BR='#8A5A36',WO='#B9804B',GO='#E8B53C',NA='#2D4A6E',CR='#F0E2C2',SK='#E7A97C';
+const PU='#8E5BB5';const GY='#8C96A0',ST='#A9B6C2',BK='#3A4048',WH='#F3F1EA',RE='#DE4A3C',BL='#3F82C4',GR='#4FAE5B',YE='#F6CD3B',BR='#8A5A36',WO='#B9804B',GO='#E8B53C',NA='#2D4A6E',CR='#F0E2C2',SK='#E7A97C';
 
+const circ=(cx,cy,r,n,a0,a1)=>{a0=a0==null?0:a0;a1=a1==null?Math.PI*2:a1;const o=[];for(let i=0;i<n;i++){const a=a0+(a1-a0)*i/(n-(Math.abs(a1-a0-Math.PI*2)<1e-6?0:1));o.push([cx+Math.cos(a)*r,cy+Math.sin(a)*r])}return o};
 export const MODELS={
+  // Llave española: boca abierta inclinada 15° arriba, estrella cerrada abajo, mango con rebaje
+  'mecanica.a'(K){
+    const g=K.group({r:[0,0,-40]});
+    K.box(10,50,5,ST,{m:'metal',rad:2.4,parent:g});
+    [2.7,-2.7].forEach(z=>K.box(5,30,0.6,'#8994A0',{m:'metal',p:[0,0,z],rad:0.3,parent:g}));
+    const R=13,w=6.2,a0=Math.acos(w/R);const outer=[];
+    for(let i=0;i<=40;i++){const a=a0-i/40*(Math.PI*2-(Math.PI-2*a0));outer.push([Math.cos(a)*R,Math.sin(a)*R])}
+    outer.push([-w,0]);for(let i=1;i<20;i++){const a=Math.PI+i/20*Math.PI;outer.push([Math.cos(a)*w,Math.sin(a)*w])}outer.push([w,0]);
+    const h1=K.group({p:[0,32,0],r:[0,0,15],parent:g});K.shape(outer,null,5,ST,{m:'metal',bevel:1,parent:h1});
+    K.box(9,10,5,ST,{m:'metal',p:[0,24,0],rad:2,parent:g});
+    const star=[];for(let i=0;i<24;i++){const a=i/24*Math.PI*2;const r=i%2?5.4:6.6;star.push([Math.cos(a)*r,Math.sin(a)*r])}
+    const h2=K.group({p:[0,-32,0],parent:g});K.shape(circ(0,0,11,48),[star],5,ST,{m:'metal',bevel:1,parent:h2});
+    K.box(9,10,5,ST,{m:'metal',p:[0,-23,0],rad:2,parent:g});
+  },
+  // Tuerca hexagonal con chaflán y rosca interior
+  'mecanica.b'(K){
+    const hex=circ(0,0,30,6,Math.PI/6,Math.PI/6+Math.PI*2);
+    K.shape(hex,[circ(0,0,12,48)],16,ST,{m:'metal',bevel:2.6});
+    for(let i=0;i<6;i++)K.tor(12,0.9,'#7C8792',{m:'metal',p:[0,0,-7.5+i*3]});
+  },
+  // Vaso de vidrio con agua y popote
+  'o_vaso.a'(K){
+    K.lathe([[0.01,-30],[19,-30],[20,-29],[24,30],[22.6,30.6],[21.4,30],[17.6,-27],[0.01,-27]],'#EEF8FC',{m:'glass'});
+    K.cyl(20.2,17.4,40,'#8FD0F2',{p:[0,-7,0]});
+    K.tube([[6,-22,2],[14,20,-2],[18,44,-4]],1.8,'#E2683E',{});
+  },
+  // Diván de psicoanálisis
+  'o_divan.a'(K){
+    [[-34,-11],[-34,11],[34,-11],[34,11]].forEach(([x,z])=>K.lathe([[0.01,-30],[2.4,-30],[3.4,-26],[2.2,-22],[3,-19],[0.01,-18]],'#6E4426',{m:'wood',p:[x,8,z]}));
+    K.box(82,8,28,'#6E3528',{p:[0,-8,0],rad:2});
+    K.box(80,9,26,'#8E4A3A',{p:[0,0,0],rad:4});
+    K.box(28,10,26,'#8E4A3A',{p:[-30,10,0],r:[0,0,35],rad:4});
+    for(let x=-16;x<=32;x+=12)[-6,6].forEach(z=>K.sph(1,'#5E2A1E',{p:[x,4.6,z]}));
+    K.sph(9,'#E9D8B4',{p:[-28,16,0],s:[1.2,0.55,1.1],r:[0,0,35]});
+    K.box(30,0.8,26.4,'#C9A04A',{p:[16,4.8,0],rad:0.3});K.box(30,12,0.8,'#C9A04A',{p:[16,-1,13.5],rad:0.3});
+    for(let x=3;x<=29;x+=3)K.cyl(0.35,0.35,3,'#E3C26A',{p:[x,-8.5,13.6]});
+  },
+  // Pelota de terapia con costuras de gajos y válvula
+  'o_pelota.a'(K){
+    K.sph(32,'#5FC4B4');
+    [0,45,90,135].forEach(a=>K.tor(32.05,0.45,'#BFEDE6',{r:[0,a,0]}));
+    K.cyl(2.2,2.6,2.4,'#3E9E8E',{p:[0,32.6,0]});
+  },
+  // Rodillo de espuma con relieve y centro hueco
+  'o_rodillo.a'(K){
+    K.cyl(14,14,64,'#5B8DD6',{r:[0,0,90]});
+    K.cyl(6,6,64.6,'#2E4E86',{r:[0,0,90]});
+    for(let i=0;i<8;i++){for(let j=0;j<12;j++){const q=K.group({p:[-28+i*8,0,0],r:[j*30+(i%2)*15,0,0]});K.box(4.2,2.4,4.2,'#6E9FE4',{p:[0,14.4,0],rad:1,parent:q})}}
+  },
+  // Liga de resistencia con dos agarraderas
+  'o_liga2.a'(K){
+    const band=[[-30,16,0],[-16,26,6],[2,18,10],[16,2,4],[26,-14,-4],[30,-24,-6]];
+    K.tube(band,2.2,'#4FB6A8',{});
+    const handle=(A,d)=>{const L=Math.hypot(d[0],d[1]);const ux=d[0]/L,uy=d[1]/L,px=-uy,py=ux;const G=[A[0]+ux*13,A[1]+uy*13,A[2]];
+      const E1=[G[0]+px*8,G[1]+py*8,G[2]],E2=[G[0]-px*8,G[1]-py*8,G[2]];
+      K.tube([A,E1],1.1,'#3A4048',{});K.tube([A,E2],1.1,'#3A4048',{});
+      K.cyl(3.8,3.8,15,'#2B3540',{p:G,r:[0,0,Math.atan2(py,px)*180/Math.PI-90]});K.sph(2.2,'#5B6670',{m:'metal',p:A})};
+    handle(band[0],[-1,0.6]);handle(band[band.length-1],[0.3,-1]);
+  },
+  // Tubo de ensayo de vidrio con líquido y burbujas
+  'quimica.b'(K){
+    const g=K.group({r:[0,0,-12]});
+    K.lathe([[0.01,-30],[5,-29],[8,-25],[9,-20],[9,32],[10.6,33],[10.6,34.6],[8.2,34.2],[8,-20],[7,-25],[4.4,-28],[0.01,-28.6]],'#E6F4FA',{m:'glass',parent:g});
+    K.lathe([[0.01,-28.2],[4.2,-27.4],[6.8,-24.6],[7.7,-20],[7.7,6],[4,6.6],[0.01,7]],BL,{parent:g});
+    [[2,-12,2],[-2,-4,1],[1,2,-2]].forEach(p=>K.sph(1.4,'#CFE9FA',{p,parent:g}));
+    [12,18,24].forEach(y=>K.box(4,0.6,0.5,'#FFFFFF',{p:[-1,y,8.9],rad:0.2,parent:g}));
+  },
+  // Célula: membrana transparente con núcleo, mitocondrias, retículo, Golgi, ribosomas y vesículas
+  'biologia.b'(K){
+    K.sph(36,'#B9E6A8',{m:'membrane',s:[1.1,0.9,0.85]});
+    K.sph(13,PU,{p:[-6,3,0]});K.sph(5,'#5A2E7E',{p:[-9,6,9]});
+    [[16,12,6,30],[18,-12,-4,-40],[-20,-16,4,70]].forEach(([x,y,z,a])=>{const m=K.group({p:[x,y,z],r:[20,30,a]});K.cap(3.4,9,'#F08A2E',{parent:m});K.tube([[0,-5,3],[1.5,-2,3.3],[-1.5,1,3.3],[1.5,4,3]],0.5,'#B85E1A',{parent:m,nocap:true})});
+    K.tube([[6,16,-6],[12,20,-4],[8,24,2],[0,22,6],[-8,20,4]],1.6,'#E58AA0',{});
+    K.tube([[-22,6,-4],[-24,-4,0],[-18,-8,6]],1.6,'#E58AA0',{});
+    [0,1,2].forEach(i=>K.tor(9-i*1.6,1,YE,{p:[22,0,-8+i*3.4],arc:150,r:[0,0,100]}));
+    for(let i=0;i<14;i++){const a=i*2.4,r=24;K.sph(0.9,'#3A4048',{p:[Math.cos(a)*r*0.9,Math.sin(a*1.3)*16,Math.sin(a)*14]})}
+    [[-4,-22,8],[26,16,-2],[-26,14,-6]].forEach(p=>K.sph(3,'#9BD58A',{p}));
+  },
+  // Megáfono: campana con rejilla y aro, cuerpo, tapa trasera, mango y gatillo
+  'mercadotecnia.a'(K){
+    K.cyl(22,8,36,RE,{p:[14,0,0],r:[0,0,-90]});
+    K.cyl(19.6,19.6,1,'#2B3540',{p:[32.3,0,0],r:[0,0,-90]});
+    K.tor(21,2,'#F3F1EA',{p:[32,0,0],r:[0,90,0]});
+    K.cyl(9,9,22,RE,{p:[-14,0,0],r:[0,0,90]});
+    K.cyl(9.6,9.6,5,'#E6E6E6',{p:[-27,0,0],r:[0,0,90]});
+    K.box(9,24,8,BK,{p:[-12,-17,0],r:[0,0,-14],rad:3});
+    K.box(4,8,4,'#5B6670',{p:[-5,-11,0],rad:1.2});
+  },
+  // Pincel: mango de madera, virola metálica con pliegues y cerdas con pintura
+  'grafico.b'(K){
+    const g=K.group({r:[0,0,-35]});
+    K.lathe([[0.01,52],[2.6,51],[3.4,46],[4.6,20],[5.2,8],[0.01,8]],'#C68A4E',{m:'wood',parent:g});
+    K.cyl(5.2,5.6,14,ST,{m:'metal',p:[0,1,0],parent:g});
+    [4,-2].forEach(y=>K.tor(5.5,0.5,'#8994A0',{m:'metal',p:[0,y,0],r:[90,0,0],parent:g}));
+    K.lathe([[0.01,-6],[5.6,-6],[6.6,-14],[6.5,-18],[0.01,-18.5]],'#E8D3A6',{parent:g});
+    K.lathe([[0.01,-17.5],[6.5,-18],[6,-24],[3.6,-32],[0.01,-38]],RE,{parent:g});
+  },
+
   // Estetoscopio: olivas, tubos metálicos en Y, manguera y campana con diafragma
   'medicina.a'(K){
     K.sph(3.4,BK,{p:[-16,60,4]});K.sph(3.4,BK,{p:[16,60,4]});
@@ -161,15 +263,7 @@ export const MODELS={
   },
 
   // Llave perica con quijadas y tornillo sinfín
-  'mecanica.a'(K){
-    const g=K.group({r:[0,0,-40]});
-    K.box(11,58,6,ST,{m:'metal',rad:3,parent:g});
-    K.tor(11,4.6,ST,{m:'metal',p:[0,40,0],arc:270,r:[0,0,-45],s:[1,1,0.7],parent:g});
-    K.box(10,8,6,ST,{m:'metal',p:[0,30,0],rad:2,parent:g});
-    K.tor(9,4,ST,{m:'metal',p:[0,-38,0],arc:270,r:[0,0,135],s:[1,1,0.75],parent:g});
-    K.box(10,8,6,ST,{m:'metal',p:[0,-29,0],rad:2,parent:g});
-    [3.2,-3.2].forEach(z=>K.box(5,30,0.6,'#7C8792',{m:'metal',p:[0,0,z],rad:0.3,parent:g}));
-  },
+
 
 
 
