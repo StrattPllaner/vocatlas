@@ -481,8 +481,8 @@ img.tw-img.tw-back{opacity:.62;filter:saturate(.7)}
 .tw-n .rt-perf{fill:none;stroke:rgba(255,255,255,.55);stroke-width:2;stroke-dasharray:2 4}
 .tw-ic{position:absolute;inset:0 0 14% 0;display:grid;place-items:center}
 .tw-ic .lp-ic{width:42%;height:42%;stroke-width:2.6}
-.tw-n.s-lock .rt-top,.tw-n.s-soon .rt-top{fill:#FBF6EA;stroke:#8C7B60;stroke-width:2.2;stroke-dasharray:5 4}
-.tw-n.s-lock .rt-ex,.tw-n.s-soon .rt-ex{fill:#E3D8C2;stroke:#8C7B60;stroke-width:2.2}
+.tw-n.s-lock .rt-top,.tw-n.s-soon .rt-top{fill:#ECE4D3;stroke:#6E6150;stroke-width:3}
+.tw-n.s-lock .rt-ex,.tw-n.s-soon .rt-ex{fill:#CFC3AC;stroke:#6E6150;stroke-width:3}
 .tw-n.s-lock,.tw-n.s-soon{color:#8C7B60}
 .tw-n.s-lock .rt-perf,.tw-n.s-soon .rt-perf{display:none}
 .tw-n.s-cur .rt-top{fill:#FFFDF8}.tw-n.s-cur{color:var(--cd)}
@@ -491,7 +491,7 @@ img.tw-img.tw-back{opacity:.62;filter:saturate(.7)}
 .tw-ring circle.v{stroke:var(--c);stroke-linecap:round}
 .tw-n.s-cur::before{content:"";position:absolute;inset:-14%;border-radius:50%;border:3px solid rgba(255,255,255,.9);animation:rtPulse 1.8s ease-out infinite}
 .tw-n.is-chest .tw-face{position:absolute;inset:0;display:block}.tw-n.is-chest svg{width:100%;height:100%;overflow:visible}
-.tw-n.is-chest.s-lock svg{filter:grayscale(.9) sepia(.3);opacity:.75}
+.tw-n.is-chest.s-lock svg{opacity:.8}
 .tw-n.is-sel:not(.s-cur){filter:drop-shadow(0 0 6px #fff)}
 .tw-n.fill{animation:lpFill .5s ease}.tw-n.opened svg{animation:lpOpen .5s cubic-bezier(.3,1.6,.5,1)}
 /* globo con lo que toca */
@@ -592,3 +592,20 @@ img.tw-img.tw-back{opacity:.62;filter:saturate(.7)}
 .lc-score b{font-size:42px}
 @media (max-width:370px){.lc-fml{font-size:16px;gap:6px 14px}.lc-ft b{font-size:18px}}
 .lc-fl{font:800 11.5px/1.2 var(--ff);font-style:normal;letter-spacing:.04em;text-transform:uppercase;color:var(--c-ink-3,#5A6A74)}
+
+/* ===== camino de caracol: pasarela de tablones con canto y sombra ===== */
+.tw-rib{fill:none;stroke-linecap:round;stroke-linejoin:round}
+.tw-pf .L-sh{stroke:rgba(40,28,16,.22);stroke-width:34;transform:translateY(10px)}
+.tw-pf .L-ed{stroke:#6B4A2A;stroke-width:32;transform:translateY(5px)}
+.tw-pf .L-tp.k0{stroke:#D7A866;stroke-width:28}
+.tw-pf .L-tp.k1{stroke:var(--c);stroke-width:28}
+.tw-pf .L-ed.k1{stroke:var(--cd)}
+.tw-pf .L-pl{stroke-width:26;stroke-linecap:butt;stroke-dasharray:2.5 11}
+.tw-pf .L-pl.k0{stroke:#9C6E3C}.tw-pf .L-pl.k1{stroke:var(--cd);opacity:.55}
+.tw-pb .L-sh{display:none}
+.tw-pb .L-ed{stroke:#6B4A2A;stroke-width:20;transform:translateY(3px);opacity:.35}
+.tw-pb .L-tp.k0{stroke:#D7A866;stroke-width:17;opacity:.45}
+.tw-pb .L-tp.k1{stroke:var(--c);stroke-width:17;opacity:.45}
+.tw-pb .L-pl{stroke-width:15;stroke-linecap:butt;stroke-dasharray:2 9;opacity:.3}
+.tw-pb .L-pl.k0{stroke:#9C6E3C}.tw-pb .L-pl.k1{stroke:var(--cd)}
+.lp-dark .tw-pf .L-tp.k0{stroke:#C99A5B}

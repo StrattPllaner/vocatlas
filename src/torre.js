@@ -71,6 +71,9 @@ var TORRE=(function(I){
  function symSVG(id,k){var c=(byId[id]||{}).color||"#3F7DA6",s=symbols(id)[k]||"estrella";return '<g transform="scale(1.25)">'+solid(SH[s],c,24)+'</g>'}
  function floorSVG(id,k){return symSVG(id,k)}
  /* los seis símbolos 3D de la carrera (media/sym), uno por unidad */
+ function symKey(id,k){if(typeof SIMB!=="undefined"&&SIMB.has(id)){var q=SIMB.six(id)[k];if(q)return q.id+"."+q.v}return ""}
+ /* símbolos 3D vivos: el motor se carga solo al abrir una espiral */
+ var SYM3D=null;function live3d(host){if(!window.WebGLRenderingContext)return;(SYM3D||(SYM3D=import("./vendor/3d/sym3d.js"))).then(function(m){m.mount(host)}).catch(function(){})}
  function symImg(id,k){if(typeof SIMB!=="undefined"&&SIMB.has(id)){var q=SIMB.six(id)[k];if(q)return "media/sym/"+q.id+"."+q.v+".webp"}return ""}
  function has(id){return !!byId[id]&&typeof ISO!=="undefined"}
  function star(on){var r=40,ri=17,p=[];for(var i=0;i<10;i++){var a=-Math.PI/2+i*Math.PI/5,rr=i%2?ri:r;p.push(f1(Math.cos(a)*rr)+","+f1(Math.sin(a)*rr))}
@@ -106,21 +109,22 @@ var TORRE=(function(I){
   var h='<div class="tw-scene" style="height:'+(Hp+padT+padB)+'px"><div class="tw-clouds" aria-hidden="true"><i></i><i></i><i></i><i></i></div>'+
    '<div class="tw-stage" style="width:'+Wp+'px;height:'+Hp+'px;top:'+padT+'px">'+
    '<div class="tw-isle" style="left:'+f1(ic.x-iw/2)+'px;top:'+f1(ic.y-iw*.62)+'px;width:'+f1(iw)+'px;height:'+f1(iw)+'px">'+(typeof artSVG==="function"?artSVG(id,o.pg.p):"")+'</div>'+
-   '<svg class="tw-l tw-pb" viewBox="'+(-xs)+' '+ytop+' '+Wd+' '+Hd+'" aria-hidden="true"><path class="tw-rib is-rest"/><path class="tw-rib is-done"/></svg>';
+   '<svg class="tw-l tw-pb" viewBox="'+(-xs)+' '+ytop+' '+Wd+' '+Hd+'" aria-hidden="true"><path class="tw-rib L-sh k0" data-k="0"/><path class="tw-rib L-sh k1" data-k="1"/><path class="tw-rib L-ed k0" data-k="0"/><path class="tw-rib L-ed k1" data-k="1"/><path class="tw-rib L-tp k0" data-k="0"/><path class="tw-rib L-tp k1" data-k="1"/><path class="tw-rib L-pl k0" data-k="0"/><path class="tw-rib L-pl k1" data-k="1"/></svg>';
   var sw=230*k,sh=230*k;
   for(var f=0;f<nf;f++){var u=o.units[f]||{done:0},L2=u.items?u.items.filter(function(it){return it.lid}):[],p=L2.length?u.done/L2.length:0,c=toPx(P(0,0,symZ(f)));
    var im=symImg(id,f);
-   h+='<div class="tw-sym tw-floor tw-3d'+(p>=1?" is-done":"")+'" data-f="'+f+'" style="left:'+f1(c.x-sw/2)+'px;top:'+f1(c.y-sh*.72)+'px;width:'+f1(sw)+'px;height:'+f1(sh)+'px;animation-delay:-'+(f*.9)+'s">'+
-    '<img class="tw-sk" src="'+im+'" alt="" decoding="async"><img class="tw-col" src="'+im+'" alt="" decoding="async" style="opacity:'+(p>=1?1:(.15+p*.7).toFixed(2))+'"></div>';
+   h+='<div class="tw-sym tw-floor tw-3d'+(p>=1?" is-done":"")+'" data-k="'+symKey(id,f)+'" data-f="'+f+'" style="left:'+f1(c.x-sw/2)+'px;top:'+f1(c.y-sh*.72)+'px;width:'+f1(sw)+'px;height:'+f1(sh)+'px;animation-delay:-'+(f*.9)+'s">'+
+    '<img class="tw-col" src="'+im+'" alt="" decoding="async"></div>';
    h+='<span class="tw-ul s-'+(u.state||"lock")+'" data-u="'+f+'">'+(f+1)+' · '+esc(u.t||"")+'</span>'}
   var stc=toPx(P(0,0,zAt(a1)+70));
   h+='<div class="tw-sym tw-starw" style="left:'+f1(stc.x-55*k)+'px;top:'+f1(stc.y-55*k)+'px;width:'+f1(110*k)+'px;height:'+f1(110*k)+'px"><svg viewBox="-50 -50 100 100" aria-hidden="true">'+star(o.mastered)+'</svg></div>';
-  h+='<svg class="tw-l tw-pf" viewBox="'+(-xs)+' '+ytop+' '+Wd+' '+Hd+'" aria-hidden="true"><path class="tw-rib is-rest"/><path class="tw-rib is-done"/></svg>';
+  h+='<svg class="tw-l tw-pf" viewBox="'+(-xs)+' '+ytop+' '+Wd+' '+Hd+'" aria-hidden="true"><path class="tw-rib L-sh k0" data-k="0"/><path class="tw-rib L-sh k1" data-k="1"/><path class="tw-rib L-ed k0" data-k="0"/><path class="tw-rib L-ed k1" data-k="1"/><path class="tw-rib L-tp k0" data-k="0"/><path class="tw-rib L-tp k1" data-k="1"/><path class="tw-rib L-pl k0" data-k="0"/><path class="tw-rib L-pl k1" data-k="1"/></svg>';
   A.forEach(function(it){h+='<button type="button" class="rt3-n tw-n s-'+it.state+(it.chest!=null?" is-chest":"")+'" data-i="'+it.k2+'" aria-label="'+(it.lid?it.lid+" ":"")+esc(it.n)+(it.state==="done"?", hecha":it.state==="lock"?", todavía no":it.state==="soon"?", llega pronto":"")+'">'+o.nodeHTML(it)+'</button>'});
   h+='<div class="tw-globe" id="twGlobe" hidden></div><div class="tw-rb" id="lpRb"><div class="tw-ship">'+PLANE+'<div class="tw-pilot">'+o.rb+'</div></div></div></div></div>';
   host.innerHTML=h;
   var S={host:host,k:k,xs:xs,ytop:ytop,toPx:toPx,items:A,padT:padT,a0:a0,a1:a1,rb:host.querySelector("#lpRb"),ship:host.querySelector(".tw-ship"),sc:host.closest(".tw-wrap")||host.parentNode,
    ul:host.querySelectorAll(".tw-ul"),pb:host.querySelectorAll(".tw-pb path"),pf:host.querySelectorAll(".tw-pf path"),btn:{},cur:o.cur,rot:A[o.cur]?A[o.cur].a:0,base:Math.round(58*Math.min(1.2,k))};
+  host.__S=S;setTimeout(function(){live3d(host)},60);
   A.forEach(function(it){S.btn[it.k2]=host.querySelector('.tw-n[data-i="'+it.k2+'"]')});
   S.first=o.units.map(function(u){var it=u.items[0];return it?A.indexOf(it):null});
   var r=-1;A.forEach(function(it,j){if(it.done&&r===j-1)r=j});S.doneA=r<0?a0:A[r].a+(A[r+1]?(A[r+1].a-A[r].a)/2:0);
@@ -129,9 +133,9 @@ var TORRE=(function(I){
  /* ---------- dibuja con el giro actual: camino (atrás y adelante), botones, etiquetas y Rumbo ---------- */
  function render(S,rbA,arc){
   var rot=S.rot,st=6,seg={b:["",""],f:["",""]},prev=null,sc0=S.sc?S.sc.scrollTop-S.padT:0,vh=S.sc?S.sc.clientHeight:900,ymin=(sc0-400)/S.k+S.ytop,ymax=(sc0+vh+400)/S.k+S.ytop;
-  for(var a=S.a0;a<=S.a1+.1;a+=st){var zz=-zAt(a);if(zz<ymin-150||zz>ymax+150){prev=null;continue}var q=proj(a,rot),side=q.d<0?"b":"f",kind=a<=S.doneA?1:0,key=side+kind,pt=f1(q.x)+" "+f1(q.y);
+  for(var a=S.a0;a<=S.a1+.1;a+=st){var q=proj(a,rot),side=q.d<0?"b":"f",kind=a<=S.doneA?1:0,key=side+kind,pt=f1(q.x)+" "+f1(q.y);
    if(prev&&prev.key===key)seg[side][kind]+="L"+pt;else seg[side][kind]+=(prev?"M"+prev.pt+"L":"M")+pt;prev={key:key,pt:pt}}
-  S.pb[0].setAttribute("d",seg.b[0]);S.pb[1].setAttribute("d",seg.b[1]);S.pf[0].setAttribute("d",seg.f[0]);S.pf[1].setAttribute("d",seg.f[1]);
+  for(var pi=0;pi<S.pb.length;pi++)S.pb[pi].setAttribute("d",seg.b[S.pb[pi].getAttribute("data-k")]);for(var pj=0;pj<S.pf.length;pj++)S.pf[pj].setAttribute("d",seg.f[S.pf[pj].getAttribute("data-k")]);
   S.items.forEach(function(it){var b=S.btn[it.k2];if(!b)return;var q=proj(it.a,rot),p=S.toPx(q),sc=.8+.2*(q.d+1)/2,bz=it.chest!=null?S.base*1.15:S.base;
    it.px=p.x;it.py=p.y;it.sz=bz*sc;it.d=q.d;
    if(b.__bz!==bz){b.__bz=bz;b.style.width=b.style.height=bz+"px"}
@@ -162,6 +166,6 @@ var TORRE=(function(I){
  function scrollTo(S,y,smooth){var sc=S.sc;if(!sc)return;var t=Math.max(0,y+S.padT-sc.clientHeight*.58);if(smooth&&sc.scrollTo)sc.scrollTo({top:t,behavior:"smooth"});else sc.scrollTop=t}
  function pos(S,i){var it=S.items[i];return it?{x:it.px,y:it.py,sz:it.sz}:null}
  /* vista previa para #art: los seis símbolos de la carrera */
- function preview(id,p){var s="";for(var f=0;f<6;f++){var q=Math.max(0,Math.min(1,p*6-f)),im=symImg(id,f);s+='<div class="tw-3d tw-pv"><img class="tw-sk" src="'+im+'" alt=""><img class="tw-col" src="'+im+'" alt="" style="opacity:'+(q>=1?1:(.15+q*.7).toFixed(2))+'"></div>'}return '<div class="tw-pvg">'+s+'</div>'}
+ function preview(id,p){var s="";for(var f=0;f<6;f++){var q=Math.max(0,Math.min(1,p*6-f)),im=symImg(id,f);s+='<div class="tw-3d tw-pv"><img class="tw-col" src="'+im+'" alt=""></div>'}return '<div class="tw-pvg">'+s+'</div>'}
  return {has:has,build:build,preview:preview,render:render,focus:focus,place:place,hop:hop,climbTop:climbTop,scrollTo:scrollTo,pos:pos,floorSVG:floorSVG,star:star,symbols:symbols};
 })(ISO);

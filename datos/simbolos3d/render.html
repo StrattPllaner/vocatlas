@@ -74,8 +74,9 @@ window.renderSym=function(parts,mats,yaw,pitch,key){
 function finish(g,yaw,pitch){
  addInk(g);
  const box=new THREE.Box3().setFromObject(g);const c=box.getCenter(new THREE.Vector3());g.position.sub(c);
- const pivot=new THREE.Group();pivot.userData.sym=1;pivot.add(g);pivot.rotation.set(pitch==null?0.24:pitch,yaw==null?-0.48:yaw,0);scene.add(pivot);
- const b2=new THREE.Box3().setFromObject(g);const sz=b2.getSize(new THREE.Vector3());const r=Math.max(Math.max(sz.x,sz.y,sz.z)*0.5,sz.length()*0.42)+3;
+ const pivot=new THREE.Group();pivot.userData.sym=1;pivot.add(g);scene.add(pivot);let r0=null;if(window.SPINR){const b0=new THREE.Box3().setFromObject(g);const s0=b0.getSize(new THREE.Vector3());r0=Math.max(s0.y*0.5,Math.hypot(s0.x,s0.z)*0.5)+3}pivot.rotation.set(pitch==null?0.24:pitch,yaw==null?-0.48:yaw,0);
+ let r=r0;
+ const b2=new THREE.Box3().setFromObject(g);const sz=b2.getSize(new THREE.Vector3());if(!r)r=Math.max(Math.max(sz.x,sz.y,sz.z)*0.5,sz.length()*0.42)+3;
  const dist=r/Math.tan(THREE.MathUtils.degToRad(13));cam.position.set(0,0,dist);cam.lookAt(0,0,0);cam.near=dist/10;cam.far=dist*4;cam.updateProjectionMatrix();
  key.position.set(-dist*0.45,dist*0.7,dist*0.9);key.target.position.set(0,0,0);scene.add(key.target);
  renderer.render(scene,cam);return renderer.domElement.toDataURL('image/png')}

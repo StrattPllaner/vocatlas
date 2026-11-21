@@ -51,7 +51,7 @@ function artBake(ids){if(typeof sprMake!=="function")return;var night=!!(DMQ&&DM
   sprMake(src.innerHTML,night,function(o){if(!o){delete ARTIMG[key];return}ARTIMG[key]=o;each(document.querySelectorAll('.ar use[href="#ad-'+c.id+v+'"]'),function(u){u.outerHTML=sprImg(o).replace("<image ",'<image'+(u.getAttribute("opacity")?' opacity="'+u.getAttribute("opacity")+'"':'')+' ')})})})})}
 function artUse(id,v,op){artDef(id);var o=ARTIMG[id+v+((DMQ&&DMQ.matches)?"n":"d")];var a=op!=null?' opacity="'+op+'"':'';return o&&o.u?sprImg(o).replace("<image ",'<image'+a+' '):'<use href="#ad-'+id+v+'"'+a+'/>'}
 function artSVG(id,p){
- p=p==null?1:p;
+ p=1;
  return '<svg class="ar" viewBox="-58 -84 116 116" aria-hidden="true">'+(p<1?artUse(id,"-g"):'')+(p>0?artUse(id,"",p<1?p.toFixed(2):null):'')+'</svg>';
 }
 function shortName(c){return c.name.replace(/^Ing\. /,"")}

@@ -115,7 +115,7 @@ var ISOMAP=(function(I,E,G){
   (W.ghosts||[]).forEach(function(Gh,gi){
    var rr=G.rng(G.hs(Gh.id+"d")),p=pj([Gh.x,Gh.y],Z_TOP),a=rr()*Math.PI*2;
    [["palm",8,.8],["rock",-16,.9]].forEach(function(q,qi){var x=Gh.x+Math.cos(a+qi*2.6)*Math.abs(q[1]),y=Gh.y+Math.sin(a+qi*2.6)*Math.abs(q[1]),pp=pj([x,y],Z_TOP);
-    objs.push({k:x+y,s:'<g class="m-d m-gh" style="--ei:'+W.islands.length+'" transform="translate('+f1(pp[0])+' '+f1(pp[1])+')">'+I.sketchAll(E.one(q[0],{d:2,k:q[2],ph:rr()*3,flip:rr()<.5}))+'</g>'})});
+    objs.push({k:x+y,s:'<g class="m-d m-gh" style="--ei:'+W.islands.length+'" transform="translate('+f1(pp[0])+' '+f1(pp[1])+')">'+'<g opacity=".55">'+E.one(q[0],{d:2,k:q[2],ph:rr()*3,flip:rr()<.5})+'</g>'+'</g>'})});
    [[-30,-34,2.1,.3],[40,-10,1.7,1.7],[-8,6,1.5,2.9]].forEach(function(q){top+='<g class="m-fog" transform="translate('+f1(p[0]+q[0])+' '+f1(p[1]+q[1])+')" opacity=".94">'+E.cloud({k:q[2],ph:gi+q[3]})+'</g>'});
   });
   objs.sort(function(a,b){return a.k-b.k});
