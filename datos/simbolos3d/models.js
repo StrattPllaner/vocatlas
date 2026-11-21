@@ -34,10 +34,114 @@ export function kit(material,g){
   return K;
 }
 
-const PU='#8E5BB5',TE='#2FA39A',OR='#F08A2E',PK='#F3A3B5';const GY='#8C96A0',ST='#A9B6C2',BK='#3A4048',WH='#F3F1EA',RE='#DE4A3C',BL='#3F82C4',GR='#4FAE5B',YE='#F6CD3B',BR='#8A5A36',WO='#B9804B',GO='#E8B53C',NA='#2D4A6E',CR='#F0E2C2',SK='#E7A97C';
+const PU='#8E5BB5',TE='#2FA39A',OR='#F08A2E',PK='#F3A3B5',GL='#AEE0F2';const GY='#8C96A0',ST='#A9B6C2',BK='#3A4048',WH='#F3F1EA',RE='#DE4A3C',BL='#3F82C4',GR='#4FAE5B',YE='#F6CD3B',BR='#8A5A36',WO='#B9804B',GO='#E8B53C',NA='#2D4A6E',CR='#F0E2C2',SK='#E7A97C';
 
 const circ=(cx,cy,r,n,a0,a1)=>{a0=a0==null?0:a0;a1=a1==null?Math.PI*2:a1;const o=[];for(let i=0;i<n;i++){const a=a0+(a1-a0)*i/(n-(Math.abs(a1-a0-Math.PI*2)<1e-6?0:1));o.push([cx+Math.cos(a)*r,cy+Math.sin(a)*r])}return o};
 export const MODELS={
+  // Dado con puntos en las seis caras
+  'actuaria.a'(K){
+    K.box(56,56,56,WH,{rad:9});
+    const pip=(n,c)=>{const P={1:[[0,0]],2:[[-1,-1],[1,1]],3:[[-1,-1],[0,0],[1,1]],4:[[-1,-1],[1,-1],[-1,1],[1,1]],5:[[-1,-1],[1,-1],[0,0],[-1,1],[1,1]],6:[[-1,-1],[1,-1],[-1,0],[1,0],[-1,1],[1,1]]}[n];return P};
+    const faces=[[5,[0,0,28.2],[90,0,0]],[2,[0,0,-28.2],[90,0,0]],[3,[28.2,0,0],[0,0,90]],[4,[-28.2,0,0],[0,0,90]],[1,[0,28.2,0],[0,0,0]],[6,[0,-28.2,0],[0,0,0]]];
+    faces.forEach(([n,p,r])=>{const g=K.group({p,r});pip(n).forEach(([a,b])=>K.cyl(5,5,1,n==1||(n==5&&a==0)?RE:BK,{p:[a*14,0,b*14],parent:g}))});
+  },
+  // Cohete con ventanilla, aletas, franja y llama
+  'aeroespacial.a'(K){
+    K.lathe([[0.01,-26],[13,-26],[15,-10],[15,14],[12,28],[6,38],[0.01,42]],WH);
+    K.lathe([[0.01,28],[12,28],[6,38],[0.01,42]].reverse().map(p=>p),RE,{s:[1.02,1,1.02]});
+    K.tor(15.2,1.6,RE,{p:[0,0,0],r:[90,0,0]});
+    K.cyl(6,6,4,ST,{m:'metal',p:[0,12,13.4],r:[90,0,0]});K.cyl(4.6,4.6,4.4,GL,{m:'glass',p:[0,12,13.6],r:[90,0,0]});
+    for(let i=0;i<3;i++){const g=K.group({r:[0,i*120,0]});K.ext('M0 0 L14 14 L14 22 L0 16 Z',3,RE,{bevel:1,p:[13,-10,0],r:[180,0,0],parent:g})}
+    K.cyl(9,12,8,GY,{m:'metal',p:[0,-30,0]});
+    K.lathe([[0.01,-34],[9,-34],[7,-44],[0.01,-58]],OR);K.lathe([[0.01,-34],[5,-34],[4,-42],[0.01,-50]],YE,{s:[1.05,1.02,1.05]});
+  },
+  // Avión de pasajeros: fuselaje, alas, turbinas, cola y ventanillas
+  'aeroespacial.b'(K){
+    K.cap(8,70,WH,{r:[0,0,90]});
+    K.box(10,1.6,74,'#E6ECEF',{p:[2,-2,0],r:[0,-20,0],rad:0.8,s:[1.6,1,1]});
+    [-18,18].forEach(z=>K.cyl(3.6,3.6,12,GY,{m:'metal',p:[4,-6,z],r:[0,0,90]}));
+    K.ext('M0 0 L12 -24 L20 -24 L16 0 Z',2,BL,{bevel:0.8,p:[-38,6,0]});
+    K.box(6,1.2,28,'#E6ECEF',{p:[-38,4,0],r:[0,-20,0],rad:0.5});
+    for(let i=0;i<9;i++)[8.1,-8.1].forEach(z=>K.cyl(1.2,1.2,0.6,'#2B4A6E',{p:[-22+i*6,2,z],r:[90,0,0]}));
+    K.box(8,4,10,'#2B4A6E',{p:[39,2,0],rad:2});
+  },
+  // Hoja con nervaduras y gota de agua
+  'ambiental.a'(K){
+    const g=K.group({r:[0,0,-30]});
+    K.ext('M0 -46 C26 -30 30 10 0 46 C-30 10 -26 -30 0 -46 Z',8,GR,{bevel:3,parent:g});
+    K.tube([[0,-50,0],[0,40,0]],1.4,'#2F7F3E',{parent:g});
+    [[-30,1],[-14,1],[2,1],[18,1],[-30,-1],[-14,-1],[2,-1],[18,-1]].forEach(([y,sd])=>[6.6,-6.6].forEach(z=>K.tube([[0,y,z],[sd*14,y+10,z]],0.7,'#2F7F3E',{parent:g,nocap:true})));
+    K.lathe([[0.01,-10],[6,-6],[7,0],[4,6],[0.01,14]],BL,{m:'glass',p:[24,-26,10]});
+  },
+  // Aerogenerador: torre, góndola, rotor y tres aspas
+  'ambiental.b'(K){
+    K.cyl(2.4,4.6,80,WH,{p:[0,-10,0]});K.box(12,7,7,WH,{p:[0,32,-2],rad:2.4});K.sph(3.6,ST,{m:'metal',p:[0,32,3]});
+    for(let i=0;i<3;i++){const g=K.group({p:[0,32,4],r:[0,0,i*120+10]});K.ext('M0 -2 C4 -10 4 -30 0 -40 C-2 -30 -3 -10 -2 -2 Z',1.8,WH,{bevel:0.6,parent:g})}
+    K.cyl(16,16,3,GR,{p:[0,-51,0]});
+  },
+  // Pantalla de animación: tableta con pelota rebotando y lápiz
+  'animacion.b'(K){
+    K.box(76,54,6,'#2B3540',{rad:5});K.box(68,46,0.6,'#F3F6F8',{p:[0,0,3.2],rad:2});
+    [[-20,-10,'#F4B4A8'],[-4,8,'#EE8F80'],[14,14,RE]].forEach(([x,y,c])=>K.sph(5,c,{p:[x,y,4],s:[1,1,0.4]}));
+    K.tube([[-28,-16,3.4],[-14,10,3.4],[0,16,3.4],[14,14,3.4]],0.5,'#9AA3AC',{nocap:true});
+    const p=K.group({p:[36,-28,6],r:[0,0,-40]});K.cyl(2,2,40,'#5B6670',{parent:p});K.cone(2,5,BK,{p:[0,-22,0],r:[180,0,0],parent:p});
+  },
+  // Casa con plano: casa sobre un plano enrollado
+  'arquitectura.b'(K){
+    K.box(80,2,46,BL,{p:[0,-26,0],rad:0.8});K.cyl(5,5,46,'#5B9BD8',{p:[-40,-22,0],r:[90,0,0]});
+    [[-16,10],[-4,16]].forEach(([z,w])=>K.box(w*2,0.4,1,'#EAF4FB',{p:[-6,-24.6,z],rad:0.2}));
+    K.box(40,30,30,CR,{p:[6,-9,0],rad:1});
+    const A=Math.atan2(20,24)*180/Math.PI,L=Math.hypot(24,20);
+    K.box(L,2.4,36,RE,{p:[-6,15,0],r:[0,0,A],rad:0.8});K.box(L,2.4,36,RE,{p:[18,15,0],r:[0,0,-A],rad:0.8});
+    [15.2,-15.2].forEach(z=>K.ext('M-20 0 L20 0 L0 -20 Z',0.6,CR,{bevel:0,p:[6,6,z]}));
+    K.box(10,16,1,'#8A5A36',{p:[12,-16,15.4],rad:0.4});K.box(10,8,1,GL,{p:[-4,-6,15.4],rad:0.4});
+  },
+  // Microscopio: base, brazo, platina, revólver, objetivos, ocular y perilla
+  'biologia.a'(K){
+    K.box(48,6,30,NA,{p:[0,-38,0],rad:2});
+    K.tube([[14,-34,0],[18,-10,0],[14,14,0],[4,26,0]],5,NA,{});
+    K.box(30,3,24,'#2B3540',{p:[-6,-10,0],rad:1});K.cyl(5,5,3,'#FFF1B0',{p:[-6,-20,0]});
+    const t=K.group({p:[-4,18,0],r:[0,0,28]});K.cyl(5,5,34,WH,{parent:t,p:[0,8,0]});K.cyl(4,3,10,BK,{parent:t,p:[0,28,0]});K.cyl(6,6,4,ST,{m:'metal',parent:t,p:[0,-10,0]});
+    [[-3,-14],[3,-14]].forEach(([x,y])=>K.cyl(1.8,1.4,8,ST,{m:'metal',p:[x-10,y+12,0]}));
+    K.cyl(4,4,4,GY,{m:'metal',p:[18,-12,8],r:[90,0,0]});K.cyl(4,4,4,GY,{m:'metal',p:[18,-12,-8],r:[90,0,0]});
+  },
+  // Doble hélice de ADN con peldaños
+  'biotec.a'(K){
+    const A=[],B=[];for(let i=0;i<=40;i++){const t=i/40*Math.PI*3,y=-44+i*2.2;A.push([Math.cos(t)*16,y,Math.sin(t)*16]);B.push([-Math.cos(t)*16,y,-Math.sin(t)*16])}
+    K.tube(A,3,BL,{});K.tube(B,3,RE,{});
+    for(let i=2;i<40;i+=3)K.tube([A[i],B[i]],1.2,i%2?YE:GR,{nocap:true});
+  },
+  // Matraz con tierra y brote
+  'biotec.b'(K){
+    K.lathe([[0.01,-30],[28,-30],[30,-27],[10,14],[10,30],[12,32],[0.01,32]],'#DDF1FA',{m:'membrane'});
+    K.cyl(23,27,9,'#8A5A36',{p:[0,-24.5,0]});
+    K.tube([[0,-20,0],[0,-8,0],[2,0,0]],1.2,'#2F7F3E',{});
+    K.ext('M0 0 C-6 -6 -14 -6 -18 0 C-14 4 -6 4 0 0 Z',1.4,GR,{bevel:0.6,p:[1,-4,0],r:[0,0,30]});K.ext('M0 0 C6 -6 14 -6 18 0 C14 4 6 4 0 0 Z',1.4,GR,{bevel:0.6,p:[2,0,0],r:[0,0,-30]});
+    K.cyl(11,11,6,ST,{m:'metal',p:[0,35,0]});
+  },
+  // Escudo con candado
+  'ciberseguridad.a'(K){
+    K.ext('M0 -48 L36 -36 V-6 C36 22 20 38 0 48 C-20 38 -36 22 -36 -6 V-36 Z',14,BL,{bevel:3});
+    [9.6,-9.6].forEach(z=>{K.box(26,22,5,GO,{m:'gold',p:[0,-6,z],rad:3});K.tube([[-8,4,z],[-8,12,z],[0,18,z],[8,12,z],[8,4,z]],2.2,ST,{m:'metal'});K.cyl(2.6,2.6,1,'#7A5A1A',{p:[0,-4,z+Math.sign(z)*2.6],r:[90,0,0]})});
+  },
+  // Claqueta con brazo de rayas y bisagra
+  'cine.a'(K){
+    K.box(70,48,6,'#2B3540',{p:[0,-10,0],rad:2});
+    [[18,'#FFFFFF'],[6,'#FFFFFF'],[-6,'#FFFFFF']].forEach(([y,c])=>{});
+    [3.2,-3.2].forEach(z=>{[-4,-14].forEach(y=>K.box(60,1.6,0.6,WH,{p:[0,y,z],rad:0.4}))});
+    const arm=K.group({p:[-35,18,0],r:[0,0,14]});K.box(70,10,6,'#2B3540',{p:[35,0,0],rad:1.5,parent:arm});
+    for(let i=0;i<5;i++)K.box(6,10.4,6.4,WH,{p:[8+i*14,0,0],r:[0,0,-30],rad:0.4,parent:arm});
+    const b=K.group({p:[0,10,0]});for(let i=0;i<5;i++)K.box(6,8.4,6.4,WH,{p:[-27+i*14,4,0],r:[0,0,30],rad:0.4,parent:b});K.box(70,8,6,'#2B3540',{p:[0,4,0],rad:1.5,parent:b});
+    K.cyl(3,3,7,ST,{m:'metal',p:[-35,18,0],r:[90,0,0]});
+  },
+  // Cámara de cine con dos rollos, cuerpo y lente
+  'cine.b'(K){
+    K.box(54,32,22,'#4A5560',{p:[-6,-10,0],rad:4});
+    [[-20,22],[10,20]].forEach(([x,r])=>{K.cyl(r/1.4,r/1.4,8,BK,{p:[x,18,0],r:[90,0,0]});for(let i=0;i<5;i++)[4.2,-4.2].forEach(z=>K.box(1.4,r*1.2,0.6,'#5B6670',{p:[x,18,z],r:[0,0,i*36],rad:0.3}));K.cyl(2.4,2.4,9,ST,{m:'metal',p:[x,18,0],r:[90,0,0]})});
+    K.cyl(8,12,16,BK,{p:[28,-10,0],r:[0,0,90]});K.cyl(9,9,1,'#7FC8F0',{m:'glass',p:[36.6,-10,0],r:[0,0,90]});
+    K.box(10,6,1,RE,{p:[-18,-4,11.3],rad:1});K.box(24,8,16,BK,{p:[-6,-30,0],rad:2});
+  },
+
   // Huella de perro con cruz veterinaria, almohadillas abombadas
   'veterinaria.a'(K){
     const B='#6B3F2A';
