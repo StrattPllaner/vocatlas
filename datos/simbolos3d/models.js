@@ -101,6 +101,7 @@ export const MODELS={
     [-18,18].forEach(x=>{K.box(5,55,29,'#8A4A16',{p:[x,-4,0],rad:1.4});[14.8,-14.8].forEach(z=>K.box(6,5,1.4,ST,{m:'metal',p:[x,14,z],rad:0.8}))});
     [[-28,-14],[28,-14],[-28,14],[28,14]].forEach(([x,z])=>K.sph(3.4,BK,{p:[x,-33,z]}));
     K.box(14,10,1,WH,{p:[2,-8,14.6],rad:1});K.box(8,1,1.2,'#9AA3AC',{p:[2,-8,15],rad:0.3});
+    K.box(30,22,1,'#C9661E',{p:[0,-4,-14.4],rad:2});[-8,8].forEach(x=>K.box(2,18,1.4,'#8A4A16',{p:[x,-4,-14.8],rad:0.6}));
   },
 
   // Silla de madera con respaldo de travesaños
@@ -123,6 +124,7 @@ export const MODELS={
     K.tube([[-40,-30,0],[-18,-6,0],[-4,-16,0],[24,20,0]],4,GR,{tension:0});
     K.cone(9,16,GR,{p:[30,27,0],r:[0,0,-43]});
     K.cyl(12,12,4,GO,{m:'gold',p:[-26,24,0],r:[90,0,0]});K.tor(9,0.8,'#C9961E',{m:'gold',p:[-26,24,2.2]});
+    K.tor(9,0.8,'#C9961E',{m:'gold',p:[-26,24,-2.2]});
   },
   // Billete con marco, retrato y signo de pesos
   'economia.b'(K){
@@ -169,6 +171,7 @@ export const MODELS={
     K.cyl(5,6,52,'#9A4430',{p:[28,8,-8]});[0,10].forEach(y=>K.cyl(6.2,6.2,3,WH,{p:[28,14+y,-8]}));
     [[30,40,6],[36,48,8],[44,54,6]].forEach(([x,y,r])=>K.sph(r,'#D5DCE2',{p:[x,y,-8]}));
     for(let i=0;i<3;i++)K.box(10,8,1,YE,{p:[-22+i*18,-12,18.3],rad:1});K.box(12,16,1,'#5E3A20',{p:[-2,-21,18.3],rad:1});
+    for(let i=0;i<3;i++)K.box(10,8,1,YE,{p:[-22+i*18,-12,-18.3],rad:1});
   },
   // Letra pi en 3D
   'matematicas.a'(K){
@@ -386,6 +389,7 @@ export const MODELS={
     K.box(L,2.4,36,RE,{p:[-6,15,0],r:[0,0,A],rad:0.8});K.box(L,2.4,36,RE,{p:[18,15,0],r:[0,0,-A],rad:0.8});
     [15.2,-15.2].forEach(z=>K.ext('M-20 0 L20 0 L0 -20 Z',0.6,CR,{bevel:0,p:[6,6,z]}));
     K.box(10,16,1,'#8A5A36',{p:[12,-16,15.4],rad:0.4});K.box(10,8,1,GL,{p:[-4,-6,15.4],rad:0.4});
+    K.box(10,8,1,GL,{p:[14,-6,-15.4],rad:0.4});K.box(10,8,1,GL,{p:[-4,-6,-15.4],rad:0.4});
   },
   // Microscopio: base, brazo, platina, revólver, objetivos, ocular y perilla
   'biologia.a'(K){
@@ -505,8 +509,10 @@ export const MODELS={
   'sociologia.b'(K){
     K.ext('M-34 -36 H10 C16 -36 18 -32 18 -26 V-6 C18 0 16 4 10 4 H-16 L-26 14 V4 H-34 C-40 4 -42 0 -42 -6 V-26 C-42 -32 -40 -36 -34 -36 Z',10,BL,{bevel:2,p:[0,0,-6]});
     K.ext('M-6 -2 H34 C40 -2 42 2 42 8 V28 C42 34 40 38 34 38 H28 V48 L18 38 H-6 C-12 38 -14 34 -14 28 V8 C-14 2 -12 -2 -6 -2 Z',10,OR,{bevel:2,p:[2,0,8]});
-    [[-30,24,22],[-30,18,14]].forEach(([x,y,w])=>K.box(w,2.4,1,WH,{p:[x+w/2,y,-0.2],rad:1}));
-    [[-6,-12,30],[-6,-20,20]].forEach(([x,y,w])=>K.box(w,2.4,1,WH,{p:[x+w/2,y,14.2],rad:1}));
+    [[-30,24,22],[-30,18,14]].forEach(([x,y,w])=>K.box(w,2.4,1,WH,{p:[x+w/2,y,1.4],rad:1}));
+    [[-6,-12,30],[-6,-20,20]].forEach(([x,y,w])=>K.box(w,2.4,1,WH,{p:[x+w/2,y,15.6],rad:1}));
+    [[-30,24,22],[-30,18,14]].forEach(([x,y,w])=>K.box(w,2.4,1,WH,{p:[x+w/2,y,-13.6],rad:1}));
+    [[-6,-12,30],[-6,-20,20]].forEach(([x,y,w])=>K.box(w,2.4,1,WH,{p:[x+w/2,y,0.2],rad:1}));
   },
   // Destellos de IA
   'o_chispa.a'(K){
@@ -592,6 +598,7 @@ export const MODELS={
     K.cyl(3,5,14,GO,{m:'gold',p:[0,-9,0]});K.cyl(10,12,4,GO,{m:'gold',p:[0,-18,0]});
     K.box(34,14,24,'#6B4A2A',{m:'wood',p:[0,-27,0],rad:2});K.box(20,6,1,'#F3CB5E',{m:'gold',p:[0,-27,12.4],rad:0.6});
     K.ext('M0 -9 L2.6 -3 L9 -2.8 L4 1.4 L5.6 8 L0 4.4 L-5.6 8 L-4 1.4 L-9 -2.8 L-2.6 -3 Z',2,'#FFF1B0',{m:'gold',bevel:0.6,p:[0,22,23.2]});
+    K.box(20,6,1,'#F3CB5E',{m:'gold',p:[0,-27,-12.4],rad:0.6});K.ext('M0 -9 L2.6 -3 L9 -2.8 L4 1.4 L5.6 8 L0 4.4 L-5.6 8 L-4 1.4 L-9 -2.8 L-2.6 -3 Z',2,'#FFF1B0',{m:'gold',bevel:0.6,p:[0,22,-23.2]});
   },
   // Tenis: suela, cuerpo, puntera, lengüeta, agujetas y franja
   'o_tenis.a'(K){
@@ -627,6 +634,7 @@ export const MODELS={
     K.box(14,8,8,WH,{p:[0,30,-2],rad:3});
     [16,2,-12].forEach(y=>K.sph(1.6,'#9AA3AC',{p:[4,y,8.6]}));
     K.box(10,8,1.4,'#E1E6EA',{p:[14,10,8.4],rad:1});K.cyl(1,1,12,BL,{p:[12,14,9.4]});
+    K.box(2,50,1,'#E1E6EA',{p:[0,-14,-8.6],rad:0.5});K.box(30,5,2,'#E6ECEF',{p:[0,-14,-8.8],rad:1.6});[-12,12].forEach(x=>K.sph(1.4,'#9AA3AC',{p:[x,-14,-10]}));K.box(16,6,2,'#E6ECEF',{p:[0,30,-6],rad:2});
   },
   // Plato con comida, tenedor y cuchillo
   'nutricion.b'(K){
@@ -635,6 +643,7 @@ export const MODELS={
     K.sph(7,GR,{p:[-8,6,-4],s:[1,0.7,1],parent:g});K.sph(6,RE,{p:[8,5,4],s:[1,0.7,1],parent:g});K.sph(5,YE,{p:[4,5,-10],s:[1,0.6,1],parent:g});
     K.box(3,2,40,ST,{m:'metal',p:[-44,2,6],parent:g,rad:0.8});for(let i=0;i<4;i++)K.box(0.9,1.6,12,ST,{m:'metal',p:[-45.4+i*1,2,-20],parent:g,rad:0.3});
     K.box(3,2,34,ST,{m:'metal',p:[44,2,10],parent:g,rad:0.8});K.box(6,1.4,22,ST,{m:'metal',p:[45,2,-16],parent:g,rad:0.6});
+    K.tor(16,1.2,'#E6E1D6',{p:[0,-0.6,0],r:[90,0,0],parent:g});
   },
   // Cinta métrica: caja con cinta saliendo, freno y gancho
   'o_cinta.a'(K){
@@ -658,6 +667,8 @@ export const MODELS={
     const tab=(ax,ay,bx,by,out)=>{const mx=(ax+bx)/2,my=(ay+by)/2,dx=(bx-ax)/48,dy=(by-ay)/48,nx=-dy*out,ny=dx*out;const res=[[mx-dx*7,my-dy*7]];for(let i=0;i<=16;i++){const a=Math.PI*1.25-i/16*Math.PI*1.5;res.push([mx+Math.cos(a)*8*dx*(-1)+nx*(14+Math.sin(a)*8)*0+(-dy*out)*0,0])}return res};
     const shp='M-24 -24 H-8 C-8 -32 8 -32 8 -24 H24 V-8 C32 -8 32 8 24 8 V24 H8 C8 16 -8 16 -8 24 H-24 V8 C-16 8 -16 -8 -24 -8 Z';
     K.ext(shp,12,PU,{bevel:2.4});
+    [[-12,10,'#B78BE0',9],[10,-8,'#6E4592',7],[8,12,'#C9A6EA',5]].forEach(([x,y,c,r])=>K.cyl(r,r,1,c,{p:[x,y,8.6],r:[90,0,0]}));
+    K.ext(shp,1,'#D9C6A8',{bevel:0,p:[0,0,-8.4]});for(let i=0;i<5;i++)K.box(40,0.8,0.6,'#C2AE8C',{p:[0,-16+i*8,-9.2],rad:0.2});
   },
   // Libreta de espiral con hojas y pluma
   'o_libreta.a'(K){
@@ -665,6 +676,7 @@ export const MODELS={
     for(let i=0;i<5;i++)K.box(36,1,0.5,'#9AA3AC',{p:[5,18-i*9,5],rad:0.3});
     for(let i=0;i<8;i++)K.tor(3.4,0.7,ST,{m:'metal',p:[-27,30-i*8.6,0],r:[0,90,0]});
     const p=K.group({p:[24,-4,9],r:[0,0,-25]});K.cyl(2.4,2.4,50,BL,{parent:p});K.cone(2.4,6,'#F2D3A0',{p:[0,-28,0],r:[180,0,0],parent:p});K.box(1.2,14,2,ST,{m:'metal',p:[2.6,16,0],parent:p});
+    K.box(30,10,0.8,WH,{p:[0,14,-4.4],rad:1.4});K.box(22,1.4,1,'#9AA3AC',{p:[0,14,-4.8],rad:0.4});K.box(44,4,0.8,'#E0B23A',{p:[0,-26,-4.4],rad:1});
   },
   // Nube de pensamiento hecha de esferas con burbujas
   'o_pensamiento.a'(K){
@@ -694,6 +706,7 @@ export const MODELS={
     K.tor(4,1.2,'#C9D3DA',{p:[0,39,0]});
     for(let i=0;i<4;i++)K.box(5,0.7,0.6,'#C9A23A',{p:[-16,-10+i*6,5.3],rad:0.2});
     K.cyl(3,3,6,'#E6ECEF',{p:[0,-22,0]});K.cyl(4.2,4.2,12,'#EEF6FA',{m:'glass',p:[0,-31,0]});K.cyl(1,1,16,'#C9D3DA',{p:[0,-44,0]});
+    K.box(26,10,1,WH,{p:[0,24,-5.4],rad:1});K.box(18,1.2,1.2,'#7FA8D6',{p:[0,25,-6],rad:0.4});for(let i=0;i<4;i++)K.box(5,0.7,0.6,'#C9A23A',{p:[16,-10+i*6,-5.3],rad:0.2});
   },
   // Curita con almohadilla y orificios, en relieve
   'o_curita.a'(K){
@@ -710,6 +723,7 @@ export const MODELS={
     K.box(60,34,1.2,'#BFE0F5',{p:[0,0,-2.6],rad:0.6,parent:g});
     K.box(14,1.2,2,'#9AC4E0',{p:[0,16,2],rad:0.5,parent:g});
     [-1,1].forEach(sd=>K.tube([[sd*30,12,-1],[sd*44,10,-8],[sd*44,-10,-8],[sd*30,-12,-1]],1,'#E6EEF4',{parent:g,nocap:true}));
+    for(let i=0;i<3;i++)K.box(58,1,1,'#A9CFE8',{p:[0,14-i*10,-3.6],rad:0.4});
   },
   // Sillón dental reclinado con lámpara
   'o_sillon.a'(K){
@@ -752,6 +766,7 @@ export const MODELS={
     K.box(44,40,22,WH,{p:[0,-8,0],rad:6});K.box(46,14,24,'#5FB4D9',{p:[0,16,0],rad:6});
     K.box(22,10,1,'#E3F2F9',{p:[0,-8,11.4],rad:1.4});K.box(16,1.4,1.4,'#5FB4D9',{p:[0,-8,12],rad:0.5});
     K.tube([[16,22,0],[24,34,0],[34,38,0]],0.6,'#DDEFF7',{});
+    K.box(22,10,1,'#E3F2F9',{p:[0,-8,-11.4],rad:1.4});K.box(16,1.4,1.4,'#5FB4D9',{p:[0,-8,-12],rad:0.5});
   },
   // Camilla con colchón, almohada, barandal y ruedas
   'o_camilla.a'(K){
@@ -794,6 +809,7 @@ export const MODELS={
     for(let r=0;r<3;r++)for(let c=0;c<2;c++){const p=[-14+c*28,-22+r*22,1];K.sph(9,'#EEF6FA',{m:'glass',p,s:[1,0.8,0.5]});
       K.cap(5,6,r==0&&c==1?'#F2A94C':WH,{p:[p[0],p[1],2],r:[0,0,90]})}
     K.box(64,74,0.6,'#C9D0D6',{p:[0,0,-1.3],rad:3});
+    for(let i=0;i<6;i++)K.box(i%2?40:52,1.6,0.4,'#8C96A0',{p:[0,26-i*10,-1.7],rad:0.3});
   },
   // Gotero con perilla de hule y vidrio
   'o_gotero.a'(K){
@@ -1017,6 +1033,9 @@ export const MODELS={
     K.tube([[16,10,0],[28,-2,0]],1,'#F3F1EA',{parent:w});K.tube([[28,10,0],[16,-2,0]],1,'#F3F1EA',{parent:w});
     K.box(70,2,6,'#8A5A36',{m:'wood',p:[0,-15,3],rad:0.6});K.box(10,1.6,1.6,WH,{p:[-12,-13.2,4],rad:0.6});K.box(12,3,4,'#E9677A',{p:[14,-12.6,4],rad:0.8});
     [[-30,6],[30,6]].forEach(([x,z])=>K.cyl(1.6,1.6,30,'#8A5A36',{m:'wood',p:[x*1.1,-26,z],r:[-10,0,x<0?-6:6]}));K.cyl(1.6,1.6,34,'#8A5A36',{m:'wood',p:[0,-24,-10],r:[20,0,0]});
+    const wb=K.group({p:[0,14,-2.8],r:[0,180,0]});
+    [[-6,14,30],[-2,6,22],[-10,-2,26]].forEach(([x,y,l])=>K.tube([[x-l/2,y,0],[x+l/2,y,0]],0.9,'#F3F1EA',{parent:wb}));
+    K.tube([[16,12,0],[22,4,0],[28,12,0]],1,'#F3F1EA',{parent:wb,tension:0});K.tube([[16,-2,0],[28,-2,0]],1,'#F3F1EA',{parent:wb});
   },
   // Birrete: tablero, gorro, botón y borla
   'educacion.b'(K){
