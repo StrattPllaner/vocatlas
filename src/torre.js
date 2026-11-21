@@ -125,6 +125,9 @@ var TORRE=(function(I){
   var S={host:host,k:k,xs:xs,ytop:ytop,toPx:toPx,items:A,padT:padT,a0:a0,a1:a1,rb:host.querySelector("#lpRb"),ship:host.querySelector(".tw-ship"),sc:host.closest(".tw-wrap")||host.parentNode,
    ul:host.querySelectorAll(".tw-ul"),pb:host.querySelectorAll(".tw-pb path"),pf:host.querySelectorAll(".tw-pf path"),btn:{},cur:o.cur,rot:A[o.cur]?A[o.cur].a:0,base:Math.round(58*Math.min(1.2,k))};
   host.__S=S;setTimeout(function(){live3d(host)},60);
+  /* al subir o bajar, la espiral gira: el tramo que queda a media pantalla siempre viene al frente */
+  if(S.sc&&!S.sc.__twScroll){var tk=0;S.sc.__twScroll=1;S.sc.addEventListener("scroll",function(){var s2=S.sc.__S2||S;if(s2.raf||performance.now()<(s2.quiet||0)||tk)return;tk=requestAnimationFrame(function(){tk=0;var a=angleAtScroll(s2);if(a!=null&&Math.abs(a-s2.rot)>.3){s2.rot=a;render(s2)}})},{passive:true})}
+  if(S.sc)S.sc.__S2=S;
   A.forEach(function(it){S.btn[it.k2]=host.querySelector('.tw-n[data-i="'+it.k2+'"]')});
   S.first=o.units.map(function(u){var it=u.items[0];return it?A.indexOf(it):null});
   var r=-1;A.forEach(function(it,j){if(it.done&&r===j-1)r=j});S.doneA=r<0?a0:A[r].a+(A[r+1]?(A[r+1].a-A[r].a)/2:0);
@@ -133,7 +136,7 @@ var TORRE=(function(I){
  /* ---------- dibuja con el giro actual: camino (atrás y adelante), botones, etiquetas y Rumbo ---------- */
  function render(S,rbA,arc){
   var rot=S.rot,st=6,seg={b:["",""],f:["",""]},prev=null,sc0=S.sc?S.sc.scrollTop-S.padT:0,vh=S.sc?S.sc.clientHeight:900,ymin=(sc0-400)/S.k+S.ytop,ymax=(sc0+vh+400)/S.k+S.ytop;
-  for(var a=S.a0;a<=S.a1+.1;a+=st){var q=proj(a,rot),side=q.d<0?"b":"f",kind=a<=S.doneA?1:0,key=side+kind,pt=f1(q.x)+" "+f1(q.y);
+  var pyMin=sc0-350,pyMax=sc0+vh+350;for(var a=S.a0;a<=S.a1+.1;a+=st){var q=proj(a,rot),py=(q.y-S.ytop)*S.k;if(py<pyMin||py>pyMax){prev=null;continue}var side=q.d<0?"b":"f",kind=a<=S.doneA?1:0,key=side+kind,pt=f1(q.x)+" "+f1(q.y);
    if(prev&&prev.key===key)seg[side][kind]+="L"+pt;else seg[side][kind]+=(prev?"M"+prev.pt+"L":"M")+pt;prev={key:key,pt:pt}}
   for(var pi=0;pi<S.pb.length;pi++)S.pb[pi].setAttribute("d",seg.b[S.pb[pi].getAttribute("data-k")]);for(var pj=0;pj<S.pf.length;pj++)S.pf[pj].setAttribute("d",seg.f[S.pf[pj].getAttribute("data-k")]);
   S.items.forEach(function(it){var b=S.btn[it.k2];if(!b)return;var q=proj(it.a,rot),p=S.toPx(q),sc=.8+.2*(q.d+1)/2,bz=it.chest!=null?S.base*1.15:S.base;
@@ -152,7 +155,7 @@ var TORRE=(function(I){
   if(S.onRender)S.onRender();return rp}
  function ease(t){return t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2}
  function anim(S,dur,step,done){var t0=null;if(typeof RM==="function"&&RM()){step(1,1);done&&done();return}
-  function fr(ts){if(!t0)t0=ts;var t=Math.min(1,(ts-t0)/dur);step(ease(t),t);if(t<1)S.raf=requestAnimationFrame(fr);else{S.raf=0;done&&done()}}
+  function fr(ts){if(!t0)t0=ts;var t=Math.min(1,(ts-t0)/dur);step(ease(t),t);if(t<1)S.raf=requestAnimationFrame(fr);else{S.raf=0;S.quiet=performance.now()+260;done&&done()}}
   cancelAnimationFrame(S.raf);S.raf=requestAnimationFrame(fr)}
  function focus(S,i,done){var it=S.items[i];if(!it){done&&done();return}var r0=S.rot,r1=it.a;if(Math.abs(r1-r0)<.5){render(S);done&&done();return}
   anim(S,Math.min(900,300+Math.abs(r1-r0)*1.2),function(e){S.rot=r0+(r1-r0)*e;render(S);follow(S,it.py)},done)}
@@ -162,6 +165,8 @@ var TORRE=(function(I){
   anim(S,dur,function(e,t){var a=a0+(a1-a0)*e;S.rot=a;var p=render(S,a,Math.sin(Math.PI*t)*(bob||30)*S.k);follow(S,p.y)},function(){S.ship.classList.remove("is-flying");S.rot=a1;render(S);done&&done()})}
  function hop(S,i0,i1,done){var A=S.items,a0=A[i0]?A[i0].a:S.rot,a1=A[i1]?A[i1].a:S.a1;S.cur=i1;fly(S,a0,a1,Math.min(1300,600+Math.abs(a1-a0)*1.2),30,done)}
  function climbTop(S,i0,done){var a0=S.items[i0]?S.items[i0].a:S.rot;S.cur=-1;fly(S,a0,S.a1-10,1800,20,done)}
+ function angleAtScroll(S){var sc=S.sc;if(!sc)return null;var yc=sc.scrollTop-S.padT+sc.clientHeight*.55,lo=S.a0,hi=S.a1;
+  for(var n=0;n<22;n++){var m=(lo+hi)/2,y=S.toPx(proj(m,m)).y;if(y>yc)lo=m;else hi=m}return Math.max(S.a0,Math.min(S.a1,(lo+hi)/2))}
  function follow(S,y){var sc=S.sc;if(!sc)return;var want=y+S.padT-sc.clientHeight*.55;sc.scrollTop+=(want-sc.scrollTop)*.14}
  function scrollTo(S,y,smooth){var sc=S.sc;if(!sc)return;var t=Math.max(0,y+S.padT-sc.clientHeight*.58);if(smooth&&sc.scrollTo)sc.scrollTo({top:t,behavior:"smooth"});else sc.scrollTop=t}
  function pos(S,i){var it=S.items[i];return it?{x:it.px,y:it.py,sz:it.sz}:null}

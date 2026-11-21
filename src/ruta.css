@@ -593,19 +593,22 @@ img.tw-img.tw-back{opacity:.62;filter:saturate(.7)}
 @media (max-width:370px){.lc-fml{font-size:16px;gap:6px 14px}.lc-ft b{font-size:18px}}
 .lc-fl{font:800 11.5px/1.2 var(--ff);font-style:normal;letter-spacing:.04em;text-transform:uppercase;color:var(--c-ink-3,#5A6A74)}
 
-/* ===== camino de caracol: pasarela de tablones con canto y sombra ===== */
+/* ===== camino de caracol místico: piedra lavanda con halo y destellos que viajan ===== */
 .tw-rib{fill:none;stroke-linecap:round;stroke-linejoin:round}
-.tw-pf .L-sh{stroke:rgba(40,28,16,.22);stroke-width:34;transform:translateY(10px)}
-.tw-pf .L-ed{stroke:#6B4A2A;stroke-width:32;transform:translateY(5px)}
-.tw-pf .L-tp.k0{stroke:#D7A866;stroke-width:28}
-.tw-pf .L-tp.k1{stroke:var(--c);stroke-width:28}
+.tw-pf .L-sh{stroke:rgba(178,150,255,.30);stroke-width:48}
+.tw-pf .L-sh.k1{stroke:color-mix(in srgb,var(--c) 40%,transparent)}
+.tw-pf .L-ed{stroke:#3B2A6B;stroke-width:30;transform:translateY(5px)}
 .tw-pf .L-ed.k1{stroke:var(--cd)}
-.tw-pf .L-pl{stroke-width:26;stroke-linecap:butt;stroke-dasharray:2.5 11}
-.tw-pf .L-pl.k0{stroke:#9C6E3C}.tw-pf .L-pl.k1{stroke:var(--cd);opacity:.55}
-.tw-pb .L-sh{display:none}
-.tw-pb .L-ed{stroke:#6B4A2A;stroke-width:20;transform:translateY(3px);opacity:.35}
-.tw-pb .L-tp.k0{stroke:#D7A866;stroke-width:17;opacity:.45}
-.tw-pb .L-tp.k1{stroke:var(--c);stroke-width:17;opacity:.45}
-.tw-pb .L-pl{stroke-width:15;stroke-linecap:butt;stroke-dasharray:2 9;opacity:.3}
-.tw-pb .L-pl.k0{stroke:#9C6E3C}.tw-pb .L-pl.k1{stroke:var(--cd)}
-.lp-dark .tw-pf .L-tp.k0{stroke:#C99A5B}
+.tw-pf .L-tp.k0{stroke:#D9D0FA;stroke-width:24}
+.tw-pf .L-tp.k1{stroke:var(--c);stroke-width:24}
+.tw-pf .L-pl{stroke-width:6;stroke-dasharray:.1 22;animation:twGlint 2.6s linear infinite}
+.tw-pf .L-pl.k0{stroke:#FFE08A}
+.tw-pf .L-pl.k1{stroke:#FFFFFF}
+.tw-pb .L-sh{stroke:rgba(178,150,255,.18);stroke-width:30}
+.tw-pb .L-ed{stroke:#3B2A6B;stroke-width:19;transform:translateY(3px);opacity:.4}
+.tw-pb .L-tp.k0{stroke:#D9D0FA;stroke-width:15;opacity:.5}
+.tw-pb .L-tp.k1{stroke:var(--c);stroke-width:15;opacity:.5}
+.tw-pb .L-pl{stroke:#FFE7A0;stroke-width:3;stroke-dasharray:.1 18;opacity:.5;animation:twGlint 2.6s linear infinite}
+@keyframes twGlint{to{stroke-dashoffset:-44}}
+.lp-dark .tw-pf .L-sh.k0{stroke:rgba(178,150,255,.42)}
+@media (prefers-reduced-motion:reduce){.tw-pf .L-pl,.tw-pb .L-pl{animation:none}}

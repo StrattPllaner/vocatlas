@@ -83,6 +83,7 @@ function loop(ts) {
     const S = it.host.__S, rot = S ? S.rot * Math.PI / 180 : 0;
     const yaw = -0.48 + it.ph + rot + (still ? 0 : t * 0.55);
     if (it.last !== undefined && Math.abs(yaw - it.last) < 0.004) return;
+    if (it.t && ts - it.t < 32) return; it.t = ts;
     it.last = yaw;
     if (draw(it.k, yaw, it.ctx) && !it.on) { it.on = true; it.el.classList.add('is-3d') }
   });
