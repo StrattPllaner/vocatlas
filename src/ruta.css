@@ -595,20 +595,55 @@ img.tw-img.tw-back{opacity:.62;filter:saturate(.7)}
 
 /* ===== camino de caracol místico: piedra lavanda con halo y destellos que viajan ===== */
 .tw-rib{fill:none;stroke-linecap:round;stroke-linejoin:round}
-.tw-pf .L-sh{stroke:rgba(178,150,255,.30);stroke-width:48}
-.tw-pf .L-sh.k1{stroke:color-mix(in srgb,var(--c) 40%,transparent)}
-.tw-pf .L-ed{stroke:#3B2A6B;stroke-width:30;transform:translateY(5px)}
-.tw-pf .L-ed.k1{stroke:var(--cd)}
-.tw-pf .L-tp.k0{stroke:#D9D0FA;stroke-width:24}
-.tw-pf .L-tp.k1{stroke:var(--c);stroke-width:24}
-.tw-pf .L-pl{stroke-width:6;stroke-dasharray:.1 22;animation:twGlint 2.6s linear infinite}
-.tw-pf .L-pl.k0{stroke:#FFE08A}
-.tw-pf .L-pl.k1{stroke:#FFFFFF}
-.tw-pb .L-sh{stroke:rgba(178,150,255,.18);stroke-width:30}
-.tw-pb .L-ed{stroke:#3B2A6B;stroke-width:19;transform:translateY(3px);opacity:.4}
-.tw-pb .L-tp.k0{stroke:#D9D0FA;stroke-width:15;opacity:.5}
-.tw-pb .L-tp.k1{stroke:var(--c);stroke-width:15;opacity:.5}
-.tw-pb .L-pl{stroke:#FFE7A0;stroke-width:3;stroke-dasharray:.1 18;opacity:.5;animation:twGlint 2.6s linear infinite}
-@keyframes twGlint{to{stroke-dashoffset:-44}}
-.lp-dark .tw-pf .L-sh.k0{stroke:rgba(178,150,255,.42)}
-@media (prefers-reduced-motion:reduce){.tw-pf .L-pl,.tw-pb .L-pl{animation:none}}
+/* camino de caracol: pasarela de piedra lavanda que flota, con canto violeta, losas, halo y destellos */
+.tw-rib.L-sh{stroke:rgba(178,150,255,.26);stroke-width:58}
+.tw-rib.L-sh.k1{stroke:color-mix(in srgb,var(--c) 32%,transparent)}
+.tw-rib.L-ed{fill:#4A3591;stroke:#4A3591;stroke-width:1.2}
+.tw-rib.L-ed.k1{fill:var(--cd);stroke:var(--cd)}
+.tw-rib.L-tp{fill:#E3DBFF;stroke:#B9A8F0;stroke-width:1.4}
+.tw-rib.L-tp.k1{fill:var(--c);stroke:color-mix(in srgb,var(--c) 70%,#000)}
+.tw-rib.L-sm{stroke:#C4B5F4;stroke-width:1.6}
+.tw-rib.L-sm.k1{stroke:color-mix(in srgb,var(--c) 75%,#000)}
+.tw-rib.L-pl{stroke-width:4.5;stroke-dasharray:.1 20;animation:twGlint 2.6s linear infinite}
+.tw-rib.L-pl.k0{stroke:#FFD45C}
+.tw-rib.L-pl.k1{stroke:#FFFFFF}
+.tw-stage .tw-pb{opacity:.72}
+.tw-pb .L-pl{stroke-width:3}
+@keyframes twGlint{to{stroke-dashoffset:-40}}
+.lp-dark .tw-rib.L-sh.k0{stroke:rgba(178,150,255,.4)}
+.lp-dark .tw-rib.L-tp.k0{fill:#CFC3FA}
+/* el suelo: isla de orilla a orilla */
+.tw-gwrap{position:absolute;left:0;right:0;bottom:0;z-index:0;pointer-events:none;overflow:hidden}
+.tw-ground{display:block;width:100%;height:100%}
+.tw-ground .g-hz{fill:#A8D9BC}
+.tw-ground .g-gr{fill:#9FDA8C}
+.tw-ground .g-gr2{fill:#8CCF7C}
+.tw-ground .g-cl{fill:#C48B5B}
+.tw-ground .g-st{fill:none;stroke:#A8734A;stroke-width:3;stroke-linecap:round;opacity:.7}
+.tw-ground .g-rk{fill:#9B8E83}
+.tw-ground .g-rkl{fill:none;stroke:#D8D0C6;stroke-width:2.4;stroke-linecap:round}
+.tw-ground .g-lip{fill:none;stroke:#5FAF55;stroke-width:9;stroke-linecap:round;stroke-linejoin:round}
+.tw-ground .g-sd{fill:#2E5A2A;opacity:.18}
+.tw-ground .g-tk{fill:#8A5A36}
+.tw-ground .g-cr{fill:#4FA34A}
+.tw-ground .g-hl{fill:#8ED67A}
+.tw-ground .g-bu{fill:#5DB352}
+.tw-ground .g-fl{fill:#FFFFFF}.tw-ground .g-fl2{fill:#FFC93D}
+.tw-ground .g-mu{fill:#E4554A}.tw-ground .g-mud{fill:#FFFFFF}
+.tw-ground .g-cy{fill:#9C83EC}.tw-ground .g-cy2{fill:#B9A4F7}.tw-ground .g-cyl{fill:#EDE6FF}
+.tw-ground .g-glow{fill:rgba(185,160,255,.22)}
+.tw-ground .g-ff{fill:#FFE58A;animation:twFly 3.2s ease-in-out infinite}
+.tw-ground .g-pzg{fill:rgba(178,150,255,.28)}
+.tw-ground .g-pzs{fill:#6E58B8}
+.tw-ground .g-pzt{fill:#E3DBFF;stroke:#B9A8F0;stroke-width:2}
+.tw-ground .g-pzr{fill:none;stroke:#B9A8F0;stroke-width:2}
+.tw-ground .g-pzu{fill:none;stroke:#FFD45C;stroke-width:3;stroke-dasharray:2 9;stroke-linecap:round;animation:twRune 9s linear infinite}
+.tw-ground .g-pzc{fill:#FFF1B8;stroke:#FFD45C;stroke-width:2}
+@keyframes twRune{to{stroke-dashoffset:-110}}
+@keyframes twFly{0%,100%{opacity:.15}50%{opacity:1}}
+.lp-dark .tw-ground .g-hz{fill:#1F4A45}.lp-dark .tw-ground .g-gr{fill:#2F6B48}.lp-dark .tw-ground .g-gr2{fill:#2A6042}
+.lp-dark .tw-ground .g-cl{fill:#6B4A33}.lp-dark .tw-ground .g-st{stroke:#573A27}.lp-dark .tw-ground .g-lip{stroke:#24533A}
+.lp-dark .tw-ground .g-cr{fill:#2E7043}.lp-dark .tw-ground .g-hl{fill:#4E9A5C}.lp-dark .tw-ground .g-bu{fill:#357A47}
+.lp-dark .tw-ground .g-glow{fill:rgba(185,160,255,.38)}
+@media (prefers-reduced-motion:reduce){.tw-rib.L-pl,.tw-ground .g-ff,.tw-ground .g-pzu{animation:none}}
+.lp-dark .tw-ground .g-pzt{fill:#B7A8EE}.lp-dark .tw-ground .g-pzs{fill:#3F2F7A}

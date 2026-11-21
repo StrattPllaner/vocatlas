@@ -92,24 +92,61 @@ var TORRE=(function(I){
 
  /* ---------- geometría de la espiral ---------- */
  function zAt(a){return FH*a/360+ISLE+70}
- function proj(a,rot,lift){var t=(a-rot+45)*D2R,x=Math.cos(t)*R,y=Math.sin(t)*R,z=zAt(a)+(lift||0),b=P(x,y,z),ax=P(0,0,z),d=Math.cos((a-rot)*D2R),k=1+PF*d;
+ function proj(a,rot,lift,r){r=r||R;var t=(a-rot+45)*D2R,x=Math.cos(t)*r,y=Math.sin(t)*r,z=zAt(a)+(lift||0),b=P(x,y,z),ax=P(0,0,z),d=Math.cos((a-rot)*D2R),k=1+PF*d;
   return {x:ax[0]+(b[0]-ax[0])*k,y:ax[1]+(b[1]-ax[1])*k+d*8,d:d,k:k}}
+ var LAY=["sh","ed","tp","sm","pl"],RIBS=LAY.map(function(l){return '<path class="tw-rib L-'+l+' k0" data-l="'+l+'" data-k="0"/><path class="tw-rib L-'+l+' k1" data-l="'+l+'" data-k="1"/>'}).join("");
  function angles(u,m){var o=[];for(var i=0;i<m;i++)o.push(u*360+(i+.5)*360/m);return o}
+ /* ---------- el suelo: la isla de la carrera cubre todo lo de abajo, de orilla a orilla ---------- */
+ function ground(id,W,H,gx,gy,iw){var sd=7;for(var i=0;i<id.length;i++)sd=(sd*31+id.charCodeAt(i))>>>0;
+  function rnd(){sd=(sd*1664525+1013904223)>>>0;return sd/4294967296}
+  function wave(y0,amp,n,ph){var o=[],m=Math.max(8,Math.round(W/26));for(var i=0;i<=m;i++){var x=W*i/m;o.push(f1(x)+" "+f1(y0+Math.sin(x/W*Math.PI*n+ph)*amp+Math.sin(x/W*Math.PI*n*2.7+ph*2)*amp*.35))}return o}
+  var hz=gy-iw*.2,cl=H-74,h="";
+  /* lomas lejanas, pradera, orilla de pasto y acantilado con capas de tierra */
+  h+='<path class="g-hz" d="M0 '+f1(H)+'L'+wave(hz-26,14,3,1.3).join("L")+'L'+W+' '+f1(H)+'Z"/>';
+  h+='<path class="g-gr" d="M0 '+f1(H)+'L'+wave(hz,7,4,.4).join("L")+'L'+W+' '+f1(H)+'Z"/>';
+  h+='<path class="g-gr2" d="M0 '+f1(H)+'L'+wave(hz+(cl-hz)*.45,6,5,2.1).join("L")+'L'+W+' '+f1(H)+'Z"/>';
+  var lip=wave(cl,6,6,.9);
+  h+='<path class="g-cl" d="M0 '+f1(H)+'L'+lip.join("L")+'L'+W+' '+f1(H)+'Z"/>';
+  for(var b=1;b<4;b++)h+='<path class="g-st" d="M'+wave(cl+b*(H-cl)/4,5,4+b,b*1.7).join("L")+'"/>';
+  for(var r=0;r<Math.round(W/34);r++){var rx=rnd()*W,ry=cl+18+rnd()*(H-cl-26),rr=3+rnd()*6;h+='<ellipse class="g-rk" cx="'+f1(rx)+'" cy="'+f1(ry)+'" rx="'+f1(rr*1.4)+'" ry="'+f1(rr)+'"/>'}
+  h+='<path class="g-lip" d="M'+lip.join("L")+'"/>';
+  /* al centro, la plaza de piedra de donde nace el camino, con un círculo de runas que gira */
+  var rx=iw*.34,ry=rx*.5;
+  h+='<ellipse class="g-pzg" cx="'+f1(gx)+'" cy="'+f1(gy+4)+'" rx="'+f1(rx*1.25)+'" ry="'+f1(ry*1.3)+'"/>';
+  h+='<path class="g-pzs" d="M'+f1(gx-rx)+' '+f1(gy)+'v12A'+f1(rx)+' '+f1(ry)+' 0 0 0 '+f1(gx+rx)+' '+f1(gy+12)+'v-12Z"/>';
+  h+='<ellipse class="g-pzt" cx="'+f1(gx)+'" cy="'+f1(gy)+'" rx="'+f1(rx)+'" ry="'+f1(ry)+'"/>';
+  h+='<ellipse class="g-pzr" cx="'+f1(gx)+'" cy="'+f1(gy)+'" rx="'+f1(rx*.8)+'" ry="'+f1(ry*.8)+'"/>';
+  h+='<ellipse class="g-pzu" cx="'+f1(gx)+'" cy="'+f1(gy)+'" rx="'+f1(rx*.62)+'" ry="'+f1(ry*.62)+'"/>';
+  h+='<ellipse class="g-pzc" cx="'+f1(gx)+'" cy="'+f1(gy)+'" rx="'+f1(rx*.3)+'" ry="'+f1(ry*.3)+'"/>';
+  /* lo que vive en la pradera: árboles, piedras, flores y cristales que brillan; nada justo detrás de la espiral */
+  var it=[],N=Math.round(W/30);
+  for(var k=0;k<N;k++){var x=rnd()*W,t=rnd(),y=hz+12+t*(cl-hz-26);if(Math.abs(x-gx)<iw*.4&&Math.abs(y-gy)<iw*.26)continue;it.push({x:x,y:y,s:.6+t*.6,k:rnd()})}
+  it.sort(function(a,b){return a.y-b.y});
+  it.forEach(function(o){var x=o.x,y=o.y,s=o.s;
+   if(o.k<.38)h+='<g transform="translate('+f1(x)+' '+f1(y)+') scale('+s.toFixed(2)+')"><ellipse class="g-sd" cx="4" cy="1" rx="17" ry="5"/><rect class="g-tk" x="-3" y="-20" width="6" height="21" rx="2"/><circle class="g-cr" cx="0" cy="-30" r="15"/><circle class="g-cr" cx="-9" cy="-20" r="10"/><circle class="g-cr" cx="9" cy="-21" r="11"/><circle class="g-hl" cx="-5" cy="-35" r="5"/></g>';
+   else if(o.k<.55)h+='<g transform="translate('+f1(x)+' '+f1(y)+') scale('+s.toFixed(2)+')"><ellipse class="g-sd" cx="3" cy="1" rx="13" ry="4"/><path class="g-cy" d="M-8 0L-10 -14L-5 -22L-1 -10Z"/><path class="g-cy2" d="M-2 0L0 -30L6 -38L10 -22L7 0Z"/><path class="g-cy" d="M6 0L10 -16L15 -12L13 0Z"/><path class="g-cyl" d="M1 -30L6 -38L5 -18Z"/><circle class="g-glow" cx="2" cy="-18" r="20"/></g>';
+   else if(o.k<.72)h+='<g transform="translate('+f1(x)+' '+f1(y)+') scale('+s.toFixed(2)+')"><ellipse class="g-sd" cx="2" cy="1" rx="13" ry="4"/><path class="g-rk" d="M-12 0C-12 -9 -5 -13 1 -13C8 -13 12 -7 12 0Z"/><path class="g-rkl" d="M-7 -6C-6 -10 -2 -11 2 -11"/></g>';
+   else if(o.k<.86)h+='<g transform="translate('+f1(x)+' '+f1(y)+') scale('+s.toFixed(2)+')"><ellipse class="g-sd" cx="2" cy="1" rx="14" ry="4"/><circle class="g-bu" cx="-6" cy="-7" r="8"/><circle class="g-bu" cx="5" cy="-8" r="9"/><circle class="g-fl" cx="-4" cy="-10" r="2"/><circle class="g-fl2" cx="6" cy="-12" r="2"/><circle class="g-fl" cx="8" cy="-5" r="1.8"/></g>';
+   else h+='<g transform="translate('+f1(x)+' '+f1(y)+') scale('+s.toFixed(2)+')"><rect class="g-tk" x="-2" y="-9" width="4" height="9" rx="1.5"/><path class="g-mu" d="M-9 -8C-9 -16 9 -16 9 -8Z"/><circle class="g-mud" cx="-3" cy="-11" r="1.6"/><circle class="g-mud" cx="3" cy="-12" r="1.3"/></g>'});
+  /* luciérnagas */
+  for(var f=0;f<Math.round(W/60);f++)h+='<circle class="g-ff" cx="'+f1(rnd()*W)+'" cy="'+f1(hz-30+rnd()*(cl-hz+20))+'" r="'+f1(1.6+rnd()*1.6)+'" style="animation-delay:-'+(rnd()*4).toFixed(1)+'s"/>';
+  return '<svg class="tw-ground" viewBox="0 0 '+f1(W)+' '+f1(H)+'" preserveAspectRatio="xMidYMin slice" aria-hidden="true">'+h+'</svg>'}
  function symZ(u){return zAt(u*360+180)-48}
 
  /* ---------- arma la escena ---------- */
  function build(o){
   var id=o.id,host=o.host,A=[];
   o.units.forEach(function(u,ui){var an=angles(ui,u.items.length);u.items.forEach(function(it,j){it.a=an[j];A.push(it)})});
-  var nf=Math.max(1,Math.min(6,o.units.length)),a0=-30,a1=nf*360+20,xs=R*1.414*(1+PF)+40,ytop=-(zAt(a1)+150),ybot=150,Wd=xs*2,Hd=ybot-ytop;
-  var vw=host.clientWidth||360,k=Math.max(.92,Math.min(1.6,(vw-12)/Wd)),Wp=Wd*k,Hp=Hd*k,padT=150,padB=40;
+  var nf=Math.max(1,Math.min(6,o.units.length)),a0=-(ISLE+70-12)*360/FH,a1=nf*360+20,xs=R*1.414*(1+PF)+40,ytop=-(zAt(a1)+150),ybot=150,Wd=xs*2,Hd=ybot-ytop;
+  var vw=host.clientWidth||360,k=Math.max(.92,Math.min(1.6,(vw-12)/Wd)),Wp=Wd*k,Hp=Hd*k,padT=150,padB=150;
   var toPx=function(p){if(p.length)p={x:p[0],y:p[1]};return {x:(p.x+xs)*k,y:(p.y-ytop)*k}};
   /* la isla en el suelo: boceto que se vuelve isla a color con el avance de toda la carrera */
   var ic=toPx(P(0,0,0)),iw=Wp*1.02;
-  var h='<div class="tw-scene" style="height:'+(Hp+padT+padB)+'px"><div class="tw-clouds" aria-hidden="true"><i></i><i></i><i></i><i></i></div>'+
+  var gW=host.clientWidth||(host.parentNode&&host.parentNode.clientWidth)||window.innerWidth||vw,SH2=Hp+padT+padB,gTop=padT+ic.y-iw*.3,gx=gW/2-Wp/2+ic.x;
+  var h='<div class="tw-scene" style="height:'+SH2+'px"><div class="tw-clouds" aria-hidden="true"><i></i><i></i><i></i><i></i></div>'+
+   '<div class="tw-gwrap" style="top:'+f1(gTop)+'px">'+ground(id,gW,SH2-gTop,gx,iw*.3,iw)+'</div>'+
    '<div class="tw-stage" style="width:'+Wp+'px;height:'+Hp+'px;top:'+padT+'px">'+
-   '<div class="tw-isle" style="left:'+f1(ic.x-iw/2)+'px;top:'+f1(ic.y-iw*.62)+'px;width:'+f1(iw)+'px;height:'+f1(iw)+'px">'+(typeof artSVG==="function"?artSVG(id,o.pg.p):"")+'</div>'+
-   '<svg class="tw-l tw-pb" viewBox="'+(-xs)+' '+ytop+' '+Wd+' '+Hd+'" aria-hidden="true"><path class="tw-rib L-sh k0" data-k="0"/><path class="tw-rib L-sh k1" data-k="1"/><path class="tw-rib L-ed k0" data-k="0"/><path class="tw-rib L-ed k1" data-k="1"/><path class="tw-rib L-tp k0" data-k="0"/><path class="tw-rib L-tp k1" data-k="1"/><path class="tw-rib L-pl k0" data-k="0"/><path class="tw-rib L-pl k1" data-k="1"/></svg>';
+   '<svg class="tw-l tw-pb" viewBox="'+(-xs)+' '+ytop+' '+Wd+' '+Hd+'" aria-hidden="true">'+RIBS+'</svg>';
   var sw=230*k,sh=230*k;
   for(var f=0;f<nf;f++){var u=o.units[f]||{done:0},L2=u.items?u.items.filter(function(it){return it.lid}):[],p=L2.length?u.done/L2.length:0,c=toPx(P(0,0,symZ(f)));
    var im=symImg(id,f);
@@ -118,7 +155,7 @@ var TORRE=(function(I){
    h+='<span class="tw-ul s-'+(u.state||"lock")+'" data-u="'+f+'">'+(f+1)+' · '+esc(u.t||"")+'</span>'}
   var stc=toPx(P(0,0,zAt(a1)+70));
   h+='<div class="tw-sym tw-starw" style="left:'+f1(stc.x-55*k)+'px;top:'+f1(stc.y-55*k)+'px;width:'+f1(110*k)+'px;height:'+f1(110*k)+'px"><svg viewBox="-50 -50 100 100" aria-hidden="true">'+star(o.mastered)+'</svg></div>';
-  h+='<svg class="tw-l tw-pf" viewBox="'+(-xs)+' '+ytop+' '+Wd+' '+Hd+'" aria-hidden="true"><path class="tw-rib L-sh k0" data-k="0"/><path class="tw-rib L-sh k1" data-k="1"/><path class="tw-rib L-ed k0" data-k="0"/><path class="tw-rib L-ed k1" data-k="1"/><path class="tw-rib L-tp k0" data-k="0"/><path class="tw-rib L-tp k1" data-k="1"/><path class="tw-rib L-pl k0" data-k="0"/><path class="tw-rib L-pl k1" data-k="1"/></svg>';
+  h+='<svg class="tw-l tw-pf" viewBox="'+(-xs)+' '+ytop+' '+Wd+' '+Hd+'" aria-hidden="true">'+RIBS+'</svg>';
   A.forEach(function(it){h+='<button type="button" class="rt3-n tw-n s-'+it.state+(it.chest!=null?" is-chest":"")+'" data-i="'+it.k2+'" aria-label="'+(it.lid?it.lid+" ":"")+esc(it.n)+(it.state==="done"?", hecha":it.state==="lock"?", todavía no":it.state==="soon"?", llega pronto":"")+'">'+o.nodeHTML(it)+'</button>'});
   h+='<div class="tw-globe" id="twGlobe" hidden></div><div class="tw-rb" id="lpRb"><div class="tw-ship">'+PLANE+'<div class="tw-pilot">'+o.rb+'</div></div></div></div></div>';
   host.innerHTML=h;
@@ -135,10 +172,20 @@ var TORRE=(function(I){
 
  /* ---------- dibuja con el giro actual: camino (atrás y adelante), botones, etiquetas y Rumbo ---------- */
  function render(S,rbA,arc){
-  var rot=S.rot,st=6,seg={b:["",""],f:["",""]},prev=null,sc0=S.sc?S.sc.scrollTop-S.padT:0,vh=S.sc?S.sc.clientHeight:900,ymin=(sc0-400)/S.k+S.ytop,ymax=(sc0+vh+400)/S.k+S.ytop;
-  var pyMin=sc0-350,pyMax=sc0+vh+350;for(var a=S.a0;a<=S.a1+.1;a+=st){var q=proj(a,rot),py=(q.y-S.ytop)*S.k;if(py<pyMin||py>pyMax){prev=null;continue}var side=q.d<0?"b":"f",kind=a<=S.doneA?1:0,key=side+kind,pt=f1(q.x)+" "+f1(q.y);
-   if(prev&&prev.key===key)seg[side][kind]+="L"+pt;else seg[side][kind]+=(prev?"M"+prev.pt+"L":"M")+pt;prev={key:key,pt:pt}}
-  for(var pi=0;pi<S.pb.length;pi++)S.pb[pi].setAttribute("d",seg.b[S.pb[pi].getAttribute("data-k")]);for(var pj=0;pj<S.pf.length;pj++)S.pf[pj].setAttribute("d",seg.f[S.pf[pj].getAttribute("data-k")]);
+  /* el camino es una pasarela de piedra flotante: cara de arriba con losas, canto que da la cara a la cámara, halo y destellos */
+  var rot=S.rot,st=5,HW=16,TH=11,sc0=S.sc?S.sc.scrollTop-S.padT:0,vh=S.sc?S.sc.clientHeight:900,pyMin=sc0-350,pyMax=sc0+vh+350,run=null,n=0,seg={b:{},f:{}};
+  LAY.forEach(function(l){seg.b[l]=["",""];seg.f[l]=["",""]});
+  function pt(q){return f1(q.x)+" "+f1(q.y)}
+  function flush(){if(run&&run.c.length>1){var g=seg[run.side],k=run.kind,rim=run.side==="f"?run.o:run.i,rb=run.side==="f"?run.ob:run.ib;
+    g.tp[k]+="M"+run.o.join("L")+"L"+run.i.slice().reverse().join("L")+"Z";g.ed[k]+="M"+rim.join("L")+"L"+rb.slice().reverse().join("L")+"Z";
+    g.sh[k]+="M"+run.c.join("L");g.pl[k]+="M"+run.c.join("L");g.sm[k]+=run.sm}run=null}
+  for(var a=S.a0;a<=S.a1+.1;a+=st,n++){var q=proj(a,rot),py=(q.y-S.ytop)*S.k;if(py<pyMin||py>pyMax){flush();continue}
+   var side=q.d<0?"b":"f",kind=a<=S.doneA?1:0,key=side+kind,o=pt(proj(a,rot,0,R+HW)),i2=pt(proj(a,rot,0,R-HW)),ob=pt(proj(a,rot,-TH,R+HW)),ib=pt(proj(a,rot,-TH,R-HW)),c=pt(q);
+   if(run&&run.key!==key){var last=run;flush();run={key:key,side:side,kind:kind,o:[last.o[last.o.length-1]],i:[last.i[last.i.length-1]],ob:[last.ob[last.ob.length-1]],ib:[last.ib[last.ib.length-1]],c:[last.c[last.c.length-1]],sm:""}}
+   if(!run)run={key:key,side:side,kind:kind,o:[],i:[],ob:[],ib:[],c:[],sm:""};
+   run.o.push(o);run.i.push(i2);run.ob.push(ob);run.ib.push(ib);run.c.push(c);if(n%4===0)run.sm+="M"+i2+"L"+o}
+  flush();
+  [[S.pb,"b"],[S.pf,"f"]].forEach(function(x){for(var pi=0;pi<x[0].length;pi++){var e=x[0][pi];e.setAttribute("d",seg[x[1]][e.getAttribute("data-l")][e.getAttribute("data-k")])}});
   S.items.forEach(function(it){var b=S.btn[it.k2];if(!b)return;var q=proj(it.a,rot),p=S.toPx(q),sc=.8+.2*(q.d+1)/2,bz=it.chest!=null?S.base*1.15:S.base;
    it.px=p.x;it.py=p.y;it.sz=bz*sc;it.d=q.d;
    if(b.__bz!==bz){b.__bz=bz;b.style.width=b.style.height=bz+"px"}
