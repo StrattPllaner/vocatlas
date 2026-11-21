@@ -38,6 +38,144 @@ const PU='#8E5BB5',TE='#2FA39A',OR='#F08A2E',PK='#F3A3B5',GL='#AEE0F2';const GY=
 
 const circ=(cx,cy,r,n,a0,a1)=>{a0=a0==null?0:a0;a1=a1==null?Math.PI*2:a1;const o=[];for(let i=0;i<n;i++){const a=a0+(a1-a0)*i/(n-(Math.abs(a1-a0-Math.PI*2)<1e-6?0:1));o.push([cx+Math.cos(a)*r,cy+Math.sin(a)*r])}return o};
 export const MODELS={
+  // Silla de madera con respaldo de travesaños
+  'disindustrial.a'(K){
+    K.box(46,5,42,WO,{m:'wood',p:[0,0,0],rad:1.6});
+    [[-19,-17],[19,-17],[-19,17],[19,17]].forEach(([x,z])=>K.box(4,36,4,'#8F5E30',{m:'wood',p:[x,-20,z],rad:1}));
+    [-19,19].forEach(x=>K.box(4,44,4,'#8F5E30',{m:'wood',p:[x,24,-17],rad:1}));
+    [36,26,16].forEach(y=>K.box(38,5,3,WO,{m:'wood',p:[0,y,-17],rad:1}));
+    K.box(38,2.4,2.4,'#8F5E30',{m:'wood',p:[0,-26,0],rad:0.8,r:[0,90,0]});
+  },
+  // Lámpara de escritorio articulada
+  'disindustrial.b'(K){
+    K.cyl(18,20,5,'#2B3540',{p:[0,-40,0]});
+    K.tube([[0,-38,0],[-12,0,0]],2,ST,{m:'metal'});K.sph(3.4,GY,{m:'metal',p:[-12,0,0]});
+    K.tube([[-12,0,0],[14,22,0]],2,ST,{m:'metal'});K.sph(3.4,GY,{m:'metal',p:[14,22,0]});
+    const h=K.group({p:[22,20,0],r:[0,0,-130]});K.lathe([[0.01,0],[6,0],[8,4],[16,16],[17,18],[0.01,6]].reverse(),YE,{parent:h});K.cyl(5,5,1,'#FFF6CC',{p:[0,14,0],parent:h});
+  },
+  // Gráfica en ascenso con flecha y moneda
+  'economia.a'(K){
+    K.tube([[-40,-30,0],[-18,-6,0],[-4,-16,0],[24,20,0]],4,GR,{tension:0});
+    K.cone(9,16,GR,{p:[30,27,0],r:[0,0,-43]});
+    K.cyl(12,12,4,GO,{m:'gold',p:[-26,24,0],r:[90,0,0]});K.tor(9,0.8,'#C9961E',{m:'gold',p:[-26,24,2.2]});
+  },
+  // Billete con marco, retrato y signo de pesos
+  'economia.b'(K){
+    K.box(88,46,3,'#8CC47A',{rad:2});
+    [1.8,-1.8].forEach(z=>{const g=K.group({p:[0,0,z],r:[0,z<0?180:0,0]});
+      K.box(80,38,0.5,'#6BA85A',{rad:2,parent:g});K.box(76,34,0.6,'#9FD38C',{rad:2,parent:g});
+      K.cyl(12,12,0.8,'#BFE3B0',{r:[90,0,0],parent:g});
+      K.tube([[4,6,0.6],[0,8,0.6],[-4,6,0.6],[-3,2,0.6],[3,-1,0.6],[4,-5,0.6],[0,-8,0.6],[-4,-6,0.6]],1,'#2F6A2E',{parent:g});K.tube([[0,11,0.6],[0,-11,0.6]],0.9,'#2F6A2E',{parent:g});
+      [[-32,-14],[32,14]].forEach(([x,y])=>K.cyl(4,4,0.8,'#BFE3B0',{p:[x,y,0],r:[90,0,0],parent:g}))});
+  },
+  // Gorro de chef con pliegues y banda
+  'gastronomia.a'(K){
+    K.cyl(22,22,22,WH,{p:[0,-20,0]});
+    for(let i=0;i<16;i++){const a=i/16*Math.PI*2;K.box(1,20,1,'#E1DDD3',{p:[Math.cos(a)*22.2,-20,Math.sin(a)*22.2]})}
+    [[0,14,0,20],[-16,8,0,15],[16,8,0,15],[0,8,-14,15],[0,8,14,15],[-10,18,8,13],[10,18,-8,13]].forEach(([x,y,z,r])=>K.sph(r,WH,{p:[x,y,z]}));
+  },
+  // Sartén con huevo estrellado y mango
+  'gastronomia.b'(K){
+    const g=K.group({r:[55,0,0]});
+    K.lathe([[0.01,-4],[28,-4],[33,4],[31,5],[26,-1],[0.01,-1]],'#2B3540',{parent:g});
+    K.cyl(14,14,1.6,WH,{p:[-2,0,2],parent:g,s:[1,1,0.8]});K.sph(6,YE,{p:[0,1,2],s:[1,0.6,1],parent:g});
+    K.cyl(3,3,36,BR,{m:'wood',p:[48,2,0],r:[0,0,90],parent:g});
+  },
+  // Plumilla de pluma fuente dorada
+  'grafico.a'(K){
+    const g=K.group({r:[0,0,-35]});
+    K.lathe([[0.01,0],[12,0],[11,10],[7,24],[3,34],[0.01,38]],GO,{m:'gold',s:[1,1,0.45],parent:g});
+    [5.6,-5.6].forEach(z=>{K.box(1,20,0.6,'#7A5A1A',{p:[0,22,z*0.9],parent:g});K.cyl(2.2,2.2,0.6,'#7A5A1A',{p:[0,12,z],r:[90,0,0],parent:g})});
+    K.cyl(10,12,14,'#2B3540',{p:[0,-7,0],parent:g});K.cyl(12.4,12.4,3,GO,{m:'gold',p:[0,-15,0],parent:g});
+    K.cyl(12,11,30,'#2B3540',{p:[0,-32,0],parent:g});K.sph(11,'#2B3540',{p:[0,-47,0],s:[1,0.5,1],parent:g});
+  },
+
+  // Engrane con flecha de mejora alrededor
+  'industrial.a'(K){
+    K.cyl(26,26,12,ST,{m:'metal',r:[90,0,0]});
+    for(let i=0;i<10;i++){const a=i/10*Math.PI*2;K.box(10,10,12,ST,{m:'metal',p:[Math.cos(a)*29,Math.sin(a)*29,0],r:[0,0,a*180/Math.PI],rad:1.6})}
+    K.cyl(9,9,13,'#5B6670',{r:[90,0,0]});K.cyl(4,4,14,'#3A4048',{r:[90,0,0]});
+    K.tor(44,3.6,OR,{arc:110,r:[0,0,95]});K.cone(8,14,OR,{p:[-5,44,0],r:[0,0,90]});
+  },
+  // Fábrica con techo de sierra, chimenea y humo
+  'industrial.b'(K){
+    K.box(70,30,36,'#B5583F',{p:[0,-14,0],rad:1});
+    for(let i=0;i<3;i++){K.ext('M0 0 L22 -14 L22 0 Z',36,'#9A4430',{bevel:0.6,p:[-35+i*22,1,0]});K.box(0.6,10,32,GL,{p:[-13+i*22,7,0]})}
+    K.cyl(5,6,52,'#9A4430',{p:[28,8,-8]});[0,10].forEach(y=>K.cyl(6.2,6.2,3,WH,{p:[28,14+y,-8]}));
+    [[30,40,6],[36,48,8],[44,54,6]].forEach(([x,y,r])=>K.sph(r,'#D5DCE2',{p:[x,y,-8]}));
+    for(let i=0;i<3;i++)K.box(10,8,1,YE,{p:[-22+i*18,-12,18.3],rad:1});K.box(12,16,1,'#5E3A20',{p:[-2,-21,18.3],rad:1});
+  },
+  // Letra pi en 3D
+  'matematicas.a'(K){
+    K.box(76,12,14,BL,{p:[0,30,0],rad:5});
+    K.ext('M-22 -28 H-10 V22 C-10 30 -16 34 -26 32 V22 C-22 22 -22 20 -22 18 Z',14,BL,{bevel:3});
+    K.ext('M10 -28 H22 V16 C22 22 26 24 32 22 V32 C20 38 10 32 10 20 Z',14,BL,{bevel:3});
+  },
+  // Pizarrón de operaciones: + − × =
+  'matematicas.b'(K){
+    K.box(70,70,10,'#2F5E45',{rad:10});
+    [5.4,-5.4].forEach(z=>{const g=K.group({p:[0,0,z]});
+      K.box(16,4,2,WH,{p:[-16,16,0],rad:1.6,parent:g});K.box(4,16,2,WH,{p:[-16,16,0],rad:1.6,parent:g});
+      K.box(16,4,2,WH,{p:[16,16,0],rad:1.6,parent:g});
+      K.box(16,4,2,WH,{p:[-16,-16,0],r:[0,0,45],rad:1.6,parent:g});K.box(16,4,2,WH,{p:[-16,-16,0],r:[0,0,-45],rad:1.6,parent:g});
+      K.box(16,4,2,WH,{p:[16,-12,0],rad:1.6,parent:g});K.box(16,4,2,WH,{p:[16,-20,0],rad:1.6,parent:g})});
+  },
+  // Brazo robótico industrial
+  'mecatronica.a'(K){
+    K.cyl(22,24,6,'#5B6670',{p:[0,-42,0]});K.cyl(14,14,10,OR,{p:[0,-34,0]});
+    K.sph(7,'#3A4048',{p:[0,-26,0]});
+    K.tube([[0,-26,0],[-10,4,0]],6,OR,{});K.sph(6,'#3A4048',{p:[-10,4,0]});
+    K.tube([[-10,4,0],[18,22,0]],5,OR,{});K.sph(5,'#3A4048',{p:[18,22,0]});
+    K.cyl(4,4,8,ST,{m:'metal',p:[24,26,0],r:[0,0,-60]});
+    [-1,1].forEach(sd=>K.box(3,12,4,ST,{m:'metal',p:[30,30+sd*5,0],r:[0,0,-60+sd*20],rad:0.8}));
+  },
+  // Engrane con circuito
+  'mecatronica.b'(K){
+    K.cyl(34,34,12,ST,{m:'metal',r:[90,0,0]});
+    for(let i=0;i<10;i++){const a=i/10*Math.PI*2;K.box(11,11,12,ST,{m:'metal',p:[Math.cos(a)*37,Math.sin(a)*37,0],r:[0,0,a*180/Math.PI],rad:1.6})}
+    [6.4,-6.4].forEach(z=>{K.box(36,36,1,GR,{p:[0,0,z],rad:3});
+      [[-8,8,16,0],[8,-6,0,14],[-10,-8,0,10]].forEach(([x,y,w,h])=>K.box(w||1.6,h||1.6,0.6,GO,{m:'gold',p:[x,y,z*1.12],rad:0.3}));
+      K.box(12,12,1.6,'#2B3540',{p:[4,4,z*1.15],rad:1})});
+  },
+  // Etiqueta de precio con hilo y signo de pesos
+  'mercadotecnia.b'(K){
+    K.shape([[-12,0],[10,-24],[46,-24],[46,24],[10,24]],[circ(2,0,4.5,24)],8,YE,{bevel:2});
+    [5,-5].forEach(z=>{K.tube([[34,10,z],[28,12,z],[22,9,z],[22,3,z],[30,-1,z],[34,-6,z],[30,-11,z],[22,-9,z]],1.4,'#8A5F12',{});K.tube([[28,16,z],[28,-16,z]],1.2,'#8A5F12',{})});
+    K.tube([[-1,0,0],[-10,10,4],[-20,22,4],[-30,26,0]],0.7,GY,{nocap:true});
+  },
+  // Vestido en gancho
+  'moda.a'(K){
+    K.tube([[-30,30,0],[0,40,0],[30,30,0]],1.4,ST,{m:'metal',tension:0});K.tube([[-30,30,0],[30,30,0]],1.4,ST,{m:'metal'});
+    K.tube([[0,40,0],[0,46,0],[5,50,0],[8,46,0]],1.4,ST,{m:'metal'});
+    K.lathe([[0.01,30],[10,30],[12,18],[9,6],[13,0],[34,-44],[0.01,-44]].reverse(),RE,{s:[1,1,0.55]});
+    K.tor(10,1.6,PK,{p:[0,6,0],r:[90,0,0],s:[1.05,1,0.6]});
+    [-6,6].forEach(x=>K.tube([[x,30,0],[x*1.4,36,0],[x*3,30,0]],1,RE,{}));
+  },
+  // Tijeras de costura con ojos rojos
+  'moda.b'(K){
+    [[-1,ST],[1,'#C9D0D6']].forEach(([sd,c])=>{const g=K.group({r:[0,0,sd*-22],p:[0,0,sd*1.4]});
+      K.ext('M-3 0 L3 0 L1 -54 Z',2.4,c,{m:'metal',bevel:0.8,parent:g});
+      K.tube([[0,0,0],[0,-10,0],[sd*-2,-16,0]],2.4,RE,{parent:g});K.tor(9,2.6,RE,{p:[sd*-6,-26,0],parent:g})});
+    K.cyl(2.6,2.6,6,GY,{m:'metal',r:[90,0,0]});
+  },
+
+  // Portafolio de piel con asa, cierres y esquineros
+  'negocios.a'(K){
+    K.box(80,52,26,BR,{p:[0,-6,0],rad:4});K.box(81,4,27,'#6E4426',{p:[0,6,0],rad:1});
+    K.tube([[-14,20,0],[-14,30,0],[14,30,0],[14,20,0]],2.8,'#5E3A20',{tension:0.2});
+    [13.4,-13.4].forEach(z=>{[-24,24].forEach(x=>K.box(8,6,1.4,GO,{m:'gold',p:[x,6,z],rad:1}));});
+    [[-38,18],[38,18],[-38,-30],[38,-30]].forEach(([x,y])=>[13,-13].forEach(z=>K.box(6,6,2,GO,{m:'gold',p:[x,y,z],rad:1.4})));
+  },
+  // Pelota de tenis con líneas de movimiento
+  'o_pelota2.a'(K){
+    K.sph(28,'#D9E85A',{p:[10,0,0]});
+    const a=0.75,b=0.25,c=2*Math.sqrt(a*b),P=[];
+    for(let i=0;i<=72;i++){const t=i/72*Math.PI*2;const v=new THREE.Vector3(a*Math.cos(t)+b*Math.cos(3*t),a*Math.sin(t)-b*Math.sin(3*t),c*Math.sin(2*t)).normalize().multiplyScalar(28.3);P.push([v.x+10,v.y,v.z])}
+    K.tube(P,1.3,WH,{closed:true});
+    [[-26,10],[-30,0],[-26,-10]].forEach(([x,y])=>K.cap(1.6,14,'#C9C2B4',{p:[x,y,0],r:[0,0,90]}));
+  },
+
+
   // Puente colgante: torres, cables, tirantes, tablero y agua
   'civil.b'(K){
     K.box(96,4,14,'#B23A2E',{p:[0,-6,0],rad:1});
