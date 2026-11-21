@@ -34,10 +34,138 @@ export function kit(material,g){
   return K;
 }
 
-const PU='#8E5BB5',TE='#2FA39A',OR='#F08A2E';const GY='#8C96A0',ST='#A9B6C2',BK='#3A4048',WH='#F3F1EA',RE='#DE4A3C',BL='#3F82C4',GR='#4FAE5B',YE='#F6CD3B',BR='#8A5A36',WO='#B9804B',GO='#E8B53C',NA='#2D4A6E',CR='#F0E2C2',SK='#E7A97C';
+const PU='#8E5BB5',TE='#2FA39A',OR='#F08A2E',PK='#F3A3B5';const GY='#8C96A0',ST='#A9B6C2',BK='#3A4048',WH='#F3F1EA',RE='#DE4A3C',BL='#3F82C4',GR='#4FAE5B',YE='#F6CD3B',BR='#8A5A36',WO='#B9804B',GO='#E8B53C',NA='#2D4A6E',CR='#F0E2C2',SK='#E7A97C';
 
 const circ=(cx,cy,r,n,a0,a1)=>{a0=a0==null?0:a0;a1=a1==null?Math.PI*2:a1;const o=[];for(let i=0;i<n;i++){const a=a0+(a1-a0)*i/(n-(Math.abs(a1-a0-Math.PI*2)<1e-6?0:1));o.push([cx+Math.cos(a)*r,cy+Math.sin(a)*r])}return o};
 export const MODELS={
+  // Huella de perro con cruz veterinaria, almohadillas abombadas
+  'veterinaria.a'(K){
+    const B='#6B3F2A';
+    K.sph(22,B,{p:[0,-12,0],s:[1.1,0.85,0.45]});
+    [[-28,10,-25],[-11,26,-8],[11,26,8],[28,10,25]].forEach(([x,y,a])=>K.sph(9,B,{p:[x,y,0],s:[0.85,1.15,0.5],r:[0,0,a]}));
+    [9.6,-9.6].forEach(z=>{K.box(16,5,2,WH,{p:[0,-12,z],rad:1});K.box(5,16,2,WH,{p:[0,-12,z],rad:1})});
+  },
+  // Cabeza de perro: hocico, nariz, ojos, orejas caídas
+  'o_perro.a'(K){
+    const C='#D9A06A';
+    K.sph(26,C,{s:[1,1,0.9]});
+    K.sph(14,'#F2D6B3',{p:[0,-10,16],s:[1,0.8,0.9]});
+    K.sph(5,'#2B2B2B',{p:[0,-4,28],s:[1.2,0.9,0.9]});
+    [-1,1].forEach(sd=>{K.sph(4,'#2B2B2B',{p:[sd*10,8,22]});K.sph(1.2,WH,{p:[sd*10-1,9.6,25.6]});
+      K.sph(11,'#8A5A36',{p:[sd*25,-4,0],s:[0.55,1.3,0.9],r:[0,0,sd*15]})});
+    K.tube([[-5,-16,26],[0,-19,27],[5,-16,26]],0.9,'#2B2B2B',{});
+  },
+  // Cabeza de gato: orejas con interior rosa, ojos, nariz, bigotes
+  'o_gato.a'(K){
+    const C='#B4BDC6';
+    K.sph(28,C,{s:[1.05,0.95,0.85]});
+    [-1,1].forEach(sd=>{const e=K.group({p:[sd*16,24,0],r:[0,0,-sd*20]});K.cone(10,20,C,{parent:e,seg:4,r:[0,45,0]});K.cone(6,12,PK,{parent:e,p:[0,-2,4],seg:4,r:[0,45,0]});
+      K.sph(5,'#9BD58A',{p:[sd*10,4,21],s:[0.9,1.2,0.5]});K.sph(2,BK,{p:[sd*10,4,23.4],s:[0.5,1.4,0.5]});
+      [-3,3].forEach(dy=>K.tube([[sd*12,-8+dy*0.3,20],[sd*38,-6+dy,16]],0.4,'#5B6670',{nocap:true}))});
+    K.cone(3,3,PK,{p:[0,-5,24],r:[180,0,0]});
+  },
+  // Collar rojo con hebilla y placa dorada
+  'o_collar.a'(K){
+    K.tor(28,4.5,RE,{s:[1,1,0.7]});
+    for(let i=0;i<10;i++){const a=Math.PI*0.65+i*0.17;K.cyl(1,1,2,'#B23A2E',{p:[Math.cos(a)*28,Math.sin(a)*28,3.4],r:[90,0,0]})}
+    K.box(12,12,10,ST,{m:'metal',p:[0,28,0],rad:2});K.box(6,8,11,'#5B6670',{p:[0,28,0],rad:1});
+    K.tor(3.4,1.1,GO,{m:'gold',p:[0,-33,0]});
+    K.cyl(11,11,2.6,GO,{m:'gold',p:[0,-46,0],r:[90,0,0]});
+    [1.6,-1.6].forEach(z=>K.ext('M0 -6 L1.8 -2 L6 -1.8 L2.8 1 L3.8 5.4 L0 3 L-3.8 5.4 L-2.8 1 L-6 -1.8 L-1.8 -2 Z',0.8,'#B8861C',{m:'gold',bevel:0.4,p:[0,-46,z]}));
+  },
+
+  // Plato de acero para mascota con croquetas
+  'o_platom.a'(K){
+    K.lathe([[0.01,-12],[38,-12],[40,-10],[30,10],[28,11],[24,4],[0.01,4]],ST,{m:'metal'});
+    for(let i=0;i<22;i++){const a=i*2.4,r=4+i*0.95;K.sph(3.4,i%3?'#8A5A36':'#6E4426',{p:[Math.cos(a)*r,5+Math.sin(i)*1.4,Math.sin(a)*r],s:[1,0.7,1]})}
+  },
+  // Monitor de signos vitales con onda, base y perillas
+  'biomedica.b'(K){
+    K.box(76,52,22,'#5B6670',{p:[0,8,0],rad:5});K.box(58,38,1,'#13283B',{p:[-6,10,11.2],rad:2});
+    K.tube([[-32,8,12],[-20,8,12],[-16,18,12],[-11,-4,12],[-7,12,12],[-4,8,12],[18,8,12]],1,'#5BE07A',{tension:0});
+    [16,4,-8].forEach(y=>K.cyl(3,3,3,'#3A4048',{p:[30,y,11],r:[90,0,0]}));
+    K.box(30,6,26,GY,{p:[0,-21,0],rad:2});K.box(60,4,1,'#3A4048',{p:[0,28,-11.4],rad:1});
+  },
+  // Marcapasos con su cable
+  'o_marcapasos.a'(K){
+    K.cyl(24,24,9,ST,{m:'metal',r:[90,0,0],s:[1,1.1,1]});
+    K.box(22,12,10,'#E9E3D6',{p:[0,30,0],rad:3});
+    [5.2,-5.2].forEach(z=>K.tube([[-10,0,z],[-4,0,z],[-1,7,z],[3,-8,z],[6,0,z],[12,0,z]],0.8,'#3E9E78',{tension:0}));
+    K.tube([[6,36,0],[14,46,0],[30,44,4],[38,26,6],[40,4,4]],1.6,BK,{});
+  },
+  // Silla de ruedas
+  'o_silla.a'(K){
+    [-1,1].forEach(sd=>{const z=sd*14;K.tor(24,1.6,BK,{p:[-4,-6,z]});K.tor(20,0.8,ST,{m:'metal',p:[-4,-6,z+sd*2]});
+      for(let i=0;i<8;i++){const a=i/8*Math.PI*2;K.tube([[-4,-6,z],[-4+Math.cos(a)*23,-6+Math.sin(a)*23,z]],0.4,GY,{m:'metal',nocap:true})}
+      K.cyl(4,4,3,BK,{p:[24,-26,z*0.9],r:[90,0,0]});K.tube([[18,0,z*0.9],[24,-22,z*0.9]],1.2,ST,{m:'metal'});
+      K.tube([[-14,36,z],[-12,6,z],[18,0,z]],1.3,ST,{m:'metal',tension:0.1});K.tube([[-14,36,z],[-22,38,z]],1.6,BK,{})});
+    K.box(30,4,28,BL,{p:[2,4,0],rad:2});K.box(4,26,28,BL,{p:[-13,20,0],r:[0,0,-6],rad:2});
+  },
+  // Grupo de tres personas
+  'sociologia.a'(K){
+    [[0,6,6,BL,1],[-24,0,-6,OR,0.85],[24,0,-6,GR,0.85]].forEach(([x,y,z,c,k])=>{K.sph(11*k,c,{p:[x,y+24*k,z]});K.cap(15*k,10*k,c,{p:[x,y-6*k,z],s:[1,1,0.7]})});
+  },
+  // Dos burbujas de diálogo con líneas de texto
+  'sociologia.b'(K){
+    K.ext('M-34 -36 H10 C16 -36 18 -32 18 -26 V-6 C18 0 16 4 10 4 H-16 L-26 14 V4 H-34 C-40 4 -42 0 -42 -6 V-26 C-42 -32 -40 -36 -34 -36 Z',10,BL,{bevel:2,p:[0,0,-6]});
+    K.ext('M-6 -2 H34 C40 -2 42 2 42 8 V28 C42 34 40 38 34 38 H28 V48 L18 38 H-6 C-12 38 -14 34 -14 28 V8 C-14 2 -12 -2 -6 -2 Z',10,OR,{bevel:2,p:[2,0,8]});
+    [[-30,24,22],[-30,18,14]].forEach(([x,y,w])=>K.box(w,2.4,1,WH,{p:[x+w/2,y,-0.2],rad:1}));
+    [[-6,-12,30],[-6,-20,20]].forEach(([x,y,w])=>K.box(w,2.4,1,WH,{p:[x+w/2,y,14.2],rad:1}));
+  },
+  // Destellos de IA
+  'o_chispa.a'(K){
+    const st='M0 -40 C3 -10 10 -3 40 0 C10 3 3 10 0 40 C-3 10 -10 3 -40 0 C-10 -3 -3 -10 0 -40 Z';
+    K.ext(st,10,PU,{bevel:3});
+    const a=K.group({p:[32,30,0],s:[0.38,0.38,0.6]});K.ext(st,10,'#B78BE0',{bevel:3,parent:a});
+    const b=K.group({p:[30,-32,0],s:[0.25,0.25,0.5]});K.ext(st,10,'#B78BE0',{bevel:3,parent:b});
+  },
+  // Robot: cabeza con visor, ojos, antena, orejas y rejilla
+  'ia.a'(K){
+    K.box(64,52,46,ST,{m:'metal',rad:12});K.box(50,24,4,'#2B3540',{p:[0,4,22],rad:8});
+    [-12,12].forEach(x=>{K.sph(6,'#5BD3F5',{p:[x,4,24],s:[1,1,0.5]})});
+    for(let i=0;i<5;i++)K.box(2,8,2,'#3A4048',{p:[-10+i*5,-16,23],rad:0.6});
+    K.cyl(1.6,1.6,14,GY,{m:'metal',p:[0,32,0]});K.sph(5,RE,{p:[0,41,0]});
+    [-1,1].forEach(sd=>K.cyl(8,8,8,GY,{m:'metal',p:[sd*35,0,0],r:[0,0,90]}));
+  },
+  // Chip con patas en los cuatro lados
+  'electronica.a'(K){
+    K=Object.assign({},K);const G=K.group({r:[55,0,0]});const o=K;['box','cyl'].forEach(f=>{const fn=o[f];K[f]=(...a)=>{const op=a[a.length-1];op.parent=op.parent||G;return fn(...a)}});
+    K.box(54,10,54,'#2B3540',{rad:3});K.cyl(3,3,1,'#5B6670',{p:[-18,5.2,-18]});
+    for(let i=0;i<5;i++){const t=-18+i*9;[[t,0,31,0],[t,0,-31,0],[31,0,t,90],[-31,0,t,90]].forEach(([x,y,z,r])=>{K.box(4,2,10,'#C9D0D6',{m:'metal',p:[x,-1,z],r:[0,r,0],rad:0.5});K.box(4,6,2,'#C9D0D6',{m:'metal',p:[x+(r?Math.sign(x)*4:0),-4,z+(r?0:Math.sign(z)*4)],r:[0,r,0],rad:0.5})})}
+  },
+  // Placa de circuito con chip, componentes y pistas
+  'electronica.b'(K){
+    K=Object.assign({},K);const G=K.group({r:[55,0,0]});const o=K;['box','cyl'].forEach(f=>{const fn=o[f];K[f]=(...a)=>{const op=a[a.length-1];op.parent=op.parent||G;return fn(...a)}});
+    K.box(80,4,62,'#2F8F4E',{rad:2});
+    [[-20,-14,24,0],[-8,10,0,20],[10,-20,30,0],[30,-4,0,18]].forEach(([x,z,w,d])=>K.box(w||1.6,0.5,d||1.6,'#E3B54A',{m:'gold',p:[x,2.2,z],rad:0.2}));
+    K.box(18,4,18,'#2B3540',{p:[0,4,0],rad:1});
+    K.cyl(4,4,10,'#3A82C4',{p:[24,7,16]});K.cyl(3,3,8,'#1F1F1F',{p:[-26,6,16]});
+    K.box(10,3,4,'#D9B48A',{p:[-22,3.6,-18],rad:1.4});
+    [[-36,-27],[36,-27],[-36,27],[36,27]].forEach(([x,z])=>K.cyl(2.4,2.4,4.4,'#1F5E36',{p:[x,0,z]}));
+  },
+  // Rayo
+  'electrica.a'(K){
+    K.ext('M8 -46 L-24 6 L-2 6 L-12 46 L24 -8 L2 -8 L14 -46 Z',14,YE,{bevel:3});
+  },
+  // Clavija con patas, cuerpo estriado y cable
+  'electrica.b'(K){
+    K.box(40,34,24,WH,{rad:8});
+    [-9,9].forEach(x=>{K.box(5,24,2,ST,{m:'metal',p:[x,28,0],rad:0.6});K.cyl(1.4,1.4,2.4,'#5B6670',{p:[x,32,0],r:[90,0,0]})});
+    for(let i=0;i<4;i++)K.box(40.6,1,24.6,'#D9DCD6',{p:[0,-4-i*3.6,0],rad:0.5});
+    K.cyl(7,5,10,'#2B3540',{p:[0,-22,0]});K.tube([[0,-26,0],[0,-36,0],[10,-44,6],[24,-42,10]],3,'#2B3540',{});
+  },
+  // Átomo: núcleo y tres órbitas con electrones
+  'fisica.a'(K){
+    K.sph(9,RE);
+    [0,60,120].forEach((a,i)=>{const g=K.group({r:[0,0,a]});K.tor(36,1.6,BL,{parent:g,r:[90,0,0],s:[1,0.4,1]});
+      const e=new THREE.Vector3(36,0,0);K.sph(3.6,'#5BD3F5',{p:[36*Math.cos(i),0,14*Math.sin(i)],parent:g})});
+  },
+  // Imán de herradura con polos plateados y chispas
+  'fisica.b'(K){
+    K.tor(22,8,RE,{arc:180,r:[0,0,180],p:[0,0,0]});
+    [-22,22].forEach(x=>{K.cyl(8,8,20,RE,{p:[x,10,0]});K.cyl(8.1,8.1,12,ST,{m:'metal',p:[x,26,0]})});
+  },
+
   // Silbato metálico con cámara, boquilla, ranura, argolla y cordón
   'educfisica.a'(K){
     K.cyl(16,16,16,ST,{m:'metal',r:[90,0,0]});K.box(36,13,16,ST,{m:'metal',p:[20,9,0],rad:3});
