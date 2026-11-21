@@ -118,10 +118,10 @@ var PATH=(function(){
    '<header class="rt2-head"><button class="lp-back rt2-back" id="pzx" aria-label="Volver al mapa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>'+
    '<div class="rt2-t"><h2>'+esc(c.name)+'</h2>'+(st.tower?'<small class="rt8-unit">'+(pg.p>=1?"Carrera dominada":"Unidad "+(cui+1)+" · "+esc(cu.t))+'</small>':'')+'<div class="rt2-pg"><div class="rt2-bar"><i style="width:'+(pg.p*100).toFixed(1)+'%"></i></div><b class="num">'+pg.done+(st.tower?' de '+pg.total+' lecciones':'/'+pg.total)+'</b></div></div>'+(typeof escHas==="function"&&escHas(id)?'<button type="button" class="rt2-esc" id="lpEsc" aria-label="Dónde estudiar '+esc(c.name)+'">'+icon('<path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5M22 9v6"/>',"lp-ic")+'<span><b>Escuelas</b><small>'+escCount(id)+'</small></span></button>':'')+'</header>'+
    (st.tower?'<div class="rt4-stage tw-wrap" id="lpScroll"><div class="tw-host" id="lpCol"></div></div>':'<div class="rt4-stage" id="lpScroll"><div class="rt4-col" id="lpCol"></div></div>')+
-   '<div class="rt2-card" id="lpPop" aria-live="polite"></div></div>';
+   '<div class="rt2-card" id="lpPop" aria-live="polite"></div>'+(typeof suBtn==="function"?suBtn(id):'')+'</div>';
   p.innerHTML=h;st.el=p.querySelector(".lp");st.sc=$("#lpScroll");
   if(st.tower)drawTower(id,cat,pg);else draw(id,cat,pg);
-  $("#pzx").onclick=function(){leave();exitPlaza()};var eb=$("#lpEsc");if(eb)eb.onclick=function(){escSheet(id)};
+  $("#pzx").onclick=function(){leave();exitPlaza()};var eb=$("#lpEsc");if(eb)eb.onclick=function(){escSheet(id)};var sb=$("#lpSu");if(sb)sb.onclick=function(){suSheet(id)};
   if(!st.rz){st.rz=1;var tm;window.addEventListener("resize",function(){clearTimeout(tm);tm=setTimeout(function(){if(st.sc&&st.sc.isConnected)placeRumbo(curIndex(),false)},120)})}
   var ci=curIndex();placeRumbo(ci,false);select(ci,false);toCur(ci,false);
  }
