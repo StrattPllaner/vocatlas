@@ -1,6 +1,7 @@
 /* ================= puertas en las nubes de la espiral ================= */
-.tw-door{position:absolute;z-index:5;padding:0;margin:0;border:0;background:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;font:inherit;color:inherit;-webkit-tap-highlight-color:transparent;animation:ptBob 5.5s ease-in-out infinite}
-.tw-door.is-r{animation-delay:-2.7s}
+.tw-door{position:absolute;left:0;top:0;z-index:5;transform-origin:50% 80%;transition:opacity .3s;padding:0;margin:0;border:0;background:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;font:inherit;color:inherit;-webkit-tap-highlight-color:transparent;}
+.tw-door.is-back{opacity:.35;pointer-events:none}
+.tw-door .pt-cl{opacity:.92}
 .tw-door .pt-cl{width:100%;height:auto;display:block;filter:drop-shadow(0 8px 14px rgba(40,60,110,.22));transition:transform .25s cubic-bezier(.3,1.4,.5,1)}
 .tw-door:active .pt-cl{transform:scale(.95)}
 .tw-door:focus-visible{outline:none}.tw-door:focus-visible .pt-cl{filter:drop-shadow(0 0 0 3px #fff) drop-shadow(0 0 6px var(--c,#3F86C6))}

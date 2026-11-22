@@ -2587,7 +2587,7 @@ img.tw-img.tw-back{opacity:.62;filter:saturate(.7)}
 @keyframes twWind{from{transform:translateX(-30%);opacity:1}to{transform:translateX(40%);opacity:0}}
 .tw-ship.is-flying .tw-wind{opacity:1}
 /* el camino de nubes medio transparente */
-.tw-stage .tw-cf{opacity:.78}.tw-stage .tw-cb{opacity:.5}
+.tw-stage .tw-cf{opacity:.55}.tw-stage .tw-cb{opacity:.32}
 @media (prefers-reduced-motion:reduce){.tw-pilot,.tw-ship,.tw-scarf,.tw-wind i{animation:none}}
 
 /* edificio de la carrera en su propia capa, entre las nubes de atrás (1) y las de adelante (4) */
@@ -2829,8 +2829,9 @@ body:not(.on-map):not(.lp-open)::before{content:"";position:fixed;left:0;right:0
 .es-alt{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
 .es-altb{min-height:44px;padding:8px 14px;border-radius:999px;border:2px solid #3A3026;background:#FFF8EA;font:inherit;font-weight:700;cursor:pointer}
 /* ================= puertas en las nubes de la espiral ================= */
-.tw-door{position:absolute;z-index:5;padding:0;margin:0;border:0;background:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;font:inherit;color:inherit;-webkit-tap-highlight-color:transparent;animation:ptBob 5.5s ease-in-out infinite}
-.tw-door.is-r{animation-delay:-2.7s}
+.tw-door{position:absolute;left:0;top:0;z-index:5;transform-origin:50% 80%;transition:opacity .3s;padding:0;margin:0;border:0;background:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;font:inherit;color:inherit;-webkit-tap-highlight-color:transparent;}
+.tw-door.is-back{opacity:.35;pointer-events:none}
+.tw-door .pt-cl{opacity:.92}
 .tw-door .pt-cl{width:100%;height:auto;display:block;filter:drop-shadow(0 8px 14px rgba(40,60,110,.22));transition:transform .25s cubic-bezier(.3,1.4,.5,1)}
 .tw-door:active .pt-cl{transform:scale(.95)}
 .tw-door:focus-visible{outline:none}.tw-door:focus-visible .pt-cl{filter:drop-shadow(0 0 0 3px #fff) drop-shadow(0 0 6px var(--c,#3F86C6))}
@@ -10900,9 +10901,9 @@ var TORRE=(function(I){
    h+='<div class="tw-sym tw-floor tw-3d'+(p>=1?" is-done":"")+'" data-k="'+symKey(id,f)+'" data-f="'+f+'" style="left:'+f1(c.x-sw/2)+'px;top:'+f1(c.y-sh*.72)+'px;width:'+f1(sw)+'px;height:'+f1(sh)+'px;animation-delay:-'+(f*.9)+'s">'+
     '<img class="tw-col" src="'+im+'" alt="" decoding="async"></div>';
    h+='<span class="tw-ul s-'+(u.state||"lock")+'" data-u="'+f+'">'+(f+1)+' · '+esc(u.t||"")+'</span>'}
-  /* una nube con puerta por unidad, a un lado de la espiral (izquierda y derecha alternadas), a la altura de su unidad */
-  if(o.door){var dw=Math.max(108,Math.min(150,Wp*.32));for(var f2=0;f2<nf;f2++){var dc=toPx(P(0,0,symZ(f2)+40)),rt=f2%2===1;
-   h+='<button type="button" class="tw-door s-'+o.door.state(id,f2)+(rt?' is-r':'')+'" data-c="'+id+'" data-u="'+f2+'" aria-label="'+esc(o.door.label(id,f2))+'" style="width:'+f1(dw)+'px;top:'+f1(dc.y-dw*.55)+'px;'+(rt?'right:':'left:')+'-'+f1(dw*.08)+'px">'+o.door.doorHTML(id,f2)+'</button>'}}
+  /* una nube con puerta por unidad, pegada por fuera al camino a media unidad: gira, sube y baja con la espiral */
+  if(o.door){var dw=Math.max(96,Math.min(132,Wp*.28));for(var f2=0;f2<nf;f2++)
+   h+='<button type="button" class="tw-door s-'+o.door.state(id,f2)+'" data-c="'+id+'" data-u="'+f2+'" aria-label="'+esc(o.door.label(id,f2))+'" style="width:'+f1(dw)+'px">'+o.door.doorHTML(id,f2)+'</button>'}
   var stc=toPx(P(0,0,zAt(a1)+70));
   h+='<div class="tw-sym tw-starw" style="left:'+f1(stc.x-55*k)+'px;top:'+f1(stc.y-55*k)+'px;width:'+f1(110*k)+'px;height:'+f1(110*k)+'px"><svg viewBox="-50 -50 100 100" aria-hidden="true">'+star(o.mastered,(byId[id]||{}).color)+'</svg></div>';
   h+='<canvas class="tw-cv tw-cf" aria-hidden="true"></canvas><svg class="tw-l tw-pf" viewBox="'+(-xs)+' '+ytop+' '+Wd+' '+Hd+'" aria-hidden="true">'+RIBS+'</svg>';
@@ -10919,6 +10920,7 @@ var TORRE=(function(I){
   if(S.sc&&!S.sc.__twScroll){var tk=0;S.sc.__twScroll=1;S.sc.addEventListener("scroll",function(){var s2=S.sc.__S2||S;if(s2.raf||tk)return;tk=requestAnimationFrame(function(){tk=0;if(performance.now()>=(s2.quiet||0)){var a=angleAtScroll(s2);if(a!=null)s2.rot=a}render(s2)})},{passive:true})}
   if(S.sc)S.sc.__S2=S;
   A.forEach(function(it){S.btn[it.k2]=host.querySelector('.tw-n[data-i="'+it.k2+'"]')});
+  S.doors=[];each(host.querySelectorAll(".tw-door"),function(b){var u=+b.getAttribute("data-u");S.doors.push({el:b,a:u*360+180,w:parseFloat(b.style.width)||110})});
   S.first=o.units.map(function(u){var it=u.items[0];return it?A.indexOf(it):null});
   var r=-1;A.forEach(function(it,j){if(it.done&&r===j-1)r=j});S.doneA=r<0?a0:A[r].a+(A[r+1]?(A[r+1].a-A[r].a)/2:0);
   S.lift=S.base*.62+26*k;render(S);return S}
@@ -10937,6 +10939,9 @@ var TORRE=(function(I){
    if(b.__bz!==bz){b.__bz=bz;b.style.width=b.style.height=bz+"px"}
    b.style.transform="translate("+f1(p.x-bz/2)+"px,"+f1(p.y-bz*.62)+"px) scale("+sc.toFixed(3)+")";
    var z=q.d<-.15?2:6;if(b.__z!==z){b.__z=z;b.style.zIndex=z;b.classList.toggle("is-back",z===2)}});
+  (S.doors||[]).forEach(function(o){var q=proj(o.a,rot,4,R+46),p=S.toPx(q),sc=.72+.28*(q.d+1)/2,back=q.d<-.2,b=o.el,hw=o.w*sc/2,vw2=(S.sc&&S.sc.clientWidth)||S.Wp,ox=(S.Wp-vw2)/2,px=Math.max(ox+hw-o.w*.1,Math.min(ox+vw2-hw+o.w*.1,p.x));
+   b.style.transform="translate("+f1(px-o.w/2)+"px,"+f1(p.y-o.w*.78)+"px) scale("+sc.toFixed(3)+")";
+   if(b.__bk!==back){b.__bk=back;b.style.zIndex=back?2:5;b.classList.toggle("is-back",back)}});
   for(var u=0;u<S.ul.length;u++){var e=S.ul[u],fi=S.first[u],q2=proj(fi!=null?S.items[fi].a:u*360,rot),p2=S.toPx(q2),bs=S.base*(.8+.2*(q2.d+1)/2);
    e.style.transform="translate(-50%,0) translate("+f1(p2.x)+"px,"+f1(p2.y+bs*.38+3)+"px)";
    var z3=q2.d<-.15?2:5;if(e.__z!==z3){e.__z=z3;e.style.zIndex=z3;e.style.opacity=z3===2?.45:1}
@@ -12140,9 +12145,9 @@ var PUERTAS=(function(){
    '<linearGradient id="ptw'+u+'" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#C98A4E"/><stop offset="1" stop-color="#9A6234"/></linearGradient>'+
    '<radialGradient id="ptl'+u+'" cx=".5" cy=".6" r=".7"><stop offset="0" stop-color="#FFF4C8"/><stop offset="1" stop-color="#F6C44E"/></radialGradient></defs>';
   /* nube: bultos con panza sombreada */
-  s+='<ellipse cx="86" cy="118" rx="62" ry="7" fill="#5A72A8" opacity=".18"/>';
-  [[40,92,28],[70,80,34],[104,78,36],[134,92,26],[86,100,40],[52,104,24],[122,104,24]].forEach(function(c){s+='<circle cx="'+c[0]+'" cy="'+c[1]+'" r="'+c[2]+'" fill="url(#ptg'+u+')"/>'});
-  s+='<path d="M22 104Q86 126 150 104Q146 118 86 120Q28 118 22 104Z" fill="#C8D3E8" opacity=".7"/>';
+  /* nube translúcida, del mismo tono que el camino de nubes */
+  s+='<g opacity=".62">';[[40,92,28],[70,80,34],[104,78,36],[134,92,26],[86,100,40],[52,104,24],[122,104,24]].forEach(function(c){s+='<circle cx="'+c[0]+'" cy="'+c[1]+'" r="'+c[2]+'" fill="url(#ptg'+u+')"/>'});
+  s+='<path d="M22 104Q86 126 150 104Q146 118 86 120Q28 118 22 104Z" fill="#B9C6E0" opacity=".7"/></g>';
   /* marco de piedra con arco y escalón */
   s+='<path d="M58 106V56Q58 30 85 30Q112 30 112 56V106Z" fill="#E9E1D0"/><path d="M58 106V56Q58 30 85 30Q112 30 112 56V106" fill="none" stroke="#C9BCA2" stroke-width="2"/>';
   s+='<rect x="54" y="104" width="62" height="7" rx="2" fill="#D8CDB6"/>';
@@ -12161,7 +12166,7 @@ var PUERTAS=(function(){
   if(st==="ready")s+='<g class="pt-key" transform="translate(132 46) rotate(-30)"><circle r="7" fill="#F6C44E" stroke="#B07A16" stroke-width="1.4"/><circle r="2.6" fill="#FFF4C8"/><path d="M7 0H24M18 0V5M22 0V4" stroke="#B07A16" stroke-width="3" stroke-linecap="round"/><path d="M7 0H24" stroke="#F6C44E" stroke-width="1.4" stroke-linecap="round"/></g>';
   return s+'</svg>'}
  function doorHTML(id,u){var d=D[u],st=state(id,u);
-  return cloudSVG(st,d.col,u)+'<span class="pt-lab"><b>'+esc(d.t)+'</b><small>'+(st==="lock"?"Llave en el cofre "+(u+1):st==="ready"?"¡Ya tienes la llave!":"Ábrela otra vez")+'</small></span>'}
+  return cloudSVG(st,d.col,u)+'<span class="pt-lab"><b>'+esc(d.t)+'</b>'+(st==="ready"?'<small>¡Ya tienes la llave!</small>':'')+'</span>'}
  function label(id,u){var d=D[u],st=state(id,u);return "Puerta "+(u+1)+": "+d.t+(st==="lock"?". Cerrada, su llave está en el cofre de la unidad "+(u+1):st==="ready"?". Tienes la llave":"")}
 
  /* ---------- lo que hay detrás de cada puerta ---------- */
