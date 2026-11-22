@@ -26,6 +26,7 @@ for f in sorted(glob.glob(D+'carreras/*.json')):
             l.pop('tarjetas',None)
     c['src']='datos/carreras/'+c['id']+'.json?v='+hashlib.sha1(raw).hexdigest()[:10]
     cat['car'][c['id']]=c
+cat['sym']=sorted(f[:-5] for f in os.listdir(os.path.join(os.path.dirname(os.path.abspath(__file__)),'..','media','sym')) if f.endswith('.webp'))
 js+='/* catálogo de contenido, copiado de datos/ por build.py; no se edita aquí */\nvar CAT='+json.dumps(cat,ensure_ascii=False,separators=(',',':'))+';\n'
 js+=open(src+'rumbo.js').read().replace('/*@skins*/',open(src+'skins.js').read())+'\n'
 js+=''.join(open(src+f).read()+'\n' for f in ['iso-lib.js','iso-gen.js','iso-env-old.js','iso-env.js','iso-bld.js','iso-bld2.js','iso-bld3.js','iso-map.js','iso-fix.js','islas3.js','simbolos.js','iso-art.js','rumbo-page.js','leccion.js','torre.js','ruta.js','intereses.js','comparar.js','sprite.js','amb.js','mine.js','escuelas.js','sueldo.js','voz.js','explica.js','perfil.js'])

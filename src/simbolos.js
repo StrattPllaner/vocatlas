@@ -227,7 +227,9 @@ var SIMB=(function(){
   return g}
  /* los símbolos se ven como imágenes 3D pre-renderizadas (media/sym); el dibujo vectorial queda para la silueta */
  function icon(id,v,size,o){o=o||{};if(o.silo)return '<svg class="sy" width="'+size+'" height="'+size+'" viewBox="-6 -6 114 114" aria-hidden="true">'+draw(id,v,true)+'</svg>';
-  return '<img class="sy" src="media/sym/'+id+'.'+(v||"a")+'.webp" width="'+size+'" height="'+size+'" alt="" loading="lazy" decoding="async">'}
+  /* si la carrera no tiene su propio símbolo (p. ej. Psicología), se usa el primero de sus seis; si aun así falla, la imagen se esconde */
+  var f=id+"."+(v||"a");if(typeof CAT!=="undefined"&&CAT.sym&&CAT.sym.indexOf(f)<0){var q=SIX[id]&&SIX[id].split(" ")[0];if(q&&CAT.sym.indexOf(q)>-1)f=q}
+  return '<img class="sy" src="media/sym/'+f+'.webp" width="'+size+'" height="'+size+'" alt="" loading="lazy" decoding="async" onerror="this.style.visibility=\'hidden\'">'}
  var PICK={};try{PICK=JSON.parse(localStorage.getItem("vocatlas_simbolos")||"{}")||{}}catch(e){}
  function pick(id,v){if(v){PICK[id]=v;try{localStorage.setItem("vocatlas_simbolos",JSON.stringify(PICK))}catch(e){}}return PICK[id]||"a"}
  /* seis símbolos por carrera, uno por unidad: el suyo primero y luego objetos de su mundo */
