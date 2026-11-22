@@ -3056,6 +3056,25 @@ body:not(.on-map):not(.lp-open)::before{content:"";position:fixed;left:0;right:0
 @keyframes mkPop{to{transform:none}}
 @keyframes mkRb{from{opacity:0;transform:translateY(20px) scale(.8)}}
 @media (prefers-reduced-motion:reduce){.mk-paper,.mk-route,.mk-isl .mk-pop,.mk-rb{animation:none;transform:none;opacity:1}}
+
+/* ---------- escena del pasaporte ---------- */
+.sc2{--sk0:#7EC6EA;--sk1:#C4E8F4;--sk2:#EAF7F6;--se0:#5CC0E0;--se1:#3AA2D6;--se2:#2A7FC0;--far:#8CC3C8;--far2:#A3D3D3;--cl:#FFFFFF;--clb:#DCE8F4;--sun:#FFE7A0}
+.sc2 .sk0{stop-color:var(--sk0)}.sc2 .sk1{stop-color:var(--sk1)}.sc2 .sk2{stop-color:var(--sk2)}
+.sc2 .se0{stop-color:var(--se0)}.sc2 .se1{stop-color:var(--se1)}.sc2 .se2{stop-color:var(--se2)}
+.sc2 .su0{stop-color:var(--sun);stop-opacity:.9}.sc2 .su1{stop-color:var(--sun);stop-opacity:.35}.sc2 .su2{stop-color:var(--sun);stop-opacity:0}
+.sc2 .sc-sundisk{fill:#FFF3C4}.sc2 .sc-far{fill:var(--far)}.sc2 .sc-far2{fill:var(--far2)}.sc2 .sc-hl{fill:#FFFFFF;opacity:.45}
+.sc2 .sc-cl{fill:var(--cl)}.sc2 .sc-clb{fill:none;stroke:var(--clb);stroke-width:4;stroke-linecap:round}
+.sc2 .sc-gl path{stroke:#FFFFFF;stroke-width:2.4;stroke-linecap:round;opacity:.15;animation:scGl 3.2s ease-in-out infinite;animation-delay:var(--gd)}
+.sc2 .sc-world{filter:none!important}
+.sc2 .sc-star{display:none;fill:#FFF6DA}
+@keyframes scGl{50%{opacity:.75}}
+.sc2 .sc-c1{animation:scDrift 30s ease-in-out infinite alternate}.sc2 .sc-c2{animation:scDrift 38s ease-in-out infinite alternate-reverse}
+@keyframes scDrift{to{transform:translateX(60px)}}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]) .sc2{--sk0:#0E1D3A;--sk1:#1E3A5E;--sk2:#2E557A;--se0:#2A5F86;--se1:#1D4A70;--se2:#122F4E;--far:#2E5C6E;--far2:#3A6C7E;--cl:#5A7898;--clb:#4A6888;--sun:#F3E9D2}
+ :root:not([data-theme=light]) .sc2 .sc-star{display:inline}:root:not([data-theme=light]) .sc2 .sc-sundisk{fill:#F3E9D2}}
+:root[data-theme=dark] .sc2{--sk0:#0E1D3A;--sk1:#1E3A5E;--sk2:#2E557A;--se0:#2A5F86;--se1:#1D4A70;--se2:#122F4E;--far:#2E5C6E;--far2:#3A6C7E;--cl:#5A7898;--clb:#4A6888;--sun:#F3E9D2}
+:root[data-theme=dark] .sc2 .sc-star{display:inline}
+@media (prefers-reduced-motion:reduce){.sc2 .sc-gl path,.sc2 .sc-c1,.sc2 .sc-c2{animation:none}}
 /* explicación animada, globo de Rumbo y video */
 .ex{background:#FFF8EA;border:2px solid #3A3026;border-radius:20px;padding:12px;box-shadow:0 4px 0 #3A3026;max-width:520px;color:#14323F}
 .ex-say{position:relative;min-height:64px;margin-top:10px}
@@ -5442,41 +5461,41 @@ var FL={step:null,mode:"new",fromFlow:false},CHT=null,SCRB=null,WIDE=window.matc
 var SCN=null,SCNRB=null;
 /* escena del pasaporte y la meta: isla isométrica con grosor, piezas del entorno, montañas con volumen y Rumbo al centro */
 function sceneHTML(){
- var I=ISO,E=ENV,P=I.P,f=I.f1,K=2.6,ox=400,oy=656+8*K,w="";
+ /* escena del pasaporte: cielo en degradado, horizonte con islas lejanas, mar en capas con brillos y una isla como las del mapa.
+    Para que no haya lag solo se animan cosas baratas (opacidad y desplazamiento de capas), sin filtros. */
+ var I=ISO,E=ENV,P=I.P,f=I.f1,K=2.5,ox=400,oy=650;
  function at(x,y,z,inner,k){var q=P(x,y,z);return '<g transform="translate('+f(q[0])+' '+f(q[1])+')'+(k?' scale('+k+')':'')+'">'+inner+'</g>'}
- /* cielo, sol y luna, estrellas */
- var sky='<rect class="sc-sky" width="800" height="800"/><rect class="sc-haze" y="300" width="800" height="200" fill="#FFFFFF" opacity=".18"/>';
- sky+='<g class="sc-sun"><circle cx="640" cy="170" r="92" opacity=".14"/><circle cx="640" cy="170" r="72" opacity=".22"/><circle cx="640" cy="170" r="56"/><path d="M604 150A40 40 0 0 1 640 122" stroke="#FFF3C8" stroke-width="8" fill="none" stroke-linecap="round"/></g>';
- sky+='<g class="sc-moon"><circle cx="640" cy="170" r="54" fill="#F3E9D2"/><circle cx="664" cy="152" r="48" class="sc-sky2"/><circle cx="612" cy="196" r="7" fill="#DCCFB2"/><circle cx="626" cy="214" r="4" fill="#DCCFB2"/></g>';
- var st="";[[120,120],[260,70],[420,150],[720,80],[540,300],[80,330],[330,250],[760,320],[200,230]].forEach(function(q,i){var r=i%3?5:7;st+='<path d="M'+q[0]+' '+(q[1]-r)+'Q'+q[0]+' '+q[1]+' '+(q[0]+r)+' '+q[1]+'Q'+q[0]+' '+q[1]+' '+q[0]+' '+(q[1]+r)+'Q'+q[0]+' '+q[1]+' '+(q[0]-r)+' '+q[1]+'Q'+q[0]+' '+q[1]+' '+q[0]+' '+(q[1]-r)+'Z"/>'});
+ var d='<defs>'+E.DEFS+'<linearGradient id="scSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" class="sk0"/><stop offset=".62" class="sk1"/><stop offset="1" class="sk2"/></linearGradient>'+
+  '<linearGradient id="scSea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" class="se0"/><stop offset=".35" class="se1"/><stop offset="1" class="se2"/></linearGradient>'+
+  '<radialGradient id="scSun" cx="0.5" cy="0.5" r="0.5"><stop offset="0" class="su0"/><stop offset=".35" class="su1"/><stop offset="1" class="su2"/></radialGradient>'+
+  '<radialGradient id="scShal" cx="0.5" cy="0.5" r="0.5"><stop offset=".55" stop-color="#8FE3E0"/><stop offset="1" stop-color="#8FE3E0" stop-opacity="0"/></radialGradient></defs>';
+ var sky='<rect width="800" height="800" fill="url(#scSky)"/><circle cx="610" cy="190" r="150" fill="url(#scSun)"/><circle class="sc-sundisk" cx="610" cy="190" r="44"/>';
+ var st="";[[120,120],[260,70],[420,150],[720,80],[540,300],[80,330],[330,250],[760,320],[200,230]].forEach(function(q,i){st+='<circle cx="'+q[0]+'" cy="'+q[1]+'" r="'+(i%3?1.8:2.6)+'"/>'});
  sky+='<g class="sc-star">'+st+'</g>';
- /* nubes con volumen, arriba y lejos del globo de diálogo */
- sky+='<g class="sc-c1">'+at(0,0,0,'<g transform="translate(150 196) scale(3.4)">'+E.cloud({k:1,ph:.3})+'</g>')+'</g><g class="sc-c2"><g transform="translate(470 96) scale(2.2)">'+E.cloud({k:1,ph:1.2})+'</g></g>';
- /* montañas del fondo: más claras atrás; cada una con lado iluminado y lado en sombra */
- function mount(x,base,wd,h,lit,shd,peak){var t=[x+(peak||0),base-h];return '<path d="M'+(x-wd)+' '+base+'L'+t[0]+' '+t[1]+'L'+(x+wd)+' '+base+'Z" fill="'+lit+'"/><path d="M'+t[0]+' '+t[1]+'L'+(x+wd)+' '+base+'L'+(t[0]+wd*.18)+' '+base+'Q'+(t[0]+wd*.06)+' '+(base-h*.5)+' '+t[0]+' '+t[1]+'Z" fill="'+shd+'"/>'}
- var mt='<g class="sc-mt">'+mount(110,486,170,110,"#C9DCD3","#B3CCC3",-20)+mount(330,486,140,70,"#C9DCD3","#B3CCC3",10)+mount(690,486,190,124,"#C9DCD3","#B3CCC3",14)+
-  mount(40,490,120,64,"#A9CDB3","#8FBA9D",8)+mount(770,490,110,56,"#A9CDB3","#8FBA9D",-6)+'</g>';
- /* mar en capas */
- var sea='<rect class="sc-sea" y="484" width="800" height="316"/><rect class="sc-sea2" y="600" width="800" height="200"/><rect y="484" width="800" height="16" fill="#FFFFFF" opacity=".25"/>';
- var gl="";for(var i=0;i<16;i++){var x=(i*137)%760+20,y=520+((i*71)%240);if(Math.abs(x-400)<150&&y>560)continue;gl+='<path class="m-glint" style="--gd:'+(i%5*.7).toFixed(1)+'s" d="M'+x+' '+y+'q6 -3 12 0q6 -3 12 0" stroke="#FFFFFF" stroke-width="2.2" fill="none" stroke-linecap="round"/>'}
- sea+='<g class="sc-waves">'+gl+'</g>';
- /* velero en el mar */
- sea+='<g class="sc-boat" transform="translate(150 596) scale(2.3)">'+E.sailboat({c:"#E0434B"})+'</g>';
- /* isla isométrica: aguas someras, espuma, acantilado, arena, ladera y pasto */
- var cp=I.blobPts(0,0,58,46,5,.7,.1,null,48),pl=I.blobPts(-2,-2,44,34,5,1,.12,null,48);
+ var cl=function(x,y,k){return '<g transform="translate('+x+' '+y+') scale('+k+')"><path d="M0 30Q0 14 18 13Q22 -4 44 0Q58 -12 78 2Q100 0 102 18Q118 20 116 30Z" class="sc-cl"/><path d="M6 30Q50 38 110 30" class="sc-clb"/></g>'};
+ sky+='<g class="sc-c1">'+cl(90,150,1.3)+'</g><g class="sc-c2">'+cl(430,90,.9)+'</g>';
+ /* horizonte: islas lejanas en azul verdoso */
+ var hz='<path class="sc-far" d="M0 470Q60 440 120 452Q170 430 230 466L230 472L0 472Z"/><path class="sc-far2" d="M560 472Q610 446 660 458Q720 436 800 456L800 472Z"/>';
+ var sea='<rect y="468" width="800" height="332" fill="url(#scSea)"/><rect y="468" width="800" height="3" class="sc-hl"/>';
+ var gl="";for(var i=0;i<14;i++){var x=(i*137)%760+20,y=500+((i*71)%260);if(Math.abs(x-400)<170&&y>540)continue;gl+='<path d="M'+x+' '+y+'h'+(14+i%3*6)+'" style="--gd:'+(i%5*.6).toFixed(1)+'s"/>'}
+ sea+='<g class="sc-gl">'+gl+'</g>';
+ sea+='<g class="sc-boat" transform="translate(140 590) scale(2.1)">'+E.sailboat({c:"#E0434B"})+'</g>';
+ /* isla: agua somera, espuma, pared de tierra, arena, pasto con manchas, palmeras, árbol, muelle, letrero y bandera */
+ var cp=I.blobPts(0,0,62,48,5,.7,.1,null,48),pl=I.blobPts(-2,-2,46,35,5,1,.12,null,48);
  function pd(pts,z,dy){return I.smooth(pts.map(function(q){var r=P(q[0],q[1],z);return [r[0],r[1]+(dy||0)]}))}
- var isl='<path d="'+pd(cp,0)+'" fill="#A6E6EC" stroke="#A6E6EC" stroke-width="22" stroke-linejoin="round"/>';
- isl+='<path class="m-foam" d="'+pd(cp,0,3)+'" fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-dasharray="10 7" stroke-linecap="round"/>';
- isl+='<path d="'+pd(cp,0,10)+'" fill="#C79A62"/><path d="'+pd(cp,0)+'" fill="#F4DFA6"/><path d="'+pd(cp,0,1.2)+'" fill="none" stroke="#FFF6DA" stroke-width="1.2" transform="translate(0 -2)"/>';
- isl+='<path d="'+pd(pl,0)+'" fill="#5FA347"/><path d="'+pd(pl,8)+'" fill="#8ED36B"/><path d="'+pd(pl,8)+'" fill="none" stroke="#C8F0A8" stroke-width="1.2"/>';
- /* piezas sobre la isla, de atrás hacia adelante; el centro queda libre para Rumbo */
- var flag=I.contact(2.6)+I.cyl(0,0,0,2.2,1.4,"#9C9389",{noGlint:true})+I.cyl(0,0,1.4,.6,30,"#5A4636",{noGlint:true})+
-  '<g transform="'+I.planeX(0,0,30)+'"><path d="M.6 0C5 -1.4 9 1.6 14 0C16 -.6 18 -.6 20 0L20 9C18 8.4 16 8.4 14 9C9 10.6 5 7.6 .6 9Z" fill="#F2B544"/><path d="M8 -.2C10 1 12 1 14 0L14 9C12 10 10 10 8 8.8Z" fill="#D9982E"/></g>';
- var objs=[[-28,-22,E.bush({k:.9,ph:.6})],[26,-24,E.treeRound({k:1,ph:.2})],[-34,8,E.palm({k:1})],[34,10,flag],[-8,26,E.flowers({k:1})]];
+ var c0=P(0,0,0),isl='<ellipse cx="'+f(c0[0])+'" cy="'+f(c0[1]+6)+'" rx="120" ry="64" fill="url(#scShal)"/>';
+ isl+='<path class="sc-foam" d="'+pd(cp,0,4)+'" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linejoin="round" opacity=".85"/>';
+ isl+='<path d="'+pd(cp,0,12)+'" fill="#B9864F"/><path d="'+pd(cp,0,6)+'" fill="#D6A66B"/><path d="'+pd(cp,0)+'" fill="#F2DCA6"/><path d="'+pd(cp,0)+'" fill="none" stroke="#E3C58A" stroke-width="5" opacity=".6"/>';
+ isl+='<path d="'+pd(pl,0)+'" fill="#5FA347"/><path d="'+pd(pl,4)+'" fill="#78BD55"/><path d="'+pd(pl,8)+'" fill="#95D873"/><path d="'+pd(pl,8)+'" fill="none" stroke="#C8F0A8" stroke-width="1.2"/>';
+ isl+='<path d="'+pd(I.blobPts(14,8,14,10,4,.3,.2,null,24),8)+'" fill="#82C962" opacity=".7"/><path d="'+pd(I.blobPts(-18,-10,12,9,4,.8,.2,null,24),8)+'" fill="#A9E38A" opacity=".6"/>';
+ var pier='';for(var k=0;k<5;k++)pier+=I.box(34+k*4,18,2,3.6,8,1,"#C99A5B",{noGlint:true});pier+=I.cyl(54,18,0,.7,4,"#8E6238",{noGlint:true})+I.cyl(54,26,0,.7,4,"#8E6238",{noGlint:true});
+ var sign=I.cyl(0,0,8,.7,14,"#7A5236",{noGlint:true})+'<g transform="'+I.planeX(-6,0,22)+'"><rect x="0" y="-6" width="14" height="6" rx="1" fill="#F6EBD2" stroke="#7A5236" stroke-width=".8"/><path d="M14 -6l3 3l-3 3z" fill="#F6EBD2" stroke="#7A5236" stroke-width=".8"/></g>';
+ var flag=I.cyl(0,0,8,.6,30,"#5A4636",{noGlint:true})+'<g transform="'+I.planeX(0,0,38)+'"><path d="M.6 0C5 -1.4 9 1.6 14 0L14 9C9 10.6 5 7.6 .6 9Z" fill="#F2B544"/></g>';
+ var objs=[[-30,-20,E.treeRound({k:1,ph:.6,c:"#4FAE52"})],[24,-26,E.palm({k:1.05})],[-38,10,E.palm({k:.95,flip:true})],[30,4,flag],[-14,24,E.flowers({k:1})],[14,22,E.bush({k:.8,ph:1})]];
  objs.sort(function(a,b){return a[0]+a[1]-b[0]-b[1]});
- objs.forEach(function(o){isl+=at(o[0],o[1],8,o[2])});
- w='<g transform="translate('+ox+' '+oy+') scale('+K+')">'+isl+'</g>';
- return '<div class="scene" aria-hidden="true"><svg class="sc-bg" viewBox="0 0 800 800" preserveAspectRatio="xMidYMax slice"><defs>'+E.DEFS+'</defs>'+sky+'<g class="sc-world">'+mt+sea+w+'</g></svg><div class="sc-say" id="scSay"></div><div class="sc-rb">'+rumboEl()+'</div></div>';
+ isl+=pier;objs.forEach(function(o){isl+=at(o[0],o[1],8,o[2])});
+ var w='<g transform="translate('+ox+' '+oy+') scale('+K+') translate('+f(-c0[0])+' '+f(-c0[1])+')">'+isl+'</g>';
+ return '<div class="scene sc2" aria-hidden="true"><svg class="sc-bg" viewBox="0 0 800 800" preserveAspectRatio="xMidYMax slice">'+d+sky+'<g class="sc-world">'+hz+sea+w+'</g></svg><div class="sc-say" id="scSay"></div><div class="sc-rb">'+rumboEl()+'</div></div>';
 }
 function sceneHTMLOld(){
  var cl='<path d="M0 60Q0 41 20 39Q23 15 52 17Q67-4 95 7Q119-1 129 23Q151 23 153 42Q166 46 164 60Z"/>';

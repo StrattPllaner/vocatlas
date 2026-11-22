@@ -62,3 +62,22 @@
 @keyframes mkPop{to{transform:none}}
 @keyframes mkRb{from{opacity:0;transform:translateY(20px) scale(.8)}}
 @media (prefers-reduced-motion:reduce){.mk-paper,.mk-route,.mk-isl .mk-pop,.mk-rb{animation:none;transform:none;opacity:1}}
+
+/* ---------- escena del pasaporte ---------- */
+.sc2{--sk0:#7EC6EA;--sk1:#C4E8F4;--sk2:#EAF7F6;--se0:#5CC0E0;--se1:#3AA2D6;--se2:#2A7FC0;--far:#8CC3C8;--far2:#A3D3D3;--cl:#FFFFFF;--clb:#DCE8F4;--sun:#FFE7A0}
+.sc2 .sk0{stop-color:var(--sk0)}.sc2 .sk1{stop-color:var(--sk1)}.sc2 .sk2{stop-color:var(--sk2)}
+.sc2 .se0{stop-color:var(--se0)}.sc2 .se1{stop-color:var(--se1)}.sc2 .se2{stop-color:var(--se2)}
+.sc2 .su0{stop-color:var(--sun);stop-opacity:.9}.sc2 .su1{stop-color:var(--sun);stop-opacity:.35}.sc2 .su2{stop-color:var(--sun);stop-opacity:0}
+.sc2 .sc-sundisk{fill:#FFF3C4}.sc2 .sc-far{fill:var(--far)}.sc2 .sc-far2{fill:var(--far2)}.sc2 .sc-hl{fill:#FFFFFF;opacity:.45}
+.sc2 .sc-cl{fill:var(--cl)}.sc2 .sc-clb{fill:none;stroke:var(--clb);stroke-width:4;stroke-linecap:round}
+.sc2 .sc-gl path{stroke:#FFFFFF;stroke-width:2.4;stroke-linecap:round;opacity:.15;animation:scGl 3.2s ease-in-out infinite;animation-delay:var(--gd)}
+.sc2 .sc-world{filter:none!important}
+.sc2 .sc-star{display:none;fill:#FFF6DA}
+@keyframes scGl{50%{opacity:.75}}
+.sc2 .sc-c1{animation:scDrift 30s ease-in-out infinite alternate}.sc2 .sc-c2{animation:scDrift 38s ease-in-out infinite alternate-reverse}
+@keyframes scDrift{to{transform:translateX(60px)}}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]) .sc2{--sk0:#0E1D3A;--sk1:#1E3A5E;--sk2:#2E557A;--se0:#2A5F86;--se1:#1D4A70;--se2:#122F4E;--far:#2E5C6E;--far2:#3A6C7E;--cl:#5A7898;--clb:#4A6888;--sun:#F3E9D2}
+ :root:not([data-theme=light]) .sc2 .sc-star{display:inline}:root:not([data-theme=light]) .sc2 .sc-sundisk{fill:#F3E9D2}}
+:root[data-theme=dark] .sc2{--sk0:#0E1D3A;--sk1:#1E3A5E;--sk2:#2E557A;--se0:#2A5F86;--se1:#1D4A70;--se2:#122F4E;--far:#2E5C6E;--far2:#3A6C7E;--cl:#5A7898;--clb:#4A6888;--sun:#F3E9D2}
+:root[data-theme=dark] .sc2 .sc-star{display:inline}
+@media (prefers-reduced-motion:reduce){.sc2 .sc-gl path,.sc2 .sc-c1,.sc2 .sc-c2{animation:none}}
