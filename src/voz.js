@@ -1,5 +1,5 @@
 /* ================= Rumbo habla =================
-   Voz: si existe media/voz/<id>.mp3 se usa ese audio (grabado); si no, la voz del navegador (Web Speech API):
+   Voz: si existe media/voz/<id>.m4a (generada con datos/generar_voz.py, voz davefx) se usa ese audio; si no, la voz del navegador (Web Speech API):
    «Google español» en Chrome; en los demás, una voz de hombre en español (de México primero).
    Boca: cinco formas (cerrada, entreabierta, abierta, redonda o/u, ancha e/i). Con la voz del navegador sigue los avisos
    de palabra (onboundary) y reparte las vocales de cada palabra; si la voz no los manda (algunas de Android), sigue un
@@ -43,18 +43,18 @@ var VOZ=(function(){
    function silent(){var words=text.split(/\s+/),t=0,per=estDur(text)/Math.max(1,words.length);words.forEach(function(w,i){setTimeout(function(){if(cur===tok)playWord(rb,w,per*.85,tok)},t);t+=per});tok.tm=setTimeout(done,t+200)}
    if(P.mute||opt.silent){silent();return}
    /* audio grabado, si existe */
-   var tryFile=line.id&&!opt.noFile;
+   var tryFile=line.id&&!opt.noFile&&typeof CAT!=="undefined"&&CAT.voz&&CAT.voz.indexOf(line.id)>-1;
    function tts(){if(!TTS){silent();return}var u=new SpeechSynthesisUtterance(text);u.lang=voice?voice.lang:"es-MX";if(voice)u.voice=voice;u.rate=P.rate;u.pitch=1.05;
     var gotB=false,words=text.split(/\s+/),wi=0,per=estDur(text)/Math.max(1,words.length);
     u.onboundary=function(e){if(cur!==tok||e.name&&e.name!=="word")return;gotB=true;var w=text.slice(e.charIndex).split(/\s/)[0]||"";playWord(rb,w,Math.max(140,w.length*58/P.rate),tok)};
     u.onstart=function(){/* si en 450 ms no llegó ningún aviso de palabra, la boca sigue un ritmo calculado */
      setTimeout(function(){if(gotB||cur!==tok)return;(function next(){if(cur!==tok||wi>=words.length)return;playWord(rb,words[wi],per*.85,tok);wi++;tok.tm=setTimeout(next,per)})()},450)};
     u.onend=done;u.onerror=function(){if(cur===tok)silent()};tok.u=u;speechSynthesis.speak(u)}
-   if(tryFile){var a=new Audio();a.preload="auto";a.src="media/voz/"+line.id+".mp3";a.playbackRate=P.rate;tok.a=a;
+   if(tryFile){var a=new Audio();a.preload="auto";a.src="media/voz/"+line.id+".m4a";a.playbackRate=P.rate;tok.a=a;
     a.onerror=function(){if(cur===tok){tok.a=null;tts()}};
     a.oncanplay=function(){if(cur!==tok)return;a.oncanplay=null;
      /* boca con el volumen real del audio */
-     try{var AC=window.AudioContext||window.webkitAudioContext,ac=VOZ._ac||(VOZ._ac=new AC()),src=ac.createMediaElementSource(a),an=ac.createAnalyser();an.fftSize=512;src.connect(an);an.connect(ac.destination);var buf=new Uint8Array(an.fftSize);
+     try{var AC=window.AudioContext||window.webkitAudioContext,ac=VOZ._ac||(VOZ._ac=new AC());if(ac.resume)ac.resume();var src=ac.createMediaElementSource(a),an=ac.createAnalyser();an.fftSize=512;src.connect(an);an.connect(ac.destination);var buf=new Uint8Array(an.fftSize);
       (function loop(){if(cur!==tok)return;an.getByteTimeDomainData(buf);var s=0;for(var i=0;i<buf.length;i++){var v=(buf[i]-128)/128;s+=v*v}var r=Math.sqrt(s/buf.length),o=Math.min(1,r*6);if(rb)rb.__vis=[1,.12+.88*o];requestAnimationFrame(loop)})()}catch(e){}
      a.play().catch(function(){if(cur===tok){tok.a=null;tts()}})};
     a.onended=done;a.load()}

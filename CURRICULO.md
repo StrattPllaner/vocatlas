@@ -134,7 +134,7 @@ Frases de testimonios en audio, de 10 a 20 segundos, siempre con su transcripci�
   - Con audios grabados, la boca seguirá el volumen real del audio.
 - **Manos:** gesticula con las manos que ya tiene (señalar, abrir, contar con los dedos) según la etiqueta de cada frase.
 - **Voz por ahora:** la síntesis de voz del navegador (Web Speech API). Elige la mejor voz en español de México que haya en el dispositivo, prefiriendo las de mayor calidad. Si no hay, usa otra voz en español.
-- **Para cambiar a audios grabados:** cada línea de diálogo tiene un `id` y su texto en el catálogo. Si existe `media/voz/<id>.mp3`, se usa ese audio con el mismo texto como subtítulo; si no, se usa la voz del navegador.
+- **Para cambiar a audios grabados:** cada línea de diálogo tiene un `id` y su texto en el catálogo. Si existe `media/voz/<id>.m4a`, se usa ese audio con el mismo texto como subtítulo; si no, se usa la voz del navegador.
 - **Nunca arranca solo:** el sonido empieza solo después de que el estudiante toca algo, como piden los navegadores.
 - **Controles:**
   - Botón de silenciar siempre visible; la preferencia se guarda en el dispositivo.

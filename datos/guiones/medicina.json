@@ -1,6 +1,6 @@
 {
   "carrera": "medicina",
-  "nota": "Guiones de Rumbo para Medicina. Cada línea tiene un id: si existe media/voz/<id>.mp3 se usa ese audio con el mismo texto como subtítulo; si no, la voz del navegador. Marca de revisión: medico (lo revisa un médico), oficial (se confirma en fuente oficial) o listo.",
+  "nota": "Guiones de Rumbo para Medicina. Cada línea tiene un id: si existe media/voz/<id>.m4a se usa ese audio con el mismo texto como subtítulo; si no, la voz del navegador. Marca de revisión: medico (lo revisa un médico), oficial (se confirma en fuente oficial) o listo.",
   "explicaciones": [
     {
       "id": "med-urgencias",

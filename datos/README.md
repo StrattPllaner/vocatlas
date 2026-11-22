@@ -69,3 +69,11 @@ python3 src/build.py
 Lo marcado con confianza «media» en la base se muestra con la etiqueta «Por confirmar». La duración y el costo por carrera también: salen de la base sin fuente oficial propia (estado `confirmar` en `cifras.json`, que el validador acepta sin enlace).
 
 - `carreras-extra.json`: las 31 carreras de la base que no estaban en la app, con su equivalente en la base (`fid`), subzona del mapa, temas, descripción y mini reto.
+
+## Voz de Rumbo
+
+Cada línea de diálogo de `guiones/<carrera>.json` (`{"id", "dice"}`) tiene su audio en `media/voz/<id>.m4a`. Se generan con `datos/generar_voz.py`, que solo rehace las líneas nuevas o las que cambiaron de texto.
+
+- Voz: modelo es_ES-davefx-medium de Piper, en tono un poco más agudo. Las grabaciones de origen tienen licencia CC0 y el modelo se publica con licencia MIT en [rhasspy/piper-voices](https://huggingface.co/rhasspy/piper-voices/tree/main/es/es_ES/davefx/medium).
+- Piper (el programa, GPL-3.0) solo se usa para generar los audios; no va dentro de la app.
+- Si una línea no tiene audio, la app usa la voz del navegador («Google español» en Chrome, o una voz de hombre en español).
