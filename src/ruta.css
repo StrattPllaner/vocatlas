@@ -657,3 +657,7 @@ img.tw-img.tw-back{opacity:.62;filter:saturate(.7)}
 /* el camino de nubes medio transparente */
 .tw-stage .tw-cf{opacity:.78}.tw-stage .tw-cb{opacity:.5}
 @media (prefers-reduced-motion:reduce){.tw-pilot,.tw-ship,.tw-scarf,.tw-wind i{animation:none}}
+
+/* edificio de la carrera en su propia capa, entre las nubes de atrás (1) y las de adelante (4) */
+.tw-bld{position:absolute;z-index:2;overflow:visible;pointer-events:none}
+.lp-dark .tw-bld{filter:brightness(.88)}
