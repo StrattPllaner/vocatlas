@@ -43,7 +43,10 @@ function grab(it){const src=it.src;if(!src||it.busy||!src.isConnected)return;it.
 /* copia una articulación del dibujo: el transform de su grupo alrededor de su pivote */
 function copyJoint(it,k,walk){const el=it.g2[k],o=it.J[k];if(!el||!o)return;const tl=el.transform&&el.transform.baseVal,m=tl&&tl.numberOfItems?tl.consolidate().matrix:null;
  const pv=o.userData.pv;if(!m){o.position.set(pv[0],pv[1],0);o.rotation.set(0,0,0);o.scale.set(1,1,1);return}
- const px=pv[0]+50,py=57.6-pv[1],dx=m.a*px+m.c*py+m.e-px,dy=m.b*px+m.d*py+m.f-py,r=Math.atan2(m.b,m.a),sx=Math.hypot(m.a,m.b),det=m.a*m.d-m.b*m.c,sy=det/(sx||1);
+ const px=pv[0]+50,py=57.6-pv[1],dx=m.a*px+m.c*py+m.e-px,dy=m.b*px+m.d*py+m.f-py,det=m.a*m.d-m.b*m.c;
+ /* si el dibujo se voltea en espejo (camina a la izquierda), se quita el espejo: en 3D eso volvería el modelo del revés
+    (se vería el contorno café por delante). Hacia dónde mira ya lo decide el giro del modelo */
+ const fa=det<0?-m.a:m.a,fb=det<0?-m.b:m.b,r=Math.atan2(fb,fa),sx=Math.hypot(fa,fb)||1,sy=Math.abs(det)/sx;
  if(walk&&LEGS[k]){/* caminando de lado: las piernas van de adelante hacia atrás */o.position.set(pv[0],pv[1]-dy,dx*.6);o.rotation.set(-r,0,0);o.scale.set(1,sy,1)}
  else{o.position.set(pv[0]+dx,pv[1]-dy,0);o.rotation.set(0,0,-r);o.scale.set(sx,sy,(sx+sy)/2)}}
 
