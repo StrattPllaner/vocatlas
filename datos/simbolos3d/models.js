@@ -1184,11 +1184,23 @@ export const MODELS={
 
 /* cara de Rumbo pintada en un lienzo: crema, marcas, ojos grandes con brillo, sonrisa, chapas y pecas */
 export function faceTex(o){o=o||{};const c=document.createElement('canvas');c.width=c.height=512;const g=c.getContext('2d'),R=256;
+  /* espalda: tapa de latón cerrada, como un reloj de bolsillo real: anillos grabados, rosa de los vientos al centro
+     (por su nombre, Rumbo), rayado radial fino y bisagra arriba */
+  if(o.back){const gr=g.createRadialGradient(R-60,R-70,20,R,R,256);gr.addColorStop(0,'#F7D27A');gr.addColorStop(.55,'#E3A845');gr.addColorStop(1,'#B8802A');g.fillStyle=gr;g.fillRect(0,0,512,512);
+    g.strokeStyle='rgba(122,74,22,.25)';g.lineWidth=2;for(let a=0;a<360;a+=4){const t=a*Math.PI/180;g.beginPath();g.moveTo(R+Math.cos(t)*120,R+Math.sin(t)*120);g.lineTo(R+Math.cos(t)*200,R+Math.sin(t)*200);g.stroke()}
+    [[236,10,'#9C6A22'],[212,5,'#FFE6A8'],[200,4,'#9C6A22'],[120,6,'#9C6A22'],[108,3,'#FFE6A8']].forEach(q=>{g.strokeStyle=q[2];g.lineWidth=q[1];g.beginPath();g.arc(R,R,q[0],0,7);g.stroke()});
+    /* rosa de los vientos: cuatro puntas largas y cuatro cortas, en dos tonos */
+    const star=(r1,r2,rot,c1,c2)=>{for(let k=0;k<4;k++){const t=rot+k*Math.PI/2,l=t-Math.PI/4,rr=t+Math.PI/4;
+      g.fillStyle=c1;g.beginPath();g.moveTo(R,R);g.lineTo(R+Math.cos(t)*r1,R+Math.sin(t)*r1);g.lineTo(R+Math.cos(rr)*r2,R+Math.sin(rr)*r2);g.fill();
+      g.fillStyle=c2;g.beginPath();g.moveTo(R,R);g.lineTo(R+Math.cos(t)*r1,R+Math.sin(t)*r1);g.lineTo(R+Math.cos(l)*r2,R+Math.sin(l)*r2);g.fill()}};
+    star(70,22,Math.PI/4,'#C98E2E','#F6D27E');star(100,28,-Math.PI/2,'#9C6A22','#FBE3A6');
+    g.fillStyle='#D9534F';g.beginPath();g.moveTo(R,R-100);g.lineTo(R+14,R-30);g.lineTo(R-14,R-30);g.fill();
+    g.fillStyle='#7A4A16';g.beginPath();g.arc(R,R,14,0,7);g.fill();g.fillStyle='#F6D27E';g.beginPath();g.arc(R-3,R-3,6,0,7);g.fill();
+    g.fillStyle='#9C6A22';g.fillRect(R-34,18,68,18);g.fillStyle='#F6D27E';g.fillRect(R-30,21,60,5);
+    return c}
   g.fillStyle='#FBF0DA';g.fillRect(0,0,512,512);
   g.strokeStyle='#C9B48C';g.lineCap='round';
   for(let a=0;a<360;a+=30){if(a===270)continue;const t=a*Math.PI/180,r0=a%90===0?196:208;g.lineWidth=a%90===0?9:7;g.beginPath();g.moveTo(R+Math.cos(t)*r0,R+Math.sin(t)*r0);g.lineTo(R+Math.cos(t)*232,R+Math.sin(t)*232);g.stroke()}
-  if(o.back){g.fillStyle='#D9534F';g.beginPath();g.moveTo(R,70);g.lineTo(R+22,150);g.lineTo(R-22,150);g.fill();g.fillStyle='#C9B48C';g.beginPath();g.moveTo(R,442);g.lineTo(R+22,362);g.lineTo(R-22,362);g.fill();
-    g.fillStyle='#E3A845';g.beginPath();g.arc(R,R,16,0,7);g.fill();return c}
   // chapas y pecas
   g.fillStyle='rgba(244,160,150,.7)';[[R-120,R+92],[R+120,R+92]].forEach(p=>{g.beginPath();g.ellipse(p[0],p[1],34,22,0,0,7);g.fill()});
   g.fillStyle='rgba(150,90,50,.55)';[[-126,70],[-110,84],[-134,88],[126,70],[110,84],[134,88]].forEach(p=>{g.beginPath();g.arc(R+p[0],R+p[1],4.5,0,7);g.fill()});

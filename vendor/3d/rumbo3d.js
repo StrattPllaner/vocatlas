@@ -65,8 +65,10 @@ function draw(it,ts,still){it.last=ts;if(!it.t0)it.t0=ts;const t=(ts-it.t0)/1000
  if(it.drive){const fast=it.host.closest('.is-flying')?1:0;const st=still?0:((fast?.36:.22)*Math.sin(t*2*Math.PI/1.9)+.07*Math.sin(t*2*Math.PI/.73));
   if(it.wheel)it.wheel.rotation.z=-st*1.6;it.piv.rotation.set(.16,(it.yaw==null?-.72:it.yaw)+st*.25+(it.spin?t*it.spin:0),st*.18)}
  else{PARTS.forEach(k=>copyJoint(it,k,walk));
-  const target=walk?(left?-1.05:1.05):(it.yaw==null?(left?.3:-.3):it.yaw)+(still?0:.1*Math.sin(t*.7));
-  it.yawNow+=(target-it.yawNow)*Math.min(1,walk?.25:.08);it.piv.rotation.set(.1,it.yawNow+(it.spin?t*it.spin:0),0)}
+  /* caminando mira hacia donde va: de frente si baja por la pantalla, de espaldas si sube, de lado si cruza */
+  const dir=wr&&wr.__dir;let target=walk?(dir?Math.atan2(dir[0],dir[1]):(left?-1.05:1.05)):(it.yaw==null?(left?.3:-.3):it.yaw)+(still?0:.1*Math.sin(t*.7));
+  let dy=target-it.yawNow;while(dy>Math.PI)dy-=2*Math.PI;while(dy<-Math.PI)dy+=2*Math.PI;
+  it.yawNow+=dy*Math.min(1,walk?.2:.08);it.piv.rotation.set(.1,it.yawNow+(it.spin?t*it.spin:0),0)}
  const PX=it.PX;R.setViewport(0,0,PX,PX);R.setScissor(0,0,PX,PX);R.setClearColor(0,0);R.clear();
  scene.add(it.piv);R.render(scene,it.cam);scene.remove(it.piv);
  const cx=it.ctx;cx.clearRect(0,0,PX,PX);cx.drawImage(R.domElement,0,MAXPX-PX,PX,PX,0,0,PX,PX)}

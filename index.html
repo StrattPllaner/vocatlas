@@ -4277,6 +4277,8 @@ function goTo(id){
    else{mv-=left;if(RB.ei<RB.plan.length-1){RB.ei++;RB.d=0}else{RB.d=e.len;mv=0;done=true}}
   }
   var p=edgePos(RB.plan[RB.ei],RB.d),ox=RB.x,oy=RB.y;RB.x=p[0];RB.y=p[1];
+  /* hacia dónde camina en pantalla (lo usa el Rumbo 3D: de frente al bajar, de espaldas al subir, de lado al cruzar) */
+  var mvx=RB.x-ox,mvy=RB.y-oy,ml=Math.hypot(mvx,mvy);if(ml>.01)RB.rb.__dir=[mvx/ml,mvy/ml];
   var dx=RB.x-px;if(Math.abs(dx)>1.2){setFacing(RB.rb,dx<0);px=RB.x}
   /* huellitas cada ~24 unidades */
   RB.acc+=Math.hypot(RB.x-ox,RB.y-oy);
@@ -4297,7 +4299,7 @@ function dropStep(x,y,a){
  var e=sv("ellipse",{rx:4.2,ry:2.8,"class":"step",transform:"translate("+(x+ox).toFixed(1)+" "+(y+oy).toFixed(1)+") rotate("+(a*180/Math.PI).toFixed(0)+")"},stepsL);
  setTimeout(function(){e.remove()},1850);
 }
-function stopWalk(){cancelAnimationFrame(RB.raf);RB.raf=0;RB.plan=null;RB.v=0;if(RB.rb){RB.rb.classList.remove("walk");RB.rb.__wv=null}walkbar(null)}
+function stopWalk(){cancelAnimationFrame(RB.raf);RB.raf=0;RB.plan=null;RB.v=0;if(RB.rb){RB.rb.classList.remove("walk");RB.rb.__wv=null;RB.rb.__dir=null}walkbar(null)}
 function finishWalk(){
  var id=RB.target;stopWalk();RB.at=id;var n=NODES[id];RB.x=n[0];RB.y=n[1];placeRumbo();arrive(id);
 }
@@ -6723,7 +6725,7 @@ var RUMBO=(function(){
 })();
 /* Rumbo en 3D en toda la app (vendor/3d/rumbo3d.js). Si el navegador no tiene WebGL, se queda el dibujo plano. */
 (function(){if(typeof window==="undefined"||!window.WebGLRenderingContext)return;
- function go(){import("./vendor/3d/rumbo3d.js?v=b797fd7366").then(function(m){m.auto()}).catch(function(){})}
+ function go(){import("./vendor/3d/rumbo3d.js?v=f32a3cdae3").then(function(m){m.auto()}).catch(function(){})}
  if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",go);else setTimeout(go,0)})();
 
 /* ================= ilustración isométrica: biblioteca =================
@@ -10095,7 +10097,7 @@ var TORRE=(function(I){
  /* los seis símbolos 3D de la carrera (media/sym), uno por unidad */
  function symKey(id,k){if(typeof SIMB!=="undefined"&&SIMB.has(id)){var q=SIMB.six(id)[k];if(q)return q.id+"."+q.v}return ""}
  /* símbolos 3D vivos: el motor se carga solo al abrir una espiral */
- var SYM3D=null;function live3d(host){if(!window.WebGLRenderingContext)return;(SYM3D||(SYM3D=import("./vendor/3d/sym3d.js?v=b797fd7366"))).then(function(m){m.mount(host)}).catch(function(){})}
+ var SYM3D=null;function live3d(host){if(!window.WebGLRenderingContext)return;(SYM3D||(SYM3D=import("./vendor/3d/sym3d.js?v=f32a3cdae3"))).then(function(m){m.mount(host)}).catch(function(){})}
  function symImg(id,k){if(typeof SIMB!=="undefined"&&SIMB.has(id)){var q=SIMB.six(id)[k];if(q)return "media/sym/"+q.id+"."+q.v+".webp"}return ""}
  function has(id){return !!byId[id]&&typeof ISO!=="undefined"}
  function star(on){var r=40,ri=17,p=[];for(var i=0;i<10;i++){var a=-Math.PI/2+i*Math.PI/5,rr=i%2?ri:r;p.push(f1(Math.cos(a)*rr)+","+f1(Math.sin(a)*rr))}
@@ -10192,7 +10194,7 @@ var TORRE=(function(I){
   '<path d="M41 77H59M50 77V86" stroke="#5B4A3A" stroke-width="2" stroke-linecap="round"/><circle cx="50" cy="77" r="2.6" fill="#E3A845" stroke="#3A3026" stroke-width="1"/></g>';
  /* Rumbo en 3D en la cabina (se ve bien desde cualquier ángulo); si no hay WebGL, queda el dibujo plano de frente */
  var RB3D=null;function drive3d(host){var pl=host.querySelector(".tw-pilot");if(!pl||!window.WebGLRenderingContext||pl.__r3)return;pl.__r3=1;
-  (RB3D||(RB3D=import("./vendor/3d/rumbo3d.js?v=b797fd7366"))).then(function(m){var r=m.mount(pl,{px:150});if(r)pl.classList.add("is-3d")}).catch(function(){})}
+  (RB3D||(RB3D=import("./vendor/3d/rumbo3d.js?v=f32a3cdae3"))).then(function(m){var r=m.mount(pl,{px:150});if(r)pl.classList.add("is-3d")}).catch(function(){})}
  function drive(host){setTimeout(function(){drive3d(host)},120);var rb=host.querySelector(".tw-pilot .rb");if(!rb)return;rb.classList.add("drive");rb.classList.remove("float");rb.setAttribute("data-pose-l","puño");rb.setAttribute("data-pose-r","puño");
   var root=rb.querySelector(".rk-root"),hd=rb.querySelector(".rk-handL");if(root&&hd&&!root.querySelector(".rk-wheel")){var t=document.createElementNS("http://www.w3.org/2000/svg","g");t.innerHTML=WHEEL;root.insertBefore(t.firstChild,hd)}}
  /* ---------- arma la escena ---------- */
