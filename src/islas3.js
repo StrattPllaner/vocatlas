@@ -28,8 +28,21 @@ var ISLAS3=(function(I,E,G,M){
   roca:{id:"roca",n:"C · Acantilados",d:"Paredes altas de roca en capas, el pasto llega al borde casi en toda la isla, pinos, agua honda y faro en un cabo.",sand:"#D9C9A0",wet:"#C8B48A",ct:"#9C968C",cb:"#6F6A63",wall:28,strata:true,exp:1,head:"all",sh:[16,48,8,16,3,6],vars:"--m-sh1:rgba(70,150,190,.3);--m-sh2:#4FA2C6;--m-sh3:#7DC0D8",hill:40,hillDn:48,layers:2,lz:10,pond:true,pier:false,palms:0,groves:1.4,pines:.85,grass:.18,lighthouse:true},
   montana:{id:"montana",n:"D · Montaña",d:"Una montaña grande de hasta cuatro terrazas con un arroyo que baja y cae en cascada por la pared de la isla.",sand:"#F2DCA8",wet:"#DFC38C",ct:"#C99A62",cb:"#9E7448",wall:18,exp:.3,head:[.78,.92],sh:[28,76,14,24,5,10],hill:66,hillDn:40,layers:4,lz:11,pond:false,fall:true,pier:true,palms:1,groves:1,pines:.5},
   rio:{id:"rio",n:"E · Río y selva",d:"Un río cruza la isla de costa a costa entre las carreras, con puentes de madera donde lo cruzan los caminos, cascadita al bajar a la playa y selva espesa.",sand:"#EAD6A0",wet:"#D6BC84",ct:"#B98E5C",cb:"#8E6A42",wall:14,exp:.38,head:[.8,.94],sh:[26,70,14,22,5,10],vars:"--m-sh1:rgba(90,200,190,.34);--m-sh2:#5CC6BE;--m-sh3:#9EE0D4",hill:0,pond:false,river:true,pier:false,palms:2.4,groves:1.7,pines:0,grass:.08},
-  pueblo:{id:"pueblo",n:"F · Pueblo",d:"En el claro más grande, una plaza empedrada con kiosco, faroles, bancas y bugambilias, como la plaza de un pueblo; playa con lanchas de pescadores.",sand:"#F2DCA8",wet:"#DFC38C",ct:"#C9946A",cb:"#9E6E4C",wall:15,exp:.4,head:[.78,.92],sh:[28,80,14,24,5,10],hill:0,hillDn:44,pond:false,plaza:true,pier:true,palms:1.2,groves:.8,pines:0,boats:true}};
+  pueblo:{id:"pueblo",n:"F · Pueblo",d:"En el claro más grande, una plaza empedrada con kiosco, faroles, bancas y bugambilias, como la plaza de un pueblo; playa con lanchas de pescadores.",sand:"#F2DCA8",wet:"#DFC38C",ct:"#C9946A",cb:"#9E6E4C",wall:15,exp:.4,head:[.78,.92],sh:[28,80,14,24,5,10],hill:0,hillDn:44,pond:false,plaza:true,pier:true,palms:1.2,groves:.8,pines:0,boats:true},
+  cenote:{id:"cenote",n:"G · Río, selva y cenote",d:"El de río y selva, y además un cenote en el claro más grande (pozo de agua turquesa con paredes de roca y raíces) y una pirámide maya en ruinas, como en la península de Yucatán.",sand:"#F4E6C2",wet:"#E2CFA0",ct:"#C9B48A",cb:"#9E8A64",wall:14,exp:.38,head:[.8,.94],sh:[30,80,16,26,6,12],vars:"--m-sh1:rgba(90,215,205,.36);--m-sh2:#5CD0C6;--m-sh3:#A6EADF",hill:0,hillDn:46,pond:false,river:true,cenote:true,ruins:true,pier:false,palms:2.4,groves:1.8,pines:0,grass:.1},
+  chinampas:{id:"chinampas",n:"H · Chinampas",d:"Como Xochimilco: canales rectos entre las carreras con camellones de flores (cempasúchil y otras), trajineras de colores y puentes donde cruzan los caminos.",sand:"#E9D9AE",wet:"#D6C08E",ct:"#A88A60",cb:"#7E6644",wall:10,exp:.5,head:null,sh:[26,70,14,22,5,10],hill:0,pond:false,canals:true,pier:true,palms:.6,groves:1.2,pines:0}};
  var ST=STY.tropical;
+ /* cada área con su propio pasto y sus propios árboles (especies que de verdad se ven en México):
+    Salud: pasto fresco, jacarandas moradas y árboles de flor rosa; Ingenierías: pasto seco olivo, pinos y cipreses;
+    Tecnología y ciencias: verde frío, árboles podados en cono y fresnos; Negocios: verde profundo, tabachines rojos y fresnos;
+    Arte: verde amarillento, primaveras amarillas, jacarandas y bugambilias */
+ var AREA3={
+  salud:{grass:"#95D873",grass2:"#82C962",side:"#62A84A",trees:[["treeRound","#9B7BD4"],["treeRound","#B394E6"],["treeRound","#F29BB8"],["treeRound","#4FAE52"],["treeRound","#5DBB5A"]]},
+  ing:{grass:"#B9CB6E",grass2:"#A6B95E",side:"#839A4C",trees:[["treePine","#2E7D5B"],["treePine","#3A8A60"],["treePine","#4E9A55"],["treeRound","#7A9E45"]]},
+  tec:{grass:"#80D1AA",grass2:"#6BC097",side:"#4E9E78",trees:[["treePine","#2FA08A"],["treePine","#3AAE90"],["treeRound","#3F9C7A"],["treeRound","#58B88E"]]},
+  neg:{grass:"#72BC5C",grass2:"#62AB4E",side:"#4B863C",trees:[["treeRound","#E8663A"],["treeRound","#EE7A3E"],["treeRound","#3F9C4A"],["treeRound","#2F8F4A"]]},
+  arte:{grass:"#C2DF72",grass2:"#AECF62",side:"#88AE4E",trees:[["treeRound","#F2C744"],["treeRound","#F5B83A"],["treeRound","#9B7BD4"],["bush","#C2378A"],["treeRound","#5DBB5A"]]}};
+ function lk(L){return AREA3[L.area.id]||M.look(L.area.biome)}
  function sm(a,b,x){var t=Math.min(1,Math.max(0,(x-a)/(b-a)));return t*t*(3-2*t)}
  /* modelo de la isla: dónde va cada cosa (se calcula una vez por mundo y lo usan la tierra y los objetos)
     - meseta irregular: el pasto avanza hacia el mar con ancho variable; en algunos tramos llega hasta el agua (cabo de roca)
@@ -63,14 +76,24 @@ var ISLAS3=(function(I,E,G,M){
      for(var s2=0;s2<=30;s2++){var u=s2/30,wg=Math.sin(u*Math.PI)*(w1*Math.sin(u*Math.PI*2)+w2);rp.push([ra[0]+(rb2[0]-ra[0])*u-dy*wg,ra[1]+(rb2[1]-ra[1])*u+dx*wg])}
      var sc2=1e9;rp.forEach(function(q){sc2=Math.min(sc2,dn(q[0],q[1]));W.bridges.forEach(function(bb){sc2=Math.min(sc2,Math.hypot(bb.p0[0]-q[0],bb.p0[1]-q[1])+16,Math.hypot(bb.p1[0]-q[0],bb.p1[1]-q[1])+16)})});
      if(sc2>rv){rv=sc2;rb=rp}}
-    if(rb&&rv>=50){f.river=rb;f.cross=[];
+    if(rb&&rv>=50)f.rivers=[rb]}
+   /* chinampas (Xochimilco): canales rectos dentro de la meseta, entre las carreras, con camellones de flores */
+   if(ST.canals){f.rivers=[];f.beds=[];var cand=[];for(k=0;k<400;k++){var ca=rr()*Math.PI,off2=(rr()-.5)*L.R*1.4,dx2=Math.cos(ca),dy2=Math.sin(ca),c0x=L.x-dy2*off2,c0y=L.y+dx2*off2;
+     if(!W.inPoly(c0x,c0y,pl))continue;var ext=function(sg){var t=0;while(t<L.R*3&&W.inPoly(c0x+dx2*t*sg,c0y+dy2*t*sg,pl))t+=3;return t-4},t0=ext(-1),t1=ext(1),cp=[];
+     for(var s3=0;s3<=16;s3++){var u2=-t0+(t0+t1)*s3/16;cp.push([c0x+dx2*u2,c0y+dy2*u2])}
+     var sc3=1e9;cp.forEach(function(q){sc3=Math.min(sc3,dn(q[0],q[1]))});if(sc3>=56&&t0+t1>50)cand.push({p:cp,s:sc3+(t0+t1)*.05,dx:dx2,dy:dy2})}
+    cand.sort(function(a,b){return b.s-a.s});cand.forEach(function(c){if(f.rivers.length>=3)return;if(f.rivers.some(function(r){return r.some(function(a){return c.p.some(function(b){return Math.hypot(a[0]-b[0],a[1]-b[1])<30})})}))return;f.rivers.push(c.p);
+     var cp=c.p;for(var bi2=2;bi2<cp.length-2;bi2+=2)[-1,1].forEach(function(sd){var bx=cp[bi2][0]-c.dy*sd*11,by=cp[bi2][1]+c.dx*sd*11;if(dn(bx,by)>46&&de(bx,by)>10&&W.inPoly(bx,by,pl))f.beds.push([bx,by,c.dx,c.dy,["#F29A2E","#E0607A","#F2C744","#9B7BD4"][(bi2+(sd>0?1:0))%4]])})})}
+   /* cenote: el claro más grande se vuelve un pozo de agua turquesa con paredes de roca y raíces que cuelgan */
+   if(ST.cenote&&hp&&bs>=4)f.cenote={x:hp[0],y:hp[1],R:Math.min(bs+14,30)};
+   if(f.rivers&&f.rivers.length){f.cross=[];f.drops=[];f.rivers.forEach(function(rb){
      /* cruces con los caminos: ahí van puentes */
      W.edges.forEach(function(e){var q=e.pts;for(var j=1;j<q.length;j++)for(var m2=1;m2<rb.length;m2++){var A=q[j-1],B2=q[j],C2=rb[m2-1],D=rb[m2],den=(B2[0]-A[0])*(D[1]-C2[1])-(B2[1]-A[1])*(D[0]-C2[0]);if(Math.abs(den)<1e-6)continue;
        var t1=((C2[0]-A[0])*(D[1]-C2[1])-(C2[1]-A[1])*(D[0]-C2[0]))/den,t2=((C2[0]-A[0])*(B2[1]-A[1])-(C2[1]-A[1])*(B2[0]-A[0]))/den;
        if(t1>=0&&t1<=1&&t2>=0&&t2<=1){var X=A[0]+(B2[0]-A[0])*t1,Y=A[1]+(B2[1]-A[1])*t1,ll2=Math.hypot(B2[0]-A[0],B2[1]-A[1])||1;
         if(!f.cross.some(function(c){return Math.hypot(c.x-X,c.y-Y)<10}))f.cross.push({x:X,y:Y,dx:(B2[0]-A[0])/ll2,dy:(B2[1]-A[1])/ll2,top:W.inPoly(X,Y,L.plateau)})}}});
      /* dónde baja de la meseta a la playa: ahí cae en cascadita */
-     f.drops=[];for(var m3=1;m3<rb.length;m3++){var i0=W.inPoly(rb[m3-1][0],rb[m3-1][1],pl),i1=W.inPoly(rb[m3][0],rb[m3][1],pl);if(i0!==i1)f.drops.push(i0?rb[m3-1]:rb[m3])}}}
+     for(var m3=1;m3<rb.length;m3++){var i0=W.inPoly(rb[m3-1][0],rb[m3-1][1],pl),i1=W.inPoly(rb[m3][0],rb[m3][1],pl);if(i0!==i1&&!ST.canals)f.drops.push(i0?rb[m3-1]:rb[m3])}})}
    /* laguna: otro punto libre, lejos del cerro */
    bs=-1;var pp=null;for(k=0;k<500;k++){aa=rr()*6.28;r=Math.sqrt(rr())*L.R;x=L.x+Math.cos(aa)*r;y=L.y+Math.sin(aa)*r;if(!W.inPoly(x,y,L.plateau))continue;
     sc=Math.min(dn(x,y)-48,de(x,y)-12,W.edgeDist(x,y,L.plateau)-6,f.hill?Math.hypot(f.hill.x-x,f.hill.y-y)-f.hill.R-14:1e9);if(sc>bs){bs=sc;pp=[x,y]}}
@@ -101,7 +124,7 @@ var ISLAS3=(function(I,E,G,M){
   var FE=feats(W);
   /* base sumergida: la isla sigue bajo el agua, más oscura, y le da cuerpo */
   ALL.forEach(function(L){sea+='<path d="'+M.closed(grow(L.coast,5,.4,G.hs(L.id+"u")),0,ST.wall+12)+'" fill="#0B4A72" opacity=".22"/>'});
-  ALL.forEach(function(L,li){var look=M.look(L.area.biome),gh=L.ghost,cid=I.uid("i3"),cid2=I.uid("i3"),s0=G.hs(L.id+"t"),fe=FE[L.id];
+  ALL.forEach(function(L,li){var look=lk(L),gh=L.ghost,cid=I.uid("i3"),cid2=I.uid("i3"),s0=G.hs(L.id+"t"),fe=FE[L.id];
    var pl=fe?fe.pl:grow(L.plateau,2.5,1.4,s0),dp=M.closed(pl,Z_TOP);
    land+='<g class="m-isle'+(gh?' m-ghost':'')+'"><g class="m-isle-in">';
    /* pared: roca abajo, tierra arriba, línea mojada al pie */
@@ -115,7 +138,7 @@ var ISLAS3=(function(I,E,G,M){
    land+='<clipPath id="'+cid+'"><path d="'+M.closed(L.coast,0)+'"/></clipPath><path d="'+M.closed(L.coast,0)+'" fill="'+(gh?"#EFE6CC":ST.sand)+'"/>';
    land+='<g clip-path="url(#'+cid+')"><path d="'+M.closed(L.coast,0)+'" fill="none" stroke="'+(gh?"#DDD3B8":ST.wet)+'" stroke-width="9"/><path d="'+M.closed(L.coast,0)+'" fill="none" stroke="#FFF6DA" stroke-width="1.2" opacity=".7" transform="translate(0 -5)"/></g>';
    /* río sobre la arena, de la meseta al mar (la meseta lo tapa adentro) */
-   if(fe&&fe.river){var rs=I.smooth(fe.river.map(function(q){return pj(q,0)}),false);land+='<g clip-path="url(#'+cid+')"><path d="'+rs+'" fill="none" stroke="'+ST.wet+'" stroke-width="16" stroke-linecap="round"/><path d="'+rs+'" fill="none" stroke="#5DBADA" stroke-width="10" stroke-linecap="round"/><path d="'+rs+'" fill="none" stroke="#8FD6EC" stroke-width="3" stroke-linecap="round" opacity=".8"/></g>'}
+   if(fe&&fe.rivers)fe.rivers.forEach(function(rv0){var rs=I.smooth(rv0.map(function(q){return pj(q,0)}),false);land+='<g clip-path="url(#'+cid+')"><path d="'+rs+'" fill="none" stroke="'+ST.wet+'" stroke-width="16" stroke-linecap="round"/><path d="'+rs+'" fill="none" stroke="#5DBADA" stroke-width="10" stroke-linecap="round"/><path d="'+rs+'" fill="none" stroke="#8FD6EC" stroke-width="3" stroke-linecap="round" opacity=".8"/></g>'})
    /* talud en dos tonos y meseta de pasto */
    var gr=gh?"#C3CDC2":ST.grass?I.mix(look.grass,"#4F8A5E",ST.grass):look.grass,gr2=gh?"#B4BFB3":ST.grass?I.mix(look.grass2,"#4F8A5E",ST.grass):look.grass2,sd=gh?"#98A497":look.side;
    land+='<path d="'+M.closed(pl,0)+'" fill="'+I.shade(sd,.06)+'"/><path d="'+M.closed(pl,Z_TOP*.5)+'" fill="'+I.mix(sd,gr,.45)+'"/><path d="'+dp+'" fill="'+gr+'"/>';
@@ -129,9 +152,19 @@ var ISLAS3=(function(I,E,G,M){
     land+='<path d="'+tu+'" stroke="'+I.shade(gr2,.12)+'" stroke-width=".7" stroke-linecap="round" fill="none" opacity=".7"/>'}
    land+='</g><path d="'+dp+'" fill="none" stroke="'+I.tint(gr,.45)+'" stroke-width="1.2" opacity=".75"/>';
    /* río sobre el pasto: orilla de tierra, agua en dos tonos y reflejos; cascadita donde baja a la playa */
-   if(fe&&fe.river){var rt=I.smooth(fe.river.map(function(q){return pj(q,Z_TOP)}),false);
-    land+='<g clip-path="url(#'+cid2+')"><path d="'+rt+'" fill="none" stroke="#B9A06C" stroke-width="17" stroke-linecap="round"/><path d="'+rt+'" fill="none" stroke="#4AA3C6" stroke-width="12" stroke-linecap="round"/><path d="'+rt+'" fill="none" stroke="#5DBADA" stroke-width="8" stroke-linecap="round"/><path d="'+rt+'" fill="none" stroke="#BFE8F6" stroke-width="1.2" stroke-dasharray="7 11" stroke-linecap="round" opacity=".9"/></g>';
+   if(fe&&fe.rivers){var cw=ST.canals?[13,9,6]:[17,12,8],bank=ST.canals?"#A89A78":"#B9A06C";fe.rivers.forEach(function(rv0){var rt=I.smooth(rv0.map(function(q){return pj(q,Z_TOP)}),false);
+    land+='<g clip-path="url(#'+cid2+')"><path d="'+rt+'" fill="none" stroke="'+bank+'" stroke-width="'+cw[0]+'" stroke-linecap="round"/><path d="'+rt+'" fill="none" stroke="#4AA3C6" stroke-width="'+cw[1]+'" stroke-linecap="round"/><path d="'+rt+'" fill="none" stroke="#5DBADA" stroke-width="'+cw[2]+'" stroke-linecap="round"/><path d="'+rt+'" fill="none" stroke="#BFE8F6" stroke-width="1.2" stroke-dasharray="7 11" stroke-linecap="round" opacity=".9"/></g>'});
     (fe.drops||[]).forEach(function(q){var a=pj(q,Z_TOP),b=pj(q,0);land+='<path d="M'+f1(a[0]-5)+' '+f1(a[1])+'L'+f1(a[0]+5)+' '+f1(a[1])+'L'+f1(b[0]+6)+' '+f1(b[1])+'L'+f1(b[0]-6)+' '+f1(b[1])+'Z" fill="#9ADCF0"/><path d="M'+f1(a[0]-2)+' '+f1(a[1])+'L'+f1(b[0]-2)+' '+f1(b[1])+'M'+f1(a[0]+2)+' '+f1(a[1])+'L'+f1(b[0]+2.4)+' '+f1(b[1])+'" stroke="#FFFFFF" stroke-width="1" opacity=".85"/><ellipse cx="'+f1(b[0])+'" cy="'+f1(b[1]+1)+'" rx="8" ry="2.6" fill="#FFFFFF" opacity=".7"/>'})}
+   /* camellones de flores junto a los canales (cempasúchil, rosa, amarillo, morado) */
+   if(fe&&fe.beds)fe.beds.forEach(function(b){var nx=-b[3],ny=b[2],c=[[-7,-3],[7,-3],[7,3],[-7,3]].map(function(o){return pj([b[0]+b[2]*o[0]+nx*o[1],b[1]+b[3]*o[0]+ny*o[1]],Z_TOP)});
+    land+='<path d="M'+c.map(function(q){return f1(q[0])+' '+f1(q[1])}).join("L")+'Z" fill="#8A6A44"/>';for(var r3=-2;r3<=2;r3+=2){var a3=pj([b[0]-b[2]*6+nx*r3,b[1]-b[3]*6+ny*r3],Z_TOP),b3=pj([b[0]+b[2]*6+nx*r3,b[1]+b[3]*6+ny*r3],Z_TOP);land+='<path d="M'+f1(a3[0])+' '+f1(a3[1]-.6)+'L'+f1(b3[0])+' '+f1(b3[1]-.6)+'" stroke="'+b[4]+'" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="1.4 .8"/>'}});
+   /* cenote: borde de roca, pared que baja, agua turquesa abajo y raíces colgando */
+   if(fe&&fe.cenote){var cn=fe.cenote,cs=G.hs(L.id+"cn"),rim=ringPts(cn.x,cn.y,cn.R,cs,18),hole=rim.map(function(q){return [cn.x+(q[0]-cn.x)*.84,cn.y+(q[1]-cn.y)*.84]}),hc=I.uid("i3");
+    land+='<path d="'+M.closed(rim,Z_TOP)+'" fill="#B3A68A"/><path d="'+M.closed(hole,Z_TOP)+'" fill="#6B5E4C"/><clipPath id="'+hc+'"><path d="'+M.closed(hole,Z_TOP)+'"/></clipPath><g clip-path="url(#'+hc+')">';
+    [.2,.45,.7].forEach(function(k,i){land+='<path d="'+M.closed(hole,Z_TOP-4-i*4)+'" fill="none" stroke="'+(i%2?"#5A4E3E":"#7E705C")+'" stroke-width="1.4" opacity=".7"/>'});
+    land+='<path d="'+M.closed(hole,Z_TOP-16)+'" fill="#2FC1C9"/><path d="'+M.closed(hole.map(function(q){return [cn.x+(q[0]-cn.x)*.6,cn.y+(q[1]-cn.y)*.6]}),Z_TOP-16)+'" fill="#1FA6B8"/><path d="'+M.closed(hole,Z_TOP-16)+'" fill="none" stroke="#BFF3F2" stroke-width="1.2" opacity=".8" transform="translate(0 -1)"/>';
+    var vr=G.rng(cs+3);for(var vn=0;vn<9;vn++){var vi=Math.floor(vr()*hole.length),vq=hole[vi],a4=pj(vq,Z_TOP);if(vq[0]+vq[1]>cn.x+cn.y+4)continue;var ln=6+vr()*10;land+='<path d="M'+f1(a4[0])+' '+f1(a4[1])+'q'+f1(vr()*3-1.5)+' '+f1(ln/2)+' '+f1(vr()*2-1)+' '+f1(ln)+'" stroke="'+(vn%2?"#3F8F4A":"#5DAA4E")+'" stroke-width="1" fill="none" stroke-linecap="round"/>'}
+    land+='</g><path d="'+M.closed(hole,Z_TOP)+'" fill="none" stroke="#8E8068" stroke-width="1.6"/>'}
    /* plaza empedrada del pueblo: anillo de cantera, piedras y jardineras en cruz */
    if(fe&&fe.plaza){var pz=fe.plaza,cir=[],cir2=[];for(var ci=0;ci<32;ci++){var an=ci/32*Math.PI*2;cir.push([pz.x+Math.cos(an)*pz.R,pz.y+Math.sin(an)*pz.R]);cir2.push([pz.x+Math.cos(an)*(pz.R-3),pz.y+Math.sin(an)*(pz.R-3)])}
     land+='<path d="'+M.closed(cir,Z_TOP)+'" fill="#CDB993"/><path d="'+M.closed(cir2,Z_TOP)+'" fill="#E6D8BC"/>';
@@ -153,8 +186,8 @@ var ISLAS3=(function(I,E,G,M){
  /* vegetación: arboledas, arbustos en sus orillas, flores en claros, palmeras en la arena y rocas en el agua */
  function extra(W,push){
   var FE=feats(W);
-  W.islands.forEach(function(L){var b=E.BIOME[L.area.biome]||E.BIOME.ciudad,rr=G.rng(G.hs(L.id+"v")),placed=[],fe=FE[L.id]||{},look=M.look(L.area.biome);
-   function far(x,y,dn,de,dp){if(fe.plaza&&Math.hypot(fe.plaza.x-x,fe.plaza.y-y)<fe.plaza.R+4)return false;if(fe.river&&dp>6&&fe.river.some(function(r){return Math.hypot(r[0]-x,r[1]-y)<12}))return false;if(fe.hill&&Math.hypot(fe.hill.x-x,fe.hill.y-y)<fe.hill.R+5)return false;if(fe.pond&&Math.hypot(fe.pond.x-x,fe.pond.y-y)<fe.pond.r+4)return false;for(var m=0;m<L.nodes.length;m++)if(Math.hypot(L.nodes[m].x-x,L.nodes[m].y-y)<dn)return false;
+  W.islands.forEach(function(L){var b=E.BIOME[L.area.biome]||E.BIOME.ciudad,rr=G.rng(G.hs(L.id+"v")),placed=[],fe=FE[L.id]||{},look=lk(L),FL=(AREA3[L.area.id]||{}).trees;
+   function far(x,y,dn,de,dp){if(fe.plaza&&Math.hypot(fe.plaza.x-x,fe.plaza.y-y)<fe.plaza.R+4)return false;if(fe.cenote&&Math.hypot(fe.cenote.x-x,fe.cenote.y-y)<fe.cenote.R+5)return false;if(fe.beds&&fe.beds.some(function(b){return Math.hypot(b[0]-x,b[1]-y)<10}))return false;if(fe.rivers&&dp>6&&fe.rivers.some(function(rv0){return rv0.some(function(r){return Math.hypot(r[0]-x,r[1]-y)<12})}))return false;if(fe.hill&&Math.hypot(fe.hill.x-x,fe.hill.y-y)<fe.hill.R+5)return false;if(fe.pond&&Math.hypot(fe.pond.x-x,fe.pond.y-y)<fe.pond.r+4)return false;for(var m=0;m<L.nodes.length;m++)if(Math.hypot(L.nodes[m].x-x,L.nodes[m].y-y)<dn)return false;
     for(m=0;m<W.edges.length;m++){var q=W.edges[m].pts;for(var j=0;j<q.length;j++)if(Math.hypot(q[j][0]-x,q[j][1]-y)<de)return false}
     for(m=0;m<placed.length;m++)if(Math.hypot(placed[m][0]-x,placed[m][1]-y)<dp)return false;return true}
    function onTop(x,y,m){return W.inPoly(x,y,L.plateau)&&W.edgeDist(x,y,L.plateau)>(m||7)}
@@ -164,7 +197,8 @@ var ISLAS3=(function(I,E,G,M){
    var groves=Math.round((1+L.nodes.length)*ST.groves);for(var gi=0,t=0;gi<groves&&t<300;t++){var a=rr()*6.28,r=Math.sqrt(rr())*L.R,cx=L.x+Math.cos(a)*r,cy=L.y+Math.sin(a)*r;
     if(!onTop(cx,cy,14)||!far(cx,cy,70,22,20))continue;gi++;var nT=4+Math.floor(rr()*3);
     for(var k=0,tt=0;k<nT&&tt<60;tt++){var x=cx+(rr()-.5)*34,y=cy+(rr()-.5)*30;if(!onTop(x,y)||!far(x,y,62,15,8.5))continue;k++;
-     put(x,y,Z_TOP,E.one(ST.pines&&rr()<ST.pines?"treePine":tk==="treePine"&&rr()<.3?"treeRound":tk,{d:2,k:.72+rr()*.3,ph:rr()*3,flip:rr()<.5,c:GREENS[Math.floor(rr()*4)]}))}
+     var sp=FL&&!(ST.pines&&rr()<ST.pines*.6)?FL[Math.floor(rr()*FL.length)]:[ST.pines&&rr()<ST.pines?"treePine":tk,GREENS[Math.floor(rr()*4)]];
+     put(x,y,Z_TOP,E.one(sp[0],{d:2,k:(sp[0]==="bush"?.75:.72)+rr()*.3,ph:rr()*3,flip:rr()<.5,c:ST.grass&&sp[0]!=="bush"&&!/^#(9B|B3|F2|F5|E8|EE|C2)/.test(sp[1])?I.mix(sp[1],"#2F7448",ST.grass*2):sp[1]}))}
     for(k=0;k<2;k++){var bx=cx+(rr()-.5)*44,by=cy+(rr()-.5)*40;if(onTop(bx,by)&&far(bx,by,60,13,7))put(bx,by,Z_TOP,E.one("bush",{d:2,k:.6+rr()*.25,ph:rr()*3}))}}
    /* flores y algo del bioma sueltos */
    for(var f=0,t2=0;f<L.nodes.length*2+1&&t2<200;t2++){var fx=L.x+(rr()-.5)*2*L.R,fy=L.y+(rr()-.5)*2*L.R;if(onTop(fx,fy)&&far(fx,fy,58,13,12)){f++;put(fx,fy,Z_TOP,E.one(f%2?"flowers":b.deco[Math.floor(rr()*b.deco.length)],{d:2,k:.85,ph:rr()*3}))}}
@@ -188,8 +222,8 @@ var ISLAS3=(function(I,E,G,M){
      [-Lg,-Lg/2,0,Lg/2,Lg].forEach(function(u){var h0=.6+2*(1-Math.abs(u)/Lg),a=bp(u,v,h0),b=bp(u,v,h0+3);o+='<path d="M'+f1(a[0])+' '+f1(a[1])+'L'+f1(b[0])+' '+f1(b[1])+'" stroke="#7A5236" stroke-width=".8"/>'})});
     push(c.x+c.y+3,o)});
    /* selva: más árboles y helechos a la orilla del río */
-   if(fe.river){for(var rv2=0,t5=0;rv2<14&&t5<300;t5++){var q6=fe.river[2+Math.floor(rr()*(fe.river.length-4))],sd2=rr()<.5?-1:1,ox=q6[0]+sd2*(11+rr()*8),oy=q6[1]-sd2*(6+rr()*8);
-     if(!onTop(ox,oy,5)||!far(ox,oy,56,12,8))continue;var near2=fe.river.some(function(r){return Math.hypot(r[0]-ox,r[1]-oy)<9});if(near2)continue;rv2++;put(ox,oy,Z_TOP,E.one(rv2%3?"treeRound":"bush",{d:2,k:.65+rr()*.3,ph:rr()*3,flip:rr()<.5,c:["#2F8F4A","#3F9C4A","#277A40"][rv2%3]}))}}
+   if(fe.rivers&&!ST.canals){var RV=fe.rivers[0];for(var rv2=0,t5=0;rv2<14&&t5<300;t5++){var q6=RV[2+Math.floor(rr()*(RV.length-4))],sd2=rr()<.5?-1:1,ox=q6[0]+sd2*(11+rr()*8),oy=q6[1]-sd2*(6+rr()*8);
+     if(!onTop(ox,oy,5)||!far(ox,oy,56,12,8))continue;var near2=RV.some(function(r){return Math.hypot(r[0]-ox,r[1]-oy)<9});if(near2)continue;rv2++;put(ox,oy,Z_TOP,E.one(rv2%3?"treeRound":"bush",{d:2,k:.65+rr()*.3,ph:rr()*3,flip:rr()<.5,c:["#2F8F4A","#3F9C4A","#277A40"][rv2%3]}))}}
    /* plaza: kiosco al centro, faroles y bancas alrededor, bugambilias en las jardineras */
    if(fe.plaza){var pz=fe.plaza,kp=pj([pz.x,pz.y],Z_TOP),k8="",kr=9,ang;
     var kc=function(x,y,z){var p=pj([pz.x+x,pz.y+y],Z_TOP+z);return f1(p[0]-kp[0])+' '+f1(p[1]-kp[1])};
@@ -202,6 +236,14 @@ var ISLAS3=(function(I,E,G,M){
     [0,1,2,3].forEach(function(qd){var a7=qd*Math.PI/2,lx=pz.x+Math.cos(a7)*pz.R*.82,ly=pz.y+Math.sin(a7)*pz.R*.82;put(lx,ly,Z_TOP,E.one("lamp",{d:2}));
      var a8=a7+Math.PI/4,jx=pz.x+Math.cos(a8)*pz.R*.62,jy=pz.y+Math.sin(a8)*pz.R*.62;put(jx,jy,Z_TOP,E.one("bush",{d:2,k:.75,c:"#C2378A"})+'<circle cx="-2" cy="-6" r="1" fill="#F07AC0"/><circle cx="2" cy="-7" r="1" fill="#F07AC0"/><circle cx="0" cy="-4" r=".9" fill="#FFB3E0"/>');
      var bx=pz.x+Math.cos(a8)*pz.R*.36,by=pz.y+Math.sin(a8)*pz.R*.36;if(qd%2===0)put(bx,by,Z_TOP,E.one("bench",{d:2}))})}
+   /* trajineras de colores en los canales */
+   if(ST.canals&&fe.rivers)fe.rivers.forEach(function(cv,ci){if(ci>2)return;var q7=cv[Math.floor(cv.length*(.3+ci*.2))],tp=pj(q7,Z_TOP-.5),C=[["#E2434B","#F2C744"],["#2F8FB5","#F29A2E"],["#3FA34D","#E0607A"]][ci%3];
+    push(q7[0]+q7[1]+2,'<g transform="translate('+f1(tp[0])+' '+f1(tp[1])+')"><ellipse cx="0" cy="1" rx="8" ry="2.6" fill="#13213F" opacity=".18"/><path d="M-8 -1L8 -1L6.6 1.8L-6.6 1.8Z" fill="'+C[0][0]+'"/><path d="M-8 -1H8V-2H-8Z" fill="'+C[0][1]+'"/><path d="M-6 -2V-7M6 -2V-7" stroke="#7A5236" stroke-width=".7"/><path d="M-7 -7Q0 -10.4 7 -7V-6H-7Z" fill="'+C[0][1]+'"/><rect x="-4.4" y="-9.4" width="8.8" height="2.6" rx=".4" fill="#FFFFFF" stroke="'+C[0][0]+'" stroke-width=".4"/></g>')});
+   /* pirámide maya en ruinas junto al cenote */
+   if(ST.ruins){var rp2=null;for(var t7=0;t7<300;t7++){var a7=rr()*6.28,r7=Math.sqrt(rr())*L.R,x7=L.x+Math.cos(a7)*r7,y7=L.y+Math.sin(a7)*r7;if(onTop(x7,y7,18)&&far(x7,y7,60,20,26)){rp2=[x7,y7];break}}
+    if(rp2){var pr="",ST2=["#CDBB97","#C2AF8A","#B8A47E","#AE9A74"];for(var lv=0;lv<4;lv++){var hw=12-lv*2.6;pr+=I.box(rp2[0]-hw,rp2[1]-hw,Z_TOP+lv*4,hw*2,hw*2,4,ST2[lv],{noGlint:true})}
+     pr+=I.box(rp2[0]-2.6,rp2[1]+1.6,Z_TOP,5.2,10.4,1.2,"#E0D2B2",{noGlint:true});for(var stp=0;stp<4;stp++)pr+=I.box(rp2[0]-2.4,rp2[1]+11-stp*2.6,Z_TOP+stp*4,4.8,2.6,4,"#E6D9BC",{noGlint:true});
+     pr+=I.box(rp2[0]-3,rp2[1]-3,Z_TOP+16,6,6,5,"#C2AF8A",{noGlint:true});push(rp2[0]+rp2[1]+12,pr);placed.push(rp2)}}
    /* lanchas de pescadores en la arena */
    if(ST.boats)for(var bt=0,t6=0;bt<2&&t6<400;t6++){var a9=rr()*6.28,r9=L.R*(.8+rr()*.5),bx2=L.x+Math.cos(a9)*r9,by2=L.y+Math.sin(a9)*r9;
     if(!W.inPoly(bx2,by2,L.coast)||W.edgeDist(bx2,by2,L.coast)<5||W.inPoly(bx2,by2,L.plateau)||!far(bx2,by2,60,16,18))continue;bt++;var bc=["#2F8FB5","#E2434B"][bt%2];
@@ -224,10 +266,10 @@ var ISLAS3=(function(I,E,G,M){
    for(var rk=0;rk<(ST.strata?7:3);rk++){var i=Math.floor(rr()*L.coast.length),q=grow(L.coast,3,0,1)[i];if(far(q[0],q[1],50,18,14))put(q[0],q[1],-1.5,E.one("rock",{d:2,k:.7+rr()*.4}))}
   })}
  /* página de la pestaña */
- var NEWD={enfermeria:"Torre de vidrio con letrero de red neuronal y el centro de datos con rejillas y enfriadores en la azotea; robot de servicio.",odontologia:"Consultorio dental con letrero de muela y macetero.",fisioterapia:"Centro de rehabilitación de vidrio con pérgola de madera sobre las barras paralelas y pelotas de terapia.",qfb:"Laboratorio con cruz verde de farmacia, chimeneas de campanas de extracción y cilindros de gas encadenados.",educfisica:"Gimnasio de techo de arco y pista de atletismo con carriles y cancha.",
-  industrial:"Nave de almacén con cortinas metálicas, andén de carga, tráiler y tarimas.",mecanica:"Taller con dos bahías, elevador, letrero de engrane, coche y llantas apiladas.",electrica:"Subestación: patio de grava cercado, dos transformadores con radiadores y boquillas, pórtico de llegada y torre de transmisión; los cables van de la torre al pórtico y a los transformadores.",electronica:"Oficinas de vidrio con letrero de chip y la nave de producción con techo de dientes de sierra, andén y camioneta.",quimicaing:"Planta química: columnas de destilación, tanques con escalera, esfera de gas, rack de tuberías de colores, quemador encendido y casa de control.",biomedica:"Laboratorio con letrero de electrocardiograma.",
-  ia:"Centro de investigación de vidrio con letrero de red neuronal y un robot de servicio.",ciberseguridad:"Centro de operaciones cerrado, letrero de escudo con candado, cámaras y caseta con pluma.",quimica:"Laboratorio con chimeneas de extracción, letrero de matraz y regadera de emergencia.",biologia:"Laboratorio pequeño e invernadero de vidrio con plantas.",matematicas:"Facultad con pizarrón en la fachada (identidad de Euler) y escultura de sólidos.",
-  contaduria:"Despacho en edificio de oficinas con letrero de calculadora y cajas de archivo.",economia:"Torre de oficinas y sala de remates bajo una cúpula de vidrio, con cotizaciones corriendo en su base; toro en la plaza.",actuaria:"Torre de una aseguradora con letrero de paraguas.",mercadotecnia:"Agencia con anuncio espectacular en la azotea.",comext:"Aduana, contenedores apilados y grúa pórtico sobre una hilera de contenedores.",turismo:"Hotel de playa con balcones, alberca, camastros con sombrilla y palmeras.",politicas:"Recinto legislativo de cantera con cúpula, escalinata y bandera de México.",rrii:"Sede internacional con hilera de banderas de varios países.",sociologia:"Centro comunitario con mural y kiosco de plaza.",trabajosocial:"Centro comunitario con letrero de corazón y área de juegos.",criminologia:"Fiscalía con escudo, patrulla y zona de evidencia acordonada.",
+ var NEWD={enfermeria:"Torre de vidrio con letrero de red neuronal y el centro de datos con rejillas y enfriadores en la azotea; robot de servicio.",odontologia:"Consultorio dental con letrero de muela, sala de espera de vidrio al lado, coche estacionado y macetero.",fisioterapia:"Centro de rehabilitación de vidrio con pérgola de madera sobre las barras paralelas y pelotas de terapia.",qfb:"Farmacia en planta baja con aparadores y cruz verde luminosa en la esquina; laboratorio arriba con chimeneas y cilindros de gas.",educfisica:"Gimnasio de techo de arco y pista de atletismo con carriles y cancha.",
+  industrial:"Nave de almacén con cortinas metálicas, andén de carga, tráiler y tarimas.",mecanica:"Taller con dos bahías, elevador, letrero de engrane, coche y llantas apiladas.",electrica:"Subestación: patio de grava cercado, dos transformadores con radiadores y boquillas, pórtico de llegada y torre de transmisión; los cables van de la torre al pórtico y a los transformadores.",electronica:"Oficinas de vidrio con letrero de chip y la nave de producción con techo de dientes de sierra, andén y camioneta.",quimicaing:"Planta química: columnas de destilación, tanques con escalera, esfera de gas, rack de tuberías de colores, quemador encendido y casa de control.",biomedica:"Laboratorio con letrero de electrocardiograma y, en la plaza, el aro de un resonador magnético con su camilla.",
+  ia:"Centro de investigación de vidrio con letrero de red neuronal y un robot de servicio.",ciberseguridad:"Centro de operaciones cerrado, letrero de escudo con candado, cámaras y caseta con pluma.",quimica:"Laboratorio con chimeneas de extracción, jaula de cilindros de gas, tanque de nitrógeno y regadera de emergencia.",biologia:"Laboratorio pequeño e invernadero de vidrio con plantas.",matematicas:"Facultad de dos cuerpos con pizarrón en la fachada (identidad de Euler) y escultura de sólidos geométricos.",
+  contaduria:"Edificio de oficinas con letrero de calculadora y, al lado, una sucursal bancaria de vidrio con cajero.",economia:"Torre de oficinas y sala de remates bajo una cúpula de vidrio, con cotizaciones corriendo en su base; toro en la plaza.",actuaria:"Torre de una aseguradora con letrero de paraguas.",mercadotecnia:"Agencia con anuncio espectacular en la azotea.",comext:"Aduana, contenedores apilados y grúa pórtico sobre una hilera de contenedores.",turismo:"Hotel de playa con balcones, alberca, camastros con sombrilla y palmeras.",politicas:"Recinto legislativo de cantera con cúpula, escalinata y bandera de México.",rrii:"Sede internacional con hilera de banderas de varios países.",sociologia:"Centro comunitario con mural y kiosco de plaza.",trabajosocial:"Centro comunitario con letrero de corazón y área de juegos.",criminologia:"Fiscalía con escudo, laboratorio de servicios periciales, patrulla y zona de evidencia acordonada.",
   grafico:"Estudio de diseño con franjas CMYK y letrero de pluma de vectores.",disindustrial:"Taller con ventanal, impresora 3D, materiales apilados y la silla prototipo en un pedestal.",animacion:"Estudio con cuadros de storyboard en la fachada y pantalla exterior con la pelota que rebota.",gastronomia:"Restaurante escuela de ladrillo con toldo, chimenea, gorro de chef y terraza."};
  var BETTER={moda:"Antes: una tiendita con toldo. Ahora: boutique de dos pisos con aparadores y maniquíes, toldo, letrero colgante y bolsa de compras.",comunicacion:"Antes: caja con antena. Ahora: televisora con letrero «AL AIRE», torre roja y blanca con antenas y unidad móvil con plato.",ambiental:"Antes: una casa y un molino. Ahora: tres aerogeneradores, paneles solares, techo verde y contenedores de reciclaje.",mecatronica:"Antes: nave sencilla. Ahora: techo de dientes de sierra, ventanal con la línea de brazos robóticos, andén y montacargas."};
  function page(el){

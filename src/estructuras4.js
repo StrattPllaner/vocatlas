@@ -69,7 +69,9 @@
   /* letrero con muela, como los consultorios dentales */
   s+=sign(-17,-7,b.zt,14,"#E6F6FB",function(Fs,w){var c=Fs(w/2,1.6);return '<path d="M'+f1(c[0]-3)+' '+f1(c[1]-5)+'c0-2 2-2.4 3-1.4c1-1 3-.6 3 1.4c0 2-1 3-1.2 5.4c-.2 1-1.2 1-1.3 0l-.5-2l-.5 2c-.1 1-1.1 1-1.3 0c-.2-2.4-1.2-3.4-1.2-5.4z" fill="#FFFFFF" stroke="#58B7D6" stroke-width=".7"/>'});
   var mac=d>0?box(10,6,Z,6,5,4,"#9BD47C",{noGlint:true})+at(13,8.5,Z+4,E.one("flowers",{d:d,k:.7})):"";
-  return piece(g,[["consultorio",[-24,-16,4,4],s],d>0?["macetero",[10,6,16,11],mac]:null,tree(22,-14,d),bush(-30,16,d),bench(16,22,d)])};
+  var an=B({x:6,y:-14,w:16,d:14,h:9,c:"#EAF6FA",glass:true,glassC:"#9AD3E6",noWalk:true},d).s;
+  var cr2=car(-20,8,"#E2434B",d);
+  return piece(g,[["consultorio",[-24,-16,4,4],s],["sala",[6,-14,22,0],an],["coche",[-20,8,-8,14],cr2],d>0?["macetero",[10,6,16,11],mac]:null,tree(26,8,d),bush(-30,16,d),bench(14,20,d)])};
  F.fisioterapia=function(d){var g=plat("#C7E8B6","#79A866");
   var b=B({x:-26,y:-20,w:32,d:20,h:14,c:"#F5F1E8",glass:true,glassC:"#8CCBEA",band:"#3FA39A"},d),s=b.s;s+=door(b.L,13,6,9,"#4C6A80");
   /* afuera: barras paralelas para reaprender a caminar y pelotas de terapia */
@@ -87,6 +89,8 @@
   s+=cyl(-2,-14,b.zt,1.4,6,"#C9D1DA",{noGlint:true})+cyl(1,-10,b.zt,1.4,5,"#C9D1DA",{noGlint:true});
   /* cilindros de gas encadenados junto al muro */
   var gs="";[["#3A7CC0",10],["#E2434B",13],["#9AA5B1",16]].forEach(function(q){gs+=cyl(q[1],-2,Z,1.3,9,q[0],{noGlint:true})+I.dome(q[1],-2,Z+9,1.3,"#C9D1DA")});
+  if(d>0){s+=quad(b.L,2,1,8,6,"#BFE8CF",{st:false})+quad(b.L,16,1,10,6,"#BFE8CF",{st:false});
+   var cx=b.L(27.4,12);s+='<g transform="translate('+f1(cx[0]+2)+' '+f1(cx[1])+')"><rect x="-4" y="-4" width="8" height="8" rx="1" fill="#FFFFFF" stroke="#2E9E5B" stroke-width=".6"/><path d="M-1.2 -3.2h2.4v2h2v2.4h-2v2h-2.4v-2h-2v-2.4h2z" fill="#2E9E5B"/></g>'}
   return piece(g,[["laboratorio",[-24,-18,4,4],s],["cilindros",[8.6,-3.4,17.4,-.6],gs],tree(22,16,d),bush(-30,18,d),bench(14,24,d)])};
  F.educfisica=function(d){var g=plat("#A6D97A","#6FA34B");
   /* gimnasio con techo de arco y pista de atletismo con carriles al frente */
@@ -175,7 +179,11 @@
   s+=quad(b.L,1,13,28,3,"#BFE3F2",{st:false});
   s+=sign(-16,-8,b.zt,14,"#1F2E44",function(Fs,w){var a=Fs(1.6,3.7),c=Fs(w-1.6,3.7),m=(a[0]+c[0])/2,y=(a[1]+c[1])/2,k=(c[1]-a[1])/(c[0]-a[0]);function Y(x,dy){return f1(a[1]+(x-a[0])*k+dy)}
    return '<path d="M'+f1(a[0])+' '+f1(a[1])+'L'+f1(m-3)+' '+Y(m-3,0)+'L'+f1(m-1.8)+' '+Y(m-1.8,-2.8)+'L'+f1(m-.4)+' '+Y(m-.4,2.6)+'L'+f1(m+.8)+' '+Y(m+.8,-1)+'L'+f1(m+1.6)+' '+Y(m+1.6,0)+'L'+f1(c[0])+' '+f1(c[1])+'" stroke="#7CF2C8" stroke-width=".7" fill="none"/>'});
-  return piece(g,[["laboratorio",[-24,-18,6,4],s],tree(22,-14,d),bush(-30,18,d),bench(14,20,d),d>1?dp("lamp",2,28,{d:d}):null])};
+  /* en la plaza, el aro de un resonador magnético (el equipo que diseñan y mantienen) con su camilla */
+  var mx=14,my=14,mr=I.shadowEll(mx,my,Z,8)+box(mx-6,my-4,Z,12,8,2,"#C9D1DA",{noGlint:true});
+  mr+='<g transform="'+I.planeY(mx,my,Z+10)+'"><circle r="8.4" fill="#F4F6F8" stroke="#C9D1DA" stroke-width="1.2"/><circle r="4.2" fill="#2A3340"/><circle r="4.2" fill="none" stroke="#7FB6DA" stroke-width=".8"/></g>';
+  mr+=box(mx-1.2,my-10,Z+4.4,2.4,10,1.2,"#E6ECF0",{noGlint:true})+box(mx-1.6,my-12,Z,3.2,3,4.4,"#9AA5B1",{noGlint:true});
+  return piece(g,[["laboratorio",[-24,-18,6,4],s],["resonador",[mx-6,my-12,mx+6,my+4],mr],tree(24,-14,d),bush(-30,18,d),d>1?dp("lamp",-6,26,{d:d}):null])};
  /* ---------------- TECNOLOGÍA Y CIENCIAS ---------------- */
  F.ia=function(d){var g=plat("#C9D9F0","#7E94B8");
   /* centro de investigación en IA: torre de vidrio con letrero de red neuronal y, junto, el centro de datos donde
@@ -203,7 +211,10 @@
   for(var k=0;k<3;k++)s+=cyl(-20+k*6,-16,b.zt,1.1,6,"#C9D1DA",{noGlint:true})+box(-21.4+k*6,-17.4,b.zt+6,2.8,2.8,.6,"#9AA5B1",{noGlint:true});
   s+=sign(0,-10,b.zt,12,"#FFFFFF",function(Fs,w){var c=Fs(w/2,.8);return '<path d="M'+f1(c[0]-1)+' '+f1(c[1]-6.4)+'h2v2.4l2.6 3.6h-7.2l2.6-3.6z" fill="#7B5EA7"/><path d="M'+f1(c[0]-2.4)+' '+f1(c[1]-2)+'h4.8l.8 1.2h-6.4z" fill="#7CF2C8"/>'});
   var rg=d>0?cyl(14,6,Z,.5,11,"#2E9E5B",{noGlint:true})+line([P(14,6,Z+11),P(14,9,Z+11)],"#2E9E5B",1)+I.ell(14,9,Z+10.4,1.6,"#2E9E5B")+cyl(14,9,Z,1.6,.4,"#E2B13C",{noGlint:true}):"";
-  return piece(g,[["laboratorio",[-24,-20,6,2],s],d>0?["regadera",[12.4,4.4,15.6,10.6],rg]:null,tree(24,-14,d),bush(-30,18,d),bench(18,22,d)])};
+  var cg=box(10,-12,Z,12,7,.6,"#C9D1DA",{noGlint:true});["#3A7CC0","#9AA5B1","#2E9E5B","#E2434B","#9AA5B1"].forEach(function(c,i){cg+=cyl(11.6+i*2.2,-9,Z+.6,1,9,c,{noGlint:true})+I.dome(11.6+i*2.2,-9,Z+9.6,1,"#C9D1DA")});
+  if(d>0){cg+=line([P(10,-5,Z+.6),P(22,-5,Z+.6),P(22,-5,Z+10),P(10,-5,Z+10),P(10,-5,Z+.6)],"#7E8B98",.5);for(var u3=11;u3<22;u3+=1.5)cg+=line([P(u3,-5,Z+.6),P(u3,-5,Z+10)],"#9AA5B1",.3)}
+  cg+=cyl(17,-20,Z,3,14,"#F4F6F8",{sideS:"#C9D1DA",noGlint:true})+I.dome(17,-20,Z+14,3,"#E6ECF0");
+  return piece(g,[["laboratorio",[-24,-20,6,2],s],["tanque",[14,-23,20,-17],""],["gases",[10,-23,22,-5],cg],d>0?["regadera",[12.4,4.4,15.6,10.6],rg]:null,tree(26,8,d),bush(-30,18,d),bench(18,22,d)])};
  F.biologia=function(d){var g=plat("#B6DE9A","#6FA34B");
   /* estación de biología: laboratorio pequeño y un invernadero de vidrio con plantas adentro */
   var b=B({x:-28,y:-22,w:18,d:16,h:12,c:"#F4EFE4",cols:2,rcols:2,v0:5,door:7,doorW:4,doorH:7,roof:"gable",roofC:"#5FA347",roofH:6},d),s=b.s;
@@ -220,16 +231,19 @@
   s+=quad(b.L,2,10,26,8,"#2F4A3A",{st:false})+quad(b.L,2,10,26,8,"none",{st:"#C99A5B",sw:.8});
   if(d>0)s+='<g transform="'+I.planeX(-24,2,Z+12)+'"><text x="13" y="-1.2" text-anchor="middle" font-size="4.4" font-family="Georgia,serif" fill="#F4F6F8">e<tspan font-size="2.8" dy="-2">iπ</tspan><tspan dy="2"> + 1 = 0</tspan></text></g>';
   s+=wins(b.R,22,3,2,4,4,4,8,d);
-  var sc=I.shadowEll(14,14,Z,6)+box(9,10,Z,10,8,2,"#C9CED8",{noGlint:true})+box(10,11,Z+2,4.4,4.4,4.4,"#E2434B",{right:"#B8303A",top:"#F07A80"})+sphere(17,15,Z+2,2.4,"#F2B544");
-  var cn=P(13,17,Z+2);sc+='<path d="M'+f1(cn[0]-2.6)+' '+f1(cn[1])+'L'+f1(cn[0])+' '+f1(cn[1]-8)+'L'+f1(cn[0]+2.6)+' '+f1(cn[1])+'Z" fill="#4FA8E0"/><path d="M'+f1(cn[0])+' '+f1(cn[1]-8)+'L'+f1(cn[0]+2.6)+' '+f1(cn[1])+'L'+f1(cn[0]+.6)+' '+f1(cn[1]+.6)+'Z" fill="#3F7DA6"/>';
-  return piece(g,[["facultad",[-26,-20,4,2],s],["escultura",[9,10,19,18],sc],tree(24,-14,d),bush(-30,18,d)])};
+  var b2=B({x:6,y:-16,w:16,d:16,h:12,c:"#E8E2D6",cols:2,rcols:2,v0:4},d).s;s+=b2;
+  var sc=I.shadowEll(14,14,Z,8)+box(8,9,Z,13,10,2.4,"#C9CED8",{noGlint:true})+box(9,10,Z+2.4,6,6,6,"#E2434B",{right:"#B8303A",top:"#F07A80"})+sphere(18,15,Z+2.4,3.4,"#F2B544");
+  var cn=P(12,17,Z+2.4);sc+='<path d="M'+f1(cn[0]-2.6)+' '+f1(cn[1])+'L'+f1(cn[0])+' '+f1(cn[1]-8)+'L'+f1(cn[0]+2.6)+' '+f1(cn[1])+'Z" fill="#4FA8E0"/><path d="M'+f1(cn[0])+' '+f1(cn[1]-8)+'L'+f1(cn[0]+2.6)+' '+f1(cn[1])+'L'+f1(cn[0]+.6)+' '+f1(cn[1]+.6)+'Z" fill="#3F7DA6"/>';
+  return piece(g,[["facultad",[-26,-20,22,2],s],["escultura",[9,10,19,18],sc],tree(24,-14,d),bush(-30,18,d)])};
  /* ---------------- NEGOCIOS Y SOCIEDAD ---------------- */
  F.contaduria=function(d){var g=plat("#E3E0CF","#A39C78");
   /* despacho contable en edificio de oficinas de tres pisos, con letrero de calculadora */
   var b=B({x:-22,y:-20,w:24,d:20,h:30,c:"#EDE7DA",band:"#3F7D5C",cols:3,rows:3,rcols:2,v0:10,gy:7,door:9,doorW:6,doorH:8,doorC:"#5D8C72"},d),s=b.s;
   s+=sign(-17,-10,b.zt,12,"#FFFFFF",function(Fs,w){var a=Fs(3.6,1.2),o='<rect x="'+f1(a[0]-1.4)+'" y="'+f1(a[1]-6.2)+'" width="5" height="6.4" rx=".6" fill="#3F7D5C"/><rect x="'+f1(a[0]-.8)+'" y="'+f1(a[1]-5.6)+'" width="3.8" height="1.4" fill="#BFE8CF"/>';for(var r=0;r<2;r++)for(var c=0;c<3;c++)o+='<rect x="'+f1(a[0]-.8+c*1.3)+'" y="'+f1(a[1]-3.6+r*1.4)+'" width=".9" height=".9" fill="#FFFFFF"/>';return o});
   var bx=d>0?box(10,6,Z,6,5,4,"#D9B07A",{noGlint:true})+box(10,6,Z+4,6,5,4,"#C99A5B",{noGlint:true})+box(17,7,Z,5,4,4,"#D9B07A",{noGlint:true}):"";
-  return piece(g,[["despacho",[-22,-20,2,0],s],d>0?["archivo",[10,6,22,11],bx]:null,tree(24,-12,d),bush(-30,16,d),bench(-8,22,d)])};
+  var bk=B({x:6,y:-14,w:16,d:14,h:9,c:"#2F6D4F",glass:true,glassC:"#7FCB9F",noWalk:true},d).s;
+  bk+=box(22.2,-6,Z,1.8,3,5.4,"#E6ECF0",{noGlint:true})+quad(I.faceR(22.2,-6,Z,1.8,3),.4,2.4,2.2,2,"#3A7CC0",{st:false});
+  return piece(g,[["sucursal",[6,-14,24,0],bk],["despacho",[-22,-20,2,0],s],d>0?["archivo",[10,6,22,11],bx]:null,tree(24,-12,d),bush(-30,16,d),bench(-8,22,d)])};
  F.economia=function(d){var g=plat("#E6DCC4","#A8956A");
   /* centro financiero: torre de oficinas de vidrio y, al frente, la sala de remates bajo una cúpula de vidrio espejo,
      con la pantalla de cotizaciones corriendo alrededor de su base; en la plaza, la escultura del toro (símbolo del mercado al alza) */
@@ -311,8 +325,10 @@
   var b=B({x:-26,y:-22,w:30,d:20,h:18,c:"#F4F6F8",band:"#1F3F7A",cols:4,rows:1,rcols:3,v0:9,door:12,doorW:6,doorH:8,doorC:"#1F3F7A"},d),s=b.s;
   s+=sign(-18,-12,b.zt,14,"#1F3F7A",function(Fs,w){var c=Fs(w/2,1.4);return '<path d="M'+f1(c[0])+' '+f1(c[1]-6)+'l3 1.2v2.4c0 2.2-1.4 3.6-3 4.2c-1.6-.6-3-2-3-4.2v-2.4z" fill="#F2C744"/><path d="M'+f1(c[0])+' '+f1(c[1]-4.8)+'l.6 1.3l1.4.1l-1.1.9l.4 1.4l-1.3-.8l-1.3.8l.4-1.4l-1.1-.9l1.4-.1z" fill="#1F3F7A"/>'});
   var pc=car(10,6,"#FFFFFF",d,{bar:"#3A7CC0",cab:"#1F3F7A"});
+  var lab=B({x:8,y:-16,w:16,d:14,h:10,c:"#E6EAF0",band:"#F2C744",cols:2,rcols:2,v0:3,noWalk:true},d).s;
+  if(d>0)lab+=cyl(20,-13,Z+11.6,.3,7,"#8A97A0",{noGlint:true});
   var tp=d>0?[[ -20,10],[-6,10],[-6,22],[-20,22]].map(function(q){return cyl(q[0],q[1],Z,.4,3.6,"#F2994A",{noGlint:true})}).join("")+line([P(-20,10,Z+3.2),P(-6,10,Z+3.2),P(-6,22,Z+3.2)],"#F2C744",.9,{dash:"1.4 .8"})+line([P(-20,10,Z+3.2),P(-20,22,Z+3.2),P(-6,22,Z+3.2)],"#F2C744",.9,{dash:"1.4 .8"})+at(-13,16,Z,'<path d="M-2 0l2-3l2 3z" fill="#F2C744" stroke="#3A4452" stroke-width=".3"/><text x="0" y="-.6" text-anchor="middle" font-size="1.8" font-weight="900" fill="#3A4452">1</text>'):"";
-  return piece(g,[["fiscalía",[-26,-22,4,-2],s],["patrulla",[10,6,22,12],pc],d>0?["evidencia",[-20,10,-6,22],tp]:null,tree(26,-14,d)])};
+  return piece(g,[["fiscalía",[-26,-22,4,-2],s],["periciales",[8,-16,24,-2],lab],["patrulla",[10,6,22,12],pc],d>0?["evidencia",[-20,10,-6,22],tp]:null,tree(-32,2,d)])};
  /* ---------------- ARTE Y COMUNICACIÓN ---------------- */
  F.grafico=function(d){var g=plat("#F2D6E4","#BE8AA4");
   /* estudio de diseño: edificio blanco con franjas CMYK en la fachada y letrero de pluma de vectores */
