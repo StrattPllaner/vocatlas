@@ -1216,26 +1216,21 @@ export function rumbo3d(K,o){o=o||{};
   const hat=K.group({parent:body});const HY=9.4,HR=26,HZ=.46;
   const dome=K.sph(HR,CAP,{parent:hat,p:[0,HY,0],s:[1,1.02,HZ]});dome.geometry=new THREE.SphereGeometry(HR,64,32,0,Math.PI*2,0,Math.PI*.52);
   const pan=K.sph(HR+.15,CAPL,{parent:hat,p:[0,HY,0],s:[1,1.02,HZ+.006]});pan.geometry=new THREE.SphereGeometry(HR+.15,24,20,Math.PI*.5-.25,.5,.05,Math.PI*.44);
-  /* costuras: puntadas cortas a los lados de la franja */
-  [-1,1].forEach(sd=>{for(let k=0;k<9;k++){const th=.12+k*.13,ph=Math.PI*.5+sd*.28,x=HR*Math.sin(th)*Math.cos(ph)*1.003,y=HY+HR*1.02*Math.cos(th),z=HR*HZ*Math.sin(th)*Math.sin(ph)*1.01;
-    K.cap(.32,.9,CAPS,{parent:hat,p:[-x,y,z],r:[90-th*57,0,0]})}});
   const st=K.sph(HR+.3,STR,{parent:hat,p:[0,HY,0],s:[1,1.02,HZ+.012]});st.geometry=new THREE.SphereGeometry(HR+.3,64,6,Math.PI*.1,Math.PI*.8,Math.PI*.33,Math.PI*.055);
   K.sph(2.6,CAPS,{parent:hat,p:[0,HY+HR*1.02-.4,0],s:[1,.55,1]});
   /* borde de borrego: grueso y esponjado; sube al frente (y de 8.6 a 14) y tapa el borde de arriba de la carátula */
-  K.tor(HR-.8,2,FUR,{parent:hat,p:[0,HY+.6,0],r:[90,0,0],s:[1,HZ+.08,1]});
-  for(let i=0;i<44;i++){const a=i/44*Math.PI*2,c=Math.cos(a),sn=Math.sin(a),front=Math.max(0,sn),r=(i%2?3.1:3.7)+(i%3===0?.3:0);
-    K.sph(r,FUR,{parent:hat,p:[c*(HR-.4),HY+.6+4.4*front*front,sn*(HR*HZ+1.4)],s:[1,.95,.85]})}
+  
+  for(let i=0;i<52;i++){const a=i/52*Math.PI*2,c=Math.cos(a),sn=Math.sin(a),front=Math.max(0,sn),arch=front*Math.max(0,1-c*c*1.15),r=(i%2?3.3:3.9)+(i%3===0?.35:0);
+    K.sph(r,FUR,{parent:hat,p:[c*(HR-.6),HY+2.2+5.6*arch,sn*(HR*HZ+1.6)+front*1.2],s:[1,.9,.85]})}
   /* orejeras: el contorno exacto del dibujo (lengüeta redonda), extruido, pegado al lado de la cara y con forro de borrego */
   const FL='M27.6 41.6L28.4 42.8C24.2 47.8 23 54.6 24 60.4C24.8 64.8 29.6 65.6 31.2 61.8C32.4 57.4 33.6 50 34 46.4L34 41.6Z';
-  [-1,1].forEach(sd=>{const f=K.group({parent:hat,p:[0,0,0]});
-    const m=K.ext(FL,5.4,sd<0?CAP:CAPS,{parent:f,bevel:1.2});m.geometry.translate(-50,57.6,0);
-    if(sd>0){m.scale.x=-1}
-    f.position.set(sd*3.4,0,6.4);
-    const lin=K.tube([[-26,-2.8,2.2],[-25.4,-6,2.2],[-22.4,-7.2,2.2],[-19.6,-4.6,2.2]].map(q=>[q[0]*(sd<0?1:-1),q[1],q[2]]),1.25,FUR,{parent:f});
-    if(sd<0){K.box(1.2,7,1,STR,{parent:f,p:[-20.6,-6.8,2.6],rad:.4});K.box(2.8,2.4,.8,GOLD,{parent:f,p:[-21,-10.6,2.8],rad:.4})}});
+  [-1,1].forEach(sd=>{const f=K.group({parent:hat,p:[sd*25.8,1.6,3.2],r:[0,sd*.95,sd*-.08]}),g2=K.group({parent:f});g2.scale.set(sd>0?-1.22:1.22,1.22,1.22);
+    const m=K.ext(FL,3.4,sd<0?CAP:CAPS,{parent:g2,bevel:1.1});m.geometry.translate(-29,53.6,0);
+    K.tube([[-4.4,-7.4,1.8],[-3.6,-10.6,1.9],[-.6,-11.6,1.9],[2,-9.4,1.8]],1.3,FUR,{parent:g2});
+    if(sd<0){K.box(1.1,6,.9,STR,{parent:g2,p:[1.2,-12.6,1.4],rad:.4});K.box(2.6,2.2,.8,GOLD,{parent:g2,p:[1.2,-15.8,1.5],rad:.4})}});
   /* gafas sobre el gorro: aros dorados con cristal azul, su brillo y el puente */
-  [-1,1].forEach(sd=>{const g=K.group({parent:hat,p:[sd*8.8,26.4,9.6],r:[-40,sd*-15,0]});K.tor(5.2,1.35,GOLD,{parent:g});K.cyl(4.2,4.2,1,LENS,{parent:g,r:[90,0,0]});K.sph(1.2,'#C4DDF0',{parent:g,p:[-1.7,1.7,.7],s:[1,1,.3]})});
-  K.box(5.2,2.4,1.6,GOLD,{parent:hat,p:[0,27,10.4],r:[-40,0,0],rad:.6});
+  [-1,1].forEach(sd=>{const g=K.group({parent:hat,p:[sd*8.9,25.2,10.6],r:[-26,sd*-16,0]});K.tor(5.6,1.45,GOLD,{parent:g});K.cyl(4.5,4.5,1,LENS,{parent:g,r:[90,0,0]});K.sph(1.2,'#C4DDF0',{parent:g,p:[-1.7,1.7,.7],s:[1,1,.3]})});
+  K.box(5,2.6,1.6,GOLD,{parent:hat,p:[0,25.8,11.6],r:[-26,0,0],rad:.6});
   /* flecha dorada inclinada sobre el botón */
   const ar=K.group({parent:hat,p:[0,HY+HR*1.02-1,0],r:[0,0,16]});K.cyl(.75,.75,15,GOLD,{parent:ar,p:[0,7.5,0]});K.ext('M-4.6 0 L0 -8 L4.6 0 Z',1.8,GOLD,{parent:ar,p:[0,14.6,0],bevel:.4});
   /* botas: espinilla azul con botón dorado, pie que apunta hacia afuera y suela beige */

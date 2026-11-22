@@ -1,7 +1,7 @@
 /* Vocatlas: funciona sin conexión.
    La página se pide primero a la red (así siempre llega la versión nueva) y, si no hay red, sale de la copia guardada.
    Íconos y fuentes salen de la copia y se actualizan por detrás. */
-var V = "vocatlas-v22";
+var V = "vocatlas-v23";
 var SHELL = ["./", "index.html", "manifest.webmanifest", "icons/icon-192.png", "icons/icon-512.png", "icons/apple-touch-icon.png", "icons/favicon-64.png", "icons/favicon-32.png"];
 
 self.addEventListener("install", function (e) {
