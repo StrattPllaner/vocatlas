@@ -105,7 +105,7 @@ function edgeStrips(night){
   blob(h,function(uh){blob(strip2(Lh,T),function(ub){blob(v,function(uv){blob(strip3(T,Lh),function(ur){if(g!==SPR.egen)return;
    (SPR.eurls||[]).forEach(function(x){try{URL.revokeObjectURL(x)}catch(e){}});SPR.eurls=urls;
    cw.style.setProperty("--cwh",'url("'+uh+'")');cw.style.setProperty("--cwb",'url("'+ub+'")');cw.style.setProperty("--cwv",'url("'+uv+'")');cw.style.setProperty("--cwr",'url("'+ur+'")');
-   cw.style.setProperty("--csh",T+"px");cw.style.setProperty("--csw",T+"px");cw.style.setProperty("--cin",Math.round(T*.06)+"px");
+   cw.style.setProperty("--csh",T+"px");cw.style.setProperty("--csw",T+"px");cw.style.setProperty("--cin",Math.round(T*.06)+"px");cw.style.setProperty("--fo",Math.round(T*.3)+"px");/* la neblina empieza debajo de las nubes: su orilla recta nunca se ve sobre el mar */
    requestAnimationFrame(function(){cw.classList.add("ok")})})})})});
   /* tiras con las nubes chicas del otro lado (abajo y a la derecha) */
   function strip2(W,H){r=rng(hash("tira2"+(night?1:0)));var c=document.createElement("canvas");c.width=W*D;c.height=H*D;var x=c.getContext("2d");x.scale(D,D);
