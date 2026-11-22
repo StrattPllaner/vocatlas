@@ -1,7 +1,7 @@
 /* Vocatlas: funciona sin conexión.
    La página se pide primero a la red (así siempre llega la versión nueva) y, si no hay red, sale de la copia guardada.
    Íconos y fuentes salen de la copia y se actualizan por detrás. */
-var V = "vocatlas-v26";
+var V = "vocatlas-v27";
 var SHELL = ["./", "index.html", "manifest.webmanifest", "icons/icon-192.png", "icons/icon-512.png", "icons/apple-touch-icon.png", "icons/favicon-64.png", "icons/favicon-32.png"];
 
 self.addEventListener("install", function (e) {
@@ -30,6 +30,12 @@ self.addEventListener("fetch", function (e) {
     e.respondWith(fromNetwork(req, "index.html", true).catch(function () {
       return caches.match("index.html").then(function (r) { return r || caches.match("./") });
     }));
+    return;
+  }
+  /* código (.js): primero la red, revalidando con el servidor, para que un arreglo llegue en la siguiente apertura;
+     sin red, la copia guardada */
+  if (url.origin === location.origin && /\.m?js$/.test(url.pathname)) {
+    e.respondWith(fromNetwork(req, null, true).catch(function () { return caches.match(req, { ignoreSearch: false }).then(function (r) { return r || caches.match(req, { ignoreSearch: true }) }) }));
     return;
   }
   var font = /fonts\.(googleapis|gstatic)\.com$/.test(url.hostname);
