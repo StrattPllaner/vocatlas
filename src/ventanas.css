@@ -14,3 +14,20 @@
 .lp-lin{border-radius:24px;max-height:88%;padding:22px 20px 20px;transform:scale(.92);opacity:0;transition:transform .34s cubic-bezier(.2,1.2,.4,1),opacity .2s}
 .lp-lesson.on .lp-lin{transform:none;opacity:1}
 @media (prefers-reduced-motion:reduce){.ui-sheet,.ui-fb,.lp-lin{transition:opacity .01s!important}}
+
+/* ---------- carga: brújula que encuentra el norte, nombre y barra fina ---------- */
+.bt2{display:flex;flex-direction:column;align-items:center;gap:18px;width:min(320px,80vw)}
+.bt2-cmp{width:104px;height:104px;opacity:0;transform:scale(.86);animation:bt2In .6s cubic-bezier(.2,.9,.3,1) .05s forwards}
+.bt2-cmp svg{width:100%;height:100%;overflow:visible}
+.bt2-ring{fill:none;stroke:var(--line-2,#E2D8C6);stroke-width:3}
+.bt2-arc{fill:none;stroke:var(--ink,#14323F);stroke-width:3;stroke-linecap:round;stroke-dasharray:100;stroke-dashoffset:calc(100 - var(--p,0)*100);transform:rotate(-90deg);transform-origin:60px 60px;transition:stroke-dashoffset .5s cubic-bezier(.3,0,.2,1)}
+.bt2-ticks path{stroke:var(--ink-2,#3B5260);stroke-width:2.6;stroke-linecap:round;opacity:.5}
+.bt2-needle{transform-origin:60px 60px;animation:bt2Seek 2.2s cubic-bezier(.35,0,.15,1) .2s both}
+.bt2-needle .n{fill:#E0434B}.bt2-needle .s{fill:var(--ink,#14323F);opacity:.85}.bt2-needle .c{fill:var(--bg,#F6EFE2);stroke:var(--ink,#14323F);stroke-width:2}
+.bt2-wm{opacity:0;transform:translateY(6px);animation:bt2In .5s ease .25s forwards}.bt2-wm .wm{font-size:26px}
+.bt2-say{min-height:0;font-size:15px;font-weight:700;letter-spacing:.01em;color:var(--ink-2,#3B5260);opacity:0;animation:bt2In .5s ease .45s forwards}
+.bt2-bar{width:100%;height:4px;border-radius:999px;background:var(--line,#EDE4D3);overflow:hidden;opacity:0;animation:bt2In .4s ease .5s forwards}
+.bt2-bar i{display:block;height:100%;width:100%;border-radius:inherit;background:var(--ink,#14323F);transform-origin:0 50%;transform:scaleX(var(--p,0));transition:transform .5s cubic-bezier(.3,0,.2,1)}
+@keyframes bt2In{to{opacity:1;transform:none}}
+@keyframes bt2Seek{0%{transform:rotate(-140deg)}55%{transform:rotate(26deg)}75%{transform:rotate(-10deg)}88%{transform:rotate(4deg)}100%{transform:rotate(0)}}
+@media (prefers-reduced-motion:reduce){.bt2-cmp,.bt2-wm,.bt2-say,.bt2-bar{animation:none;opacity:1;transform:none}.bt2-needle{animation:none}}

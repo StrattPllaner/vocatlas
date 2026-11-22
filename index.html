@@ -3007,6 +3007,23 @@ body:not(.on-map):not(.lp-open)::before{content:"";position:fixed;left:0;right:0
 .lp-lin{border-radius:24px;max-height:88%;padding:22px 20px 20px;transform:scale(.92);opacity:0;transition:transform .34s cubic-bezier(.2,1.2,.4,1),opacity .2s}
 .lp-lesson.on .lp-lin{transform:none;opacity:1}
 @media (prefers-reduced-motion:reduce){.ui-sheet,.ui-fb,.lp-lin{transition:opacity .01s!important}}
+
+/* ---------- carga: brújula que encuentra el norte, nombre y barra fina ---------- */
+.bt2{display:flex;flex-direction:column;align-items:center;gap:18px;width:min(320px,80vw)}
+.bt2-cmp{width:104px;height:104px;opacity:0;transform:scale(.86);animation:bt2In .6s cubic-bezier(.2,.9,.3,1) .05s forwards}
+.bt2-cmp svg{width:100%;height:100%;overflow:visible}
+.bt2-ring{fill:none;stroke:var(--line-2,#E2D8C6);stroke-width:3}
+.bt2-arc{fill:none;stroke:var(--ink,#14323F);stroke-width:3;stroke-linecap:round;stroke-dasharray:100;stroke-dashoffset:calc(100 - var(--p,0)*100);transform:rotate(-90deg);transform-origin:60px 60px;transition:stroke-dashoffset .5s cubic-bezier(.3,0,.2,1)}
+.bt2-ticks path{stroke:var(--ink-2,#3B5260);stroke-width:2.6;stroke-linecap:round;opacity:.5}
+.bt2-needle{transform-origin:60px 60px;animation:bt2Seek 2.2s cubic-bezier(.35,0,.15,1) .2s both}
+.bt2-needle .n{fill:#E0434B}.bt2-needle .s{fill:var(--ink,#14323F);opacity:.85}.bt2-needle .c{fill:var(--bg,#F6EFE2);stroke:var(--ink,#14323F);stroke-width:2}
+.bt2-wm{opacity:0;transform:translateY(6px);animation:bt2In .5s ease .25s forwards}.bt2-wm .wm{font-size:26px}
+.bt2-say{min-height:0;font-size:15px;font-weight:700;letter-spacing:.01em;color:var(--ink-2,#3B5260);opacity:0;animation:bt2In .5s ease .45s forwards}
+.bt2-bar{width:100%;height:4px;border-radius:999px;background:var(--line,#EDE4D3);overflow:hidden;opacity:0;animation:bt2In .4s ease .5s forwards}
+.bt2-bar i{display:block;height:100%;width:100%;border-radius:inherit;background:var(--ink,#14323F);transform-origin:0 50%;transform:scaleX(var(--p,0));transition:transform .5s cubic-bezier(.3,0,.2,1)}
+@keyframes bt2In{to{opacity:1;transform:none}}
+@keyframes bt2Seek{0%{transform:rotate(-140deg)}55%{transform:rotate(26deg)}75%{transform:rotate(-10deg)}88%{transform:rotate(4deg)}100%{transform:rotate(0)}}
+@media (prefers-reduced-motion:reduce){.bt2-cmp,.bt2-wm,.bt2-say,.bt2-bar{animation:none;opacity:1;transform:none}.bt2-needle{animation:none}}
 /* explicación animada, globo de Rumbo y video */
 .ex{background:#FFF8EA;border:2px solid #3A3026;border-radius:20px;padding:12px;box-shadow:0 4px 0 #3A3026;max-width:520px;color:#14323F}
 .ex-say{position:relative;min-height:64px;margin-top:10px}
@@ -3081,18 +3098,17 @@ body:not(.on-map):not(.lp-open)::before{content:"";position:fixed;left:0;right:0
 <body>
 
 <div id="boot" role="status" aria-label="Cargando Vocatlas">
-  <div class="bt-wm"><span class="logo" id="logob"></span><span class="wm">Vocatlas</span></div>
-  <div class="bt-stage" id="btTrail" role="progressbar" aria-label="Trazando tu atlas" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-    <svg class="bt-map" viewBox="0 0 340 210" aria-hidden="true">
-      <defs><mask id="btM" maskUnits="userSpaceOnUse" x="0" y="0" width="340" height="210"><path class="bt-mp" d="M96 176C140 176 132 128 168 122S214 158 244 128S250 66 286 60S306 44 312 32" pathLength="100" fill="none" stroke="#fff" stroke-width="12" stroke-linecap="round"/></mask></defs>
-      <path class="bt-dots" id="btRoute" d="M96 176C140 176 132 128 168 122S214 158 244 128S250 66 286 60S306 44 312 32"/>
-      <path class="bt-dots bt-done" d="M96 176C140 176 132 128 168 122S214 158 244 128S250 66 286 60S306 44 312 32" mask="url(#btM)"/>
-      <g id="btStops"></g>
-      <g class="bt-pin" transform="translate(312 32)"><g class="bt-pop"><ellipse cx="0" cy="1" rx="7" ry="2.4" fill="#13213F" opacity=".22"/><path d="M0 0C-2.2 -5.4 -9.4 -9.8 -9.4 -17.2A9.4 9.4 0 0 1 9.4 -17.2C9.4 -9.8 2.2 -5.4 0 0Z" fill="#E0434B" stroke="#8E2430" stroke-width="1.6" stroke-linejoin="round"/><circle cx="0" cy="-17.4" r="3.6" fill="#FFFBF2"/></g></g>
-    </svg>
-    <div class="bt-rb" id="btRb"></div>
+  <div class="bt2">
+    <div class="bt2-cmp" aria-hidden="true">
+      <svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="54" class="bt2-ring"/><circle cx="60" cy="60" r="54" class="bt2-arc" pathLength="100"/>
+       <g class="bt2-ticks"><path d="M60 12v8M60 100v8M12 60h8M100 60h8"/></g>
+       <g class="bt2-needle"><path d="M60 22L67 60L60 66L53 60Z" class="n"/><path d="M60 98L67 60L60 54L53 60Z" class="s"/><circle cx="60" cy="60" r="4.5" class="c"/></g></svg>
+    </div>
+    <div class="bt-wm bt2-wm"><span class="logo" id="logob"></span><span class="wm">Vocatlas</span></div>
+    <p class="bt-say bt2-say" id="btSay">Trazando tu atlas</p>
+    <div class="bt2-bar" id="btTrail" role="progressbar" aria-label="Cargando" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i></i></div>
+    <div hidden><svg><path id="btRoute" d="M0 0L1 1"/><g id="btStops"></g></svg><div id="btRb"></div></div>
   </div>
-  <p class="bt-say" id="btSay">Se está trazando tu atlas…</p>
 </div>
 
 <div id="flow" class="screen" data-step="">
@@ -5713,8 +5729,8 @@ function boot(){
  var ret=document.documentElement.classList.contains("ret"),bt=$("#boot"),trail=$("#btTrail"),sayEl=$("#btSay");
  var now=function(){return window.performance?performance.now():Date.now()};
  var total=0,fin=0,ended=false,shownAt=ret?0:now(),phr=0,timer=0;
- var PH=["Se está trazando tu atlas…","Cada carrera es una isla.","Probar quita muchas dudas.","Lo que te gusta también es una pista.","Aquí vas a tu ritmo."];
- $("#btRb").innerHTML=rumboEl("walk");$("#logob").innerHTML=logo();
+ var PH=["Trazando tu atlas","Cada carrera es una isla","Probar quita dudas","Lo que te gusta es una pista"];
+ $("#logob").innerHTML=logo();
  setTimeout(function(){var r0=bt.querySelector(".rb");if(r0&&!ended)r0.classList.remove("walk")},RM()?0:760);
  /* paradas del trazo: un sello por área, puesto sobre la ruta; aparece cuando el trazo llega a él */
  var stops=[],route=$("#btRoute"),SG=$("#btStops"),GL={salud:"M0 -5V5M-5 0H5",ing:"M-5 4.5H5M-3.5 4.5V-1L0 -5L3.5 -1V4.5",tec:"M-2.5 -4L-6 0L-2.5 4M2.5 -4L6 0L2.5 4",neg:"M-5 5V1M0 5V-5M5 5V-2",arte:"M-5 5.4C-5 2.6 -2.6 2 -1.6 3C-.4 4.2 -1.4 6 -5 5.4ZM-.6 2.2L5.4 -5"};
