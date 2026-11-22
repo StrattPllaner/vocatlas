@@ -771,6 +771,8 @@ var RUMBO=(function(){
    B.r+=rm?0:spring(st.sp.lean,lean,dt,70,7,8);
    /* aplastar y estirar conservando el volumen */
    B.sx=1/B.sy;
+   /* de lado (tres cuartos, mirando a la izquierda): el cuerpo se angosta, cara, gafas y gorro se corren al frente y la orejera de atrás se esconde */
+   st.sd=(st.sd||0)+((cls.contains("side")?1:0)-(st.sd||0))*a;var SD=st.sd;B.sx*=1-.16*SD;
    /* brazos con resorte (pequeño rebote al llegar) */
    aL=rm?0:spring(st.sp.armL,aL,dt,170,14,150);aR=rm?0:spring(st.sp.armR,aR,dt,170,14,150);
    /* velocidades del cuerpo para el escalonamiento: cara, luego gorro y gafas, al final orejeras y flecha */
@@ -845,8 +847,8 @@ var RUMBO=(function(){
    }
    /* la flecha gira de alegría en el acierto y la celebración */
    var spin=0;if(A&&(A.k==="yes"||A.k==="cheer")&&!rm){var sp2=cl(A.t/(A.d*.7),0,1);spin=360*(1-Math.pow(1-sp2,3))}
-   T(g.face,{x:fx,y:fy});T(g.brows,{x:fx,y:fy});
-   T(g.hat,{y:hy,r:hatr+st.asH});if(g.hatb)T(g.hatb,{y:hy,r:hatr+st.asH});T(g.arrow,{r:ar+st.asA+spin+(+wr.getAttribute("data-spin")||0)});T(g.flapL,{r:fl});T(g.flapR,{r:fr+st.asF});T(g.gog,{y:gy});
+   T(g.face,{x:fx-6*SD,y:fy,sx:1-.2*SD});T(g.brows,{x:fx-6*SD,y:fy,sx:1-.2*SD});
+   T(g.hat,{x:-2.2*SD,y:hy,r:hatr+st.asH});if(g.hatb)T(g.hatb,{x:-2.2*SD,y:hy,r:hatr+st.asH});T(g.arrow,{r:ar+st.asA+spin+(+wr.getAttribute("data-spin")||0)});T(g.flapL,{x:-1.5*SD,r:fl});T(g.flapR,{r:fr+st.asF,sx:1-.9*SD});T(g.gog,{x:-5*SD,y:gy,sx:1-.22*SD});
    /* ---------- parpadeo: baja rápido (40 %) y sube más lento (60 %); a veces doble ---------- */
    if(cls.contains("blink")||cls.contains("a-blink")){cls.remove("blink");cls.remove("a-blink");blink(st)}
    var bl=0;if(mood!=="sleep"&&!rm){st.blinkIn-=dt;if(st.blinkIn<=0)blink(st);
@@ -858,6 +860,7 @@ var RUMBO=(function(){
    else if(look)tg=look;
    else if(now-PTR.t<2500){if(!st.rc||t-st.rcT>.3){st.rc=svg.getBoundingClientRect();st.rcT=t}var rc=st.rc;if(rc.width){var dx=PTR.x-(rc.left+rc.width/2),dy=PTR.y-(rc.top+rc.height*.56);tg=[2.1*cl(dx/180,-1,1)*flip,1.8*cl(dy/180,-1,1)]}}
    if(!tg){var lsel=wr.getAttribute("data-look");if(lsel){if(!st.lk||t-st.lkT>.5){var le=document.querySelector(lsel);st.lk=le?le.getBoundingClientRect():null;st.lkT=t;st.rc=svg.getBoundingClientRect()}if(st.lk&&st.rc){var dx2=st.lk.left+st.lk.width/2-(st.rc.left+st.rc.width/2),dy2=st.lk.top+st.lk.height/2-(st.rc.top+st.rc.height*.56);tg=[2.1*cl(dx2/180,-1,1)*flip,1.8*cl(dy2/180,-1,1)]}}}
+   if(!tg&&cls.contains("side"))tg=[-2.2,.2];
    if(!tg)tg=loop==="walk"?[1.6,0]:cls.contains("p-point")?[2.2,0]:GZ[mood]||null;
    if(!tg){st.gzIn-=dt;if(st.gzIn<=0){st.gzT=[[-1.9,0],[1.9,0],[.9,-1.2],[-.9,.8],[0,0]][Math.floor(Math.random()*5)];st.gzHold=rnd(.7,1.5);st.gzIn=rnd(2.5,6)}if(st.gzHold>0){st.gzHold-=dt;if(st.gzHold<=0)st.gzT=[0,0]}tg=st.gzT}
    /* micro movimientos al sostener la mirada */
