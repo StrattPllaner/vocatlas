@@ -249,3 +249,9 @@ body.lp-open #amb{visibility:hidden}body.lp-open #amb *{animation-play-state:pau
 .i3-card{background:#fff;border-radius:16px;padding:12px 14px}.i3-card h4{margin:0 0 6px;font-size:17px}.i3-card p{margin:6px 0 0;font-size:14px;line-height:1.45;color:rgba(20,50,63,.85)}
 .i3-pair{display:grid;grid-template-columns:1fr 1fr;gap:6px;background:#9FD3EA;border-radius:12px}.i3-pair svg{width:100%;height:auto;display:block}
 .i3-close{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:14px;margin-bottom:22px}.i3-close figure{margin:0}.i3-close .i3-wrap{margin-bottom:6px}.i3-close figcaption{font-weight:800;text-align:center}
+.i3-sty{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:6px 0 18px}
+.i3-sty button{font:inherit;text-align:left;padding:12px 14px;border-radius:14px;border:2px solid rgba(20,50,63,.18);background:#fff;color:#14323F;cursor:pointer;min-height:44px}
+.i3-sty button b{display:block;font-size:16px;margin-bottom:4px}.i3-sty button small{font-size:13px;line-height:1.4;color:rgba(20,50,63,.75)}
+.i3-sty button[aria-checked=true]{border-color:#14323F;box-shadow:0 0 0 2px #14323F inset}
+.i3-one{background:#9FD3EA;border-radius:12px}.i3-one svg{width:100%;height:auto;display:block}
+.i3-new{grid-template-columns:repeat(auto-fill,minmax(230px,1fr))}

@@ -88,7 +88,7 @@ var ISOMAP=(function(I,E,G){
     var tb='translate('+f1(p[0])+' '+f1(p[1])+') scale('+sc+')';
     defs+='<g id="'+id+'f">'+mk()+'</g><g id="'+id+'g">'+I.sketchAll(mk(),[+sc,0,0,+sc])+'</g>';
     objs.push({k:n.x+n.y,s:'<g class="poi m-b" id="poi-'+c.id+'" data-id="'+c.id+'" data-c="'+c.id+'" data-a="'+n.isle.id+'" style="--ei:'+EI[n.isle.id]+'"><g class="vco" clip-path="url(#col-'+c.id+')"><g transform="'+tb+'"><g class="pp"><use href="#'+id+'f"/></g></g></g><g class="vbz" clip-path="url(#skc-'+c.id+')"><g transform="'+tb+'"><g class="pp"><use href="#'+id+'g"/></g></g></g></g>'});return}
-   if(typeof ART!=="undefined"&&ART.has(c.id)){var vo=opt.ver?{ver:opt.ver}:null;full=ART.get(c.id,2,v,vo);lite=ART.get(c.id,0,v,vo)}
+   if(typeof ART!=="undefined"&&(ART.has(c.id)||opt.ver==="v3"&&ART.has3&&ART.has3(c.id))){var vo=opt.ver?{ver:opt.ver}:null;full=ART.get(c.id,2,v,vo);lite=ART.get(c.id,0,v,vo)}
    else{full=E.generic(n.isle.area.biome,c.color,G.hs(c.id));lite=full}
    defs+='<g id="'+id+'f">'+full+'</g><g id="'+id+'l">'+lite+'</g>';
    objs.push({k:n.x+n.y,s:'<g class="m-b'+(k>.66?' hi':'')+'" data-id="'+c.id+'" transform="translate('+f1(p[0])+' '+f1(p[1])+') scale('+sc+')">'+(k>.66?'<ellipse class="m-glow" cx="0" cy="4" rx="80" ry="40"/>':'')+'<use class="m-full" href="#'+id+'f"/><use class="m-lite" href="#'+id+'l"/></g>'});

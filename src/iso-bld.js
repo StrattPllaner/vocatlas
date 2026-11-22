@@ -489,11 +489,13 @@ var ART=(function(I,E){
  /* versiones: v1 es lo que había; v2 es lo nuevo. Mientras no elijas, se usa la v2 cuando existe */
  var V2={},VER={};try{VER=JSON.parse(localStorage.getItem("vocatlas_ver")||"{}")||{}}catch(e){}
  function ver(id,v){if(v){VER[id]=v;try{localStorage.setItem("vocatlas_ver",JSON.stringify(VER))}catch(e){}}return VER[id]||(V2[id]?"v2":"v1")}
- function src(id,vv){vv=vv||ver(id);return vv==="v2"&&V2[id]?V2[id]:A[id]}
- function get(id,d,v,o){var vv=o&&o.ver;V3=vv==="v3";var a=src(id,V3?null:vv);if(!a){V3=false;return null}NOPLAT=!!(o&&o.noPlat);var r=a[v||pick(id)](d==null?2:d);NOPLAT=false;V3=false;return r}
+ /* v3: estructuras nuevas o rehechas que solo pide #art (pestaña Islas); la app no las ve hasta aprobarlas */
+ var V3M={};
+ function src(id,vv){if(V3&&V3M[id])return V3M[id];vv=vv||ver(id);return vv==="v2"&&V2[id]?V2[id]:A[id]}
+ function get(id,d,v,o){var vv=o&&o.ver;V3=vv==="v3";var a=src(id,V3?null:vv);if(a&&V3&&V3M[id])v="s";if(!a){V3=false;return null}NOPLAT=!!(o&&o.noPlat);var r=a[v||pick(id)](d==null?2:d);NOPLAT=false;V3=false;return r}
  function addV2(id,fns){V2[id]=fns;if(ids.indexOf(id)<0)ids.push(id)}
  var ids=Object.keys(A);
- return {parts:parts,DEF:DEF,A:A,V2:V2,get:get,pick:pick,ver:ver,addV2:addV2,has:function(id){return !!(A[id]||V2[id])},hasV2:function(id){return !!V2[id]},hasV1:function(id){return !!A[id]},ids:ids,
+ return {parts:parts,DEF:DEF,A:A,V2:V2,get:get,pick:pick,ver:ver,addV2:addV2,has:function(id){return !!(A[id]||V2[id])},has3:function(id){return !!(A[id]||V2[id]||V3M[id])},addV3:function(id,fn){V3M[id]={s:fn,e:fn}},v3ids:function(){return Object.keys(V3M)},hasV2:function(id){return !!V2[id]},hasV1:function(id){return !!A[id]},ids:ids,
   /* herramientas para las piezas v2 */
   H:{v3:function(){return V3},piece:piece,dp:dp,at:at,deco:deco,plat:function(t,sd){return plat(t,sd)},discX:discX,discY:discY,arch:arch,dog:dog,houseModel:houseModel,serverRack:serverRack,codeScreen:codeScreen,searchlight:searchlight,paw:paw,ambulance:ambulance,Z:Z,GLASS:GLASS,FRAME:FRAME,WALL:WALL,RED:RED}};
 })(ISO,ENV);
