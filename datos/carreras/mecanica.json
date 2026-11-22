@@ -1,14 +1,15 @@
 {
  "id": "mecanica",
- "version": 2,
+ "version": 3,
  "formato": 2,
  "estado": "completo",
- "revision": "Pendiente de revisión por un profesionista de la carrera. Generado con datos/importar_lecciones.py desde datos/fuentes/lecciones/mecanica.lec; no se edita a mano.",
+ "generado": true,
+ "revision": "Lecciones generales (de qué trata la carrera y si va contigo), armadas con datos/lecciones_generales.py desde la base de carreras con fuentes (2026-11-17).",
  "unidades": [
   {
    "id": "u1",
-   "titulo": "Fuerza y movimiento",
-   "sub": "Palancas y engranes",
+   "titulo": "¿De qué se trata?",
+   "sub": "Qué hace y cómo es su día",
    "lecciones": [
     {
      "id": "0",
@@ -16,82 +17,55 @@
      "minutos": 1,
      "tarjetas": [
       {
-       "tipo": "ficha",
-       "texto": "Ingeniería Mecánica forma ingenieros que diseñan, fabrican y mantienen máquinas: motores, vehículos, equipos industriales, sistemas de aire acondicionado y herramientas. Trabajan en la industria automotriz, manufactura, energía y mantenimiento.",
-       "cifras": [
-        "mecanica.ingreso",
-        "mecanica.duracion",
-        "mecanica.costo_publica",
-        "mecanica.costo_privada"
-       ]
+       "tipo": "escena",
+       "texto": "Antes de leer nada: ¿qué crees que hace alguien que estudió Ing. Mecánica?"
       },
       {
-       "tipo": "escena",
-       "texto": "Hoy estás en el taller de diseño. Vamos a ver si tu máquina funciona."
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál de estas cosas crees que hace?",
+       "opciones": [
+        "Aplicación de matemáticas, ciencias y tecnología para diseñar, construir, operar…",
+        "Consulta pacientes",
+        "Crea platillos"
+       ],
+       "correcta": 0,
+       "explicacion": "En pocas palabras, Ing. Mecánica es aplicación de matemáticas, ciencias y tecnología para diseñar, construir, operar y mejorar sistemas, productos o procesos. La especialidad define si el trabajo se concentra en infraestructura, energía, manufactura, electrónica, ambiente, transporte o materiales.",
+       "adivina": true
+      },
+      {
+       "tipo": "info",
+       "titulo": "Ing. Mecánica en una frase",
+       "texto": "Aplicación de matemáticas, ciencias y tecnología para diseñar, construir, operar y mejorar sistemas, productos o procesos."
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
      "id": "1",
-     "titulo": "Palancas y torque",
-     "minutos": 4,
+     "titulo": "Un día normal",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Imagina que acompañas un día entero a alguien de Ing. Mecánica. ¿Qué crees que hace?"
+      },
+      {
        "tipo": "info",
-       "titulo": "Palancas y torque",
-       "partes": [
-        {
-         "t": "Las máquinas multiplican fuerza o velocidad. La forma más simple es la palanca. El torque, que es lo que hace girar algo, depende de la fuerza y de la distancia al punto de giro:"
-        },
-        {
-         "f": "torque = fuerza × distancia"
-        },
-        {
-         "t": "Por eso es más fácil aflojar una tuerca con una llave larga: con la misma fuerza logras más torque. En una palanca en equilibrio, el torque de un lado es igual al del otro: puedes levantar algo pesado con poca fuerza si empujas lejos del punto de apoyo."
-        }
+       "titulo": "Un día normal",
+       "puntos": [
+        "Diseña, prueba o mantiene máquinas y equipos (motores, bombas, líneas de producción, sistemas de aire acondicionado)…"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Aplicas 50 newtons en una llave de 0.4 metros. ¿Qué torque logras?",
+       "tipo": "reflexion",
+       "pregunta": "De ese día, ¿qué te late más?",
        "opciones": [
-        "125",
-        "50.4",
-        "20 newton metro"
-       ],
-       "correcta": 2,
-       "formula": "50 × 0.4 = 20"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Una tuerca no se afloja. ¿Qué cambio te ayuda más?",
-       "opciones": [
-        "Una llave más corta",
-        "Usar una llave más larga",
-        "Empujar más cerca de la tuerca"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "En una palanca, una piedra de 600 newtons está a 0.5 metros del apoyo. ¿Qué fuerza necesitas a 1.5 metros del otro lado para equilibrarla?",
-       "opciones": [
-        "1,800 newtons",
-        "200 newtons",
-        "600 newtons"
-       ],
-       "correcta": 1,
-       "formula": "{600 × 0.5|1.5} = 200"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué dos cosas determinan el torque?",
-       "opciones": [
-        "El color y el peso",
-        "Solo la fuerza",
-        "La fuerza y la distancia al punto de giro"
-       ],
-       "correcta": 2
+        "Casi todo",
+        "Algunas cosas",
+        "Nada de eso"
+       ]
       },
       {
        "tipo": "teves"
@@ -100,65 +74,36 @@
     },
     {
      "id": "2",
-     "titulo": "Engranes",
-     "minutos": 4,
+     "titulo": "Mitos y realidades",
+     "minutos": 2,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "Engranes",
-       "partes": [
-        {
-         "t": "Los engranes transmiten giro de un eje a otro. Si un engrane chico mueve uno grande, el grande gira más lento pero con más torque; si uno grande mueve uno chico, el chico gira más rápido pero con menos fuerza. Las vueltas se calculan con los dientes:"
-        },
-        {
-         "f": "vueltas del engrane de salida = vueltas del de entrada × {dientes de entrada|dientes de salida}"
-        },
-        {
-         "t": "Así funcionan las velocidades de una bicicleta: en subida usas un plato chico adelante y un piñón grande atrás para tener más fuerza."
-        }
-       ]
+       "tipo": "escena",
+       "texto": "¿Verdadero o falso? Primero di lo que crees."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Un engrane de 20 dientes gira 300 vueltas por minuto y mueve uno de 60 dientes. ¿A cuántas vueltas gira el grande?",
-       "opciones": [
-        "900",
-        "300",
-        "100"
-       ],
-       "correcta": 2,
-       "formula": "300 × {20|60} = 100"
+       "tipo": "vf",
+       "afirmacion": "En Ing. Mecánica llevas materias de matemáticas o con muchos números.",
+       "respuesta": true,
+       "revelacion": "Sí: Cálculo, Física. Muchos eligen carrera pensando en evitar las matemáticas; mejor saberlo desde ahora."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "En ese caso, ¿el engrane grande tiene más o menos torque que el chico?",
-       "opciones": [
-        "Igual",
-        "Menos",
-        "Más"
-       ],
-       "correcta": 2
+       "tipo": "vf",
+       "afirmacion": "Es de las carreras más difíciles.",
+       "respuesta": true,
+       "revelacion": "Su dificultad es alta. Cálculo, Física, Termodinámica y Mecánica de fluidos."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "En una bicicleta vas en subida y no puedes pedalear. ¿Qué cambio haces?",
-       "opciones": [
-        "Uno que te haga ir más rápido",
-        "Uno que te dé más fuerza aunque avances más lento",
-        "Ninguno"
-       ],
-       "correcta": 1
+       "tipo": "vf",
+       "afirmacion": "La mayoría de quienes la estudian terminan trabajando en otra cosa.",
+       "respuesta": true,
+       "revelacion": "44 de cada 100 trabajan en algo de su carrera (IMCO, Compara Carreras 2026)."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Un engrane de 40 dientes a 100 vueltas por minuto mueve uno de 10 dientes. ¿A cuántas vueltas gira el chico?",
-       "opciones": [
-        "100",
-        "400",
-        "25"
-       ],
-       "correcta": 1,
-       "formula": "100 × {40|10} = 400"
+       "tipo": "vf",
+       "afirmacion": "Casi todos los que se dedican a esto son hombres.",
+       "respuesta": true,
+       "revelacion": "De cada 100 personas que la ejercen, 6 son mujeres (IMCO, Compara Carreras 2026)."
       },
       {
        "tipo": "teves"
@@ -169,174 +114,101 @@
   },
   {
    "id": "u2",
-   "titulo": "Que aguante",
-   "sub": "Eficiencia, materiales y calor",
+   "titulo": "¿Va contigo?",
+   "sub": "Lo que pide y lo que estudias",
    "lecciones": [
     {
      "id": "3",
-     "titulo": "Eficiencia",
-     "minutos": 4,
+     "titulo": "¿Se te da?",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Para que una carrera te guste no basta con que te llame la atención. ¿Se te da lo que pide?"
+      },
+      {
        "tipo": "info",
-       "titulo": "Eficiencia",
-       "partes": [
-        {
-         "t": "Ninguna máquina entrega toda la energía que recibe: una parte se pierde en calor por fricción, ruido o vibración. La eficiencia dice qué parte se aprovecha:"
-        },
-        {
-         "f": "eficiencia = {energía útil que sale|energía que entra}"
-        },
-        {
-         "t": "Un motor de gasolina de coche aprovecha más o menos un tercio de la energía del combustible; el resto se va como calor. Un motor eléctrico suele ser mucho más eficiente. Lubricar, alinear y dar mantenimiento ayudan a no perder eficiencia."
-        }
+       "titulo": "Lo que pide Ing. Mecánica",
+       "puntos": [
+        "Física y matemáticas",
+        "Visión espacial",
+        "Habilidad manual",
+        "Resolver fallas"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Un motor recibe 1,000 watts y entrega 850 watts útiles. ¿Cuál es su eficiencia?",
-       "opciones": [
-        "0.85",
-        "1.18",
-        "150"
-       ],
-       "correcta": 0,
-       "formula": "{850|1,000} = 0.85"
+       "tipo": "info",
+       "titulo": "Y lo que te tiene que gustar",
+       "puntos": [
+        "Máquinas y motores",
+        "Coches",
+        "Construir cosas"
+       ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿A dónde va la energía que no se aprovecha?",
-       "opciones": [
-        "Sobre todo a calor por fricción",
-        "Regresa al enchufe",
-        "Desaparece"
-       ],
-       "correcta": 0
+       "tipo": "reflexion",
+       "pregunta": "¿Desarmaba cosas para ver cómo funcionaban?",
+       "escala": [
+        "No",
+        "Sí"
+       ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Una banda transportadora empezó a gastar más energía y sus rodamientos rechinan. ¿Qué revisas?",
-       "opciones": [
-        "La lubricación y el estado de los rodamientos",
-        "El color de la banda",
-        "Nada"
-       ],
-       "correcta": 0
+       "tipo": "reflexion",
+       "pregunta": "¿Me gustan la física y el dibujo técnico?",
+       "escala": [
+        "No",
+        "Sí"
+       ]
       },
       {
-       "tipo": "teves"
+       "tipo": "reflexion",
+       "pregunta": "¿Me veo en una planta o taller?",
+       "escala": [
+        "No",
+        "Sí"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Si dijiste que no a algo, no pasa nada: sirve para saber qué preguntar y qué carreras parecidas ver."
       }
      ]
     },
     {
      "id": "4",
-     "titulo": "Resistencia de materiales",
-     "minutos": 4,
+     "titulo": "Lo que estudias",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "¿Qué crees que ves en el primer año de Ing. Mecánica?"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál crees que es el primer año?",
+       "opciones": [
+        "Cálculo, Física, Dibujo mecánico / CAD",
+        "Fundamentos de administración, Contabilidad, Matemáticas",
+        "Taller de proyectos I, Dibujo arquitectónico, Geometría"
+       ],
+       "correcta": 0,
+       "explicacion": "Esas son materias de los primeros semestres. Las otras son de Administración y Arquitectura.",
+       "adivina": true
+      },
+      {
        "tipo": "info",
-       "titulo": "Resistencia de materiales",
-       "partes": [
-        {
-         "t": "Para que una pieza no se rompa, se calcula el esfuerzo que soporta:"
-        },
-        {
-         "f": "esfuerzo = {fuerza|área}"
-        },
-        {
-         "t": "Cada material aguanta cierto esfuerzo antes de deformarse para siempre o romperse. El acero aguanta mucho; el aluminio es más ligero pero aguanta menos. Se diseña con un factor de seguridad, para que la pieza aguante varias veces la carga esperada. Además, las esquinas filosas concentran el esfuerzo y son puntos donde suelen empezar las grietas; por eso se redondean."
-        }
+       "titulo": "Lo que vas viendo",
+       "puntos": [
+        "Semestres 1-2: Cálculo, Física, Dibujo mecánico / CAD, Química",
+        "Semestres 3-4: Estática y dinámica, Termodinámica, Ciencia de materiales",
+        "Semestres 5-6: Mecánica de fluidos, Diseño de elementos de máquinas, Transferencia de calor, Manufactura",
+        "Semestres 7 en adelante: Máquinas térmicas, Mantenimiento industrial, Proyecto de diseño"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Una barra con un área de 0.001 metros cuadrados carga 5,000 newtons. ¿Qué esfuerzo tiene?",
-       "opciones": [
-        "5,000",
-        "5,000,000 newtons por metro cuadrado",
-        "5 newtons por metro cuadrado"
-       ],
-       "correcta": 1,
-       "formula": "{5,000|0.001} = 5,000,000"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Si quieres bajar el esfuerzo en una pieza con la misma carga, ¿qué haces?",
-       "opciones": [
-        "Hacerla más delgada",
-        "Aumentar su área",
-        "Pintarla"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Una pieza se rompe siempre en la misma esquina filosa. ¿Qué cambias?",
-       "opciones": [
-        "La haces más filosa",
-        "Redondeas la esquina para que no concentre el esfuerzo",
-        "Nada"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Para qué sirve el factor de seguridad?",
-       "opciones": [
-        "Para que pese menos",
-        "Para nada",
-        "Para que la pieza aguante más que la carga esperada"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "teves"
-      }
-     ]
-    },
-    {
-     "id": "5",
-     "titulo": "Calor y motores",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Calor y motores",
-       "partes": [
-        {
-         "t": "Los motores de combustión convierten calor en movimiento, y generan mucho calor que hay que sacar. Por eso los coches tienen radiador y anticongelante: si el sistema de enfriamiento falla, el motor se sobrecalienta y se puede dañar gravemente. Los materiales se dilatan con el calor, así que las piezas que se calientan se diseñan con espacio para crecer. En una casa, el aire acondicionado y el refrigerador no \"crean frío\": sacan calor de un lugar y lo llevan a otro."
-        }
-       ]
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "La aguja de temperatura de un coche sube al rojo. ¿Qué haces?",
-       "opciones": [
-        "Sigues hasta casa",
-        "Aceleras",
-        "Te detienes y apagas el motor para que no se dañe"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué hace un refrigerador?",
-       "opciones": [
-        "Saca el calor de adentro y lo lleva afuera",
-        "Nada",
-        "Crea frío"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Por qué las vías del tren tienen pequeños espacios entre tramos?",
-       "opciones": [
-        "Para que el metal pueda dilatarse con el calor",
-        "Por ahorro",
-        "Por error"
-       ],
-       "correcta": 0
+       "tipo": "clave",
+       "texto": "Los nombres cambian un poco según la universidad; la idea general es esta."
       },
       {
        "tipo": "teves"
@@ -347,62 +219,82 @@
   },
   {
    "id": "u3",
-   "titulo": "Máquinas reales",
-   "sub": "Mantenimiento y diseño",
+   "titulo": "¿Y después?",
+   "sub": "Trabajo y dificultad",
    "lecciones": [
     {
-     "id": "6",
-     "titulo": "Mantenimiento",
-     "minutos": 4,
+     "id": "5",
+     "titulo": "Dónde trabajarías",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Al terminar, ¿dónde crees que trabajaría alguien de Ing. Mecánica?"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál de estos lugares es más de Ing. Mecánica?",
+       "opciones": [
+        "Empresas industriales y tecnológicas",
+        "Hospitales",
+        "Bancos"
+       ],
+       "correcta": 0,
+       "explicacion": "Es uno de los lugares donde trabaja alguien de Ing. Mecánica.",
+       "adivina": true
+      },
+      {
        "tipo": "info",
-       "titulo": "Mantenimiento",
-       "partes": [
-        {
-         "t": "En una fábrica, una máquina parada cuesta mucho dinero. El mantenimiento preventivo revisa, limpia, lubrica y cambia piezas antes de que fallen, según un calendario. El mantenimiento predictivo usa mediciones, como vibración, temperatura o ruido, para detectar que algo va a fallar. El correctivo repara después de la falla, y suele ser el más caro porque detiene la producción sin aviso. Un buen ingeniero lleva un registro de cada máquina para planear."
-        }
+       "titulo": "Dónde se trabaja",
+       "puntos": [
+        "Empresas industriales y tecnológicas",
+        "Consultoría",
+        "Construcción",
+        "Energía",
+        "Manufactura",
+        "Telecomunicaciones"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Un motor empezó a vibrar más de lo normal, aunque todavía funciona. ¿Qué haces?",
-       "opciones": [
-        "Esperas a que se descomponga",
-        "Nada",
-        "Lo programas para revisión antes de que falle"
-       ],
-       "correcta": 2
+       "tipo": "teves"
+      }
+     ]
+    },
+    {
+     "id": "6",
+     "titulo": "¿Hay trabajo?",
+     "minutos": 2,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Ahora lo que todos preguntan: ¿hay trabajo y cuánto se gana?"
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué tipo de mantenimiento suele ser el más caro?",
-       "opciones": [
-        "El predictivo",
-        "El correctivo, después de la falla",
-        "El preventivo"
-       ],
-       "correcta": 1
+       "tipo": "rango",
+       "pregunta": "De cada 100 que estudiaron Ing. Mecánica, ¿cuántos crees que trabajan en algo de su carrera?",
+       "min": 0,
+       "max": 100,
+       "paso": 5,
+       "unidad": "de cada 100",
+       "dato": "mecanica.ocupacion_afin"
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué es el mantenimiento preventivo?",
-       "opciones": [
-        "Reparar al fallar",
-        "Revisar y cambiar piezas antes de que fallen, según un calendario",
-        "No hacer nada"
-       ],
-       "correcta": 1
+       "tipo": "rango",
+       "pregunta": "¿Cuánto crees que gana al mes, en promedio?",
+       "min": 5000,
+       "max": 50000,
+       "paso": 1000,
+       "unidad": "pesos al mes",
+       "dato": "mecanica.ingreso"
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Para qué sirve llevar un registro de cada máquina?",
-       "opciones": [
-        "Para decorar",
-        "Para nada",
-        "Para planear el mantenimiento y ver patrones de fallas"
-       ],
-       "correcta": 2
+       "tipo": "info",
+       "titulo": "Así está el trabajo",
+       "texto": "Sueldo $24,449, informalidad 23%; carrera muy masculinizada (94% hombres)."
+      },
+      {
+       "tipo": "clave",
+       "texto": "No requiere cédula para la mayoría de puestos."
       },
       {
        "tipo": "teves"
@@ -411,47 +303,37 @@
     },
     {
      "id": "7",
-     "titulo": "Diseñar y fabricar",
-     "minutos": 4,
+     "titulo": "Qué tan difícil es",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "¿Dónde crees que está lo más difícil de Ing. Mecánica?"
+      },
+      {
        "tipo": "info",
-       "titulo": "Diseñar y fabricar",
-       "partes": [
-        {
-         "t": "Un ingeniero mecánico diseña piezas en programas de CAD, que crean modelos en 3D y planos. Ninguna pieza sale exactamente de la medida: por eso los planos tienen tolerancias, que dicen cuánto se puede variar. Una flecha que debe entrar en un rodamiento necesita tolerancias muy precisas; una tapa decorativa, no tanto. Tolerancias más estrictas de lo necesario encarecen la pieza sin razón. Antes de fabricar miles, se hacen prototipos y pruebas."
-        }
+       "titulo": "Lo más difícil",
+       "texto": "Dificultad alta. Cálculo, Física, Termodinámica y Mecánica de fluidos."
+      },
+      {
+       "tipo": "info",
+       "titulo": "Cuánto dura",
+       "texto": "4.5 a 5 años."
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Te ves aguantando eso?",
+       "escala": [
+        "No",
+        "Sí"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué es una tolerancia en un plano?",
-       "opciones": [
-        "La paciencia del ingeniero",
-        "Cuánto puede variar la medida de una pieza",
-        "El color"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Pides una tolerancia de milésimas de milímetro para una tapa decorativa. ¿Qué pasa?",
-       "opciones": [
-        "La pieza sale mucho más cara sin necesidad",
-        "Sale mejor y más barata",
-        "Nada"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Para qué se usan los programas de CAD?",
-       "opciones": [
-        "Para diseñar piezas en 3D y hacer planos",
-        "Para hacer videos",
-        "Para cobrar"
-       ],
-       "correcta": 0
+       "tipo": "info",
+       "titulo": "Si te gusta, pero no del todo",
+       "puntos": [
+        "Mira también: Mecatrónica"
+       ]
       },
       {
        "tipo": "teves"
@@ -462,128 +344,27 @@
   },
   {
    "id": "u4",
-   "titulo": "Examen final",
-   "sub": "10 preguntas · apruebas con 7",
+   "titulo": "Tu decisión",
+   "sub": "¿La guardas o la descartas?",
    "lecciones": [
     {
      "id": "ex",
-     "titulo": "Examen final",
-     "minutos": 6,
-     "examen": true,
-     "aprobar": 7,
+     "titulo": "Tu veredicto",
+     "minutos": 2,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "Examen final",
-       "partes": [
-        {
-         "t": "Son 10 casos nuevos que mezclan todas las lecciones. Apruebas con 7. Si no, lo repites y las que fallaste regresan con otras palabras."
-        }
-       ]
+       "tipo": "escena",
+       "texto": "Ya sabes qué hace alguien de Ing. Mecánica, qué estudias, qué tan difícil es y si hay trabajo."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Aplicas 40 newtons en una llave de 0.5 metros. ¿Qué torque logras?",
-       "opciones": [
-        "80",
-        "40.5",
-        "20 newton metro"
-       ],
-       "correcta": 2,
-       "formula": "40 × 0.5 = 20"
+       "tipo": "escuelas"
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué te ayuda a aflojar una tuerca muy apretada?",
-       "opciones": [
-        "Una llave más larga",
-        "Nada",
-        "Una más corta"
-       ],
-       "correcta": 0
+       "tipo": "veredicto"
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Un engrane de 30 dientes a 200 vueltas por minuto mueve uno de 60. ¿A cuántas gira el grande?",
-       "opciones": [
-        "100",
-        "200",
-        "400"
-       ],
-       "correcta": 0,
-       "formula": "200 × {30|60} = 100"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un motor recibe 2,000 watts y entrega 1,600 útiles. ¿Cuál es su eficiencia?",
-       "opciones": [
-        "400",
-        "0.8",
-        "1.25"
-       ],
-       "correcta": 1,
-       "formula": "{1,600|2,000} = 0.8"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿A dónde se va la energía que no aprovecha una máquina?",
-       "opciones": [
-        "Desaparece",
-        "A la luz",
-        "Sobre todo a calor"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Una barra con área de 0.002 metros cuadrados carga 10,000 newtons. ¿Qué esfuerzo tiene?",
-       "opciones": [
-        "5,000,000 newtons por metro cuadrado",
-        "10,002",
-        "20 newtons por metro cuadrado"
-       ],
-       "correcta": 0,
-       "formula": "{10,000|0.002} = 5,000,000"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Por qué se redondean las esquinas de una pieza?",
-       "opciones": [
-        "Para que pese más",
-        "Por estética",
-        "Para no concentrar el esfuerzo"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "La temperatura del motor sube al rojo.",
-       "opciones": [
-        "Aceleras",
-        "Te detienes y apagas",
-        "Sigues"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué mantenimiento usa mediciones de vibración para anticipar fallas?",
-       "opciones": [
-        "El predictivo",
-        "El correctivo",
-        "Ninguno"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué es una tolerancia?",
-       "opciones": [
-        "Cuánto puede variar una medida",
-        "Un tipo de tornillo",
-        "El material"
-       ],
-       "correcta": 0
+       "tipo": "clave",
+       "texto": "Decidir «sigo en duda» también es avanzar."
       }
      ]
     }

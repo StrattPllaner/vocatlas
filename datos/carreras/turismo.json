@@ -1,14 +1,15 @@
 {
  "id": "turismo",
- "version": 2,
+ "version": 3,
  "formato": 2,
  "estado": "completo",
- "revision": "Pendiente de revisión por un profesionista de la carrera. Generado con datos/importar_lecciones.py desde datos/fuentes/lecciones/turismo.lec; no se edita a mano.",
+ "generado": true,
+ "revision": "Lecciones generales (de qué trata la carrera y si va contigo), armadas con datos/lecciones_generales.py desde la base de carreras con fuentes (2026-11-17).",
  "unidades": [
   {
    "id": "u1",
-   "titulo": "El hotel",
-   "sub": "Números y servicio",
+   "titulo": "¿De qué se trata?",
+   "sub": "Qué hace y cómo es su día",
    "lecciones": [
     {
      "id": "0",
@@ -16,82 +17,72 @@
      "minutos": 1,
      "tarjetas": [
       {
-       "tipo": "ficha",
-       "texto": "Turismo y Hotelería forma profesionales que diseñan y operan experiencias de viaje: hoteles, agencias, restaurantes, eventos y destinos. Combinan servicio, números y cuidado de los lugares que se visitan. En Morelos hay mucho turismo de fin de semana y pueblos mágicos.",
-       "cifras": [
-        "turismo.ingreso",
-        "turismo.duracion",
-        "turismo.costo_publica",
-        "turismo.costo_privada"
-       ]
+       "tipo": "escena",
+       "texto": "Antes de leer nada: ¿qué crees que hace alguien que estudió Turismo?"
       },
       {
-       "tipo": "escena",
-       "texto": "Hoy diriges un hotel lleno de huéspedes. Vamos a ver si se van felices."
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál de estas cosas crees que hace?",
+       "opciones": [
+        "Opera hoteles, agencias",
+        "Programa aplicaciones, páginas y sistemas",
+        "Resuelve problemas con modelos matemáticos en bancos, aseguradoras"
+       ],
+       "correcta": 0,
+       "explicacion": "En pocas palabras, Turismo es servicios turísticos, hospitalidad, alimentos y bebidas o gestión de destinos. Desarrolla capacidades de operación, atención al cliente, administración, creatividad y calidad del servicio.",
+       "adivina": true
+      },
+      {
+       "tipo": "info",
+       "titulo": "Turismo en una frase",
+       "texto": "Servicios turísticos, hospitalidad, alimentos y bebidas o gestión de destinos."
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
      "id": "1",
-     "titulo": "Los números del hotel",
-     "minutos": 4,
+     "titulo": "Un día normal",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Imagina que acompañas un día entero a alguien de Turismo. ¿Qué crees que hace?"
+      },
+      {
        "tipo": "info",
-       "titulo": "Los números del hotel",
-       "partes": [
-        {
-         "t": "Un hotel mide su desempeño con pocos números. La ocupación dice qué parte de los cuartos se vendió, y la tarifa promedio dice cuánto se cobró en promedio por cuarto vendido:"
-        },
-        {
-         "f": "ocupación = {cuartos vendidos|cuartos disponibles} × 100 ;; tarifa promedio = {ingreso por cuartos|cuartos vendidos}"
-        },
-        {
-         "t": "Un hotel lleno pero con tarifas muy bajas puede ganar menos que uno a media ocupación con buenas tarifas. Por eso los precios cambian según la temporada y la demanda."
-        }
+       "titulo": "Un día normal",
+       "puntos": [
+        "Opera hoteles, agencias",
+        "Atiende huéspedes",
+        "Organiza eventos",
+        "Vende paquetes",
+        "Gestiona reservaciones y resuelve imprevistos, horarios variables y fines de semana"
        ]
       },
       {
        "tipo": "pregunta",
-       "pregunta": "Un hotel de 80 cuartos vendió 60 una noche. ¿Cuál fue su ocupación?",
+       "pregunta": "¿Cuál de estas cosas NO es parte de su día?",
        "opciones": [
-        "133 por ciento",
-        "60 por ciento",
-        "75 por ciento"
+        "Calcula o supervisa obras, puentes, carreteras, drenajes",
+        "Atiende huéspedes",
+        "Organiza eventos"
        ],
-       "correcta": 2,
-       "formula": "{60|80} × 100 = 75"
+       "correcta": 0,
+       "explicacion": "Eso lo hace alguien de Ing. Civil, no de Turismo.",
+       "adivina": true
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Ese hotel cobró en total 90,000 pesos por esos 60 cuartos. ¿Cuál es su tarifa promedio?",
+       "tipo": "reflexion",
+       "pregunta": "De ese día, ¿qué te late más?",
        "opciones": [
-        "1,125 pesos",
-        "1,500 pesos",
-        "5,400,000 pesos"
-       ],
-       "correcta": 1,
-       "formula": "{90,000|60} = 1,500"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Por qué un hotel sube sus precios en Semana Santa?",
-       "opciones": [
-        "Por capricho",
-        "Porque cambian los cuartos",
-        "Porque hay más demanda"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Un hotel lleno siempre gana más?",
-       "opciones": [
-        "Nunca",
-        "No; si sus tarifas son muy bajas, puede ganar menos",
-        "Sí, siempre"
-       ],
-       "correcta": 1
+        "Opera hoteles, agencias",
+        "Atiende huéspedes",
+        "Organiza eventos",
+        "Nada de eso"
+       ]
       },
       {
        "tipo": "teves"
@@ -100,57 +91,36 @@
     },
     {
      "id": "2",
-     "titulo": "El servicio",
-     "minutos": 4,
+     "titulo": "Mitos y realidades",
+     "minutos": 2,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "El servicio",
-       "partes": [
-        {
-         "t": "En turismo, lo que se vende es una experiencia, y la experiencia depende de las personas. Un buen servicio anticipa lo que el huésped necesita, resuelve rápido y con amabilidad, y cumple lo que se prometió. Cuando hay una queja, se escucha sin interrumpir, se pide una disculpa sincera, se resuelve y se da seguimiento. Un huésped cuya queja se resolvió bien muchas veces regresa más leal que uno que nunca tuvo problemas."
-        }
-       ]
+       "tipo": "escena",
+       "texto": "¿Verdadero o falso? Primero di lo que crees."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Un huésped se queja de que el aire acondicionado no funciona. ¿Qué haces?",
-       "opciones": [
-        "Lo ignoras",
-        "Le dices que así está",
-        "Lo escuchas, te disculpas, lo resuelves rápido o lo cambias de cuarto, y das seguimiento"
-       ],
-       "correcta": 2
+       "tipo": "vf",
+       "afirmacion": "En Turismo llevas materias de matemáticas o con muchos números.",
+       "respuesta": true,
+       "revelacion": "Sí: Contabilidad. Muchos eligen carrera pensando en evitar las matemáticas; mejor saberlo desde ahora."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué vende realmente el turismo?",
-       "opciones": [
-        "Solo comida",
-        "Solo camas",
-        "Una experiencia"
-       ],
-       "correcta": 2
+       "tipo": "vf",
+       "afirmacion": "Es de las carreras más difíciles.",
+       "respuesta": false,
+       "revelacion": "Su dificultad es media. Idiomas, Administración y prácticas en hoteles o agencias."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Una familia llega con un bebé y no pidió cuna. ¿Qué es un buen servicio?",
-       "opciones": [
-        "Ofrecerle una cuna antes de que la pida",
-        "Cobrarle por preguntar",
-        "Esperar a que se queje"
-       ],
-       "correcta": 0
+       "tipo": "vf",
+       "afirmacion": "La mayoría de quienes la estudian terminan trabajando en otra cosa.",
+       "respuesta": true,
+       "revelacion": "24 de cada 100 trabajan en algo de su carrera (IMCO, Compara Carreras 2026)."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué pasa con un huésped cuya queja se resolvió bien?",
-       "opciones": [
-        "Nunca regresa",
-        "Nada",
-        "Muchas veces regresa más leal"
-       ],
-       "correcta": 2
+       "tipo": "vf",
+       "afirmacion": "Casi todos los que se dedican a esto son hombres.",
+       "respuesta": false,
+       "revelacion": "De cada 100 personas que la ejercen, 68 son mujeres (IMCO, Compara Carreras 2026)."
       },
       {
        "tipo": "teves"
@@ -161,123 +131,101 @@
   },
   {
    "id": "u2",
-   "titulo": "Vender viajes",
-   "sub": "Reservaciones e itinerarios",
+   "titulo": "¿Va contigo?",
+   "sub": "Lo que pide y lo que estudias",
    "lecciones": [
     {
      "id": "3",
-     "titulo": "Reservaciones",
-     "minutos": 4,
+     "titulo": "¿Se te da?",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Para que una carrera te guste no basta con que te llame la atención. ¿Se te da lo que pide?"
+      },
+      {
        "tipo": "info",
-       "titulo": "Reservaciones",
-       "partes": [
-        {
-         "t": "Las reservaciones llegan por la página del hotel, por agencias de viaje en línea y por teléfono. Las agencias en línea traen muchos clientes, pero cobran una comisión por cada reserva:"
-        },
-        {
-         "f": "lo que recibe el hotel = precio × (1 − comisión)"
-        },
-        {
-         "t": "Algunos hoteles venden más cuartos de los que tienen, porque siempre hay cancelaciones; eso se llama sobreventa. Si fallan los cálculos y un huésped con reservación se queda sin cuarto, el hotel tiene que reubicarlo en otro hotel igual o mejor, y compensarlo."
-        }
+       "titulo": "Lo que pide Turismo",
+       "puntos": [
+        "Servicio al cliente",
+        "Idiomas",
+        "Resolver problemas en el momento",
+        "Organización"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Un cuarto se vende en 2,000 pesos por una agencia en línea que cobra 15 por ciento de comisión. ¿Cuánto recibe el hotel?",
-       "opciones": [
-        "2,000 pesos",
-        "300 pesos",
-        "1,700 pesos"
-       ],
-       "correcta": 2,
-       "formula": "2,000 × 0.85 = 1,700"
+       "tipo": "info",
+       "titulo": "Y lo que te tiene que gustar",
+       "puntos": [
+        "Viajar",
+        "Hospitalidad",
+        "Eventos"
+       ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Por la sobreventa, un huésped con reservación confirmada se queda sin cuarto. ¿Qué haces?",
-       "opciones": [
-        "Lo reubicas en un hotel igual o mejor y lo compensas",
-        "Le dices que regrese mañana",
-        "Lo mandas a la calle"
-       ],
-       "correcta": 0
+       "tipo": "reflexion",
+       "pregunta": "¿Disfruto atender a gente distinta todos los días?",
+       "escala": [
+        "No",
+        "Sí"
+       ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Por qué un hotel quiere que reserves en su propia página?",
-       "opciones": [
-        "Porque no paga comisión",
-        "Por moda",
-        "No le importa"
-       ],
-       "correcta": 0
+       "tipo": "reflexion",
+       "pregunta": "¿Me sirve trabajar fines de semana y vacaciones?",
+       "escala": [
+        "No",
+        "Sí"
+       ]
       },
       {
-       "tipo": "teves"
+       "tipo": "reflexion",
+       "pregunta": "¿Hablo o quiero hablar varios idiomas?",
+       "escala": [
+        "No",
+        "Sí"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Si dijiste que no a algo, no pasa nada: sirve para saber qué preguntar y qué carreras parecidas ver."
       }
      ]
     },
     {
      "id": "4",
-     "titulo": "Diseñar un viaje",
-     "minutos": 4,
+     "titulo": "Lo que estudias",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "¿Qué crees que ves en el primer año de Turismo?"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál crees que es el primer año?",
+       "opciones": [
+        "Fundamentos de turismo, Administración, Inglés",
+        "Cálculo I y II, Álgebra superior, Geometría analítica",
+        "Bases biológicas de la conducta, Teorías de la personalidad, Estadística"
+       ],
+       "correcta": 0,
+       "explicacion": "Esas son materias de los primeros semestres. Las otras son de Matemáticas y Psicología.",
+       "adivina": true
+      },
+      {
        "tipo": "info",
-       "titulo": "Diseñar un viaje",
-       "partes": [
-        {
-         "t": "Un profesional del turismo diseña paquetes e itinerarios: transporte, hospedaje, comidas, actividades y guías. Se calculan tiempos realistas de traslado, se dejan márgenes por imprevistos y se arma un precio por persona. Para calcularlo, se suman los costos fijos del grupo, como el autobús, divididos entre las personas, más los costos por persona, como las entradas:"
-        },
-        {
-         "f": "costo por persona = {costos del grupo|personas} + costos por persona"
-        }
+       "titulo": "Lo que vas viendo",
+       "puntos": [
+        "Semestres 1-2: Fundamentos de turismo, Administración, Inglés, Geografía turística",
+        "Semestres 3-4: Hotelería, Agencias de viajes, Contabilidad, Segundo idioma",
+        "Semestres 5-6: Planeación turística, Mercadotecnia turística, Eventos y convenciones",
+        "Semestres 7 en adelante: Prácticas en hotel o destino, Proyecto turístico"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Un autobús para un grupo cuesta 12,000 pesos y van 40 personas. Cada entrada cuesta 100 pesos. ¿Cuál es el costo por persona?",
-       "opciones": [
-        "300 pesos",
-        "400 pesos",
-        "12,100 pesos"
-       ],
-       "correcta": 1,
-       "formula": "{12,000|40} + 100 = 400"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Si solo van 20 personas, ¿cuánto sale por persona?",
-       "opciones": [
-        "700 pesos",
-        "600 pesos",
-        "400 pesos"
-       ],
-       "correcta": 0,
-       "formula": "{12,000|20} + 100 = 700"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un itinerario pone ir de Cuernavaca a Taxco, recorrer la ciudad y regresar en dos horas. ¿Qué problema tiene?",
-       "opciones": [
-        "Los tiempos no son realistas",
-        "Ninguno",
-        "Que es muy largo"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Por qué se dejan márgenes en un itinerario?",
-       "opciones": [
-        "No se dejan",
-        "Para cubrir imprevistos como tráfico o retrasos",
-        "Para aburrirse"
-       ],
-       "correcta": 1
+       "tipo": "clave",
+       "texto": "Los nombres cambian un poco según la universidad; la idea general es esta."
       },
       {
        "tipo": "teves"
@@ -288,52 +236,41 @@
   },
   {
    "id": "u3",
-   "titulo": "Destinos que duren",
-   "sub": "Sustentabilidad, promoción y seguridad",
+   "titulo": "¿Y después?",
+   "sub": "Trabajo y dificultad",
    "lecciones": [
     {
      "id": "5",
-     "titulo": "Turismo sustentable",
-     "minutos": 4,
+     "titulo": "Dónde trabajarías",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Al terminar, ¿dónde crees que trabajaría alguien de Turismo?"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál de estos lugares es más de Turismo?",
+       "opciones": [
+        "Empresas privadas",
+        "Consultoría",
+        "Consultorios y clínicas"
+       ],
+       "correcta": 0,
+       "explicacion": "Es uno de los lugares donde trabaja alguien de Turismo.",
+       "adivina": true
+      },
+      {
        "tipo": "info",
-       "titulo": "Turismo sustentable",
-       "partes": [
-        {
-         "t": "El turismo trae empleo y dinero, pero si crece sin control puede dañar lo que la gente viene a ver: playas saturadas, basura en los cerros, agua que no alcanza para los habitantes. La capacidad de carga es cuántos visitantes aguanta un lugar sin dañarse. El turismo sustentable cuida el ambiente, respeta a la comunidad local y busca que los beneficios se queden también en la población, por ejemplo contratando guías y comprando a productores locales."
-        }
+       "titulo": "Dónde se trabaja",
+       "puntos": [
+        "Empresas privadas",
+        "Bancos",
+        "Aseguradoras",
+        "Consultoras",
+        "Despachos",
+        "Organismos públicos"
        ]
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un pueblo mágico se llena tanto los fines de semana que los habitantes se quedan sin agua y las calles se llenan de basura. ¿Qué concepto se está rebasando?",
-       "opciones": [
-        "La tarifa promedio",
-        "La ocupación",
-        "La capacidad de carga"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué busca el turismo sustentable?",
-       "opciones": [
-        "Construir en todos lados",
-        "Traer la mayor cantidad posible de gente",
-        "Cuidar el ambiente, respetar a la comunidad y que los beneficios se queden también ahí"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Diseñas un recorrido por una comunidad. ¿Qué ayuda a que los beneficios se queden ahí?",
-       "opciones": [
-        "Contratar guías locales y comprar a productores de la zona",
-        "No detenerse",
-        "Llevar todo de fuera"
-       ],
-       "correcta": 0
       },
       {
        "tipo": "teves"
@@ -342,57 +279,39 @@
     },
     {
      "id": "6",
-     "titulo": "Promoción y reseñas",
-     "minutos": 4,
+     "titulo": "¿Hay trabajo?",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Ahora lo que todos preguntan: ¿hay trabajo y cuánto se gana?"
+      },
+      {
+       "tipo": "rango",
+       "pregunta": "De cada 100 que estudiaron Turismo, ¿cuántos crees que trabajan en algo de su carrera?",
+       "min": 0,
+       "max": 100,
+       "paso": 5,
+       "unidad": "de cada 100",
+       "dato": "turismo.ocupacion_afin"
+      },
+      {
+       "tipo": "rango",
+       "pregunta": "¿Cuánto crees que gana al mes, en promedio?",
+       "min": 5000,
+       "max": 50000,
+       "paso": 1000,
+       "unidad": "pesos al mes",
+       "dato": "turismo.ingreso"
+      },
+      {
        "tipo": "info",
-       "titulo": "Promoción y reseñas",
-       "partes": [
-        {
-         "t": "Hoy muchos viajeros eligen dónde ir por fotos en redes y reseñas en línea. Un destino o un hotel se promociona con imágenes reales, información clara de precios y servicios, y facilidad para reservar. Las reseñas negativas se responden con educación y soluciones, nunca con insultos. Prometer algo que no existe, como \"vista al mar\" desde un cuarto que no la tiene, trae malas reseñas y quejas formales."
-        }
-       ]
+       "titulo": "Así está el trabajo",
+       "texto": "Sueldo bajo el promedio ($19,413) y 28% de informalidad; Morelos tiene mercado turístico propio (Cuernavaca, Tepoztlán)."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Un huésped deja una reseña negativa con razón. ¿Cómo respondes?",
-       "opciones": [
-        "Borrando la reseña",
-        "Con educación, reconociendo el problema y explicando cómo se resolverá",
-        "Insultándolo"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un anuncio muestra una alberca enorme que en realidad es pequeña. ¿Qué pasa probablemente?",
-       "opciones": [
-        "Más clientes satisfechos",
-        "Malas reseñas y quejas",
-        "Nada"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué ayuda más a promocionar un hotel?",
-       "opciones": [
-        "Fotos reales, información clara y reservar fácil",
-        "Fotos falsas",
-        "No tener página"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Por qué importan tanto las reseñas en línea?",
-       "opciones": [
-        "No importan",
-        "Por moda",
-        "Porque muchos viajeros eligen por ellas"
-       ],
-       "correcta": 2
+       "tipo": "clave",
+       "texto": "No requiere cédula."
       },
       {
        "tipo": "teves"
@@ -401,47 +320,37 @@
     },
     {
      "id": "7",
-     "titulo": "Seguridad del visitante",
-     "minutos": 4,
+     "titulo": "Qué tan difícil es",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "¿Dónde crees que está lo más difícil de Turismo?"
+      },
+      {
        "tipo": "info",
-       "titulo": "Seguridad del visitante",
-       "partes": [
-        {
-         "t": "Quien trabaja en turismo es responsable de la seguridad de sus visitantes. Un hotel tiene rutas de evacuación, extintores y personal capacitado; en Morelos y otros estados sísmicos, también protocolo de sismo. En actividades como senderismo o deportes de aventura, se revisa el equipo, se da una plática de seguridad y se sigue el plan si algo cambia, por ejemplo si se viene una tormenta. Un guía siempre lleva un botiquín y sabe a quién llamar en una emergencia."
-        }
+       "titulo": "Lo más difícil",
+       "texto": "Dificultad media. Idiomas, Administración y prácticas en hoteles o agencias."
+      },
+      {
+       "tipo": "info",
+       "titulo": "Cuánto dura",
+       "texto": "4 años."
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Te ves aguantando eso?",
+       "escala": [
+        "No",
+        "Sí"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Vas a guiar un recorrido al cerro y se anuncia una tormenta fuerte. ¿Qué haces?",
-       "opciones": [
-        "Subes igual",
-        "Cambias o pospones el recorrido por seguridad",
-        "Dejas que cada quien decida solo"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué debe tener un hotel en una zona sísmica?",
-       "opciones": [
-        "Solo un letrero",
-        "Rutas de evacuación y protocolo de sismo",
-        "Nada"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué lleva siempre un guía?",
-       "opciones": [
-        "Un botiquín y contactos de emergencia",
-        "Solo la cámara",
-        "Nada"
-       ],
-       "correcta": 0
+       "tipo": "info",
+       "titulo": "Si te gusta, pero no del todo",
+       "puntos": [
+        "Mira también: Gastronomía"
+       ]
       },
       {
        "tipo": "teves"
@@ -452,128 +361,27 @@
   },
   {
    "id": "u4",
-   "titulo": "Examen final",
-   "sub": "10 preguntas · apruebas con 7",
+   "titulo": "Tu decisión",
+   "sub": "¿La guardas o la descartas?",
    "lecciones": [
     {
      "id": "ex",
-     "titulo": "Examen final",
-     "minutos": 6,
-     "examen": true,
-     "aprobar": 7,
+     "titulo": "Tu veredicto",
+     "minutos": 2,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "Examen final",
-       "partes": [
-        {
-         "t": "Son 10 casos nuevos que mezclan todas las lecciones. Apruebas con 7. Si no, lo repites y las que fallaste regresan con otras palabras."
-        }
-       ]
+       "tipo": "escena",
+       "texto": "Ya sabes qué hace alguien de Turismo, qué estudias, qué tan difícil es y si hay trabajo."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Un hotel de 100 cuartos vendió 85. ¿Cuál fue su ocupación?",
-       "opciones": [
-        "15 por ciento",
-        "85 por ciento",
-        "100 por ciento"
-       ],
-       "correcta": 1,
-       "formula": "{85|100} × 100 = 85"
+       "tipo": "escuelas"
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Un hotel ganó 60,000 pesos vendiendo 40 cuartos. ¿Cuál es su tarifa promedio?",
-       "opciones": [
-        "1,500 pesos",
-        "2,400,000 pesos",
-        "600 pesos"
-       ],
-       "correcta": 0,
-       "formula": "{60,000|40} = 1,500"
+       "tipo": "veredicto"
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué haces ante una queja?",
-       "opciones": [
-        "Ignorarla",
-        "Discutir",
-        "Escuchar, disculparte, resolver y dar seguimiento"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un cuarto de 1,000 pesos se vende por una agencia que cobra 20 por ciento. ¿Cuánto recibe el hotel?",
-       "opciones": [
-        "200 pesos",
-        "800 pesos",
-        "1,000 pesos"
-       ],
-       "correcta": 1,
-       "formula": "1,000 × 0.80 = 800"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un huésped con reservación se queda sin cuarto.",
-       "opciones": [
-        "Nada",
-        "Lo reubicas en otro hotel igual o mejor y lo compensas",
-        "Lo mandas a casa"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un autobús de 9,000 pesos para 30 personas y entradas de 50. ¿Cuál es el costo por persona?",
-       "opciones": [
-        "300 pesos",
-        "350 pesos",
-        "9,050 pesos"
-       ],
-       "correcta": 1,
-       "formula": "{9,000|30} + 50 = 350"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué es la capacidad de carga?",
-       "opciones": [
-        "Cuántos visitantes aguanta un lugar sin dañarse",
-        "El tamaño del autobús",
-        "Cuánto pesa una maleta"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Cómo respondes una reseña negativa?",
-       "opciones": [
-        "Con educación y soluciones",
-        "Borrándola",
-        "Con insultos"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué pasa si prometes algo que no existe en tu anuncio?",
-       "opciones": [
-        "Nada",
-        "Más clientes felices",
-        "Malas reseñas y quejas"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Se anuncia una tormenta antes de un recorrido.",
-       "opciones": [
-        "Cambias o pospones por seguridad",
-        "Sigues",
-        "No avisas"
-       ],
-       "correcta": 0
+       "tipo": "clave",
+       "texto": "Decidir «sigo en duda» también es avanzar."
       }
      ]
     }

@@ -1,14 +1,15 @@
 {
  "id": "moda",
- "version": 2,
+ "version": 3,
  "formato": 2,
  "estado": "completo",
- "revision": "Pendiente de revisión por un profesionista de la carrera. Generado con datos/importar_lecciones.py desde datos/fuentes/lecciones/moda.lec; no se edita a mano.",
+ "generado": true,
+ "revision": "Lecciones generales (de qué trata la carrera y si va contigo), armadas con datos/lecciones_generales.py desde la base de carreras con fuentes (2026-11-17).",
  "unidades": [
   {
    "id": "u1",
-   "titulo": "Materiales y medidas",
-   "sub": "Telas y patrones",
+   "titulo": "¿De qué se trata?",
+   "sub": "Qué hace y cómo es su día",
    "lecciones": [
     {
      "id": "0",
@@ -16,74 +17,71 @@
      "minutos": 1,
      "tarjetas": [
       {
-       "tipo": "ficha",
-       "texto": "Diseño de Modas y Textil forma diseñadores que crean ropa y accesorios: eligen telas, hacen patrones, costean y planean colecciones. Trabajan en marcas, talleres, la industria textil o con su propia marca. En Morelos no hay dónde terminarla.",
-       "cifras": [
-        "moda.ingreso",
-        "moda.duracion",
-        "moda.costo_publica",
-        "moda.costo_privada"
-       ]
+       "tipo": "escena",
+       "texto": "Antes de leer nada: ¿qué crees que hace alguien que estudió Moda?"
       },
       {
-       "tipo": "escena",
-       "texto": "Hoy diseñas tu primera colección. Vamos a ver si se vende y se puede usar."
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál de estas cosas crees que hace?",
+       "opciones": [
+        "Diseña prendas y colecciones",
+        "Analiza lo que pasa en otros países y cómo afecta a México",
+        "Estudia seres vivos en campo o laboratorio"
+       ],
+       "correcta": 0,
+       "explicacion": "En pocas palabras, Moda es creación, interpretación y comunicación mediante lenguajes visuales, escénicos, audiovisuales o sonoros. Combina técnica, práctica constante, desarrollo de portafolio y proyectos.",
+       "adivina": true
+      },
+      {
+       "tipo": "info",
+       "titulo": "Moda en una frase",
+       "texto": "Creación, interpretación y comunicación mediante lenguajes visuales, escénicos, audiovisuales o sonoros."
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
      "id": "1",
-     "titulo": "Las telas",
-     "minutos": 4,
+     "titulo": "Un día normal",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Imagina que acompañas un día entero a alguien de Moda. ¿Qué crees que hace?"
+      },
+      {
        "tipo": "info",
-       "titulo": "Las telas",
-       "partes": [
-        {
-         "t": "Todo empieza por la tela. Las fibras pueden ser naturales, como el algodón, el lino, la lana y la seda, o sintéticas, como el poliéster y el nylon. El algodón es fresco y absorbe el sudor, pero se arruga y se encoge si no está preencogido. El poliéster es resistente y se arruga poco, pero transpira menos. Además importa cómo está hecha la tela: el tejido plano, como la mezclilla, casi no estira; el tejido de punto, como el de las playeras, estira y se adapta al cuerpo. Antes de cortar, se lava una muestra para ver si encoge."
-        }
+       "titulo": "Un día normal",
+       "puntos": [
+        "Diseña prendas y colecciones",
+        "Elige telas",
+        "Trabaja patrones con talleres",
+        "Sigue tendencias y comercializa, retail o con su propia marca"
        ]
       },
       {
        "tipo": "pregunta",
-       "pregunta": "Diseñas ropa para el calor de Cuernavaca. ¿Qué fibra conviene más?",
+       "pregunta": "¿Cuál de estas cosas NO es parte de su día?",
        "opciones": [
-        "Plástico",
-        "Lana gruesa",
-        "Algodón o lino, que son frescos"
+        "Da clases de educación física",
+        "Elige telas",
+        "Trabaja patrones con talleres"
        ],
-       "correcta": 2
+       "correcta": 0,
+       "explicacion": "Eso lo hace alguien de Educación física, no de Moda.",
+       "adivina": true
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué tipo de tela usarías para una playera ajustada que se adapte al cuerpo?",
+       "tipo": "reflexion",
+       "pregunta": "De ese día, ¿qué te late más?",
        "opciones": [
-        "Mezclilla rígida",
-        "Lona",
-        "Tejido de punto"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Una colección de algodón encogió una talla después de la primera lavada. ¿Qué faltó?",
-       "opciones": [
-        "Nada",
-        "Lavar una muestra antes de cortar o usar tela preencogida",
-        "Plancharla"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué ventaja tiene el poliéster?",
-       "opciones": [
-        "Es resistente y se arruga poco",
-        "Es una fibra natural",
-        "Es muy fresco"
-       ],
-       "correcta": 0
+        "Diseña prendas y colecciones",
+        "Elige telas",
+        "Trabaja patrones con talleres",
+        "Nada de eso"
+       ]
       },
       {
        "tipo": "teves"
@@ -92,61 +90,36 @@
     },
     {
      "id": "2",
-     "titulo": "Patrones y medidas",
-     "minutos": 4,
+     "titulo": "Mitos y realidades",
+     "minutos": 2,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "Patrones y medidas",
-       "partes": [
-        {
-         "t": "Un patrón es la plantilla de papel de cada pieza de una prenda. Se hace con medidas del cuerpo, como busto, cintura y cadera, más una holgura: espacio extra para que la persona se pueda mover y respirar. La holgura depende del estilo: poca en una prenda ajustada, mucha en una holgada. También se agrega margen de costura alrededor de cada pieza. Un error de un centímetro en el patrón se multiplica en cada prenda que se corta."
-        },
-        {
-         "f": "medida del patrón = medida del cuerpo + holgura"
-        }
-       ]
+       "tipo": "escena",
+       "texto": "¿Verdadero o falso? Primero di lo que crees."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Una cadera mide 96 centímetros y quieres 4 de holgura. ¿Qué medida usas en el patrón?",
-       "opciones": [
-        "96 centímetros",
-        "100 centímetros",
-        "92 centímetros"
-       ],
-       "correcta": 1,
-       "formula": "96 + 4 = 100"
+       "tipo": "vf",
+       "afirmacion": "En Moda llevas materias de matemáticas o con muchos números.",
+       "respuesta": false,
+       "revelacion": "No aparecen como materia propia en su plan de estudios. Muchos eligen carrera pensando en evitar las matemáticas; mejor saberlo desde ahora."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Para qué sirve la holgura?",
-       "opciones": [
-        "Para nada",
-        "Para gastar más tela",
-        "Para que la persona se pueda mover y respirar con la prenda"
-       ],
-       "correcta": 2
+       "tipo": "vf",
+       "afirmacion": "Es de las carreras más difíciles.",
+       "respuesta": false,
+       "revelacion": "Su dificultad es media. Patronaje y Confección exigen precisión; muchas entregas de colección."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Un pantalón quedó exacto a la medida de la cintura, sin holgura, y la clienta no se puede sentar. ¿Qué faltó?",
-       "opciones": [
-        "Holgura",
-        "Bolsas",
-        "Más color"
-       ],
-       "correcta": 0
+       "tipo": "vf",
+       "afirmacion": "La mayoría de quienes la estudian terminan trabajando en otra cosa.",
+       "respuesta": true,
+       "revelacion": "26 de cada 100 trabajan en algo de su carrera (IMCO, Compara Carreras 2026)."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué es un patrón?",
-       "opciones": [
-        "Una tela",
-        "La plantilla de cada pieza de una prenda",
-        "El dueño del taller"
-       ],
-       "correcta": 1
+       "tipo": "vf",
+       "afirmacion": "Casi todos los que se dedican a esto son hombres.",
+       "respuesta": false,
+       "revelacion": "De cada 100 personas que la ejercen, 70 son mujeres (IMCO, Compara Carreras 2026)."
       },
       {
        "tipo": "teves"
@@ -157,120 +130,101 @@
   },
   {
    "id": "u2",
-   "titulo": "Producir",
-   "sub": "Tallas y costos",
+   "titulo": "¿Va contigo?",
+   "sub": "Lo que pide y lo que estudias",
    "lecciones": [
     {
      "id": "3",
-     "titulo": "Tallas",
-     "minutos": 4,
+     "titulo": "¿Se te da?",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Para que una carrera te guste no basta con que te llame la atención. ¿Se te da lo que pide?"
+      },
+      {
        "tipo": "info",
-       "titulo": "Tallas",
-       "partes": [
-        {
-         "t": "Para producir en serie, un patrón base se hace en una talla y luego se escala a las demás, agregando o quitando medidas en puntos específicos. Las tallas varían entre marcas y países, por eso cada marca define su tabla de medidas. Antes de producir, se hace una prenda de muestra en cada talla y se prueba en personas reales, porque un cuerpo no crece igual en todas sus partes."
-        }
+       "titulo": "Lo que pide Moda",
+       "puntos": [
+        "Creatividad",
+        "Habilidad manual",
+        "Sentido estético",
+        "Visión de negocio"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué es escalar un patrón?",
-       "opciones": [
-        "Sacar las demás tallas a partir de una talla base",
-        "Cambiar el color",
-        "Subir una escalera"
-       ],
-       "correcta": 0
+       "tipo": "info",
+       "titulo": "Y lo que te tiene que gustar",
+       "puntos": [
+        "Moda",
+        "Arte",
+        "Emprender una marca"
+       ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Una clienta usa talla mediana en una marca y grande en otra. ¿Por qué?",
-       "opciones": [
-        "Porque cada marca define sus propias medidas",
-        "Porque cambió de cuerpo",
-        "Por error"
-       ],
-       "correcta": 0
+       "tipo": "reflexion",
+       "pregunta": "¿Me fijo en cómo está hecha la ropa?",
+       "escala": [
+        "No",
+        "Sí"
+       ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué haces antes de producir cientos de prendas?",
-       "opciones": [
-        "Producir y ver",
-        "Muestras en cada talla probadas en personas reales",
-        "Nada"
-       ],
-       "correcta": 1
+       "tipo": "reflexion",
+       "pregunta": "¿Me gustaría tener mi marca?",
+       "escala": [
+        "No",
+        "Sí"
+       ]
       },
       {
-       "tipo": "teves"
+       "tipo": "reflexion",
+       "pregunta": "¿Me gusta coser o dibujar figurines?",
+       "escala": [
+        "No",
+        "Sí"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Si dijiste que no a algo, no pasa nada: sirve para saber qué preguntar y qué carreras parecidas ver."
       }
      ]
     },
     {
      "id": "4",
-     "titulo": "Costear una prenda",
-     "minutos": 4,
+     "titulo": "Lo que estudias",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "¿Qué crees que ves en el primer año de Moda?"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál crees que es el primer año?",
+       "opciones": [
+        "Dibujo de figurín, Historia de la moda, Textiles",
+        "Anatomía de cabeza y cuello, Bioquímica, Histología",
+        "Anatomía y fisiología, Bioquímica, Fundamentos de enfermería"
+       ],
+       "correcta": 0,
+       "explicacion": "Esas son materias de los primeros semestres. Las otras son de Odontología y Enfermería.",
+       "adivina": true
+      },
+      {
        "tipo": "info",
-       "titulo": "Costear una prenda",
-       "partes": [
-        {
-         "t": "Para fijar el precio hay que conocer el costo: tela, avíos, que son botones, cierres y etiquetas, mano de obra de corte y confección, y una parte de gastos como renta y luz. Luego se aplica un margen. Si vendes a una tienda, ella también pone su margen, así que el precio final sube."
-        },
-        {
-         "f": "costo = tela + avíos + mano de obra"
-        },
-        {
-         "t": "Calcular mal la tela es un error común: hay que contar el desperdicio que queda al acomodar las piezas en el rollo."
-        }
+       "titulo": "Lo que vas viendo",
+       "puntos": [
+        "Semestres 1-2: Dibujo de figurín, Historia de la moda, Textiles, Costura básica",
+        "Semestres 3-4: Patronaje, Confección, Tendencias, Diseño digital de moda",
+        "Semestres 5-6: Colección, Mercadotecnia de moda, Producción y costos, Moda sustentable",
+        "Semestres 7 en adelante: Colección final, Portafolio"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Una blusa lleva 120 pesos de tela, 30 de avíos y 100 de mano de obra. ¿Cuánto cuesta producirla?",
-       "opciones": [
-        "150 pesos",
-        "250 pesos",
-        "220 pesos"
-       ],
-       "correcta": 1,
-       "formula": "120 + 30 + 100 = 250"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Si la vendes al doble de su costo, ¿en cuánto la vendes?",
-       "opciones": [
-        "250 pesos",
-        "500 pesos",
-        "750 pesos"
-       ],
-       "correcta": 1,
-       "formula": "250 × 2 = 500"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Una tienda compra tu blusa en 500 y también la vende al doble. ¿En cuánto la ve el cliente final?",
-       "opciones": [
-        "750 pesos",
-        "500 pesos",
-        "1,000 pesos"
-       ],
-       "correcta": 2,
-       "formula": "500 × 2 = 1,000"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Calculaste la tela sin contar el desperdicio de acomodar las piezas. ¿Qué pasa?",
-       "opciones": [
-        "Nada",
-        "Te falta tela y el costo real sale más alto",
-        "Te sobra"
-       ],
-       "correcta": 1
+       "tipo": "clave",
+       "texto": "Los nombres cambian un poco según la universidad; la idea general es esta."
       },
       {
        "tipo": "teves"
@@ -281,52 +235,41 @@
   },
   {
    "id": "u3",
-   "titulo": "Tu marca",
-   "sub": "Colección, sustentabilidad y respeto",
+   "titulo": "¿Y después?",
+   "sub": "Trabajo y dificultad",
    "lecciones": [
     {
      "id": "5",
-     "titulo": "La colección",
-     "minutos": 4,
+     "titulo": "Dónde trabajarías",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Al terminar, ¿dónde crees que trabajaría alguien de Moda?"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál de estos lugares es más de Moda?",
+       "opciones": [
+        "Estudios creativos",
+        "Empresas industriales y tecnológicas",
+        "Empresas privadas"
+       ],
+       "correcta": 0,
+       "explicacion": "Es uno de los lugares donde trabaja alguien de Moda.",
+       "adivina": true
+      },
+      {
        "tipo": "info",
-       "titulo": "La colección",
-       "partes": [
-        {
-         "t": "Una colección es un grupo de prendas que se ven como un todo: comparten una idea, una paleta de colores y unos materiales. Empieza con investigación e inspiración, que se reúnen en un tablero de ideas. Se piensa en el cliente y la temporada: no es lo mismo ropa de lluvia que de calor. Seguir tendencias ayuda a vender, pero copiar todo lo que está de moda hace que una marca no tenga identidad propia."
-        }
+       "titulo": "Dónde se trabaja",
+       "puntos": [
+        "Estudios creativos",
+        "Agencias",
+        "Productoras",
+        "Editoriales",
+        "Museos",
+        "Instituciones culturales"
        ]
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué hace que una colección se vea como un todo?",
-       "opciones": [
-        "Una idea, paleta de colores y materiales en común",
-        "Que tengan el mismo precio",
-        "Que todas las prendas sean iguales"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Para qué sirve un tablero de ideas?",
-       "opciones": [
-        "Para cortar tela",
-        "Para cobrar",
-        "Para reunir la inspiración y definir la dirección de la colección"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Una marca copia cada tendencia que ve en redes. ¿Qué riesgo tiene?",
-       "opciones": [
-        "Ninguno",
-        "Perder su identidad propia",
-        "Vender más siempre"
-       ],
-       "correcta": 1
       },
       {
        "tipo": "teves"
@@ -335,57 +278,39 @@
     },
     {
      "id": "6",
-     "titulo": "Moda sustentable",
-     "minutos": 4,
+     "titulo": "¿Hay trabajo?",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Ahora lo que todos preguntan: ¿hay trabajo y cuánto se gana?"
+      },
+      {
+       "tipo": "rango",
+       "pregunta": "De cada 100 que estudiaron Moda, ¿cuántos crees que trabajan en algo de su carrera?",
+       "min": 0,
+       "max": 100,
+       "paso": 5,
+       "unidad": "de cada 100",
+       "dato": "moda.ocupacion_afin"
+      },
+      {
+       "tipo": "rango",
+       "pregunta": "¿Cuánto crees que gana al mes, en promedio?",
+       "min": 5000,
+       "max": 50000,
+       "paso": 1000,
+       "unidad": "pesos al mes",
+       "dato": "moda.ingreso"
+      },
+      {
        "tipo": "info",
-       "titulo": "Moda sustentable",
-       "partes": [
-        {
-         "t": "La industria de la moda usa mucha agua, energía y químicos, y genera muchos desechos. La moda rápida produce prendas muy baratas que se usan poco y se tiran pronto. Las alternativas incluyen hacer prendas que duren más, usar materiales reciclados o de menor impacto, aprovechar mejor la tela al cortar y reparar en vez de tirar. Un diseñador puede reducir el desperdicio desde el patrón, acomodando mejor las piezas."
-        }
-       ]
+       "titulo": "Así está el trabajo",
+       "texto": "IMCO 'Diseño industrial, de moda e interiores': $25,503, informalidad 34%."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué es la moda rápida?",
-       "opciones": [
-        "Ropa cara",
-        "Ropa deportiva",
-        "Prendas muy baratas que se usan poco y se tiran pronto"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Cómo puede un diseñador reducir el desperdicio de tela?",
-       "opciones": [
-        "Cortando más",
-        "Tirando los retazos",
-        "Acomodando mejor las piezas del patrón"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué prenda es más sustentable?",
-       "opciones": [
-        "Una que se rompe a la segunda lavada",
-        "Una que dura muchos años y se puede reparar",
-        "Igual"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Te sobran muchos retazos de tela. ¿Qué haces?",
-       "opciones": [
-        "Los aprovechas en accesorios o los mandas a reciclar",
-        "Los quemas",
-        "Los tiras"
-       ],
-       "correcta": 0
+       "tipo": "clave",
+       "texto": "No requiere cédula."
       },
       {
        "tipo": "teves"
@@ -394,47 +319,37 @@
     },
     {
      "id": "7",
-     "titulo": "Respetar el origen",
-     "minutos": 4,
+     "titulo": "Qué tan difícil es",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "¿Dónde crees que está lo más difícil de Moda?"
+      },
+      {
        "tipo": "info",
-       "titulo": "Respetar el origen",
-       "partes": [
-        {
-         "t": "México tiene una enorme riqueza textil: bordados, telares de cintura y diseños de comunidades indígenas con siglos de historia. Desde 2022, una ley protege el patrimonio cultural de los pueblos indígenas y afromexicanos, y usar sus diseños sin su consentimiento puede ser ilegal. La forma correcta de trabajar con ellos es colaborar, dar crédito y pagar de forma justa a las artesanas y artesanos. También se respetan las marcas y diseños registrados de otras empresas."
-        }
+       "titulo": "Lo más difícil",
+       "texto": "Dificultad media. Patronaje y Confección exigen precisión; muchas entregas de colección."
+      },
+      {
+       "tipo": "info",
+       "titulo": "Cuánto dura",
+       "texto": "4 años."
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Te ves aguantando eso?",
+       "escala": [
+        "No",
+        "Sí"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Quieres usar un bordado tradicional de una comunidad en tu colección. ¿Qué haces?",
-       "opciones": [
-        "Lo copias cambiándole el color",
-        "Lo copias",
-        "Colaboras con la comunidad, con su consentimiento, crédito y pago justo"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué protege la ley de 2022?",
-       "opciones": [
-        "El patrimonio cultural de los pueblos indígenas y afromexicanos",
-        "Los precios de la ropa",
-        "Las tiendas"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Una marca extranjera vende como suyo un diseño idéntico a un huipil tradicional, sin dar crédito ni pagar a la comunidad. ¿Qué es?",
-       "opciones": [
-        "Un homenaje",
-        "Inspiración normal",
-        "Una apropiación de su patrimonio cultural"
-       ],
-       "correcta": 2
+       "tipo": "info",
+       "titulo": "Si te gusta, pero no del todo",
+       "puntos": [
+        "Mira también: Mercadotecnia"
+       ]
       },
       {
        "tipo": "teves"
@@ -445,127 +360,27 @@
   },
   {
    "id": "u4",
-   "titulo": "Examen final",
-   "sub": "10 preguntas · apruebas con 7",
+   "titulo": "Tu decisión",
+   "sub": "¿La guardas o la descartas?",
    "lecciones": [
     {
      "id": "ex",
-     "titulo": "Examen final",
-     "minutos": 6,
-     "examen": true,
-     "aprobar": 7,
+     "titulo": "Tu veredicto",
+     "minutos": 2,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "Examen final",
-       "partes": [
-        {
-         "t": "Son 10 casos nuevos que mezclan todas las lecciones. Apruebas con 7. Si no, lo repites y las que fallaste regresan con otras palabras."
-        }
-       ]
+       "tipo": "escena",
+       "texto": "Ya sabes qué hace alguien de Moda, qué estudias, qué tan difícil es y si hay trabajo."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué fibra es fresca para clima caluroso?",
-       "opciones": [
-        "Piel",
-        "Algodón",
-        "Lana gruesa"
-       ],
-       "correcta": 1
+       "tipo": "escuelas"
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué tejido estira?",
-       "opciones": [
-        "El de punto",
-        "La mezclilla rígida",
-        "La lona"
-       ],
-       "correcta": 0
+       "tipo": "veredicto"
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Una cintura mide 70 centímetros y quieres 2 de holgura. ¿Qué medida usas?",
-       "opciones": [
-        "72 centímetros",
-        "68 centímetros",
-        "70 centímetros"
-       ],
-       "correcta": 0,
-       "formula": "70 + 2 = 72"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué es escalar un patrón?",
-       "opciones": [
-        "Teñir",
-        "Sacar otras tallas de una base",
-        "Cortar más rápido"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Una falda lleva 90 pesos de tela, 20 de avíos y 90 de mano de obra. ¿Cuánto cuesta?",
-       "opciones": [
-        "110 pesos",
-        "180 pesos",
-        "200 pesos"
-       ],
-       "correcta": 2,
-       "formula": "90 + 20 + 90 = 200"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Si la vendes al doble del costo, ¿en cuánto la vendes?",
-       "opciones": [
-        "400 pesos",
-        "200 pesos",
-        "300 pesos"
-       ],
-       "correcta": 0,
-       "formula": "200 × 2 = 400"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué hace que una colección se vea unida?",
-       "opciones": [
-        "El mismo precio",
-        "Una idea, paleta y materiales en común",
-        "La misma talla"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué es la moda rápida?",
-       "opciones": [
-        "Ropa barata que se usa poco y se tira pronto",
-        "Ropa de lujo",
-        "Ropa de carreras"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Cómo se reduce el desperdicio de tela desde el diseño?",
-       "opciones": [
-        "No se puede",
-        "Cortando sin plan",
-        "Acomodando bien las piezas del patrón"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Cómo trabajas con diseños de una comunidad indígena?",
-       "opciones": [
-        "Con su consentimiento, crédito y pago justo",
-        "Copiándolos",
-        "Sin decir nada"
-       ],
-       "correcta": 0
+       "tipo": "clave",
+       "texto": "Decidir «sigo en duda» también es avanzar."
       }
      ]
     }

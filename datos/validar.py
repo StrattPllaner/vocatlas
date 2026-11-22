@@ -44,7 +44,7 @@ for p in sorted(glob.glob(D+"/carreras/*.json")):
     c=json.load(open(p));cid=c["id"];ids=[l["id"] for u in c["unidades"] for l in u["lecciones"]]
     if c.get("formato")==2:
         # formato 2 (datos/importar_lecciones.py): entrada, lecciones con explicación + preguntas de 3 opciones, examen final
-        if ids[0]!="0" or ids[-1]!="ex":err.append(f"{cid}: debe empezar con la entrada (0) y terminar con el examen (ex)")
+        if ids[0]!="0" or ids[-1]!="ex":err.append(f"{cid}: debe empezar con la entrada (0) y terminar con la lección ex")
         for u in c["unidades"]:
             for l in u["lecciones"]:
                 w=f"{cid} {l['id']}";T=l["tarjetas"];tipos=[t["tipo"] for t in T]
@@ -56,7 +56,9 @@ for p in sorted(glob.glob(D+"/carreras/*.json")):
                         if len(q.get("opciones",[]))!=3:err.append(f"{w}: una pregunta no tiene 3 opciones: «{q['pregunta'][:50]}»")
                         if q.get("correcta") not in(0,1,2):err.append(f"{w}: pregunta sin respuesta correcta: «{q['pregunta'][:50]}»")
                         if len(set(q.get("opciones",[])))!=len(q.get("opciones",[])):err.append(f"{w}: opciones repetidas: «{q['pregunta'][:50]}»")
-                if l["id"]=="0":continue
+                for t in T:
+                    if t["tipo"]=="rango" and t.get("dato") not in cif:err.append(f"{w}: la cifra {t.get('dato')} no existe en cifras.json")
+                if l["id"]=="0" or c.get("version")==3:continue  # versión 3: lecciones generales (datos/lecciones_generales.py), sin examen
                 if tipos[0]!="info":err.append(f"{w}: debe empezar con la explicación")
                 n=tipos.count("pregunta")
                 if l.get("examen"):

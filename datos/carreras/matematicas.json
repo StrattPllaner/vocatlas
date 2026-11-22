@@ -1,14 +1,15 @@
 {
  "id": "matematicas",
- "version": 2,
+ "version": 3,
  "formato": 2,
  "estado": "completo",
- "revision": "Pendiente de revisión por un profesionista de la carrera. Generado con datos/importar_lecciones.py desde datos/fuentes/lecciones/matematicas.lec; no se edita a mano.",
+ "generado": true,
+ "revision": "Lecciones generales (de qué trata la carrera y si va contigo), armadas con datos/lecciones_generales.py desde la base de carreras con fuentes (2026-11-17).",
  "unidades": [
   {
    "id": "u1",
-   "titulo": "Pensar en matemáticas",
-   "sub": "Demostrar y encontrar patrones",
+   "titulo": "¿De qué se trata?",
+   "sub": "Qué hace y cómo es su día",
    "lecciones": [
     {
      "id": "0",
@@ -16,74 +17,70 @@
      "minutos": 1,
      "tarjetas": [
       {
-       "tipo": "ficha",
-       "texto": "Matemáticas forma matemáticos que demuestran ideas con lógica, encuentran patrones y construyen modelos para resolver problemas. Trabajan en investigación y docencia, pero también en bancos, aseguradoras, tecnología, ciencia de datos y criptografía.",
-       "cifras": [
-        "matematicas.ingreso",
-        "matematicas.duracion",
-        "matematicas.costo_publica",
-        "matematicas.costo_privada"
-       ]
+       "tipo": "escena",
+       "texto": "Antes de leer nada: ¿qué crees que hace alguien que estudió Matemáticas?"
       },
       {
-       "tipo": "escena",
-       "texto": "Hoy piensas como matemático. Vamos a ver si los patrones te salen."
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál de estas cosas crees que hace?",
+       "opciones": [
+        "Resuelve problemas con modelos matemáticos en bancos, aseguradoras",
+        "Analiza datos para entender precios, empleo",
+        "Diseña y programa sistemas automáticos, líneas de producción, máquinas inteligentes"
+       ],
+       "correcta": 0,
+       "explicacion": "En pocas palabras, Matemáticas es fundamentos científicos y cuantitativos para explicar fenómenos naturales y resolver problemas mediante experimentación, modelos, análisis de datos y trabajo de laboratorio.",
+       "adivina": true
+      },
+      {
+       "tipo": "info",
+       "titulo": "Matemáticas en una frase",
+       "texto": "Fundamentos científicos y cuantitativos para explicar fenómenos naturales y resolver problemas mediante experimentación, modelos, análisis de datos y trabajo de laboratorio."
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
      "id": "1",
-     "titulo": "Demostrar",
-     "minutos": 4,
+     "titulo": "Un día normal",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Imagina que acompañas un día entero a alguien de Matemáticas. ¿Qué crees que hace?"
+      },
+      {
        "tipo": "info",
-       "titulo": "Demostrar",
-       "partes": [
-        {
-         "t": "En la carrera de Matemáticas no basta con que algo funcione en varios ejemplos: hay que demostrarlo, es decir, probar con lógica que es cierto en todos los casos. Por ejemplo, la suma de dos números pares siempre es par: un par se puede escribir como 2 por algo, y 2 por algo más 2 por otra cosa es 2 por la suma, que es par. En cambio, para probar que una afirmación es falsa basta un solo contraejemplo, un caso donde no se cumple."
-        }
+       "titulo": "Un día normal",
+       "puntos": [
+        "Resuelve problemas con modelos matemáticos en bancos, aseguradoras",
+        "Ciencia de datos",
+        "Investigación o docencia universitaria"
        ]
       },
       {
        "tipo": "pregunta",
-       "pregunta": "Alguien dice que todos los números primos son impares. ¿Es cierto?",
+       "pregunta": "¿Cuál de estas cosas NO es parte de su día?",
        "opciones": [
-        "Sí",
-        "Solo los grandes",
-        "No; el 2 es primo y es par, y ese contraejemplo basta"
+        "Analiza lo que pasa en otros países y cómo afecta a México",
+        "Ciencia de datos",
+        "Investigación o docencia universitaria"
        ],
-       "correcta": 2
+       "correcta": 0,
+       "explicacion": "Eso lo hace alguien de Relaciones internacionales, no de Matemáticas.",
+       "adivina": true
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Probaste una regla con 100 ejemplos y siempre funcionó. ¿Ya está demostrada?",
+       "tipo": "reflexion",
+       "pregunta": "De ese día, ¿qué te late más?",
        "opciones": [
-        "Con 50 bastaba",
-        "No; hay que probar que se cumple en todos los casos",
-        "Sí"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Cuántos contraejemplos necesitas para probar que algo es falso?",
-       "opciones": [
-        "Todos",
-        "Uno",
-        "Cien"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Por qué la suma de dos pares siempre es par?",
-       "opciones": [
-        "Porque los dos son 2 por algo, y su suma también es 2 por algo",
-        "No siempre",
-        "Porque lo vi en ejemplos"
-       ],
-       "correcta": 0
+        "Resuelve problemas con modelos matemáticos en bancos, aseguradoras",
+        "Ciencia de datos",
+        "Investigación o docencia universitaria",
+        "Nada de eso"
+       ]
       },
       {
        "tipo": "teves"
@@ -92,64 +89,36 @@
     },
     {
      "id": "2",
-     "titulo": "Patrones",
-     "minutos": 4,
+     "titulo": "Mitos y realidades",
+     "minutos": 2,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "Patrones",
-       "partes": [
-        {
-         "t": "Mucho de las matemáticas es encontrar patrones y escribirlos en fórmulas. Se cuenta que, de niño, Gauss sumó los números del 1 al 100 en segundos: juntó el primero con el último, 1 más 100, el segundo con el penúltimo, 2 más 99, y así; cada par suma 101 y hay 50 pares. Eso da una fórmula para sumar del 1 al n:"
-        },
-        {
-         "f": "suma = {n × (n + 1)|2}"
-        }
-       ]
+       "tipo": "escena",
+       "texto": "¿Verdadero o falso? Primero di lo que crees."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Cuánto suman los números del 1 al 100?",
-       "opciones": [
-        "5,050",
-        "100",
-        "10,100"
-       ],
-       "correcta": 0,
-       "formula": "{100 × 101|2} = 5,050"
+       "tipo": "vf",
+       "afirmacion": "En Matemáticas llevas materias de matemáticas o con muchos números.",
+       "respuesta": true,
+       "revelacion": "Sí: Cálculo I y II, Álgebra superior, Geometría analítica. Muchos eligen carrera pensando en evitar las matemáticas; mejor saberlo desde ahora."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Cuánto suman los números del 1 al 10?",
-       "opciones": [
-        "110",
-        "50",
-        "55"
-       ],
-       "correcta": 2,
-       "formula": "{10 × 11|2} = 55"
+       "tipo": "vf",
+       "afirmacion": "Es de las carreras más difíciles.",
+       "respuesta": true,
+       "revelacion": "Su dificultad es muy alta. Desde el inicio se trabaja con demostraciones: Cálculo, Álgebra superior, Análisis matemático."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "En la sucesión 3, 7, 11, 15, ¿qué número sigue?",
-       "opciones": [
-        "21",
-        "19",
-        "18"
-       ],
-       "correcta": 1,
-       "explicacion": "Cada vez se suman 4."
+       "tipo": "vf",
+       "afirmacion": "La mayoría de quienes la estudian terminan trabajando en otra cosa.",
+       "respuesta": false,
+       "revelacion": "70 de cada 100 trabajan en algo de su carrera (IMCO, Compara Carreras 2026)."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "En la sucesión 2, 4, 8, 16, ¿qué número sigue?",
-       "opciones": [
-        "24",
-        "32",
-        "20"
-       ],
-       "correcta": 1,
-       "explicacion": "Cada número es el doble del anterior."
+       "tipo": "vf",
+       "afirmacion": "Casi todos los que se dedican a esto son hombres.",
+       "respuesta": false,
+       "revelacion": "De cada 100 personas que la ejercen, 36 son mujeres (IMCO, Compara Carreras 2026)."
       },
       {
        "tipo": "teves"
@@ -160,129 +129,101 @@
   },
   {
    "id": "u2",
-   "titulo": "Herramientas",
-   "sub": "Probabilidad y funciones",
+   "titulo": "¿Va contigo?",
+   "sub": "Lo que pide y lo que estudias",
    "lecciones": [
     {
      "id": "3",
-     "titulo": "Probabilidad",
-     "minutos": 4,
+     "titulo": "¿Se te da?",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Para que una carrera te guste no basta con que te llame la atención. ¿Se te da lo que pide?"
+      },
+      {
        "tipo": "info",
-       "titulo": "Probabilidad",
-       "partes": [
-        {
-         "t": "La probabilidad mide qué tan posible es algo. Cuando todos los resultados son igual de probables:"
-        },
-        {
-         "f": "probabilidad = {casos favorables|casos posibles}"
-        },
-        {
-         "t": "Con dos dados hay 36 combinaciones posibles. Muchas intuiciones fallan aquí: en un grupo de solo 23 personas, la probabilidad de que dos cumplan años el mismo día ya es mayor que un medio. Y lo que pasó antes no cambia un evento independiente: una moneda no \"debe\" caer águila porque salieron muchos soles."
-        },
-        {
-         "f": "{6|36} = {1|6}"
-        }
+       "titulo": "Lo que pide Matemáticas",
+       "puntos": [
+        "Abstracción",
+        "Paciencia y tolerancia a la frustración",
+        "Lógica",
+        "Programación"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Cuál es la probabilidad de sacar un 6 al tirar un dado?",
-       "opciones": [
-        "1 de 6",
-        "1 de 2",
-        "6 de 6"
-       ],
-       "correcta": 0
+       "tipo": "info",
+       "titulo": "Y lo que te tiene que gustar",
+       "puntos": [
+        "Matemáticas por sí mismas",
+        "Resolver problemas difíciles",
+        "Investigación o tecnología"
+       ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Con dos dados, ¿de cuántas formas puedes sumar 7?",
-       "opciones": [
-        "12",
-        "6",
-        "1"
-       ],
-       "correcta": 1,
-       "explicacion": "Son 1 y 6, 2 y 5, 3 y 4, 4 y 3, 5 y 2, y 6 y 1, así que la probabilidad es"
+       "tipo": "reflexion",
+       "pregunta": "¿Me gustan las matemáticas aunque no tengan aplicación inmediata?",
+       "escala": [
+        "No",
+        "Sí"
+       ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Una moneda cayó sol cinco veces seguidas. ¿Qué probabilidad hay de que la siguiente sea águila?",
-       "opciones": [
-        "Cero",
-        "Un medio, igual que siempre",
-        "Casi segura"
-       ],
-       "correcta": 1
+       "tipo": "reflexion",
+       "pregunta": "¿Puedo pasar horas en un solo problema?",
+       "escala": [
+        "No",
+        "Sí"
+       ]
       },
       {
-       "tipo": "teves"
+       "tipo": "reflexion",
+       "pregunta": "¿Me veo en datos, finanzas o investigación?",
+       "escala": [
+        "No",
+        "Sí"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Si dijiste que no a algo, no pasa nada: sirve para saber qué preguntar y qué carreras parecidas ver."
       }
      ]
     },
     {
      "id": "4",
-     "titulo": "Funciones",
-     "minutos": 4,
+     "titulo": "Lo que estudias",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "¿Qué crees que ves en el primer año de Matemáticas?"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál crees que es el primer año?",
+       "opciones": [
+        "Cálculo I y II, Álgebra superior, Geometría analítica",
+        "Dibujo, Teoría del color, Tipografía",
+        "Teoría de las relaciones internacionales, Historia mundial, Inglés"
+       ],
+       "correcta": 0,
+       "explicacion": "Esas son materias de los primeros semestres. Las otras son de Diseño gráfico y Relaciones internacionales.",
+       "adivina": true
+      },
+      {
        "tipo": "info",
-       "titulo": "Funciones",
-       "partes": [
-        {
-         "t": "Una función relaciona una cantidad con otra. Una función lineal crece siempre lo mismo por cada paso, y su gráfica es una línea recta:"
-        },
-        {
-         "f": "y = m × x + b"
-        },
-        {
-         "t": "La pendiente m dice cuánto cambia y cuando x aumenta 1, y b es el valor inicial. Por ejemplo, un taxi que cobra 10 pesos por kilómetro más 30 de banderazo cobra 10 por x más 30. Leer funciones permite predecir: cuánto costará un viaje, cuánto crecerá algo o cuándo dos opciones salen igual."
-        }
+       "titulo": "Lo que vas viendo",
+       "puntos": [
+        "Semestres 1-2: Cálculo I y II, Álgebra superior, Geometría analítica, Programación",
+        "Semestres 3-4: Álgebra lineal, Ecuaciones diferenciales, Probabilidad, Álgebra moderna",
+        "Semestres 5-6: Análisis matemático, Variable compleja, Topología, Optimización",
+        "Semestres 7 en adelante: Seminarios y optativas (estadística, finanzas, computación), Tesis"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Un taxi cobra 10 pesos por kilómetro más 30 de banderazo. ¿Cuánto cuesta un viaje de 8 kilómetros?",
-       "opciones": [
-        "38 pesos",
-        "80 pesos",
-        "110 pesos"
-       ],
-       "correcta": 2,
-       "formula": "10 × 8 + 30 = 110"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "En y igual a 3x más 5, ¿cuál es el valor inicial?",
-       "opciones": [
-        "3",
-        "8",
-        "5"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un plan A cobra 200 al mes y el plan B cobra 100 más 10 por gigabyte. ¿Con cuántos gigabytes cuestan igual?",
-       "opciones": [
-        "10",
-        "100",
-        "20"
-       ],
-       "correcta": 0,
-       "formula": "100 + 10 × 10 = 200"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Cómo es la gráfica de una función lineal?",
-       "opciones": [
-        "Un círculo",
-        "Una curva que sube cada vez más rápido",
-        "Una línea recta"
-       ],
-       "correcta": 2
+       "tipo": "clave",
+       "texto": "Los nombres cambian un poco según la universidad; la idea general es esta."
       },
       {
        "tipo": "teves"
@@ -293,60 +234,41 @@
   },
   {
    "id": "u3",
-   "titulo": "Que no te engañen",
-   "sub": "Porcentajes, crecimiento y aplicaciones",
+   "titulo": "¿Y después?",
+   "sub": "Trabajo y dificultad",
    "lecciones": [
     {
      "id": "5",
-     "titulo": "Porcentajes que engañan",
-     "minutos": 4,
+     "titulo": "Dónde trabajarías",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Al terminar, ¿dónde crees que trabajaría alguien de Matemáticas?"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál de estos lugares es más de Matemáticas?",
+       "opciones": [
+        "Empresas privadas",
+        "Consultorios y clínicas",
+        "Comercio"
+       ],
+       "correcta": 0,
+       "explicacion": "Es uno de los lugares donde trabaja alguien de Matemáticas.",
+       "adivina": true
+      },
+      {
        "tipo": "info",
-       "titulo": "Porcentajes que engañan",
-       "partes": [
-        {
-         "t": "Los porcentajes se calculan sobre una base, y si la base cambia, el resultado cambia. Si un precio sube 50 por ciento y luego baja 50 por ciento, no regresa al original: termina más bajo, porque la bajada se calcula sobre un número más grande."
-        },
-        {
-         "f": "100 × 1.5 × 0.5 = 75"
-        },
-        {
-         "t": "Por eso un matemático siempre pregunta \"¿por ciento de qué?\". También engañan los aumentos sobre cantidades muy pequeñas: pasar de 1 a 2 casos es un aumento del 100 por ciento, aunque sea solo un caso más."
-        }
+       "titulo": "Dónde se trabaja",
+       "puntos": [
+        "Empresas privadas",
+        "Bancos",
+        "Aseguradoras",
+        "Consultoras",
+        "Despachos",
+        "Organismos públicos"
        ]
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Una acción de 200 pesos sube 50 por ciento y luego baja 50 por ciento. ¿En cuánto queda?",
-       "opciones": [
-        "200 pesos",
-        "100 pesos",
-        "150 pesos"
-       ],
-       "correcta": 2,
-       "formula": "200 × 1.5 × 0.5 = 150"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un noticiero dice que un delito raro aumentó 100 por ciento en un pueblo. ¿Qué preguntas?",
-       "opciones": [
-        "Cuántos casos eran antes y cuántos ahora",
-        "Quién lo dijo y ya",
-        "Nada, es enorme"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Una tienda dice \"20 por ciento de descuento y luego otro 20 por ciento\". ¿Es lo mismo que 40 por ciento?",
-       "opciones": [
-        "Es 50",
-        "No, es 36 por ciento",
-        "Sí"
-       ],
-       "correcta": 1,
-       "formula": "1 − 0.8 × 0.8 = 0.36"
       },
       {
        "tipo": "teves"
@@ -355,61 +277,39 @@
     },
     {
      "id": "6",
-     "titulo": "Crecimiento exponencial",
-     "minutos": 4,
+     "titulo": "¿Hay trabajo?",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Ahora lo que todos preguntan: ¿hay trabajo y cuánto se gana?"
+      },
+      {
+       "tipo": "rango",
+       "pregunta": "De cada 100 que estudiaron Matemáticas, ¿cuántos crees que trabajan en algo de su carrera?",
+       "min": 0,
+       "max": 100,
+       "paso": 5,
+       "unidad": "de cada 100",
+       "dato": "matematicas.ocupacion_afin"
+      },
+      {
+       "tipo": "rango",
+       "pregunta": "¿Cuánto crees que gana al mes, en promedio?",
+       "min": 5000,
+       "max": 50000,
+       "paso": 1000,
+       "unidad": "pesos al mes",
+       "dato": "matematicas.ingreso"
+      },
+      {
        "tipo": "info",
-       "titulo": "Crecimiento exponencial",
-       "partes": [
-        {
-         "t": "Algo crece de forma exponencial cuando se multiplica por la misma cantidad en cada paso, por ejemplo cuando se duplica. Al principio parece lento, pero luego explota. Si doblas una hoja de papel, su grosor se duplica cada vez; en 10 dobleces ya es más de mil veces más gruesa. Este tipo de crecimiento aparece en contagios, en interés compuesto y en poblaciones. Las personas tienden a subestimarlo porque esperan que crezca en línea recta."
-        },
-        {
-         "f": "después de 3 duplicaciones = inicio × 2 × 2 × 2"
-        }
-       ]
+       "titulo": "Así está el trabajo",
+       "texto": "La carrera mejor pagada de México en 2026 ($29,887) y la de mayor crecimiento salarial desde 2020 (41%); pocos egresados."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Un rumor lo sabe 1 persona, y cada día se duplica quién lo sabe. ¿Cuántas lo saben después de 5 días?",
-       "opciones": [
-        "32",
-        "10",
-        "6"
-       ],
-       "correcta": 0,
-       "formula": "1 × 2 × 2 × 2 × 2 × 2 = 32"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un estanque se llena de lirio duplicando su área cada día, y se cubre completo el día 30. ¿Qué día estaba cubierto a la mitad?",
-       "opciones": [
-        "El día 29",
-        "El día 1",
-        "El día 15"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Por qué la gente subestima el crecimiento exponencial?",
-       "opciones": [
-        "Porque es lento",
-        "No lo subestima",
-        "Porque espera que crezca en línea recta"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Cuál de estos crece exponencialmente?",
-       "opciones": [
-        "Algo que se duplica cada mes",
-        "Algo que no cambia",
-        "Algo que aumenta 5 cada mes"
-       ],
-       "correcta": 0
+       "tipo": "clave",
+       "texto": "No requiere cédula."
       },
       {
        "tipo": "teves"
@@ -418,47 +318,37 @@
     },
     {
      "id": "7",
-     "titulo": "Para qué sirve",
-     "minutos": 4,
+     "titulo": "Qué tan difícil es",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "¿Dónde crees que está lo más difícil de Matemáticas?"
+      },
+      {
        "tipo": "info",
-       "titulo": "Para qué sirve",
-       "partes": [
-        {
-         "t": "Las matemáticas están detrás de casi todo. La seguridad de tus compras en internet usa números primos muy grandes: multiplicarlos es fácil, pero encontrar cuáles se multiplicaron, si el número es enorme, es tan difícil que protege tus datos. Los matemáticos trabajan en investigación y docencia, pero también en bancos, aseguradoras, empresas de tecnología, ciencia de datos y criptografía. El IMCO reporta que Matemáticas está entre las carreras mejor pagadas en México."
-        }
+       "titulo": "Lo más difícil",
+       "texto": "Dificultad muy alta. Desde el inicio se trabaja con demostraciones: Cálculo, Álgebra superior, Análisis matemático."
+      },
+      {
+       "tipo": "info",
+       "titulo": "Cuánto dura",
+       "texto": "4 a 4.5 años."
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Te ves aguantando eso?",
+       "escala": [
+        "No",
+        "Sí"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué tipo de números protege muchas compras por internet?",
-       "opciones": [
-        "Números negativos",
-        "Números pares",
-        "Números primos muy grandes"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Por qué esos números protegen los datos?",
-       "opciones": [
-        "Porque son pequeños",
-        "Porque multiplicarlos es fácil, pero encontrar cuáles se multiplicaron es muy difícil",
-        "Porque son secretos"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Dónde trabaja un matemático además de dar clases?",
-       "opciones": [
-        "En bancos, aseguradoras, tecnología, ciencia de datos y criptografía",
-        "Solo en universidades",
-        "En ningún otro lugar"
-       ],
-       "correcta": 0
+       "tipo": "info",
+       "titulo": "Si te gusta, pero no del todo",
+       "puntos": [
+        "Mira también: Actuaría, Física, Economía"
+       ]
       },
       {
        "tipo": "teves"
@@ -469,129 +359,27 @@
   },
   {
    "id": "u4",
-   "titulo": "Examen final",
-   "sub": "10 preguntas · apruebas con 7",
+   "titulo": "Tu decisión",
+   "sub": "¿La guardas o la descartas?",
    "lecciones": [
     {
      "id": "ex",
-     "titulo": "Examen final",
-     "minutos": 6,
-     "examen": true,
-     "aprobar": 7,
+     "titulo": "Tu veredicto",
+     "minutos": 2,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "Examen final",
-       "partes": [
-        {
-         "t": "Son 10 casos nuevos que mezclan todas las lecciones. Apruebas con 7. Si no, lo repites y las que fallaste regresan con otras palabras."
-        }
-       ]
+       "tipo": "escena",
+       "texto": "Ya sabes qué hace alguien de Matemáticas, qué estudias, qué tan difícil es y si hay trabajo."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Cuántos contraejemplos necesitas para probar que algo es falso?",
-       "opciones": [
-        "Diez",
-        "Uno",
-        "Mil"
-       ],
-       "correcta": 1
+       "tipo": "escuelas"
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Cuánto suman los números del 1 al 20?",
-       "opciones": [
-        "200",
-        "400",
-        "210"
-       ],
-       "correcta": 2,
-       "formula": "{20 × 21|2} = 210"
+       "tipo": "veredicto"
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "En la sucesión 5, 10, 20, 40, ¿qué sigue?",
-       "opciones": [
-        "50",
-        "80",
-        "60"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Cuál es la probabilidad de sacar un número par en un dado?",
-       "opciones": [
-        "1 de 6",
-        "2 de 6",
-        "3 de 6"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un taxi cobra 8 pesos por kilómetro más 20 de banderazo. ¿Cuánto cuesta un viaje de 10 kilómetros?",
-       "opciones": [
-        "28 pesos",
-        "100 pesos",
-        "80 pesos"
-       ],
-       "correcta": 1,
-       "formula": "8 × 10 + 20 = 100"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un precio de 100 pesos sube 50 por ciento y luego baja 50 por ciento. ¿En cuánto queda?",
-       "opciones": [
-        "75 pesos",
-        "50 pesos",
-        "100 pesos"
-       ],
-       "correcta": 0,
-       "formula": "100 × 1.5 × 0.5 = 75"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Dos descuentos de 10 por ciento son lo mismo que uno de 20?",
-       "opciones": [
-        "No, son 19 por ciento",
-        "Sí",
-        "Son 25"
-       ],
-       "correcta": 0,
-       "formula": "1 − 0.9 × 0.9 = 0.19"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Algo empieza en 3 y se duplica 4 veces. ¿En cuánto termina?",
-       "opciones": [
-        "24",
-        "12",
-        "48"
-       ],
-       "correcta": 2,
-       "formula": "3 × 2 × 2 × 2 × 2 = 48"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un estanque se cubre de lirio el día 20 duplicándose cada día. ¿Qué día estaba a la mitad?",
-       "opciones": [
-        "El 1",
-        "El 19",
-        "El 10"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué protege muchas compras por internet?",
-       "opciones": [
-        "Los números primos muy grandes",
-        "Nada",
-        "Los números pares"
-       ],
-       "correcta": 0
+       "tipo": "clave",
+       "texto": "Decidir «sigo en duda» también es avanzar."
       }
      ]
     }

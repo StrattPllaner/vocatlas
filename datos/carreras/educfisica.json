@@ -1,14 +1,15 @@
 {
  "id": "educfisica",
- "version": 2,
+ "version": 3,
  "formato": 2,
  "estado": "completo",
- "revision": "Pendiente de revisión por un profesionista de la carrera. Generado con datos/importar_lecciones.py desde datos/fuentes/lecciones/educfisica.lec; no se edita a mano.",
+ "generado": true,
+ "revision": "Lecciones generales (de qué trata la carrera y si va contigo), armadas con datos/lecciones_generales.py desde la base de carreras con fuentes (2026-11-17).",
  "unidades": [
   {
    "id": "u1",
-   "titulo": "El cuerpo en movimiento",
-   "sub": "Intensidad y calentamiento",
+   "titulo": "¿De qué se trata?",
+   "sub": "Qué hace y cómo es su día",
    "lecciones": [
     {
      "id": "0",
@@ -16,82 +17,70 @@
      "minutos": 1,
      "tarjetas": [
       {
-       "tipo": "ficha",
-       "texto": "Educación Física y Ciencias del Deporte forma profesionales que enseñan a moverse, entrenan deportistas y promueven la actividad física para la salud. Trabajan en escuelas, clubes, gimnasios, equipos deportivos y programas comunitarios.",
-       "cifras": [
-        "educfisica.ingreso",
-        "educfisica.duracion",
-        "educfisica.costo_publica",
-        "educfisica.costo_privada"
-       ]
+       "tipo": "escena",
+       "texto": "Antes de leer nada: ¿qué crees que hace alguien que estudió Educación física?"
       },
       {
-       "tipo": "escena",
-       "texto": "Hoy das la clase en la cancha. Vamos a ver si todos se mueven y nadie se lastima."
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál de estas cosas crees que hace?",
+       "opciones": [
+        "Da clases de educación física",
+        "Graba y edita contenido",
+        "Crea platillos"
+       ],
+       "correcta": 0,
+       "explicacion": "En pocas palabras, Educación física es procesos de enseñanza y aprendizaje, diseño didáctico, evaluación y desarrollo de materiales educativos. La orientación determina el nivel escolar o la asignatura en la que se puede ejercer.",
+       "adivina": true
+      },
+      {
+       "tipo": "info",
+       "titulo": "Educación física en una frase",
+       "texto": "Procesos de enseñanza y aprendizaje, diseño didáctico, evaluación y desarrollo de materiales educativos."
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
      "id": "1",
-     "titulo": "El corazón en el ejercicio",
-     "minutos": 4,
+     "titulo": "Un día normal",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Imagina que acompañas un día entero a alguien de Educación física. ¿Qué crees que hace?"
+      },
+      {
        "tipo": "info",
-       "titulo": "El corazón en el ejercicio",
-       "partes": [
-        {
-         "t": "La intensidad del ejercicio se puede guiar con la frecuencia cardiaca. Una estimación sencilla de la frecuencia máxima es:"
-        },
-        {
-         "f": "frecuencia máxima = 220 − edad"
-        },
-        {
-         "t": "Es solo una aproximación; cada persona varía. Para mejorar la resistencia sin agotarse, mucha gente entrena entre el 60 y el 80 por ciento de su máxima. Otra forma sencilla de medir la intensidad es la prueba del habla: si puedes platicar pero no cantar, vas a una intensidad moderada. Si no puedes decir más de unas palabras, vas muy intenso."
-        }
+       "titulo": "Un día normal",
+       "puntos": [
+        "Da clases de educación física",
+        "Entrena equipos o atletas",
+        "Diseña programas de actividad física o administra gimnasios y clubes"
        ]
       },
       {
        "tipo": "pregunta",
-       "pregunta": "¿Cuál es la frecuencia máxima estimada de una persona de 20 años?",
+       "pregunta": "¿Cuál de estas cosas NO es parte de su día?",
        "opciones": [
-        "180",
-        "200",
-        "220"
-       ],
-       "correcta": 1,
-       "formula": "220 − 20 = 200"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Para esa persona, ¿cuál es el 70 por ciento de su máxima?",
-       "opciones": [
-        "140",
-        "70",
-        "200"
+        "Trabaja en laboratorio",
+        "Entrena equipos o atletas",
+        "Diseña programas de actividad física o administra gimnasios y clubes"
        ],
        "correcta": 0,
-       "formula": "200 × 0.70 = 140"
+       "explicacion": "Eso lo hace alguien de Biotecnología, no de Educación física.",
+       "adivina": true
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Un alumno corre y puede platicar con su compañero, pero no cantar. ¿A qué intensidad va?",
+       "tipo": "reflexion",
+       "pregunta": "De ese día, ¿qué te late más?",
        "opciones": [
-        "Máxima",
-        "Moderada",
-        "Está parado"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué tan exacta es la fórmula de 220 menos la edad?",
-       "opciones": [
-        "Es solo una aproximación; cada persona varía",
-        "Solo sirve en niños",
-        "Es exacta para todos"
-       ],
-       "correcta": 0
+        "Da clases de educación física",
+        "Entrena equipos o atletas",
+        "Diseña programas de actividad física o administra gimnasios y clubes",
+        "Nada de eso"
+       ]
       },
       {
        "tipo": "teves"
@@ -100,57 +89,36 @@
     },
     {
      "id": "2",
-     "titulo": "Calentar y enfriar",
-     "minutos": 4,
+     "titulo": "Mitos y realidades",
+     "minutos": 2,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "Calentar y enfriar",
-       "partes": [
-        {
-         "t": "Antes de una actividad intensa se calienta: unos minutos de movimiento suave que suben poco a poco la temperatura del cuerpo y la frecuencia cardiaca, más movimientos parecidos a los del deporte, como trotar, mover articulaciones y hacer desplazamientos. Los estiramientos largos y quietos se dejan mejor para después. Al terminar se enfría: se baja la intensidad poco a poco en vez de parar de golpe. Calentar bien prepara al cuerpo y ayuda a rendir mejor."
-        }
-       ]
+       "tipo": "escena",
+       "texto": "¿Verdadero o falso? Primero di lo que crees."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué es un buen calentamiento antes de jugar fútbol?",
-       "opciones": [
-        "Empezar a correr a toda velocidad",
-        "Trote suave, movilidad y desplazamientos parecidos al juego",
-        "Sentarse a estirar diez minutos sin moverse"
-       ],
-       "correcta": 1
+       "tipo": "vf",
+       "afirmacion": "En Educación física llevas materias de matemáticas o con muchos números.",
+       "respuesta": true,
+       "revelacion": "Sí: Didáctica de la educación física. Muchos eligen carrera pensando en evitar las matemáticas; mejor saberlo desde ahora."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Cuándo conviene hacer estiramientos largos y quietos?",
-       "opciones": [
-        "Justo antes de un sprint",
-        "Después de la actividad",
-        "Nunca"
-       ],
-       "correcta": 1
+       "tipo": "vf",
+       "afirmacion": "Es de las carreras más difíciles.",
+       "respuesta": false,
+       "revelacion": "Su dificultad es media. Anatomía, Fisiología del ejercicio y mucha práctica deportiva."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Un grupo termina una carrera intensa y todos se sientan de golpe. ¿Qué les falta?",
-       "opciones": [
-        "Correr más",
-        "Bajar la intensidad poco a poco, caminando unos minutos",
-        "Nada"
-       ],
-       "correcta": 1
+       "tipo": "vf",
+       "afirmacion": "La mayoría de quienes la estudian terminan trabajando en otra cosa.",
+       "respuesta": true,
+       "revelacion": "44 de cada 100 trabajan en algo de su carrera (IMCO, Compara Carreras 2026)."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Para qué sirve el calentamiento?",
-       "opciones": [
-        "Para preparar el cuerpo poco a poco para la actividad",
-        "Para perder tiempo",
-        "Para cansarse antes"
-       ],
-       "correcta": 0
+       "tipo": "vf",
+       "afirmacion": "Casi todos los que se dedican a esto son hombres.",
+       "respuesta": false,
+       "revelacion": "De cada 100 personas que la ejercen, 26 son mujeres (IMCO, Compara Carreras 2026)."
       },
       {
        "tipo": "teves"
@@ -161,167 +129,101 @@
   },
   {
    "id": "u2",
-   "titulo": "Entrenar seguro",
-   "sub": "Progresión, calor y lesiones",
+   "titulo": "¿Va contigo?",
+   "sub": "Lo que pide y lo que estudias",
    "lecciones": [
     {
      "id": "3",
-     "titulo": "Cómo mejora el cuerpo",
-     "minutos": 4,
+     "titulo": "¿Se te da?",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Para que una carrera te guste no basta con que te llame la atención. ¿Se te da lo que pide?"
+      },
+      {
        "tipo": "info",
-       "titulo": "Cómo mejora el cuerpo",
-       "partes": [
-        {
-         "t": "El cuerpo mejora cuando se le pide un poco más de lo que está acostumbrado y luego descansa. Eso se llama sobrecarga progresiva. Si se aumenta demasiado rápido, aparecen el cansancio excesivo y las lesiones. Una regla práctica es no subir el volumen semanal más de un 10 por ciento a la vez."
-        },
-        {
-         "f": "nuevo volumen = volumen actual × 1.10"
-        },
-        {
-         "t": "El descanso es parte del entrenamiento: es cuando el cuerpo se recupera y se adapta. Además, lo que no se practica se pierde poco a poco."
-        }
+       "titulo": "Lo que pide Educación física",
+       "puntos": [
+        "Condición física",
+        "Liderazgo de grupos",
+        "Paciencia",
+        "Motivación"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Un alumno corre 10 kilómetros por semana. Con la regla del 10 por ciento, ¿hasta cuánto puede subir la próxima semana?",
-       "opciones": [
-        "10 kilómetros",
-        "20 kilómetros",
-        "11 kilómetros"
-       ],
-       "correcta": 2,
-       "formula": "10 × 1.10 = 11"
+       "tipo": "info",
+       "titulo": "Y lo que te tiene que gustar",
+       "puntos": [
+        "Deporte",
+        "Enseñar",
+        "Salud"
+       ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué pasa si el entrenamiento sube demasiado rápido?",
-       "opciones": [
-        "Más riesgo de lesiones y cansancio excesivo",
-        "Mejoras el doble",
-        "Nada"
-       ],
-       "correcta": 0
+       "tipo": "reflexion",
+       "pregunta": "¿El deporte es una parte central de mi vida?",
+       "escala": [
+        "No",
+        "Sí"
+       ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Por qué el descanso es parte del entrenamiento?",
-       "opciones": [
-        "Para perder condición",
-        "No lo es",
-        "Porque es cuando el cuerpo se recupera y se adapta"
-       ],
-       "correcta": 2
+       "tipo": "reflexion",
+       "pregunta": "¿Me gusta enseñar a grupos?",
+       "escala": [
+        "No",
+        "Sí"
+       ]
       },
       {
-       "tipo": "teves"
+       "tipo": "reflexion",
+       "pregunta": "¿Me veo como entrenador o maestro?",
+       "escala": [
+        "No",
+        "Sí"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Si dijiste que no a algo, no pasa nada: sirve para saber qué preguntar y qué carreras parecidas ver."
       }
      ]
     },
     {
      "id": "4",
-     "titulo": "Calor e hidratación",
-     "minutos": 4,
+     "titulo": "Lo que estudias",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "¿Qué crees que ves en el primer año de Educación física?"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál crees que es el primer año?",
+       "opciones": [
+        "Anatomía, Teoría del deporte, Didáctica de la educación física",
+        "Teoría de las relaciones internacionales, Historia mundial, Inglés",
+        "Dibujo de figurín, Historia de la moda, Textiles"
+       ],
+       "correcta": 0,
+       "explicacion": "Esas son materias de los primeros semestres. Las otras son de Relaciones internacionales y Moda.",
+       "adivina": true
+      },
+      {
        "tipo": "info",
-       "titulo": "Calor e hidratación",
-       "partes": [
-        {
-         "t": "En climas calurosos, como el de buena parte de Morelos, el cuerpo pierde mucha agua sudando. La deshidratación baja el rendimiento y, en casos graves, puede llevar a un golpe de calor, que es una emergencia. Señales de alarma: mareo, confusión, dolor de cabeza fuerte, náusea, piel muy caliente o dejar de sudar. Ante esas señales se detiene la actividad, se lleva a la persona a la sombra, se le enfría y se pide ayuda médica. Para prevenir, se toman pausas para beber agua y se evitan las horas de más calor."
-        }
+       "titulo": "Lo que vas viendo",
+       "puntos": [
+        "Semestres 1-2: Anatomía, Teoría del deporte, Didáctica de la educación física",
+        "Semestres 3-4: Fisiología del ejercicio, Entrenamiento deportivo, Psicología del deporte",
+        "Semestres 5-6: Nutrición deportiva, Administración deportiva, Deporte adaptado",
+        "Semestres 7 en adelante: Prácticas en escuelas o clubes"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Es mediodía, hace mucho calor y tienes clase de educación física al aire libre. ¿Qué haces?",
-       "opciones": [
-        "Prohíbes tomar agua",
-        "Haces una carrera larga al sol",
-        "Buscas sombra, bajas la intensidad y das pausas para tomar agua"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un alumno está confundido, mareado y con la piel muy caliente después de correr al sol. ¿Qué haces?",
-       "opciones": [
-        "Le dices que siga",
-        "Lo mandas solo a la enfermería caminando",
-        "Detienes la actividad, lo llevas a la sombra, lo enfrías y pides ayuda médica"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Cuál es una señal de alarma de golpe de calor?",
-       "opciones": [
-        "Confusión y piel muy caliente",
-        "Tener hambre",
-        "Sonreír"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Cuándo es mejor programar actividades intensas en un lugar caluroso?",
-       "opciones": [
-        "Temprano en la mañana o en la tarde, cuando baja el calor",
-        "Da igual",
-        "Al mediodía"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "teves"
-      }
-     ]
-    },
-    {
-     "id": "5",
-     "titulo": "Lesiones",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Lesiones",
-       "partes": [
-        {
-         "t": "En la actividad física pueden pasar torceduras, golpes y caídas. Ante una torcedura leve se detiene la actividad, se pone hielo envuelto en un trapo por ratos y se eleva la parte lastimada. Si hay deformidad, mucho dolor o no puede apoyar, se inmoviliza y se busca atención médica. Un golpe fuerte en la cabeza es especial: si después hay mareo, confusión, dolor de cabeza o vómito, la persona no regresa al juego ese día y la debe valorar un médico."
-        }
-       ]
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Una alumna se tuerce el tobillo y puede apoyar con poco dolor. ¿Qué haces?",
-       "opciones": [
-        "Le das un masaje fuerte",
-        "La sacas del juego, le pones hielo envuelto y elevas el pie",
-        "Le dices que siga jugando"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un alumno choca de cabeza con otro y después dice que está mareado.",
-       "opciones": [
-        "Regresa en cinco minutos",
-        "Le das agua y sigue",
-        "No regresa al juego y lo valora un médico"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un alumno cae y su brazo se ve deformado.",
-       "opciones": [
-        "Le dices que lo mueva",
-        "Intentas acomodarlo tú",
-        "Lo inmovilizas y buscas atención médica de inmediato"
-       ],
-       "correcta": 2
+       "tipo": "clave",
+       "texto": "Los nombres cambian un poco según la universidad; la idea general es esta."
       },
       {
        "tipo": "teves"
@@ -332,62 +234,82 @@
   },
   {
    "id": "u3",
-   "titulo": "Enseñar",
-   "sub": "Enseñar y planear la sesión",
+   "titulo": "¿Y después?",
+   "sub": "Trabajo y dificultad",
    "lecciones": [
     {
-     "id": "6",
-     "titulo": "Enseñar a moverse",
-     "minutos": 4,
+     "id": "5",
+     "titulo": "Dónde trabajarías",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Al terminar, ¿dónde crees que trabajaría alguien de Educación física?"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál de estos lugares es más de Educación física?",
+       "opciones": [
+        "Escuelas públicas y privadas",
+        "Estudios creativos",
+        "Empresas industriales y tecnológicas"
+       ],
+       "correcta": 0,
+       "explicacion": "Es uno de los lugares donde trabaja alguien de Educación física.",
+       "adivina": true
+      },
+      {
        "tipo": "info",
-       "titulo": "Enseñar a moverse",
-       "partes": [
-        {
-         "t": "Un profesor de educación física enseña habilidades, no solo pone a jugar. Divide lo difícil en pasos, demuestra, deja practicar mucho y corrige con pocos consejos a la vez. Adapta las actividades para que todos participen: con distintos niveles de dificultad y reglas que incluyan a quien tiene menos habilidad o alguna discapacidad. Los juegos donde se elimina a los alumnos dejan sentados justo a los que más necesitan moverse. El objetivo es que todos disfruten moverse y lo sigan haciendo de adultos."
-        }
+       "titulo": "Dónde se trabaja",
+       "puntos": [
+        "Escuelas públicas y privadas",
+        "Capacitación empresarial",
+        "Diseño educativo",
+        "Editoriales",
+        "Educación especial",
+        "Gestión académica y proyectos sociales;"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "En un juego de eliminación, los alumnos menos hábiles salen primero y pasan la clase sentados. ¿Qué propones?",
-       "opciones": [
-        "Que jueguen solo los buenos",
-        "Dejarlo así",
-        "Cambiar las reglas para que nadie quede fuera mucho tiempo"
-       ],
-       "correcta": 2
+       "tipo": "teves"
+      }
+     ]
+    },
+    {
+     "id": "6",
+     "titulo": "¿Hay trabajo?",
+     "minutos": 2,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Ahora lo que todos preguntan: ¿hay trabajo y cuánto se gana?"
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Estás enseñando a lanzar el balón y un alumno comete cinco errores. ¿Qué haces?",
-       "opciones": [
-        "No le dices nada",
-        "Le corriges uno o dos a la vez",
-        "Le dices los cinco al mismo tiempo"
-       ],
-       "correcta": 1
+       "tipo": "rango",
+       "pregunta": "De cada 100 que estudiaron Educación física, ¿cuántos crees que trabajan en algo de su carrera?",
+       "min": 0,
+       "max": 100,
+       "paso": 5,
+       "unidad": "de cada 100",
+       "dato": "educfisica.ocupacion_afin"
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Un alumno usa silla de ruedas. ¿Qué haces en una clase de básquetbol?",
-       "opciones": [
-        "Lo mandas a la biblioteca",
-        "Lo dejas mirando",
-        "Adaptas las reglas y actividades para que participe"
-       ],
-       "correcta": 2
+       "tipo": "rango",
+       "pregunta": "¿Cuánto crees que gana al mes, en promedio?",
+       "min": 5000,
+       "max": 50000,
+       "paso": 1000,
+       "unidad": "pesos al mes",
+       "dato": "educfisica.ingreso"
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Cuál es el gran objetivo de la educación física?",
-       "opciones": [
-        "Cansar a los alumnos",
-        "Que todos disfruten moverse y lo sigan haciendo toda la vida",
-        "Elegir a los mejores"
-       ],
-       "correcta": 1
+       "tipo": "info",
+       "titulo": "Así está el trabajo",
+       "texto": "IMCO la agrupa como 'Deportes': $19,139 promedio y 31% de informalidad."
+      },
+      {
+       "tipo": "clave",
+       "texto": "Para escuelas públicas, concurso en USICAMM."
       },
       {
        "tipo": "teves"
@@ -396,47 +318,37 @@
     },
     {
      "id": "7",
-     "titulo": "Planear una sesión",
-     "minutos": 4,
+     "titulo": "Qué tan difícil es",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "¿Dónde crees que está lo más difícil de Educación física?"
+      },
+      {
        "tipo": "info",
-       "titulo": "Planear una sesión",
-       "partes": [
-        {
-         "t": "Una sesión se planea con un objetivo claro, por ejemplo mejorar el pase en voleibol. Tiene calentamiento, una parte principal y un cierre. Se calcula el tiempo para que los alumnos pasen la mayor parte moviéndose, y no haciendo fila. Con un grupo grande se trabaja en estaciones o equipos pequeños. Antes de empezar se revisa que el espacio y el material sean seguros, y que haya agua y un plan si alguien se lastima."
-        }
+       "titulo": "Lo más difícil",
+       "texto": "Dificultad media. Anatomía, Fisiología del ejercicio y mucha práctica deportiva."
+      },
+      {
+       "tipo": "info",
+       "titulo": "Cuánto dura",
+       "texto": "4 años."
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Te ves aguantando eso?",
+       "escala": [
+        "No",
+        "Sí"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "En tu clase de 50 minutos, los alumnos pasaron 30 haciendo fila. ¿Qué cambias?",
-       "opciones": [
-        "Nada",
-        "Organizas estaciones o equipos pequeños para que se muevan más",
-        "Haces filas más largas"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Antes de la clase ves vidrios en la cancha.",
-       "opciones": [
-        "Empiezas igual",
-        "Los quitas o cambias de espacio antes de empezar",
-        "Les dices que tengan cuidado"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué partes tiene una sesión?",
-       "opciones": [
-        "Calentamiento, parte principal y cierre",
-        "Solo el juego",
-        "Solo la teoría"
-       ],
-       "correcta": 0
+       "tipo": "info",
+       "titulo": "Si te gusta, pero no del todo",
+       "puntos": [
+        "Mira también: Fisioterapia, Nutrición"
+       ]
       },
       {
        "tipo": "teves"
@@ -447,126 +359,27 @@
   },
   {
    "id": "u4",
-   "titulo": "Examen final",
-   "sub": "10 preguntas · apruebas con 7",
+   "titulo": "Tu decisión",
+   "sub": "¿La guardas o la descartas?",
    "lecciones": [
     {
      "id": "ex",
-     "titulo": "Examen final",
-     "minutos": 6,
-     "examen": true,
-     "aprobar": 7,
+     "titulo": "Tu veredicto",
+     "minutos": 2,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "Examen final",
-       "partes": [
-        {
-         "t": "Son 10 casos nuevos que mezclan todas las lecciones. Apruebas con 7. Si no, lo repites y las que fallaste regresan con otras palabras."
-        }
-       ]
+       "tipo": "escena",
+       "texto": "Ya sabes qué hace alguien de Educación física, qué estudias, qué tan difícil es y si hay trabajo."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Cuál es la frecuencia máxima estimada de una persona de 40 años?",
-       "opciones": [
-        "220",
-        "180",
-        "140"
-       ],
-       "correcta": 1,
-       "formula": "220 − 40 = 180"
+       "tipo": "escuelas"
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué es la prueba del habla?",
-       "opciones": [
-        "Si puedes platicar pero no cantar, vas a intensidad moderada",
-        "Cantar mientras corres",
-        "No hablar"
-       ],
-       "correcta": 0
+       "tipo": "veredicto"
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Cuándo conviene estirar largo y quieto?",
-       "opciones": [
-        "Antes de un sprint",
-        "Nunca",
-        "Después de la actividad"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un alumno corre 20 kilómetros por semana. Con la regla del 10 por ciento, ¿hasta cuánto puede subir?",
-       "opciones": [
-        "40 kilómetros",
-        "22 kilómetros",
-        "30 kilómetros"
-       ],
-       "correcta": 1,
-       "formula": "20 × 1.10 = 22"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Por qué es importante el descanso?",
-       "opciones": [
-        "El cuerpo se recupera y se adapta",
-        "Para perder condición",
-        "No es importante"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un alumno está confundido y con la piel muy caliente tras correr al sol.",
-       "opciones": [
-        "Lo llevas a la sombra, lo enfrías y pides ayuda médica",
-        "Sigue corriendo",
-        "Lo ignoras"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un alumno se golpea la cabeza y está mareado.",
-       "opciones": [
-        "No regresa al juego y lo valora un médico",
-        "Sigue jugando",
-        "Regresa en cinco minutos"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué haces ante una torcedura leve?",
-       "opciones": [
-        "Calor fuerte",
-        "Seguir jugando",
-        "Detener, hielo envuelto y elevar"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué problema tienen los juegos de eliminación?",
-       "opciones": [
-        "Dejan sentados a quienes más necesitan moverse",
-        "Ninguno",
-        "Son muy cortos"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué revisas antes de empezar una clase?",
-       "opciones": [
-        "Solo la música",
-        "Nada",
-        "Que el espacio y el material sean seguros"
-       ],
-       "correcta": 2
+       "tipo": "clave",
+       "texto": "Decidir «sigo en duda» también es avanzar."
       }
      ]
     }

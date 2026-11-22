@@ -1,14 +1,15 @@
 {
  "id": "derecho",
- "version": 2,
+ "version": 3,
  "formato": 2,
  "estado": "completo",
- "revision": "Pendiente de revisión por un profesionista de la carrera. Generado con datos/importar_lecciones.py desde datos/fuentes/lecciones/derecho.lec; no se edita a mano.",
+ "generado": true,
+ "revision": "Lecciones generales (de qué trata la carrera y si va contigo), armadas con datos/lecciones_generales.py desde la base de carreras con fuentes (2026-11-17).",
  "unidades": [
   {
    "id": "u1",
-   "titulo": "Las reglas",
-   "sub": "Qué ley manda y contratos",
+   "titulo": "¿De qué se trata?",
+   "sub": "Qué hace y cómo es su día",
    "lecciones": [
     {
      "id": "0",
@@ -16,65 +17,73 @@
      "minutos": 1,
      "tarjetas": [
       {
-       "tipo": "ficha",
-       "texto": "Un abogado aplica las leyes para defender a personas y empresas, resolver conflictos y evitar problemas legales. La carrera dura entre 4 y 5 años y necesitas tu cédula profesional para ejercer.",
-       "cifras": [
-        "derecho.ingreso",
-        "derecho.duracion",
-        "derecho.costo_publica",
-        "derecho.costo_privada"
-       ]
+       "tipo": "escena",
+       "texto": "Antes de leer nada: ¿qué crees que hace alguien que estudió Derecho?"
       },
       {
-       "tipo": "escena",
-       "texto": "Ahora vas a ver si piensas como abogado."
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál de estas cosas crees que hace?",
+       "opciones": [
+        "Lee y redacta contratos, demandas y escritos",
+        "Diseña espacios (casas, edificios, interiores) desde el boceto hasta los planos",
+        "Escucha y acompaña pacientes en terapia"
+       ],
+       "correcta": 0,
+       "explicacion": "En pocas palabras, Derecho es sistema jurídico, interpretación de leyes, argumentación, resolución de controversias y asesoría a personas, empresas e instituciones.",
+       "adivina": true
+      },
+      {
+       "tipo": "info",
+       "titulo": "Derecho en una frase",
+       "texto": "Sistema jurídico, interpretación de leyes, argumentación, resolución de controversias y asesoría a personas, empresas e instituciones."
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
      "id": "1",
-     "titulo": "Qué ley manda",
-     "minutos": 4,
+     "titulo": "Un día normal",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Imagina que acompañas un día entero a alguien de Derecho. ¿Qué crees que hace?"
+      },
+      {
        "tipo": "info",
-       "titulo": "Qué ley manda",
-       "partes": [
-        {
-         "t": "Las leyes tienen un orden, como una pirámide. Arriba de todo está la Constitución. Los derechos humanos de los tratados internacionales firmados por México se protegen al mismo nivel que los de la Constitución. Abajo vienen las leyes y luego los reglamentos. Un nivel de abajo nunca puede contradecir a uno de arriba. Además, el artículo 14 de la Constitución dice que una ley nueva no se puede aplicar hacia atrás para perjudicar a alguien. En materia penal sí se aplica hacia atrás si beneficia a la persona."
-        }
+       "titulo": "Un día normal",
+       "puntos": [
+        "Lee y redacta contratos, demandas y escritos",
+        "Asesora clientes",
+        "Va a juzgados o audiencias",
+        "Negocia acuerdos",
+        "Puede trabajar en despacho",
+        "Empresa, gobierno, juzgados o notarías"
        ]
       },
       {
        "tipo": "pregunta",
-       "pregunta": "Un reglamento municipal dice algo que contradice una ley. ¿Qué se aplica?",
+       "pregunta": "¿Cuál de estas cosas NO es parte de su día?",
        "opciones": [
-        "El reglamento, porque es más nuevo",
-        "La ley, porque está más arriba",
-        "Los dos"
+        "Calcula o supervisa obras, puentes, carreteras, drenajes",
+        "Asesora clientes",
+        "Va a juzgados o audiencias"
        ],
-       "correcta": 1
+       "correcta": 0,
+       "explicacion": "Eso lo hace alguien de Ing. Civil, no de Derecho.",
+       "adivina": true
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "En 2027 sale una ley que aumenta una multa. A alguien lo quieren multar con la cantidad nueva por algo que hizo en 2025.",
+       "tipo": "reflexion",
+       "pregunta": "De ese día, ¿qué te late más?",
        "opciones": [
-        "Es válido",
-        "No es válido, porque no se puede aplicar hacia atrás para perjudicarlo",
-        "Depende del juez"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Una ley penal nueva baja la pena de un delito, y una persona fue sentenciada con la ley anterior.",
-       "opciones": [
-        "Se queda con la pena anterior",
-        "Puede beneficiarse con la ley nueva",
-        "Le suben la pena"
-       ],
-       "correcta": 1,
-       "explicacion": "En materia penal, la ley nueva se aplica hacia atrás si beneficia."
+        "Lee y redacta contratos, demandas y escritos",
+        "Asesora clientes",
+        "Va a juzgados o audiencias",
+        "Nada de eso"
+       ]
       },
       {
        "tipo": "teves"
@@ -83,57 +92,36 @@
     },
     {
      "id": "2",
-     "titulo": "Contratos",
-     "minutos": 4,
+     "titulo": "Mitos y realidades",
+     "minutos": 2,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "Contratos",
-       "partes": [
-        {
-         "t": "Un contrato existe cuando hay consentimiento, es decir, que las dos partes están de acuerdo, y un objeto, que es algo concreto que se da o se hace. Para que además sea válido, las personas deben tener capacidad (en México se es mayor de edad a los 18), el contrato debe tener la forma que pida la ley, nadie debe haber sido engañado ni amenazado, y lo que se acuerda debe ser legal. Si falla algo de esto, el contrato puede anularse."
-        }
-       ]
+       "tipo": "escena",
+       "texto": "¿Verdadero o falso? Primero di lo que crees."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Un joven de 16 años firma solo un crédito para comprar un coche.",
-       "opciones": [
-        "El contrato es perfectamente válido",
-        "Puede anularse porque no tiene capacidad plena",
-        "El vendedor puede cobrarle a la escuela"
-       ],
-       "correcta": 1
+       "tipo": "vf",
+       "afirmacion": "En Derecho llevas materias de matemáticas o con muchos números.",
+       "respuesta": false,
+       "revelacion": "No aparecen como materia propia en su plan de estudios. Muchos eligen carrera pensando en evitar las matemáticas; mejor saberlo desde ahora."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Dos personas firman un contrato para vender droga.",
-       "opciones": [
-        "Es válido porque ambos aceptaron",
-        "No vale porque su objeto es ilegal",
-        "Vale si lo firma un notario"
-       ],
-       "correcta": 1
+       "tipo": "vf",
+       "afirmacion": "Es de las carreras más difíciles.",
+       "respuesta": false,
+       "revelacion": "Su dificultad es media-alta. Mucha lectura y memoria de leyes; Derecho civil y procesal son densos. Hay que escribir y argumentar bien."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Te venden un coche diciendo que nunca ha chocado, pero el vendedor sabía que sí y lo escondió.",
-       "opciones": [
-        "No puedes hacer nada",
-        "Puedes pedir que se anule, porque hubo engaño",
-        "Tienes que pagar el doble"
-       ],
-       "correcta": 1
+       "tipo": "vf",
+       "afirmacion": "La mayoría de quienes la estudian terminan trabajando en otra cosa.",
+       "respuesta": false,
+       "revelacion": "53 de cada 100 trabajan en algo de su carrera (IMCO, Compara Carreras 2026)."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Dos amigos quedan de palabra en que uno le pintará la casa al otro por 5 mil pesos, pero nunca dicen qué casa ni cuándo. ¿Qué le falta a ese acuerdo?",
-       "opciones": [
-        "Un objeto claro",
-        "Un notario",
-        "Testigos famosos"
-       ],
-       "correcta": 0
+       "tipo": "vf",
+       "afirmacion": "Casi todos los que se dedican a esto son hombres.",
+       "respuesta": false,
+       "revelacion": "De cada 100 personas que la ejercen, 49 son mujeres (IMCO, Compara Carreras 2026)."
       },
       {
        "tipo": "teves"
@@ -144,111 +132,101 @@
   },
   {
    "id": "u2",
-   "titulo": "Lo penal",
-   "sub": "Delitos, defensa y detenciones",
+   "titulo": "¿Va contigo?",
+   "sub": "Lo que pide y lo que estudias",
    "lecciones": [
     {
      "id": "3",
-     "titulo": "Delitos y defensa",
-     "minutos": 4,
+     "titulo": "¿Se te da?",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Para que una carrera te guste no basta con que te llame la atención. ¿Se te da lo que pide?"
+      },
+      {
        "tipo": "info",
-       "titulo": "Delitos y defensa",
-       "partes": [
-        {
-         "t": "Un delito es una conducta que la ley describe como prohibida, que va contra el derecho y que se le puede reprochar a quien la hizo. Existe la legítima defensa: no hay delito si te defiendes de una agresión real, que está pasando o está a punto de pasar, siempre que defenderte sea necesario y uses un medio proporcional. Además, toda persona es inocente hasta que se demuestre lo contrario."
-        }
+       "titulo": "Lo que pide Derecho",
+       "puntos": [
+        "Lectura y redacción",
+        "Argumentación",
+        "Memoria",
+        "Negociación"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Alguien te ataca con un cuchillo y, para salvarte, lo empujas y se cae.",
-       "opciones": [
-        "Cometiste un delito",
-        "Es legítima defensa",
-        "Depende de si eres abogado"
-       ],
-       "correcta": 1
+       "tipo": "info",
+       "titulo": "Y lo que te tiene que gustar",
+       "puntos": [
+        "Justicia",
+        "Política y sociedad",
+        "Debatir"
+       ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Alguien te insultó ayer y hoy vas a buscarlo para golpearlo.",
-       "opciones": [
-        "Es legítima defensa",
-        "No lo es, porque la agresión ya no estaba pasando",
-        "Es válido si te insultó feo"
-       ],
-       "correcta": 1
+       "tipo": "reflexion",
+       "pregunta": "¿Me gusta leer textos largos y encontrar detalles?",
+       "escala": [
+        "No",
+        "Sí"
+       ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Un niño te avienta una pelota y tú le respondes con un arma.",
-       "opciones": [
-        "Es defensa proporcional",
-        "No es proporcional, porque el medio es excesivo",
-        "Está permitido"
-       ],
-       "correcta": 1
+       "tipo": "reflexion",
+       "pregunta": "¿Disfruto argumentar y convencer?",
+       "escala": [
+        "No",
+        "Sí"
+       ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "En redes todos dicen que un vecino robó, pero no hay sentencia. Legalmente, el vecino es:",
-       "opciones": [
-        "Culpable",
-        "Inocente hasta que se demuestre lo contrario",
-        "Sospechoso obligado a demostrar su inocencia"
-       ],
-       "correcta": 1
+       "tipo": "reflexion",
+       "pregunta": "¿Me veo en tribunales, empresa o gobierno?",
+       "escala": [
+        "No",
+        "Sí"
+       ]
       },
       {
-       "tipo": "teves"
+       "tipo": "clave",
+       "texto": "Si dijiste que no a algo, no pasa nada: sirve para saber qué preguntar y qué carreras parecidas ver."
       }
      ]
     },
     {
      "id": "4",
-     "titulo": "Cuando detienen a alguien",
-     "minutos": 4,
+     "titulo": "Lo que estudias",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "¿Qué crees que ves en el primer año de Derecho?"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál crees que es el primer año?",
+       "opciones": [
+        "Introducción al derecho, Derecho romano, Teoría del Estado",
+        "Anatomía de cabeza y cuello, Bioquímica, Histología",
+        "Anatomía veterinaria, Bioquímica, Histología"
+       ],
+       "correcta": 0,
+       "explicacion": "Esas son materias de los primeros semestres. Las otras son de Odontología y Veterinaria.",
+       "adivina": true
+      },
+      {
        "tipo": "info",
-       "titulo": "Cuando detienen a alguien",
-       "partes": [
-        {
-         "t": "Una persona puede ser detenida sin orden de un juez si la sorprenden cometiendo un delito o justo después; a eso se le llama flagrancia. Si no, se necesita una orden. El Ministerio Público solo puede retenerla hasta 48 horas: en ese plazo la libera o la pone frente a un juez. El detenido tiene derecho a un abogado y a no declarar."
-        }
+       "titulo": "Lo que vas viendo",
+       "puntos": [
+        "Semestres 1-2: Introducción al derecho, Derecho romano, Teoría del Estado, Historia del derecho",
+        "Semestres 3-4: Derecho civil (personas, bienes, contratos), Derecho penal, Derecho constitucional",
+        "Semestres 5-6: Derecho mercantil, Derecho laboral, Derecho procesal, Amparo",
+        "Semestres 7 en adelante: Derecho fiscal, Clínica jurídica / juicios orales, Servicio social"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "La policía detiene a alguien una semana después de un robo, sin orden de juez y sin haberlo sorprendido.",
-       "opciones": [
-        "Es legal",
-        "Es ilegal, porque no hubo flagrancia ni orden",
-        "Es legal si confiesa"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Tu cliente lleva 60 horas retenido por el Ministerio Público sin que lo presenten ante un juez.",
-       "opciones": [
-        "Es normal",
-        "Se pasaron del plazo de 48 horas",
-        "Pueden tenerlo un mes"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Durante la detención le dicen a tu cliente que si no declara será peor.",
-       "opciones": [
-        "Tiene que declarar",
-        "Tiene derecho a no declarar y a tener abogado",
-        "Debe declarar sin abogado"
-       ],
-       "correcta": 1
+       "tipo": "clave",
+       "texto": "Los nombres cambian un poco según la universidad; la idea general es esta."
       },
       {
        "tipo": "teves"
@@ -259,62 +237,41 @@
   },
   {
    "id": "u3",
-   "titulo": "En la práctica",
-   "sub": "Trabajo, amparo y ética",
+   "titulo": "¿Y después?",
+   "sub": "Trabajo y dificultad",
    "lecciones": [
     {
      "id": "5",
-     "titulo": "Derecho laboral",
-     "minutos": 4,
+     "titulo": "Dónde trabajarías",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Al terminar, ¿dónde crees que trabajaría alguien de Derecho?"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál de estos lugares es más de Derecho?",
+       "opciones": [
+        "Despachos",
+        "Estudios creativos",
+        "Consultoría"
+       ],
+       "correcta": 0,
+       "explicacion": "Es uno de los lugares donde trabaja alguien de Derecho.",
+       "adivina": true
+      },
+      {
        "tipo": "info",
-       "titulo": "Derecho laboral",
-       "partes": [
-        {
-         "t": "La Ley Federal del Trabajo protege a los trabajadores. La jornada de día dura como máximo 8 horas. Desde 2023 corresponden por lo menos 12 días de vacaciones al cumplir el primer año, y van subiendo con la antigüedad. El aguinaldo es de por lo menos 15 días de salario y se paga antes del 20 de diciembre. Si te despiden sin causa justificada, tienes derecho a una indemnización de tres meses de salario, además de otras prestaciones. Nadie puede obligarte a firmar una renuncia."
-        }
+       "titulo": "Dónde se trabaja",
+       "puntos": [
+        "Despachos",
+        "Tribunales",
+        "Fiscalías",
+        "Notarías",
+        "Empresas",
+        "Gobierno"
        ]
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Tu jefe quiere que trabajes de 8 de la mañana a 8 de la noche todos los días sin pagarte extra.",
-       "opciones": [
-        "Es legal",
-        "Rebasa la jornada máxima de día",
-        "Es legal si te da comida"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Una empleada cumple un año en su trabajo y le dan 6 días de vacaciones.",
-       "opciones": [
-        "Está bien",
-        "Le corresponden por lo menos 12",
-        "No le corresponden vacaciones"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Es 28 de diciembre y la empresa no ha pagado el aguinaldo.",
-       "opciones": [
-        "Va en tiempo",
-        "Ya se pasó del plazo del 20 de diciembre",
-        "El aguinaldo es opcional"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Despiden a un trabajador sin motivo y le piden que firme una renuncia para no pagarle.",
-       "opciones": [
-        "Debe firmar",
-        "No tiene que firmar, y puede reclamar su indemnización",
-        "Pierde todos sus derechos"
-       ],
-       "correcta": 1
       },
       {
        "tipo": "teves"
@@ -323,47 +280,39 @@
     },
     {
      "id": "6",
-     "titulo": "El amparo",
-     "minutos": 4,
+     "titulo": "¿Hay trabajo?",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Ahora lo que todos preguntan: ¿hay trabajo y cuánto se gana?"
+      },
+      {
+       "tipo": "rango",
+       "pregunta": "De cada 100 que estudiaron Derecho, ¿cuántos crees que trabajan en algo de su carrera?",
+       "min": 0,
+       "max": 100,
+       "paso": 5,
+       "unidad": "de cada 100",
+       "dato": "derecho.ocupacion_afin"
+      },
+      {
+       "tipo": "rango",
+       "pregunta": "¿Cuánto crees que gana al mes, en promedio?",
+       "min": 5000,
+       "max": 50000,
+       "paso": 1000,
+       "unidad": "pesos al mes",
+       "dato": "derecho.ingreso"
+      },
+      {
        "tipo": "info",
-       "titulo": "El amparo",
-       "partes": [
-        {
-         "t": "El amparo es un juicio para defenderte cuando una autoridad viola tus derechos humanos. Normalmente es contra autoridades, no contra particulares. El plazo general para presentarlo es de 15 días hábiles. Además puedes pedir la suspensión, que congela el acto mientras se resuelve."
-        }
-       ]
+       "titulo": "Así está el trabajo",
+       "texto": "La carrera con más profesionistas del país (1.4 millones): mucha competencia. Sueldo cercano al promedio ($24,178); los mejores ingresos llegan con especialización."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Tu vecino te debe dinero y no te paga. ¿El amparo es la vía?",
-       "opciones": [
-        "Sí",
-        "No, es un conflicto entre particulares y va por otra vía",
-        "Sí, si es urgente"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "La autoridad va a demoler tu casa mañana sin juicio. ¿Qué pides junto con el amparo para que no la tiren mientras se resuelve?",
-       "opciones": [
-        "La suspensión",
-        "Una disculpa",
-        "Una multa"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Te enteras de un acto de autoridad que te afecta y esperas dos meses para pedir amparo.",
-       "opciones": [
-        "No pasa nada",
-        "Probablemente ya se te pasó el plazo general de 15 días hábiles",
-        "El amparo no tiene plazo"
-       ],
-       "correcta": 1
+       "tipo": "clave",
+       "texto": "Título y cédula para litigar."
       },
       {
        "tipo": "teves"
@@ -372,47 +321,37 @@
     },
     {
      "id": "7",
-     "titulo": "Ética del abogado",
-     "minutos": 4,
+     "titulo": "Qué tan difícil es",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "¿Dónde crees que está lo más difícil de Derecho?"
+      },
+      {
        "tipo": "info",
-       "titulo": "Ética del abogado",
-       "partes": [
-        {
-         "t": "Lo que te cuenta tu cliente es secreto profesional. No puedes representar a las dos partes de un mismo pleito, porque sería conflicto de intereses. Y los plazos son sagrados: si se te pasa uno, tu cliente puede perder aunque tenga la razón."
-        }
+       "titulo": "Lo más difícil",
+       "texto": "Dificultad media-alta. Mucha lectura y memoria de leyes; Derecho civil y procesal son densos. Hay que escribir y argumentar bien."
+      },
+      {
+       "tipo": "info",
+       "titulo": "Cuánto dura",
+       "texto": "4 a 5 años."
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Te ves aguantando eso?",
+       "escala": [
+        "No",
+        "Sí"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "En un divorcio, la esposa te pide que la representes, pero ya representas al esposo.",
-       "opciones": [
-        "Aceptas a los dos",
-        "No aceptas, por conflicto de intereses",
-        "Aceptas si te pagan doble"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un periodista te pregunta qué te confesó tu cliente.",
-       "opciones": [
-        "Le cuentas lo importante",
-        "No dices nada, por el secreto profesional",
-        "Le das pistas"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Tienes mucho trabajo y te das cuenta de que mañana vence el plazo para presentar una apelación.",
-       "opciones": [
-        "Lo dejas para la próxima semana",
-        "Lo presentas a tiempo, porque si no tu cliente pierde ese derecho",
-        "Le pides al juez que espere"
-       ],
-       "correcta": 1
+       "tipo": "info",
+       "titulo": "Si te gusta, pero no del todo",
+       "puntos": [
+        "Mira también: Criminología"
+       ]
       },
       {
        "tipo": "teves"
@@ -423,124 +362,27 @@
   },
   {
    "id": "u4",
-   "titulo": "Examen final",
-   "sub": "10 preguntas · apruebas con 7",
+   "titulo": "Tu decisión",
+   "sub": "¿La guardas o la descartas?",
    "lecciones": [
     {
      "id": "ex",
-     "titulo": "Examen final",
-     "minutos": 6,
-     "examen": true,
-     "aprobar": 7,
+     "titulo": "Tu veredicto",
+     "minutos": 2,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "Examen final",
-       "partes": [
-        {
-         "t": "Son 10 casos nuevos que mezclan todas las lecciones. Apruebas con 7. Si no, lo repites y las que fallaste regresan con otras palabras."
-        }
-       ]
+       "tipo": "escena",
+       "texto": "Ya sabes qué hace alguien de Derecho, qué estudias, qué tan difícil es y si hay trabajo."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Una ley estatal contradice la Constitución. ¿Cuál se aplica?",
-       "opciones": [
-        "La ley estatal",
-        "La Constitución",
-        "La más reciente"
-       ],
-       "correcta": 1
+       "tipo": "escuelas"
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Una persona firma un contrato porque la amenazaron con lastimar a su familia.",
-       "opciones": [
-        "Es válido",
-        "Puede anularse, porque hubo violencia",
-        "Es válido si lo firmó con su puño"
-       ],
-       "correcta": 1
+       "tipo": "veredicto"
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Un ladrón entra a tu casa armado y te defiendes con lo que tienes a la mano para salvar tu vida.",
-       "opciones": [
-        "Es legítima defensa",
-        "Es un delito",
-        "Depende del valor de lo robado"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un ladrón ya se iba corriendo con tu celular, sin amenazarte, y le disparas por la espalda.",
-       "opciones": [
-        "Es legítima defensa",
-        "No lo es, porque ya no había una agresión que hiciera necesario defenderte así",
-        "Está permitido para recuperar tus cosas"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "La policía detiene a una persona mientras está robando una tienda. ¿Necesitaban orden de juez?",
-       "opciones": [
-        "Sí",
-        "No, porque fue en flagrancia",
-        "Solo si es de noche"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un trabajador lleva tres años en la empresa y le pagan su aguinaldo el 15 de enero.",
-       "opciones": [
-        "Va en tiempo",
-        "Se pasaron del 20 de diciembre",
-        "El aguinaldo se paga en marzo"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Una tienda no te quiere devolver tu dinero. ¿El amparo es la vía?",
-       "opciones": [
-        "Sí",
-        "No, porque es un particular y no una autoridad",
-        "Sí, porque es injusto"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Una autoridad te clausuró el negocio sin razón y te quedan 10 días hábiles del plazo.",
-       "opciones": [
-        "Ya no puedes hacer nada",
-        "Todavía puedes presentar el amparo",
-        "Tienes que esperar un año"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un joven de 17 años vende la casa de sus papás firmando él solo.",
-       "opciones": [
-        "La venta es válida",
-        "Puede anularse, porque no tiene capacidad y además la casa no es suya",
-        "Es válida si la pagaron"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Tu cliente te confiesa algo que lo perjudica en el juicio.",
-       "opciones": [
-        "Se lo dices al juez",
-        "Lo guardas por el secreto profesional y lo defiendes con la ley",
-        "Renuncias y lo publicas"
-       ],
-       "correcta": 1
+       "tipo": "clave",
+       "texto": "Decidir «sigo en duda» también es avanzar."
       }
      ]
     }

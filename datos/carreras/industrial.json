@@ -1,14 +1,15 @@
 {
  "id": "industrial",
- "version": 2,
+ "version": 3,
  "formato": 2,
  "estado": "completo",
- "revision": "Pendiente de revisión por un profesionista de la carrera. Generado con datos/importar_lecciones.py desde datos/fuentes/lecciones/industrial.lec; no se edita a mano.",
+ "generado": true,
+ "revision": "Lecciones generales (de qué trata la carrera y si va contigo), armadas con datos/lecciones_generales.py desde la base de carreras con fuentes (2026-11-17).",
  "unidades": [
   {
    "id": "u1",
-   "titulo": "Producir mejor",
-   "sub": "Productividad y cuello de botella",
+   "titulo": "¿De qué se trata?",
+   "sub": "Qué hace y cómo es su día",
    "lecciones": [
     {
      "id": "0",
@@ -16,82 +17,72 @@
      "minutos": 1,
      "tarjetas": [
       {
-       "tipo": "ficha",
-       "texto": "Ingeniería Industrial forma ingenieros que hacen que fábricas, hospitales, bancos y empresas de logística funcionen mejor: producen más, con mejor calidad, menos desperdicio y más seguridad. Trabajan en manufactura, logística, servicios y consultoría.",
-       "cifras": [
-        "industrial.ingreso",
-        "industrial.duracion",
-        "industrial.costo_publica",
-        "industrial.costo_privada"
-       ]
+       "tipo": "escena",
+       "texto": "Antes de leer nada: ¿qué crees que hace alguien que estudió Ing. Industrial?"
       },
       {
-       "tipo": "escena",
-       "texto": "Hoy te dan una fábrica que va lenta. Vamos a ver si la haces funcionar mejor."
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál de estas cosas crees que hace?",
+       "opciones": [
+        "Mejora procesos en fábricas",
+        "Lee y redacta contratos, demandas y escritos",
+        "Diseña prendas y colecciones"
+       ],
+       "correcta": 0,
+       "explicacion": "En pocas palabras, Ing. Industrial es aplicación de matemáticas, ciencias y tecnología para diseñar, construir, operar y mejorar sistemas, productos o procesos. La especialidad define si el trabajo se concentra en infraestructura, energía, manufactura, electrónica, ambiente, transporte o materiales.",
+       "adivina": true
+      },
+      {
+       "tipo": "info",
+       "titulo": "Ing. Industrial en una frase",
+       "texto": "Aplicación de matemáticas, ciencias y tecnología para diseñar, construir, operar y mejorar sistemas, productos o procesos."
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
      "id": "1",
-     "titulo": "Productividad",
-     "minutos": 4,
+     "titulo": "Un día normal",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Imagina que acompañas un día entero a alguien de Ing. Industrial. ¿Qué crees que hace?"
+      },
+      {
        "tipo": "info",
-       "titulo": "Productividad",
-       "partes": [
-        {
-         "t": "Un ingeniero industrial hace que las empresas produzcan más y mejor con los mismos recursos. La productividad compara lo que sale con lo que entra:"
-        },
-        {
-         "f": "productividad = {unidades producidas|recursos usados}"
-        },
-        {
-         "t": "Por ejemplo, piezas por hora de trabajo. Mejorar la productividad no significa trabajar más duro, sino eliminar lo que no agrega valor: esperas, movimientos de más, transportes innecesarios, inventario acumulado y defectos que hay que rehacer."
-        }
+       "titulo": "Un día normal",
+       "puntos": [
+        "Mejora procesos en fábricas",
+        "Mide tiempos",
+        "Reduce costos y errores",
+        "Organiza la producción",
+        "Analiza datos de calidad y coordina equipos"
        ]
       },
       {
        "tipo": "pregunta",
-       "pregunta": "Una línea produce 400 piezas en 8 horas. ¿Cuál es su productividad?",
+       "pregunta": "¿Cuál de estas cosas NO es parte de su día?",
        "opciones": [
-        "408",
-        "3,200 piezas por hora",
-        "50 piezas por hora"
+        "Analiza escenas del crimen",
+        "Mide tiempos",
+        "Reduce costos y errores"
        ],
-       "correcta": 2,
-       "formula": "{400|8} = 50"
+       "correcta": 0,
+       "explicacion": "Eso lo hace alguien de Criminología, no de Ing. Industrial.",
+       "adivina": true
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Después de una mejora, produce 480 piezas en las mismas 8 horas. ¿Cuál es su nueva productividad?",
+       "tipo": "reflexion",
+       "pregunta": "De ese día, ¿qué te late más?",
        "opciones": [
-        "50",
-        "60 piezas por hora",
-        "3,840"
-       ],
-       "correcta": 1,
-       "formula": "{480|8} = 60"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Los trabajadores caminan 30 metros cada vez que necesitan una herramienta. ¿Qué tipo de desperdicio es?",
-       "opciones": [
-        "Movimiento innecesario",
-        "Valor agregado",
-        "Calidad"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Mejorar la productividad significa que la gente trabaje más horas?",
-       "opciones": [
-        "Sí, sin descanso",
-        "No, significa eliminar lo que no agrega valor",
-        "Sí"
-       ],
-       "correcta": 1
+        "Mejora procesos en fábricas",
+        "Mide tiempos",
+        "Reduce costos y errores",
+        "Nada de eso"
+       ]
       },
       {
        "tipo": "teves"
@@ -100,57 +91,36 @@
     },
     {
      "id": "2",
-     "titulo": "El cuello de botella",
-     "minutos": 4,
+     "titulo": "Mitos y realidades",
+     "minutos": 2,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "El cuello de botella",
-       "partes": [
-        {
-         "t": "Un proceso con varias estaciones solo puede ir tan rápido como su estación más lenta, que se llama cuello de botella. Si una estación hace 60 piezas por hora y la siguiente solo 40, la línea entera sale a 40, y entre las dos se acumula inventario. Mejorar una estación que no es el cuello de botella no aumenta la producción total. Por eso lo primero es encontrar el cuello de botella y concentrar ahí las mejoras."
-        }
-       ]
+       "tipo": "escena",
+       "texto": "¿Verdadero o falso? Primero di lo que crees."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Tres estaciones hacen 50, 30 y 45 piezas por hora. ¿Cuánto produce la línea por hora?",
-       "opciones": [
-        "30",
-        "50",
-        "125"
-       ],
-       "correcta": 0
+       "tipo": "vf",
+       "afirmacion": "En Ing. Industrial llevas materias de matemáticas o con muchos números.",
+       "respuesta": true,
+       "revelacion": "Sí: Cálculo, Física, Probabilidad y estadística. Muchos eligen carrera pensando en evitar las matemáticas; mejor saberlo desde ahora."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "En esa línea, ¿qué estación conviene mejorar primero?",
-       "opciones": [
-        "La de 30",
-        "La de 50",
-        "La de 45"
-       ],
-       "correcta": 0
+       "tipo": "vf",
+       "afirmacion": "Es de las carreras más difíciles.",
+       "respuesta": false,
+       "revelacion": "Su dificultad es media-alta. Cálculo, Probabilidad e Investigación de operaciones."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Antes de una estación siempre hay una pila enorme de piezas esperando. ¿Qué te indica?",
-       "opciones": [
-        "Que esa estación probablemente es el cuello de botella",
-        "Que sobran trabajadores",
-        "Que todo está bien"
-       ],
-       "correcta": 0
+       "tipo": "vf",
+       "afirmacion": "La mayoría de quienes la estudian terminan trabajando en otra cosa.",
+       "respuesta": true,
+       "revelacion": "29 de cada 100 trabajan en algo de su carrera (IMCO, Compara Carreras 2026)."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Un gerente compra una máquina más rápida para la primera estación, que no es el cuello de botella. ¿Qué pasa con la producción total?",
-       "opciones": [
-        "Baja a cero",
-        "Se duplica",
-        "No aumenta"
-       ],
-       "correcta": 2
+       "tipo": "vf",
+       "afirmacion": "Casi todos los que se dedican a esto son hombres.",
+       "respuesta": false,
+       "revelacion": "De cada 100 personas que la ejercen, 28 son mujeres (IMCO, Compara Carreras 2026)."
       },
       {
        "tipo": "teves"
@@ -161,125 +131,101 @@
   },
   {
    "id": "u2",
-   "titulo": "Calidad y materiales",
-   "sub": "Defectos e inventarios",
+   "titulo": "¿Va contigo?",
+   "sub": "Lo que pide y lo que estudias",
    "lecciones": [
     {
      "id": "3",
-     "titulo": "Calidad",
-     "minutos": 4,
+     "titulo": "¿Se te da?",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Para que una carrera te guste no basta con que te llame la atención. ¿Se te da lo que pide?"
+      },
+      {
        "tipo": "info",
-       "titulo": "Calidad",
-       "partes": [
-        {
-         "t": "La calidad se mide. Un indicador común es el porcentaje de defectos:"
-        },
-        {
-         "f": "porcentaje de defectos = {piezas defectuosas|piezas producidas} × 100"
-        },
-        {
-         "t": "Es mejor prevenir los defectos en el proceso que revisarlos al final. Cuando aparece un problema, se busca la causa raíz, por ejemplo preguntando \"¿por qué?\" varias veces, en vez de solo corregir el síntoma. Y se prefieren dispositivos que hagan imposible el error, como una pieza que solo entra en la posición correcta."
-        }
+       "titulo": "Lo que pide Ing. Industrial",
+       "puntos": [
+        "Pensamiento lógico",
+        "Organización",
+        "Liderazgo",
+        "Análisis de datos"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "De 2,000 piezas, 40 salieron defectuosas. ¿Cuál es el porcentaje de defectos?",
-       "opciones": [
-        "2 por ciento",
-        "40 por ciento",
-        "5 por ciento"
-       ],
-       "correcta": 0,
-       "formula": "{40|2,000} × 100 = 2"
+       "tipo": "info",
+       "titulo": "Y lo que te tiene que gustar",
+       "puntos": [
+        "Hacer las cosas más eficientes",
+        "Empresas y fábricas",
+        "Ingeniería y negocios a la vez"
+       ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Una máquina produce piezas defectuosas y cada día alguien las aparta al final. ¿Qué es mejor?",
-       "opciones": [
-        "Nada",
-        "Encontrar la causa raíz en la máquina y corregirla",
-        "Contratar más inspectores"
-       ],
-       "correcta": 1
+       "tipo": "reflexion",
+       "pregunta": "¿Me desespera ver procesos ineficientes?",
+       "escala": [
+        "No",
+        "Sí"
+       ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Los operadores a veces colocan una pieza al revés. ¿Qué solución es más confiable?",
-       "opciones": [
-        "Pegar un letrero",
-        "Regañarlos",
-        "Rediseñar para que solo entre en la posición correcta"
-       ],
-       "correcta": 2
+       "tipo": "reflexion",
+       "pregunta": "¿Me gusta la ingeniería pero también la gestión?",
+       "escala": [
+        "No",
+        "Sí"
+       ]
       },
       {
-       "tipo": "teves"
+       "tipo": "reflexion",
+       "pregunta": "¿Me veo en una planta o en logística?",
+       "escala": [
+        "No",
+        "Sí"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Si dijiste que no a algo, no pasa nada: sirve para saber qué preguntar y qué carreras parecidas ver."
       }
      ]
     },
     {
      "id": "4",
-     "titulo": "Inventarios",
-     "minutos": 4,
+     "titulo": "Lo que estudias",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "¿Qué crees que ves en el primer año de Ing. Industrial?"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál crees que es el primer año?",
+       "opciones": [
+        "Cálculo, Física, Química",
+        "Cálculo I y II, Álgebra superior, Geometría analítica",
+        "Teoría de las relaciones internacionales, Historia mundial, Inglés"
+       ],
+       "correcta": 0,
+       "explicacion": "Esas son materias de los primeros semestres. Las otras son de Matemáticas y Relaciones internacionales.",
+       "adivina": true
+      },
+      {
        "tipo": "info",
-       "titulo": "Inventarios",
-       "partes": [
-        {
-         "t": "Tener inventario cuesta: ocupa espacio, inmoviliza dinero y se puede echar a perder o volverse obsoleto. Pero tener muy poco hace que falten materiales y se detenga la producción. Un punto de reorden dice cuándo pedir más:"
-        },
-        {
-         "f": "punto de reorden = consumo diario × días que tarda en llegar el pedido + inventario de seguridad"
-        },
-        {
-         "t": "El inventario de seguridad cubre imprevistos, como un proveedor que se atrasa."
-        }
+       "titulo": "Lo que vas viendo",
+       "puntos": [
+        "Semestres 1-2: Cálculo, Física, Química, Dibujo",
+        "Semestres 3-4: Probabilidad y estadística, Procesos de manufactura, Estudio del trabajo, Economía",
+        "Semestres 5-6: Investigación de operaciones, Control de calidad, Logística y cadena de suministro, Simulación",
+        "Semestres 7 en adelante: Planeación de la producción, Lean / Seis Sigma, Proyecto en empresa"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Una fábrica usa 100 piezas al día, el proveedor tarda 5 días y quieren 200 de seguridad. ¿En qué punto piden más?",
-       "opciones": [
-        "Cuando queden 500",
-        "Cuando queden 700",
-        "Cuando queden 100"
-       ],
-       "correcta": 1,
-       "formula": "100 × 5 + 200 = 700"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Para qué sirve el inventario de seguridad?",
-       "opciones": [
-        "Para decorar el almacén",
-        "Para cubrir imprevistos, como retrasos del proveedor",
-        "Para nada"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un almacén está lleno de material que no se ha usado en dos años. ¿Qué problema hay?",
-       "opciones": [
-        "Ninguno",
-        "Dinero y espacio inmovilizados, y riesgo de que se vuelva inútil",
-        "Que hay poco"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "La línea se detuvo porque se acabó un tornillo de 2 pesos. ¿Qué faltó?",
-       "opciones": [
-        "Más tornillos de todo",
-        "Nada",
-        "Un buen control de inventario con punto de reorden"
-       ],
-       "correcta": 2
+       "tipo": "clave",
+       "texto": "Los nombres cambian un poco según la universidad; la idea general es esta."
       },
       {
        "tipo": "teves"
@@ -290,52 +236,41 @@
   },
   {
    "id": "u3",
-   "titulo": "La planta",
-   "sub": "Distribución, seguridad y capacidad",
+   "titulo": "¿Y después?",
+   "sub": "Trabajo y dificultad",
    "lecciones": [
     {
      "id": "5",
-     "titulo": "Distribución de la planta",
-     "minutos": 4,
+     "titulo": "Dónde trabajarías",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Al terminar, ¿dónde crees que trabajaría alguien de Ing. Industrial?"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál de estos lugares es más de Ing. Industrial?",
+       "opciones": [
+        "Empresas industriales y tecnológicas",
+        "Despachos",
+        "Estudios creativos"
+       ],
+       "correcta": 0,
+       "explicacion": "Es uno de los lugares donde trabaja alguien de Ing. Industrial.",
+       "adivina": true
+      },
+      {
        "tipo": "info",
-       "titulo": "Distribución de la planta",
-       "partes": [
-        {
-         "t": "La forma en que se acomodan las máquinas y estaciones cambia mucho la eficiencia. Se busca que el material siga un flujo ordenado, sin regresar ni cruzarse, y que las distancias sean cortas entre estaciones que se pasan material seguido. Un diagrama de recorrido ayuda a ver por dónde se mueve el material. Las 5S, que son clasificar, ordenar, limpiar, estandarizar y mantener, ayudan a que cada cosa tenga su lugar."
-        }
+       "titulo": "Dónde se trabaja",
+       "puntos": [
+        "Empresas industriales y tecnológicas",
+        "Consultoría",
+        "Construcción",
+        "Energía",
+        "Manufactura",
+        "Telecomunicaciones"
        ]
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "El material va de la estación 1 a la 5, regresa a la 2 y luego a la 4. ¿Qué problema hay?",
-       "opciones": [
-        "Que hay pocas estaciones",
-        "Ninguno",
-        "Un flujo desordenado con regresos y recorridos largos"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué buscan las 5S?",
-       "opciones": [
-        "Que cada cosa tenga su lugar y el área esté ordenada y limpia",
-        "Tener cinco supervisores",
-        "Trabajar cinco horas"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Dos estaciones se pasan material cien veces al día y están en extremos de la nave. ¿Qué propones?",
-       "opciones": [
-        "Alejarlas más",
-        "Acercarlas",
-        "Nada"
-       ],
-       "correcta": 1
       },
       {
        "tipo": "teves"
@@ -344,57 +279,39 @@
     },
     {
      "id": "6",
-     "titulo": "Seguridad y ergonomía",
-     "minutos": 4,
+     "titulo": "¿Hay trabajo?",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Ahora lo que todos preguntan: ¿hay trabajo y cuánto se gana?"
+      },
+      {
+       "tipo": "rango",
+       "pregunta": "De cada 100 que estudiaron Ing. Industrial, ¿cuántos crees que trabajan en algo de su carrera?",
+       "min": 0,
+       "max": 100,
+       "paso": 5,
+       "unidad": "de cada 100",
+       "dato": "industrial.ocupacion_afin"
+      },
+      {
+       "tipo": "rango",
+       "pregunta": "¿Cuánto crees que gana al mes, en promedio?",
+       "min": 5000,
+       "max": 50000,
+       "paso": 1000,
+       "unidad": "pesos al mes",
+       "dato": "industrial.ingreso"
+      },
+      {
        "tipo": "info",
-       "titulo": "Seguridad y ergonomía",
-       "partes": [
-        {
-         "t": "En una planta, la seguridad va primero. Las máquinas peligrosas llevan guardas que impiden meter las manos, y antes de dar mantenimiento se bloquean y etiquetan para que nadie las encienda. Se usa equipo de protección, como lentes, guantes y calzado de seguridad. La ergonomía ajusta el trabajo a la persona: alturas correctas, poco peso por levantar y pocos movimientos repetitivos, para evitar lesiones. Un accidente casi siempre tiene causas en el sistema, no solo en el trabajador."
-        }
-       ]
+       "titulo": "Así está el trabajo",
+       "texto": "Carrera masiva (710 mil) con sueldo arriba del promedio ($24,869) y baja informalidad (17%)."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Un operador quitó la guarda de una prensa \"porque estorba\". ¿Qué haces?",
-       "opciones": [
-        "Lo dejas",
-        "Lo felicitas por la rapidez",
-        "Detienes la máquina y se vuelve a poner la guarda antes de seguir"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué se hace antes de dar mantenimiento a una máquina?",
-       "opciones": [
-        "Bloquearla y etiquetarla para que nadie la encienda",
-        "Nada",
-        "Dejarla prendida"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un trabajador levanta cajas de 30 kilos desde el piso cientos de veces al día y le duele la espalda. ¿Qué propones?",
-       "opciones": [
-        "Que trabaje más rápido",
-        "Subir la altura de las cajas, usar ayudas mecánicas o reducir el peso",
-        "Que aguante"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Hubo un accidente. ¿Qué haces además de atender al lesionado?",
-       "opciones": [
-        "Culpar al trabajador y ya",
-        "Nada",
-        "Buscar las causas en el sistema para que no se repita"
-       ],
-       "correcta": 2
+       "tipo": "clave",
+       "texto": "No requiere cédula para la mayoría de puestos; certificaciones Lean Six Sigma ayudan."
       },
       {
        "tipo": "teves"
@@ -403,55 +320,37 @@
     },
     {
      "id": "7",
-     "titulo": "Tiempos y capacidad",
-     "minutos": 4,
+     "titulo": "Qué tan difícil es",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "¿Dónde crees que está lo más difícil de Ing. Industrial?"
+      },
+      {
        "tipo": "info",
-       "titulo": "Tiempos y capacidad",
-       "partes": [
-        {
-         "t": "Para planear la producción se mide cuánto tarda cada tarea, con estudios de tiempos. Con eso se calcula la capacidad: cuántas piezas se pueden hacer en un turno."
-        },
-        {
-         "f": "capacidad = {tiempo disponible|tiempo por pieza}"
-        },
-        {
-         "t": "Así se sabe si se puede aceptar un pedido grande, cuántas personas o máquinas se necesitan y cuándo se puede entregar. Prometer una fecha sin hacer esta cuenta es una receta para quedar mal con el cliente."
-        }
+       "titulo": "Lo más difícil",
+       "texto": "Dificultad media-alta. Cálculo, Probabilidad e Investigación de operaciones."
+      },
+      {
+       "tipo": "info",
+       "titulo": "Cuánto dura",
+       "texto": "4 a 4.5 años."
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Te ves aguantando eso?",
+       "escala": [
+        "No",
+        "Sí"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Un turno tiene 480 minutos disponibles y cada pieza tarda 4 minutos. ¿Cuántas piezas se pueden hacer?",
-       "opciones": [
-        "120",
-        "1,920",
-        "484"
-       ],
-       "correcta": 0,
-       "formula": "{480|4} = 120"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un cliente pide 600 piezas en 3 turnos, con esa misma capacidad de 120 por turno. ¿Alcanza?",
-       "opciones": [
-        "No, en 3 turnos solo salen 360",
-        "Sobra",
-        "Sí"
-       ],
-       "correcta": 0,
-       "formula": "120 × 3 = 360"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Ventas promete una fecha de entrega sin preguntarle a producción. ¿Qué riesgo hay?",
-       "opciones": [
-        "Ninguno",
-        "Entregar antes",
-        "No cumplir y quedar mal con el cliente"
-       ],
-       "correcta": 2
+       "tipo": "info",
+       "titulo": "Si te gusta, pero no del todo",
+       "puntos": [
+        "Mira también: Mecatrónica"
+       ]
       },
       {
        "tipo": "teves"
@@ -462,128 +361,27 @@
   },
   {
    "id": "u4",
-   "titulo": "Examen final",
-   "sub": "10 preguntas · apruebas con 7",
+   "titulo": "Tu decisión",
+   "sub": "¿La guardas o la descartas?",
    "lecciones": [
     {
      "id": "ex",
-     "titulo": "Examen final",
-     "minutos": 6,
-     "examen": true,
-     "aprobar": 7,
+     "titulo": "Tu veredicto",
+     "minutos": 2,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "Examen final",
-       "partes": [
-        {
-         "t": "Son 10 casos nuevos que mezclan todas las lecciones. Apruebas con 7. Si no, lo repites y las que fallaste regresan con otras palabras."
-        }
-       ]
+       "tipo": "escena",
+       "texto": "Ya sabes qué hace alguien de Ing. Industrial, qué estudias, qué tan difícil es y si hay trabajo."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Una línea produce 300 piezas en 6 horas. ¿Cuál es su productividad?",
-       "opciones": [
-        "306",
-        "50 piezas por hora",
-        "1,800"
-       ],
-       "correcta": 1,
-       "formula": "{300|6} = 50"
+       "tipo": "escuelas"
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Tres estaciones hacen 70, 40 y 60 piezas por hora. ¿Cuánto produce la línea?",
-       "opciones": [
-        "170",
-        "70",
-        "40"
-       ],
-       "correcta": 2
+       "tipo": "veredicto"
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué estación conviene mejorar primero?",
-       "opciones": [
-        "La más rápida",
-        "El cuello de botella",
-        "Cualquiera"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "De 5,000 piezas, 50 salieron defectuosas. ¿Cuál es el porcentaje de defectos?",
-       "opciones": [
-        "50 por ciento",
-        "10 por ciento",
-        "1 por ciento"
-       ],
-       "correcta": 2,
-       "formula": "{50|5,000} × 100 = 1"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué es mejor ante defectos frecuentes?",
-       "opciones": [
-        "Inspeccionar más al final",
-        "Ignorarlos",
-        "Encontrar la causa raíz"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Una fábrica usa 50 piezas al día, el proveedor tarda 4 días y quiere 100 de seguridad. ¿En qué punto pide?",
-       "opciones": [
-        "154",
-        "300",
-        "200"
-       ],
-       "correcta": 1,
-       "formula": "50 × 4 + 100 = 300"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué buscan las 5S?",
-       "opciones": [
-        "Más turnos",
-        "Orden y limpieza, con cada cosa en su lugar",
-        "Más inventario"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Alguien quitó la guarda de una máquina.",
-       "opciones": [
-        "Se detiene y se vuelve a poner",
-        "Se deja",
-        "Se premia"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un turno de 480 minutos y 6 minutos por pieza. ¿Cuántas piezas salen?",
-       "opciones": [
-        "80",
-        "486",
-        "2,880"
-       ],
-       "correcta": 0,
-       "formula": "{480|6} = 80"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué haces antes de prometer una fecha de entrega?",
-       "opciones": [
-        "Calcular la capacidad",
-        "Decir que sí",
-        "Nada"
-       ],
-       "correcta": 0
+       "tipo": "clave",
+       "texto": "Decidir «sigo en duda» también es avanzar."
       }
      ]
     }

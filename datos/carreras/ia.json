@@ -1,14 +1,15 @@
 {
  "id": "ia",
- "version": 2,
+ "version": 3,
  "formato": 2,
  "estado": "completo",
- "revision": "Pendiente de revisión por un profesionista de la carrera. Generado con datos/importar_lecciones.py desde datos/fuentes/lecciones/ia.lec; no se edita a mano.",
+ "generado": true,
+ "revision": "Lecciones generales (de qué trata la carrera y si va contigo), armadas con datos/lecciones_generales.py desde la base de carreras con fuentes (2026-11-17).",
  "unidades": [
   {
    "id": "u1",
-   "titulo": "Cómo aprende",
-   "sub": "Ejemplos y neuronas",
+   "titulo": "¿De qué se trata?",
+   "sub": "Qué hace y cómo es su día",
    "lecciones": [
     {
      "id": "0",
@@ -16,78 +17,55 @@
      "minutos": 1,
      "tarjetas": [
       {
-       "tipo": "ficha",
-       "texto": "Ingeniería en Inteligencia Artificial forma ingenieros que crean sistemas que aprenden de datos: reconocen imágenes y voz, entienden texto, recomiendan productos o detectan fraudes. Combinan programación, matemáticas y mucha responsabilidad con las personas.",
-       "cifras": [
-        "ia.becas",
-        "ia.duracion",
-        "ia.costo_publica",
-        "ia.costo_privada"
-       ]
+       "tipo": "escena",
+       "texto": "Antes de leer nada: ¿qué crees que hace alguien que estudió Inteligencia artificial?"
       },
       {
-       "tipo": "escena",
-       "texto": "Hoy entrenas tu primer modelo. Vamos a ver si aprende bien."
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál de estas cosas crees que hace?",
+       "opciones": [
+        "Diseño y desarrollo de soluciones digitales",
+        "Diseña prendas y colecciones",
+        "Analiza dónde invertir el dinero de una empresa o clientes"
+       ],
+       "correcta": 0,
+       "explicacion": "En pocas palabras, Inteligencia artificial es diseño y desarrollo de soluciones digitales. Puede incluir programación, algoritmos, bases de datos, infraestructura, análisis de datos, inteligencia artificial, redes o seguridad informática.",
+       "adivina": true
+      },
+      {
+       "tipo": "info",
+       "titulo": "Inteligencia artificial en una frase",
+       "texto": "Diseño y desarrollo de soluciones digitales."
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
      "id": "1",
-     "titulo": "Aprender de ejemplos",
-     "minutos": 4,
+     "titulo": "Un día normal",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Imagina que acompañas un día entero a alguien de Inteligencia artificial. ¿Qué crees que hace?"
+      },
+      {
        "tipo": "info",
-       "titulo": "Aprender de ejemplos",
-       "partes": [
-        {
-         "t": "En la programación tradicional, una persona escribe las reglas. En el aprendizaje automático, la computadora encuentra las reglas a partir de muchos ejemplos. Para enseñarle a distinguir fotos de perros y gatos, le das miles de fotos ya etiquetadas, y el modelo ajusta sus números internos hasta equivocarse lo menos posible. A eso se le llama entrenar. Después se prueba con fotos que nunca vio, para saber si de verdad aprendió. Los datos se suelen dividir: una parte para entrenar y otra, separada, para probar."
-        },
-        {
-         "f": "datos de prueba = total de datos × 0.20"
-        }
+       "titulo": "Un día normal",
+       "puntos": [
+        "Entrena y ajusta modelos de IA (reconocimiento de imágenes, chatbots, recomendaciones), los integra en productos y…"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué hace un modelo de aprendizaje automático al entrenar?",
+       "tipo": "reflexion",
+       "pregunta": "De ese día, ¿qué te late más?",
        "opciones": [
-        "Nada",
-        "Copia reglas escritas por una persona",
-        "Ajusta sus números internos con muchos ejemplos para equivocarse menos"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Tienes 10,000 fotos y apartas el 20 por ciento para probar. ¿Cuántas fotos son de prueba?",
-       "opciones": [
-        "200",
-        "2,000",
-        "8,000"
-       ],
-       "correcta": 1,
-       "formula": "10,000 × 0.20 = 2,000"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Por qué se prueba con fotos que el modelo nunca vio?",
-       "opciones": [
-        "Para que tarde más",
-        "Para saber si aprendió o solo memorizó",
-        "No hace falta"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué necesitas para entrenar un modelo que reconozca frutas en fotos?",
-       "opciones": [
-        "Un solo dibujo",
-        "Muchas fotos de frutas con su etiqueta",
-        "Nada"
-       ],
-       "correcta": 1
+        "Casi todo",
+        "Algunas cosas",
+        "Nada de eso"
+       ]
       },
       {
        "tipo": "teves"
@@ -96,65 +74,36 @@
     },
     {
      "id": "2",
-     "titulo": "Una neurona artificial",
-     "minutos": 4,
+     "titulo": "Mitos y realidades",
+     "minutos": 2,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "Una neurona artificial",
-       "partes": [
-        {
-         "t": "Las redes neuronales están hechas de muchas unidades sencillas llamadas neuronas artificiales. Cada una recibe números, multiplica cada uno por un peso, que indica qué tan importante es, los suma y pasa el resultado a la siguiente capa."
-        },
-        {
-         "f": "salida = entrada 1 × peso 1 + entrada 2 × peso 2"
-        },
-        {
-         "t": "Entrenar es encontrar los pesos que hacen que la red acierte. Una red grande tiene millones o miles de millones de pesos, por eso necesita muchísimos datos y computadoras potentes."
-        }
-       ]
+       "tipo": "escena",
+       "texto": "¿Verdadero o falso? Primero di lo que crees."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Una neurona recibe 2 y 4, con pesos de 0.5 y 0.25. ¿Cuál es su salida?",
-       "opciones": [
-        "2",
-        "0.75",
-        "6"
-       ],
-       "correcta": 0,
-       "formula": "2 × 0.5 + 4 × 0.25 = 2"
+       "tipo": "vf",
+       "afirmacion": "En Inteligencia artificial llevas materias de matemáticas o con muchos números.",
+       "respuesta": true,
+       "revelacion": "Sí: Cálculo, Álgebra lineal, Programación. Muchos eligen carrera pensando en evitar las matemáticas; mejor saberlo desde ahora."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Una neurona recibe 3 y 1, con pesos de 2 y 1. ¿Cuál es su salida?",
-       "opciones": [
-        "3",
-        "7",
-        "4"
-       ],
-       "correcta": 1,
-       "formula": "3 × 2 + 1 × 1 = 7"
+       "tipo": "vf",
+       "afirmacion": "Es de las carreras más difíciles.",
+       "respuesta": true,
+       "revelacion": "Su dificultad es alta. Muchas matemáticas (Álgebra lineal, Probabilidad, Optimización) y Programación avanzada."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué significa entrenar una red neuronal?",
-       "opciones": [
-        "Encontrar los pesos que la hacen acertar",
-        "Pintarla",
-        "Conectarla a internet"
-       ],
-       "correcta": 0
+       "tipo": "vf",
+       "afirmacion": "La mayoría de quienes la estudian terminan trabajando en otra cosa.",
+       "respuesta": true,
+       "revelacion": "9 de cada 100 trabajan en algo de su carrera (IMCO, Compara Carreras 2026)."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Por qué los modelos grandes necesitan tantas computadoras?",
-       "opciones": [
-        "Porque tienen muchísimos pesos que ajustar con muchísimos datos",
-        "No las necesitan",
-        "Por moda"
-       ],
-       "correcta": 0
+       "tipo": "vf",
+       "afirmacion": "Casi todos los que se dedican a esto son hombres.",
+       "respuesta": false,
+       "revelacion": "De cada 100 personas que la ejercen, 54 son mujeres (IMCO, Compara Carreras 2026)."
       },
       {
        "tipo": "teves"
@@ -165,111 +114,101 @@
   },
   {
    "id": "u2",
-   "titulo": "Errores y sesgos",
-   "sub": "Medir y corregir",
+   "titulo": "¿Va contigo?",
+   "sub": "Lo que pide y lo que estudias",
    "lecciones": [
     {
      "id": "3",
-     "titulo": "Medir los errores",
-     "minutos": 4,
+     "titulo": "¿Se te da?",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Para que una carrera te guste no basta con que te llame la atención. ¿Se te da lo que pide?"
+      },
+      {
        "tipo": "info",
-       "titulo": "Medir los errores",
-       "partes": [
-        {
-         "t": "En un modelo que decide sí o no, hay dos tipos de error. Un falso positivo es decir que sí cuando era no, como marcar un correo normal como spam. Un falso negativo es decir que no cuando era sí, como dejar pasar un spam. Cuál es peor depende del problema. En un detector de enfermedades, un falso negativo puede ser grave, porque una persona enferma se va sin atención. En un filtro de spam, un falso positivo molesta más, porque pierdes un correo importante."
-        }
+       "titulo": "Lo que pide Inteligencia artificial",
+       "puntos": [
+        "Matemáticas",
+        "Programación",
+        "Investigación",
+        "Aprender rápido"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Tu filtro manda a spam la carta de aceptación de la universidad. ¿Qué tipo de error es?",
-       "opciones": [
-        "Falso positivo",
-        "Acierto",
-        "Falso negativo"
-       ],
-       "correcta": 0
+       "tipo": "info",
+       "titulo": "Y lo que te tiene que gustar",
+       "puntos": [
+        "Inteligencia artificial",
+        "Robots",
+        "Tecnología de punta"
+       ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Un modelo que detecta una enfermedad dice \"sano\" a una persona enferma. ¿Qué tipo de error es?",
-       "opciones": [
-        "Falso negativo",
-        "Acierto",
-        "Falso positivo"
-       ],
-       "correcta": 0
+       "tipo": "reflexion",
+       "pregunta": "¿Me interesa entender cómo funcionan por dentro los modelos de IA?",
+       "escala": [
+        "No",
+        "Sí"
+       ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "En un detector de fraudes bancarios, ¿qué conviene revisar además de la exactitud?",
-       "opciones": [
-        "Cuántos fraudes deja pasar y cuántas compras normales bloquea",
-        "Nada",
-        "El color de la app"
-       ],
-       "correcta": 0
+       "tipo": "reflexion",
+       "pregunta": "¿Me gustan las matemáticas?",
+       "escala": [
+        "No",
+        "Sí"
+       ]
       },
       {
-       "tipo": "teves"
+       "tipo": "reflexion",
+       "pregunta": "¿Me imagino haciendo posgrado o investigación?",
+       "escala": [
+        "No",
+        "Sí"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Si dijiste que no a algo, no pasa nada: sirve para saber qué preguntar y qué carreras parecidas ver."
       }
      ]
     },
     {
      "id": "4",
-     "titulo": "Datos con sesgo",
-     "minutos": 4,
+     "titulo": "Lo que estudias",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "¿Qué crees que ves en el primer año de Inteligencia artificial?"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál crees que es el primer año?",
+       "opciones": [
+        "Cálculo, Álgebra lineal, Programación",
+        "Cálculo diferencial e integral, Álgebra lineal, Física",
+        "Cálculo, Física, Programación"
+       ],
+       "correcta": 0,
+       "explicacion": "Esas son materias de los primeros semestres. Las otras son de Ing. Civil y Mecatrónica.",
+       "adivina": true
+      },
+      {
        "tipo": "info",
-       "titulo": "Datos con sesgo",
-       "partes": [
-        {
-         "t": "Un modelo aprende lo que hay en sus datos, incluidos sus errores e injusticias. Si un sistema de reconocimiento de caras se entrena casi solo con fotos de personas de piel clara, funciona peor con personas de piel oscura. Si un modelo para contratar se entrena con decisiones pasadas que discriminaban a mujeres, repetirá esa discriminación. Por eso se revisa con qué datos se entrenó un modelo y se mide cómo funciona para distintos grupos antes de usarlo."
-        }
+       "titulo": "Lo que vas viendo",
+       "puntos": [
+        "Semestres 1-2: Cálculo, Álgebra lineal, Programación, Lógica",
+        "Semestres 3-4: Probabilidad y estadística, Estructuras de datos, Algoritmos",
+        "Semestres 5-6: Aprendizaje automático, Redes neuronales, Visión por computadora, Procesamiento de lenguaje natural",
+        "Semestres 7 en adelante: Robótica inteligente, Ética de la IA, Proyecto"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Un reconocedor de voz se entrenó casi solo con voces de un país y falla con acentos mexicanos. ¿Qué pasó?",
-       "opciones": [
-        "La computadora está cansada",
-        "Sus datos no representaban esos acentos",
-        "Los acentos están mal"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un modelo para revisar solicitudes de empleo rechaza más a mujeres porque aprendió de decisiones pasadas. ¿Qué haces?",
-       "opciones": [
-        "Lo usas igual",
-        "Quitas a las mujeres de los datos",
-        "Lo revisas y corriges antes de usarlo"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué se mide antes de usar un modelo con personas?",
-       "opciones": [
-        "Solo qué tan rápido es",
-        "Cómo funciona para distintos grupos",
-        "Nada"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Un modelo puede ser más justo que los datos con que se entrenó, sin hacer nada?",
-       "opciones": [
-        "Solo si es grande",
-        "Sí, siempre",
-        "No; aprende lo que hay en sus datos"
-       ],
-       "correcta": 2
+       "tipo": "clave",
+       "texto": "Los nombres cambian un poco según la universidad; la idea general es esta."
       },
       {
        "tipo": "teves"
@@ -280,52 +219,41 @@
   },
   {
    "id": "u3",
-   "titulo": "En el mundo real",
-   "sub": "Lenguaje, sistemas y ética",
+   "titulo": "¿Y después?",
+   "sub": "Trabajo y dificultad",
    "lecciones": [
     {
      "id": "5",
-     "titulo": "Modelos de lenguaje",
-     "minutos": 4,
+     "titulo": "Dónde trabajarías",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Al terminar, ¿dónde crees que trabajaría alguien de Inteligencia artificial?"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál de estos lugares es más de Inteligencia artificial?",
+       "opciones": [
+        "Empresas industriales y tecnológicas",
+        "Software",
+        "Instituciones públicas y privadas"
+       ],
+       "correcta": 0,
+       "explicacion": "Es uno de los lugares donde trabaja alguien de Inteligencia artificial.",
+       "adivina": true
+      },
+      {
        "tipo": "info",
-       "titulo": "Modelos de lenguaje",
-       "partes": [
-        {
-         "t": "Los asistentes que escriben texto son modelos de lenguaje: aprendieron de enormes cantidades de texto a predecir qué palabra sigue. Por eso escriben con fluidez, pero pueden equivocarse con mucha seguridad e incluso inventar datos o citas que no existen. Esos errores se llaman alucinaciones. Un ingeniero en inteligencia artificial diseña sistemas que reducen esos errores, por ejemplo dándole al modelo documentos confiables para consultar, y siempre se verifican los datos importantes."
-        }
+       "titulo": "Dónde se trabaja",
+       "puntos": [
+        "Empresas industriales y tecnológicas",
+        "Consultoría",
+        "Construcción",
+        "Energía",
+        "Manufactura",
+        "Telecomunicaciones"
        ]
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué aprendieron a hacer los modelos de lenguaje?",
-       "opciones": [
-        "Buscar en internet siempre",
-        "Pensar igual que una persona",
-        "Predecir qué palabra sigue a partir de mucho texto"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un asistente te da una cita de un libro con página y todo, pero no la encuentras en el libro. ¿Qué pasó probablemente?",
-       "opciones": [
-        "La página se borró",
-        "El libro está mal",
-        "La inventó; es una alucinación"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Vas a usar un asistente para tu tarea de historia. ¿Qué haces con las fechas que te da?",
-       "opciones": [
-        "Las copias tal cual",
-        "Las cambias al azar",
-        "Las verificas en fuentes confiables"
-       ],
-       "correcta": 2
       },
       {
        "tipo": "teves"
@@ -334,57 +262,21 @@
     },
     {
      "id": "6",
-     "titulo": "Construir un sistema",
-     "minutos": 4,
+     "titulo": "¿Hay trabajo?",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Ahora lo que todos preguntan: ¿hay trabajo y cuánto se gana?"
+      },
+      {
        "tipo": "info",
-       "titulo": "Construir un sistema",
-       "partes": [
-        {
-         "t": "Un sistema de inteligencia artificial en la vida real es mucho más que el modelo. Hay que juntar y limpiar datos, entrenar, probar, ponerlo a funcionar y vigilarlo, porque el mundo cambia y el modelo se puede volver viejo. Antes de entrenar un modelo enorme conviene probar algo sencillo, que a veces es suficiente. Y siempre se pregunta si de verdad hace falta inteligencia artificial: algunos problemas se resuelven mejor con una regla simple."
-        }
-       ]
+       "titulo": "Así está el trabajo",
+       "texto": "Carrera muy nueva; aún no hay datos propios en IMCO (se aproxima con 'Ciencias computacionales')."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Una tienda quiere avisar cuando un producto tenga menos de 10 piezas. ¿Necesita inteligencia artificial?",
-       "opciones": [
-        "Sí, una red neuronal",
-        "Sí, un modelo enorme",
-        "No, basta con una regla simple"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un modelo que predecía ventas funcionaba bien hace dos años y ahora falla mucho. ¿Qué pasó probablemente?",
-       "opciones": [
-        "Se cansó",
-        "Cambiaron las condiciones y hay que reentrenarlo con datos nuevos",
-        "Nada"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Por qué conviene probar primero un modelo sencillo?",
-       "opciones": [
-        "Porque los grandes no sirven",
-        "Porque a veces basta y es más barato",
-        "No conviene"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Ya pusiste a funcionar tu modelo. ¿Qué sigue?",
-       "opciones": [
-        "Olvidarte de él",
-        "Borrar los datos",
-        "Vigilar cómo se comporta con datos reales"
-       ],
-       "correcta": 2
+       "tipo": "clave",
+       "texto": "No requiere cédula."
       },
       {
        "tipo": "teves"
@@ -393,47 +285,37 @@
     },
     {
      "id": "7",
-     "titulo": "Ética y seguridad",
-     "minutos": 4,
+     "titulo": "Qué tan difícil es",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "¿Dónde crees que está lo más difícil de Inteligencia artificial?"
+      },
+      {
        "tipo": "info",
-       "titulo": "Ética y seguridad",
-       "partes": [
-        {
-         "t": "La inteligencia artificial puede usarse mal. Con ella se hacen videos falsos de personas reales, llamados deepfakes, que pueden dañar su reputación o engañar a otros. Los datos personales usados para entrenar deben obtenerse con permiso y cuidarse. Cuando un sistema toma decisiones importantes sobre personas, como dar un crédito, debe poder explicarse y revisarse por un humano. Un ingeniero responsable piensa en cómo podría usarse mal su sistema antes de lanzarlo."
-        }
+       "titulo": "Lo más difícil",
+       "texto": "Dificultad alta. Muchas matemáticas (Álgebra lineal, Probabilidad, Optimización) y Programación avanzada."
+      },
+      {
+       "tipo": "info",
+       "titulo": "Cuánto dura",
+       "texto": "4 a 4.5 años."
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Te ves aguantando eso?",
+       "escala": [
+        "No",
+        "Sí"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Un amigo quiere hacer un video falso de un compañero diciendo cosas que no dijo, \"de broma\".",
-       "opciones": [
-        "Lo subes a redes",
-        "Le dices que no, porque puede dañar a esa persona",
-        "Le ayudas"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un sistema niega un crédito y nadie puede explicar por qué. ¿Qué falta?",
-       "opciones": [
-        "Que se pueda explicar y que una persona pueda revisarlo",
-        "Nada",
-        "Más colores"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Antes de lanzar tu sistema, ¿qué te preguntas?",
-       "opciones": [
-        "Solo cuánto cuesta",
-        "Nada",
-        "Cómo podría usarse mal y cómo evitarlo"
-       ],
-       "correcta": 2
+       "tipo": "info",
+       "titulo": "Si te gusta, pero no del todo",
+       "puntos": [
+        "Mira también: Mecatrónica, Matemáticas"
+       ]
       },
       {
        "tipo": "teves"
@@ -444,126 +326,27 @@
   },
   {
    "id": "u4",
-   "titulo": "Examen final",
-   "sub": "10 preguntas · apruebas con 7",
+   "titulo": "Tu decisión",
+   "sub": "¿La guardas o la descartas?",
    "lecciones": [
     {
      "id": "ex",
-     "titulo": "Examen final",
-     "minutos": 6,
-     "examen": true,
-     "aprobar": 7,
+     "titulo": "Tu veredicto",
+     "minutos": 2,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "Examen final",
-       "partes": [
-        {
-         "t": "Son 10 casos nuevos que mezclan todas las lecciones. Apruebas con 7. Si no, lo repites y las que fallaste regresan con otras palabras."
-        }
-       ]
+       "tipo": "escena",
+       "texto": "Ya sabes qué hace alguien de Inteligencia artificial, qué estudias, qué tan difícil es y si hay trabajo."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Cómo aprende un modelo de aprendizaje automático?",
-       "opciones": [
-        "No aprende",
-        "Con muchos ejemplos",
-        "Con reglas escritas a mano"
-       ],
-       "correcta": 1
+       "tipo": "escuelas"
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Tienes 5,000 ejemplos y apartas el 20 por ciento para probar. ¿Cuántos son de prueba?",
-       "opciones": [
-        "100",
-        "1,000",
-        "4,000"
-       ],
-       "correcta": 1,
-       "formula": "5,000 × 0.20 = 1,000"
+       "tipo": "veredicto"
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Una neurona recibe 4 y 2, con pesos de 0.5 y 1. ¿Cuál es su salida?",
-       "opciones": [
-        "4",
-        "6",
-        "1.5"
-       ],
-       "correcta": 0,
-       "formula": "4 × 0.5 + 2 × 1 = 4"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un filtro marca como spam un correo importante. ¿Qué error es?",
-       "opciones": [
-        "Falso positivo",
-        "Acierto",
-        "Falso negativo"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un detector dice \"sano\" a alguien enfermo. ¿Qué error es?",
-       "opciones": [
-        "Acierto",
-        "Falso positivo",
-        "Falso negativo"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué aprende un modelo de datos injustos?",
-       "opciones": [
-        "A repetir esa injusticia",
-        "Nada",
-        "A ser justo solo"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué es una alucinación de un modelo de lenguaje?",
-       "opciones": [
-        "Un dibujo",
-        "Un dato inventado dicho con seguridad",
-        "Un error de ortografía"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué haces con un dato importante que te dio un asistente?",
-       "opciones": [
-        "Lo verificas",
-        "Lo copias",
-        "Lo ignoras"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un problema se resuelve con una regla simple. ¿Usas inteligencia artificial?",
-       "opciones": [
-        "No hace falta",
-        "Sí, siempre",
-        "Sí, la más grande"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué es un deepfake?",
-       "opciones": [
-        "Un tipo de cable",
-        "Un filtro de spam",
-        "Un video falso de una persona real hecho con inteligencia artificial"
-       ],
-       "correcta": 2
+       "tipo": "clave",
+       "texto": "Decidir «sigo en duda» también es avanzar."
       }
      ]
     }

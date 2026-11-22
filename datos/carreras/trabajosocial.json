@@ -1,14 +1,15 @@
 {
  "id": "trabajosocial",
- "version": 2,
+ "version": 3,
  "formato": 2,
  "estado": "completo",
- "revision": "Pendiente de revisión por un profesionista de la carrera. Generado con datos/importar_lecciones.py desde datos/fuentes/lecciones/trabajosocial.lec; no se edita a mano.",
+ "generado": true,
+ "revision": "Lecciones generales (de qué trata la carrera y si va contigo), armadas con datos/lecciones_generales.py desde la base de carreras con fuentes (2026-11-17).",
  "unidades": [
   {
    "id": "u1",
-   "titulo": "Intervenir",
-   "sub": "Diagnóstico y entrevista",
+   "titulo": "¿De qué se trata?",
+   "sub": "Qué hace y cómo es su día",
    "lecciones": [
     {
      "id": "0",
@@ -16,74 +17,71 @@
      "minutos": 1,
      "tarjetas": [
       {
-       "tipo": "ficha",
-       "texto": "Trabajo Social forma profesionales que acompañan a personas, familias y comunidades para enfrentar problemas sociales y ejercer sus derechos. Trabajan en hospitales, escuelas, el DIF, juzgados, programas sociales y organizaciones civiles.",
-       "cifras": [
-        "trabajosocial.ingreso",
-        "trabajosocial.duracion",
-        "trabajosocial.costo_publica",
-        "trabajosocial.costo_privada"
-       ]
+       "tipo": "escena",
+       "texto": "Antes de leer nada: ¿qué crees que hace alguien que estudió Trabajo social?"
       },
       {
-       "tipo": "escena",
-       "texto": "Hoy te llegan varios casos difíciles. Vamos a ver cómo ayudas."
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál de estas cosas crees que hace?",
+       "opciones": [
+        "Atiende casos de familias o personas vulnerables",
+        "Diseña circuitos y dispositivos",
+        "Consulta pacientes"
+       ],
+       "correcta": 0,
+       "explicacion": "En pocas palabras, Trabajo social es análisis de instituciones, políticas, conflictos y problemas sociales. Puede enfocarse en investigación, intervención comunitaria, seguridad, gestión pública, cooperación o diseño de políticas.",
+       "adivina": true
+      },
+      {
+       "tipo": "info",
+       "titulo": "Trabajo social en una frase",
+       "texto": "Análisis de instituciones, políticas, conflictos y problemas sociales."
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
      "id": "1",
-     "titulo": "Cómo se interviene",
-     "minutos": 4,
+     "titulo": "Un día normal",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Imagina que acompañas un día entero a alguien de Trabajo social. ¿Qué crees que hace?"
+      },
+      {
        "tipo": "info",
-       "titulo": "Cómo se interviene",
-       "partes": [
-        {
-         "t": "El trabajo social ayuda a personas, familias y comunidades a enfrentar problemas sociales y a ejercer sus derechos. Toda intervención sigue un orden: primero se investiga y se hace un diagnóstico, que es entender qué pasa y por qué; luego se planea qué hacer junto con las personas; después se actúa; y al final se evalúa si funcionó. Actuar sin diagnóstico lleva a soluciones que no sirven. Y se trabaja con las personas, no por ellas: son quienes mejor conocen su situación."
-        }
+       "titulo": "Un día normal",
+       "puntos": [
+        "Atiende casos de familias o personas vulnerables",
+        "Hace estudios socioeconómicos",
+        "Gestiona apoyos y programas",
+        "Trabaja en hospitales, dIF, escuelas o fundaciones"
        ]
       },
       {
        "tipo": "pregunta",
-       "pregunta": "¿Qué se hace primero en una intervención?",
+       "pregunta": "¿Cuál de estas cosas NO es parte de su día?",
        "opciones": [
-        "Dar apoyos sin preguntar",
-        "Evaluar",
-        "Un diagnóstico de la situación"
+        "Calcula o supervisa obras, puentes, carreteras, drenajes",
+        "Hace estudios socioeconómicos",
+        "Gestiona apoyos y programas"
        ],
-       "correcta": 2
+       "correcta": 0,
+       "explicacion": "Eso lo hace alguien de Ing. Civil, no de Trabajo social.",
+       "adivina": true
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Una trabajadora social decide sola qué necesita una familia sin preguntarle. ¿Qué problema hay?",
+       "tipo": "reflexion",
+       "pregunta": "De ese día, ¿qué te late más?",
        "opciones": [
-        "Que es rápido",
-        "Deja fuera a quienes mejor conocen su situación",
-        "Ninguno"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Para qué sirve evaluar al final?",
-       "opciones": [
-        "Para saber si funcionó y ajustar",
-        "No sirve",
-        "Para llenar papeles"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Con quién se planea la intervención?",
-       "opciones": [
-        "Sin ellas",
-        "Con nadie",
-        "Con las personas involucradas"
-       ],
-       "correcta": 2
+        "Atiende casos de familias o personas vulnerables",
+        "Hace estudios socioeconómicos",
+        "Gestiona apoyos y programas",
+        "Nada de eso"
+       ]
       },
       {
        "tipo": "teves"
@@ -92,57 +90,36 @@
     },
     {
      "id": "2",
-     "titulo": "La entrevista",
-     "minutos": 4,
+     "titulo": "Mitos y realidades",
+     "minutos": 2,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "La entrevista",
-       "partes": [
-        {
-         "t": "La entrevista es la herramienta principal. Se busca un lugar privado, se escucha con atención y sin juzgar, y se hacen preguntas abiertas, que invitan a contar, como \"¿cómo ha sido su semana?\", en vez de preguntas que se contestan con sí o no. Se cuida no prometer lo que no se puede cumplir. Lo que la persona cuenta se registra con sus palabras y se distingue de la interpretación del profesional."
-        }
-       ]
+       "tipo": "escena",
+       "texto": "¿Verdadero o falso? Primero di lo que crees."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Cuál es una pregunta abierta?",
-       "opciones": [
-        "\"¿Sí o no?\"",
-        "\"¿Está bien?\"",
-        "\"¿Cómo ha sido la situación en su casa?\""
-       ],
-       "correcta": 2
+       "tipo": "vf",
+       "afirmacion": "En Trabajo social llevas materias de matemáticas o con muchos números.",
+       "respuesta": true,
+       "revelacion": "Sí: Estadística. Muchos eligen carrera pensando en evitar las matemáticas; mejor saberlo desde ahora."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Una mujer te cuenta su situación en el pasillo de un hospital lleno de gente. ¿Qué haces?",
-       "opciones": [
-        "Buscas un lugar privado para seguir la entrevista",
-        "Le pides que hable más fuerte",
-        "Sigues ahí"
-       ],
-       "correcta": 0
+       "tipo": "vf",
+       "afirmacion": "Es de las carreras más difíciles.",
+       "respuesta": false,
+       "revelacion": "Su dificultad es media. Mucho trabajo de campo con comunidades y casos difíciles."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Un señor te pide que le consigas una casa la próxima semana, y no sabes si es posible.",
-       "opciones": [
-        "Le explicas con honestidad qué puedes hacer y qué no",
-        "Le prometes que sí",
-        "No le contestas"
-       ],
-       "correcta": 0
+       "tipo": "vf",
+       "afirmacion": "La mayoría de quienes la estudian terminan trabajando en otra cosa.",
+       "respuesta": true,
+       "revelacion": "29 de cada 100 trabajan en algo de su carrera (IMCO, Compara Carreras 2026)."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Cómo se escucha en una entrevista?",
-       "opciones": [
-        "Con atención y sin juzgar",
-        "Interrumpiendo",
-        "Viendo el celular"
-       ],
-       "correcta": 0
+       "tipo": "vf",
+       "afirmacion": "Casi todos los que se dedican a esto son hombres.",
+       "respuesta": false,
+       "revelacion": "De cada 100 personas que la ejercen, 92 son mujeres (IMCO, Compara Carreras 2026)."
       },
       {
        "tipo": "teves"
@@ -153,168 +130,101 @@
   },
   {
    "id": "u2",
-   "titulo": "Apoyar",
-   "sub": "Recursos, estudios y protección",
+   "titulo": "¿Va contigo?",
+   "sub": "Lo que pide y lo que estudias",
    "lecciones": [
     {
      "id": "3",
-     "titulo": "Recursos y redes",
-     "minutos": 4,
+     "titulo": "¿Se te da?",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Para que una carrera te guste no basta con que te llame la atención. ¿Se te da lo que pide?"
+      },
+      {
        "tipo": "info",
-       "titulo": "Recursos y redes",
-       "partes": [
-        {
-         "t": "Una gran parte del trabajo es conectar a las personas con recursos: programas sociales, servicios de salud, becas, asesoría legal, refugios y grupos de apoyo. También se fortalecen las redes de apoyo de la persona: familia, amigos, vecinos, iglesia o escuela. Un trabajador social conoce bien qué instituciones hay en su zona, qué ofrecen y cuáles son sus requisitos, para canalizar correctamente y no mandar a la gente de un lado a otro."
-        }
+       "titulo": "Lo que pide Trabajo social",
+       "puntos": [
+        "Empatía",
+        "Manejo emocional",
+        "Organización",
+        "Comunicación"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Una madre sin empleo necesita guardería para buscar trabajo. ¿Qué haces?",
-       "opciones": [
-        "Le das tu número y ya",
-        "Le dices que no puedes hacer nada",
-        "La conectas con opciones de cuidado infantil y apoyo para el empleo que existan en su zona"
-       ],
-       "correcta": 2
+       "tipo": "info",
+       "titulo": "Y lo que te tiene que gustar",
+       "puntos": [
+        "Ayudar a personas vulnerables",
+        "Comunidades",
+        "Derechos humanos"
+       ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué son las redes de apoyo?",
-       "opciones": [
-        "Una red de pesca",
-        "Las personas y grupos que pueden ayudar a alguien, como familia y vecinos",
-        "Las redes sociales"
-       ],
-       "correcta": 1
+       "tipo": "reflexion",
+       "pregunta": "¿Puedo escuchar historias duras sin quebrarme?",
+       "escala": [
+        "No",
+        "Sí"
+       ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Por qué un trabajador social debe conocer los requisitos de cada institución?",
-       "opciones": [
-        "No hace falta",
-        "Para canalizar bien y no mandar a la gente de un lado a otro",
-        "Por cultura general"
-       ],
-       "correcta": 1
+       "tipo": "reflexion",
+       "pregunta": "¿Me motiva más el impacto social que el dinero?",
+       "escala": [
+        "No",
+        "Sí"
+       ]
       },
       {
-       "tipo": "teves"
+       "tipo": "reflexion",
+       "pregunta": "¿Me gusta salir a campo?",
+       "escala": [
+        "No",
+        "Sí"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Si dijiste que no a algo, no pasa nada: sirve para saber qué preguntar y qué carreras parecidas ver."
       }
      ]
     },
     {
      "id": "4",
-     "titulo": "Estudio socioeconómico",
-     "minutos": 4,
+     "titulo": "Lo que estudias",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "¿Qué crees que ves en el primer año de Trabajo social?"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál crees que es el primer año?",
+       "opciones": [
+        "Teoría del trabajo social, Sociología, Psicología",
+        "Dibujo y bocetaje, Geometría, Teoría del diseño",
+        "Bases biológicas de la conducta, Teorías de la personalidad, Estadística"
+       ],
+       "correcta": 0,
+       "explicacion": "Esas son materias de los primeros semestres. Las otras son de Diseño industrial y Psicología.",
+       "adivina": true
+      },
+      {
        "tipo": "info",
-       "titulo": "Estudio socioeconómico",
-       "partes": [
-        {
-         "t": "Para asignar becas o apoyos se hace un estudio socioeconómico: se revisan ingresos, gastos, vivienda, número de integrantes y situación de salud de la familia. Un dato útil es el ingreso por persona:"
-        },
-        {
-         "f": "ingreso por persona = {ingreso total del hogar|integrantes}"
-        },
-        {
-         "t": "Dos familias con el mismo ingreso pueden estar en situaciones muy distintas si una tiene seis integrantes y la otra dos. Se verifica la información con respeto, sin humillar a nadie."
-        }
+       "titulo": "Lo que vas viendo",
+       "puntos": [
+        "Semestres 1-2: Teoría del trabajo social, Sociología, Psicología, Derecho",
+        "Semestres 3-4: Metodología de intervención, Estadística, Política social",
+        "Semestres 5-6: Trabajo social en salud, familia y comunidad, Gestión de proyectos sociales",
+        "Semestres 7 en adelante: Prácticas comunitarias, Servicio social"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Un hogar gana 12,000 pesos al mes y tiene 4 integrantes. ¿Cuál es el ingreso por persona?",
-       "opciones": [
-        "12,004 pesos",
-        "48,000 pesos",
-        "3,000 pesos"
-       ],
-       "correcta": 2,
-       "formula": "{12,000|4} = 3,000"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Otro hogar gana lo mismo pero tiene 6 integrantes. ¿Cuál es su ingreso por persona?",
-       "opciones": [
-        "3,000 pesos",
-        "72,000 pesos",
-        "2,000 pesos"
-       ],
-       "correcta": 2,
-       "formula": "{12,000|6} = 2,000"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Por qué no basta con ver el ingreso total de una familia?",
-       "opciones": [
-        "Porque importa entre cuántas personas se reparte",
-        "Porque es secreto",
-        "Sí basta"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Cómo se hace la visita domiciliaria de un estudio?",
-       "opciones": [
-        "Sin avisar nunca",
-        "Con respeto, sin humillar a la familia",
-        "Criticando su casa"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "teves"
-      }
-     ]
-    },
-    {
-     "id": "5",
-     "titulo": "Proteger a quien está en riesgo",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Proteger a quien está en riesgo",
-       "partes": [
-        {
-         "t": "A veces el trabajador social detecta situaciones de riesgo, como violencia en casa o abandono. Con niñas, niños y adolescentes, la ley obliga a protegerlos: si hay indicios de que están en peligro, se da aviso a las autoridades de protección de la infancia, como la Procuraduría de Protección del DIF. La confidencialidad tiene un límite: se respeta, salvo cuando alguien está en peligro. El trabajador social sigue los protocolos de su institución y no actúa solo en casos graves."
-        }
-       ]
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "En una escuela, un niño llega seguido con golpes y dice que tiene miedo de volver a casa. ¿Qué haces?",
-       "opciones": [
-        "No haces nada porque es asunto familiar",
-        "Sigues el protocolo y das aviso a las autoridades de protección de la infancia",
-        "Lo publicas en redes"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Cuándo se puede romper la confidencialidad?",
-       "opciones": [
-        "Cuando alguien está en peligro",
-        "Nunca",
-        "Cuando quieras"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "En un caso grave, ¿cómo actúas?",
-       "opciones": [
-        "Esperando a que se resuelva",
-        "Solo y sin avisar",
-        "Siguiendo los protocolos y en coordinación con tu institución"
-       ],
-       "correcta": 2
+       "tipo": "clave",
+       "texto": "Los nombres cambian un poco según la universidad; la idea general es esta."
       },
       {
        "tipo": "teves"
@@ -325,62 +235,82 @@
   },
   {
    "id": "u3",
-   "titulo": "Comunidad y cuidado",
-   "sub": "Comunidades y autocuidado",
+   "titulo": "¿Y después?",
+   "sub": "Trabajo y dificultad",
    "lecciones": [
     {
-     "id": "6",
-     "titulo": "Trabajo con comunidades",
-     "minutos": 4,
+     "id": "5",
+     "titulo": "Dónde trabajarías",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Al terminar, ¿dónde crees que trabajaría alguien de Trabajo social?"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál de estos lugares es más de Trabajo social?",
+       "opciones": [
+        "Instituciones públicas y privadas",
+        "Laboratorios clínicos e industriales",
+        "Estudios creativos"
+       ],
+       "correcta": 0,
+       "explicacion": "Es uno de los lugares donde trabaja alguien de Trabajo social.",
+       "adivina": true
+      },
+      {
        "tipo": "info",
-       "titulo": "Trabajo con comunidades",
-       "partes": [
-        {
-         "t": "El trabajo social comunitario ayuda a que una comunidad identifique sus problemas y se organice para resolverlos: falta de agua, inseguridad, espacios para jóvenes. Se hace un diagnóstico participativo, donde la gente misma dice qué le preocupa. Las soluciones que la comunidad hace suyas duran más que las que llegan de fuera. Se identifica a líderes locales y se cuida que participen todos, incluidas mujeres, jóvenes y adultos mayores."
-        }
+       "titulo": "Dónde se trabaja",
+       "puntos": [
+        "Instituciones públicas y privadas",
+        "Organizaciones sociales",
+        "Empresas",
+        "Centros de investigación",
+        "Consultoría",
+        "Docencia y proyectos independientes"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué es un diagnóstico participativo?",
-       "opciones": [
-        "Una encuesta en otro país",
-        "Uno que hace solo el gobierno",
-        "Uno donde la comunidad misma dice qué le preocupa"
-       ],
-       "correcta": 2
+       "tipo": "teves"
+      }
+     ]
+    },
+    {
+     "id": "6",
+     "titulo": "¿Hay trabajo?",
+     "minutos": 2,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Ahora lo que todos preguntan: ¿hay trabajo y cuánto se gana?"
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Por qué duran más las soluciones que la comunidad hace suyas?",
-       "opciones": [
-        "Porque son caras",
-        "Porque la gente las cuida y las sostiene",
-        "No duran más"
-       ],
-       "correcta": 1
+       "tipo": "rango",
+       "pregunta": "De cada 100 que estudiaron Trabajo social, ¿cuántos crees que trabajan en algo de su carrera?",
+       "min": 0,
+       "max": 100,
+       "paso": 5,
+       "unidad": "de cada 100",
+       "dato": "trabajosocial.ocupacion_afin"
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "En las reuniones de la colonia solo hablan los mismos tres señores. ¿Qué haces?",
-       "opciones": [
-        "Cancelas las reuniones",
-        "Buscas formas para que participen también mujeres, jóvenes y adultos mayores",
-        "Nada"
-       ],
-       "correcta": 1
+       "tipo": "rango",
+       "pregunta": "¿Cuánto crees que gana al mes, en promedio?",
+       "min": 5000,
+       "max": 50000,
+       "paso": 1000,
+       "unidad": "pesos al mes",
+       "dato": "trabajosocial.ingreso"
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué tipo de problemas se trabajan con una comunidad?",
-       "opciones": [
-        "Ninguno",
-        "Los que la misma comunidad identifica, como agua o seguridad",
-        "Los que tú elijas sin preguntar"
-       ],
-       "correcta": 1
+       "tipo": "info",
+       "titulo": "Así está el trabajo",
+       "texto": "Tercera peor pagada en 2026 según IMCO; muy feminizada (92% mujeres)."
+      },
+      {
+       "tipo": "clave",
+       "texto": "Título y cédula profesional."
       },
       {
        "tipo": "teves"
@@ -389,47 +319,37 @@
     },
     {
      "id": "7",
-     "titulo": "Cuidarte para cuidar",
-     "minutos": 4,
+     "titulo": "Qué tan difícil es",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "¿Dónde crees que está lo más difícil de Trabajo social?"
+      },
+      {
        "tipo": "info",
-       "titulo": "Cuidarte para cuidar",
-       "partes": [
-        {
-         "t": "El trabajo social expone a historias muy duras, y eso cansa. Si no se cuida, el profesional puede desgastarse y perder la capacidad de ayudar. Ayuda tener supervisión, que es hablar los casos difíciles con colegas o supervisores, poner límites a la jornada, y tener apoyo propio. Pedir ayuda no es debilidad: es parte del trabajo profesional."
-        }
+       "titulo": "Lo más difícil",
+       "texto": "Dificultad media. Mucho trabajo de campo con comunidades y casos difíciles."
+      },
+      {
+       "tipo": "info",
+       "titulo": "Cuánto dura",
+       "texto": "4 años más servicio social."
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Te ves aguantando eso?",
+       "escala": [
+        "No",
+        "Sí"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Llevas semanas con casos muy fuertes y te cuesta dormir. ¿Qué haces?",
-       "opciones": [
-        "Lo hablas en supervisión y buscas apoyo",
-        "Lo ignoras",
-        "Trabajas más horas"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué es la supervisión en trabajo social?",
-       "opciones": [
-        "Vigilar a los usuarios",
-        "Un examen",
-        "Hablar los casos difíciles con colegas o supervisores"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Pedir ayuda es una debilidad para un trabajador social?",
-       "opciones": [
-        "No, es parte del trabajo profesional",
-        "Solo los nuevos",
-        "Sí"
-       ],
-       "correcta": 0
+       "tipo": "info",
+       "titulo": "Si te gusta, pero no del todo",
+       "puntos": [
+        "Mira también: Sociología, Psicología"
+       ]
       },
       {
        "tipo": "teves"
@@ -440,125 +360,27 @@
   },
   {
    "id": "u4",
-   "titulo": "Examen final",
-   "sub": "10 preguntas · apruebas con 7",
+   "titulo": "Tu decisión",
+   "sub": "¿La guardas o la descartas?",
    "lecciones": [
     {
      "id": "ex",
-     "titulo": "Examen final",
-     "minutos": 6,
-     "examen": true,
-     "aprobar": 7,
+     "titulo": "Tu veredicto",
+     "minutos": 2,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "Examen final",
-       "partes": [
-        {
-         "t": "Son 10 casos nuevos que mezclan todas las lecciones. Apruebas con 7. Si no, lo repites y las que fallaste regresan con otras palabras."
-        }
-       ]
+       "tipo": "escena",
+       "texto": "Ya sabes qué hace alguien de Trabajo social, qué estudias, qué tan difícil es y si hay trabajo."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué se hace primero en una intervención?",
-       "opciones": [
-        "La evaluación",
-        "El diagnóstico",
-        "Dar apoyos"
-       ],
-       "correcta": 1
+       "tipo": "escuelas"
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Cuál es una pregunta abierta?",
-       "opciones": [
-        "\"¿Está bien?\"",
-        "\"¿Vino solo?\"",
-        "\"¿Cómo se siente con lo que está pasando?\""
-       ],
-       "correcta": 2
+       "tipo": "veredicto"
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Prometes algo que no sabes si se puede cumplir?",
-       "opciones": [
-        "A veces",
-        "Sí",
-        "No, explicas con honestidad"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué son las redes de apoyo?",
-       "opciones": [
-        "Las personas y grupos que pueden ayudar a alguien",
-        "Un programa",
-        "Internet"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un hogar gana 15,000 pesos y tiene 5 integrantes. ¿Cuál es el ingreso por persona?",
-       "opciones": [
-        "15,005 pesos",
-        "3,000 pesos",
-        "75,000 pesos"
-       ],
-       "correcta": 1,
-       "formula": "{15,000|5} = 3,000"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Por qué importa el ingreso por persona?",
-       "opciones": [
-        "Porque muestra entre cuántos se reparte el dinero",
-        "Por gusto",
-        "No importa"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Detectas que un niño está en peligro.",
-       "opciones": [
-        "Sigues el protocolo y avisas a las autoridades de protección",
-        "No haces nada",
-        "Esperas un año"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Cuándo se puede romper la confidencialidad?",
-       "opciones": [
-        "Siempre",
-        "Cuando alguien está en peligro",
-        "Nunca"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué es un diagnóstico participativo?",
-       "opciones": [
-        "La comunidad dice qué le preocupa",
-        "Lo decide un funcionario",
-        "No existe"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Te sientes desgastado por los casos.",
-       "opciones": [
-        "Lo ignoras",
-        "Buscas supervisión y apoyo",
-        "Renuncias sin hablar"
-       ],
-       "correcta": 1
+       "tipo": "clave",
+       "texto": "Decidir «sigo en duda» también es avanzar."
       }
      ]
     }

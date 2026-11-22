@@ -1,14 +1,15 @@
 {
  "id": "ambiental",
- "version": 2,
+ "version": 3,
  "formato": 2,
  "estado": "completo",
- "revision": "Pendiente de revisión por un profesionista de la carrera. Generado con datos/importar_lecciones.py desde datos/fuentes/lecciones/ambiental.lec; no se edita a mano.",
+ "generado": true,
+ "revision": "Lecciones generales (de qué trata la carrera y si va contigo), armadas con datos/lecciones_generales.py desde la base de carreras con fuentes (2026-11-17).",
  "unidades": [
   {
    "id": "u1",
-   "titulo": "Agua y aire",
-   "sub": "Contaminación y cómo se mide",
+   "titulo": "¿De qué se trata?",
+   "sub": "Qué hace y cómo es su día",
    "lecciones": [
     {
      "id": "0",
@@ -16,78 +17,56 @@
      "minutos": 1,
      "tarjetas": [
       {
-       "tipo": "ficha",
-       "texto": "Ingeniería Ambiental forma ingenieros que cuidan el agua, el aire y el suelo. Diseñan plantas de tratamiento, manejan residuos, miden contaminación, calculan huellas de carbono y estudian el impacto de nuevos proyectos. Trabajan en gobierno, consultorías, industria y organizaciones ambientales.",
-       "cifras": [
-        "ambiental.ingreso",
-        "ambiental.duracion",
-        "ambiental.costo_publica",
-        "ambiental.costo_privada"
-       ]
+       "tipo": "escena",
+       "texto": "Antes de leer nada: ¿qué crees que hace alguien que estudió Ing. Ambiental?"
       },
       {
-       "tipo": "escena",
-       "texto": "Hoy cuidas el ambiente de una ciudad. Vamos a ver qué decides."
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál de estas cosas crees que hace?",
+       "opciones": [
+        "Mide y reduce la contaminación",
+        "Diseña objetos que se fabrican en serie (muebles, empaques, electrodomésticos",
+        "Programa aplicaciones, páginas y sistemas"
+       ],
+       "correcta": 0,
+       "explicacion": "En pocas palabras, Ing. Ambiental es aplicación de matemáticas, ciencias y tecnología para diseñar, construir, operar y mejorar sistemas, productos o procesos. La especialidad define si el trabajo se concentra en infraestructura, energía, manufactura, electrónica, ambiente, transporte o materiales.",
+       "adivina": true
+      },
+      {
+       "tipo": "info",
+       "titulo": "Ing. Ambiental en una frase",
+       "texto": "Aplicación de matemáticas, ciencias y tecnología para diseñar, construir, operar y mejorar sistemas, productos o procesos."
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
      "id": "1",
-     "titulo": "El agua",
-     "minutos": 4,
+     "titulo": "Un día normal",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Imagina que acompañas un día entero a alguien de Ing. Ambiental. ¿Qué crees que hace?"
+      },
+      {
        "tipo": "info",
-       "titulo": "El agua",
-       "partes": [
-        {
-         "t": "Un ingeniero ambiental cuida que el agua que se usa regrese limpia a la naturaleza. El agua sucia de casas y fábricas se llama agua residual, y una planta de tratamiento la limpia por etapas: primero quita la basura y la arena, luego usa bacterias que se comen la materia orgánica, y al final la desinfecta. Una medida clave es la DBO, la demanda bioquímica de oxígeno: dice cuánta materia orgánica trae el agua. Mientras más alta, más sucia está, porque al descomponerse esa materia se acaba el oxígeno del río y los peces se mueren. La concentración se mide en miligramos por litro:"
-        },
-        {
-         "f": "concentración = {miligramos de contaminante|litros de agua}"
-        }
+       "titulo": "Un día normal",
+       "puntos": [
+        "Mide y reduce la contaminación",
+        "Gestiona residuos"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Un río recibe mucha agua residual sin tratar y aparecen peces muertos. ¿Qué pasó probablemente?",
+       "tipo": "reflexion",
+       "pregunta": "De ese día, ¿qué te late más?",
        "opciones": [
-        "El agua se enfrió",
-        "La materia orgánica consumió el oxígeno del agua",
-        "Llovió mucho"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Una muestra de 2 litros tiene 60 miligramos de un contaminante. ¿Cuál es su concentración?",
-       "opciones": [
-        "30 mg/L",
-        "62 mg/L",
-        "120 mg/L"
-       ],
-       "correcta": 0,
-       "formula": "{60|2} = 30"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué hacen las bacterias en una planta de tratamiento?",
-       "opciones": [
-        "Le dan color",
-        "La calientan",
-        "Se comen la materia orgánica del agua"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Una fábrica descarga agua con una DBO mucho más alta que el límite que permite la norma.",
-       "opciones": [
-        "La descarga de noche",
-        "Debe tratar su agua antes de descargarla para cumplir el límite",
-        "No pasa nada si el río es grande"
-       ],
-       "correcta": 1
+        "Casi todo",
+        "Algunas cosas",
+        "Nada de eso"
+       ]
       },
       {
        "tipo": "teves"
@@ -96,57 +75,36 @@
     },
     {
      "id": "2",
-     "titulo": "El aire",
-     "minutos": 4,
+     "titulo": "Mitos y realidades",
+     "minutos": 2,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "El aire",
-       "partes": [
-        {
-         "t": "En ciudades como la Ciudad de México, la calidad del aire se reporta con un índice que va de buena a extremadamente mala. Los contaminantes principales son el ozono, que se forma con el sol a partir de gases de coches y fábricas, y las partículas finas, llamadas PM2.5, tan pequeñas que entran hasta los pulmones. Cuando el aire está muy mal se activa una contingencia ambiental: se restringe la circulación de autos y se piden menos actividades al aire libre. El ozono sube más en días soleados y sin viento, sobre todo en la tarde."
-        }
-       ]
+       "tipo": "escena",
+       "texto": "¿Verdadero o falso? Primero di lo que crees."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Por qué las partículas PM2.5 son tan peligrosas?",
-       "opciones": [
-        "Porque huelen mal",
-        "Porque son de color negro",
-        "Porque son tan pequeñas que entran hasta los pulmones"
-       ],
-       "correcta": 2
+       "tipo": "vf",
+       "afirmacion": "En Ing. Ambiental llevas materias de matemáticas o con muchos números.",
+       "respuesta": true,
+       "revelacion": "Sí: Cálculo, Estadística. Muchos eligen carrera pensando en evitar las matemáticas; mejor saberlo desde ahora."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Cuándo suele subir más el ozono?",
-       "opciones": [
-        "En días soleados y sin viento, por la tarde",
-        "En invierno de noche",
-        "En la madrugada con lluvia"
-       ],
-       "correcta": 0
+       "tipo": "vf",
+       "afirmacion": "Es de las carreras más difíciles.",
+       "respuesta": false,
+       "revelacion": "Su dificultad es media-alta. Cálculo, Química y Microbiología; mucho trabajo de campo y normatividad."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Se activa una contingencia ambiental. ¿Qué medida tiene sentido?",
-       "opciones": [
-        "Abrir más fábricas",
-        "Restringir la circulación de autos",
-        "Quemar basura"
-       ],
-       "correcta": 1
+       "tipo": "vf",
+       "afirmacion": "La mayoría de quienes la estudian terminan trabajando en otra cosa.",
+       "respuesta": true,
+       "revelacion": "25 de cada 100 trabajan en algo de su carrera (IMCO, Compara Carreras 2026)."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Una escuela quiere hacer su carrera deportiva un día de contingencia por ozono a las 3 de la tarde. ¿Qué le recomiendas?",
-       "opciones": [
-        "Cambiarla de día o hacerla temprano en la mañana",
-        "Hacerla igual",
-        "Hacerla con cubrebocas de tela"
-       ],
-       "correcta": 0
+       "tipo": "vf",
+       "afirmacion": "Casi todos los que se dedican a esto son hombres.",
+       "respuesta": false,
+       "revelacion": "De cada 100 personas que la ejercen, 59 son mujeres (IMCO, Compara Carreras 2026)."
       },
       {
        "tipo": "teves"
@@ -157,120 +115,101 @@
   },
   {
    "id": "u2",
-   "titulo": "Basura y carbono",
-   "sub": "Residuos y huella de carbono",
+   "titulo": "¿Va contigo?",
+   "sub": "Lo que pide y lo que estudias",
    "lecciones": [
     {
      "id": "3",
-     "titulo": "Los residuos",
-     "minutos": 4,
+     "titulo": "¿Se te da?",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Para que una carrera te guste no basta con que te llame la atención. ¿Se te da lo que pide?"
+      },
+      {
        "tipo": "info",
-       "titulo": "Los residuos",
-       "partes": [
-        {
-         "t": "La basura bien manejada se separa desde el origen: orgánicos, reciclables y lo que ya no se aprovecha. Los orgánicos se pueden convertir en composta. Lo reciclable, como el PET, el aluminio y el cartón, regresa a la industria si llega limpio y separado. Lo demás va a un relleno sanitario, que es un sitio diseñado con capas que impiden que el líquido de la basura, llamado lixiviado, contamine el agua del subsuelo. Un tiradero a cielo abierto no tiene esas protecciones. Lo mejor sigue siendo reducir: la basura que no se genera no hay que manejarla."
-        }
+       "titulo": "Lo que pide Ing. Ambiental",
+       "puntos": [
+        "Ciencias",
+        "Trabajo de campo",
+        "Redacción técnica",
+        "Visión de sustentabilidad"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué diferencia a un relleno sanitario de un tiradero a cielo abierto?",
-       "opciones": [
-        "El relleno tiene capas que evitan que los líquidos de la basura contaminen el subsuelo",
-        "Ninguna",
-        "El tiradero es más moderno"
-       ],
-       "correcta": 0
+       "tipo": "info",
+       "titulo": "Y lo que te tiene que gustar",
+       "puntos": [
+        "Medio ambiente",
+        "Cambio climático",
+        "Ciencia aplicada"
+       ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Un municipio quiere reducir la basura que llega al relleno. ¿Qué medida ayuda más?",
-       "opciones": [
-        "Quemar la basura",
-        "Comprar más camiones",
-        "Separar los orgánicos y hacer composta"
-       ],
-       "correcta": 2,
-       "explicacion": "En muchas ciudades de México, los orgánicos son casi la mitad de la basura."
+       "tipo": "reflexion",
+       "pregunta": "¿Me preocupa el medio ambiente y quiero hacer algo práctico?",
+       "escala": [
+        "No",
+        "Sí"
+       ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Una planta recicladora recibe cartón mojado y mezclado con restos de comida.",
-       "opciones": [
-        "Lo vende como nuevo",
-        "Buena parte ya no sirve; por eso es clave separar limpio desde el origen",
-        "Lo recicla igual"
-       ],
-       "correcta": 1
+       "tipo": "reflexion",
+       "pregunta": "¿Me gustan química y biología?",
+       "escala": [
+        "No",
+        "Sí"
+       ]
       },
       {
-       "tipo": "teves"
+       "tipo": "reflexion",
+       "pregunta": "¿Me veo tomando muestras en campo?",
+       "escala": [
+        "No",
+        "Sí"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Si dijiste que no a algo, no pasa nada: sirve para saber qué preguntar y qué carreras parecidas ver."
       }
      ]
     },
     {
      "id": "4",
-     "titulo": "La huella de carbono",
-     "minutos": 4,
+     "titulo": "Lo que estudias",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "¿Qué crees que ves en el primer año de Ing. Ambiental?"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál crees que es el primer año?",
+       "opciones": [
+        "Cálculo, Química, Biología",
+        "Introducción a la criminología, Derecho penal, Psicología",
+        "Química general, Cálculo, Física"
+       ],
+       "correcta": 0,
+       "explicacion": "Esas son materias de los primeros semestres. Las otras son de Criminología y Química.",
+       "adivina": true
+      },
+      {
        "tipo": "info",
-       "titulo": "La huella de carbono",
-       "partes": [
-        {
-         "t": "La huella de carbono es la cantidad de gases de efecto invernadero que produce algo, medida como si todo fuera dióxido de carbono. Para calcularla se multiplica lo que se consume por un factor de emisión, que dice cuánto CO2 sale por cada unidad:"
-        },
-        {
-         "f": "emisiones = consumo × factor de emisión"
-        },
-        {
-         "t": "Por ejemplo, la gasolina emite más o menos 2.3 kilos de CO2 por litro. Para reducir la huella primero se mide, luego se ataca lo que más emite. Cambiar focos ayuda, pero casi siempre lo grande está en el transporte, la electricidad y la producción."
-        }
+       "titulo": "Lo que vas viendo",
+       "puntos": [
+        "Semestres 1-2: Cálculo, Química, Biología, Ecología",
+        "Semestres 3-4: Química ambiental, Microbiología, Hidráulica, Estadística",
+        "Semestres 5-6: Tratamiento de aguas, Residuos sólidos, Contaminación atmosférica, Legislación ambiental",
+        "Semestres 7 en adelante: Evaluación de impacto ambiental, Energías renovables, Proyecto"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Un coche gasta 100 litros de gasolina al mes. Con un factor de 2.3 kg de CO2 por litro, ¿cuánto emite?",
-       "opciones": [
-        "2.3 kg",
-        "102.3 kg",
-        "230 kg"
-       ],
-       "correcta": 2,
-       "formula": "100 × 2.3 = 230"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Una empresa emite 80 por ciento de su huella en transporte y 2 por ciento en iluminación. ¿Dónde conviene empezar?",
-       "opciones": [
-        "Da igual",
-        "En el transporte",
-        "En la iluminación"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Por qué primero hay que medir la huella antes de reducirla?",
-       "opciones": [
-        "Para saber qué emite más y atacar eso",
-        "No hace falta medir",
-        "Porque lo pide el diseño"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Una flota de reparto cambia de coches de gasolina a eléctricos. ¿Qué tienes que revisar para saber si bajó la huella?",
-       "opciones": [
-        "Nada, los eléctricos no emiten nunca",
-        "Solo el color de los coches",
-        "De dónde sale la electricidad con la que se cargan"
-       ],
-       "correcta": 2,
-       "explicacion": "Si la electricidad viene de quemar combustibles, también emite."
+       "tipo": "clave",
+       "texto": "Los nombres cambian un poco según la universidad; la idea general es esta."
       },
       {
        "tipo": "teves"
@@ -281,60 +220,41 @@
   },
   {
    "id": "u3",
-   "titulo": "Soluciones",
-   "sub": "Lluvia, impacto ambiental y energía",
+   "titulo": "¿Y después?",
+   "sub": "Trabajo y dificultad",
    "lecciones": [
     {
      "id": "5",
-     "titulo": "Agua de lluvia",
-     "minutos": 4,
+     "titulo": "Dónde trabajarías",
+     "minutos": 2,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "Agua de lluvia",
-       "partes": [
-        {
-         "t": "En muchos lugares de México falta agua, pero llueve mucho unos meses. Captar la lluvia de los techos es una solución sencilla. La cuenta es fácil: un milímetro de lluvia sobre un metro cuadrado de techo da un litro de agua."
-        },
-        {
-         "f": "litros = área del techo en m² × lluvia en mm"
-        },
-        {
-         "t": "Se pierde una parte por evaporación y salpicaduras, así que en la práctica se aprovecha más o menos el 80 por ciento. El agua captada sirve para baños, lavado y riego, y con filtros y desinfección también para beber."
-        }
-       ]
+       "tipo": "escena",
+       "texto": "Al terminar, ¿dónde crees que trabajaría alguien de Ing. Ambiental?"
       },
       {
        "tipo": "pregunta",
-       "pregunta": "Un techo de 100 metros cuadrados recibe 10 mm de lluvia. ¿Cuántos litros caen, en teoría?",
+       "pregunta": "¿Cuál de estos lugares es más de Ing. Ambiental?",
        "opciones": [
-        "1,000",
-        "10",
-        "110"
+        "Empresas industriales y tecnológicas",
+        "Farmacéuticas",
+        "Despachos"
        ],
        "correcta": 0,
-       "formula": "100 × 10 = 1,000"
+       "explicacion": "Es uno de los lugares donde trabaja alguien de Ing. Ambiental.",
+       "adivina": true
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Si en la práctica se aprovecha el 80 por ciento, ¿cuánto agua se capta de esos 1,000 litros?",
-       "opciones": [
-        "80 litros",
-        "800 litros",
-        "1,000 litros"
-       ],
-       "correcta": 1,
-       "formula": "1,000 × 0.8 = 800"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Una comunidad quiere beber el agua de lluvia que capta. ¿Qué necesita?",
-       "opciones": [
-        "Filtrarla y desinfectarla",
-        "Nada, el agua de lluvia siempre es potable",
-        "Solo dejarla reposar un día"
-       ],
-       "correcta": 0
+       "tipo": "info",
+       "titulo": "Dónde se trabaja",
+       "puntos": [
+        "Empresas industriales y tecnológicas",
+        "Consultoría",
+        "Construcción",
+        "Energía",
+        "Manufactura",
+        "Telecomunicaciones"
+       ]
       },
       {
        "tipo": "teves"
@@ -343,59 +263,39 @@
     },
     {
      "id": "6",
-     "titulo": "Impacto ambiental",
-     "minutos": 4,
+     "titulo": "¿Hay trabajo?",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Ahora lo que todos preguntan: ¿hay trabajo y cuánto se gana?"
+      },
+      {
+       "tipo": "rango",
+       "pregunta": "De cada 100 que estudiaron Ing. Ambiental, ¿cuántos crees que trabajan en algo de su carrera?",
+       "min": 0,
+       "max": 100,
+       "paso": 5,
+       "unidad": "de cada 100",
+       "dato": "ambiental.ocupacion_afin"
+      },
+      {
+       "tipo": "rango",
+       "pregunta": "¿Cuánto crees que gana al mes, en promedio?",
+       "min": 5000,
+       "max": 50000,
+       "paso": 1000,
+       "unidad": "pesos al mes",
+       "dato": "ambiental.ingreso"
+      },
+      {
        "tipo": "info",
-       "titulo": "Impacto ambiental",
-       "partes": [
-        {
-         "t": "Antes de construir una carretera, una fábrica o un desarrollo grande, en México se presenta una Manifestación de Impacto Ambiental ante la SEMARNAT. Ahí se estudia qué daño podría causar el proyecto al agua, al suelo, al aire, a las plantas y a los animales, y qué se va a hacer para evitarlo, reducirlo o compensarlo. El orden importa: primero se busca evitar el daño, luego reducirlo y al final compensarlo, por ejemplo reforestando en otro lugar. Un ingeniero ambiental hace estos estudios y también vigila que las medidas se cumplan durante la obra."
-        }
-       ]
+       "titulo": "Así está el trabajo",
+       "texto": "IMCO 'Tecnología para la protección del medio ambiente': $19,496 y desempleo de 9%, de los más altos."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Para qué sirve una Manifestación de Impacto Ambiental?",
-       "opciones": [
-        "Para anunciar el proyecto",
-        "Para estudiar el daño que podría causar un proyecto y cómo evitarlo o reducirlo",
-        "Para pedir dinero"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Una carretera pasaría por un humedal donde viven especies protegidas. ¿Qué buscas primero?",
-       "opciones": [
-        "Construir de noche",
-        "Construir y luego reforestar en otro lado",
-        "Un trazo que evite el humedal"
-       ],
-       "correcta": 2,
-       "explicacion": "Evitar el daño va antes que compensarlo."
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Durante la obra, ves que tiran escombro en un arroyo.",
-       "opciones": [
-        "Lo reportas y exiges que se cumplan las medidas del estudio",
-        "Le tomas foto para tus redes",
-        "Lo dejas pasar"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Una empresa quiere que tu estudio diga que el impacto es mínimo, aunque tus datos dicen otra cosa.",
-       "opciones": [
-        "Quitas los datos malos",
-        "Escribes lo que dicen los datos",
-        "Cambias las conclusiones"
-       ],
-       "correcta": 1,
-       "explicacion": "Tu firma respalda el estudio."
+       "tipo": "clave",
+       "texto": "Para firmar estudios de impacto ambiental se requieren registros ante SEMARNAT o la autoridad estatal."
       },
       {
        "tipo": "teves"
@@ -404,54 +304,37 @@
     },
     {
      "id": "7",
-     "titulo": "Energía",
-     "minutos": 4,
+     "titulo": "Qué tan difícil es",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "¿Dónde crees que está lo más difícil de Ing. Ambiental?"
+      },
+      {
        "tipo": "info",
-       "titulo": "Energía",
-       "partes": [
-        {
-         "t": "Producir electricidad quemando combustibles genera gases de efecto invernadero. Las energías renovables, como la solar, la eólica y la hidroeléctrica, emiten mucho menos. Morelos y gran parte de México tienen mucho sol, así que los paneles solares rinden bien. Un panel produce más o menos según su potencia y las horas de sol fuerte:"
-        },
-        {
-         "f": "energía al día = potencia del panel × horas de sol fuerte"
-        },
-        {
-         "t": "Pero el sol no sale de noche y el viento no siempre sopla, así que se necesitan baterías o combinar varias fuentes. Ahorrar energía sigue siendo lo más barato."
-        }
+       "titulo": "Lo más difícil",
+       "texto": "Dificultad media-alta. Cálculo, Química y Microbiología; mucho trabajo de campo y normatividad."
+      },
+      {
+       "tipo": "info",
+       "titulo": "Cuánto dura",
+       "texto": "4.5 años."
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Te ves aguantando eso?",
+       "escala": [
+        "No",
+        "Sí"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Un panel de 0.5 kilowatts recibe 5 horas de sol fuerte. ¿Cuánta energía da al día?",
-       "opciones": [
-        "2.5 kilowatt hora",
-        "5.5 kilowatt hora",
-        "0.1 kilowatt hora"
-       ],
-       "correcta": 0,
-       "formula": "0.5 × 5 = 2.5"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Una clínica rural con paneles solares necesita luz también de noche. ¿Qué le falta?",
-       "opciones": [
-        "Nada",
-        "Baterías para guardar la energía del día",
-        "Más focos"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué suele ser lo más barato para reducir el consumo de energía?",
-       "opciones": [
-        "Construir una presa",
-        "Comprar más paneles sin medir",
-        "Ahorrar y usar equipos eficientes"
-       ],
-       "correcta": 2
+       "tipo": "info",
+       "titulo": "Si te gusta, pero no del todo",
+       "puntos": [
+        "Mira también: Biología"
+       ]
       },
       {
        "tipo": "teves"
@@ -462,128 +345,27 @@
   },
   {
    "id": "u4",
-   "titulo": "Examen final",
-   "sub": "10 preguntas · apruebas con 7",
+   "titulo": "Tu decisión",
+   "sub": "¿La guardas o la descartas?",
    "lecciones": [
     {
      "id": "ex",
-     "titulo": "Examen final",
-     "minutos": 6,
-     "examen": true,
-     "aprobar": 7,
+     "titulo": "Tu veredicto",
+     "minutos": 2,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "Examen final",
-       "partes": [
-        {
-         "t": "Son 10 casos nuevos que mezclan todas las lecciones. Apruebas con 7. Si no, lo repites y las que fallaste regresan con otras palabras."
-        }
-       ]
+       "tipo": "escena",
+       "texto": "Ya sabes qué hace alguien de Ing. Ambiental, qué estudias, qué tan difícil es y si hay trabajo."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué indica una DBO alta en el agua?",
-       "opciones": [
-        "Que está limpia",
-        "Que está fría",
-        "Que trae mucha materia orgánica que consume oxígeno"
-       ],
-       "correcta": 2
+       "tipo": "escuelas"
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Una muestra de 4 litros tiene 20 miligramos de un contaminante. ¿Cuál es su concentración?",
-       "opciones": [
-        "80 mg/L",
-        "5 mg/L",
-        "24 mg/L"
-       ],
-       "correcta": 1,
-       "formula": "{20|4} = 5"
+       "tipo": "veredicto"
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué contaminante del aire se forma con el sol a partir de gases de coches y fábricas?",
-       "opciones": [
-        "El vapor de agua",
-        "El ozono",
-        "El oxígeno"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué hace un relleno sanitario para proteger el subsuelo?",
-       "opciones": [
-        "Quema la basura",
-        "Nada",
-        "Tiene capas que evitan que los líquidos de la basura se filtren"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un camión gasta 200 litros de diésel al mes, con un factor de 2.7 kg de CO2 por litro. ¿Cuánto emite?",
-       "opciones": [
-        "540 kg",
-        "74 kg",
-        "202.7 kg"
-       ],
-       "correcta": 0,
-       "formula": "200 × 2.7 = 540"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un techo de 50 metros cuadrados recibe 20 mm de lluvia. ¿Cuántos litros caen, en teoría?",
-       "opciones": [
-        "2.5",
-        "70",
-        "1,000"
-       ],
-       "correcta": 2,
-       "formula": "50 × 20 = 1,000"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Cuál es el orden correcto para manejar el daño de un proyecto?",
-       "opciones": [
-        "Compensar primero",
-        "Construir y luego ver",
-        "Evitar, reducir y al final compensar"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Por qué separar la basura desde el origen?",
-       "opciones": [
-        "Porque así lo reciclable llega limpio y sirve",
-        "Porque se ve bonito",
-        "No sirve de nada"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un panel de 0.4 kilowatts recibe 6 horas de sol fuerte. ¿Cuánta energía da al día?",
-       "opciones": [
-        "6.4 kilowatt hora",
-        "2.4 kilowatt hora",
-        "15 kilowatt hora"
-       ],
-       "correcta": 1,
-       "formula": "0.4 × 6 = 2.4"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Te piden cambiar las conclusiones de tu estudio de impacto para que el proyecto pase.",
-       "opciones": [
-        "Te niegas y reportas lo que dicen los datos",
-        "Las cambias",
-        "Las cambias un poco"
-       ],
-       "correcta": 0
+       "tipo": "clave",
+       "texto": "Decidir «sigo en duda» también es avanzar."
       }
      ]
     }

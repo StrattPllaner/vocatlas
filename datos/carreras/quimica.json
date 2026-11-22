@@ -1,14 +1,15 @@
 {
  "id": "quimica",
- "version": 2,
+ "version": 3,
  "formato": 2,
  "estado": "completo",
- "revision": "Pendiente de revisión por un profesionista de la carrera. Generado con datos/importar_lecciones.py desde datos/fuentes/lecciones/quimica.lec; no se edita a mano.",
+ "generado": true,
+ "revision": "Lecciones generales (de qué trata la carrera y si va contigo), armadas con datos/lecciones_generales.py desde la base de carreras con fuentes (2026-11-17).",
  "unidades": [
   {
    "id": "u1",
-   "titulo": "La materia",
-   "sub": "Átomos y el mol",
+   "titulo": "¿De qué se trata?",
+   "sub": "Qué hace y cómo es su día",
    "lecciones": [
     {
      "id": "0",
@@ -16,74 +17,55 @@
      "minutos": 1,
      "tarjetas": [
       {
-       "tipo": "ficha",
-       "texto": "Química forma científicos que estudian de qué está hecha la materia y cómo se transforma. Trabajan en laboratorios de análisis, control de calidad, investigación, la industria de alimentos, farmacéutica, de pinturas o cosméticos, y en el cuidado del ambiente.",
-       "cifras": [
-        "quimica.ingreso",
-        "quimica.duracion",
-        "quimica.costo_publica",
-        "quimica.costo_privada"
-       ]
+       "tipo": "escena",
+       "texto": "Antes de leer nada: ¿qué crees que hace alguien que estudió Química?"
       },
       {
-       "tipo": "escena",
-       "texto": "Hoy te pones la bata. Vamos a ver si tus reacciones salen como esperas."
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál de estas cosas crees que hace?",
+       "opciones": [
+        "Analiza sustancias",
+        "Mide y reduce la contaminación",
+        "Analiza lo que pasa en otros países y cómo afecta a México"
+       ],
+       "correcta": 0,
+       "explicacion": "En pocas palabras, Química es ciencias químicas y biológicas aplicadas al análisis, investigación, producción y control de calidad. El plan puede orientarse a medicamentos, diagnóstico, microorganismos, alimentos o procesos industriales.",
+       "adivina": true
+      },
+      {
+       "tipo": "info",
+       "titulo": "Química en una frase",
+       "texto": "Ciencias químicas y biológicas aplicadas al análisis, investigación, producción y control de calidad."
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
      "id": "1",
-     "titulo": "Átomos y tabla periódica",
-     "minutos": 4,
+     "titulo": "Un día normal",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Imagina que acompañas un día entero a alguien de Química. ¿Qué crees que hace?"
+      },
+      {
        "tipo": "info",
-       "titulo": "Átomos y tabla periódica",
-       "partes": [
-        {
-         "t": "Toda la materia está hecha de átomos. Cada elemento, como el oxígeno o el hierro, tiene un número fijo de protones en su núcleo, que es su número atómico. La tabla periódica los ordena así, y los elementos de una misma columna se comportan parecido porque tienen el mismo número de electrones en su capa externa. Por ejemplo, el sodio y el potasio reaccionan con agua de forma violenta, y el helio y el neón casi no reaccionan con nada. Los átomos se unen formando moléculas, como el agua, que tiene dos hidrógenos y un oxígeno."
-        }
+       "titulo": "Un día normal",
+       "puntos": [
+        "Analiza sustancias, desarrolla nuevos materiales o productos y controla la calidad en laboratorios de industria (alimentos…"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué define a un elemento químico?",
+       "tipo": "reflexion",
+       "pregunta": "De ese día, ¿qué te late más?",
        "opciones": [
-        "El número de protones en su núcleo",
-        "Su peso en una báscula",
-        "Su color"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Por qué los elementos de una misma columna se parecen?",
-       "opciones": [
-        "Porque se descubrieron juntos",
-        "Por casualidad",
-        "Porque tienen el mismo número de electrones en su capa externa"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Cuántos átomos tiene una molécula de agua?",
-       "opciones": [
-        "Dos",
-        "Uno",
-        "Tres: dos hidrógenos y un oxígeno"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué elementos casi no reaccionan con nada?",
-       "opciones": [
-        "Todos reaccionan igual",
-        "Los gases nobles, como el helio y el neón",
-        "El sodio y el potasio"
-       ],
-       "correcta": 1
+        "Casi todo",
+        "Algunas cosas",
+        "Nada de eso"
+       ]
       },
       {
        "tipo": "teves"
@@ -92,62 +74,36 @@
     },
     {
      "id": "2",
-     "titulo": "El mol",
-     "minutos": 4,
+     "titulo": "Mitos y realidades",
+     "minutos": 2,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "El mol",
-       "partes": [
-        {
-         "t": "Los átomos son tan pequeños que se cuentan por paquetes llamados moles. Un mol tiene muchísimas partículas, alrededor de 602 mil trillones. La ventaja es que la masa de un mol de una sustancia, en gramos, es su masa molar, que se saca de la tabla periódica. El agua tiene una masa molar de unos 18 gramos por mol. Así se puede pasar de gramos a moles:"
-        },
-        {
-         "f": "moles = {masa en gramos|masa molar}"
-        }
-       ]
+       "tipo": "escena",
+       "texto": "¿Verdadero o falso? Primero di lo que crees."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Tienes 36 gramos de agua, con masa molar de 18 gramos por mol. ¿Cuántos moles son?",
-       "opciones": [
-        "648",
-        "2",
-        "18"
-       ],
-       "correcta": 1,
-       "formula": "{36|18} = 2"
+       "tipo": "vf",
+       "afirmacion": "En Química llevas materias de matemáticas o con muchos números.",
+       "respuesta": true,
+       "revelacion": "Sí: Cálculo, Física, Química analítica. Muchos eligen carrera pensando en evitar las matemáticas; mejor saberlo desde ahora."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "La sal común tiene una masa molar de unos 58.5 gramos por mol. ¿Cuántos gramos son 2 moles?",
-       "opciones": [
-        "29.25 gramos",
-        "117 gramos",
-        "60.5 gramos"
-       ],
-       "correcta": 1,
-       "formula": "2 × 58.5 = 117"
+       "tipo": "vf",
+       "afirmacion": "Es de las carreras más difíciles.",
+       "respuesta": true,
+       "revelacion": "Su dificultad es alta. Química orgánica, Fisicoquímica y Química cuántica; muchas horas de laboratorio."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Para qué sirve el mol?",
-       "opciones": [
-        "Para medir temperatura",
-        "Para medir distancia",
-        "Para contar partículas pesándolas"
-       ],
-       "correcta": 2
+       "tipo": "vf",
+       "afirmacion": "La mayoría de quienes la estudian terminan trabajando en otra cosa.",
+       "respuesta": true,
+       "revelacion": "47 de cada 100 trabajan en algo de su carrera (IMCO, Compara Carreras 2026)."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿De dónde se saca la masa molar?",
-       "opciones": [
-        "De la tabla periódica",
-        "De un termómetro",
-        "De un diccionario"
-       ],
-       "correcta": 0
+       "tipo": "vf",
+       "afirmacion": "Casi todos los que se dedican a esto son hombres.",
+       "respuesta": false,
+       "revelacion": "De cada 100 personas que la ejercen, 57 son mujeres (IMCO, Compara Carreras 2026)."
       },
       {
        "tipo": "teves"
@@ -158,160 +114,101 @@
   },
   {
    "id": "u2",
-   "titulo": "Transformaciones",
-   "sub": "Reacciones, ácidos y seguridad",
+   "titulo": "¿Va contigo?",
+   "sub": "Lo que pide y lo que estudias",
    "lecciones": [
     {
      "id": "3",
-     "titulo": "Reacciones",
-     "minutos": 4,
+     "titulo": "¿Se te da?",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Para que una carrera te guste no basta con que te llame la atención. ¿Se te da lo que pide?"
+      },
+      {
        "tipo": "info",
-       "titulo": "Reacciones",
-       "partes": [
-        {
-         "t": "En una reacción química los átomos se reacomodan: no se crean ni se destruyen. Por eso las ecuaciones químicas se balancean, para que haya el mismo número de átomos de cada elemento de los dos lados. Cuando el gas metano se quema, reacciona con oxígeno y produce dióxido de carbono y agua. La velocidad de una reacción aumenta con la temperatura, con la concentración y si las partículas son más pequeñas, porque hay más superficie de contacto."
-        }
+       "titulo": "Lo que pide Química",
+       "puntos": [
+        "Rigor experimental",
+        "Matemáticas",
+        "Observación",
+        "Seguridad en laboratorio"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué pasa con los átomos en una reacción química?",
-       "opciones": [
-        "Se reacomodan; no se crean ni se destruyen",
-        "Desaparecen",
-        "Se multiplican"
-       ],
-       "correcta": 0
+       "tipo": "info",
+       "titulo": "Y lo que te tiene que gustar",
+       "puntos": [
+        "Química pura",
+        "Experimentar",
+        "Investigación"
+       ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Por qué una pastilla efervescente molida se disuelve más rápido que entera?",
-       "opciones": [
-        "No se disuelve más rápido",
-        "Porque tiene más superficie de contacto",
-        "Porque pesa menos"
-       ],
-       "correcta": 1
+       "tipo": "reflexion",
+       "pregunta": "¿La química es mi materia favorita?",
+       "escala": [
+        "No",
+        "Sí"
+       ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué produce la combustión completa del metano?",
-       "opciones": [
-        "Dióxido de carbono y agua",
-        "Sal",
-        "Oro"
-       ],
-       "correcta": 0
+       "tipo": "reflexion",
+       "pregunta": "¿Disfruto horas en el laboratorio?",
+       "escala": [
+        "No",
+        "Sí"
+       ]
       },
       {
-       "tipo": "teves"
+       "tipo": "reflexion",
+       "pregunta": "¿Me interesa investigar o hacer posgrado?",
+       "escala": [
+        "No",
+        "Sí"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Si dijiste que no a algo, no pasa nada: sirve para saber qué preguntar y qué carreras parecidas ver."
       }
      ]
     },
     {
      "id": "4",
-     "titulo": "Ácidos y bases",
-     "minutos": 4,
+     "titulo": "Lo que estudias",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "¿Qué crees que ves en el primer año de Química?"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál crees que es el primer año?",
+       "opciones": [
+        "Química general, Cálculo, Física",
+        "Bases biológicas de la conducta, Teorías de la personalidad, Estadística",
+        "Anatomía y fisiología, Bioquímica, Fundamentos de enfermería"
+       ],
+       "correcta": 0,
+       "explicacion": "Esas son materias de los primeros semestres. Las otras son de Psicología y Enfermería.",
+       "adivina": true
+      },
+      {
        "tipo": "info",
-       "titulo": "Ácidos y bases",
-       "partes": [
-        {
-         "t": "El pH mide qué tan ácida o básica es una sustancia, en una escala que va más o menos del 0 al 14. El 7 es neutro, como el agua pura; abajo de 7 es ácido, como el limón o el vinagre; arriba de 7 es básico, como el jabón o el cloro. Cada número de diferencia significa diez veces más ácido o básico. Un ácido y una base se neutralizan al mezclarse y forman sal y agua. Los ácidos y bases fuertes pueden quemar la piel."
-        }
+       "titulo": "Lo que vas viendo",
+       "puntos": [
+        "Semestres 1-2: Química general, Cálculo, Física, Laboratorio básico",
+        "Semestres 3-4: Química orgánica, Química analítica, Fisicoquímica, Química inorgánica",
+        "Semestres 5-6: Química cuántica, Análisis instrumental, Síntesis orgánica, Bioquímica",
+        "Semestres 7 en adelante: Investigación o estancia industrial, Tesis"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Una sustancia tiene pH 3. ¿Cómo es?",
-       "opciones": [
-        "Neutra",
-        "Ácida",
-        "Básica"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Cuántas veces más ácido es un pH 4 que un pH 5?",
-       "opciones": [
-        "2 veces",
-        "1 vez",
-        "10 veces"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un pH de 7, ¿cómo es?",
-       "opciones": [
-        "Neutro",
-        "Muy básico",
-        "Muy ácido"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué se forma al neutralizar un ácido con una base?",
-       "opciones": [
-        "Oro",
-        "Sal y agua",
-        "Fuego"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "teves"
-      }
-     ]
-    },
-    {
-     "id": "5",
-     "titulo": "Seguridad en el laboratorio",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Seguridad en el laboratorio",
-       "partes": [
-        {
-         "t": "En el laboratorio se trabaja con bata, lentes de seguridad y guantes adecuados. Antes de usar una sustancia se lee su hoja de seguridad, que dice sus riesgos y qué hacer si hay un accidente. Una regla clásica para diluir ácidos concentrados es agregar el ácido al agua, poco a poco, y nunca el agua al ácido, porque se calienta mucho y puede salpicar. Nunca se mezclan sustancias al azar: por ejemplo, mezclar cloro con amoniaco o con ácidos libera gases tóxicos. Los residuos se desechan según su tipo, no al drenaje."
-        }
-       ]
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Cómo se diluye un ácido concentrado?",
-       "opciones": [
-        "Agregando el agua al ácido de golpe",
-        "Da igual",
-        "Agregando el ácido al agua, poco a poco"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Alguien quiere mezclar cloro con limpiador con amoniaco \"para que limpie más\".",
-       "opciones": [
-        "Está bien",
-        "Le dices que no, porque se liberan gases tóxicos",
-        "Que agregue vinagre"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué documento lees antes de usar una sustancia?",
-       "opciones": [
-        "Nada",
-        "El periódico",
-        "Su hoja de seguridad"
-       ],
-       "correcta": 2
+       "tipo": "clave",
+       "texto": "Los nombres cambian un poco según la universidad; la idea general es esta."
       },
       {
        "tipo": "teves"
@@ -322,67 +219,82 @@
   },
   {
    "id": "u3",
-   "titulo": "El químico en acción",
-   "sub": "Análisis y química verde",
+   "titulo": "¿Y después?",
+   "sub": "Trabajo y dificultad",
    "lecciones": [
     {
-     "id": "6",
-     "titulo": "Análisis químico",
-     "minutos": 4,
+     "id": "5",
+     "titulo": "Dónde trabajarías",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Al terminar, ¿dónde crees que trabajaría alguien de Química?"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál de estos lugares es más de Química?",
+       "opciones": [
+        "Laboratorios clínicos e industriales",
+        "Consultoría",
+        "Clínicas"
+       ],
+       "correcta": 0,
+       "explicacion": "Es uno de los lugares donde trabaja alguien de Química.",
+       "adivina": true
+      },
+      {
        "tipo": "info",
-       "titulo": "Análisis químico",
-       "partes": [
-        {
-         "t": "Un químico analítico averigua qué hay en una muestra y cuánto. Por ejemplo, revisa si el agua tiene metales pesados, si un alimento cumple con lo que dice su etiqueta o si un medicamento tiene la cantidad correcta. Una técnica clásica es la titulación: se agrega poco a poco una solución de concentración conocida hasta que la reacción se completa, y con eso se calcula la concentración desconocida. Los resultados se comparan con los límites que marcan las normas."
-        },
-        {
-         "f": "concentración desconocida = {concentración conocida × volumen usado|volumen de la muestra}"
-        }
+       "titulo": "Dónde se trabaja",
+       "puntos": [
+        "Laboratorios clínicos e industriales",
+        "Farmacéuticas",
+        "Hospitales",
+        "Alimentos",
+        "Biotecnología",
+        "Control de calidad"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Usaste 20 mililitros de una base de 0.1 moles por litro para neutralizar 10 mililitros de un ácido, con reacción uno a uno. ¿Qué concentración tiene el ácido?",
-       "opciones": [
-        "0.05 moles por litro",
-        "0.2 moles por litro",
-        "2 moles por litro"
-       ],
-       "correcta": 1,
-       "formula": "{0.1 × 20|10} = 0.2"
+       "tipo": "teves"
+      }
+     ]
+    },
+    {
+     "id": "6",
+     "titulo": "¿Hay trabajo?",
+     "minutos": 2,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Ahora lo que todos preguntan: ¿hay trabajo y cuánto se gana?"
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Para qué sirve la titulación?",
-       "opciones": [
-        "Para calcular una concentración desconocida",
-        "Para pesar",
-        "Para calentar"
-       ],
-       "correcta": 0
+       "tipo": "rango",
+       "pregunta": "De cada 100 que estudiaron Química, ¿cuántos crees que trabajan en algo de su carrera?",
+       "min": 0,
+       "max": 100,
+       "paso": 5,
+       "unidad": "de cada 100",
+       "dato": "quimica.ocupacion_afin"
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "El agua de un pozo tiene más arsénico del que permite la norma. ¿Qué haces?",
-       "opciones": [
-        "Lo reportas para que no se use para beber hasta tratarla",
-        "La hierves y ya",
-        "Nada"
-       ],
-       "correcta": 0,
-       "explicacion": "Hervir no quita el arsénico."
+       "tipo": "rango",
+       "pregunta": "¿Cuánto crees que gana al mes, en promedio?",
+       "min": 5000,
+       "max": 50000,
+       "paso": 1000,
+       "unidad": "pesos al mes",
+       "dato": "quimica.ingreso"
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Con qué se comparan los resultados de un análisis?",
-       "opciones": [
-        "Con lo que se espera que salga",
-        "Con los límites de las normas",
-        "Con nada"
-       ],
-       "correcta": 1
+       "tipo": "info",
+       "titulo": "Así está el trabajo",
+       "texto": "Sueldo arriba del promedio ($24,940) y baja informalidad (17%); de las que más crecieron en egresados."
+      },
+      {
+       "tipo": "clave",
+       "texto": "No requiere cédula para la mayoría de puestos."
       },
       {
        "tipo": "teves"
@@ -391,51 +303,37 @@
     },
     {
      "id": "7",
-     "titulo": "Química verde",
-     "minutos": 4,
+     "titulo": "Qué tan difícil es",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "¿Dónde crees que está lo más difícil de Química?"
+      },
+      {
        "tipo": "info",
-       "titulo": "Química verde",
-       "partes": [
-        {
-         "t": "La química verde busca hacer los procesos más seguros y limpios desde el diseño: generar menos residuos, usar sustancias menos tóxicas, gastar menos energía y aprovechar materias primas renovables. Prevenir un residuo es mejor que tratarlo después. Una medida útil es el rendimiento: qué parte del producto que se podía obtener en teoría se obtuvo de verdad."
-        },
-        {
-         "f": "rendimiento = {producto obtenido|producto teórico} × 100"
-        }
+       "titulo": "Lo más difícil",
+       "texto": "Dificultad alta. Química orgánica, Fisicoquímica y Química cuántica; muchas horas de laboratorio."
+      },
+      {
+       "tipo": "info",
+       "titulo": "Cuánto dura",
+       "texto": "4 a 4.5 años."
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Te ves aguantando eso?",
+       "escala": [
+        "No",
+        "Sí"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Esperabas obtener 50 gramos de producto y obtuviste 40. ¿Cuál es el rendimiento?",
-       "opciones": [
-        "125 por ciento",
-        "40 por ciento",
-        "80 por ciento"
-       ],
-       "correcta": 2,
-       "formula": "{40|50} × 100 = 80"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué es mejor según la química verde?",
-       "opciones": [
-        "Prevenir el residuo desde el diseño",
-        "Tratarlo después",
-        "Tirarlo"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Puedes usar un solvente muy tóxico o uno menos tóxico que funciona igual. ¿Cuál eliges?",
-       "opciones": [
-        "El más tóxico",
-        "Da igual",
-        "El menos tóxico"
-       ],
-       "correcta": 2
+       "tipo": "info",
+       "titulo": "Si te gusta, pero no del todo",
+       "puntos": [
+        "Mira también: QFB, Física"
+       ]
       },
       {
        "tipo": "teves"
@@ -446,127 +344,27 @@
   },
   {
    "id": "u4",
-   "titulo": "Examen final",
-   "sub": "10 preguntas · apruebas con 7",
+   "titulo": "Tu decisión",
+   "sub": "¿La guardas o la descartas?",
    "lecciones": [
     {
      "id": "ex",
-     "titulo": "Examen final",
-     "minutos": 6,
-     "examen": true,
-     "aprobar": 7,
+     "titulo": "Tu veredicto",
+     "minutos": 2,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "Examen final",
-       "partes": [
-        {
-         "t": "Son 10 casos nuevos que mezclan todas las lecciones. Apruebas con 7. Si no, lo repites y las que fallaste regresan con otras palabras."
-        }
-       ]
+       "tipo": "escena",
+       "texto": "Ya sabes qué hace alguien de Química, qué estudias, qué tan difícil es y si hay trabajo."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué define a un elemento?",
-       "opciones": [
-        "Su olor",
-        "Su color",
-        "Su número de protones"
-       ],
-       "correcta": 2
+       "tipo": "escuelas"
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Tienes 54 gramos de agua, con masa molar de 18. ¿Cuántos moles son?",
-       "opciones": [
-        "3",
-        "36",
-        "972"
-       ],
-       "correcta": 0,
-       "formula": "{54|18} = 3"
+       "tipo": "veredicto"
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué pasa con los átomos en una reacción?",
-       "opciones": [
-        "Desaparecen",
-        "Se reacomodan",
-        "Se duplican"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué acelera una reacción?",
-       "opciones": [
-        "Más temperatura",
-        "Nada",
-        "Más frío"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Una sustancia tiene pH 11. ¿Cómo es?",
-       "opciones": [
-        "Básica",
-        "Ácida",
-        "Neutra"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Cómo se diluye un ácido concentrado?",
-       "opciones": [
-        "Agua al ácido",
-        "De golpe",
-        "Ácido al agua, poco a poco"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Se pueden mezclar cloro y amoniaco?",
-       "opciones": [
-        "Solo en verano",
-        "Sí",
-        "No, liberan gases tóxicos"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Usaste 15 mililitros de una base de 0.2 moles por litro para 10 mililitros de ácido, uno a uno. ¿Qué concentración tiene el ácido?",
-       "opciones": [
-        "3 moles por litro",
-        "0.3 moles por litro",
-        "0.13 moles por litro"
-       ],
-       "correcta": 1,
-       "formula": "{0.2 × 15|10} = 0.3"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Esperabas 80 gramos y obtuviste 60. ¿Cuál es el rendimiento?",
-       "opciones": [
-        "60 por ciento",
-        "75 por ciento",
-        "133 por ciento"
-       ],
-       "correcta": 1,
-       "formula": "{60|80} × 100 = 75"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué busca la química verde?",
-       "opciones": [
-        "Procesos más seguros y con menos residuos desde el diseño",
-        "Más residuos",
-        "Pintar todo de verde"
-       ],
-       "correcta": 0
+       "tipo": "clave",
+       "texto": "Decidir «sigo en duda» también es avanzar."
       }
      ]
     }

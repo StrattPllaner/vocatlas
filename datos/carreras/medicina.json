@@ -1,14 +1,15 @@
 {
  "id": "medicina",
- "version": 2,
+ "version": 3,
  "formato": 2,
  "estado": "completo",
- "revision": "Pendiente de revisión por un profesionista de la carrera. Generado con datos/importar_lecciones.py desde datos/fuentes/lecciones/medicina.lec; no se edita a mano.",
+ "generado": true,
+ "revision": "Lecciones generales (de qué trata la carrera y si va contigo), armadas con datos/lecciones_generales.py desde la base de carreras con fuentes (2026-11-17).",
  "unidades": [
   {
    "id": "u1",
-   "titulo": "El cuerpo",
-   "sub": "Corazón y signos vitales",
+   "titulo": "¿De qué se trata?",
+   "sub": "Qué hace y cómo es su día",
    "lecciones": [
     {
      "id": "0",
@@ -16,88 +17,72 @@
      "minutos": 1,
      "tarjetas": [
       {
-       "tipo": "ficha",
-       "texto": "Medicina forma médicos generales que diagnostican y tratan enfermedades. En el Tec dura 13 semestres y en la UAEM de Morelos, que es pública, 12. Para especializarte presentas el ENARM, y solo una parte de los aspirantes consigue lugar.",
-       "cifras": [
-        "medicina.ingreso",
-        "medicina.costo_tec",
-        "medicina.costo_publica",
-        "medicina.enarm"
-       ]
+       "tipo": "escena",
+       "texto": "Antes de leer nada: ¿qué crees que hace alguien que estudió Medicina?"
       },
       {
-       "tipo": "escena",
-       "texto": "Ahora vas a ver si piensas como médico."
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál de estas cosas crees que hace?",
+       "opciones": [
+        "Consulta pacientes",
+        "Trabaja en laboratorio",
+        "Investiga fenómenos físicos"
+       ],
+       "correcta": 0,
+       "explicacion": "En pocas palabras, Medicina es formación para prevenir, diagnosticar y tratar enfermedades, atender pacientes y tomar decisiones clínicas. Incluye ciencias básicas, práctica clínica supervisada y, según el programa, internado y servicio social.",
+       "adivina": true
+      },
+      {
+       "tipo": "info",
+       "titulo": "Medicina en una frase",
+       "texto": "Formación para prevenir, diagnosticar y tratar enfermedades, atender pacientes y tomar decisiones clínicas."
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
      "id": "1",
-     "titulo": "El corazón y la circulación",
-     "minutos": 4,
+     "titulo": "Un día normal",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Imagina que acompañas un día entero a alguien de Medicina. ¿Qué crees que hace?"
+      },
+      {
        "tipo": "info",
-       "titulo": "El corazón y la circulación",
-       "partes": [
-        {
-         "t": "El corazón tiene dos lados que trabajan como dos bombas. El lado derecho recibe la sangre que ya usó el cuerpo, sin oxígeno, y la manda a los pulmones. El lado izquierdo recibe la sangre con oxígeno que viene de los pulmones y la empuja a todo el cuerpo. Por eso el lado izquierdo tiene el músculo más grueso: empuja más lejos. Las arterias sacan sangre del corazón y las venas la regresan. Hay una excepción: la arteria pulmonar sale del corazón, pero lleva sangre sin oxígeno hacia los pulmones. Si un lado del corazón falla, la sangre se atora justo antes de ese lado. El corazón también se alimenta de sus propias arterias, las coronarias. Si una se tapa, esa parte del músculo se muere: eso es un infarto. Se siente como presión fuerte en el pecho que puede irse al brazo izquierdo o a la mandíbula, con sudor frío. Cada minuto que pasa se pierde más músculo."
-        }
+       "titulo": "Un día normal",
+       "puntos": [
+        "Consulta pacientes",
+        "Interroga y explora",
+        "Pide estudios",
+        "Interpreta resultados",
+        "Receta y da seguimiento, en hospital hace guardias"
        ]
       },
       {
        "tipo": "pregunta",
-       "pregunta": "¿Qué parte del corazón empuja la sangre a todo el cuerpo?",
+       "pregunta": "¿Cuál de estas cosas NO es parte de su día?",
        "opciones": [
-        "El lado derecho",
-        "El lado izquierdo",
-        "Los dos por igual"
-       ],
-       "correcta": 1,
-       "explicacion": "El lado izquierdo recibe la sangre de los pulmones y la manda al cuerpo, por eso es más grueso.",
-       "repaso": {
-        "pregunta": "Un atleta tiene el músculo del corazón más grueso de un lado porque ese lado hace el trabajo más pesado. ¿Cuál es ese lado y por qué?",
-        "opciones": [
-         "El derecho, porque manda la sangre a los pulmones",
-         "Los dos son iguales",
-         "El izquierdo, porque reparte la sangre a todo el cuerpo"
-        ],
-        "correcta": 2,
-        "explicacion": "Es el lado que empuja la sangre más lejos, a todo el cuerpo."
-       }
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "En un examen te preguntan qué lleva la arteria pulmonar.",
-       "opciones": [
-        "Sangre con oxígeno hacia el cuerpo",
-        "Sangre sin oxígeno hacia los pulmones",
-        "Sangre con oxígeno hacia los pulmones"
-       ],
-       "correcta": 1,
-       "explicacion": "Es la excepción: es arteria porque sale del corazón, no porque lleve oxígeno."
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "A un paciente le falla el lado izquierdo del corazón. ¿Dónde se le acumula primero el líquido y qué síntoma tendría?",
-       "opciones": [
-        "En los pulmones, y le falta el aire",
-        "En las piernas, y se le hinchan",
-        "En el estómago, y vomita"
+        "Crea platillos",
+        "Interroga y explora",
+        "Pide estudios"
        ],
        "correcta": 0,
-       "explicacion": "La sangre se atora antes del lado que falla, y antes del lado izquierdo están los pulmones."
+       "explicacion": "Eso lo hace alguien de Gastronomía, no de Medicina.",
+       "adivina": true
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Un señor de 58 años lleva 30 minutos con presión en el pecho que se le va a la mandíbula, y está sudando frío. Dice que seguro es gastritis.",
+       "tipo": "reflexion",
+       "pregunta": "De ese día, ¿qué te late más?",
        "opciones": [
-        "Le das un antiácido y esperas",
-        "Lo tratas como un posible infarto y lo mandas al hospital de inmediato",
-        "Le dices que descanse y regrese mañana"
-       ],
-       "correcta": 1,
-       "explicacion": "Tiene los síntomas típicos de infarto, y con cada minuto se muere más músculo."
+        "Consulta pacientes",
+        "Interroga y explora",
+        "Pide estudios",
+        "Nada de eso"
+       ]
       },
       {
        "tipo": "teves"
@@ -106,61 +91,36 @@
     },
     {
      "id": "2",
-     "titulo": "Signos vitales",
-     "minutos": 4,
+     "titulo": "Mitos y realidades",
+     "minutos": 2,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "Signos vitales",
-       "partes": [
-        {
-         "t": "Los signos vitales te dicen en segundos qué tan grave está alguien. En un adulto en reposo el pulso normal va de 60 a 100 latidos por minuto, aunque los deportistas pueden tenerlo más bajo y estar sanos. La respiración normal va de 12 a 20 por minuto. La temperatura normal ronda los 36.5 a 37.5 grados, y fiebre es de 38 hacia arriba. Lo ideal en la presión es 120/80 o menos, y si sale 140/90 o más en varias mediciones distintas, es presión alta. La saturación de oxígeno normal va de 95 a 100%, y menos de 90 es grave. Un solo número raro no siempre significa algo; varios números raros juntos casi siempre sí."
-        }
-       ]
+       "tipo": "escena",
+       "texto": "¿Verdadero o falso? Primero di lo que crees."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Una paciente tiene pulso de 118, temperatura de 38.6 y 24 respiraciones por minuto. ¿Qué está fuera de lo normal?",
-       "opciones": [
-        "Solo la temperatura",
-        "El pulso, la temperatura y la respiración",
-        "Nada, son cifras normales"
-       ],
-       "correcta": 1,
-       "explicacion": "Los tres están arriba del rango, y juntos sugieren que el cuerpo está luchando contra algo serio, como una infección."
+       "tipo": "vf",
+       "afirmacion": "En Medicina llevas materias de matemáticas o con muchos números.",
+       "respuesta": false,
+       "revelacion": "No aparecen como materia propia en su plan de estudios. Muchos eligen carrera pensando en evitar las matemáticas; mejor saberlo desde ahora."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Un corredor de 25 años tiene pulso de 52 en reposo y se siente perfecto.",
-       "opciones": [
-        "Es una emergencia",
-        "Puede ser normal en alguien muy entrenado",
-        "Hay que darle medicina para subirlo"
-       ],
-       "correcta": 1,
-       "explicacion": "Un pulso bajo sin síntomas en un deportista es esperable."
+       "tipo": "vf",
+       "afirmacion": "Es de las carreras más difíciles.",
+       "respuesta": true,
+       "revelacion": "Su dificultad es muy alta. Los primeros dos años de ciencias básicas (Anatomía, Bioquímica, Fisiología) son el gran filtro; luego vienen guardias de 24 a 36 horas en el internado."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Un paciente con dificultad para respirar tiene una saturación de 87%.",
-       "opciones": [
-        "Es normal",
-        "Es grave y necesita oxígeno ya",
-        "Hay que volver a medirla mañana"
-       ],
-       "correcta": 1,
-       "explicacion": "Está debajo de 90, el límite que marca gravedad."
+       "tipo": "vf",
+       "afirmacion": "La mayoría de quienes la estudian terminan trabajando en otra cosa.",
+       "respuesta": false,
+       "revelacion": "81 de cada 100 trabajan en algo de su carrera (IMCO, Compara Carreras 2026)."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "A una señora le sale la presión en 150/95 en una sola consulta, sin ningún síntoma.",
-       "opciones": [
-        "Le diagnosticas presión alta para toda la vida",
-        "La vuelves a medir en otras consultas antes de concluir",
-        "No le das importancia"
-       ],
-       "correcta": 1,
-       "explicacion": "El diagnóstico pide varias mediciones altas; una sola puede salir por nervios, pero tampoco se ignora."
+       "tipo": "vf",
+       "afirmacion": "Casi todos los que se dedican a esto son hombres.",
+       "respuesta": false,
+       "revelacion": "De cada 100 personas que la ejercen, 52 son mujeres (IMCO, Compara Carreras 2026)."
       },
       {
        "tipo": "teves"
@@ -171,130 +131,101 @@
   },
   {
    "id": "u2",
-   "titulo": "Pensar como médico",
-   "sub": "Diagnóstico y medicinas",
+   "titulo": "¿Va contigo?",
+   "sub": "Lo que pide y lo que estudias",
    "lecciones": [
     {
      "id": "3",
-     "titulo": "Pensar como médico",
-     "minutos": 4,
+     "titulo": "¿Se te da?",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Para que una carrera te guste no basta con que te llame la atención. ¿Se te da lo que pide?"
+      },
+      {
        "tipo": "info",
-       "titulo": "Pensar como médico",
-       "partes": [
-        {
-         "t": "El diagnóstico casi siempre sale de la entrevista, que se llama historia clínica. Preguntas qué le pasa, desde cuándo, cómo empezó, dónde duele, cómo es el dolor, qué lo mejora o empeora, qué enfermedades tiene, qué medicinas toma y si es alérgico a algo. Luego haces una lista de lo que podría ser y descartas primero lo más peligroso, aunque no sea lo más probable. También existen las señales de alarma: síntomas que te dicen que algo es grave. Una de ellas es un dolor de cabeza de golpe que la persona describe como \"el peor de su vida\", porque puede ser un sangrado en el cerebro."
-        }
+       "titulo": "Lo que pide Medicina",
+       "puntos": [
+        "Memoria y constancia para estudiar mucho todos los días",
+        "Manejo del estrés y de jornadas largas",
+        "Empatía y trato con personas enfermas",
+        "Precisión y responsabilidad"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Llega un paciente con dolor de cabeza. ¿Cuál pregunta te da más información al inicio?",
-       "opciones": [
-        "Si le gusta el café",
-        "Cuándo empezó, cómo empezó y cómo es el dolor",
-        "Si ya tomó algo"
-       ],
-       "correcta": 1,
-       "explicacion": "La forma en que empezó un dolor separa lo leve de lo grave."
+       "tipo": "info",
+       "titulo": "Y lo que te tiene que gustar",
+       "puntos": [
+        "Biología y química",
+        "Cuerpo humano",
+        "Ayudar directamente a personas"
+       ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Una mujer dice que el dolor de cabeza le llegó de golpe hace una hora y que es el peor de su vida.",
-       "opciones": [
-        "Le das un analgésico y la mandas a casa",
-        "La mandas a urgencias para que le hagan estudios de la cabeza",
-        "Le pides que regrese si sigue mañana"
-       ],
-       "correcta": 1,
-       "explicacion": "Es justo la señal de alarma de la explicación."
+       "tipo": "reflexion",
+       "pregunta": "¿Me imagino estudiando varias horas diarias durante 7 años o más?",
+       "escala": [
+        "No",
+        "Sí"
+       ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Un hombre de 60 años con diabetes tiene dolor en la boca del estómago. Puede ser gastritis o un infarto. ¿Qué descartas primero?",
-       "opciones": [
-        "El infarto, porque es lo más peligroso",
-        "La gastritis, porque es lo más común",
-        "Ninguno, esperas"
-       ],
-       "correcta": 0,
-       "explicacion": "Primero se descarta lo que puede matar, aunque lo común sea otra cosa."
+       "tipo": "reflexion",
+       "pregunta": "¿Puedo ver sangre, heridas y personas sufriendo sin bloquearme?",
+       "escala": [
+        "No",
+        "Sí"
+       ]
       },
       {
-       "tipo": "teves"
+       "tipo": "reflexion",
+       "pregunta": "¿Me late trabajar de noche y fines de semana en guardias?",
+       "escala": [
+        "No",
+        "Sí"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Si dijiste que no a algo, no pasa nada: sirve para saber qué preguntar y qué carreras parecidas ver."
       }
      ]
     },
     {
      "id": "4",
-     "titulo": "Medicinas y dosis",
-     "minutos": 4,
+     "titulo": "Lo que estudias",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "¿Qué crees que ves en el primer año de Medicina?"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál crees que es el primer año?",
+       "opciones": [
+        "Anatomía, Bioquímica, Biología celular e histología",
+        "Microeconomía I, Macroeconomía I, Cálculo",
+        "Teorías de la comunicación, Redacción, Historia de México"
+       ],
+       "correcta": 0,
+       "explicacion": "Esas son materias de los primeros semestres. Las otras son de Economía y Comunicación.",
+       "adivina": true
+      },
+      {
        "tipo": "info",
-       "titulo": "Medicinas y dosis",
-       "partes": [
-        {
-         "t": "Los adultos suelen tomar una dosis fija, pero en niños la dosis se calcula con su peso:"
-        },
-        {
-         "f": "dosis = peso en kg × mg por kg"
-        },
-        {
-         "t": "Muchas medicinas para niños vienen en jarabe, con una cantidad de medicina por cada tantos mililitros. Para saber cuánto jarabe dar:"
-        },
-        {
-         "f": "mililitros = {dosis que necesitas|mg que trae el jarabe} × ml del jarabe"
-        },
-        {
-         "t": "El hígado y los riñones eliminan las medicinas del cuerpo. Si alguno no funciona bien, la medicina se acumula y puede intoxicar, así que se baja o se ajusta la dosis. Y los antibióticos solo sirven contra bacterias, no contra virus. En estos ejercicios la medicina es inventada; en la vida real la dosis sale de la guía del medicamento."
-        }
+       "titulo": "Lo que vas viendo",
+       "puntos": [
+        "Semestres 1-2: Anatomía, Bioquímica, Biología celular e histología, Embriología",
+        "Semestres 3-4: Fisiología, Farmacología, Microbiología y parasitología, Inmunología",
+        "Semestres 5-6: Medicina interna, Pediatría, Ginecología y obstetricia, Cirugía",
+        "Semestres 7 en adelante: Internado rotatorio en hospital, Servicio social (clínica o centro de salud)"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "La medicina Rumbocilina se da a 10 mg por kg. Un niño pesa 20 kg. ¿Cuánto le das?",
-       "opciones": [
-        "20 mg",
-        "200 mg",
-        "2,000 mg"
-       ],
-       "correcta": 1,
-       "formula": "20 × 10 = 200 mg"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "El jarabe de Rumbocilina trae 100 mg en cada 5 ml. ¿Cuántos mililitros le das al niño que necesita 200 mg?",
-       "opciones": [
-        "5 ml",
-        "10 ml",
-        "20 ml"
-       ],
-       "correcta": 1,
-       "formula": "{200|100} × 5 = 10 ml"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un paciente tiene los riñones dañados y necesita una medicina que el riñón elimina.",
-       "opciones": [
-        "Le das la dosis normal",
-        "Le ajustas o bajas la dosis",
-        "Le das el doble para que funcione"
-       ],
-       "correcta": 1,
-       "explicacion": "Si el riñón no la saca, la medicina se acumula."
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un joven lleva tres días con moco transparente, estornudos y sin fiebre, y pide antibiótico.",
-       "opciones": [
-        "Se lo das para que se cure más rápido",
-        "No se lo das porque es un virus, y le recomiendas reposo y líquidos",
-        "Le das antibiótico y antigripal juntos"
-       ],
-       "correcta": 1,
-       "explicacion": "Es un resfriado por virus, y contra virus el antibiótico no hace nada."
+       "tipo": "clave",
+       "texto": "Los nombres cambian un poco según la universidad; la idea general es esta."
       },
       {
        "tipo": "teves"
@@ -305,55 +236,41 @@
   },
   {
    "id": "u3",
-   "titulo": "En la práctica",
-   "sub": "Urgencias, comunidad y ética",
+   "titulo": "¿Y después?",
+   "sub": "Trabajo y dificultad",
    "lecciones": [
     {
      "id": "5",
-     "titulo": "Urgencias",
-     "minutos": 4,
+     "titulo": "Dónde trabajarías",
+     "minutos": 2,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "Urgencias",
-       "partes": [
-        {
-         "t": "En urgencias no se atiende primero al que llegó antes ni al que grita más, sino al que tiene más riesgo de morir. A esto se le llama triage. Para revisar a un paciente grave el orden siempre es el mismo: primero la vía aérea, que el aire pueda entrar; luego la respiración; luego la circulación, o sea la sangre y el pulso. En una persona inconsciente boca arriba, la lengua se va hacia atrás y tapa la garganta, y se escucha como un ronquido fuerte. Se destapa inclinando la cabeza hacia atrás y levantando la barbilla. Si alguien no responde y no respira, se hace RCP: compresiones en el centro del pecho de 5 a 6 cm de profundidad, a un ritmo de 100 a 120 por minuto."
-        }
-       ]
+       "tipo": "escena",
+       "texto": "Al terminar, ¿dónde crees que trabajaría alguien de Medicina?"
       },
       {
        "tipo": "pregunta",
-       "pregunta": "Llegan tres pacientes al mismo tiempo: uno con un dedo roto que grita de dolor, un señor que casi no puede respirar y tiene saturación de 85%, y un niño con fiebre de 38 que está jugando. ¿A quién atiendes primero?",
+       "pregunta": "¿Cuál de estos lugares es más de Medicina?",
        "opciones": [
-        "Al del dedo, porque es el que más sufre",
-        "Al señor que no puede respirar",
-        "Al niño, porque es menor"
-       ],
-       "correcta": 1,
-       "explicacion": "Tiene problema de respiración y la saturación baja, así que es el de mayor riesgo."
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Encuentras a un hombre inconsciente boca arriba que hace un ronquido muy fuerte. ¿Qué haces primero?",
-       "opciones": [
-        "Le inclinas la cabeza hacia atrás y le levantas la barbilla",
-        "Le das agua",
-        "Lo sientas de golpe"
+        "Hospitales",
+        "Empresas industriales y tecnológicas",
+        "Hoteles"
        ],
        "correcta": 0,
-       "explicacion": "El ronquido indica que la lengua le tapa la vía aérea, que es lo primero en el orden."
+       "explicacion": "Es uno de los lugares donde trabaja alguien de Medicina.",
+       "adivina": true
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Un compañero está haciendo RCP a un ritmo de 60 compresiones por minuto.",
-       "opciones": [
-        "Está bien",
-        "Va muy lento y debe subir a 100 a 120 por minuto",
-        "Va muy rápido"
-       ],
-       "correcta": 1,
-       "explicacion": "A ese ritmo no le llega suficiente sangre al cerebro."
+       "tipo": "info",
+       "titulo": "Dónde se trabaja",
+       "puntos": [
+        "Hospitales",
+        "Clínicas",
+        "Centros de salud",
+        "Consultorios",
+        "Instituciones públicas",
+        "Investigación y docencia"
+       ]
       },
       {
        "tipo": "teves"
@@ -362,50 +279,39 @@
     },
     {
      "id": "6",
-     "titulo": "Medicina en la comunidad",
-     "minutos": 4,
+     "titulo": "¿Hay trabajo?",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Ahora lo que todos preguntan: ¿hay trabajo y cuánto se gana?"
+      },
+      {
+       "tipo": "rango",
+       "pregunta": "De cada 100 que estudiaron Medicina, ¿cuántos crees que trabajan en algo de su carrera?",
+       "min": 0,
+       "max": 100,
+       "paso": 5,
+       "unidad": "de cada 100",
+       "dato": "medicina.ocupacion_afin"
+      },
+      {
+       "tipo": "rango",
+       "pregunta": "¿Cuánto crees que gana al mes, en promedio?",
+       "min": 5000,
+       "max": 50000,
+       "paso": 1000,
+       "unidad": "pesos al mes",
+       "dato": "medicina.ingreso"
+      },
+      {
        "tipo": "info",
-       "titulo": "Medicina en la comunidad",
-       "partes": [
-        {
-         "t": "En el servicio social te toca cuidar a un pueblo entero, no solo a cada paciente. Las enfermedades se contagian por varias vías: por comida o agua sucia, por el aire o por animales como el mosquito. Cuando muchas personas se enferman de lo mismo en el mismo lugar y al mismo tiempo, es un brote, y hay que buscar qué tienen en común. Con diarrea, el peligro es la deshidratación. Si la persona está despierta y puede tomar líquidos, se le da suero oral. Si tiene los ojos hundidos, llora sin lágrimas, está muy adormilada o no puede tomar, es grave y va al hospital por suero en la vena."
-        }
-       ]
+       "titulo": "Así está el trabajo",
+       "texto": "Es la carrera donde más egresados ejercen lo que estudiaron (81%) y casi no hay desempleo, pero el sueldo fuerte llega con la especialidad."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Quince personas tienen diarrea un día después de una boda, y todas comieron la misma ensalada de pollo.",
-       "opciones": [
-        "Es casualidad",
-        "Es un brote y la ensalada es la sospechosa",
-        "Es un virus por el aire"
-       ],
-       "correcta": 1,
-       "explicacion": "Es mucha gente, mismo lugar, mismo momento y algo en común."
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Después de la temporada de lluvias suben los casos de dengue en el pueblo. ¿Qué medida ayuda más?",
-       "opciones": [
-        "Dar antibióticos a todos",
-        "Eliminar el agua estancada donde se reproduce el mosquito",
-        "Cerrar las escuelas"
-       ],
-       "correcta": 1,
-       "explicacion": "El dengue lo transmite un mosquito, así que se ataca su criadero."
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un niño con diarrea tiene los ojos hundidos, llora sin lágrimas, está muy dormido y no quiere tomar nada.",
-       "opciones": [
-        "Le das suero oral en casa",
-        "Lo mandas al hospital para ponerle suero en la vena",
-        "Le das un remedio para cortar la diarrea"
-       ],
-       "correcta": 1,
-       "explicacion": "Tiene las señales graves y no puede tomar, así que el suero oral no basta."
+       "tipo": "clave",
+       "texto": "Título y cédula profesional para ejercer; para especializarse hay que aprobar el ENARM (examen nacional de residencias médicas)."
       },
       {
        "tipo": "teves"
@@ -414,61 +320,37 @@
     },
     {
      "id": "7",
-     "titulo": "Decisiones difíciles",
-     "minutos": 4,
+     "titulo": "Qué tan difícil es",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "¿Dónde crees que está lo más difícil de Medicina?"
+      },
+      {
        "tipo": "info",
-       "titulo": "Decisiones difíciles",
-       "partes": [
-        {
-         "t": "La medicina tiene cuatro reglas éticas. Autonomía: el paciente decide sobre su cuerpo si está consciente y entiende. Hacer el bien: buscar siempre lo mejor para el paciente. No hacer daño: evitar riesgos innecesarios. Justicia: repartir los recursos según la necesidad médica, no según el dinero o las influencias. Antes de un procedimiento, el paciente debe entender los riesgos y dar su consentimiento. Si alguien está inconsciente, sin familia y con su vida en riesgo, el médico actúa por su bien. Los errores se reconocen y se avisan de inmediato."
-        }
+       "titulo": "Lo más difícil",
+       "texto": "Dificultad muy alta. Los primeros dos años de ciencias básicas (Anatomía, Bioquímica, Fisiología) son el gran filtro; luego vienen guardias de 24 a 36 horas en el internado."
+      },
+      {
+       "tipo": "info",
+       "titulo": "Cuánto dura",
+       "texto": "6 a 7 años contando internado de pregrado (1 año) y servicio social (1 año); la especialidad es aparte (3 a 6 años más)."
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Te ves aguantando eso?",
+       "escala": [
+        "No",
+        "Sí"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Un adulto consciente, que entiende perfectamente los riesgos, se niega a una transfusión por sus creencias.",
-       "opciones": [
-        "Lo obligas porque le salvaría la vida",
-        "Le explicas otra vez los riesgos, respetas su decisión, buscas alternativas y lo anotas en su expediente",
-        "Dejas de atenderlo"
-       ],
-       "correcta": 1,
-       "explicacion": "Por autonomía, él decide, y tú sigues cuidándolo con lo que acepte."
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Llega una mujer inconsciente, sin identificación ni familia, que necesita cirugía urgente para no morir.",
-       "opciones": [
-        "Esperas a que llegue alguien que firme",
-        "La operan, porque es una urgencia y se actúa por su bien",
-        "La mandas a otro hospital"
-       ],
-       "correcta": 1,
-       "explicacion": "No puede decidir, nadie puede decidir por ella y esperar la mataría."
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Queda una sola cama de terapia intensiva. Un paciente está grave y tiene buenas probabilidades de salvarse si entra. El otro está estable, pero es amigo del director.",
-       "opciones": [
-        "Le das la cama al amigo del director",
-        "Se la das al paciente grave que más se beneficia",
-        "Lo decides con una moneda"
-       ],
-       "correcta": 1,
-       "explicacion": "Por justicia, la cama va según la necesidad médica."
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Te das cuenta de que le pusiste a un paciente el doble de la dosis indicada. Todavía no tiene síntomas.",
-       "opciones": [
-        "No dices nada porque está bien",
-        "Avisas de inmediato a tu superior para vigilarlo y actuar a tiempo",
-        "Le bajas la siguiente dosis sin decir nada"
-       ],
-       "correcta": 1,
-       "explicacion": "Puede tener efectos más tarde y el equipo necesita saberlo."
+       "tipo": "info",
+       "titulo": "Si te gusta, pero no del todo",
+       "puntos": [
+        "Mira también: Enfermería, Odontología, QFB, Fisioterapia"
+       ]
       },
       {
        "tipo": "teves"
@@ -479,129 +361,27 @@
   },
   {
    "id": "u4",
-   "titulo": "Examen final",
-   "sub": "10 preguntas · apruebas con 7",
+   "titulo": "Tu decisión",
+   "sub": "¿La guardas o la descartas?",
    "lecciones": [
     {
      "id": "ex",
-     "titulo": "Examen final",
-     "minutos": 6,
-     "examen": true,
-     "aprobar": 7,
+     "titulo": "Tu veredicto",
+     "minutos": 2,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "Examen final",
-       "partes": [
-        {
-         "t": "Son 10 casos nuevos que mezclan todas las lecciones. Apruebas con 7. Si no, lo repites y las que fallaste regresan con otras palabras."
-        }
-       ]
+       "tipo": "escena",
+       "texto": "Ya sabes qué hace alguien de Medicina, qué estudias, qué tan difícil es y si hay trabajo."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "A un paciente le falla el lado derecho del corazón. ¿Qué síntoma esperas?",
-       "opciones": [
-        "Le falta el aire porque se llenan los pulmones",
-        "Se le hinchan las piernas porque la sangre del cuerpo se atora antes de llegar al corazón",
-        "No pasa nada"
-       ],
-       "correcta": 1,
-       "explicacion": "Antes del lado derecho está la sangre que regresa del cuerpo."
+       "tipo": "escuelas"
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Un joven muy adormilado después de tomar muchas pastillas respira 8 veces por minuto.",
-       "opciones": [
-        "Es normal porque está dormido",
-        "Es peligrosamente bajo y es una urgencia",
-        "Está alto"
-       ],
-       "correcta": 1,
-       "explicacion": "Lo normal es de 12 a 20 por minuto."
+       "tipo": "veredicto"
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Una niña tiene 37.8 grados de temperatura.",
-       "opciones": [
-        "Tiene fiebre alta",
-        "Todavía no cuenta como fiebre, pero hay que vigilarla",
-        "Está en hipotermia"
-       ],
-       "correcta": 1,
-       "explicacion": "La fiebre empieza en 38."
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Antes de recetarle cualquier medicina a un paciente nuevo, ¿qué pregunta no puede faltar?",
-       "opciones": [
-        "Si es alérgico a algo",
-        "A qué se dedica",
-        "Si tiene seguro"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un joven tiene dolor de panza. Puede ser una apendicitis o una infección leve del estómago. ¿Qué descartas primero?",
-       "opciones": [
-        "La infección, porque es más común",
-        "La apendicitis, porque es más peligrosa",
-        "Ninguna"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un niño de 15 kg necesita Rumbocilina a 10 mg por kg, y el jarabe trae 100 mg en 5 ml. ¿Cuántos mililitros le das?",
-       "opciones": [
-        "7.5 ml",
-        "15 ml",
-        "5 ml"
-       ],
-       "correcta": 0,
-       "formula": "15 × 10 = 150 mg ;; {150|100} × 5 = 7.5 ml"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un paciente tiene el hígado dañado y necesita una medicina que se elimina por el hígado.",
-       "opciones": [
-        "Le das la dosis normal",
-        "Se ajusta la dosis",
-        "Le das el doble"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Llegan a urgencias un hombre que platica normal con una herida que sangra poco y una mujer inconsciente que ronca fuerte. ¿A quién atiendes primero?",
-       "opciones": [
-        "A la mujer",
-        "Al hombre, porque llegó primero",
-        "A los dos al mismo tiempo sin orden"
-       ],
-       "correcta": 0,
-       "explicacion": "Su vía aérea está tapada, y eso va primero."
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "En una colonia, varias familias tienen diarrea, y todas compran agua de la misma pipa.",
-       "opciones": [
-        "Es casualidad",
-        "Es un brote y la pipa es la sospechosa",
-        "Es contagio por el aire"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un hombre de 30 años, consciente y bien informado, no acepta una cirugía que le recomiendas.",
-       "opciones": [
-        "Lo operas igual",
-        "Respetas su decisión, le explicas los riesgos y lo anotas en su expediente",
-        "Dejas de atenderlo"
-       ],
-       "correcta": 1
+       "tipo": "clave",
+       "texto": "Decidir «sigo en duda» también es avanzar."
       }
      ]
     }

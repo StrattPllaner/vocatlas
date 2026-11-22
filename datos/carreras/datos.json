@@ -1,14 +1,15 @@
 {
  "id": "datos",
- "version": 2,
+ "version": 3,
  "formato": 2,
  "estado": "completo",
- "revision": "Pendiente de revisión por un profesionista de la carrera. Generado con datos/importar_lecciones.py desde datos/fuentes/lecciones/datos.lec; no se edita a mano.",
+ "generado": true,
+ "revision": "Lecciones generales (de qué trata la carrera y si va contigo), armadas con datos/lecciones_generales.py desde la base de carreras con fuentes (2026-11-17).",
  "unidades": [
   {
    "id": "u1",
-   "titulo": "Resumir",
-   "sub": "Promedio, mediana y muestras",
+   "titulo": "¿De qué se trata?",
+   "sub": "Qué hace y cómo es su día",
    "lecciones": [
     {
      "id": "0",
@@ -16,78 +17,55 @@
      "minutos": 1,
      "tarjetas": [
       {
-       "tipo": "ficha",
-       "texto": "Ciencia de Datos forma profesionales que usan estadística y programación para sacar respuestas de los datos: qué está pasando, por qué y qué podría pasar después. Trabajan en empresas, bancos, gobierno y tecnología. En Morelos no hay dónde terminarla.",
-       "cifras": [
-        "datos.becas",
-        "datos.duracion",
-        "datos.costo_publica",
-        "datos.costo_privada"
-       ]
+       "tipo": "escena",
+       "texto": "Antes de leer nada: ¿qué crees que hace alguien que estudió Ciencia de datos?"
       },
       {
-       "tipo": "escena",
-       "texto": "Hoy te llegan miles de datos. Vamos a ver si te dicen la verdad."
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál de estas cosas crees que hace?",
+       "opciones": [
+        "Limpia y analiza grandes cantidades de datos",
+        "Calcula o supervisa obras, puentes, carreteras, drenajes",
+        "Analiza lo que pasa en otros países y cómo afecta a México"
+       ],
+       "correcta": 0,
+       "explicacion": "En pocas palabras, Ciencia de datos es diseño y desarrollo de soluciones digitales. Puede incluir programación, algoritmos, bases de datos, infraestructura, análisis de datos, inteligencia artificial, redes o seguridad informática.",
+       "adivina": true
+      },
+      {
+       "tipo": "info",
+       "titulo": "Ciencia de datos en una frase",
+       "texto": "Diseño y desarrollo de soluciones digitales."
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
      "id": "1",
-     "titulo": "Promedio y mediana",
-     "minutos": 4,
+     "titulo": "Un día normal",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Imagina que acompañas un día entero a alguien de Ciencia de datos. ¿Qué crees que hace?"
+      },
+      {
        "tipo": "info",
-       "titulo": "Promedio y mediana",
-       "partes": [
-        {
-         "t": "El promedio suma todos los valores y los divide entre cuántos son. La mediana es el valor de en medio cuando los ordenas. Si hay valores extremos, el promedio se jala hacia ellos y la mediana casi no se mueve. Por eso, para cosas como sueldos o precios de casas, donde unos pocos valores son enormes, la mediana describe mejor lo típico."
-        },
-        {
-         "f": "promedio = {suma de los valores|número de valores}"
-        }
+       "titulo": "Un día normal",
+       "puntos": [
+        "Limpia y analiza grandes cantidades de datos, construye modelos que predicen (ventas, fraudes, clientes) y presenta…"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Cinco personas ganan 10, 12, 11, 13 y 14 mil pesos. ¿Cuál es el promedio?",
+       "tipo": "reflexion",
+       "pregunta": "De ese día, ¿qué te late más?",
        "opciones": [
-        "12 mil",
-        "11 mil",
-        "60 mil"
-       ],
-       "correcta": 0,
-       "formula": "{10 + 12 + 11 + 13 + 14|5} = 12"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Con esos mismos datos ordenados, 10, 11, 12, 13 y 14, ¿cuál es la mediana?",
-       "opciones": [
-        "14",
-        "11",
-        "12"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Si la quinta persona ganara 200 mil en vez de 14, ¿qué pasa?",
-       "opciones": [
-        "Los dos suben igual",
-        "El promedio sube muchísimo y la mediana sigue en 12",
-        "Ninguno cambia"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un reporte quiere mostrar el sueldo típico de una empresa donde el dueño gana muchísimo más que todos. ¿Qué usas?",
-       "opciones": [
-        "El sueldo del dueño",
-        "La mediana",
-        "El promedio"
-       ],
-       "correcta": 1
+        "Casi todo",
+        "Algunas cosas",
+        "Nada de eso"
+       ]
       },
       {
        "tipo": "teves"
@@ -96,57 +74,36 @@
     },
     {
      "id": "2",
-     "titulo": "Muestras y sesgo",
-     "minutos": 4,
+     "titulo": "Mitos y realidades",
+     "minutos": 2,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "Muestras y sesgo",
-       "partes": [
-        {
-         "t": "Casi nunca se puede preguntar a todos, así que se usa una muestra. Para que represente a todos, tiene que elegirse bien, idealmente al azar. Si la eliges de forma que algunos grupos quedan fuera, la muestra tiene sesgo y las conclusiones salen mal, aunque sea muy grande. Por ejemplo, una encuesta hecha solo por internet deja fuera a quien no tiene internet. Más datos no arreglan un sesgo: solo te dan una respuesta equivocada con más seguridad."
-        }
-       ]
+       "tipo": "escena",
+       "texto": "¿Verdadero o falso? Primero di lo que crees."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Quieres saber qué opinan todos los alumnos de la prepa sobre la cafetería y solo preguntas a los que están comiendo ahí. ¿Qué problema hay?",
-       "opciones": [
-        "Ninguno",
-        "Dejas fuera a quienes no van a la cafetería, quizá porque no les gusta",
-        "Que son pocos"
-       ],
-       "correcta": 1
+       "tipo": "vf",
+       "afirmacion": "En Ciencia de datos llevas materias de matemáticas o con muchos números.",
+       "respuesta": true,
+       "revelacion": "Sí: Cálculo, Álgebra lineal, Programación en Python. Muchos eligen carrera pensando en evitar las matemáticas; mejor saberlo desde ahora."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Se arregla un sesgo juntando muchos más datos del mismo modo?",
-       "opciones": [
-        "No, solo das una respuesta equivocada con más seguridad",
-        "A veces",
-        "Sí"
-       ],
-       "correcta": 0
+       "tipo": "vf",
+       "afirmacion": "Es de las carreras más difíciles.",
+       "respuesta": true,
+       "revelacion": "Su dificultad es alta. Cálculo, Álgebra lineal, Probabilidad y Programación desde el primer año."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Cuál es una buena forma de elegir una muestra?",
-       "opciones": [
-        "Al azar entre toda la población",
-        "Solo a tus amigos",
-        "A los que contesten primero"
-       ],
-       "correcta": 0
+       "tipo": "vf",
+       "afirmacion": "La mayoría de quienes la estudian terminan trabajando en otra cosa.",
+       "respuesta": true,
+       "revelacion": "9 de cada 100 trabajan en algo de su carrera (IMCO, Compara Carreras 2026)."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Una app de salud solo tiene datos de personas que tienen smartwatch. ¿Qué cuidado tienes al sacar conclusiones?",
-       "opciones": [
-        "Ninguno",
-        "Que el reloj sea caro",
-        "Que esos usuarios no representan a toda la población"
-       ],
-       "correcta": 2
+       "tipo": "vf",
+       "afirmacion": "Casi todos los que se dedican a esto son hombres.",
+       "respuesta": false,
+       "revelacion": "De cada 100 personas que la ejercen, 54 son mujeres (IMCO, Compara Carreras 2026)."
       },
       {
        "tipo": "teves"
@@ -157,111 +114,101 @@
   },
   {
    "id": "u2",
-   "titulo": "No caer en trampas",
-   "sub": "Causas y datos sucios",
+   "titulo": "¿Va contigo?",
+   "sub": "Lo que pide y lo que estudias",
    "lecciones": [
     {
      "id": "3",
-     "titulo": "Correlación no es causa",
-     "minutos": 4,
+     "titulo": "¿Se te da?",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Para que una carrera te guste no basta con que te llame la atención. ¿Se te da lo que pide?"
+      },
+      {
        "tipo": "info",
-       "titulo": "Correlación no es causa",
-       "partes": [
-        {
-         "t": "Dos cosas están correlacionadas cuando suben o bajan juntas. Pero que vayan juntas no significa que una cause la otra. A veces una tercera cosa causa las dos: en verano suben las ventas de helado y también los ahogamientos, pero el helado no ahoga a nadie; el calor causa ambos. Para saber si algo causa otra cosa se necesitan experimentos o análisis más cuidadosos."
-        }
+       "titulo": "Lo que pide Ciencia de datos",
+       "puntos": [
+        "Matemáticas y estadística",
+        "Programación",
+        "Curiosidad",
+        "Explicar resultados a no expertos"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Los alumnos que desayunan sacan mejores calificaciones. ¿Puedes concluir que desayunar sube las calificaciones?",
-       "opciones": [
-        "No, son contrarias",
-        "Sí, seguro",
-        "No solo con eso; podría haber otras causas, como la rutina familiar"
-       ],
-       "correcta": 2
+       "tipo": "info",
+       "titulo": "Y lo que te tiene que gustar",
+       "puntos": [
+        "Datos y patrones",
+        "Programar",
+        "Inteligencia artificial"
+       ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "En verano suben las ventas de helado y los ahogamientos. ¿Qué los conecta?",
-       "opciones": [
-        "El helado",
-        "El calor, que causa las dos cosas",
-        "Nada"
-       ],
-       "correcta": 1
+       "tipo": "reflexion",
+       "pregunta": "¿Me gusta encontrar patrones en números?",
+       "escala": [
+        "No",
+        "Sí"
+       ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué necesitas para probar que algo causa otra cosa?",
-       "opciones": [
-        "Que los datos suban juntos",
-        "Un experimento o un análisis cuidadoso que descarte otras causas",
-        "Una gráfica bonita"
-       ],
-       "correcta": 1
+       "tipo": "reflexion",
+       "pregunta": "¿Me veo programando todos los días?",
+       "escala": [
+        "No",
+        "Sí"
+       ]
       },
       {
-       "tipo": "teves"
+       "tipo": "reflexion",
+       "pregunta": "¿Me interesa más analizar que construir apps?",
+       "escala": [
+        "No",
+        "Sí"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Si dijiste que no a algo, no pasa nada: sirve para saber qué preguntar y qué carreras parecidas ver."
       }
      ]
     },
     {
      "id": "4",
-     "titulo": "Limpiar los datos",
-     "minutos": 4,
+     "titulo": "Lo que estudias",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "¿Qué crees que ves en el primer año de Ciencia de datos?"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál crees que es el primer año?",
+       "opciones": [
+        "Cálculo, Álgebra lineal, Programación en Python",
+        "Introducción al derecho, Derecho romano, Teoría del Estado",
+        "Cálculo, Física, Dibujo mecánico / CAD"
+       ],
+       "correcta": 0,
+       "explicacion": "Esas son materias de los primeros semestres. Las otras son de Derecho y Ing. Mecánica.",
+       "adivina": true
+      },
+      {
        "tipo": "info",
-       "titulo": "Limpiar los datos",
-       "partes": [
-        {
-         "t": "Gran parte del trabajo en ciencia de datos es limpiar: los datos reales vienen con errores. Hay registros duplicados, valores faltantes, fechas en distintos formatos, nombres escritos diferente, como \"CDMX\" y \"Ciudad de México\", y valores imposibles, como una edad de 250 años. Antes de analizar se revisa todo eso. Borrar a ciegas también es un error: si todos los datos faltantes son de un grupo, quitarlos sesga el resultado."
-        }
+       "titulo": "Lo que vas viendo",
+       "puntos": [
+        "Semestres 1-2: Cálculo, Álgebra lineal, Programación en Python, Matemáticas discretas",
+        "Semestres 3-4: Probabilidad, Estadística, Bases de datos, Estructuras de datos",
+        "Semestres 5-6: Aprendizaje automático, Visualización de datos, Big data, Optimización",
+        "Semestres 7 en adelante: Ética de datos, Proyecto con datos reales"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Una tabla de clientes tiene a la misma persona tres veces. ¿Qué haces?",
-       "opciones": [
-        "Quitas los duplicados antes de contar clientes",
-        "Los dejas",
-        "Los cuentas triple"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "En la columna de edad aparece un 250. ¿Qué haces?",
-       "opciones": [
-        "Lo revisas como posible error de captura",
-        "Lo dejas",
-        "Lo usas para el promedio"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Tus datos dicen \"CDMX\", \"Cd. de México\" y \"Ciudad de México\". ¿Qué pasa si no los unificas?",
-       "opciones": [
-        "Se suman solos",
-        "Los cuentas como tres lugares distintos",
-        "Nada"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Casi todos los datos faltantes de ingreso son de personas mayores. Si borras esas filas, ¿qué pasa?",
-       "opciones": [
-        "Nada",
-        "Mejora",
-        "Tu análisis deja fuera a ese grupo y queda sesgado"
-       ],
-       "correcta": 2
+       "tipo": "clave",
+       "texto": "Los nombres cambian un poco según la universidad; la idea general es esta."
       },
       {
        "tipo": "teves"
@@ -272,52 +219,41 @@
   },
   {
    "id": "u3",
-   "titulo": "Mostrar y predecir",
-   "sub": "Gráficas, modelos y ética",
+   "titulo": "¿Y después?",
+   "sub": "Trabajo y dificultad",
    "lecciones": [
     {
      "id": "5",
-     "titulo": "Gráficas honestas",
-     "minutos": 4,
+     "titulo": "Dónde trabajarías",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Al terminar, ¿dónde crees que trabajaría alguien de Ciencia de datos?"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál de estos lugares es más de Ciencia de datos?",
+       "opciones": [
+        "Empresas industriales y tecnológicas",
+        "Hospitales",
+        "Instituciones públicas y privadas"
+       ],
+       "correcta": 0,
+       "explicacion": "Es uno de los lugares donde trabaja alguien de Ciencia de datos.",
+       "adivina": true
+      },
+      {
        "tipo": "info",
-       "titulo": "Gráficas honestas",
-       "partes": [
-        {
-         "t": "Una buena gráfica hace que el mensaje se entienda en segundos. Para comparar categorías se usan barras; para ver cómo cambia algo en el tiempo, líneas. Las gráficas de pastel solo funcionan con pocas partes. Un truco engañoso es cortar el eje de las barras para que una diferencia pequeña se vea enorme. Por eso, en las barras el eje empieza en cero. Siempre se ponen títulos, unidades y la fuente de los datos."
-        }
+       "titulo": "Dónde se trabaja",
+       "puntos": [
+        "Empresas industriales y tecnológicas",
+        "Consultoría",
+        "Construcción",
+        "Energía",
+        "Manufactura",
+        "Telecomunicaciones"
        ]
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Quieres mostrar cómo cambiaron las ventas mes a mes durante un año. ¿Qué gráfica usas?",
-       "opciones": [
-        "De pastel",
-        "Ninguna",
-        "De líneas"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Una gráfica de barras empieza en 95 y hace que 97 se vea el doble que 96. ¿Qué problema tiene?",
-       "opciones": [
-        "Tiene muchos colores",
-        "Ninguno",
-        "Exagera una diferencia pequeña porque el eje no empieza en cero"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué no le debe faltar a una gráfica?",
-       "opciones": [
-        "Muchos colores",
-        "Título, unidades y fuente",
-        "Animaciones"
-       ],
-       "correcta": 1
       },
       {
        "tipo": "teves"
@@ -326,64 +262,21 @@
     },
     {
      "id": "6",
-     "titulo": "Modelos que predicen",
-     "minutos": 4,
+     "titulo": "¿Hay trabajo?",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Ahora lo que todos preguntan: ¿hay trabajo y cuánto se gana?"
+      },
+      {
        "tipo": "info",
-       "titulo": "Modelos que predicen",
-       "partes": [
-        {
-         "t": "Un modelo aprende patrones de datos pasados para predecir algo, como si un cliente dejará de pagar. Para saber si funciona, se prueba con datos que no vio al aprender. Si se aprende de memoria los datos de entrenamiento, funciona perfecto ahí y mal con datos nuevos; eso se llama sobreajuste. La exactitud es la proporción de aciertos:"
-        },
-        {
-         "f": "exactitud = {aciertos|total de casos}"
-        },
-        {
-         "t": "Pero cuidado: si solo 1 de cada 100 transacciones es fraude, un modelo que siempre dice \"no es fraude\" tiene 99 por ciento de exactitud y no sirve para nada."
-        }
-       ]
+       "titulo": "Así está el trabajo",
+       "texto": "Carrera nueva; IMCO no la separa y se aproxima con 'Ciencias computacionales' ($24,983)."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Un modelo acertó 180 de 200 casos. ¿Cuál es su exactitud?",
-       "opciones": [
-        "0.9, o 90 por ciento",
-        "180",
-        "0.2"
-       ],
-       "correcta": 0,
-       "formula": "{180|200} = 0.9"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Tu modelo tiene 100 por ciento de exactitud con los datos de entrenamiento y 60 con datos nuevos. ¿Qué pasó?",
-       "opciones": [
-        "Los datos nuevos están mal",
-        "Sobreajuste: memorizó en vez de aprender",
-        "Es excelente"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "En fraudes, donde solo 1 de cada 100 casos es fraude, un modelo tiene 99 por ciento de exactitud. ¿Qué revisas?",
-       "opciones": [
-        "Si realmente detecta los fraudes o solo dice siempre \"no es fraude\"",
-        "El color de la pantalla",
-        "Nada, es excelente"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Por qué se prueba el modelo con datos que no vio?",
-       "opciones": [
-        "Para saber si funciona con casos nuevos",
-        "Por costumbre",
-        "Para que tarde más"
-       ],
-       "correcta": 0
+       "tipo": "clave",
+       "texto": "No requiere cédula; el portafolio de proyectos es clave."
       },
       {
        "tipo": "teves"
@@ -392,47 +285,37 @@
     },
     {
      "id": "7",
-     "titulo": "Datos y personas",
-     "minutos": 4,
+     "titulo": "Qué tan difícil es",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "¿Dónde crees que está lo más difícil de Ciencia de datos?"
+      },
+      {
        "tipo": "info",
-       "titulo": "Datos y personas",
-       "partes": [
-        {
-         "t": "Los datos casi siempre son de personas, y eso trae responsabilidades. En México, la ley protege los datos personales: se necesita avisar para qué se usan y cuidarlos. Un modelo entrenado con datos injustos del pasado puede repetir esa injusticia, por ejemplo negar créditos a una colonia entera. Por eso se revisa a quién afecta un modelo antes de usarlo. Y los resultados se explican en palabras que entienda quien va a decidir."
-        }
+       "titulo": "Lo más difícil",
+       "texto": "Dificultad alta. Cálculo, Álgebra lineal, Probabilidad y Programación desde el primer año."
+      },
+      {
+       "tipo": "info",
+       "titulo": "Cuánto dura",
+       "texto": "4 a 4.5 años."
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Te ves aguantando eso?",
+       "escala": [
+        "No",
+        "Sí"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Tu modelo de créditos rechaza casi siempre a personas de ciertas colonias. ¿Qué haces?",
-       "opciones": [
-        "Revisas si está repitiendo una injusticia de los datos y lo corriges",
-        "Lo usas igual",
-        "Borras las colonias del mapa"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un jefe quiere usar los datos de clientes para algo que nunca se les avisó.",
-       "opciones": [
-        "Lo haces",
-        "Le explicas que hay que respetar el aviso de privacidad y la ley",
-        "Vendes los datos"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Presentas tus resultados a directivos que no saben estadística.",
-       "opciones": [
-        "Explicas en palabras claras lo que significa para su decisión",
-        "No presentas",
-        "Muestras todo el código"
-       ],
-       "correcta": 0
+       "tipo": "info",
+       "titulo": "Si te gusta, pero no del todo",
+       "puntos": [
+        "Mira también: Actuaría, Matemáticas, Economía"
+       ]
       },
       {
        "tipo": "teves"
@@ -443,126 +326,27 @@
   },
   {
    "id": "u4",
-   "titulo": "Examen final",
-   "sub": "10 preguntas · apruebas con 7",
+   "titulo": "Tu decisión",
+   "sub": "¿La guardas o la descartas?",
    "lecciones": [
     {
      "id": "ex",
-     "titulo": "Examen final",
-     "minutos": 6,
-     "examen": true,
-     "aprobar": 7,
+     "titulo": "Tu veredicto",
+     "minutos": 2,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "Examen final",
-       "partes": [
-        {
-         "t": "Son 10 casos nuevos que mezclan todas las lecciones. Apruebas con 7. Si no, lo repites y las que fallaste regresan con otras palabras."
-        }
-       ]
+       "tipo": "escena",
+       "texto": "Ya sabes qué hace alguien de Ciencia de datos, qué estudias, qué tan difícil es y si hay trabajo."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Los valores 4, 6, 8, 10 y 12. ¿Cuál es el promedio?",
-       "opciones": [
-        "40",
-        "8",
-        "6"
-       ],
-       "correcta": 1,
-       "formula": "{4 + 6 + 8 + 10 + 12|5} = 8"
+       "tipo": "escuelas"
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué medida aguanta mejor los valores extremos?",
-       "opciones": [
-        "El promedio",
-        "La mediana",
-        "El máximo"
-       ],
-       "correcta": 1
+       "tipo": "veredicto"
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué es una muestra sesgada?",
-       "opciones": [
-        "Una muestra grande",
-        "Una muestra al azar",
-        "Una que deja fuera a algunos grupos"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Si dos cosas suben juntas, ¿una causa la otra?",
-       "opciones": [
-        "No necesariamente",
-        "Siempre",
-        "Nunca"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué haces con registros duplicados?",
-       "opciones": [
-        "Los sumas",
-        "Los dejas",
-        "Los quitas antes de contar"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Dónde debe empezar el eje de una gráfica de barras?",
-       "opciones": [
-        "En cero",
-        "En el valor más alto",
-        "Donde quieras"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un modelo acertó 45 de 50 casos. ¿Cuál es su exactitud?",
-       "opciones": [
-        "0.45",
-        "0.9",
-        "5"
-       ],
-       "correcta": 1,
-       "formula": "{45|50} = 0.9"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué es el sobreajuste?",
-       "opciones": [
-        "Que usa muchos colores",
-        "Que es muy lento",
-        "Que el modelo memoriza los datos de entrenamiento y falla con datos nuevos"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué gráfica usas para ver un cambio en el tiempo?",
-       "opciones": [
-        "Ninguna",
-        "De pastel",
-        "De líneas"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Tu modelo afecta injustamente a un grupo.",
-       "opciones": [
-        "Lo usas igual",
-        "Lo escondes",
-        "Lo revisas y corriges"
-       ],
-       "correcta": 2
+       "tipo": "clave",
+       "texto": "Decidir «sigo en duda» también es avanzar."
       }
      ]
     }

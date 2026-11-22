@@ -1,14 +1,15 @@
 {
  "id": "arquitectura",
- "version": 2,
+ "version": 3,
  "formato": 2,
  "estado": "completo",
- "revision": "Pendiente de revisión por un profesionista de la carrera. Generado con datos/importar_lecciones.py desde datos/fuentes/lecciones/arquitectura.lec; no se edita a mano.",
+ "generado": true,
+ "revision": "Lecciones generales (de qué trata la carrera y si va contigo), armadas con datos/lecciones_generales.py desde la base de carreras con fuentes (2026-11-17).",
  "unidades": [
   {
    "id": "u1",
-   "titulo": "Dibujar espacios",
-   "sub": "Planos y medidas humanas",
+   "titulo": "¿De qué se trata?",
+   "sub": "Qué hace y cómo es su día",
    "lecciones": [
     {
      "id": "0",
@@ -16,82 +17,70 @@
      "minutos": 1,
      "tarjetas": [
       {
-       "tipo": "ficha",
-       "texto": "Arquitectura forma arquitectos que diseñan casas, escuelas, hospitales y ciudades pensando en las personas que los van a usar, en el clima, en la estructura y en el presupuesto. Luego supervisan que la obra se construya como se diseñó.",
-       "cifras": [
-        "arquitectura.ingreso",
-        "arquitectura.duracion",
-        "arquitectura.costo_publica",
-        "arquitectura.costo_privada"
-       ]
+       "tipo": "escena",
+       "texto": "Antes de leer nada: ¿qué crees que hace alguien que estudió Arquitectura?"
       },
       {
-       "tipo": "escena",
-       "texto": "Hoy diseñas una casa de verdad. Vamos a ver si la gente puede vivir en ella."
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál de estas cosas crees que hace?",
+       "opciones": [
+        "Diseña espacios (casas, edificios, interiores) desde el boceto hasta los planos",
+        "Analiza escenas del crimen",
+        "Investiga qué quieren los clientes"
+       ],
+       "correcta": 0,
+       "explicacion": "En pocas palabras, Arquitectura es diseño y planificación de edificios, espacios y ciudades, considerando funcionalidad, estructura, materiales, normativa, sostenibilidad y necesidades de las personas.",
+       "adivina": true
+      },
+      {
+       "tipo": "info",
+       "titulo": "Arquitectura en una frase",
+       "texto": "Diseño y planificación de edificios, espacios y ciudades, considerando funcionalidad, estructura, materiales, normativa, sostenibilidad y necesidades de las personas."
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
      "id": "1",
-     "titulo": "Escala y planos",
-     "minutos": 4,
+     "titulo": "Un día normal",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Imagina que acompañas un día entero a alguien de Arquitectura. ¿Qué crees que hace?"
+      },
+      {
        "tipo": "info",
-       "titulo": "Escala y planos",
-       "partes": [
-        {
-         "t": "Un arquitecto dibuja edificios mucho más chicos de lo que son, usando una escala. En escala 1:100, un centímetro en el plano son 100 centímetros, o sea un metro, en la realidad. Para pasar del plano a la realidad:"
-        },
-        {
-         "f": "medida real = medida en el plano × escala"
-        },
-        {
-         "t": "Hay distintos tipos de dibujo. La planta es el edificio visto desde arriba, como si lo cortaras horizontalmente a la altura de la cintura. El corte es una rebanada vertical que muestra alturas. La fachada es como se ve desde afuera. Leer bien un plano es lo primero que se aprende en la carrera."
-        }
+       "titulo": "Un día normal",
+       "puntos": [
+        "Diseña espacios (casas, edificios, interiores) desde el boceto hasta los planos",
+        "Presenta a clientes",
+        "Coordina con ingenieros y supervisa la obra"
        ]
       },
       {
        "tipo": "pregunta",
-       "pregunta": "En un plano a escala 1:100, una pared mide 5 centímetros. ¿Cuánto mide en la realidad?",
+       "pregunta": "¿Cuál de estas cosas NO es parte de su día?",
        "opciones": [
-        "500 metros",
-        "50 centímetros",
-        "5 metros"
+        "Resuelve problemas con modelos matemáticos en bancos, aseguradoras",
+        "Presenta a clientes",
+        "Coordina con ingenieros y supervisa la obra"
        ],
-       "correcta": 2,
-       "formula": "5 × 100 = 500 cm = 5 m"
+       "correcta": 0,
+       "explicacion": "Eso lo hace alguien de Matemáticas, no de Arquitectura.",
+       "adivina": true
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué dibujo muestra el edificio visto desde arriba, cortado a la altura de la cintura?",
+       "tipo": "reflexion",
+       "pregunta": "De ese día, ¿qué te late más?",
        "opciones": [
-        "La fachada",
-        "El corte",
-        "La planta"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Quieres mostrarle a un cliente qué tan alto es el techo de la sala y cómo queda la escalera. ¿Qué dibujo usas?",
-       "opciones": [
-        "La planta",
-        "El croquis de ubicación",
-        "Un corte"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un terreno de 20 metros de largo tiene que caber en tu hoja a escala 1:200. ¿Cuánto mide en el plano?",
-       "opciones": [
-        "1 centímetro",
-        "10 centímetros",
-        "40 centímetros"
-       ],
-       "correcta": 1,
-       "formula": "{2,000 cm|200} = 10 cm"
+        "Diseña espacios (casas, edificios, interiores) desde el boceto hasta los planos",
+        "Presenta a clientes",
+        "Coordina con ingenieros y supervisa la obra",
+        "Nada de eso"
+       ]
       },
       {
        "tipo": "teves"
@@ -100,57 +89,36 @@
     },
     {
      "id": "2",
-     "titulo": "El cuerpo humano manda",
-     "minutos": 4,
+     "titulo": "Mitos y realidades",
+     "minutos": 2,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "El cuerpo humano manda",
-       "partes": [
-        {
-         "t": "Los espacios se diseñan para las personas que los van a usar. A eso se le llama ergonomía y antropometría: medidas del cuerpo. Una puerta normal mide unos 90 centímetros de ancho, y para una silla de ruedas no debe ser menor a eso. Un pasillo cómodo para una persona mide alrededor de un metro. Una silla de ruedas necesita un círculo de 1.5 metros para dar la vuelta. Un escalón cómodo tiene unos 17 centímetros de alto y unos 28 de huella, que es donde pisas. Diseñar pensando en todos, incluidos adultos mayores y personas con discapacidad, se llama diseño universal."
-        }
-       ]
+       "tipo": "escena",
+       "texto": "¿Verdadero o falso? Primero di lo que crees."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Diseñas el baño de una clínica. ¿Qué espacio necesita una silla de ruedas para girar?",
-       "opciones": [
-        "50 centímetros",
-        "No necesita espacio",
-        "Un círculo de 1.5 metros"
-       ],
-       "correcta": 2
+       "tipo": "vf",
+       "afirmacion": "En Arquitectura llevas materias de matemáticas o con muchos números.",
+       "respuesta": true,
+       "revelacion": "Sí: Geometría. Muchos eligen carrera pensando en evitar las matemáticas; mejor saberlo desde ahora."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Un cliente quiere escalones de 25 centímetros de alto para ahorrar espacio. ¿Qué le dices?",
-       "opciones": [
-        "Que son demasiado altos e incómodos, y conviene que ronden los 17",
-        "Que está perfecto",
-        "Que mejor de 40"
-       ],
-       "correcta": 0
+       "tipo": "vf",
+       "afirmacion": "Es de las carreras más difíciles.",
+       "respuesta": true,
+       "revelacion": "Su dificultad es alta. Talleres de proyecto con entregas que implican desveladas; Estructuras y Matemáticas sorprenden."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "En una escuela, una puerta de salón mide 70 centímetros de ancho. ¿Qué problema tiene?",
-       "opciones": [
-        "No pasa bien una silla de ruedas",
-        "Es demasiado ancha",
-        "Ninguno"
-       ],
-       "correcta": 0
+       "tipo": "vf",
+       "afirmacion": "La mayoría de quienes la estudian terminan trabajando en otra cosa.",
+       "respuesta": false,
+       "revelacion": "60 de cada 100 trabajan en algo de su carrera (IMCO, Compara Carreras 2026)."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué es el diseño universal?",
-       "opciones": [
-        "Diseñar igual en todo el mundo",
-        "Diseñar solo edificios grandes",
-        "Diseñar espacios que puedan usar todas las personas, incluidas las que tienen alguna discapacidad"
-       ],
-       "correcta": 2
+       "tipo": "vf",
+       "afirmacion": "Casi todos los que se dedican a esto son hombres.",
+       "respuesta": false,
+       "revelacion": "De cada 100 personas que la ejercen, 33 son mujeres (IMCO, Compara Carreras 2026)."
       },
       {
        "tipo": "teves"
@@ -161,173 +129,101 @@
   },
   {
    "id": "u2",
-   "titulo": "Que funcione",
-   "sub": "Clima, estructura y reglamento",
+   "titulo": "¿Va contigo?",
+   "sub": "Lo que pide y lo que estudias",
    "lecciones": [
     {
      "id": "3",
-     "titulo": "Sol, viento y clima",
-     "minutos": 4,
+     "titulo": "¿Se te da?",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Para que una carrera te guste no basta con que te llame la atención. ¿Se te da lo que pide?"
+      },
+      {
        "tipo": "info",
-       "titulo": "Sol, viento y clima",
-       "partes": [
-        {
-         "t": "Un buen edificio aprovecha el clima para gastar menos energía. En México, el sol pasa más por el sur durante gran parte del año, así que las fachadas que dan al poniente reciben el sol fuerte de la tarde y se calientan mucho. Para refrescar se usa ventilación cruzada: ventanas en lados opuestos para que el aire atraviese el espacio. Los aleros, las celosías y los árboles dan sombra. En climas cálidos como el de Cuernavaca, los techos altos y los muros gruesos ayudan a mantener el interior fresco."
-        }
+       "titulo": "Lo que pide Arquitectura",
+       "puntos": [
+        "Creatividad",
+        "Visión espacial",
+        "Dibujo y software 3D",
+        "Resistencia a desveladas"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "La recámara principal da al poniente, con un ventanal grande sin protección. ¿Qué problema tendrá?",
-       "opciones": [
-        "Se calentará mucho en las tardes",
-        "Ninguno",
-        "Estará muy fría"
-       ],
-       "correcta": 0
+       "tipo": "info",
+       "titulo": "Y lo que te tiene que gustar",
+       "puntos": [
+        "Diseño de espacios",
+        "Arte y construcción",
+        "Ciudades"
+       ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Un salón tiene ventanas solo en una pared y se siente encerrado y caluroso. ¿Qué propones?",
-       "opciones": [
-        "Poner más focos",
-        "Abrir ventanas en la pared opuesta para tener ventilación cruzada",
-        "Cerrar las ventanas"
-       ],
-       "correcta": 1
+       "tipo": "reflexion",
+       "pregunta": "¿Me fijo en cómo están diseñados los lugares?",
+       "escala": [
+        "No",
+        "Sí"
+       ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué elementos ayudan a dar sombra a una fachada?",
-       "opciones": [
-        "Vidrios más grandes",
-        "Aleros, celosías y árboles",
-        "Pintura brillante"
-       ],
-       "correcta": 1
+       "tipo": "reflexion",
+       "pregunta": "¿Disfruto dibujar y hacer maquetas?",
+       "escala": [
+        "No",
+        "Sí"
+       ]
       },
       {
-       "tipo": "teves"
+       "tipo": "reflexion",
+       "pregunta": "¿Aguanto entregas con poco sueño?",
+       "escala": [
+        "No",
+        "Sí"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Si dijiste que no a algo, no pasa nada: sirve para saber qué preguntar y qué carreras parecidas ver."
       }
      ]
     },
     {
      "id": "4",
-     "titulo": "Estructura básica",
-     "minutos": 4,
+     "titulo": "Lo que estudias",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "¿Qué crees que ves en el primer año de Arquitectura?"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál crees que es el primer año?",
+       "opciones": [
+        "Taller de proyectos I, Dibujo arquitectónico, Geometría",
+        "Bases biológicas de la conducta, Teorías de la personalidad, Estadística",
+        "Teoría de las relaciones internacionales, Historia mundial, Inglés"
+       ],
+       "correcta": 0,
+       "explicacion": "Esas son materias de los primeros semestres. Las otras son de Psicología y Relaciones internacionales.",
+       "adivina": true
+      },
+      {
        "tipo": "info",
-       "titulo": "Estructura básica",
-       "partes": [
-        {
-         "t": "Todo edificio tiene que llevar su peso y el de lo que tiene dentro hasta el suelo. Las cargas bajan de la losa a las vigas, de las vigas a las columnas o muros de carga, y de ahí a la cimentación, que las reparte en el terreno. Si quitas una columna o un muro de carga sin reforzar, esas cargas no tienen por dónde bajar. En zonas sísmicas como gran parte del centro y sur de México, el diseño también tiene que resistir sismos, y eso lo calcula un ingeniero estructural junto con el arquitecto. La carga sobre una columna se estima así:"
-        },
-        {
-         "f": "carga = área que sostiene × peso por metro cuadrado"
-        }
+       "titulo": "Lo que vas viendo",
+       "puntos": [
+        "Semestres 1-2: Taller de proyectos I, Dibujo arquitectónico, Geometría, Historia de la arquitectura",
+        "Semestres 3-4: Taller de proyectos II, Estructuras, Materiales y procesos constructivos, Modelado 3D",
+        "Semestres 5-6: Instalaciones, Urbanismo, Taller de proyectos avanzados, Costos y presupuestos",
+        "Semestres 7 en adelante: Proyecto ejecutivo, Práctica profesional"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿En qué orden bajan las cargas?",
-       "opciones": [
-        "Losa, vigas, columnas, cimentación y terreno",
-        "Ventanas, puertas, piso",
-        "Terreno, columnas, losa"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un cliente quiere tirar un muro para hacer la sala más grande, y ese muro carga la losa de arriba. ¿Qué haces?",
-       "opciones": [
-        "Lo tiras poco a poco",
-        "Consultas al ingeniero estructural para poner una viga o reforzar antes de quitarlo",
-        "Lo tiras sin más"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Una columna sostiene 20 metros cuadrados de losa, y cada metro cuadrado pesa 800 kilos. ¿Cuánto carga?",
-       "opciones": [
-        "820 kilos",
-        "40 kilos",
-        "16,000 kilos"
-       ],
-       "correcta": 2,
-       "formula": "20 × 800 = 16,000"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Por qué en el centro de México el diseño estructural es tan importante?",
-       "opciones": [
-        "Porque es zona de sismos",
-        "Por el tráfico",
-        "Porque llueve"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "teves"
-      }
-     ]
-    },
-    {
-     "id": "5",
-     "titulo": "El terreno y el reglamento",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "El terreno y el reglamento",
-       "partes": [
-        {
-         "t": "Cada municipio tiene reglas sobre cuánto puedes construir. El COS, coeficiente de ocupación del suelo, dice qué parte del terreno puedes cubrir en planta baja. El CUS, coeficiente de utilización del suelo, dice cuántos metros cuadrados puedes construir en total, sumando todos los pisos."
-        },
-        {
-         "f": "área en planta baja = área del terreno × COS ;; área total = área del terreno × CUS"
-        },
-        {
-         "t": "La parte que queda libre ayuda a que el agua de lluvia se filtre al suelo. Antes de diseñar, siempre se revisan estas reglas y la licencia de construcción."
-        }
-       ]
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un terreno de 200 metros cuadrados tiene un COS de 0.6. ¿Cuánto puedes cubrir en planta baja?",
-       "opciones": [
-        "120 metros cuadrados",
-        "200 metros cuadrados",
-        "60 metros cuadrados"
-       ],
-       "correcta": 0,
-       "formula": "200 × 0.6 = 120"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "El mismo terreno tiene un CUS de 1.8. ¿Cuántos metros cuadrados puedes construir en total?",
-       "opciones": [
-        "360",
-        "180",
-        "200"
-       ],
-       "correcta": 0,
-       "formula": "200 × 1.8 = 360"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un cliente quiere construir un piso más del que permite el reglamento.",
-       "opciones": [
-        "Lo construyes sin licencia",
-        "Le explicas el límite y buscas otra solución dentro de lo permitido",
-        "Lo diseñas igual"
-       ],
-       "correcta": 1,
-       "explicacion": "Una obra fuera de reglamento puede ser clausurada."
+       "tipo": "clave",
+       "texto": "Los nombres cambian un poco según la universidad; la idea general es esta."
       },
       {
        "tipo": "teves"
@@ -338,62 +234,82 @@
   },
   {
    "id": "u3",
-   "titulo": "De la idea a la obra",
-   "sub": "Cliente y construcción",
+   "titulo": "¿Y después?",
+   "sub": "Trabajo y dificultad",
    "lecciones": [
     {
-     "id": "6",
-     "titulo": "El cliente y el programa",
-     "minutos": 4,
+     "id": "5",
+     "titulo": "Dónde trabajarías",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Al terminar, ¿dónde crees que trabajaría alguien de Arquitectura?"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál de estos lugares es más de Arquitectura?",
+       "opciones": [
+        "Empresas industriales y tecnológicas",
+        "Hospitales",
+        "Universidades"
+       ],
+       "correcta": 0,
+       "explicacion": "Es uno de los lugares donde trabaja alguien de Arquitectura.",
+       "adivina": true
+      },
+      {
        "tipo": "info",
-       "titulo": "El cliente y el programa",
-       "partes": [
-        {
-         "t": "Antes de dibujar, el arquitecto escucha. El programa arquitectónico es la lista de espacios que necesita el cliente, con sus tamaños aproximados y cómo se relacionan: qué debe estar junto a qué. Por ejemplo, la cocina cerca del comedor, y las recámaras lejos del ruido de la calle. El presupuesto define qué tan grande y con qué materiales se puede construir. Un buen diseño responde a la vida real del cliente, no solo a cómo se ve. Lo que el cliente pide y lo que necesita no siempre es lo mismo, y parte del trabajo es aclararlo."
-        }
+       "titulo": "Dónde se trabaja",
+       "puntos": [
+        "Empresas industriales y tecnológicas",
+        "Consultoría",
+        "Construcción",
+        "Energía",
+        "Manufactura",
+        "Telecomunicaciones"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué es el programa arquitectónico?",
-       "opciones": [
-        "El software para dibujar",
-        "La lista de espacios que necesita el cliente y cómo se relacionan",
-        "El contrato"
-       ],
-       "correcta": 1
+       "tipo": "teves"
+      }
+     ]
+    },
+    {
+     "id": "6",
+     "titulo": "¿Hay trabajo?",
+     "minutos": 2,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Ahora lo que todos preguntan: ¿hay trabajo y cuánto se gana?"
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Una familia con tres niños pequeños quiere la recámara de los papás en el tercer piso, lejos de los niños. ¿Qué haces?",
-       "opciones": [
-        "Les preguntas cómo es su rutina y les explicas las ventajas de tener las recámaras cerca mientras los niños son pequeños",
-        "Les dices que están mal",
-        "Lo dibujas sin comentar"
-       ],
-       "correcta": 0
+       "tipo": "rango",
+       "pregunta": "De cada 100 que estudiaron Arquitectura, ¿cuántos crees que trabajan en algo de su carrera?",
+       "min": 0,
+       "max": 100,
+       "paso": 5,
+       "unidad": "de cada 100",
+       "dato": "arquitectura.ocupacion_afin"
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "El cliente quiere 300 metros cuadrados, pero su presupuesto alcanza para 180.",
-       "opciones": [
-        "Diseñas 300 igual",
-        "Usas materiales malos para que alcance",
-        "Le explicas la diferencia y priorizan los espacios, o se plantea construir por etapas"
-       ],
-       "correcta": 2
+       "tipo": "rango",
+       "pregunta": "¿Cuánto crees que gana al mes, en promedio?",
+       "min": 5000,
+       "max": 50000,
+       "paso": 1000,
+       "unidad": "pesos al mes",
+       "dato": "arquitectura.ingreso"
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Dónde conviene poner la cocina?",
-       "opciones": [
-        "Junto a las recámaras",
-        "Cerca del comedor",
-        "En el último piso, lejos de todo"
-       ],
-       "correcta": 1
+       "tipo": "info",
+       "titulo": "Así está el trabajo",
+       "texto": "Cuarta mejor pagada de 2026 ($26,822) y 60% ejerce; desempleo a la baja."
+      },
+      {
+       "tipo": "clave",
+       "texto": "Cédula para firmar proyectos y licencias; los materiales y el software son caros."
       },
       {
        "tipo": "teves"
@@ -402,51 +318,30 @@
     },
     {
      "id": "7",
-     "titulo": "La obra",
-     "minutos": 4,
+     "titulo": "Qué tan difícil es",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "¿Dónde crees que está lo más difícil de Arquitectura?"
+      },
+      {
        "tipo": "info",
-       "titulo": "La obra",
-       "partes": [
-        {
-         "t": "Cuando se construye, el arquitecto supervisa que la obra se haga como está en los planos. Revisa medidas, materiales y calidad, y resuelve los problemas que aparecen. Los cambios durante la obra cuestan más que los cambios en el papel. También cuida el presupuesto: se calcula la cantidad de material con las medidas, y se suele sumar un desperdicio, por ejemplo de 5 a 10 por ciento."
-        },
-        {
-         "f": "material a comprar = área × (1 + desperdicio)"
-        }
+       "titulo": "Lo más difícil",
+       "texto": "Dificultad alta. Talleres de proyecto con entregas que implican desveladas; Estructuras y Matemáticas sorprenden."
+      },
+      {
+       "tipo": "info",
+       "titulo": "Cuánto dura",
+       "texto": "5 años."
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Te ves aguantando eso?",
+       "escala": [
+        "No",
+        "Sí"
        ]
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Tienes que poner piso en 50 metros cuadrados con 10 por ciento de desperdicio. ¿Cuánto compras?",
-       "opciones": [
-        "50 metros cuadrados",
-        "60 metros cuadrados",
-        "55 metros cuadrados"
-       ],
-       "correcta": 2,
-       "formula": "50 × 1.10 = 55"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "En la obra ves que pusieron una ventana más chica de lo que dice el plano.",
-       "opciones": [
-        "La dejas así",
-        "Cambias el plano para que coincida",
-        "Lo reportas y pides que se corrija según el plano o que se documente el cambio con el cliente"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Por qué conviene decidir todo antes de empezar a construir?",
-       "opciones": [
-        "No conviene",
-        "Porque los cambios en obra cuestan más que en el papel",
-        "Porque así lo dice la escuela"
-       ],
-       "correcta": 1
       },
       {
        "tipo": "teves"
@@ -457,128 +352,27 @@
   },
   {
    "id": "u4",
-   "titulo": "Examen final",
-   "sub": "10 preguntas · apruebas con 7",
+   "titulo": "Tu decisión",
+   "sub": "¿La guardas o la descartas?",
    "lecciones": [
     {
      "id": "ex",
-     "titulo": "Examen final",
-     "minutos": 6,
-     "examen": true,
-     "aprobar": 7,
+     "titulo": "Tu veredicto",
+     "minutos": 2,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "Examen final",
-       "partes": [
-        {
-         "t": "Son 10 casos nuevos que mezclan todas las lecciones. Apruebas con 7. Si no, lo repites y las que fallaste regresan con otras palabras."
-        }
-       ]
+       "tipo": "escena",
+       "texto": "Ya sabes qué hace alguien de Arquitectura, qué estudias, qué tan difícil es y si hay trabajo."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "En un plano a escala 1:50, una pared mide 8 centímetros. ¿Cuánto mide en la realidad?",
-       "opciones": [
-        "4 metros",
-        "8 metros",
-        "40 centímetros"
-       ],
-       "correcta": 0,
-       "formula": "8 × 50 = 400 cm = 4 m"
+       "tipo": "escuelas"
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué dibujo muestra la altura de los espacios?",
-       "opciones": [
-        "La ubicación",
-        "El corte",
-        "La planta"
-       ],
-       "correcta": 1
+       "tipo": "veredicto"
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué espacio necesita una silla de ruedas para girar?",
-       "opciones": [
-        "60 centímetros",
-        "Un círculo de 1.5 metros",
-        "3 metros"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué es la ventilación cruzada?",
-       "opciones": [
-        "Cerrar todas las ventanas",
-        "Ventanas en lados opuestos para que el aire atraviese el espacio",
-        "Un ventilador de techo"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué fachada se calienta más en las tardes en México?",
-       "opciones": [
-        "La que da al poniente",
-        "Todas igual",
-        "La que da al oriente"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un cliente quiere tirar un muro que carga la losa.",
-       "opciones": [
-        "Lo tiras",
-        "Lo tiras de noche",
-        "Consultas al ingeniero estructural y refuerzas antes"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un terreno de 300 metros cuadrados tiene un COS de 0.7. ¿Cuánto puedes cubrir en planta baja?",
-       "opciones": [
-        "70 metros cuadrados",
-        "210 metros cuadrados",
-        "300 metros cuadrados"
-       ],
-       "correcta": 1,
-       "formula": "300 × 0.7 = 210"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Una columna sostiene 15 metros cuadrados y cada metro cuadrado pesa 600 kilos. ¿Cuánto carga?",
-       "opciones": [
-        "9,000 kilos",
-        "615 kilos",
-        "40 kilos"
-       ],
-       "correcta": 0,
-       "formula": "15 × 600 = 9,000"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Necesitas piso para 80 metros cuadrados con 5 por ciento de desperdicio. ¿Cuánto compras?",
-       "opciones": [
-        "84 metros cuadrados",
-        "85 metros cuadrados",
-        "80 metros cuadrados"
-       ],
-       "correcta": 0,
-       "formula": "80 × 1.05 = 84"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "El presupuesto del cliente no alcanza para todo lo que pide.",
-       "opciones": [
-        "No le dices nada",
-        "Usas materiales malos",
-        "Priorizan espacios o se construye por etapas"
-       ],
-       "correcta": 2
+       "tipo": "clave",
+       "texto": "Decidir «sigo en duda» también es avanzar."
       }
      ]
     }

@@ -1,14 +1,15 @@
 {
  "id": "gastronomia",
- "version": 2,
+ "version": 3,
  "formato": 2,
  "estado": "completo",
- "revision": "Pendiente de revisión por un profesionista de la carrera. Generado con datos/importar_lecciones.py desde datos/fuentes/lecciones/gastronomia.lec; no se edita a mano.",
+ "generado": true,
+ "revision": "Lecciones generales (de qué trata la carrera y si va contigo), armadas con datos/lecciones_generales.py desde la base de carreras con fuentes (2026-11-17).",
  "unidades": [
   {
    "id": "u1",
-   "titulo": "Cocina segura y rentable",
-   "sub": "Inocuidad y costos",
+   "titulo": "¿De qué se trata?",
+   "sub": "Qué hace y cómo es su día",
    "lecciones": [
     {
      "id": "0",
@@ -16,74 +17,71 @@
      "minutos": 1,
      "tarjetas": [
       {
-       "tipo": "ficha",
-       "texto": "Gastronomía forma chefs y profesionales de alimentos y bebidas. Aprenden técnicas de cocina, cocina mexicana e internacional, higiene, costos y cómo dirigir una cocina o un restaurante. Trabajan en restaurantes, hoteles, banquetes, industria de alimentos o en su propio negocio.",
-       "cifras": [
-        "gastronomia.ingreso",
-        "gastronomia.duracion",
-        "gastronomia.costo_publica",
-        "gastronomia.costo_privada"
-       ]
+       "tipo": "escena",
+       "texto": "Antes de leer nada: ¿qué crees que hace alguien que estudió Gastronomía?"
       },
       {
-       "tipo": "escena",
-       "texto": "Hoy estás a cargo de la cocina. Vamos a ver si sale rico, seguro y con ganancia."
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál de estas cosas crees que hace?",
+       "opciones": [
+        "Crea platillos",
+        "Analiza escenas del crimen",
+        "Mejora procesos en fábricas"
+       ],
+       "correcta": 0,
+       "explicacion": "En pocas palabras, Gastronomía es servicios turísticos, hospitalidad, alimentos y bebidas o gestión de destinos. Desarrolla capacidades de operación, atención al cliente, administración, creatividad y calidad del servicio.",
+       "adivina": true
+      },
+      {
+       "tipo": "info",
+       "titulo": "Gastronomía en una frase",
+       "texto": "Servicios turísticos, hospitalidad, alimentos y bebidas o gestión de destinos."
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
      "id": "1",
-     "titulo": "Inocuidad",
-     "minutos": 4,
+     "titulo": "Un día normal",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Imagina que acompañas un día entero a alguien de Gastronomía. ¿Qué crees que hace?"
+      },
+      {
        "tipo": "info",
-       "titulo": "Inocuidad",
-       "partes": [
-        {
-         "t": "En una cocina profesional lo primero es no enfermar a nadie. Las bacterias crecen rápido entre 4 y 60 grados, la llamada zona de peligro. Por eso lo frío se guarda en refrigeración a 4 grados o menos, lo caliente se mantiene a más de 60, y la comida no se deja a temperatura ambiente más de dos horas. Hay que evitar la contaminación cruzada: no usar la misma tabla y el mismo cuchillo para pollo crudo y para verduras que se comen crudas. El pollo se cocina hasta que por dentro alcance unos 74 grados, medidos con termómetro."
-        }
+       "titulo": "Un día normal",
+       "puntos": [
+        "Crea platillos",
+        "Controla costos e inventarios",
+        "Dirige equipos de cocina y, si emprende",
+        "Administra su propio negocio de comida"
        ]
       },
       {
        "tipo": "pregunta",
-       "pregunta": "¿Cuál es la zona de peligro donde las bacterias crecen rápido?",
+       "pregunta": "¿Cuál de estas cosas NO es parte de su día?",
        "opciones": [
-        "Arriba de 100 grados",
-        "Entre 4 y 60 grados",
-        "Abajo de 0 grados"
+        "Diseña circuitos y dispositivos",
+        "Controla costos e inventarios",
+        "Dirige equipos de cocina y, si emprende"
        ],
-       "correcta": 1
+       "correcta": 0,
+       "explicacion": "Eso lo hace alguien de Ing. Electrónica, no de Gastronomía.",
+       "adivina": true
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Un cocinero corta pollo crudo y, con la misma tabla sin lavar, corta jitomate para una ensalada. ¿Qué problema hay?",
+       "tipo": "reflexion",
+       "pregunta": "De ese día, ¿qué te late más?",
        "opciones": [
-        "Que el jitomate se aplasta",
-        "Contaminación cruzada",
-        "Ninguno"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Una olla de arroz se quedó cuatro horas en la barra a temperatura ambiente.",
-       "opciones": [
-        "No se sirve, porque estuvo demasiado tiempo en la zona de peligro",
-        "Se recalienta y se sirve",
-        "Se sirve frío"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Cómo sabes que un pollo está bien cocinado por dentro?",
-       "opciones": [
-        "Con un termómetro, que marque unos 74 grados",
-        "Por el color de afuera",
-        "Por el tiempo que llevas cocinando"
-       ],
-       "correcta": 0
+        "Crea platillos",
+        "Controla costos e inventarios",
+        "Dirige equipos de cocina y, si emprende",
+        "Nada de eso"
+       ]
       },
       {
        "tipo": "teves"
@@ -92,65 +90,36 @@
     },
     {
      "id": "2",
-     "titulo": "Costeo de platillos",
-     "minutos": 4,
+     "titulo": "Mitos y realidades",
+     "minutos": 2,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "Costeo de platillos",
-       "partes": [
-        {
-         "t": "Un restaurante puede llenarse y aun así perder dinero si no sabe cuánto le cuesta cada platillo. Para eso se hace una receta estándar con las cantidades exactas de cada ingrediente y se calcula su costo. Luego se compara con el precio de venta: el porcentaje de costo de alimentos dice qué parte del precio se va en ingredientes."
-        },
-        {
-         "f": "porcentaje de costo = {costo de ingredientes|precio de venta} × 100"
-        },
-        {
-         "t": "Muchos restaurantes buscan que esté alrededor del 30 por ciento, porque el resto tiene que pagar sueldos, renta, luz, gas y dejar ganancia."
-        }
-       ]
+       "tipo": "escena",
+       "texto": "¿Verdadero o falso? Primero di lo que crees."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Un platillo cuesta 45 pesos de ingredientes y se vende en 150. ¿Cuál es su porcentaje de costo?",
-       "opciones": [
-        "3.3 por ciento",
-        "30 por ciento",
-        "45 por ciento"
-       ],
-       "correcta": 1,
-       "formula": "{45|150} × 100 = 30"
+       "tipo": "vf",
+       "afirmacion": "En Gastronomía llevas materias de matemáticas o con muchos números.",
+       "respuesta": false,
+       "revelacion": "No aparecen como materia propia en su plan de estudios. Muchos eligen carrera pensando en evitar las matemáticas; mejor saberlo desde ahora."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Si quieres un costo del 30 por ciento y los ingredientes cuestan 60 pesos, ¿en cuánto vendes el platillo?",
-       "opciones": [
-        "200 pesos",
-        "18 pesos",
-        "90 pesos"
-       ],
-       "correcta": 0,
-       "formula": "{60|0.30} = 200"
+       "tipo": "vf",
+       "afirmacion": "Es de las carreras más difíciles.",
+       "respuesta": false,
+       "revelacion": "Su dificultad es media. Mucha práctica en cocina; también Costos, Higiene y Administración de restaurantes."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Para qué sirve una receta estándar?",
-       "opciones": [
-        "Para nada",
-        "Para presumir",
-        "Para que el platillo salga igual siempre y su costo sea predecible"
-       ],
-       "correcta": 2
+       "tipo": "vf",
+       "afirmacion": "La mayoría de quienes la estudian terminan trabajando en otra cosa.",
+       "respuesta": true,
+       "revelacion": "49 de cada 100 trabajan en algo de su carrera (IMCO, Compara Carreras 2026)."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Cada cocinero sirve una porción distinta de carne. ¿Qué problema hay?",
-       "opciones": [
-        "Ninguno",
-        "El costo y la calidad varían, y puedes perder dinero",
-        "Los clientes se aburren"
-       ],
-       "correcta": 1
+       "tipo": "vf",
+       "afirmacion": "Casi todos los que se dedican a esto son hombres.",
+       "respuesta": false,
+       "revelacion": "De cada 100 personas que la ejercen, 46 son mujeres (IMCO, Compara Carreras 2026)."
       },
       {
        "tipo": "teves"
@@ -161,119 +130,101 @@
   },
   {
    "id": "u2",
-   "titulo": "Técnica",
-   "sub": "Cocción y recetas",
+   "titulo": "¿Va contigo?",
+   "sub": "Lo que pide y lo que estudias",
    "lecciones": [
     {
      "id": "3",
-     "titulo": "Técnicas de cocción",
-     "minutos": 4,
+     "titulo": "¿Se te da?",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Para que una carrera te guste no basta con que te llame la atención. ¿Se te da lo que pide?"
+      },
+      {
        "tipo": "info",
-       "titulo": "Técnicas de cocción",
-       "partes": [
-        {
-         "t": "Cada técnica cambia los alimentos de forma distinta. El calor seco, como asar, hornear o saltear, dora la superficie y desarrolla sabores tostados; funciona con cortes suaves. El calor húmedo, como hervir, cocer al vapor o guisar, cocina en agua o caldo; los cortes duros, con mucho tejido, se suavizan con cocciones largas y húmedas, como un estofado o una barbacoa. Saltear requiere sartén muy caliente y poca cantidad de comida a la vez: si llenas el sartén, la comida suelta agua y se cuece en vez de dorarse."
-        }
+       "titulo": "Lo que pide Gastronomía",
+       "puntos": [
+        "Creatividad",
+        "Resistencia física (muchas horas de pie)",
+        "Trabajo bajo presión",
+        "Liderazgo de equipo"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Tienes un corte de carne duro y con mucho tejido. ¿Qué técnica usas?",
-       "opciones": [
-        "Una cocción larga y húmeda, como un guiso",
-        "Asarlo rápido a la plancha",
-        "Comerlo crudo"
-       ],
-       "correcta": 0
+       "tipo": "info",
+       "titulo": "Y lo que te tiene que gustar",
+       "puntos": [
+        "Cocinar",
+        "Emprender",
+        "Cultura"
+       ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Llenas el sartén de champiñones y en vez de dorarse se cuecen en su agua. ¿Qué pasó?",
-       "opciones": [
-        "Eran malos champiñones",
-        "Les faltó sal",
-        "Pusiste demasiados a la vez y bajó la temperatura"
-       ],
-       "correcta": 2
+       "tipo": "reflexion",
+       "pregunta": "¿Cocino por gusto aunque nadie me lo pida?",
+       "escala": [
+        "No",
+        "Sí"
+       ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué técnica dora la superficie y da sabores tostados?",
-       "opciones": [
-        "Calor seco, como asar u hornear",
-        "Hervir",
-        "Cocer al vapor"
-       ],
-       "correcta": 0
+       "tipo": "reflexion",
+       "pregunta": "¿Aguanto horarios de noche y fines de semana?",
+       "escala": [
+        "No",
+        "Sí"
+       ]
       },
       {
-       "tipo": "teves"
+       "tipo": "reflexion",
+       "pregunta": "¿Me veo con mi propio negocio de comida?",
+       "escala": [
+        "No",
+        "Sí"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Si dijiste que no a algo, no pasa nada: sirve para saber qué preguntar y qué carreras parecidas ver."
       }
      ]
     },
     {
      "id": "4",
-     "titulo": "Escalar recetas",
-     "minutos": 4,
+     "titulo": "Lo que estudias",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "¿Qué crees que ves en el primer año de Gastronomía?"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál crees que es el primer año?",
+       "opciones": [
+        "Técnicas culinarias básicas, Higiene y manejo de alimentos, Panadería",
+        "Anatomía y fisiología, Bioquímica, Fundamentos de enfermería",
+        "Cálculo, Química, Biología"
+       ],
+       "correcta": 0,
+       "explicacion": "Esas son materias de los primeros semestres. Las otras son de Enfermería y Ing. Ambiental.",
+       "adivina": true
+      },
+      {
        "tipo": "info",
-       "titulo": "Escalar recetas",
-       "partes": [
-        {
-         "t": "En una cocina profesional las recetas se ajustan al número de porciones. Para eso se usa un factor:"
-        },
-        {
-         "f": "factor = {porciones que necesitas|porciones de la receta}"
-        },
-        {
-         "t": "Cada ingrediente se multiplica por ese factor. Las recetas profesionales se miden en peso, en gramos, no en tazas, porque es más exacto. Al escalar mucho, algunas cosas no se multiplican igual, como la sal, las especias o los tiempos de horneado, así que se prueba y se ajusta."
-        }
+       "titulo": "Lo que vas viendo",
+       "puntos": [
+        "Semestres 1-2: Técnicas culinarias básicas, Higiene y manejo de alimentos, Panadería",
+        "Semestres 3-4: Cocina mexicana, Cocina internacional, Repostería, Costos de alimentos",
+        "Semestres 5-6: Administración de restaurantes, Enología y bebidas, Diseño de menús",
+        "Semestres 7 en adelante: Prácticas en restaurante u hotel, Proyecto de negocio"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Una receta es para 4 porciones y necesitas 20. ¿Cuál es el factor?",
-       "opciones": [
-        "5",
-        "16",
-        "80"
-       ],
-       "correcta": 0,
-       "formula": "{20|4} = 5"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "La receta lleva 300 gramos de arroz. Con factor 5, ¿cuánto usas?",
-       "opciones": [
-        "60 gramos",
-        "1,500 gramos",
-        "305 gramos"
-       ],
-       "correcta": 1,
-       "formula": "300 × 5 = 1,500"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Por qué en cocina profesional se mide en gramos?",
-       "opciones": [
-        "Porque las tazas son caras",
-        "Por moda",
-        "Porque es más exacto que las tazas"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Multiplicaste por 10 una receta y salió demasiado salada. ¿Qué aprendes?",
-       "opciones": [
-        "Nada",
-        "Que la sal y las especias se ajustan probando, no siempre se multiplican igual",
-        "Que no se puede escalar"
-       ],
-       "correcta": 1
+       "tipo": "clave",
+       "texto": "Los nombres cambian un poco según la universidad; la idea general es esta."
       },
       {
        "tipo": "teves"
@@ -284,52 +235,41 @@
   },
   {
    "id": "u3",
-   "titulo": "El restaurante",
-   "sub": "Organización, cocina mexicana y servicio",
+   "titulo": "¿Y después?",
+   "sub": "Trabajo y dificultad",
    "lecciones": [
     {
      "id": "5",
-     "titulo": "Organización de la cocina",
-     "minutos": 4,
+     "titulo": "Dónde trabajarías",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Al terminar, ¿dónde crees que trabajaría alguien de Gastronomía?"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál de estos lugares es más de Gastronomía?",
+       "opciones": [
+        "Hoteles",
+        "Consultorios propios o de terceros",
+        "Instituciones públicas y privadas"
+       ],
+       "correcta": 0,
+       "explicacion": "Es uno de los lugares donde trabaja alguien de Gastronomía.",
+       "adivina": true
+      },
+      {
        "tipo": "info",
-       "titulo": "Organización de la cocina",
-       "partes": [
-        {
-         "t": "Una cocina profesional funciona por estaciones, como la parrilla, la de fríos o la de postres, con un jefe que coordina. Antes del servicio se hace el mise en place: tener todo cortado, medido y listo en su lugar. Así, cuando llegan muchas comandas al mismo tiempo, se cocina rápido. Los ingredientes se rotan con la regla de lo primero que entra es lo primero que sale, y todo se etiqueta con fecha."
-        }
+       "titulo": "Dónde se trabaja",
+       "puntos": [
+        "Hoteles",
+        "Restaurantes",
+        "Agencias",
+        "Aerolíneas",
+        "Destinos turísticos",
+        "Cruceros"
        ]
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué es el mise en place?",
-       "opciones": [
-        "Tener todo cortado, medido y listo antes del servicio",
-        "La limpieza final",
-        "El postre"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "En el refrigerador hay crema de hace cinco días y crema nueva. ¿Cuál usas primero?",
-       "opciones": [
-        "La de hace cinco días, si sigue en buen estado",
-        "Las mezclas",
-        "La nueva"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "El servicio se atrasa porque los cocineros cortan verdura mientras llegan las órdenes. ¿Qué faltó?",
-       "opciones": [
-        "Menos platillos",
-        "Hacer el mise en place antes del servicio",
-        "Más clientes"
-       ],
-       "correcta": 1
       },
       {
        "tipo": "teves"
@@ -338,57 +278,39 @@
     },
     {
      "id": "6",
-     "titulo": "Cocina mexicana",
-     "minutos": 4,
+     "titulo": "¿Hay trabajo?",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Ahora lo que todos preguntan: ¿hay trabajo y cuánto se gana?"
+      },
+      {
+       "tipo": "rango",
+       "pregunta": "De cada 100 que estudiaron Gastronomía, ¿cuántos crees que trabajan en algo de su carrera?",
+       "min": 0,
+       "max": 100,
+       "paso": 5,
+       "unidad": "de cada 100",
+       "dato": "gastronomia.ocupacion_afin"
+      },
+      {
+       "tipo": "rango",
+       "pregunta": "¿Cuánto crees que gana al mes, en promedio?",
+       "min": 5000,
+       "max": 50000,
+       "paso": 1000,
+       "unidad": "pesos al mes",
+       "dato": "gastronomia.ingreso"
+      },
+      {
        "tipo": "info",
-       "titulo": "Cocina mexicana",
-       "partes": [
-        {
-         "t": "La cocina tradicional mexicana es Patrimonio Cultural Inmaterial de la Humanidad, reconocida por la UNESCO. Su base es el maíz, el frijol y el chile. La nixtamalización, que es cocer el maíz con cal, cambia su sabor, permite hacer masa para tortillas y lo hace más nutritivo. Cada región tiene sus técnicas e ingredientes, como los moles de Oaxaca y Puebla, la cochinita pibil de Yucatán o la cecina de Yecapixtla en Morelos. Un buen chef respeta el origen de los platillos y a las cocineras tradicionales que los preservan."
-        }
-       ]
+       "titulo": "Así está el trabajo",
+       "texto": "Una de las peor pagadas ($17,532) y con mucha informalidad (41%); el éxito depende mucho de emprender."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué es la nixtamalización?",
-       "opciones": [
-        "Freír el maíz",
-        "Cocer el maíz con cal",
-        "Congelar el maíz"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Cuáles son la base de la cocina tradicional mexicana?",
-       "opciones": [
-        "Pasta y queso",
-        "Arroz, trigo y papa",
-        "Maíz, frijol y chile"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un restaurante quiere servir \"mole oaxaqueño\" con una mezcla comercial sin saber su origen. ¿Qué le recomiendas?",
-       "opciones": [
-        "Cambiarle el nombre a \"mole de Noruega\"",
-        "Está perfecto",
-        "Investigar y respetar la técnica y los ingredientes del platillo"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué platillo es típico de Morelos?",
-       "opciones": [
-        "El sushi",
-        "La cochinita pibil",
-        "La cecina de Yecapixtla"
-       ],
-       "correcta": 2
+       "tipo": "clave",
+       "texto": "No requiere cédula; los materiales y uniformes son un gasto fuerte."
       },
       {
        "tipo": "teves"
@@ -397,47 +319,37 @@
     },
     {
      "id": "7",
-     "titulo": "Servicio y alérgenos",
-     "minutos": 4,
+     "titulo": "Qué tan difícil es",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "¿Dónde crees que está lo más difícil de Gastronomía?"
+      },
+      {
        "tipo": "info",
-       "titulo": "Servicio y alérgenos",
-       "partes": [
-        {
-         "t": "Un comensal puede tener una alergia grave, por ejemplo a cacahuates o mariscos, y una pequeña cantidad puede causarle una reacción peligrosa. Por eso los meseros preguntan, la cocina sabe qué lleva cada platillo y se evita la contaminación con utensilios limpios. Si no estás seguro de qué contiene un platillo, no le dices al cliente que es seguro. Además, el servicio se cuida tanto como la comida: un buen platillo con mal trato no hace que el cliente regrese."
-        }
+       "titulo": "Lo más difícil",
+       "texto": "Dificultad media. Mucha práctica en cocina; también Costos, Higiene y Administración de restaurantes."
+      },
+      {
+       "tipo": "info",
+       "titulo": "Cuánto dura",
+       "texto": "3.5 a 4 años."
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Te ves aguantando eso?",
+       "escala": [
+        "No",
+        "Sí"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Un cliente dice que es alérgico al cacahuate y pregunta si el mole lo lleva. No sabes.",
-       "opciones": [
-        "Le dices que pruebe poquito",
-        "Le dices que no para quedar bien",
-        "Preguntas en cocina antes de responder"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Por qué se usan utensilios limpios para preparar un platillo sin alérgenos?",
-       "opciones": [
-        "Para que no se contamine con restos del alérgeno",
-        "Por estética",
-        "No hace falta"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "La comida estaba deliciosa, pero el mesero fue grosero. ¿Qué pasa probablemente?",
-       "opciones": [
-        "Regresa",
-        "El cliente no regresa",
-        "Nada"
-       ],
-       "correcta": 1
+       "tipo": "info",
+       "titulo": "Si te gusta, pero no del todo",
+       "puntos": [
+        "Mira también: Turismo, Nutrición"
+       ]
       },
       {
        "tipo": "teves"
@@ -448,127 +360,27 @@
   },
   {
    "id": "u4",
-   "titulo": "Examen final",
-   "sub": "10 preguntas · apruebas con 7",
+   "titulo": "Tu decisión",
+   "sub": "¿La guardas o la descartas?",
    "lecciones": [
     {
      "id": "ex",
-     "titulo": "Examen final",
-     "minutos": 6,
-     "examen": true,
-     "aprobar": 7,
+     "titulo": "Tu veredicto",
+     "minutos": 2,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "Examen final",
-       "partes": [
-        {
-         "t": "Son 10 casos nuevos que mezclan todas las lecciones. Apruebas con 7. Si no, lo repites y las que fallaste regresan con otras palabras."
-        }
-       ]
+       "tipo": "escena",
+       "texto": "Ya sabes qué hace alguien de Gastronomía, qué estudias, qué tan difícil es y si hay trabajo."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Cuál es la zona de peligro?",
-       "opciones": [
-        "Entre 4 y 60 grados",
-        "Abajo de 0",
-        "Arriba de 100"
-       ],
-       "correcta": 0
+       "tipo": "escuelas"
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué es la contaminación cruzada?",
-       "opciones": [
-        "Un postre",
-        "Pasar bacterias de un alimento a otro, por ejemplo con la misma tabla",
-        "Mezclar sabores"
-       ],
-       "correcta": 1
+       "tipo": "veredicto"
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Un platillo cuesta 40 pesos de ingredientes y se vende en 160. ¿Cuál es su porcentaje de costo?",
-       "opciones": [
-        "4 por ciento",
-        "40 por ciento",
-        "25 por ciento"
-       ],
-       "correcta": 2,
-       "formula": "{40|160} × 100 = 25"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Quieres un costo del 30 por ciento y los ingredientes cuestan 30 pesos. ¿En cuánto vendes?",
-       "opciones": [
-        "60 pesos",
-        "100 pesos",
-        "9 pesos"
-       ],
-       "correcta": 1,
-       "formula": "{30|0.30} = 100"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué técnica conviene para un corte duro?",
-       "opciones": [
-        "Una cocción larga y húmeda",
-        "Plancha rápida",
-        "Ninguna"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Una receta para 5 porciones y necesitas 30. ¿Cuál es el factor?",
-       "opciones": [
-        "150",
-        "25",
-        "6"
-       ],
-       "correcta": 2,
-       "formula": "{30|5} = 6"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué es el mise en place?",
-       "opciones": [
-        "La propina",
-        "Tener todo listo antes del servicio",
-        "El plato principal"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué ingrediente usas primero?",
-       "opciones": [
-        "El más nuevo",
-        "El más caro",
-        "El que entró primero, si sigue en buen estado"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué es la nixtamalización?",
-       "opciones": [
-        "Molerlo crudo",
-        "Freírlo",
-        "Cocer el maíz con cal"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un cliente alérgico pregunta por un platillo y no sabes qué lleva.",
-       "opciones": [
-        "Preguntas en cocina antes de responder",
-        "Le das una prueba",
-        "Dices que no lo lleva"
-       ],
-       "correcta": 0
+       "tipo": "clave",
+       "texto": "Decidir «sigo en duda» también es avanzar."
       }
      ]
     }

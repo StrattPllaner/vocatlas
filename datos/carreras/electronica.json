@@ -1,14 +1,15 @@
 {
  "id": "electronica",
- "version": 2,
+ "version": 3,
  "formato": 2,
  "estado": "completo",
- "revision": "Pendiente de revisión por un profesionista de la carrera. Generado con datos/importar_lecciones.py desde datos/fuentes/lecciones/electronica.lec; no se edita a mano.",
+ "generado": true,
+ "revision": "Lecciones generales (de qué trata la carrera y si va contigo), armadas con datos/lecciones_generales.py desde la base de carreras con fuentes (2026-11-17).",
  "unidades": [
   {
    "id": "u1",
-   "titulo": "Componentes y señales",
-   "sub": "Circuitos, analógico y digital",
+   "titulo": "¿De qué se trata?",
+   "sub": "Qué hace y cómo es su día",
    "lecciones": [
     {
      "id": "0",
@@ -16,78 +17,70 @@
      "minutos": 1,
      "tarjetas": [
       {
-       "tipo": "ficha",
-       "texto": "Ingeniería Electrónica y Telecomunicaciones forma ingenieros que diseñan circuitos, aparatos electrónicos, sensores y sistemas de comunicación como redes, internet y telefonía. Trabajan en empresas de electrónica, telecomunicaciones, automotriz y manufactura.",
-       "cifras": [
-        "electronica.ingreso",
-        "electronica.duracion",
-        "electronica.costo_publica",
-        "electronica.costo_privada"
-       ]
+       "tipo": "escena",
+       "texto": "Antes de leer nada: ¿qué crees que hace alguien que estudió Ing. Electrónica?"
       },
       {
-       "tipo": "escena",
-       "texto": "Hoy armas un circuito y conectas una red. Vamos a ver si funcionan."
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál de estas cosas crees que hace?",
+       "opciones": [
+        "Diseña circuitos y dispositivos",
+        "Estudia seres vivos en campo o laboratorio",
+        "Cuida pacientes de forma directa"
+       ],
+       "correcta": 0,
+       "explicacion": "En pocas palabras, Ing. Electrónica es aplicación de matemáticas, ciencias y tecnología para diseñar, construir, operar y mejorar sistemas, productos o procesos. La especialidad define si el trabajo se concentra en infraestructura, energía, manufactura, electrónica, ambiente, transporte o materiales.",
+       "adivina": true
+      },
+      {
+       "tipo": "info",
+       "titulo": "Ing. Electrónica en una frase",
+       "texto": "Aplicación de matemáticas, ciencias y tecnología para diseñar, construir, operar y mejorar sistemas, productos o procesos."
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
      "id": "1",
-     "titulo": "Componentes básicos",
-     "minutos": 4,
+     "titulo": "Un día normal",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Imagina que acompañas un día entero a alguien de Ing. Electrónica. ¿Qué crees que hace?"
+      },
+      {
        "tipo": "info",
-       "titulo": "Componentes básicos",
-       "partes": [
-        {
-         "t": "Un circuito electrónico se arma con componentes. El resistor limita la corriente. El LED da luz, pero solo funciona en un sentido y se quema si le pasa demasiada corriente, por eso siempre lleva un resistor en serie. El capacitor guarda carga por un momento. El transistor funciona como un interruptor o amplificador controlado por una señal pequeña. Para calcular el resistor de un LED se usa la ley de Ohm con el voltaje que sobra:"
-        },
-        {
-         "f": "resistencia = {voltaje de la fuente − voltaje del LED|corriente del LED}"
-        }
+       "titulo": "Un día normal",
+       "puntos": [
+        "Diseña circuitos y dispositivos",
+        "Programa microcontroladores",
+        "Instala redes de telecomunicaciones o trabaja en manufactura de electrónica y semiconductores"
        ]
       },
       {
        "tipo": "pregunta",
-       "pregunta": "Conectas un LED directo a una batería de 9 volts, sin resistor, y se quema. ¿Por qué?",
+       "pregunta": "¿Cuál de estas cosas NO es parte de su día?",
        "opciones": [
-        "Le pasó demasiada corriente",
-        "Le faltó corriente",
-        "La batería estaba vacía"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Una fuente de 5 volts, un LED de 2 volts y quieres 0.02 amperes. ¿Qué resistor necesitas?",
-       "opciones": [
-        "150 ohms",
-        "100 ohms",
-        "250 ohms"
+        "Escucha y acompaña pacientes en terapia",
+        "Programa microcontroladores",
+        "Instala redes de telecomunicaciones o trabaja en manufactura de electrónica y semiconductores"
        ],
        "correcta": 0,
-       "formula": "{5 − 2|0.02} = 150"
+       "explicacion": "Eso lo hace alguien de Psicología, no de Ing. Electrónica.",
+       "adivina": true
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Conectaste un LED y no prende, aunque el circuito está bien. ¿Qué revisas?",
+       "tipo": "reflexion",
+       "pregunta": "De ese día, ¿qué te late más?",
        "opciones": [
-        "Nada",
-        "Que no esté al revés, porque solo funciona en un sentido",
-        "El color de los cables"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué componente funciona como interruptor controlado por una señal pequeña?",
-       "opciones": [
-        "El resistor",
-        "El transistor",
-        "El cable"
-       ],
-       "correcta": 1
+        "Diseña circuitos y dispositivos",
+        "Programa microcontroladores",
+        "Instala redes de telecomunicaciones o trabaja en manufactura de electrónica y semiconductores",
+        "Nada de eso"
+       ]
       },
       {
        "tipo": "teves"
@@ -96,61 +89,36 @@
     },
     {
      "id": "2",
-     "titulo": "Analógico y digital",
-     "minutos": 4,
+     "titulo": "Mitos y realidades",
+     "minutos": 2,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "Analógico y digital",
-       "partes": [
-        {
-         "t": "Una señal analógica puede tomar cualquier valor dentro de un rango, como el voltaje de un micrófono que sigue la forma del sonido. Una señal digital solo tiene dos estados, 0 y 1, por ejemplo 0 volts y 5 volts. Las computadoras y los microcontroladores trabajan en digital, así que las señales del mundo real se convierten con un convertidor analógico a digital. Mientras más bits tiene el convertidor, más finos son los pasos: con 10 bits divide el rango en 1,024 niveles."
-        },
-        {
-         "f": "tamaño de cada paso = {rango de voltaje|número de niveles}"
-        }
-       ]
+       "tipo": "escena",
+       "texto": "¿Verdadero o falso? Primero di lo que crees."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Cuántos estados tiene una señal digital?",
-       "opciones": [
-        "Dos, 0 y 1",
-        "Diez",
-        "Infinitos"
-       ],
-       "correcta": 0
+       "tipo": "vf",
+       "afirmacion": "En Ing. Electrónica llevas materias de matemáticas o con muchos números.",
+       "respuesta": true,
+       "revelacion": "Sí: Cálculo, Física, Programación. Muchos eligen carrera pensando en evitar las matemáticas; mejor saberlo desde ahora."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Un sensor de temperatura da un voltaje que cambia poco a poco. ¿Qué tipo de señal es?",
-       "opciones": [
-        "Digital",
-        "Ninguna",
-        "Analógica"
-       ],
-       "correcta": 2
+       "tipo": "vf",
+       "afirmacion": "Es de las carreras más difíciles.",
+       "respuesta": true,
+       "revelacion": "Su dificultad es alta. Circuitos, Electromagnetismo y Señales y sistemas."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Un convertidor divide 5 volts en 1,024 niveles. ¿De qué tamaño es cada paso, más o menos?",
-       "opciones": [
-        "1,024 volts",
-        "5 volts",
-        "0.005 volts"
-       ],
-       "correcta": 2,
-       "formula": "{5|1,024} = 0.0049"
+       "tipo": "vf",
+       "afirmacion": "La mayoría de quienes la estudian terminan trabajando en otra cosa.",
+       "respuesta": false,
+       "revelacion": "51 de cada 100 trabajan en algo de su carrera (IMCO, Compara Carreras 2026)."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Para qué sirve un convertidor analógico a digital?",
-       "opciones": [
-        "Para hacer ruido",
-        "Para cargar baterías",
-        "Para que un microcontrolador pueda leer señales del mundo real"
-       ],
-       "correcta": 2
+       "tipo": "vf",
+       "afirmacion": "Casi todos los que se dedican a esto son hombres.",
+       "respuesta": true,
+       "revelacion": "De cada 100 personas que la ejercen, 11 son mujeres (IMCO, Compara Carreras 2026)."
       },
       {
        "tipo": "teves"
@@ -161,118 +129,101 @@
   },
   {
    "id": "u2",
-   "titulo": "Que piense y se comunique",
-   "sub": "Microcontroladores y frecuencia",
+   "titulo": "¿Va contigo?",
+   "sub": "Lo que pide y lo que estudias",
    "lecciones": [
     {
      "id": "3",
-     "titulo": "Microcontroladores y sensores",
-     "minutos": 4,
+     "titulo": "¿Se te da?",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Para que una carrera te guste no basta con que te llame la atención. ¿Se te da lo que pide?"
+      },
+      {
        "tipo": "info",
-       "titulo": "Microcontroladores y sensores",
-       "partes": [
-        {
-         "t": "Un microcontrolador es una pequeña computadora en un chip, como los de las placas Arduino. Lee sensores, decide con un programa y controla actuadores, como motores, luces o bocinas. Por ejemplo, un riego automático lee la humedad de la tierra y, si está seca, prende una bomba. Los motores y bombas suelen necesitar más corriente de la que da el microcontrolador, así que se controlan a través de un transistor o un relevador, nunca directo."
-        }
+       "titulo": "Lo que pide Ing. Electrónica",
+       "puntos": [
+        "Matemáticas",
+        "Programación",
+        "Paciencia para depurar",
+        "Curiosidad técnica"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Haces un riego automático. ¿Qué sensor necesitas?",
-       "opciones": [
-        "Uno de humedad de la tierra",
-        "Uno de sonido",
-        "Uno de luz solar únicamente"
-       ],
-       "correcta": 0
+       "tipo": "info",
+       "titulo": "Y lo que te tiene que gustar",
+       "puntos": [
+        "Aparatos electrónicos",
+        "Telecomunicaciones",
+        "Programar hardware"
+       ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Conectas un motor directo a un pin del Arduino y el Arduino se reinicia o se daña. ¿Qué faltó?",
-       "opciones": [
-        "Un motor más grande",
-        "Controlarlo a través de un transistor o relevador con su propia fuente",
-        "Nada"
-       ],
-       "correcta": 1
+       "tipo": "reflexion",
+       "pregunta": "¿Me gusta armar circuitos o Arduino?",
+       "escala": [
+        "No",
+        "Sí"
+       ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué hace un microcontrolador?",
-       "opciones": [
-        "Solo da luz",
-        "Lee sensores, decide con un programa y controla actuadores",
-        "Solo guarda fotos"
-       ],
-       "correcta": 1
+       "tipo": "reflexion",
+       "pregunta": "¿Me interesa cómo funcionan los celulares?",
+       "escala": [
+        "No",
+        "Sí"
+       ]
       },
       {
-       "tipo": "teves"
+       "tipo": "reflexion",
+       "pregunta": "¿Disfruto programar?",
+       "escala": [
+        "No",
+        "Sí"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Si dijiste que no a algo, no pasa nada: sirve para saber qué preguntar y qué carreras parecidas ver."
       }
      ]
     },
     {
      "id": "4",
-     "titulo": "Señales y frecuencia",
-     "minutos": 4,
+     "titulo": "Lo que estudias",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "¿Qué crees que ves en el primer año de Ing. Electrónica?"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál crees que es el primer año?",
+       "opciones": [
+        "Cálculo, Física, Programación",
+        "Teoría del trabajo social, Sociología, Psicología",
+        "Fundamentos de programación, Cálculo, Matemáticas discretas"
+       ],
+       "correcta": 0,
+       "explicacion": "Esas son materias de los primeros semestres. Las otras son de Trabajo social y Computación.",
+       "adivina": true
+      },
+      {
        "tipo": "info",
-       "titulo": "Señales y frecuencia",
-       "partes": [
-        {
-         "t": "Muchas señales se repiten. El periodo es cuánto tarda en repetirse un ciclo, y la frecuencia es cuántos ciclos hay por segundo, medida en hertz:"
-        },
-        {
-         "f": "frecuencia = {1|periodo}"
-        },
-        {
-         "t": "La corriente de las casas en México cambia a 60 hertz. El oído humano escucha más o menos de 20 a 20,000 hertz. Las ondas de radio, el wifi y los celulares usan frecuencias mucho más altas, de millones o miles de millones de hertz. Un osciloscopio es el instrumento que dibuja la señal para medirla."
-        }
+       "titulo": "Lo que vas viendo",
+       "puntos": [
+        "Semestres 1-2: Cálculo, Física, Programación, Álgebra lineal",
+        "Semestres 3-4: Circuitos eléctricos, Electrónica analógica, Electrónica digital",
+        "Semestres 5-6: Señales y sistemas, Microcontroladores, Comunicaciones, Control",
+        "Semestres 7 en adelante: Sistemas embebidos, Redes, Proyecto"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Una señal se repite cada 0.01 segundos. ¿Cuál es su frecuencia?",
-       "opciones": [
-        "0.01 hertz",
-        "100 hertz",
-        "10 hertz"
-       ],
-       "correcta": 1,
-       "formula": "{1|0.01} = 100"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿A qué frecuencia cambia la corriente de las casas en México?",
-       "opciones": [
-        "Un millón de hertz",
-        "60 hertz",
-        "5 hertz"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un sonido de 50,000 hertz, ¿lo puede escuchar una persona?",
-       "opciones": [
-        "Solo de noche",
-        "Sí",
-        "No, está arriba de lo que capta el oído humano"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué instrumento dibuja una señal para medirla?",
-       "opciones": [
-        "El termómetro",
-        "La regla",
-        "El osciloscopio"
-       ],
-       "correcta": 2
+       "tipo": "clave",
+       "texto": "Los nombres cambian un poco según la universidad; la idea general es esta."
       },
       {
        "tipo": "teves"
@@ -283,59 +234,41 @@
   },
   {
    "id": "u3",
-   "titulo": "Conectados",
-   "sub": "Internet, wifi y baterías",
+   "titulo": "¿Y después?",
+   "sub": "Trabajo y dificultad",
    "lecciones": [
     {
      "id": "5",
-     "titulo": "Velocidad de internet",
-     "minutos": 4,
+     "titulo": "Dónde trabajarías",
+     "minutos": 2,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "Velocidad de internet",
-       "partes": [
-        {
-         "t": "La velocidad de internet se mide en megabits por segundo, pero el tamaño de los archivos se mide en megabytes. Un byte tiene 8 bits. Así que para saber cuánto tarda una descarga:"
-        },
-        {
-         "f": "segundos = {tamaño en megabytes × 8|velocidad en megabits por segundo}"
-        },
-        {
-         "t": "Por eso una conexión de 100 megabits por segundo baja más o menos 12.5 megabytes por segundo, no 100. En la práctica sale un poco más lento por el ruido y por otras personas usando la misma red."
-        }
-       ]
+       "tipo": "escena",
+       "texto": "Al terminar, ¿dónde crees que trabajaría alguien de Ing. Electrónica?"
       },
       {
        "tipo": "pregunta",
-       "pregunta": "Quieres bajar un archivo de 100 megabytes con 50 megabits por segundo. ¿Cuánto tarda, en teoría?",
+       "pregunta": "¿Cuál de estos lugares es más de Ing. Electrónica?",
        "opciones": [
-        "16 segundos",
-        "50 segundos",
-        "2 segundos"
+        "Empresas industriales y tecnológicas",
+        "Universidades",
+        "Software"
        ],
        "correcta": 0,
-       "formula": "{100 × 8|50} = 16"
+       "explicacion": "Es uno de los lugares donde trabaja alguien de Ing. Electrónica.",
+       "adivina": true
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Cuántos bits tiene un byte?",
-       "opciones": [
-        "10",
-        "1,000",
-        "8"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un cliente contrató 100 megabits por segundo y se queja porque su descarga va a 12 megabytes por segundo. ¿Qué le explicas?",
-       "opciones": [
-        "Que es normal, porque 100 megabits son unos 12.5 megabytes",
-        "Que cambie de computadora",
-        "Que lo están robando"
-       ],
-       "correcta": 0
+       "tipo": "info",
+       "titulo": "Dónde se trabaja",
+       "puntos": [
+        "Empresas industriales y tecnológicas",
+        "Consultoría",
+        "Construcción",
+        "Energía",
+        "Manufactura",
+        "Telecomunicaciones"
+       ]
       },
       {
        "tipo": "teves"
@@ -344,57 +277,39 @@
     },
     {
      "id": "6",
-     "titulo": "Wifi y antenas",
-     "minutos": 4,
+     "titulo": "¿Hay trabajo?",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Ahora lo que todos preguntan: ¿hay trabajo y cuánto se gana?"
+      },
+      {
+       "tipo": "rango",
+       "pregunta": "De cada 100 que estudiaron Ing. Electrónica, ¿cuántos crees que trabajan en algo de su carrera?",
+       "min": 0,
+       "max": 100,
+       "paso": 5,
+       "unidad": "de cada 100",
+       "dato": "electronica.ocupacion_afin"
+      },
+      {
+       "tipo": "rango",
+       "pregunta": "¿Cuánto crees que gana al mes, en promedio?",
+       "min": 5000,
+       "max": 50000,
+       "paso": 1000,
+       "unidad": "pesos al mes",
+       "dato": "electronica.ingreso"
+      },
+      {
        "tipo": "info",
-       "titulo": "Wifi y antenas",
-       "partes": [
-        {
-         "t": "El wifi transmite con ondas de radio, normalmente en 2.4 o 5 gigahertz. La banda de 2.4 llega más lejos y atraviesa mejor las paredes, pero es más lenta y tiene más interferencia, porque la usan muchos aparatos. La de 5 es más rápida, pero alcanza menos y se bloquea más con muros. El concreto, el metal y el agua debilitan la señal. Para cubrir una casa grande conviene poner el módem en un lugar central y alto, o usar repetidores o una red de varios equipos."
-        }
-       ]
+       "titulo": "Así está el trabajo",
+       "texto": "Sexta mejor pagada de 2026 ($25,953) en el campo 'Electrónica, automatización y mecánica-eléctrica'."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué banda de wifi llega más lejos y atraviesa mejor las paredes?",
-       "opciones": [
-        "5 gigahertz",
-        "2.4 gigahertz",
-        "Igual"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "El módem está en un rincón de la cochera, detrás de una puerta de metal, y en las recámaras no hay señal. ¿Qué propones?",
-       "opciones": [
-        "Comprar más celulares",
-        "Nada",
-        "Moverlo a un lugar central y alto, o agregar repetidores"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Quieres la conexión más rápida y estás en el mismo cuarto que el módem. ¿Qué banda conviene?",
-       "opciones": [
-        "5 gigahertz",
-        "2.4 gigahertz",
-        "Ninguna"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué materiales debilitan más la señal?",
-       "opciones": [
-        "Concreto, metal y agua",
-        "Aire",
-        "Papel"
-       ],
-       "correcta": 0
+       "tipo": "clave",
+       "texto": "No requiere cédula para la mayoría de puestos."
       },
       {
        "tipo": "teves"
@@ -403,54 +318,37 @@
     },
     {
      "id": "7",
-     "titulo": "Baterías y reparación",
-     "minutos": 4,
+     "titulo": "Qué tan difícil es",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "¿Dónde crees que está lo más difícil de Ing. Electrónica?"
+      },
+      {
        "tipo": "info",
-       "titulo": "Baterías y reparación",
-       "partes": [
-        {
-         "t": "La capacidad de una batería se mide en miliamperes hora. Para estimar cuánto dura:"
-        },
-        {
-         "f": "horas = {capacidad en mAh|consumo en mA}"
-        },
-        {
-         "t": "Al reparar equipos se usa el multímetro para medir voltaje, corriente y resistencia, y se revisa paso a paso desde la fuente de energía. Los chips se pueden dañar con electricidad estática, por eso se usan pulseras antiestáticas. Las baterías de litio hinchadas o golpeadas son peligrosas: pueden incendiarse."
-        }
+       "titulo": "Lo más difícil",
+       "texto": "Dificultad alta. Circuitos, Electromagnetismo y Señales y sistemas."
+      },
+      {
+       "tipo": "info",
+       "titulo": "Cuánto dura",
+       "texto": "4.5 a 5 años."
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Te ves aguantando eso?",
+       "escala": [
+        "No",
+        "Sí"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Una batería de 2,000 mAh alimenta un aparato que consume 100 mA. ¿Cuánto dura, más o menos?",
-       "opciones": [
-        "2 horas",
-        "20 horas",
-        "200 horas"
-       ],
-       "correcta": 1,
-       "formula": "{2,000|100} = 20"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un celular no prende. ¿Por dónde empiezas a revisar?",
-       "opciones": [
-        "Por la cámara",
-        "Por la funda",
-        "Por la alimentación: cargador, cable y batería"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Abres un celular y la batería está hinchada.",
-       "opciones": [
-        "La cargas toda la noche",
-        "La aplastas para que quepa",
-        "No la perforas ni la presionas; la retiras con cuidado y se desecha de forma segura"
-       ],
-       "correcta": 2
+       "tipo": "info",
+       "titulo": "Si te gusta, pero no del todo",
+       "puntos": [
+        "Mira también: Mecatrónica, Biomédica"
+       ]
       },
       {
        "tipo": "teves"
@@ -461,128 +359,27 @@
   },
   {
    "id": "u4",
-   "titulo": "Examen final",
-   "sub": "10 preguntas · apruebas con 7",
+   "titulo": "Tu decisión",
+   "sub": "¿La guardas o la descartas?",
    "lecciones": [
     {
      "id": "ex",
-     "titulo": "Examen final",
-     "minutos": 6,
-     "examen": true,
-     "aprobar": 7,
+     "titulo": "Tu veredicto",
+     "minutos": 2,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "Examen final",
-       "partes": [
-        {
-         "t": "Son 10 casos nuevos que mezclan todas las lecciones. Apruebas con 7. Si no, lo repites y las que fallaste regresan con otras palabras."
-        }
-       ]
+       "tipo": "escena",
+       "texto": "Ya sabes qué hace alguien de Ing. Electrónica, qué estudias, qué tan difícil es y si hay trabajo."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Por qué un LED necesita un resistor?",
-       "opciones": [
-        "Para dar más luz",
-        "Para limitar la corriente y que no se queme",
-        "No lo necesita"
-       ],
-       "correcta": 1
+       "tipo": "escuelas"
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Una fuente de 9 volts, un LED de 3 volts y quieres 0.02 amperes. ¿Qué resistor necesitas?",
-       "opciones": [
-        "300 ohms",
-        "450 ohms",
-        "150 ohms"
-       ],
-       "correcta": 0,
-       "formula": "{9 − 3|0.02} = 300"
+       "tipo": "veredicto"
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Cuántos estados tiene una señal digital?",
-       "opciones": [
-        "Tres",
-        "Dos",
-        "Infinitos"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Cómo se controla un motor con un microcontrolador?",
-       "opciones": [
-        "Directo al pin",
-        "A través de un transistor o relevador",
-        "No se puede"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Una señal se repite cada 0.02 segundos. ¿Cuál es su frecuencia?",
-       "opciones": [
-        "20 hertz",
-        "0.02 hertz",
-        "50 hertz"
-       ],
-       "correcta": 2,
-       "formula": "{1|0.02} = 50"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un archivo de 50 megabytes con 100 megabits por segundo. ¿Cuánto tarda, en teoría?",
-       "opciones": [
-        "2 segundos",
-        "4 segundos",
-        "50 segundos"
-       ],
-       "correcta": 1,
-       "formula": "{50 × 8|100} = 4"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué banda de wifi es más rápida pero alcanza menos?",
-       "opciones": [
-        "5 gigahertz",
-        "Ninguna",
-        "2.4 gigahertz"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Una batería de 3,000 mAh y un consumo de 150 mA. ¿Cuánto dura?",
-       "opciones": [
-        "20 horas",
-        "450 horas",
-        "2 horas"
-       ],
-       "correcta": 0,
-       "formula": "{3,000|150} = 20"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Para qué se usa la pulsera antiestática?",
-       "opciones": [
-        "Para medir voltaje",
-        "Por moda",
-        "Para no dañar los chips con electricidad estática"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué haces con una batería de litio hinchada?",
-       "opciones": [
-        "La retiras con cuidado y se desecha de forma segura",
-        "La cargas",
-        "La aplastas"
-       ],
-       "correcta": 0
+       "tipo": "clave",
+       "texto": "Decidir «sigo en duda» también es avanzar."
       }
      ]
     }

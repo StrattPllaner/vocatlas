@@ -1,14 +1,15 @@
 {
  "id": "rrii",
- "version": 2,
+ "version": 3,
  "formato": 2,
  "estado": "completo",
- "revision": "Pendiente de revisión por un profesionista de la carrera. Generado con datos/importar_lecciones.py desde datos/fuentes/lecciones/rrii.lec; no se edita a mano.",
+ "generado": true,
+ "revision": "Lecciones generales (de qué trata la carrera y si va contigo), armadas con datos/lecciones_generales.py desde la base de carreras con fuentes (2026-11-17).",
  "unidades": [
   {
    "id": "u1",
-   "titulo": "El mundo y sus reglas",
-   "sub": "Tratados y diplomacia",
+   "titulo": "¿De qué se trata?",
+   "sub": "Qué hace y cómo es su día",
    "lecciones": [
     {
      "id": "0",
@@ -16,74 +17,56 @@
      "minutos": 1,
      "tarjetas": [
       {
-       "tipo": "ficha",
-       "texto": "Relaciones Internacionales forma profesionales que entienden cómo se relacionan los países, las organizaciones internacionales y las empresas a través de las fronteras: diplomacia, comercio, migración y conflictos. Trabajan en el Servicio Exterior, organismos internacionales, empresas, organizaciones civiles y medios.",
-       "cifras": [
-        "rrii.becas",
-        "rrii.duracion",
-        "rrii.costo_publica",
-        "rrii.costo_privada"
-       ]
+       "tipo": "escena",
+       "texto": "Antes de leer nada: ¿qué crees que hace alguien que estudió Relaciones internacionales?"
       },
       {
-       "tipo": "escena",
-       "texto": "Hoy representas a México ante el mundo. Vamos a ver cómo negocias."
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál de estas cosas crees que hace?",
+       "opciones": [
+        "Analiza lo que pasa en otros países y cómo afecta a México",
+        "Consulta pacientes",
+        "Crea platillos"
+       ],
+       "correcta": 0,
+       "explicacion": "En pocas palabras, Relaciones internacionales es análisis de instituciones, políticas, conflictos y problemas sociales. Puede enfocarse en investigación, intervención comunitaria, seguridad, gestión pública, cooperación o diseño de políticas.",
+       "adivina": true
+      },
+      {
+       "tipo": "info",
+       "titulo": "Relaciones internacionales en una frase",
+       "texto": "Análisis de instituciones, políticas, conflictos y problemas sociales."
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
      "id": "1",
-     "titulo": "El mundo y sus reglas",
-     "minutos": 4,
+     "titulo": "Un día normal",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Imagina que acompañas un día entero a alguien de Relaciones internacionales. ¿Qué crees que hace?"
+      },
+      {
        "tipo": "info",
-       "titulo": "El mundo y sus reglas",
-       "partes": [
-        {
-         "t": "Las Relaciones Internacionales estudian cómo se relacionan los países, las organizaciones internacionales, las empresas y las personas a través de las fronteras. Los países son soberanos: deciden sobre su territorio. Para convivir, firman tratados, que son acuerdos que los obligan, y participan en organizaciones como la ONU, donde se discuten la paz, los derechos humanos y el desarrollo. En México, los tratados los firma el Ejecutivo y los aprueba el Senado. La política exterior mexicana tiene principios en la Constitución, como la no intervención y la solución pacífica de controversias."
-        }
+       "titulo": "Un día normal",
+       "puntos": [
+        "Analiza lo que pasa en otros países y cómo afecta a México",
+        "Trabaja en cancillería, embajadas, organismos internacionales, empresas exportadoras u ONG"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Quién aprueba los tratados internacionales en México?",
+       "tipo": "reflexion",
+       "pregunta": "De ese día, ¿qué te late más?",
        "opciones": [
-        "La Cámara de Diputados sola",
-        "Los municipios",
-        "El Senado"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué es un tratado?",
-       "opciones": [
-        "Un acuerdo entre países que los obliga",
-        "Una noticia",
-        "Una opinión"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué significa que un país sea soberano?",
-       "opciones": [
-        "Que tiene rey",
-        "Que es grande",
-        "Que decide sobre su propio territorio"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Cuál es un principio de la política exterior mexicana en la Constitución?",
-       "opciones": [
-        "La solución pacífica de controversias",
-        "Invadir a los vecinos",
-        "No hablar con nadie"
-       ],
-       "correcta": 0
+        "Casi todo",
+        "Algunas cosas",
+        "Nada de eso"
+       ]
       },
       {
        "tipo": "teves"
@@ -92,57 +75,36 @@
     },
     {
      "id": "2",
-     "titulo": "Diplomacia",
-     "minutos": 4,
+     "titulo": "Mitos y realidades",
+     "minutos": 2,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "Diplomacia",
-       "partes": [
-        {
-         "t": "La diplomacia es la forma en que los países se comunican y negocian. Las embajadas representan a su país en otro y llevan las relaciones políticas; los consulados atienden a los ciudadanos que viven o viajan en ese país, con pasaportes, registros o ayuda en emergencias. México tiene una de las redes consulares más grandes del mundo en Estados Unidos, porque ahí viven millones de mexicanos. En una negociación, el lenguaje es cuidadoso: una palabra mal elegida puede crear un conflicto."
-        }
-       ]
+       "tipo": "escena",
+       "texto": "¿Verdadero o falso? Primero di lo que crees."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Una mexicana que vive en Chicago perdió su pasaporte. ¿A dónde va?",
-       "opciones": [
-        "A la policía de México",
-        "Al consulado de México",
-        "A la embajada de otro país"
-       ],
-       "correcta": 1
+       "tipo": "vf",
+       "afirmacion": "En Relaciones internacionales llevas materias de matemáticas o con muchos números.",
+       "respuesta": false,
+       "revelacion": "No aparecen como materia propia en su plan de estudios. Muchos eligen carrera pensando en evitar las matemáticas; mejor saberlo desde ahora."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué hace una embajada?",
-       "opciones": [
-        "Vende boletos de avión",
-        "Representa a su país y lleva las relaciones políticas con otro",
-        "Da clases"
-       ],
-       "correcta": 1
+       "tipo": "vf",
+       "afirmacion": "Es de las carreras más difíciles.",
+       "respuesta": false,
+       "revelacion": "Su dificultad es media. Mucha lectura en español e inglés, Historia mundial y Derecho internacional."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Por qué México tiene tantos consulados en Estados Unidos?",
-       "opciones": [
-        "Porque ahí viven millones de mexicanos",
-        "Por casualidad",
-        "Porque es obligatorio"
-       ],
-       "correcta": 0
+       "tipo": "vf",
+       "afirmacion": "La mayoría de quienes la estudian terminan trabajando en otra cosa.",
+       "respuesta": true,
+       "revelacion": "24 de cada 100 trabajan en algo de su carrera (IMCO, Compara Carreras 2026)."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "En una reunión diplomática, ¿cómo conviene expresarse?",
-       "opciones": [
-        "Con insultos",
-        "Con un lenguaje cuidadoso y preciso",
-        "Sin preparar nada"
-       ],
-       "correcta": 1
+       "tipo": "vf",
+       "afirmacion": "Casi todos los que se dedican a esto son hombres.",
+       "respuesta": false,
+       "revelacion": "De cada 100 personas que la ejercen, 62 son mujeres (IMCO, Compara Carreras 2026)."
       },
       {
        "tipo": "teves"
@@ -153,161 +115,101 @@
   },
   {
    "id": "u2",
-   "titulo": "Intereses en juego",
-   "sub": "Negociación, comercio y migración",
+   "titulo": "¿Va contigo?",
+   "sub": "Lo que pide y lo que estudias",
    "lecciones": [
     {
      "id": "3",
-     "titulo": "Negociar",
-     "minutos": 4,
+     "titulo": "¿Se te da?",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Para que una carrera te guste no basta con que te llame la atención. ¿Se te da lo que pide?"
+      },
+      {
        "tipo": "info",
-       "titulo": "Negociar",
-       "partes": [
-        {
-         "t": "Negociar bien empieza por entender qué necesita la otra parte, no solo lo que pide. Las posiciones son lo que cada uno dice que quiere; los intereses son el porqué. Dos países que discuten por un río pueden encontrar una solución si entienden que uno necesita agua para cultivar y el otro para sus ciudades. Antes de negociar se define la mejor alternativa si no hay acuerdo: si tu alternativa es buena, puedes negociar con más fuerza."
-        }
+       "titulo": "Lo que pide Relaciones internacionales",
+       "puntos": [
+        "Idiomas",
+        "Análisis político",
+        "Redacción",
+        "Negociación"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué diferencia hay entre posición e interés?",
-       "opciones": [
-        "Son lo mismo",
-        "La posición es lo que se pide; el interés es por qué se pide",
-        "El interés es el precio"
-       ],
-       "correcta": 1
+       "tipo": "info",
+       "titulo": "Y lo que te tiene que gustar",
+       "puntos": [
+        "Otros países",
+        "Política mundial",
+        "Diplomacia"
+       ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Dos países discuten por el agua de un río compartido. ¿Qué ayuda a llegar a un acuerdo?",
-       "opciones": [
-        "Que uno grite más",
-        "Entender para qué necesita el agua cada uno",
-        "No hablar"
-       ],
-       "correcta": 1
+       "tipo": "reflexion",
+       "pregunta": "¿Me interesa lo que pasa en el mundo?",
+       "escala": [
+        "No",
+        "Sí"
+       ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Por qué conviene conocer tu mejor alternativa si no hay acuerdo?",
-       "opciones": [
-        "Para irte sin escuchar",
-        "No sirve",
-        "Porque te dice hasta dónde ceder y te da fuerza al negociar"
-       ],
-       "correcta": 2
+       "tipo": "reflexion",
+       "pregunta": "¿Quiero dominar varios idiomas?",
+       "escala": [
+        "No",
+        "Sí"
+       ]
       },
       {
-       "tipo": "teves"
+       "tipo": "reflexion",
+       "pregunta": "¿Me veo trabajando en el extranjero?",
+       "escala": [
+        "No",
+        "Sí"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Si dijiste que no a algo, no pasa nada: sirve para saber qué preguntar y qué carreras parecidas ver."
       }
      ]
     },
     {
      "id": "4",
-     "titulo": "Comercio y economía global",
-     "minutos": 4,
+     "titulo": "Lo que estudias",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "¿Qué crees que ves en el primer año de Relaciones internacionales?"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál crees que es el primer año?",
+       "opciones": [
+        "Teoría de las relaciones internacionales, Historia mundial, Inglés",
+        "Cálculo, Física, Álgebra lineal",
+        "Cálculo I y II, Álgebra superior, Geometría analítica"
+       ],
+       "correcta": 0,
+       "explicacion": "Esas son materias de los primeros semestres. Las otras son de Ing. Eléctrica y Matemáticas.",
+       "adivina": true
+      },
+      {
        "tipo": "info",
-       "titulo": "Comercio y economía global",
-       "partes": [
-        {
-         "t": "Los países comercian porque cada uno produce algunas cosas mejor o más barato. México tiene tratados de libre comercio con muchos países, y el más importante es el T-MEC con Estados Unidos y Canadá. Más de tres cuartas partes de lo que México exporta va a Estados Unidos, lo que da muchas oportunidades, pero también hace a México muy dependiente de lo que pase allá. Las remesas, que es el dinero que mandan los mexicanos que trabajan en el extranjero, son una de las principales fuentes de dólares del país."
-        }
+       "titulo": "Lo que vas viendo",
+       "puntos": [
+        "Semestres 1-2: Teoría de las relaciones internacionales, Historia mundial, Inglés, Economía",
+        "Semestres 3-4: Derecho internacional público, Política exterior de México, Organismos internacionales",
+        "Semestres 5-6: Comercio internacional, Seguridad internacional, Negociación y diplomacia",
+        "Semestres 7 en adelante: Seminario regional, Prácticas"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿A qué país va la mayor parte de las exportaciones de México?",
-       "opciones": [
-        "A Estados Unidos",
-        "A España",
-        "A China"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué son las remesas?",
-       "opciones": [
-        "Dinero que mandan a sus familias los mexicanos que trabajan en el extranjero",
-        "Préstamos",
-        "Impuestos"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué riesgo tiene depender mucho de un solo socio comercial?",
-       "opciones": [
-        "Que vendas más siempre",
-        "Que lo que pase en ese país afecte mucho a tu economía",
-        "Ninguno"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Si de cada 100 pesos que México exporta, 80 van a Estados Unidos, ¿qué porcentaje es?",
-       "opciones": [
-        "20 por ciento",
-        "80 por ciento",
-        "8 por ciento"
-       ],
-       "correcta": 1,
-       "formula": "{80|100} × 100 = 80"
-      },
-      {
-       "tipo": "teves"
-      }
-     ]
-    },
-    {
-     "id": "5",
-     "titulo": "Migración",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Migración",
-       "partes": [
-        {
-         "t": "México es un país de origen, de tránsito y de destino de migrantes: muchos mexicanos se van al extranjero, muchas personas de otros países cruzan México para llegar a Estados Unidos, y otras se quedan a vivir aquí. Las personas migrantes tienen derechos humanos sin importar su situación migratoria. Quien huye de persecución o violencia puede pedir refugio. Un internacionalista estudia estos movimientos con datos y propone políticas que protejan a las personas."
-        }
-       ]
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Por qué se dice que México es país de tránsito?",
-       "opciones": [
-        "Por el tráfico de autos",
-        "Porque tiene trenes",
-        "Porque muchas personas lo cruzan para llegar a otro país"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Tiene derechos humanos una persona migrante sin papeles?",
-       "opciones": [
-        "Sí, sin importar su situación migratoria",
-        "No",
-        "Solo si tiene dinero"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Una persona huye de su país porque la persiguen por sus ideas. ¿Qué puede pedir?",
-       "opciones": [
-        "Una beca",
-        "Refugio",
-        "Nada"
-       ],
-       "correcta": 1
+       "tipo": "clave",
+       "texto": "Los nombres cambian un poco según la universidad; la idea general es esta."
       },
       {
        "tipo": "teves"
@@ -318,62 +220,64 @@
   },
   {
    "id": "u3",
-   "titulo": "Analizar y actuar",
-   "sub": "Conflictos y el trabajo",
+   "titulo": "¿Y después?",
+   "sub": "Trabajo y dificultad",
    "lecciones": [
     {
-     "id": "6",
-     "titulo": "Analizar un conflicto",
-     "minutos": 4,
+     "id": "5",
+     "titulo": "Dónde trabajarías",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Al terminar, ¿dónde crees que trabajaría alguien de Relaciones internacionales?"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál de estos lugares es más de Relaciones internacionales?",
+       "opciones": [
+        "Instituciones públicas y privadas",
+        "Laboratorios clínicos e industriales",
+        "Construcción"
+       ],
+       "correcta": 0,
+       "explicacion": "Es uno de los lugares donde trabaja alguien de Relaciones internacionales.",
+       "adivina": true
+      },
+      {
        "tipo": "info",
-       "titulo": "Analizar un conflicto",
-       "partes": [
-        {
-         "t": "Para entender un conflicto internacional se pregunta quiénes participan, qué quiere cada uno, qué poder tiene y qué historia hay detrás. Se consultan fuentes de distintos países, porque cada uno cuenta su versión. Un buen análisis separa los hechos verificables de las opiniones y no simplifica en \"buenos contra malos\". Los organismos internacionales y la mediación de otros países ayudan a que las partes hablen en lugar de pelear."
-        }
+       "titulo": "Dónde se trabaja",
+       "puntos": [
+        "Instituciones públicas y privadas",
+        "Organizaciones sociales",
+        "Empresas",
+        "Centros de investigación",
+        "Consultoría",
+        "Docencia y proyectos independientes"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Quieres entender un conflicto entre dos países. ¿Qué haces?",
-       "opciones": [
-        "Lees solo una fuente",
-        "Lees solo redes sociales",
-        "Lees fuentes de distintos países y separas hechos de opiniones"
-       ],
-       "correcta": 2
+       "tipo": "teves"
+      }
+     ]
+    },
+    {
+     "id": "6",
+     "titulo": "¿Hay trabajo?",
+     "minutos": 2,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Ahora lo que todos preguntan: ¿hay trabajo y cuánto se gana?"
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué preguntas ayudan a analizar un conflicto?",
-       "opciones": [
-        "Quién se ve mejor en la tele",
-        "Ninguna",
-        "Quiénes participan, qué quiere cada uno, qué poder tienen y qué historia hay"
-       ],
-       "correcta": 2
+       "tipo": "info",
+       "titulo": "Así está el trabajo",
+       "texto": "IMCO no la separa; se aproxima con 'Ciencias políticas'."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué es la mediación?",
-       "opciones": [
-        "Que un tercero ayuda a las partes a hablar y llegar a un acuerdo",
-        "Una guerra",
-        "Un tratado comercial"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Por qué conviene no reducir un conflicto a \"buenos contra malos\"?",
-       "opciones": [
-        "Porque es aburrido",
-        "Porque casi siempre es más complejo y eso lleva a malas decisiones",
-        "No conviene"
-       ],
-       "correcta": 1
+       "tipo": "clave",
+       "texto": "Para el Servicio Exterior Mexicano hay que aprobar un concurso de ingreso."
       },
       {
        "tipo": "teves"
@@ -382,47 +286,37 @@
     },
     {
      "id": "7",
-     "titulo": "Trabajar en lo internacional",
-     "minutos": 4,
+     "titulo": "Qué tan difícil es",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "¿Dónde crees que está lo más difícil de Relaciones internacionales?"
+      },
+      {
        "tipo": "info",
-       "titulo": "Trabajar en lo internacional",
-       "partes": [
-        {
-         "t": "Un internacionalista puede trabajar en el Servicio Exterior Mexicano, al que se entra por concurso; en organismos internacionales; en empresas que exportan o invierten en otros países; en organizaciones civiles; en medios o en investigación. Los idiomas son clave: el inglés casi siempre, y un tercer idioma abre más puertas. También importa entender la cultura del otro: la forma de saludar, de negociar y los tiempos cambian de país a país."
-        }
+       "titulo": "Lo más difícil",
+       "texto": "Dificultad media. Mucha lectura en español e inglés, Historia mundial y Derecho internacional."
+      },
+      {
+       "tipo": "info",
+       "titulo": "Cuánto dura",
+       "texto": "4 años."
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Te ves aguantando eso?",
+       "escala": [
+        "No",
+        "Sí"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Cómo se entra al Servicio Exterior Mexicano?",
-       "opciones": [
-        "Por concurso",
-        "Por herencia",
-        "Por sorteo"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué habilidad es clave para un internacionalista?",
-       "opciones": [
-        "Hablar otros idiomas",
-        "Dibujar",
-        "Correr rápido"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Vas a negociar con una empresa de otro país. ¿Qué preparas además de los números?",
-       "opciones": [
-        "Nada",
-        "Conocer su cultura de negocios",
-        "Un regalo carísimo"
-       ],
-       "correcta": 1
+       "tipo": "info",
+       "titulo": "Si te gusta, pero no del todo",
+       "puntos": [
+        "Mira también: Derecho, Economía"
+       ]
       },
       {
        "tipo": "teves"
@@ -433,124 +327,27 @@
   },
   {
    "id": "u4",
-   "titulo": "Examen final",
-   "sub": "10 preguntas · apruebas con 7",
+   "titulo": "Tu decisión",
+   "sub": "¿La guardas o la descartas?",
    "lecciones": [
     {
      "id": "ex",
-     "titulo": "Examen final",
-     "minutos": 6,
-     "examen": true,
-     "aprobar": 7,
+     "titulo": "Tu veredicto",
+     "minutos": 2,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "Examen final",
-       "partes": [
-        {
-         "t": "Son 10 casos nuevos que mezclan todas las lecciones. Apruebas con 7. Si no, lo repites y las que fallaste regresan con otras palabras."
-        }
-       ]
+       "tipo": "escena",
+       "texto": "Ya sabes qué hace alguien de Relaciones internacionales, qué estudias, qué tan difícil es y si hay trabajo."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Quién aprueba los tratados en México?",
-       "opciones": [
-        "El municipio",
-        "El Senado",
-        "La Suprema Corte"
-       ],
-       "correcta": 1
+       "tipo": "escuelas"
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué es la soberanía?",
-       "opciones": [
-        "Tener muchos habitantes",
-        "Que un país decide sobre su territorio",
-        "Tener ejército"
-       ],
-       "correcta": 1
+       "tipo": "veredicto"
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Perdiste tu pasaporte en otro país. ¿A dónde vas?",
-       "opciones": [
-        "A la embajada de otro país",
-        "Al aeropuerto",
-        "Al consulado de tu país"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué es el interés en una negociación?",
-       "opciones": [
-        "Por qué se pide algo",
-        "Lo que se pide",
-        "El precio"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué tratado tiene México con Estados Unidos y Canadá?",
-       "opciones": [
-        "La OTAN",
-        "Ninguno",
-        "El T-MEC"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué son las remesas?",
-       "opciones": [
-        "Deudas",
-        "Impuestos",
-        "Dinero que mandan los migrantes a sus familias"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué puede pedir alguien que huye de persecución?",
-       "opciones": [
-        "Refugio",
-        "Una visa de turista",
-        "Nada"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Cómo analizas un conflicto?",
-       "opciones": [
-        "Con rumores",
-        "Con una sola fuente",
-        "Con fuentes de distintos países, separando hechos de opiniones"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué es la mediación?",
-       "opciones": [
-        "Un tercero que ayuda a las partes a llegar a un acuerdo",
-        "Una sanción",
-        "Una frontera"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Cómo se entra al Servicio Exterior Mexicano?",
-       "opciones": [
-        "Por sorteo",
-        "Por herencia",
-        "Por concurso"
-       ],
-       "correcta": 2
+       "tipo": "clave",
+       "texto": "Decidir «sigo en duda» también es avanzar."
       }
      ]
     }

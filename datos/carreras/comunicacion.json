@@ -1,14 +1,15 @@
 {
  "id": "comunicacion",
- "version": 2,
+ "version": 3,
  "formato": 2,
  "estado": "completo",
- "revision": "Pendiente de revisión por un profesionista de la carrera. Generado con datos/importar_lecciones.py desde datos/fuentes/lecciones/comunicacion.lec; no se edita a mano.",
+ "generado": true,
+ "revision": "Lecciones generales (de qué trata la carrera y si va contigo), armadas con datos/lecciones_generales.py desde la base de carreras con fuentes (2026-11-17).",
  "unidades": [
   {
    "id": "u1",
-   "titulo": "Informar",
-   "sub": "Noticias y verificación",
+   "titulo": "¿De qué se trata?",
+   "sub": "Qué hace y cómo es su día",
    "lecciones": [
     {
      "id": "0",
@@ -16,74 +17,71 @@
      "minutos": 1,
      "tarjetas": [
       {
-       "tipo": "ficha",
-       "texto": "Ciencias de la Comunicación forma profesionales que informan, explican y convencen: periodistas, creadores de contenido, productores de audio y video, y responsables de redes y comunicación de empresas y gobiernos.",
-       "cifras": [
-        "comunicacion.ingreso",
-        "comunicacion.duracion",
-        "comunicacion.costo_publica",
-        "comunicacion.costo_privada"
-       ]
+       "tipo": "escena",
+       "texto": "Antes de leer nada: ¿qué crees que hace alguien que estudió Comunicación?"
       },
       {
-       "tipo": "escena",
-       "texto": "Hoy estás en una redacción. Vamos a ver si lo que publicas es cierto y le llega a la gente."
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál de estas cosas crees que hace?",
+       "opciones": [
+        "Graba y edita contenido",
+        "Trabaja en laboratorio",
+        "Consulta pacientes"
+       ],
+       "correcta": 0,
+       "explicacion": "En pocas palabras, Comunicación es análisis de la sociedad, la cultura, el lenguaje, las ideas y sus transformaciones. Desarrolla investigación, escritura, análisis crítico, divulgación y trabajo documental.",
+       "adivina": true
+      },
+      {
+       "tipo": "info",
+       "titulo": "Comunicación en una frase",
+       "texto": "Análisis de la sociedad, la cultura, el lenguaje, las ideas y sus transformaciones."
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
      "id": "1",
-     "titulo": "Escribir una noticia",
-     "minutos": 4,
+     "titulo": "Un día normal",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Imagina que acompañas un día entero a alguien de Comunicación. ¿Qué crees que hace?"
+      },
+      {
        "tipo": "info",
-       "titulo": "Escribir una noticia",
-       "partes": [
-        {
-         "t": "Una noticia responde rápido a las preguntas básicas: qué pasó, quién, cuándo, dónde, cómo y por qué. Se escribe en pirámide invertida: lo más importante va primero, y los detalles después. Así, si alguien solo lee el primer párrafo, ya sabe lo esencial. El primer párrafo se llama entrada o lead. Una noticia informa hechos; las opiniones del periodista van en otros géneros, como la columna o el editorial."
-        }
+       "titulo": "Un día normal",
+       "puntos": [
+        "Graba y edita contenido",
+        "Maneja redes de marcas o instituciones",
+        "Hace reportajes",
+        "Organiza la comunicación interna de empresas o campañas"
        ]
       },
       {
        "tipo": "pregunta",
-       "pregunta": "¿Qué va primero en una noticia?",
+       "pregunta": "¿Cuál de estas cosas NO es parte de su día?",
        "opciones": [
-        "Los antecedentes",
-        "Lo más importante",
-        "La opinión del periodista"
+        "Calcula o supervisa obras, puentes, carreteras, drenajes",
+        "Maneja redes de marcas o instituciones",
+        "Hace reportajes"
        ],
-       "correcta": 1
+       "correcta": 0,
+       "explicacion": "Eso lo hace alguien de Ing. Civil, no de Comunicación.",
+       "adivina": true
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Escribes sobre un incendio en un mercado de Cuernavaca. ¿Qué entrada es mejor?",
+       "tipo": "reflexion",
+       "pregunta": "De ese día, ¿qué te late más?",
        "opciones": [
-        "\"Me dio mucha tristeza ver el mercado.\"",
-        "\"Los mercados son parte de nuestra historia.\"",
-        "\"Un incendio dañó 40 locales del mercado municipal esta madrugada; no hubo heridos.\""
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Dónde va la opinión del autor?",
-       "opciones": [
-        "En el título",
-        "En la noticia",
-        "En una columna o un editorial, no en la noticia"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué preguntas responde una buena noticia?",
-       "opciones": [
-        "Solo quién",
-        "Qué, quién, cuándo, dónde, cómo y por qué",
-        "Ninguna"
-       ],
-       "correcta": 1
+        "Graba y edita contenido",
+        "Maneja redes de marcas o instituciones",
+        "Hace reportajes",
+        "Nada de eso"
+       ]
       },
       {
        "tipo": "teves"
@@ -92,57 +90,36 @@
     },
     {
      "id": "2",
-     "titulo": "Verificar antes de publicar",
-     "minutos": 4,
+     "titulo": "Mitos y realidades",
+     "minutos": 2,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "Verificar antes de publicar",
-       "partes": [
-        {
-         "t": "En redes circula mucha información falsa, y un comunicador no la puede repetir sin verificar. Verificar es confirmar con fuentes confiables: documentos oficiales, personas que lo vivieron o expertos, y de preferencia con más de una fuente independiente. Una foto puede ser vieja o de otro lugar; se puede buscar su origen con una búsqueda inversa de imágenes. Si un dato no se puede confirmar, no se publica como hecho. Y si te equivocaste, se corrige públicamente."
-        }
-       ]
+       "tipo": "escena",
+       "texto": "¿Verdadero o falso? Primero di lo que crees."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Te llega un video viral de \"inundaciones hoy en Cuautla\". ¿Qué haces?",
-       "opciones": [
-        "Le cambias el título",
-        "Verificas cuándo y dónde se grabó antes de publicarlo",
-        "Lo publicas rápido para ganarle a la competencia"
-       ],
-       "correcta": 1
+       "tipo": "vf",
+       "afirmacion": "En Comunicación llevas materias de matemáticas o con muchos números.",
+       "respuesta": false,
+       "revelacion": "No aparecen como materia propia en su plan de estudios. Muchos eligen carrera pensando en evitar las matemáticas; mejor saberlo desde ahora."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Cómo puedes saber si una foto es vieja?",
-       "opciones": [
-        "No se puede",
-        "Con una búsqueda inversa de imágenes",
-        "Por el color"
-       ],
-       "correcta": 1
+       "tipo": "vf",
+       "afirmacion": "Es de las carreras más difíciles.",
+       "respuesta": false,
+       "revelacion": "Su dificultad es media. Teorías de la comunicación e Investigación; mucha producción de contenido y proyectos."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Publicaste un dato equivocado. ¿Qué haces?",
-       "opciones": [
-        "Lo corriges públicamente",
-        "Lo dejas",
-        "Lo borras sin decir nada"
-       ],
-       "correcta": 0
+       "tipo": "vf",
+       "afirmacion": "La mayoría de quienes la estudian terminan trabajando en otra cosa.",
+       "respuesta": true,
+       "revelacion": "21 de cada 100 trabajan en algo de su carrera (IMCO, Compara Carreras 2026)."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Solo una persona anónima en redes dice que un funcionario renunció.",
-       "opciones": [
-        "Lo publicas como hecho",
-        "Lo publicas con muchos signos de exclamación",
-        "Buscas confirmarlo con fuentes confiables antes de publicarlo"
-       ],
-       "correcta": 2
+       "tipo": "vf",
+       "afirmacion": "Casi todos los que se dedican a esto son hombres.",
+       "respuesta": false,
+       "revelacion": "De cada 100 personas que la ejercen, 54 son mujeres (IMCO, Compara Carreras 2026)."
       },
       {
        "tipo": "teves"
@@ -153,119 +130,101 @@
   },
   {
    "id": "u2",
-   "titulo": "Llegar a la gente",
-   "sub": "Mensaje, público y redes",
+   "titulo": "¿Va contigo?",
+   "sub": "Lo que pide y lo que estudias",
    "lecciones": [
     {
      "id": "3",
-     "titulo": "Mensaje y público",
-     "minutos": 4,
+     "titulo": "¿Se te da?",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Para que una carrera te guste no basta con que te llame la atención. ¿Se te da lo que pide?"
+      },
+      {
        "tipo": "info",
-       "titulo": "Mensaje y público",
-       "partes": [
-        {
-         "t": "Antes de comunicar algo se piensa a quién va dirigido, qué se quiere que haga o sepa, y en qué canal está esa gente. Un mismo mensaje se escribe distinto para adolescentes en TikTok que para adultos mayores en la radio. El mensaje principal debe caber en una frase. Si intentas decir diez cosas, la gente no recuerda ninguna. Y siempre conviene decir qué se espera que haga la persona: inscribirse, votar, comprar o vacunarse."
-        }
+       "titulo": "Lo que pide Comunicación",
+       "puntos": [
+        "Redacción",
+        "Creatividad",
+        "Hablar en público",
+        "Edición de video o audio"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Una campaña de vacunación quiere llegar a adultos mayores de comunidades rurales. ¿Qué canal tiene más sentido?",
-       "opciones": [
-        "Radio local y centros de salud",
-        "Un anuncio en inglés",
-        "Solo TikTok"
-       ],
-       "correcta": 0
+       "tipo": "info",
+       "titulo": "Y lo que te tiene que gustar",
+       "puntos": [
+        "Medios y redes",
+        "Contar historias",
+        "Actualidad"
+       ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Un cartel tiene diez mensajes distintos. ¿Qué problema tiene?",
-       "opciones": [
-        "Es muy corto",
-        "Ninguno",
-        "La gente no recuerda ninguno"
-       ],
-       "correcta": 2
+       "tipo": "reflexion",
+       "pregunta": "¿Me gusta crear contenido aunque sea para mí?",
+       "escala": [
+        "No",
+        "Sí"
+       ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué le falta a \"La lectura es importante\" como mensaje de una campaña?",
-       "opciones": [
-        "Decir qué se quiere que haga la persona, por ejemplo ir a la biblioteca el sábado",
-        "Nada",
-        "Más adjetivos"
-       ],
-       "correcta": 0
+       "tipo": "reflexion",
+       "pregunta": "¿Escribo bien y me gusta?",
+       "escala": [
+        "No",
+        "Sí"
+       ]
       },
       {
-       "tipo": "teves"
+       "tipo": "reflexion",
+       "pregunta": "¿Me sirve un trabajo donde nada es igual dos días?",
+       "escala": [
+        "No",
+        "Sí"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Si dijiste que no a algo, no pasa nada: sirve para saber qué preguntar y qué carreras parecidas ver."
       }
      ]
     },
     {
      "id": "4",
-     "titulo": "Redes sociales y métricas",
-     "minutos": 4,
+     "titulo": "Lo que estudias",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "¿Qué crees que ves en el primer año de Comunicación?"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál crees que es el primer año?",
+       "opciones": [
+        "Teorías de la comunicación, Redacción, Historia de México",
+        "Fundamentos de programación, Cálculo, Matemáticas discretas",
+        "Introducción a la criminología, Derecho penal, Psicología"
+       ],
+       "correcta": 0,
+       "explicacion": "Esas son materias de los primeros semestres. Las otras son de Computación y Criminología.",
+       "adivina": true
+      },
+      {
        "tipo": "info",
-       "titulo": "Redes sociales y métricas",
-       "partes": [
-        {
-         "t": "En redes, no basta con cuántos seguidores tienes. El alcance es cuántas personas vieron una publicación. Las interacciones son likes, comentarios, compartidos y guardados. La tasa de interacción mide qué tanto le interesó a quien lo vio:"
-        },
-        {
-         "f": "tasa de interacción = {interacciones|alcance} × 100"
-        },
-        {
-         "t": "Comparar publicaciones con esta tasa te dice qué contenido funciona mejor. Los números se usan para decidir, no para presumir: un video con muchas vistas pero que no logra el objetivo no sirve tanto."
-        }
+       "titulo": "Lo que vas viendo",
+       "puntos": [
+        "Semestres 1-2: Teorías de la comunicación, Redacción, Historia de México, Fotografía",
+        "Semestres 3-4: Periodismo, Producción de audio y video, Semiótica, Investigación",
+        "Semestres 5-6: Comunicación organizacional, Publicidad, Medios digitales, Opinión pública",
+        "Semestres 7 en adelante: Proyecto de medios, Prácticas"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Una publicación tuvo 2,000 personas de alcance y 100 interacciones. ¿Cuál es su tasa de interacción?",
-       "opciones": [
-        "5 por ciento",
-        "20 por ciento",
-        "0.5 por ciento"
-       ],
-       "correcta": 0,
-       "formula": "{100|2,000} × 100 = 5"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Otra publicación tuvo 10,000 de alcance y 200 interacciones. ¿Cuál interesó más a quien la vio?",
-       "opciones": [
-        "La segunda, porque tiene más alcance",
-        "Igual",
-        "La primera, con 5 por ciento contra 2 por ciento"
-       ],
-       "correcta": 2,
-       "formula": "{200|10,000} × 100 = 2"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Una marca compra seguidores falsos para verse grande. ¿Qué problema hay?",
-       "opciones": [
-        "Suben las ventas",
-        "Ninguno",
-        "No interactúan ni compran, y bajan la tasa real"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "El objetivo era que la gente se inscribiera a un taller, y un video tuvo muchas vistas pero nadie se inscribió.",
-       "opciones": [
-        "Celebras las vistas",
-        "Revisas el mensaje y la llamada a la acción",
-        "Borras la cuenta"
-       ],
-       "correcta": 1
+       "tipo": "clave",
+       "texto": "Los nombres cambian un poco según la universidad; la idea general es esta."
       },
       {
        "tipo": "teves"
@@ -276,52 +235,41 @@
   },
   {
    "id": "u3",
-   "titulo": "Con responsabilidad",
-   "sub": "Crisis, ética y producción",
+   "titulo": "¿Y después?",
+   "sub": "Trabajo y dificultad",
    "lecciones": [
     {
      "id": "5",
-     "titulo": "Comunicación de crisis",
-     "minutos": 4,
+     "titulo": "Dónde trabajarías",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Al terminar, ¿dónde crees que trabajaría alguien de Comunicación?"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál de estos lugares es más de Comunicación?",
+       "opciones": [
+        "Instituciones públicas y privadas",
+        "Construcción",
+        "Según la especialización y experiencia"
+       ],
+       "correcta": 0,
+       "explicacion": "Es uno de los lugares donde trabaja alguien de Comunicación.",
+       "adivina": true
+      },
+      {
        "tipo": "info",
-       "titulo": "Comunicación de crisis",
-       "partes": [
-        {
-         "t": "Una crisis es cuando algo malo pasa y la gente quiere saber qué está pasando: un accidente, un error en un producto o una acusación. Las reglas básicas son responder rápido, decir la verdad, mostrar empatía con los afectados, explicar qué se está haciendo y actualizar seguido. Esconder la información casi siempre empeora todo, porque se termina sabiendo. Un solo vocero preparado evita mensajes contradictorios."
-        }
+       "titulo": "Dónde se trabaja",
+       "puntos": [
+        "Instituciones públicas y privadas",
+        "Organizaciones sociales",
+        "Empresas",
+        "Centros de investigación",
+        "Consultoría",
+        "Docencia y proyectos independientes"
        ]
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Una marca de jugos descubre que un lote salió contaminado. ¿Qué hace?",
-       "opciones": [
-        "Avisa rápido, dice qué lote es, qué hacer y qué está haciendo para resolverlo",
-        "Espera a ver si nadie se da cuenta",
-        "Culpa a los clientes"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Por qué conviene tener un solo vocero en una crisis?",
-       "opciones": [
-        "Por moda",
-        "Para que trabajen menos",
-        "Para evitar mensajes contradictorios"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué empeora casi siempre una crisis?",
-       "opciones": [
-        "Esconder la información",
-        "Decir la verdad",
-        "Mostrar empatía"
-       ],
-       "correcta": 0
       },
       {
        "tipo": "teves"
@@ -330,57 +278,39 @@
     },
     {
      "id": "6",
-     "titulo": "Ética del comunicador",
-     "minutos": 4,
+     "titulo": "¿Hay trabajo?",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Ahora lo que todos preguntan: ¿hay trabajo y cuánto se gana?"
+      },
+      {
+       "tipo": "rango",
+       "pregunta": "De cada 100 que estudiaron Comunicación, ¿cuántos crees que trabajan en algo de su carrera?",
+       "min": 0,
+       "max": 100,
+       "paso": 5,
+       "unidad": "de cada 100",
+       "dato": "comunicacion.ocupacion_afin"
+      },
+      {
+       "tipo": "rango",
+       "pregunta": "¿Cuánto crees que gana al mes, en promedio?",
+       "min": 5000,
+       "max": 50000,
+       "paso": 1000,
+       "unidad": "pesos al mes",
+       "dato": "comunicacion.ingreso"
+      },
+      {
        "tipo": "info",
-       "titulo": "Ética del comunicador",
-       "partes": [
-        {
-         "t": "Un comunicador tiene poder sobre cómo se ve la gente en público, y eso trae responsabilidades. No se publican datos personales sin una razón de interés público. Con menores de edad se protege su identidad. Cuando un contenido es pagado, se dice: la publicidad disfrazada de noticia o de recomendación engaña al público. A las víctimas se les trata con respeto, sin morbo. Y antes de publicar se le da a la persona acusada la oportunidad de responder."
-        }
-       ]
+       "titulo": "Así está el trabajo",
+       "texto": "Sueldo arriba del promedio ($24,898), pero de las que menos ejercen lo que estudiaron (menos de una cuarta parte)."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Una marca te paga para que recomiendes su producto en tu canal. ¿Qué haces?",
-       "opciones": [
-        "Dices claramente que es contenido pagado",
-        "Lo escondes",
-        "Lo presentas como opinión tuya sin decir nada"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Cubres un accidente donde está involucrado un menor de edad.",
-       "opciones": [
-        "Publicas todo",
-        "Proteges su identidad y no publicas su cara ni su nombre",
-        "Publicas su escuela"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Vas a publicar una acusación contra un funcionario. ¿Qué haces antes?",
-       "opciones": [
-        "Nada",
-        "Publicas su dirección",
-        "Le das la oportunidad de responder"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué es publicidad disfrazada?",
-       "opciones": [
-        "Contenido pagado presentado como si fuera noticia u opinión independiente",
-        "Un anuncio con disfraces",
-        "Una noticia buena"
-       ],
-       "correcta": 0
+       "tipo": "clave",
+       "texto": "No requiere cédula."
       },
       {
        "tipo": "teves"
@@ -389,54 +319,37 @@
     },
     {
      "id": "7",
-     "titulo": "Producir audio y video",
-     "minutos": 4,
+     "titulo": "Qué tan difícil es",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "¿Dónde crees que está lo más difícil de Comunicación?"
+      },
+      {
        "tipo": "info",
-       "titulo": "Producir audio y video",
-       "partes": [
-        {
-         "t": "Para un video o un podcast se escribe un guion, aunque sea sencillo. Una persona habla más o menos 150 palabras por minuto, así que se puede calcular cuánto dura un texto:"
-        },
-        {
-         "f": "minutos = {palabras|150}"
-        },
-        {
-         "t": "En video, el audio importa tanto como la imagen: la gente tolera una imagen regular, pero deja un video si no se escucha bien. En redes, los primeros segundos deciden si alguien se queda."
-        }
+       "titulo": "Lo más difícil",
+       "texto": "Dificultad media. Teorías de la comunicación e Investigación; mucha producción de contenido y proyectos."
+      },
+      {
+       "tipo": "info",
+       "titulo": "Cuánto dura",
+       "texto": "4 años."
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Te ves aguantando eso?",
+       "escala": [
+        "No",
+        "Sí"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Tu guion tiene 450 palabras. ¿Cuánto dura leído en voz alta, más o menos?",
-       "opciones": [
-        "450 minutos",
-        "3 minutos",
-        "30 segundos"
-       ],
-       "correcta": 1,
-       "formula": "{450|150} = 3"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Tu video tiene buena imagen pero el audio se escucha con mucho eco. ¿Qué pasa?",
-       "opciones": [
-        "Se escucha mejor",
-        "Nada",
-        "Mucha gente lo deja; hay que mejorar el audio"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "En un video para redes, ¿qué va en los primeros segundos?",
-       "opciones": [
-        "Lo más llamativo, para que la gente se quede",
-        "Los créditos",
-        "Un fondo negro"
-       ],
-       "correcta": 0
+       "tipo": "info",
+       "titulo": "Si te gusta, pero no del todo",
+       "puntos": [
+        "Mira también: Mercadotecnia, Animación, Sociología"
+       ]
       },
       {
        "tipo": "teves"
@@ -447,126 +360,27 @@
   },
   {
    "id": "u4",
-   "titulo": "Examen final",
-   "sub": "10 preguntas · apruebas con 7",
+   "titulo": "Tu decisión",
+   "sub": "¿La guardas o la descartas?",
    "lecciones": [
     {
      "id": "ex",
-     "titulo": "Examen final",
-     "minutos": 6,
-     "examen": true,
-     "aprobar": 7,
+     "titulo": "Tu veredicto",
+     "minutos": 2,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "Examen final",
-       "partes": [
-        {
-         "t": "Son 10 casos nuevos que mezclan todas las lecciones. Apruebas con 7. Si no, lo repites y las que fallaste regresan con otras palabras."
-        }
-       ]
+       "tipo": "escena",
+       "texto": "Ya sabes qué hace alguien de Comunicación, qué estudias, qué tan difícil es y si hay trabajo."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Cómo se escribe una noticia?",
-       "opciones": [
-        "Con el final al principio",
-        "Con opiniones",
-        "En pirámide invertida, con lo más importante primero"
-       ],
-       "correcta": 2
+       "tipo": "escuelas"
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué haces con un dato que no pudiste confirmar?",
-       "opciones": [
-        "Lo publicas",
-        "No lo publicas como hecho",
-        "Lo inventas"
-       ],
-       "correcta": 1
+       "tipo": "veredicto"
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué haces si publicaste un error?",
-       "opciones": [
-        "Lo corriges públicamente",
-        "Lo dejas",
-        "Lo borras sin decir nada"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué es lo primero al planear un mensaje?",
-       "opciones": [
-        "Comprar anuncios",
-        "Pensar a quién va dirigido y qué quieres que haga",
-        "Elegir colores"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Una publicación tuvo 4,000 de alcance y 120 interacciones. ¿Cuál es su tasa de interacción?",
-       "opciones": [
-        "3 por ciento",
-        "33 por ciento",
-        "0.3 por ciento"
-       ],
-       "correcta": 0,
-       "formula": "{120|4,000} × 100 = 3"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué se hace en una crisis?",
-       "opciones": [
-        "Esconder la información",
-        "Responder rápido y con la verdad",
-        "Culpar a otros"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Te pagan por recomendar un producto.",
-       "opciones": [
-        "Lo niegas",
-        "No dices nada",
-        "Dices que es contenido pagado"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué haces con la identidad de un menor en una nota?",
-       "opciones": [
-        "Publicas solo su escuela",
-        "La proteges",
-        "La publicas"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un guion tiene 300 palabras. ¿Cuánto dura leído, más o menos?",
-       "opciones": [
-        "5 minutos",
-        "2 minutos",
-        "30 segundos"
-       ],
-       "correcta": 1,
-       "formula": "{300|150} = 2"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué hace que mucha gente deje un video?",
-       "opciones": [
-        "Un audio malo",
-        "Subtítulos",
-        "Un buen título"
-       ],
-       "correcta": 0
+       "tipo": "clave",
+       "texto": "Decidir «sigo en duda» también es avanzar."
       }
      ]
     }

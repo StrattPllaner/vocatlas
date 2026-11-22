@@ -1,14 +1,15 @@
 {
  "id": "quimicaing",
- "version": 2,
+ "version": 3,
  "formato": 2,
  "estado": "completo",
- "revision": "Pendiente de revisión por un profesionista de la carrera. Generado con datos/importar_lecciones.py desde datos/fuentes/lecciones/quimicaing.lec; no se edita a mano.",
+ "generado": true,
+ "revision": "Lecciones generales (de qué trata la carrera y si va contigo), armadas con datos/lecciones_generales.py desde la base de carreras con fuentes (2026-11-17).",
  "unidades": [
   {
    "id": "u1",
-   "titulo": "Balances",
-   "sub": "Materia y mezclas",
+   "titulo": "¿De qué se trata?",
+   "sub": "Qué hace y cómo es su día",
    "lecciones": [
     {
      "id": "0",
@@ -16,82 +17,55 @@
      "minutos": 1,
      "tarjetas": [
       {
-       "tipo": "ficha",
-       "texto": "Ingeniería Química forma ingenieros que diseñan y operan los procesos que convierten materias primas en productos a gran escala: combustibles, plásticos, alimentos, medicinas y más, cuidando la seguridad, la energía y el ambiente.",
-       "cifras": [
-        "quimicaing.ingreso",
-        "quimicaing.duracion",
-        "quimicaing.costo_publica",
-        "quimicaing.costo_privada"
-       ]
+       "tipo": "escena",
+       "texto": "Antes de leer nada: ¿qué crees que hace alguien que estudió Ing. Química?"
       },
       {
-       "tipo": "escena",
-       "texto": "Hoy operas una planta química. Vamos a ver si tus balances cuadran y nadie corre peligro."
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál de estas cosas crees que hace?",
+       "opciones": [
+        "Ciencias químicas y biológicas aplicadas al análisis, investigación, producción y…",
+        "Registra operaciones",
+        "Diseña objetos que se fabrican en serie (muebles, empaques, electrodomésticos"
+       ],
+       "correcta": 0,
+       "explicacion": "En pocas palabras, Ing. Química es ciencias químicas y biológicas aplicadas al análisis, investigación, producción y control de calidad. El plan puede orientarse a medicamentos, diagnóstico, microorganismos, alimentos o procesos industriales.",
+       "adivina": true
+      },
+      {
+       "tipo": "info",
+       "titulo": "Ing. Química en una frase",
+       "texto": "Ciencias químicas y biológicas aplicadas al análisis, investigación, producción y control de calidad."
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
      "id": "1",
-     "titulo": "Balance de materia",
-     "minutos": 4,
+     "titulo": "Un día normal",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Imagina que acompañas un día entero a alguien de Ing. Química. ¿Qué crees que hace?"
+      },
+      {
        "tipo": "info",
-       "titulo": "Balance de materia",
-       "partes": [
-        {
-         "t": "Un ingeniero químico diseña y opera los procesos que transforman materias primas en productos a gran escala: gasolina, plásticos, alimentos, medicinas, cemento. La herramienta más básica es el balance de materia: lo que entra a un proceso tiene que salir o acumularse dentro."
-        },
-        {
-         "f": "lo que entra = lo que sale + lo que se acumula"
-        },
-        {
-         "t": "Si en un tanque entra más de lo que sale, el nivel sube. Si al hacer el balance falta material, hay una fuga, un error de medición o una reacción que no tomaste en cuenta."
-        }
+       "titulo": "Un día normal",
+       "puntos": [
+        "Diseña, opera o mejora procesos industriales que transforman materias primas en productos (combustibles, plásticos, alimentos, medicamentos)…"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "A un tanque entran 100 litros por minuto y salen 80. ¿Qué pasa con el nivel?",
+       "tipo": "reflexion",
+       "pregunta": "De ese día, ¿qué te late más?",
        "opciones": [
-        "Se queda igual",
-        "Sube 20 litros por minuto",
-        "Baja"
-       ],
-       "correcta": 1,
-       "formula": "100 − 80 = 20"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un proceso recibe 1,000 kilos al día y sus salidas suman 950, sin acumulación. ¿Qué haces?",
-       "opciones": [
-        "Buscas los 50 kilos que faltan: una fuga, un error de medición o algo no contabilizado",
-        "Cambias los números",
-        "Nada"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "A un mezclador entran 300 kilos de agua y 200 de jarabe, y no se acumula nada. ¿Cuánto sale?",
-       "opciones": [
-        "500 kilos",
-        "100 kilos",
-        "300 kilos"
-       ],
-       "correcta": 0,
-       "formula": "300 + 200 = 500"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué dice el balance de materia?",
-       "opciones": [
-        "Lo que entra sale o se acumula",
-        "La materia desaparece",
-        "Nada"
-       ],
-       "correcta": 0
+        "Casi todo",
+        "Algunas cosas",
+        "Nada de eso"
+       ]
       },
       {
        "tipo": "teves"
@@ -100,65 +74,36 @@
     },
     {
      "id": "2",
-     "titulo": "Mezclas y concentraciones",
-     "minutos": 4,
+     "titulo": "Mitos y realidades",
+     "minutos": 2,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "Mezclas y concentraciones",
-       "partes": [
-        {
-         "t": "Muchos procesos mezclan corrientes con distinta concentración. La concentración de la mezcla se calcula sumando lo que aporta cada corriente:"
-        },
-        {
-         "f": "concentración de la mezcla = {masa 1 × concentración 1 + masa 2 × concentración 2|masa 1 + masa 2}"
-        },
-        {
-         "t": "Así se calcula, por ejemplo, cuánto jugo concentrado y cuánta agua hay que mezclar para obtener un jugo con el azúcar que pide la receta. Un error aquí hace que miles de litros salgan fuera de especificación."
-        }
-       ]
+       "tipo": "escena",
+       "texto": "¿Verdadero o falso? Primero di lo que crees."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Mezclas 100 kilos de una solución al 20 por ciento con 100 kilos de agua pura. ¿A qué concentración queda?",
-       "opciones": [
-        "40 por ciento",
-        "10 por ciento",
-        "20 por ciento"
-       ],
-       "correcta": 1,
-       "formula": "{100 × 20 + 100 × 0|200} = 10"
+       "tipo": "vf",
+       "afirmacion": "En Ing. Química llevas materias de matemáticas o con muchos números.",
+       "respuesta": true,
+       "revelacion": "Sí: Cálculo, Física, Álgebra lineal. Muchos eligen carrera pensando en evitar las matemáticas; mejor saberlo desde ahora."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Mezclas 50 kilos al 40 por ciento con 150 kilos al 0 por ciento. ¿A qué concentración queda?",
-       "opciones": [
-        "20 por ciento",
-        "40 por ciento",
-        "10 por ciento"
-       ],
-       "correcta": 2,
-       "formula": "{50 × 40|200} = 10"
+       "tipo": "vf",
+       "afirmacion": "Es de las carreras más difíciles.",
+       "respuesta": true,
+       "revelacion": "Su dificultad es muy alta. Cálculo, Fisicoquímica, Termodinámica y Fenómenos de transporte; de las ingenierías con más deserción."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Un lote de 5,000 litros salió con menos azúcar de lo especificado. ¿Qué revisas?",
-       "opciones": [
-        "Las cantidades y concentraciones de cada corriente que se mezcló",
-        "Nada",
-        "El color del tanque"
-       ],
-       "correcta": 0
+       "tipo": "vf",
+       "afirmacion": "La mayoría de quienes la estudian terminan trabajando en otra cosa.",
+       "respuesta": true,
+       "revelacion": "32 de cada 100 trabajan en algo de su carrera (IMCO, Compara Carreras 2026)."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué pasa con la concentración al agregar agua a una solución?",
-       "opciones": [
-        "Baja",
-        "Sube",
-        "No cambia"
-       ],
-       "correcta": 0
+       "tipo": "vf",
+       "afirmacion": "Casi todos los que se dedican a esto son hombres.",
+       "respuesta": false,
+       "revelacion": "De cada 100 personas que la ejercen, 40 son mujeres (IMCO, Compara Carreras 2026)."
       },
       {
        "tipo": "teves"
@@ -169,174 +114,101 @@
   },
   {
    "id": "u2",
-   "titulo": "Transformar",
-   "sub": "Separaciones, energía y reactores",
+   "titulo": "¿Va contigo?",
+   "sub": "Lo que pide y lo que estudias",
    "lecciones": [
     {
      "id": "3",
-     "titulo": "Separar",
-     "minutos": 4,
+     "titulo": "¿Se te da?",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Para que una carrera te guste no basta con que te llame la atención. ¿Se te da lo que pide?"
+      },
+      {
        "tipo": "info",
-       "titulo": "Separar",
-       "partes": [
-        {
-         "t": "Después de una reacción casi siempre hay que separar el producto de lo demás. La destilación separa líquidos por su punto de ebullición: el que hierve a menor temperatura se evapora primero y luego se condensa. Así se separa el alcohol del agua o se divide el petróleo en gasolina, diésel y otros. La filtración separa sólidos de líquidos, y la evaporación quita agua para concentrar algo, como al hacer sal o leche en polvo. Separar suele ser la parte que más energía gasta de una planta."
-        }
+       "titulo": "Lo que pide Ing. Química",
+       "puntos": [
+        "Química y matemáticas fuertes",
+        "Pensamiento de procesos",
+        "Seguridad industrial",
+        "Resolución de problemas"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Cómo separa la destilación dos líquidos?",
-       "opciones": [
-        "Por su precio",
-        "Por su punto de ebullición",
-        "Por su color"
-       ],
-       "correcta": 1
+       "tipo": "info",
+       "titulo": "Y lo que te tiene que gustar",
+       "puntos": [
+        "Química aplicada",
+        "Industria",
+        "Energía y medio ambiente"
+       ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Quieres sacar la sal del agua de mar. ¿Qué proceso usas?",
-       "opciones": [
-        "Filtración con papel",
-        "Evaporación",
-        "Congelación rápida"
-       ],
-       "correcta": 1
+       "tipo": "reflexion",
+       "pregunta": "¿Me gusta la química y también las matemáticas?",
+       "escala": [
+        "No",
+        "Sí"
+       ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué parte de una planta suele gastar más energía?",
-       "opciones": [
-        "La oficina",
-        "El estacionamiento",
-        "Las separaciones"
-       ],
-       "correcta": 2
+       "tipo": "reflexion",
+       "pregunta": "¿Me veo en una planta industrial?",
+       "escala": [
+        "No",
+        "Sí"
+       ]
       },
       {
-       "tipo": "teves"
+       "tipo": "reflexion",
+       "pregunta": "¿Me interesa producir a gran escala más que experimentar en pequeño?",
+       "escala": [
+        "No",
+        "Sí"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Si dijiste que no a algo, no pasa nada: sirve para saber qué preguntar y qué carreras parecidas ver."
       }
      ]
     },
     {
      "id": "4",
-     "titulo": "Energía y calor",
-     "minutos": 4,
+     "titulo": "Lo que estudias",
+     "minutos": 2,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "Energía y calor",
-       "partes": [
-        {
-         "t": "Calentar y enfriar cuesta mucha energía y dinero en una planta. La energía necesaria para calentar un líquido depende de su masa, de cuánto quieres subir la temperatura y de su calor específico. El agua necesita unos 4.18 kilojoules por cada kilo y cada grado:"
-        },
-        {
-         "f": "energía = masa × calor específico × cambio de temperatura"
-        },
-        {
-         "t": "Los intercambiadores de calor aprovechan el calor de una corriente caliente para calentar otra fría, en vez de desperdiciarlo. Eso ahorra combustible."
-        }
-       ]
+       "tipo": "escena",
+       "texto": "¿Qué crees que ves en el primer año de Ing. Química?"
       },
       {
        "tipo": "pregunta",
-       "pregunta": "¿Cuánta energía se necesita para calentar 10 kilos de agua de 20 a 30 grados?",
+       "pregunta": "¿Cuál crees que es el primer año?",
        "opciones": [
-        "Unos 418 kilojoules",
-        "300 kilojoules",
-        "41.8 kilojoules"
+        "Cálculo, Química general, Física",
+        "Introducción al derecho, Derecho romano, Teoría del Estado",
+        "Teoría sociológica clásica, Historia, Introducción a la antropología"
        ],
        "correcta": 0,
-       "formula": "10 × 4.18 × 10 = 418"
+       "explicacion": "Esas son materias de los primeros semestres. Las otras son de Derecho y Sociología.",
+       "adivina": true
       },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Una corriente sale caliente de un reactor y otra entra fría. ¿Qué propones?",
-       "opciones": [
-        "Tirar el calor al aire",
-        "Un intercambiador de calor para aprovechar ese calor",
-        "Nada"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Si duplicas la masa de agua que calientas, con el mismo cambio de temperatura, ¿qué pasa con la energía?",
-       "opciones": [
-        "Se reduce a la mitad",
-        "No cambia",
-        "Se duplica"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Por qué importa tanto la energía en una planta?",
-       "opciones": [
-        "Por estética",
-        "No importa",
-        "Porque calentar y enfriar cuesta mucho dinero"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "teves"
-      }
-     ]
-    },
-    {
-     "id": "5",
-     "titulo": "Reactores",
-     "minutos": 4,
-     "tarjetas": [
       {
        "tipo": "info",
-       "titulo": "Reactores",
-       "partes": [
-        {
-         "t": "En el reactor ocurre la transformación química. La conversión dice qué parte de la materia prima reaccionó:"
-        },
-        {
-         "f": "conversión = {materia prima que reaccionó|materia prima que entró} × 100"
-        },
-        {
-         "t": "Lo que no reacciona muchas veces se separa y se recircula al reactor. La temperatura, la presión y los catalizadores, que aceleran una reacción sin gastarse, se ajustan para obtener más producto y menos subproductos indeseados."
-        }
+       "titulo": "Lo que vas viendo",
+       "puntos": [
+        "Semestres 1-2: Cálculo, Química general, Física, Álgebra lineal",
+        "Semestres 3-4: Química orgánica, Fisicoquímica, Balances de materia y energía, Ecuaciones diferenciales",
+        "Semestres 5-6: Termodinámica química, Fenómenos de transporte, Operaciones unitarias, Ingeniería de reactores",
+        "Semestres 7 en adelante: Diseño de plantas, Control de procesos, Proyecto"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Entran 500 kilos de materia prima y reaccionan 400. ¿Cuál es la conversión?",
-       "opciones": [
-        "20 por ciento",
-        "80 por ciento",
-        "125 por ciento"
-       ],
-       "correcta": 1,
-       "formula": "{400|500} × 100 = 80"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué se hace con la materia prima que no reaccionó?",
-       "opciones": [
-        "Se vende como producto",
-        "Se separa y se recircula al reactor",
-        "Se tira siempre"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué hace un catalizador?",
-       "opciones": [
-        "La detiene",
-        "Le da color",
-        "Acelera la reacción sin gastarse"
-       ],
-       "correcta": 2
+       "tipo": "clave",
+       "texto": "Los nombres cambian un poco según la universidad; la idea general es esta."
       },
       {
        "tipo": "teves"
@@ -347,62 +219,82 @@
   },
   {
    "id": "u3",
-   "titulo": "Operar en grande",
-   "sub": "Seguridad, ambiente y escala",
+   "titulo": "¿Y después?",
+   "sub": "Trabajo y dificultad",
    "lecciones": [
     {
-     "id": "6",
-     "titulo": "Seguridad de procesos",
-     "minutos": 4,
+     "id": "5",
+     "titulo": "Dónde trabajarías",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Al terminar, ¿dónde crees que trabajaría alguien de Ing. Química?"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál de estos lugares es más de Ing. Química?",
+       "opciones": [
+        "Laboratorios clínicos e industriales",
+        "Consultoría",
+        "Consulta privada"
+       ],
+       "correcta": 0,
+       "explicacion": "Es uno de los lugares donde trabaja alguien de Ing. Química.",
+       "adivina": true
+      },
+      {
        "tipo": "info",
-       "titulo": "Seguridad de procesos",
-       "partes": [
-        {
-         "t": "En una planta química hay sustancias inflamables, tóxicas o a alta presión. Por eso se diseña con capas de protección: controles automáticos, alarmas, válvulas de alivio que liberan presión antes de que un tanque reviente, y procedimientos claros. Antes de cambiar algo en el proceso, se analiza qué podría salir mal. Muchos accidentes graves en la historia empezaron por cambios pequeños sin análisis o por alarmas que se apagaron porque \"sonaban mucho\"."
-        }
+       "titulo": "Dónde se trabaja",
+       "puntos": [
+        "Laboratorios clínicos e industriales",
+        "Farmacéuticas",
+        "Hospitales",
+        "Alimentos",
+        "Biotecnología",
+        "Control de calidad"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Para qué sirve una válvula de alivio?",
-       "opciones": [
-        "Para decorar",
-        "Para liberar presión antes de que un equipo reviente",
-        "Para llenar más rápido"
-       ],
-       "correcta": 1
+       "tipo": "teves"
+      }
+     ]
+    },
+    {
+     "id": "6",
+     "titulo": "¿Hay trabajo?",
+     "minutos": 2,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Ahora lo que todos preguntan: ¿hay trabajo y cuánto se gana?"
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Una alarma de alta presión suena seguido y un operador quiere desconectarla.",
-       "opciones": [
-        "Se le baja el volumen",
-        "Se desconecta",
-        "No se desconecta; se investiga por qué suena"
-       ],
-       "correcta": 2
+       "tipo": "rango",
+       "pregunta": "De cada 100 que estudiaron Ing. Química, ¿cuántos crees que trabajan en algo de su carrera?",
+       "min": 0,
+       "max": 100,
+       "paso": 5,
+       "unidad": "de cada 100",
+       "dato": "quimicaing.ocupacion_afin"
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Quieres cambiar una tubería por una de otro material para ahorrar. ¿Qué haces antes?",
-       "opciones": [
-        "Analizas si aguanta la presión, la temperatura y las sustancias",
-        "La cambias",
-        "Nada"
-       ],
-       "correcta": 0
+       "tipo": "rango",
+       "pregunta": "¿Cuánto crees que gana al mes, en promedio?",
+       "min": 5000,
+       "max": 50000,
+       "paso": 1000,
+       "unidad": "pesos al mes",
+       "dato": "quimicaing.ingreso"
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué causó muchos accidentes graves en la historia?",
-       "opciones": [
-        "La mala suerte y ya",
-        "Cambios sin análisis y alarmas ignoradas",
-        "Nada"
-       ],
-       "correcta": 1
+       "tipo": "info",
+       "titulo": "Así está el trabajo",
+       "texto": "IMCO 'Ingeniería de procesos químicos': $22,633; una de las ingenierías con más egresados."
+      },
+      {
+       "tipo": "clave",
+       "texto": "No requiere cédula para la mayoría de puestos."
       },
       {
        "tipo": "teves"
@@ -411,47 +303,37 @@
     },
     {
      "id": "7",
-     "titulo": "Ambiente y escala",
-     "minutos": 4,
+     "titulo": "Qué tan difícil es",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "¿Dónde crees que está lo más difícil de Ing. Química?"
+      },
+      {
        "tipo": "info",
-       "titulo": "Ambiente y escala",
-       "partes": [
-        {
-         "t": "Las plantas generan residuos y emisiones que se tratan antes de liberarse, cumpliendo las normas ambientales. Un buen ingeniero busca reducir los residuos desde el proceso, por ejemplo recirculando materiales. Además, lo que funciona en el laboratorio cambia al hacerse en grande: mezclar, calentar y enfriar miles de litros no es igual que en un vaso. Por eso se pasa por una planta piloto antes de construir la planta completa."
-        }
+       "titulo": "Lo más difícil",
+       "texto": "Dificultad muy alta. Cálculo, Fisicoquímica, Termodinámica y Fenómenos de transporte; de las ingenierías con más deserción."
+      },
+      {
+       "tipo": "info",
+       "titulo": "Cuánto dura",
+       "texto": "4.5 a 5 años."
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Te ves aguantando eso?",
+       "escala": [
+        "No",
+        "Sí"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Por qué se construye una planta piloto?",
-       "opciones": [
-        "Para probar el proceso a escala intermedia antes de la planta completa",
-        "Para jugar",
-        "Para ahorrar papel"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Una planta puede tratar su agua residual o tirarla al río para ahorrar.",
-       "opciones": [
-        "La tira",
-        "La trata y cumple las normas",
-        "La tira de noche"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Cuál es una forma de reducir residuos desde el proceso?",
-       "opciones": [
-        "Tirar todo junto",
-        "Producir más",
-        "Recircular materiales que no reaccionaron"
-       ],
-       "correcta": 2
+       "tipo": "info",
+       "titulo": "Si te gusta, pero no del todo",
+       "puntos": [
+        "Mira también: Química, QFB"
+       ]
       },
       {
        "tipo": "teves"
@@ -462,128 +344,27 @@
   },
   {
    "id": "u4",
-   "titulo": "Examen final",
-   "sub": "10 preguntas · apruebas con 7",
+   "titulo": "Tu decisión",
+   "sub": "¿La guardas o la descartas?",
    "lecciones": [
     {
      "id": "ex",
-     "titulo": "Examen final",
-     "minutos": 6,
-     "examen": true,
-     "aprobar": 7,
+     "titulo": "Tu veredicto",
+     "minutos": 2,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "Examen final",
-       "partes": [
-        {
-         "t": "Son 10 casos nuevos que mezclan todas las lecciones. Apruebas con 7. Si no, lo repites y las que fallaste regresan con otras palabras."
-        }
-       ]
+       "tipo": "escena",
+       "texto": "Ya sabes qué hace alguien de Ing. Química, qué estudias, qué tan difícil es y si hay trabajo."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "A un tanque entran 50 litros por minuto y salen 70. ¿Qué pasa con el nivel?",
-       "opciones": [
-        "Baja 20 litros por minuto",
-        "Sube",
-        "Igual"
-       ],
-       "correcta": 0,
-       "formula": "50 − 70 = −20"
+       "tipo": "escuelas"
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué dice el balance de materia?",
-       "opciones": [
-        "Nada",
-        "La materia se crea",
-        "Lo que entra sale o se acumula"
-       ],
-       "correcta": 2
+       "tipo": "veredicto"
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Mezclas 200 kilos al 30 por ciento con 100 kilos de agua pura. ¿A qué concentración queda?",
-       "opciones": [
-        "30 por ciento",
-        "20 por ciento",
-        "10 por ciento"
-       ],
-       "correcta": 1,
-       "formula": "{200 × 30|300} = 20"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Cómo separa la destilación?",
-       "opciones": [
-        "Por color",
-        "Por tamaño",
-        "Por punto de ebullición"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Cuánta energía se necesita para calentar 5 kilos de agua 20 grados?",
-       "opciones": [
-        "100 kilojoules",
-        "25 kilojoules",
-        "Unos 418 kilojoules"
-       ],
-       "correcta": 2,
-       "formula": "5 × 4.18 × 20 = 418"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Para qué sirve un intercambiador de calor?",
-       "opciones": [
-        "Para aprovechar el calor de una corriente en otra",
-        "Para nada",
-        "Para enfriar la oficina"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Entran 200 kilos y reaccionan 150. ¿Cuál es la conversión?",
-       "opciones": [
-        "75 por ciento",
-        "25 por ciento",
-        "133 por ciento"
-       ],
-       "correcta": 0,
-       "formula": "{150|200} × 100 = 75"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué hace un catalizador?",
-       "opciones": [
-        "La enfría",
-        "Acelera la reacción sin gastarse",
-        "La frena"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Una alarma suena mucho.",
-       "opciones": [
-        "Se investiga la causa, no se desconecta",
-        "Se apaga",
-        "Se ignora"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Por qué existe la planta piloto?",
-       "opciones": [
-        "Para vender",
-        "Por gusto",
-        "Porque lo que funciona en pequeño cambia al hacerse grande"
-       ],
-       "correcta": 2
+       "tipo": "clave",
+       "texto": "Decidir «sigo en duda» también es avanzar."
       }
      ]
     }

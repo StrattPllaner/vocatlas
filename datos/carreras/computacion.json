@@ -1,14 +1,15 @@
 {
  "id": "computacion",
- "version": 2,
+ "version": 3,
  "formato": 2,
  "estado": "completo",
- "revision": "Pendiente de revisión por un profesionista de la carrera. Generado con datos/importar_lecciones.py desde datos/fuentes/lecciones/computacion.lec; no se edita a mano.",
+ "generado": true,
+ "revision": "Lecciones generales (de qué trata la carrera y si va contigo), armadas con datos/lecciones_generales.py desde la base de carreras con fuentes (2026-11-17).",
  "unidades": [
   {
    "id": "u1",
-   "titulo": "Pensar en pasos",
-   "sub": "Algoritmos y binario",
+   "titulo": "¿De qué se trata?",
+   "sub": "Qué hace y cómo es su día",
    "lecciones": [
     {
      "id": "0",
@@ -16,74 +17,70 @@
      "minutos": 1,
      "tarjetas": [
       {
-       "tipo": "ficha",
-       "texto": "Computación, o Sistemas Computacionales, forma programadores e ingenieros que crean software: apps, páginas web, sistemas para empresas y bases de datos. Resuelven problemas con lógica y trabajan casi siempre en equipo, en empresas de tecnología o en el área de sistemas de cualquier empresa.",
-       "cifras": [
-        "computacion.ingreso",
-        "computacion.duracion",
-        "computacion.costo_publica",
-        "computacion.costo_privada"
-       ]
+       "tipo": "escena",
+       "texto": "Antes de leer nada: ¿qué crees que hace alguien que estudió Computación?"
       },
       {
-       "tipo": "escena",
-       "texto": "Hoy le programas una solución a un cliente. Vamos a ver si piensas como programador."
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál de estas cosas crees que hace?",
+       "opciones": [
+        "Programa aplicaciones, páginas y sistemas",
+        "Crea personajes, escenarios y movimiento para series, videojuegos, publicidad o redes",
+        "Mantiene y gestiona equipo médico en hospitales (tomógrafos, monitores)"
+       ],
+       "correcta": 0,
+       "explicacion": "En pocas palabras, Computación es diseño y desarrollo de soluciones digitales. Puede incluir programación, algoritmos, bases de datos, infraestructura, análisis de datos, inteligencia artificial, redes o seguridad informática.",
+       "adivina": true
+      },
+      {
+       "tipo": "info",
+       "titulo": "Computación en una frase",
+       "texto": "Diseño y desarrollo de soluciones digitales."
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
      "id": "1",
-     "titulo": "Algoritmos",
-     "minutos": 4,
+     "titulo": "Un día normal",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Imagina que acompañas un día entero a alguien de Computación. ¿Qué crees que hace?"
+      },
+      {
        "tipo": "info",
-       "titulo": "Algoritmos",
-       "partes": [
-        {
-         "t": "Un algoritmo es una lista de pasos exactos para resolver un problema. La computadora hace exactamente lo que le dices, ni más ni menos, así que los pasos tienen que ser claros y en el orden correcto. Los programas usan tres ideas básicas: secuencia, que es hacer un paso tras otro; decisión, que es \"si pasa esto, haz aquello\"; y repetición, que es hacer algo varias veces, también llamado ciclo. Antes de programar conviene escribir el algoritmo en palabras, o pseudocódigo, para pensar la solución sin pelearte con el lenguaje."
-        }
+       "titulo": "Un día normal",
+       "puntos": [
+        "Programa aplicaciones, páginas y sistemas",
+        "Diseña bases de datos",
+        "Arregla errores"
        ]
       },
       {
        "tipo": "pregunta",
-       "pregunta": "Un programa debe decir \"aprobado\" si la calificación es 6 o más y \"reprobado\" si no. ¿Qué idea usa?",
+       "pregunta": "¿Cuál de estas cosas NO es parte de su día?",
        "opciones": [
-        "Una decisión",
-        "Solo secuencia",
-        "Nada"
+        "Analiza lo que pasa en otros países y cómo afecta a México",
+        "Diseña bases de datos",
+        "Arregla errores"
        ],
-       "correcta": 0
+       "correcta": 0,
+       "explicacion": "Eso lo hace alguien de Relaciones internacionales, no de Computación.",
+       "adivina": true
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Un ciclo repite una instrucción desde el número 1 hasta el 10, de uno en uno. ¿Cuántas veces se ejecuta?",
+       "tipo": "reflexion",
+       "pregunta": "De ese día, ¿qué te late más?",
        "opciones": [
-        "11",
-        "10",
-        "9"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Tu programa para calcular el promedio suma las calificaciones, pero divide antes de terminar de sumar. ¿Qué pasa?",
-       "opciones": [
-        "Sale bien",
-        "La computadora lo corrige sola",
-        "El promedio sale mal porque el orden de los pasos está mal"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Para qué sirve escribir pseudocódigo antes de programar?",
-       "opciones": [
-        "Para pensar la solución sin preocuparte del lenguaje",
-        "No sirve",
-        "Para que el programa sea más lento"
-       ],
-       "correcta": 0
+        "Programa aplicaciones, páginas y sistemas",
+        "Diseña bases de datos",
+        "Arregla errores",
+        "Nada de eso"
+       ]
       },
       {
        "tipo": "teves"
@@ -92,65 +89,36 @@
     },
     {
      "id": "2",
-     "titulo": "Binario",
-     "minutos": 4,
+     "titulo": "Mitos y realidades",
+     "minutos": 2,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "Binario",
-       "partes": [
-        {
-         "t": "Las computadoras guardan todo con ceros y unos, que se llaman bits. Ocho bits forman un byte. En binario, cada posición vale el doble que la de su derecha: 1, 2, 4, 8, 16, 32, 64 y 128. Para pasar un número binario a decimal sumas los valores de las posiciones donde hay un 1. Por ejemplo, 1011 en binario es:"
-        },
-        {
-         "f": "8 + 0 + 2 + 1 = 11"
-        },
-        {
-         "t": "Con más bits puedes representar más valores: con 8 bits caben 256 valores distintos, del 0 al 255."
-        }
-       ]
+       "tipo": "escena",
+       "texto": "¿Verdadero o falso? Primero di lo que crees."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Cuánto vale 101 en binario?",
-       "opciones": [
-        "5",
-        "3",
-        "101"
-       ],
-       "correcta": 0,
-       "formula": "4 + 0 + 1 = 5"
+       "tipo": "vf",
+       "afirmacion": "En Computación llevas materias de matemáticas o con muchos números.",
+       "respuesta": true,
+       "revelacion": "Sí: Fundamentos de programación, Cálculo, Matemáticas discretas. Muchos eligen carrera pensando en evitar las matemáticas; mejor saberlo desde ahora."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Cuánto vale 1100 en binario?",
-       "opciones": [
-        "12",
-        "6",
-        "1,100"
-       ],
-       "correcta": 0,
-       "formula": "8 + 4 + 0 + 0 = 12"
+       "tipo": "vf",
+       "afirmacion": "Es de las carreras más difíciles.",
+       "respuesta": true,
+       "revelacion": "Su dificultad es alta. Programación desde el inicio, Matemáticas discretas, Estructuras de datos y Algoritmos."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Cuántos bits tiene un byte?",
-       "opciones": [
-        "2",
-        "8",
-        "10"
-       ],
-       "correcta": 1
+       "tipo": "vf",
+       "afirmacion": "La mayoría de quienes la estudian terminan trabajando en otra cosa.",
+       "respuesta": true,
+       "revelacion": "45 de cada 100 trabajan en algo de su carrera (IMCO, Compara Carreras 2026)."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Un juego guarda la vida del personaje en 8 bits sin signo. ¿Cuál es el valor máximo?",
-       "opciones": [
-        "1,000",
-        "8",
-        "255"
-       ],
-       "correcta": 2
+       "tipo": "vf",
+       "afirmacion": "Casi todos los que se dedican a esto son hombres.",
+       "respuesta": false,
+       "revelacion": "De cada 100 personas que la ejercen, 25 son mujeres (IMCO, Compara Carreras 2026)."
       },
       {
        "tipo": "teves"
@@ -161,111 +129,101 @@
   },
   {
    "id": "u2",
-   "titulo": "Datos",
-   "sub": "Búsquedas y bases de datos",
+   "titulo": "¿Va contigo?",
+   "sub": "Lo que pide y lo que estudias",
    "lecciones": [
     {
      "id": "3",
-     "titulo": "Buscar rápido",
-     "minutos": 4,
+     "titulo": "¿Se te da?",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Para que una carrera te guste no basta con que te llame la atención. ¿Se te da lo que pide?"
+      },
+      {
        "tipo": "info",
-       "titulo": "Buscar rápido",
-       "partes": [
-        {
-         "t": "Para buscar un dato en una lista desordenada hay que revisar uno por uno: si hay 1,000 elementos, en el peor caso revisas los 1,000. Eso es búsqueda lineal. Si la lista está ordenada, puedes usar búsqueda binaria: ves el elemento de en medio, decides si lo que buscas está antes o después, y descartas la mitad. Cada paso parte la lista a la mitad, así que con 1,000 elementos bastan unos 10 pasos, y con un millón, unos 20. Elegir bien el algoritmo importa más que tener una computadora más rápida."
-        }
+       "titulo": "Lo que pide Computación",
+       "puntos": [
+        "Lógica",
+        "Paciencia para depurar código",
+        "Autoaprendizaje constante",
+        "Inglés técnico"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Una lista desordenada tiene 500 nombres. ¿Cuántos revisas en el peor caso para encontrar uno?",
-       "opciones": [
-        "9",
-        "1",
-        "500"
-       ],
-       "correcta": 2
+       "tipo": "info",
+       "titulo": "Y lo que te tiene que gustar",
+       "puntos": [
+        "Programar",
+        "Tecnología",
+        "Crear apps o videojuegos"
+       ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué necesita una lista para usar búsqueda binaria?",
-       "opciones": [
-        "Ser corta",
-        "Estar ordenada",
-        "Tener números pares"
-       ],
-       "correcta": 1
+       "tipo": "reflexion",
+       "pregunta": "¿He intentado programar y me enganché?",
+       "escala": [
+        "No",
+        "Sí"
+       ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Una app busca entre un millón de usuarios ordenados. ¿Cuántos pasos necesita la búsqueda binaria, más o menos?",
-       "opciones": [
-        "Unos 20",
-        "500,000",
-        "Un millón"
-       ],
-       "correcta": 0
+       "tipo": "reflexion",
+       "pregunta": "¿Me gusta resolver acertijos lógicos?",
+       "escala": [
+        "No",
+        "Sí"
+       ]
       },
       {
-       "tipo": "teves"
+       "tipo": "reflexion",
+       "pregunta": "¿Estoy dispuesto a aprender cosas nuevas toda la vida?",
+       "escala": [
+        "No",
+        "Sí"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Si dijiste que no a algo, no pasa nada: sirve para saber qué preguntar y qué carreras parecidas ver."
       }
      ]
     },
     {
      "id": "4",
-     "titulo": "Bases de datos",
-     "minutos": 4,
+     "titulo": "Lo que estudias",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "¿Qué crees que ves en el primer año de Computación?"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál crees que es el primer año?",
+       "opciones": [
+        "Fundamentos de programación, Cálculo, Matemáticas discretas",
+        "Fundamentos de administración, Contabilidad, Matemáticas",
+        "Cálculo, Química general, Física"
+       ],
+       "correcta": 0,
+       "explicacion": "Esas son materias de los primeros semestres. Las otras son de Administración y Ing. Química.",
+       "adivina": true
+      },
+      {
        "tipo": "info",
-       "titulo": "Bases de datos",
-       "partes": [
-        {
-         "t": "Una base de datos guarda información en tablas, con filas y columnas, como una hoja de cálculo muy organizada. Cada fila necesita algo que la identifique sin repetirse, que se llama llave primaria, por ejemplo un número de cliente. Las tablas se relacionan entre sí: una tabla de pedidos guarda el número de cliente en vez de repetir su nombre y dirección en cada pedido. Así, si el cliente cambia de dirección, solo se cambia en un lugar. Los datos personales se protegen: no cualquiera debe poder verlos."
-        }
+       "titulo": "Lo que vas viendo",
+       "puntos": [
+        "Semestres 1-2: Fundamentos de programación, Cálculo, Matemáticas discretas, Álgebra lineal",
+        "Semestres 3-4: Estructuras de datos, Programación orientada a objetos, Bases de datos, Arquitectura de computadoras",
+        "Semestres 5-6: Sistemas operativos, Redes, Ingeniería de software, Análisis de algoritmos",
+        "Semestres 7 en adelante: Desarrollo web y móvil, Seguridad informática, Proyecto de software"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué es una llave primaria?",
-       "opciones": [
-        "La contraseña del administrador",
-        "Un dato que identifica cada fila sin repetirse",
-        "La primera columna siempre"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Puede servir el nombre del cliente como llave primaria?",
-       "opciones": [
-        "No es buena idea, porque dos personas pueden llamarse igual",
-        "Solo si es largo",
-        "Sí, siempre"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "En tu sistema, la dirección del cliente está copiada en cada uno de sus 300 pedidos, y se mudó. ¿Qué problema hay?",
-       "opciones": [
-        "Ninguno",
-        "Hay que cambiarla en 300 lugares y es fácil dejar datos viejos",
-        "Se cambia sola"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un compañero quiere dar acceso a toda la base de clientes a un practicante \"para que aprenda\".",
-       "opciones": [
-        "Le das todo",
-        "Le das solo los datos que necesita, o datos de prueba",
-        "Le pasas la contraseña del administrador"
-       ],
-       "correcta": 1
+       "tipo": "clave",
+       "texto": "Los nombres cambian un poco según la universidad; la idea general es esta."
       },
       {
        "tipo": "teves"
@@ -276,52 +234,41 @@
   },
   {
    "id": "u3",
-   "titulo": "Hacer software de verdad",
-   "sub": "Errores, equipo y clientes",
+   "titulo": "¿Y después?",
+   "sub": "Trabajo y dificultad",
    "lecciones": [
     {
      "id": "5",
-     "titulo": "Errores en el código",
-     "minutos": 4,
+     "titulo": "Dónde trabajarías",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Al terminar, ¿dónde crees que trabajaría alguien de Computación?"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál de estos lugares es más de Computación?",
+       "opciones": [
+        "Empresas industriales y tecnológicas",
+        "Bancos",
+        "Instituciones públicas y privadas"
+       ],
+       "correcta": 0,
+       "explicacion": "Es uno de los lugares donde trabaja alguien de Computación.",
+       "adivina": true
+      },
+      {
        "tipo": "info",
-       "titulo": "Errores en el código",
-       "partes": [
-        {
-         "t": "Todo programador se equivoca: a los errores se les llama bugs, y encontrarlos se llama depurar. Un buen método es reproducir el error, encontrar el punto exacto donde falla, por ejemplo imprimiendo valores o usando un depurador, corregirlo y probar otra vez. También se escriben pruebas automáticas que revisan que el programa haga lo correcto, para que un cambio nuevo no rompa algo que ya funcionaba. Un error típico es el de \"uno de más o uno de menos\" en los ciclos."
-        }
+       "titulo": "Dónde se trabaja",
+       "puntos": [
+        "Empresas industriales y tecnológicas",
+        "Consultoría",
+        "Construcción",
+        "Energía",
+        "Manufactura",
+        "Telecomunicaciones"
        ]
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un usuario dice que la app \"falla a veces\". ¿Qué haces primero?",
-       "opciones": [
-        "Le dices que no es cierto",
-        "Reescribes toda la app",
-        "Intentas reproducir el error para saber cuándo pasa"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Tu ciclo debía procesar 10 elementos y procesa 11. ¿Qué tipo de error es probablemente?",
-       "opciones": [
-        "Un error de uno de más en la condición del ciclo",
-        "Un virus",
-        "La computadora está cansada"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Para qué sirven las pruebas automáticas?",
-       "opciones": [
-        "Para revisar que los cambios nuevos no rompan lo que ya funcionaba",
-        "Para hacer lento el programa",
-        "No sirven"
-       ],
-       "correcta": 0
       },
       {
        "tipo": "teves"
@@ -330,57 +277,39 @@
     },
     {
      "id": "6",
-     "titulo": "Trabajar en equipo",
-     "minutos": 4,
+     "titulo": "¿Hay trabajo?",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Ahora lo que todos preguntan: ¿hay trabajo y cuánto se gana?"
+      },
+      {
+       "tipo": "rango",
+       "pregunta": "De cada 100 que estudiaron Computación, ¿cuántos crees que trabajan en algo de su carrera?",
+       "min": 0,
+       "max": 100,
+       "paso": 5,
+       "unidad": "de cada 100",
+       "dato": "computacion.ocupacion_afin"
+      },
+      {
+       "tipo": "rango",
+       "pregunta": "¿Cuánto crees que gana al mes, en promedio?",
+       "min": 5000,
+       "max": 50000,
+       "paso": 1000,
+       "unidad": "pesos al mes",
+       "dato": "computacion.ingreso"
+      },
+      {
        "tipo": "info",
-       "titulo": "Trabajar en equipo",
-       "partes": [
-        {
-         "t": "El software casi nunca se hace solo. Los equipos usan control de versiones, como Git, para guardar el historial de cambios y que varias personas trabajen en el mismo proyecto sin borrarse el trabajo. Cada cambio se describe con un mensaje claro. Antes de unir un cambio, otro compañero lo revisa. Además, el código se escribe para que otros lo entiendan: nombres claros y comentarios donde haga falta. Un código que solo entiende quien lo escribió es un problema cuando esa persona se va."
-        }
-       ]
+       "titulo": "Así está el trabajo",
+       "texto": "IMCO: 'Desarrollo de software' $24,927 y 'Ciencias computacionales' $24,983, en el top 10-12 nacional."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Para qué sirve Git?",
-       "opciones": [
-        "Para pagar impuestos",
-        "Para guardar el historial de cambios y trabajar en equipo sin perder trabajo",
-        "Para diseñar logos"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué nombre de variable es mejor para guardar el precio total?",
-       "opciones": [
-        "Precio_total",
-        "Cosa2",
-        "X"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un cambio tuyo rompió la app en producción. Con control de versiones, ¿qué puedes hacer?",
-       "opciones": [
-        "Nada",
-        "Regresar a la versión anterior que funcionaba mientras lo corriges",
-        "Borrar todo"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Por qué un compañero revisa tu código antes de unirlo?",
-       "opciones": [
-        "Para molestarte",
-        "No hace falta",
-        "Para detectar errores y compartir conocimiento"
-       ],
-       "correcta": 2
+       "tipo": "clave",
+       "texto": "No requiere cédula; certificaciones (AWS, Google, Microsoft) y portafolio pesan mucho."
       },
       {
        "tipo": "teves"
@@ -389,47 +318,37 @@
     },
     {
      "id": "7",
-     "titulo": "Lo que necesita el cliente",
-     "minutos": 4,
+     "titulo": "Qué tan difícil es",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "¿Dónde crees que está lo más difícil de Computación?"
+      },
+      {
        "tipo": "info",
-       "titulo": "Lo que necesita el cliente",
-       "partes": [
-        {
-         "t": "Antes de programar hay que entender qué problema se resuelve. Los requisitos describen qué debe hacer el sistema. Muchas veces el cliente pide una solución, como \"quiero una app\", cuando lo que necesita es otra cosa, como \"que mis clientes puedan agendar citas\". Conviene hacer primero una versión pequeña que funcione, mostrarla, recibir comentarios y mejorar por partes. Así se evita pasar meses construyendo algo que nadie quería."
-        }
+       "titulo": "Lo más difícil",
+       "texto": "Dificultad alta. Programación desde el inicio, Matemáticas discretas, Estructuras de datos y Algoritmos."
+      },
+      {
+       "tipo": "info",
+       "titulo": "Cuánto dura",
+       "texto": "4 a 4.5 años."
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Te ves aguantando eso?",
+       "escala": [
+        "No",
+        "Sí"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Un dentista te pide \"una app como Uber\" para su consultorio. ¿Qué haces primero?",
-       "opciones": [
-        "Le dices que no",
-        "Programas un Uber",
-        "Le preguntas qué problema quiere resolver, por ejemplo agendar citas"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Por qué conviene entregar una primera versión pequeña?",
-       "opciones": [
-        "Para cobrar menos",
-        "No conviene",
-        "Para recibir comentarios pronto y no construir algo equivocado"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "A mitad del proyecto, el cliente quiere agregar muchas funciones nuevas con la misma fecha de entrega.",
-       "opciones": [
-        "Te vas",
-        "Le explicas qué se puede en ese tiempo y priorizan juntos",
-        "Aceptas todo y no duermes"
-       ],
-       "correcta": 1
+       "tipo": "info",
+       "titulo": "Si te gusta, pero no del todo",
+       "puntos": [
+        "Mira también: Ciberseguridad, Animación"
+       ]
       },
       {
        "tipo": "teves"
@@ -440,125 +359,27 @@
   },
   {
    "id": "u4",
-   "titulo": "Examen final",
-   "sub": "10 preguntas · apruebas con 7",
+   "titulo": "Tu decisión",
+   "sub": "¿La guardas o la descartas?",
    "lecciones": [
     {
      "id": "ex",
-     "titulo": "Examen final",
-     "minutos": 6,
-     "examen": true,
-     "aprobar": 7,
+     "titulo": "Tu veredicto",
+     "minutos": 2,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "Examen final",
-       "partes": [
-        {
-         "t": "Son 10 casos nuevos que mezclan todas las lecciones. Apruebas con 7. Si no, lo repites y las que fallaste regresan con otras palabras."
-        }
-       ]
+       "tipo": "escena",
+       "texto": "Ya sabes qué hace alguien de Computación, qué estudias, qué tan difícil es y si hay trabajo."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué es un algoritmo?",
-       "opciones": [
-        "Un tipo de computadora",
-        "Un virus",
-        "Una lista de pasos exactos para resolver un problema"
-       ],
-       "correcta": 2
+       "tipo": "escuelas"
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Cuánto vale 111 en binario?",
-       "opciones": [
-        "111",
-        "7",
-        "3"
-       ],
-       "correcta": 1,
-       "formula": "4 + 2 + 1 = 7"
+       "tipo": "veredicto"
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Cuánto vale 1000 en binario?",
-       "opciones": [
-        "1,000",
-        "4",
-        "8"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué necesita la búsqueda binaria?",
-       "opciones": [
-        "Una lista corta",
-        "Una lista ordenada",
-        "Una lista con letras"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Una lista ordenada tiene 1,000 elementos. ¿Cuántos pasos necesita la búsqueda binaria, más o menos?",
-       "opciones": [
-        "Unos 10",
-        "500",
-        "1,000"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué debe cumplir una llave primaria?",
-       "opciones": [
-        "No repetirse",
-        "Ser la fecha",
-        "Ser un nombre"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un usuario reporta un error. ¿Qué haces primero?",
-       "opciones": [
-        "Reescribes todo",
-        "Lo ignoras",
-        "Intentas reproducirlo"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Para qué sirve el control de versiones?",
-       "opciones": [
-        "Para guardar el historial y trabajar en equipo",
-        "Para dibujar",
-        "Para jugar"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué nombre de variable es más claro?",
-       "opciones": [
-        "T",
-        "Total_alumnos",
-        "Aaa"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un cliente pide una solución sin explicar su problema.",
-       "opciones": [
-        "Te niegas",
-        "Programas lo primero que pidió",
-        "Le preguntas qué problema quiere resolver"
-       ],
-       "correcta": 2
+       "tipo": "clave",
+       "texto": "Decidir «sigo en duda» también es avanzar."
       }
      ]
     }

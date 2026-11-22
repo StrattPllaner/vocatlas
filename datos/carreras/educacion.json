@@ -1,14 +1,15 @@
 {
  "id": "educacion",
- "version": 2,
+ "version": 3,
  "formato": 2,
  "estado": "completo",
- "revision": "Pendiente de revisión por un profesionista de la carrera. Generado con datos/importar_lecciones.py desde datos/fuentes/lecciones/educacion.lec; no se edita a mano.",
+ "generado": true,
+ "revision": "Lecciones generales (de qué trata la carrera y si va contigo), armadas con datos/lecciones_generales.py desde la base de carreras con fuentes (2026-11-17).",
  "unidades": [
   {
    "id": "u1",
-   "titulo": "Cómo se aprende",
-   "sub": "Aprendizaje y planeación",
+   "titulo": "¿De qué se trata?",
+   "sub": "Qué hace y cómo es su día",
    "lecciones": [
     {
      "id": "0",
@@ -16,74 +17,71 @@
      "minutos": 1,
      "tarjetas": [
       {
-       "tipo": "ficha",
-       "texto": "Pedagogía y Ciencias de la Educación forma profesionales que enseñan, diseñan clases y materiales, evalúan aprendizajes y mejoran escuelas. Trabajan como docentes, en orientación, en capacitación de empresas, en diseño de cursos en línea y en el gobierno.",
-       "cifras": [
-        "educacion.ingreso",
-        "educacion.duracion",
-        "educacion.costo_publica",
-        "educacion.costo_privada"
-       ]
+       "tipo": "escena",
+       "texto": "Antes de leer nada: ¿qué crees que hace alguien que estudió Educación?"
       },
       {
-       "tipo": "escena",
-       "texto": "Hoy tienes un grupo de 30 alumnos. Vamos a ver si aprenden contigo."
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál de estas cosas crees que hace?",
+       "opciones": [
+        "Diseña planes y materiales de estudio",
+        "Estudia seres vivos en campo o laboratorio",
+        "Diseña y programa sistemas automáticos, líneas de producción, máquinas inteligentes"
+       ],
+       "correcta": 0,
+       "explicacion": "En pocas palabras, Educación es procesos de enseñanza y aprendizaje, diseño didáctico, evaluación y desarrollo de materiales educativos. La orientación determina el nivel escolar o la asignatura en la que se puede ejercer.",
+       "adivina": true
+      },
+      {
+       "tipo": "info",
+       "titulo": "Educación en una frase",
+       "texto": "Procesos de enseñanza y aprendizaje, diseño didáctico, evaluación y desarrollo de materiales educativos."
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
      "id": "1",
-     "titulo": "Cómo se aprende",
-     "minutos": 4,
+     "titulo": "Un día normal",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Imagina que acompañas un día entero a alguien de Educación. ¿Qué crees que hace?"
+      },
+      {
        "tipo": "info",
-       "titulo": "Cómo se aprende",
-       "partes": [
-        {
-         "t": "Lo que más ayuda a recordar no es releer, sino intentar recordar: responder preguntas, explicar sin ver los apuntes o hacer ejercicios. A eso se le llama práctica de recuperación. También ayuda repartir el estudio en varios días en vez de todo una noche antes, lo que se llama práctica espaciada. En cambio, la idea de que cada persona aprende solo de forma \"visual\", \"auditiva\" o \"kinestésica\" no tiene apoyo en la investigación: a todos les ayuda combinar formas. Un buen maestro diseña sus clases con lo que sí funciona."
-        }
+       "titulo": "Un día normal",
+       "puntos": [
+        "Diseña planes y materiales de estudio",
+        "Capacita personal en empresas",
+        "Orienta alumnos",
+        "Evalúa programas educativos o da clases"
        ]
       },
       {
        "tipo": "pregunta",
-       "pregunta": "¿Qué ayuda más a recordar algo?",
+       "pregunta": "¿Cuál de estas cosas NO es parte de su día?",
        "opciones": [
-        "Releer muchas veces",
-        "Intentar recordarlo respondiendo preguntas",
-        "Subrayar todo"
+        "Cuida pacientes de forma directa",
+        "Capacita personal en empresas",
+        "Orienta alumnos"
        ],
-       "correcta": 1
+       "correcta": 0,
+       "explicacion": "Eso lo hace alguien de Enfermería, no de Educación.",
+       "adivina": true
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Un alumno estudia cuatro horas la noche anterior al examen. ¿Qué le recomiendas para la próxima?",
+       "tipo": "reflexion",
+       "pregunta": "De ese día, ¿qué te late más?",
        "opciones": [
-        "No estudiar",
-        "Estudiar seis horas la misma noche",
-        "Estudiar menos tiempo pero en varios días"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Una mamá dice que su hijo \"solo aprende viendo, porque es visual\". ¿Qué le explicas?",
-       "opciones": [
-        "Que la investigación no apoya esa idea y a todos les ayuda combinar formas",
-        "Que tiene razón y solo debe ver videos",
-        "Que su hijo no aprende"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Al final de la clase haces a tus alumnos tres preguntas rápidas sin apuntes. ¿Qué estás usando?",
-       "opciones": [
-        "Práctica de recuperación",
-        "Relleno",
-        "Castigo"
-       ],
-       "correcta": 0
+        "Diseña planes y materiales de estudio",
+        "Capacita personal en empresas",
+        "Orienta alumnos",
+        "Nada de eso"
+       ]
       },
       {
        "tipo": "teves"
@@ -92,57 +90,36 @@
     },
     {
      "id": "2",
-     "titulo": "Planear una clase",
-     "minutos": 4,
+     "titulo": "Mitos y realidades",
+     "minutos": 2,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "Planear una clase",
-       "partes": [
-        {
-         "t": "Una clase se planea empezando por el final: ¿qué deben poder hacer los alumnos al terminar? Ese es el objetivo de aprendizaje, y se escribe con un verbo que se pueda observar, como \"resolver\", \"explicar\" o \"comparar\", no con \"conocer\" o \"entender\", que no se pueden ver. Luego se diseña cómo vas a saber si lo lograron y, al último, las actividades que los llevan ahí. Una clase típica tiene inicio, donde se despierta el interés y se conecta con lo que saben; desarrollo, donde practican; y cierre, donde se revisa lo aprendido."
-        }
-       ]
+       "tipo": "escena",
+       "texto": "¿Verdadero o falso? Primero di lo que crees."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Cuál es el objetivo mejor escrito?",
-       "opciones": [
-        "\"Resolver problemas de porcentajes de la vida diaria\"",
-        "\"Conocer los porcentajes\"",
-        "\"Ver porcentajes\""
-       ],
-       "correcta": 0
+       "tipo": "vf",
+       "afirmacion": "En Educación llevas materias de matemáticas o con muchos números.",
+       "respuesta": true,
+       "revelacion": "Sí: Estadística. Muchos eligen carrera pensando en evitar las matemáticas; mejor saberlo desde ahora."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué se decide primero al planear una clase?",
-       "opciones": [
-        "Qué deben poder hacer los alumnos al final",
-        "Qué video poner",
-        "Qué tarea dejar"
-       ],
-       "correcta": 0
+       "tipo": "vf",
+       "afirmacion": "Es de las carreras más difíciles.",
+       "respuesta": false,
+       "revelacion": "Su dificultad es media. Lectura teórica (filosofía, psicología educativa) e Investigación educativa."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Tu clase fue una hora de explicación sin que los alumnos hicieran nada. ¿Qué le faltó?",
-       "opciones": [
-        "Tiempo para que practiquen",
-        "Más explicación",
-        "Nada"
-       ],
-       "correcta": 0
+       "tipo": "vf",
+       "afirmacion": "La mayoría de quienes la estudian terminan trabajando en otra cosa.",
+       "respuesta": true,
+       "revelacion": "10 de cada 100 trabajan en algo de su carrera (IMCO, Compara Carreras 2026)."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Para qué sirve el cierre de la clase?",
-       "opciones": [
-        "Para recoger rápido",
-        "Para revisar lo aprendido",
-        "Para dejar tarea y ya"
-       ],
-       "correcta": 1
+       "tipo": "vf",
+       "afirmacion": "Casi todos los que se dedican a esto son hombres.",
+       "respuesta": false,
+       "revelacion": "De cada 100 personas que la ejercen, 76 son mujeres (IMCO, Compara Carreras 2026)."
       },
       {
        "tipo": "teves"
@@ -153,118 +130,101 @@
   },
   {
    "id": "u2",
-   "titulo": "Evaluar e incluir",
-   "sub": "Evaluación y diversidad",
+   "titulo": "¿Va contigo?",
+   "sub": "Lo que pide y lo que estudias",
    "lecciones": [
     {
      "id": "3",
-     "titulo": "Evaluar",
-     "minutos": 4,
+     "titulo": "¿Se te da?",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Para que una carrera te guste no basta con que te llame la atención. ¿Se te da lo que pide?"
+      },
+      {
        "tipo": "info",
-       "titulo": "Evaluar",
-       "partes": [
-        {
-         "t": "La evaluación formativa ocurre durante el aprendizaje: sirve para ver qué entendieron y ajustar la enseñanza, como preguntas rápidas o revisar un borrador. La evaluación sumativa ocurre al final y sirve para calificar, como un examen final. Muchas calificaciones se calculan con ponderaciones: cada parte vale un porcentaje."
-        },
-        {
-         "f": "calificación = examen × 0.5 + proyecto × 0.3 + tareas × 0.2"
-        },
-        {
-         "t": "Una rúbrica dice desde antes qué se va a evaluar y qué es un trabajo excelente, bueno o insuficiente; así el alumno sabe qué se espera."
-        }
+       "titulo": "Lo que pide Educación",
+       "puntos": [
+        "Paciencia",
+        "Explicar con claridad",
+        "Organización",
+        "Empatía"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Un alumno sacó 8 en el examen, que vale 50 por ciento; 10 en el proyecto, que vale 30; y 6 en tareas, que valen 20. ¿Cuál es su calificación?",
-       "opciones": [
-        "24",
-        "8.2",
-        "8"
-       ],
-       "correcta": 1,
-       "formula": "8 × 0.5 + 10 × 0.3 + 6 × 0.2 = 8.2"
+       "tipo": "info",
+       "titulo": "Y lo que te tiene que gustar",
+       "puntos": [
+        "Enseñar",
+        "Cómo aprenden las personas",
+        "Impacto social"
+       ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "A mitad del tema haces una pregunta rápida y ves que la mitad no entendió. ¿Qué tipo de evaluación es y qué haces?",
-       "opciones": [
-        "Formativa; vuelves a explicar de otra forma antes de seguir",
-        "Ninguna",
-        "Sumativa; sigues adelante"
-       ],
-       "correcta": 0
+       "tipo": "reflexion",
+       "pregunta": "¿Me gusta explicarle cosas a los demás?",
+       "escala": [
+        "No",
+        "Sí"
+       ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Para qué sirve una rúbrica?",
-       "opciones": [
-        "Para nada",
-        "Para calificar más rápido sin leer",
-        "Para que el alumno sepa desde antes qué se espera y cómo se evalúa"
-       ],
-       "correcta": 2
+       "tipo": "reflexion",
+       "pregunta": "¿Me interesa diseñar cursos o materiales?",
+       "escala": [
+        "No",
+        "Sí"
+       ]
       },
       {
-       "tipo": "teves"
+       "tipo": "reflexion",
+       "pregunta": "¿Me importa más el impacto que el sueldo?",
+       "escala": [
+        "No",
+        "Sí"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Si dijiste que no a algo, no pasa nada: sirve para saber qué preguntar y qué carreras parecidas ver."
       }
      ]
     },
     {
      "id": "4",
-     "titulo": "Todos aprenden",
-     "minutos": 4,
+     "titulo": "Lo que estudias",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "¿Qué crees que ves en el primer año de Educación?"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál crees que es el primer año?",
+       "opciones": [
+        "Teoría pedagógica, Filosofía de la educación, Psicología del aprendizaje",
+        "Dibujo y bocetaje, Geometría, Teoría del diseño",
+        "Cálculo, Física, Dibujo mecánico / CAD"
+       ],
+       "correcta": 0,
+       "explicacion": "Esas son materias de los primeros semestres. Las otras son de Diseño industrial y Ing. Mecánica.",
+       "adivina": true
+      },
+      {
        "tipo": "info",
-       "titulo": "Todos aprenden",
-       "partes": [
-        {
-         "t": "En un grupo hay alumnos muy distintos: unos van más rápido, otros más lento; algunos tienen discapacidad, otros hablan una lengua indígena o tienen problemas en casa. La educación inclusiva busca que todos aprendan, haciendo ajustes cuando hace falta, como dar más tiempo, usar materiales distintos o sentar al alumno cerca. Esos ajustes se llaman adecuaciones. Ajustar no es regalar calificación: el objetivo es que aprendan. Cuando un caso lo rebasa, el maestro pide apoyo a especialistas, como los equipos de educación especial."
-        }
+       "titulo": "Lo que vas viendo",
+       "puntos": [
+        "Semestres 1-2: Teoría pedagógica, Filosofía de la educación, Psicología del aprendizaje, Historia de la educación",
+        "Semestres 3-4: Didáctica, Diseño curricular, Estadística, Sociología de la educación",
+        "Semestres 5-6: Evaluación educativa, Orientación educativa, Tecnología educativa, Educación especial",
+        "Semestres 7 en adelante: Prácticas en escuelas o instituciones, Tesis"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Un alumno con baja visión no alcanza a leer el pizarrón. ¿Qué haces?",
-       "opciones": [
-        "Nada",
-        "Le bajas la calificación",
-        "Lo sientas adelante y le das el material en letra grande"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué es una adecuación?",
-       "opciones": [
-        "Regalar calificación",
-        "Un castigo",
-        "Un ajuste para que un alumno pueda aprender y demostrar lo que sabe"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Una alumna cuya lengua materna es el náhuatl tarda en entender las instrucciones en español. ¿Qué haces?",
-       "opciones": [
-        "Usas apoyos visuales, ejemplos y verificas que entendió",
-        "Hablas más rápido",
-        "La mandas a otro grupo"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Notas que un alumno podría tener una dificultad de aprendizaje que no sabes manejar.",
-       "opciones": [
-        "Lo diagnosticas tú",
-        "Pides apoyo a especialistas de la escuela",
-        "Lo ignoras"
-       ],
-       "correcta": 1
+       "tipo": "clave",
+       "texto": "Los nombres cambian un poco según la universidad; la idea general es esta."
       },
       {
        "tipo": "teves"
@@ -275,52 +235,41 @@
   },
   {
    "id": "u3",
-   "titulo": "En el salón",
-   "sub": "Retroalimentación, grupo y familias",
+   "titulo": "¿Y después?",
+   "sub": "Trabajo y dificultad",
    "lecciones": [
     {
      "id": "5",
-     "titulo": "Retroalimentar",
-     "minutos": 4,
+     "titulo": "Dónde trabajarías",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Al terminar, ¿dónde crees que trabajaría alguien de Educación?"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál de estos lugares es más de Educación?",
+       "opciones": [
+        "Empresas privadas",
+        "Hospitales",
+        "Estudios creativos"
+       ],
+       "correcta": 0,
+       "explicacion": "Es uno de los lugares donde trabaja alguien de Educación.",
+       "adivina": true
+      },
+      {
        "tipo": "info",
-       "titulo": "Retroalimentar",
-       "partes": [
-        {
-         "t": "La retroalimentación le dice al alumno cómo va y qué hacer para mejorar. Sirve más cuando es específica, como \"tu conclusión no responde la pregunta del inicio\", en vez de \"bien\" o \"mal\". También sirve más cuando llega pronto y cuando el alumno tiene oportunidad de corregir. Elogiar el esfuerzo y la estrategia, en vez de decir \"eres muy listo\", ayuda a que los alumnos no se rindan cuando algo es difícil."
-        }
+       "titulo": "Dónde se trabaja",
+       "puntos": [
+        "Empresas privadas",
+        "Bancos",
+        "Aseguradoras",
+        "Consultoras",
+        "Despachos",
+        "Organismos públicos"
        ]
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué retroalimentación ayuda más?",
-       "opciones": [
-        "\"Tu ensayo tiene buenas ideas, pero el segundo párrafo no se conecta con tu tesis.\"",
-        "\"Mal.\"",
-        "\"Bien.\""
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Devuelves un trabajo calificado un mes después, cuando el tema ya pasó. ¿Qué problema hay?",
-       "opciones": [
-        "El alumno ya no puede usar la retroalimentación para mejorar",
-        "Que está muy bien calificado",
-        "Ninguno"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un alumno resolvió un problema difícil después de varios intentos. ¿Qué le dices?",
-       "opciones": [
-        "\"Eres un genio\"",
-        "Que su forma de intentar distintas estrategias funcionó",
-        "Nada"
-       ],
-       "correcta": 1
       },
       {
        "tipo": "teves"
@@ -329,57 +278,39 @@
     },
     {
      "id": "6",
-     "titulo": "El grupo",
-     "minutos": 4,
+     "titulo": "¿Hay trabajo?",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Ahora lo que todos preguntan: ¿hay trabajo y cuánto se gana?"
+      },
+      {
+       "tipo": "rango",
+       "pregunta": "De cada 100 que estudiaron Educación, ¿cuántos crees que trabajan en algo de su carrera?",
+       "min": 0,
+       "max": 100,
+       "paso": 5,
+       "unidad": "de cada 100",
+       "dato": "educacion.ocupacion_afin"
+      },
+      {
+       "tipo": "rango",
+       "pregunta": "¿Cuánto crees que gana al mes, en promedio?",
+       "min": 5000,
+       "max": 50000,
+       "paso": 1000,
+       "unidad": "pesos al mes",
+       "dato": "educacion.ingreso"
+      },
+      {
        "tipo": "info",
-       "titulo": "El grupo",
-       "partes": [
-        {
-         "t": "Un grupo funciona mejor con reglas claras, pocas y explicadas desde el inicio, aplicadas igual para todos. Las rutinas, como cómo se entra al salón o cómo se pide la palabra, ahorran tiempo. Muchos problemas de conducta se previenen con clases bien planeadas, porque los alumnos aburridos o perdidos se distraen. Cuando hay un conflicto, se habla en privado con el alumno, sin humillarlo frente a todos. Y si algo pone en riesgo a un alumno, como acoso o señales de maltrato, se sigue el protocolo de la escuela y se avisa a las autoridades correspondientes."
-        }
-       ]
+       "titulo": "Así está el trabajo",
+       "texto": "Diseño curricular y pedagogía es la carrera peor pagada de 2026 según IMCO ($15,934 al mes)."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Un alumno interrumpe seguido la clase. ¿Qué haces primero?",
-       "opciones": [
-        "Lo ignoras siempre",
-        "Hablas con él en privado para entender qué pasa",
-        "Lo exhibes frente al grupo"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Por qué ayudan las rutinas en el salón?",
-       "opciones": [
-        "Aburren",
-        "No ayudan",
-        "Ahorran tiempo y dan orden"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Notas que unos alumnos molestan constantemente a otro y él ya no quiere venir.",
-       "opciones": [
-        "Dejas que lo resuelvan solos",
-        "Actúas y sigues el protocolo de acoso escolar de la escuela",
-        "Le dices que se aguante"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Cómo deben aplicarse las reglas del grupo?",
-       "opciones": [
-        "Igual para todos",
-        "Solo a veces",
-        "Según quién te caiga bien"
-       ],
-       "correcta": 0
+       "tipo": "clave",
+       "texto": "Para dar clases en escuelas públicas de educación básica se pide formación normalista o concursar en USICAMM."
       },
       {
        "tipo": "teves"
@@ -388,47 +319,37 @@
     },
     {
      "id": "7",
-     "titulo": "Familias y ética",
-     "minutos": 4,
+     "titulo": "Qué tan difícil es",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "¿Dónde crees que está lo más difícil de Educación?"
+      },
+      {
        "tipo": "info",
-       "titulo": "Familias y ética",
-       "partes": [
-        {
-         "t": "El maestro trabaja con las familias: les informa cómo va su hijo, con datos y ejemplos, y propone cómo apoyar desde casa. Se habla con respeto, sin culpar. La información de cada alumno es confidencial: no se comenta con otras familias ni en redes. Y el maestro cuida su relación con los alumnos: es una figura de confianza, no un amigo, y mantiene límites profesionales en todo momento."
-        }
+       "titulo": "Lo más difícil",
+       "texto": "Dificultad media. Lectura teórica (filosofía, psicología educativa) e Investigación educativa."
+      },
+      {
+       "tipo": "info",
+       "titulo": "Cuánto dura",
+       "texto": "4 años."
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Te ves aguantando eso?",
+       "escala": [
+        "No",
+        "Sí"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Una mamá te pregunta en la junta cómo le va al hijo de otra familia.",
-       "opciones": [
-        "Le explicas que solo puedes hablar de su propio hijo",
-        "Le cuentas todo",
-        "Le enseñas sus calificaciones"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Le vas a decir a un papá que su hija va mal en matemáticas. ¿Cómo lo haces?",
-       "opciones": [
-        "Por un mensaje de una línea",
-        "Con ejemplos concretos y una propuesta de cómo apoyarla",
-        "Diciéndole que su hija es floja"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Puedes publicar en tus redes fotos de tus alumnos y sus calificaciones?",
-       "opciones": [
-        "Solo de los buenos",
-        "No, es información confidencial",
-        "Sí"
-       ],
-       "correcta": 1
+       "tipo": "info",
+       "titulo": "Si te gusta, pero no del todo",
+       "puntos": [
+        "Mira también: Psicología, Sociología, Comunicación"
+       ]
       },
       {
        "tipo": "teves"
@@ -439,125 +360,27 @@
   },
   {
    "id": "u4",
-   "titulo": "Examen final",
-   "sub": "10 preguntas · apruebas con 7",
+   "titulo": "Tu decisión",
+   "sub": "¿La guardas o la descartas?",
    "lecciones": [
     {
      "id": "ex",
-     "titulo": "Examen final",
-     "minutos": 6,
-     "examen": true,
-     "aprobar": 7,
+     "titulo": "Tu veredicto",
+     "minutos": 2,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "Examen final",
-       "partes": [
-        {
-         "t": "Son 10 casos nuevos que mezclan todas las lecciones. Apruebas con 7. Si no, lo repites y las que fallaste regresan con otras palabras."
-        }
-       ]
+       "tipo": "escena",
+       "texto": "Ya sabes qué hace alguien de Educación, qué estudias, qué tan difícil es y si hay trabajo."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué ayuda más a recordar?",
-       "opciones": [
-        "Releer",
-        "Subrayar",
-        "Practicar recordando sin ver los apuntes"
-       ],
-       "correcta": 2
+       "tipo": "escuelas"
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué conviene más: estudiar en varios días o todo en una noche?",
-       "opciones": [
-        "Da igual",
-        "En una noche",
-        "En varios días"
-       ],
-       "correcta": 2
+       "tipo": "veredicto"
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Cuál objetivo está mejor escrito?",
-       "opciones": [
-        "\"Conocer la Independencia\"",
-        "\"Explicar las causas de la Independencia\"",
-        "\"Ver la Independencia\""
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un alumno sacó 6 en el examen, que vale 50 por ciento; 8 en el proyecto, que vale 30; y 10 en tareas, que valen 20. ¿Cuál es su calificación?",
-       "opciones": [
-        "24",
-        "8",
-        "7.4"
-       ],
-       "correcta": 2,
-       "formula": "6 × 0.5 + 8 × 0.3 + 10 × 0.2 = 7.4"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Para qué sirve la evaluación formativa?",
-       "opciones": [
-        "Solo para calificar",
-        "Para castigar",
-        "Para ajustar la enseñanza mientras se aprende"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué es una adecuación?",
-       "opciones": [
-        "Un ajuste para que un alumno pueda aprender",
-        "Un examen extra",
-        "Regalar puntos"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué retroalimentación sirve más?",
-       "opciones": [
-        "\"Bien\"",
-        "Una específica y a tiempo",
-        "Una que llega un mes después"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un alumno interrumpe la clase. ¿Qué haces primero?",
-       "opciones": [
-        "Lo sacas para siempre",
-        "Hablas en privado con él",
-        "Lo exhibes"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Ves señales de acoso escolar.",
-       "opciones": [
-        "Lo publicas",
-        "No haces nada",
-        "Sigues el protocolo de la escuela"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Puedes contarle a una familia cómo va el hijo de otra?",
-       "opciones": [
-        "Si es buena noticia",
-        "Sí",
-        "No"
-       ],
-       "correcta": 2
+       "tipo": "clave",
+       "texto": "Decidir «sigo en duda» también es avanzar."
       }
      ]
     }

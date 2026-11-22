@@ -1,14 +1,15 @@
 {
  "id": "biomedica",
- "version": 2,
+ "version": 3,
  "formato": 2,
  "estado": "completo",
- "revision": "Pendiente de revisión por un profesionista de la carrera. Generado con datos/importar_lecciones.py desde datos/fuentes/lecciones/biomedica.lec; no se edita a mano.",
+ "generado": true,
+ "revision": "Lecciones generales (de qué trata la carrera y si va contigo), armadas con datos/lecciones_generales.py desde la base de carreras con fuentes (2026-11-17).",
  "unidades": [
   {
    "id": "u1",
-   "titulo": "Medir el cuerpo",
-   "sub": "Señales y equipos médicos",
+   "titulo": "¿De qué se trata?",
+   "sub": "Qué hace y cómo es su día",
    "lecciones": [
     {
      "id": "0",
@@ -16,82 +17,56 @@
      "minutos": 1,
      "tarjetas": [
       {
-       "tipo": "ficha",
-       "texto": "Ingeniería Biomédica junta la ingeniería con la medicina. Forma ingenieros que diseñan, mantienen y cuidan equipos médicos, prótesis, materiales que van dentro del cuerpo y sistemas de imagen. Trabajan en hospitales, empresas de dispositivos médicos e investigación. En Morelos no hay dónde terminarla.",
-       "cifras": [
-        "biomedica.becas",
-        "biomedica.duracion",
-        "biomedica.costo_publica",
-        "biomedica.costo_privada"
-       ]
+       "tipo": "escena",
+       "texto": "Antes de leer nada: ¿qué crees que hace alguien que estudió Biomédica?"
       },
       {
-       "tipo": "escena",
-       "texto": "Hoy eres la ingeniera o el ingeniero del hospital. Vamos a ver si los equipos están seguros."
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál de estas cosas crees que hace?",
+       "opciones": [
+        "Mantiene y gestiona equipo médico en hospitales (tomógrafos, monitores)",
+        "Analiza lo que pasa en otros países y cómo afecta a México",
+        "Cuida pacientes de forma directa"
+       ],
+       "correcta": 0,
+       "explicacion": "En pocas palabras, Biomédica es aplicación de matemáticas, ciencias y tecnología para diseñar, construir, operar y mejorar sistemas, productos o procesos. La especialidad define si el trabajo se concentra en infraestructura, energía, manufactura, electrónica, ambiente, transporte o materiales.",
+       "adivina": true
+      },
+      {
+       "tipo": "info",
+       "titulo": "Biomédica en una frase",
+       "texto": "Aplicación de matemáticas, ciencias y tecnología para diseñar, construir, operar y mejorar sistemas, productos o procesos."
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
      "id": "1",
-     "titulo": "Las señales del cuerpo",
-     "minutos": 4,
+     "titulo": "Un día normal",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Imagina que acompañas un día entero a alguien de Biomédica. ¿Qué crees que hace?"
+      },
+      {
        "tipo": "info",
-       "titulo": "Las señales del cuerpo",
-       "partes": [
-        {
-         "t": "El cuerpo produce señales que se pueden medir. El corazón, por ejemplo, genera pequeñas corrientes eléctricas que un electrocardiograma registra con electrodos pegados en la piel. Cada latido deja un pico alto llamado onda R. Si mides el tiempo entre dos picos R, puedes calcular la frecuencia cardiaca:"
-        },
-        {
-         "f": "latidos por minuto = {60|segundos entre dos picos R}"
-        },
-        {
-         "t": "Las señales del cuerpo son muy pequeñas, de milésimas de volt, así que hay que amplificarlas. El problema es que también se amplifica el ruido: interferencias de los cables de la luz, movimientos del paciente o electrodos mal pegados."
-        }
+       "titulo": "Un día normal",
+       "puntos": [
+        "Mantiene y gestiona equipo médico en hospitales (tomógrafos, monitores)",
+        "Diseña dispositivos médicos o trabaja en empresas que los venden y certifican"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "En un electrocardiograma hay 0.8 segundos entre dos picos R. ¿Cuál es la frecuencia cardiaca?",
+       "tipo": "reflexion",
+       "pregunta": "De ese día, ¿qué te late más?",
        "opciones": [
-        "75 latidos por minuto",
-        "80",
-        "48"
-       ],
-       "correcta": 0,
-       "formula": "{60|0.8} = 75"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Si hay 0.5 segundos entre picos, ¿cuál es la frecuencia?",
-       "opciones": [
-        "50",
-        "30",
-        "120"
-       ],
-       "correcta": 2,
-       "formula": "{60|0.5} = 120"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "La señal sale llena de ruido y el paciente se está moviendo mucho. ¿Qué revisas primero?",
-       "opciones": [
-        "Que el paciente esté quieto y los electrodos bien pegados",
-        "Nada, así son",
-        "Cambias el monitor por uno nuevo"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Por qué hay que amplificar las señales del cuerpo?",
-       "opciones": [
-        "Porque son muy grandes",
-        "Porque son muy pequeñas",
-        "Para que se vean de colores"
-       ],
-       "correcta": 1
+        "Casi todo",
+        "Algunas cosas",
+        "Nada de eso"
+       ]
       },
       {
        "tipo": "teves"
@@ -100,58 +75,36 @@
     },
     {
      "id": "2",
-     "titulo": "Equipos médicos en el hospital",
-     "minutos": 4,
+     "titulo": "Mitos y realidades",
+     "minutos": 2,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "Equipos médicos en el hospital",
-       "partes": [
-        {
-         "t": "Un ingeniero biomédico en un hospital se encarga de que los equipos funcionen y sean seguros: monitores, ventiladores, bombas de infusión, desfibriladores y más. Hace mantenimiento preventivo, que es revisar y ajustar antes de que algo falle, y mantenimiento correctivo, que es reparar cuando ya falló. También calibra: compara lo que marca el equipo contra un patrón conocido. Un equipo mal calibrado puede dar una medicina de más o de menos. Todo se registra en un inventario con su historial, y un equipo que no pasa las pruebas se retira hasta repararlo."
-        }
-       ]
+       "tipo": "escena",
+       "texto": "¿Verdadero o falso? Primero di lo que crees."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué es el mantenimiento preventivo?",
-       "opciones": [
-        "Revisar y ajustar antes de que falle",
-        "Comprar uno nuevo",
-        "Reparar cuando ya se descompuso"
-       ],
-       "correcta": 0
+       "tipo": "vf",
+       "afirmacion": "En Biomédica llevas materias de matemáticas o con muchos números.",
+       "respuesta": true,
+       "revelacion": "Sí: Cálculo, Física, Programación. Muchos eligen carrera pensando en evitar las matemáticas; mejor saberlo desde ahora."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Una bomba de infusión debe pasar 100 mililitros por hora, pero en la prueba pasa 120. ¿Qué haces?",
-       "opciones": [
-        "La retiras, la calibras o reparas y la pruebas antes de volver a usarla",
-        "La dejas, solo es un poco más",
-        "Le avisas a la enfermera que le reste mentalmente"
-       ],
-       "correcta": 0,
-       "explicacion": "Veinte por ciento de más en una medicina puede ser peligroso."
+       "tipo": "vf",
+       "afirmacion": "Es de las carreras más difíciles.",
+       "respuesta": true,
+       "revelacion": "Su dificultad es alta. Combina Cálculo, Electrónica y Biología; pocas plazas en universidades públicas."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Para qué sirve calibrar un equipo?",
-       "opciones": [
-        "Para que lo que marca coincida con el valor real",
-        "Para que se vea nuevo",
-        "Para que gaste menos luz"
-       ],
-       "correcta": 0
+       "tipo": "vf",
+       "afirmacion": "La mayoría de quienes la estudian terminan trabajando en otra cosa.",
+       "respuesta": false,
+       "revelacion": "51 de cada 100 trabajan en algo de su carrera (IMCO, Compara Carreras 2026)."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Un desfibrilador no pasó su revisión mensual, pero es el único del piso.",
-       "opciones": [
-        "Lo dejas sin decir nada",
-        "Lo marcas como fuera de servicio, avisas y consigues uno de reemplazo mientras se repara",
-        "Lo pintas"
-       ],
-       "correcta": 1
+       "tipo": "vf",
+       "afirmacion": "Casi todos los que se dedican a esto son hombres.",
+       "respuesta": true,
+       "revelacion": "De cada 100 personas que la ejercen, 11 son mujeres (IMCO, Compara Carreras 2026)."
       },
       {
        "tipo": "teves"
@@ -162,111 +115,101 @@
   },
   {
    "id": "u2",
-   "titulo": "Seguro y compatible",
-   "sub": "Electricidad y biomateriales",
+   "titulo": "¿Va contigo?",
+   "sub": "Lo que pide y lo que estudias",
    "lecciones": [
     {
      "id": "3",
-     "titulo": "Seguridad eléctrica",
-     "minutos": 4,
+     "titulo": "¿Se te da?",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Para que una carrera te guste no basta con que te llame la atención. ¿Se te da lo que pide?"
+      },
+      {
        "tipo": "info",
-       "titulo": "Seguridad eléctrica",
-       "partes": [
-        {
-         "t": "La corriente eléctrica que pasa por el corazón puede ser muy peligrosa, incluso en cantidades pequeñas. Por eso los equipos médicos tienen reglas estrictas. La tierra física es un cable que lleva a tierra cualquier corriente que se escape, en vez de que pase por la persona. Un cable dañado, un enchufe sin tierra o una extensión barata pueden ser un riesgo. En quirófanos y terapia intensiva el riesgo es mayor, porque el paciente puede tener catéteres que llegan cerca del corazón."
-        }
+       "titulo": "Lo que pide Biomédica",
+       "puntos": [
+        "Matemáticas",
+        "Electrónica",
+        "Interés por la salud",
+        "Trabajo con médicos"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Para qué sirve la tierra física de un equipo?",
-       "opciones": [
-        "Para que el equipo pese más",
-        "Para que la corriente que se escape vaya a tierra y no por la persona",
-        "Para ahorrar luz"
-       ],
-       "correcta": 1
+       "tipo": "info",
+       "titulo": "Y lo que te tiene que gustar",
+       "puntos": [
+        "Tecnología en medicina",
+        "Electrónica",
+        "Biología"
+       ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "En terapia intensiva conectaron un monitor con una extensión barata sin tierra. ¿Qué haces?",
-       "opciones": [
-        "Lo cambias a un contacto adecuado con tierra y retiras la extensión",
-        "Lo dejas",
-        "Le pones cinta"
-       ],
-       "correcta": 0
+       "tipo": "reflexion",
+       "pregunta": "¿Me interesa la medicina pero prefiero las máquinas a los pacientes?",
+       "escala": [
+        "No",
+        "Sí"
+       ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "El cable de un equipo tiene el aislante roto.",
-       "opciones": [
-        "Lo cubres con la mano",
-        "Lo retiras de servicio hasta cambiar el cable",
-        "Lo sigues usando con cuidado"
-       ],
-       "correcta": 1
+       "tipo": "reflexion",
+       "pregunta": "¿Me gustan la electrónica y la biología?",
+       "escala": [
+        "No",
+        "Sí"
+       ]
       },
       {
-       "tipo": "teves"
+       "tipo": "reflexion",
+       "pregunta": "¿Me veo en un hospital como ingeniero?",
+       "escala": [
+        "No",
+        "Sí"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Si dijiste que no a algo, no pasa nada: sirve para saber qué preguntar y qué carreras parecidas ver."
       }
      ]
     },
     {
      "id": "4",
-     "titulo": "Biomateriales",
-     "minutos": 4,
+     "titulo": "Lo que estudias",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "¿Qué crees que ves en el primer año de Biomédica?"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál crees que es el primer año?",
+       "opciones": [
+        "Cálculo, Física, Química",
+        "Taller de proyectos I, Dibujo arquitectónico, Geometría",
+        "Química general, Cálculo, Biología celular"
+       ],
+       "correcta": 0,
+       "explicacion": "Esas son materias de los primeros semestres. Las otras son de Arquitectura y QFB.",
+       "adivina": true
+      },
+      {
        "tipo": "info",
-       "titulo": "Biomateriales",
-       "partes": [
-        {
-         "t": "Un biomaterial es un material que se pone dentro o en contacto con el cuerpo, como una prótesis de cadera, un stent o una sutura. Tiene que ser biocompatible: que el cuerpo no lo rechace ni le cause daño. Se usan el titanio, que es fuerte y ligero; algunos plásticos médicos, y cerámicas. Además, todo lo que entra al cuerpo debe estar estéril, sin ningún microorganismo vivo. Algunos materiales se diseñan para disolverse con el tiempo, como ciertas suturas, y otros para durar décadas."
-        }
+       "titulo": "Lo que vas viendo",
+       "puntos": [
+        "Semestres 1-2: Cálculo, Física, Química, Biología",
+        "Semestres 3-4: Anatomía y fisiología, Circuitos, Programación, Biomateriales",
+        "Semestres 5-6: Instrumentación biomédica, Procesamiento de señales, Imagenología, Biomecánica",
+        "Semestres 7 en adelante: Ingeniería clínica, Prótesis y dispositivos, Proyecto en hospital"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué significa que un material sea biocompatible?",
-       "opciones": [
-        "Que es bonito",
-        "Que el cuerpo no lo rechaza ni le causa daño",
-        "Que es barato"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Por qué el titanio se usa tanto en prótesis?",
-       "opciones": [
-        "Porque es fuerte, ligero y biocompatible",
-        "Porque es brillante",
-        "Porque es el más barato"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Una caja de implantes llegó con el empaque estéril roto.",
-       "opciones": [
-        "No se usan hasta volver a esterilizarlos según el procedimiento o reemplazarlos",
-        "Los usas igual",
-        "Los lavas con agua"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Para cerrar una herida interna se quiere un hilo que no haya que retirar después. ¿Qué tipo eliges?",
-       "opciones": [
-        "Uno de algodón",
-        "Uno de acero",
-        "Uno que se disuelve con el tiempo"
-       ],
-       "correcta": 2
+       "tipo": "clave",
+       "texto": "Los nombres cambian un poco según la universidad; la idea general es esta."
       },
       {
        "tipo": "teves"
@@ -277,60 +220,41 @@
   },
   {
    "id": "u3",
-   "titulo": "Diseñar para el cuerpo",
-   "sub": "Prótesis, imágenes y normas",
+   "titulo": "¿Y después?",
+   "sub": "Trabajo y dificultad",
    "lecciones": [
     {
      "id": "5",
-     "titulo": "Prótesis y biomecánica",
-     "minutos": 4,
+     "titulo": "Dónde trabajarías",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Al terminar, ¿dónde crees que trabajaría alguien de Biomédica?"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál de estos lugares es más de Biomédica?",
+       "opciones": [
+        "Hospitales",
+        "Organizaciones sociales",
+        "Capacitación empresarial"
+       ],
+       "correcta": 0,
+       "explicacion": "Es uno de los lugares donde trabaja alguien de Biomédica.",
+       "adivina": true
+      },
+      {
        "tipo": "info",
-       "titulo": "Prótesis y biomecánica",
-       "partes": [
-        {
-         "t": "La biomecánica estudia las fuerzas en el cuerpo. Los huesos y músculos trabajan como palancas. El torque, que es lo que hace girar una articulación, depende de la fuerza y de qué tan lejos está del punto de giro:"
-        },
-        {
-         "f": "torque = fuerza × distancia al punto de giro"
-        },
-        {
-         "t": "Por eso cargar algo con el brazo estirado cansa mucho más que con el brazo pegado al cuerpo. Una prótesis de pierna tiene que aguantar varias veces el peso de la persona, porque al caminar y correr las fuerzas son mayores que estando parado. Además debe ajustarse bien al muñón para no lastimar."
-        }
+       "titulo": "Dónde se trabaja",
+       "puntos": [
+        "Hospitales",
+        "Clínicas",
+        "Centros de salud",
+        "Consultorios",
+        "Instituciones públicas",
+        "Investigación y docencia"
        ]
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Una persona sostiene 50 newtons con el brazo estirado, a 0.6 metros del hombro. ¿Qué torque hace el hombro?",
-       "opciones": [
-        "50.6",
-        "83",
-        "30 newton metro"
-       ],
-       "correcta": 2,
-       "formula": "50 × 0.6 = 30"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Si acerca el objeto a 0.2 metros, ¿qué torque hace?",
-       "opciones": [
-        "250",
-        "30",
-        "10 newton metro"
-       ],
-       "correcta": 2,
-       "formula": "50 × 0.2 = 10"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Por qué una prótesis de pierna debe aguantar más que el peso de la persona?",
-       "opciones": [
-        "No hace falta",
-        "Porque al caminar y correr las fuerzas son mayores que al estar parado",
-        "Para que pese más"
-       ],
-       "correcta": 1
       },
       {
        "tipo": "teves"
@@ -339,58 +263,21 @@
     },
     {
      "id": "6",
-     "titulo": "Imágenes médicas",
-     "minutos": 4,
+     "titulo": "¿Hay trabajo?",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Ahora lo que todos preguntan: ¿hay trabajo y cuánto se gana?"
+      },
+      {
        "tipo": "info",
-       "titulo": "Imágenes médicas",
-       "partes": [
-        {
-         "t": "Hay varias formas de ver dentro del cuerpo. Los rayos X atraviesan los tejidos blandos pero no tanto los huesos, por eso sirven para fracturas; usan radiación, así que se evitan exposiciones innecesarias, sobre todo en embarazadas. La tomografía usa rayos X desde muchos ángulos para hacer cortes. El ultrasonido usa sonido, no radiación, y por eso se usa en el embarazo. La resonancia magnética usa un imán muy potente y ondas de radio: no tiene radiación, pero ningún objeto de metal puede entrar al cuarto, porque el imán lo jala con muchísima fuerza."
-        }
-       ]
+       "titulo": "Así está el trabajo",
+       "texto": "IMCO no la separa; se aproxima con 'Electrónica, automatización y mecánica-eléctrica'. El IPN abre pocas plazas (75 en agosto 2026 en Biomédica)."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué estudio se usa para ver a un bebé durante el embarazo?",
-       "opciones": [
-        "Rayos X",
-        "Tomografía",
-        "Ultrasonido"
-       ],
-       "correcta": 2,
-       "explicacion": "No usa radiación."
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un camillero quiere entrar al cuarto de resonancia con un tanque de oxígeno de metal.",
-       "opciones": [
-        "Lo detienes, porque el imán puede jalar el tanque con gran fuerza y lastimar a alguien",
-        "Lo dejas pasar",
-        "Le dices que entre rápido"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Para qué sirven sobre todo los rayos X simples?",
-       "opciones": [
-        "Para ver huesos y fracturas",
-        "Para ver el pensamiento",
-        "Para medir la presión"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un paciente tiene un marcapasos antiguo y le van a hacer resonancia. ¿Qué haces?",
-       "opciones": [
-        "Se lo quitas",
-        "Avisas y se revisa si su marcapasos es compatible antes del estudio",
-        "Nada"
-       ],
-       "correcta": 1
+       "tipo": "clave",
+       "texto": "No requiere cédula para la mayoría de puestos; COFEPRIS regula dispositivos médicos."
       },
       {
        "tipo": "teves"
@@ -399,47 +286,37 @@
     },
     {
      "id": "7",
-     "titulo": "Normas y diseño de dispositivos",
-     "minutos": 4,
+     "titulo": "Qué tan difícil es",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "¿Dónde crees que está lo más difícil de Biomédica?"
+      },
+      {
        "tipo": "info",
-       "titulo": "Normas y diseño de dispositivos",
-       "partes": [
-        {
-         "t": "Para vender un dispositivo médico en México se necesita registro sanitario de la COFEPRIS. Antes hay que probar que es seguro y que funciona, con pruebas de laboratorio y, en muchos casos, con estudios en personas. El diseño se documenta paso a paso: qué necesita el usuario, qué riesgos hay y cómo se reducen. Un dispositivo puede funcionar perfecto en el laboratorio y fallar en el hospital porque el personal no entiende cómo usarlo; por eso también se prueba con usuarios reales."
-        }
+       "titulo": "Lo más difícil",
+       "texto": "Dificultad alta. Combina Cálculo, Electrónica y Biología; pocas plazas en universidades públicas."
+      },
+      {
+       "tipo": "info",
+       "titulo": "Cuánto dura",
+       "texto": "4.5 a 5 años."
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Te ves aguantando eso?",
+       "escala": [
+        "No",
+        "Sí"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué se necesita para vender un dispositivo médico en México?",
-       "opciones": [
-        "Solo un logo",
-        "Nada",
-        "Registro sanitario de la COFEPRIS"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Tu monitor funciona bien en el laboratorio, pero las enfermeras se confunden con los botones.",
-       "opciones": [
-        "No es tu problema",
-        "Rediseñas la interfaz y la pruebas con enfermeras",
-        "Les das un manual de 200 páginas"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Descubres un riesgo en tu dispositivo justo antes de lanzarlo.",
-       "opciones": [
-        "Lo documentas y lo corriges antes de lanzarlo",
-        "Lo escondes",
-        "Lo lanzas igual"
-       ],
-       "correcta": 0
+       "tipo": "info",
+       "titulo": "Si te gusta, pero no del todo",
+       "puntos": [
+        "Mira también: Medicina, Mecatrónica"
+       ]
       },
       {
        "tipo": "teves"
@@ -450,126 +327,27 @@
   },
   {
    "id": "u4",
-   "titulo": "Examen final",
-   "sub": "10 preguntas · apruebas con 7",
+   "titulo": "Tu decisión",
+   "sub": "¿La guardas o la descartas?",
    "lecciones": [
     {
      "id": "ex",
-     "titulo": "Examen final",
-     "minutos": 6,
-     "examen": true,
-     "aprobar": 7,
+     "titulo": "Tu veredicto",
+     "minutos": 2,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "Examen final",
-       "partes": [
-        {
-         "t": "Son 10 casos nuevos que mezclan todas las lecciones. Apruebas con 7. Si no, lo repites y las que fallaste regresan con otras palabras."
-        }
-       ]
+       "tipo": "escena",
+       "texto": "Ya sabes qué hace alguien de Biomédica, qué estudias, qué tan difícil es y si hay trabajo."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Hay 1 segundo entre dos picos R. ¿Cuál es la frecuencia cardiaca?",
-       "opciones": [
-        "1",
-        "100",
-        "60"
-       ],
-       "correcta": 2,
-       "formula": "{60|1} = 60"
+       "tipo": "escuelas"
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué es el mantenimiento preventivo?",
-       "opciones": [
-        "Tirar el equipo",
-        "Revisar antes de que falle",
-        "Reparar cuando ya falló"
-       ],
-       "correcta": 1
+       "tipo": "veredicto"
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Un equipo no pasa su prueba de calibración.",
-       "opciones": [
-        "Se usa con cuidado",
-        "Se retira y se repara antes de usarlo",
-        "Se ignora"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Para qué sirve la tierra física?",
-       "opciones": [
-        "Para que funcione más rápido",
-        "Para que la corriente que se escapa no pase por la persona",
-        "Para ahorrar energía"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué significa biocompatible?",
-       "opciones": [
-        "Que es de plástico",
-        "Que el cuerpo no lo rechaza ni le hace daño",
-        "Que es caro"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Una persona sostiene 40 newtons a 0.5 metros del hombro. ¿Qué torque hace?",
-       "opciones": [
-        "20 newton metro",
-        "40.5",
-        "80"
-       ],
-       "correcta": 0,
-       "formula": "40 × 0.5 = 20"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué estudio no usa radiación y sí usa un imán?",
-       "opciones": [
-        "Los rayos X",
-        "La tomografía",
-        "La resonancia magnética"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Puede entrar un objeto de metal al cuarto de resonancia?",
-       "opciones": [
-        "Solo si es pequeño",
-        "Sí",
-        "No, el imán lo jala con muchísima fuerza"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Quién da el registro sanitario de los dispositivos médicos en México?",
-       "opciones": [
-        "El SAT",
-        "El IMSS",
-        "La COFEPRIS"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un empaque estéril llegó roto.",
-       "opciones": [
-        "Se usa igual",
-        "Se sopla",
-        "No se usa sin volver a esterilizar o reemplazar"
-       ],
-       "correcta": 2
+       "tipo": "clave",
+       "texto": "Decidir «sigo en duda» también es avanzar."
       }
      ]
     }

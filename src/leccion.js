@@ -45,7 +45,7 @@ var LEC=(function(){
  function partes(P){return (P||[]).map(function(x){return x.f!=null?fml(x.f):'<p>'+h(x.t)+'</p>'}).join("")}
  /* ---------- formato 2: repaso de lo que fallaste y examen ---------- */
  function repOf(id){S.rep=S.rep||{};return S.rep[id]=S.rep[id]||{}}
- function qCopy(t,key,vez){var b=vez%2===1&&t.repaso?t.repaso:t,o={tipo:"pregunta",pregunta:b.pregunta,opciones:b.opciones,correcta:b.correcta,explicacion:b.explicacion,formula:b.formula||t.formula,_key:key,_vez:vez};return o}
+ function qCopy(t,key,vez){var b=vez%2===1&&t.repaso?t.repaso:t,o={tipo:"pregunta",pregunta:b.pregunta,opciones:b.opciones,correcta:b.correcta,explicacion:b.explicacion,formula:b.formula||t.formula,adivina:t.adivina,_key:key,_vez:vez};return o}
  /* arma las tarjetas de una lección de formato 2: primero regresan las que fallaste en lecciones anteriores
     (otro orden de opciones y, si existe, la versión reescrita); en el examen, las que fallaste ahí vuelven reescritas en su lugar */
  function v2Cards(id,les,v2){var R0=repOf(id),pos=v2.order.indexOf(les.id),pre=[];
@@ -110,12 +110,14 @@ var LEC=(function(){
    main("Comprobar",false);
    L.check=function(){var ok=pick===t.correcta;
     each(box.querySelectorAll(".lc-opt"),function(b){var i=ord[+b.getAttribute("data-i")];if(i===t.correcta)b.classList.add("good");else if(i===pick)b.classList.add("bad")});
+    /* preguntas para adivinar: no hay error, solo lo real; tampoco se repiten */
+    if(t.adivina){fb(ok?"ok":"info",(ok?'<b>¡Le atinaste!</b> ':'<b>Lo real: '+h(t.opciones[t.correcta])+'.</b> ')+(t.explicacion?h(t.explicacion):""));done();return}
     if(t._key){var R0=repOf(L.id);if(ok)delete R0[t._key];else R0[t._key]={n:(R0[t._key]?R0[t._key].n||1:0)+1};save()}
     if(L.les.examen&&!t._rep){L.sc=L.sc||{ok:0,n:0};L.sc.n++;if(ok)L.sc.ok++}
     var ex=(t.explicacion?h(t.explicacion):"")+(t.formula?fml(t.formula):"");
     fb(ok?"ok":"no",(ok?'<b>¡Bien!</b> ':'<b>La correcta: '+h(t.opciones[t.correcta])+'.</b> ')+ex+(!ok&&!L.les.examen?'<small>Esta pregunta va a regresar al principio de la siguiente lección.</small>':''));done()}},
   /* cierre de cada lección: ¿te ves resolviendo esto?, del 1 al 5 */
-  teves:function(t,box){var id=L.id,lid=L.les.id;box.innerHTML='<p class="lc-big">¿Te ves resolviendo esto?</p><div class="lc-in"></div><p class="lc-note">Tu respuesta se guarda para tu veredicto.</p>';
+  teves:function(t,box){var id=L.id,lid=L.les.id;box.innerHTML='<p class="lc-big">¿Te late lo que viste?</p><div class="lc-in"></div><p class="lc-note">Tu respuesta se guarda para tu veredicto.</p>';
    main("Terminar",false);
    scale(box.querySelector(".lc-in"),["Nada","Totalmente"],function(n){var k=n>=4?"yes":n===3?"mid":"no";S.tev=S.tev||{};S.tev[id]=S.tev[id]||{};S.tev[id][lid]=n;S.int=S.int||{};S.int[id]=S.int[id]||{};S.int[id][lid]=k;if(!S.res[id])S.res[id]=k;save();
     main(L.i>=L.cards.length-1?"Terminar":"Seguir",true);L.check=function(){next()}})},

@@ -1,14 +1,15 @@
 {
  "id": "finanzas",
- "version": 2,
+ "version": 3,
  "formato": 2,
  "estado": "completo",
- "revision": "Pendiente de revisión por un profesionista de la carrera. Generado con datos/importar_lecciones.py desde datos/fuentes/lecciones/finanzas.lec; no se edita a mano.",
+ "generado": true,
+ "revision": "Lecciones generales (de qué trata la carrera y si va contigo), armadas con datos/lecciones_generales.py desde la base de carreras con fuentes (2026-11-17).",
  "unidades": [
   {
    "id": "u1",
-   "titulo": "El valor del dinero",
-   "sub": "Interés y riesgo",
+   "titulo": "¿De qué se trata?",
+   "sub": "Qué hace y cómo es su día",
    "lecciones": [
     {
      "id": "0",
@@ -16,83 +17,70 @@
      "minutos": 1,
      "tarjetas": [
       {
-       "tipo": "ficha",
-       "texto": "Finanzas forma profesionales que deciden cómo conseguir, invertir y cuidar el dinero de empresas, bancos y personas. Analizan riesgos, evalúan proyectos y administran inversiones. En Morelos no hay dónde terminarla; las opciones más cercanas están en la Ciudad de México.",
-       "cifras": [
-        "finanzas.ingreso",
-        "finanzas.duracion",
-        "finanzas.costo_publica",
-        "finanzas.costo_privada"
-       ]
+       "tipo": "escena",
+       "texto": "Antes de leer nada: ¿qué crees que hace alguien que estudió Finanzas?"
       },
       {
-       "tipo": "escena",
-       "texto": "Hoy manejas el dinero de una empresa. Vamos a ver si lo haces crecer sin arriesgarlo de más."
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál de estas cosas crees que hace?",
+       "opciones": [
+        "Analiza dónde invertir el dinero de una empresa o clientes",
+        "Crea personajes, escenarios y movimiento para series, videojuegos, publicidad o redes",
+        "Resuelve problemas con modelos matemáticos en bancos, aseguradoras"
+       ],
+       "correcta": 0,
+       "explicacion": "En pocas palabras, Finanzas es análisis cuantitativo de decisiones económicas, financieras y de riesgo. Puede incluir matemáticas, estadística, modelación, mercados, política económica e interpretación de datos.",
+       "adivina": true
+      },
+      {
+       "tipo": "info",
+       "titulo": "Finanzas en una frase",
+       "texto": "Análisis cuantitativo de decisiones económicas, financieras y de riesgo."
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
      "id": "1",
-     "titulo": "Interés y tiempo",
-     "minutos": 4,
+     "titulo": "Un día normal",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Imagina que acompañas un día entero a alguien de Finanzas. ¿Qué crees que hace?"
+      },
+      {
        "tipo": "info",
-       "titulo": "Interés y tiempo",
-       "partes": [
-        {
-         "t": "En finanzas, el tiempo cambia el valor del dinero. Si inviertes, ganas intereses; si pides prestado, los pagas. Con interés compuesto, cada periodo ganas intereses sobre lo que ya habías ganado. Para un año, el dinero se multiplica por 1 más la tasa:"
-        },
-        {
-         "f": "dinero en un año = capital × (1 + tasa)"
-        },
-        {
-         "t": "Y al revés, para saber cuánto vale hoy un dinero que recibirás en un año, se divide entre 1 más la tasa. Eso se llama valor presente, y es la base para comparar inversiones."
-        }
+       "titulo": "Un día normal",
+       "puntos": [
+        "Analiza dónde invertir el dinero de una empresa o clientes",
+        "Construye modelos de valuación en Excel",
+        "Evalúa créditos y riesgos y prepara presentaciones para directivos"
        ]
       },
       {
        "tipo": "pregunta",
-       "pregunta": "Inviertes 20,000 pesos al 10 por ciento anual. ¿Cuánto tienes en un año?",
+       "pregunta": "¿Cuál de estas cosas NO es parte de su día?",
        "opciones": [
-        "20,010",
-        "22,000",
-        "30,000"
-       ],
-       "correcta": 1,
-       "formula": "20,000 × 1.10 = 22,000"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Y en dos años, si reinviertes todo?",
-       "opciones": [
-        "24,000",
-        "22,000",
-        "24,200"
-       ],
-       "correcta": 2,
-       "formula": "20,000 × 1.10 × 1.10 = 24,200"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Te ofrecen 33,000 pesos dentro de un año. Con una tasa del 10 por ciento, ¿cuánto valen hoy?",
-       "opciones": [
-        "30,000",
-        "29,700",
-        "33,000"
+        "Diseña y programa sistemas automáticos, líneas de producción, máquinas inteligentes",
+        "Construye modelos de valuación en Excel",
+        "Evalúa créditos y riesgos y prepara presentaciones para directivos"
        ],
        "correcta": 0,
-       "formula": "{33,000|1.10} = 30,000"
+       "explicacion": "Eso lo hace alguien de Mecatrónica, no de Finanzas.",
+       "adivina": true
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Por qué un peso hoy vale más que un peso en el futuro?",
+       "tipo": "reflexion",
+       "pregunta": "De ese día, ¿qué te late más?",
        "opciones": [
-        "Porque hoy lo puedes invertir y hacerlo crecer",
-        "No vale más",
-        "Porque los billetes viejos valen menos"
-       ],
-       "correcta": 0
+        "Analiza dónde invertir el dinero de una empresa o clientes",
+        "Construye modelos de valuación en Excel",
+        "Evalúa créditos y riesgos y prepara presentaciones para directivos",
+        "Nada de eso"
+       ]
       },
       {
        "tipo": "teves"
@@ -101,57 +89,36 @@
     },
     {
      "id": "2",
-     "titulo": "Riesgo y rendimiento",
-     "minutos": 4,
+     "titulo": "Mitos y realidades",
+     "minutos": 2,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "Riesgo y rendimiento",
-       "partes": [
-        {
-         "t": "En las inversiones, más rendimiento casi siempre significa más riesgo. Los Cetes, que son bonos del gobierno de México, tienen muy poco riesgo y un rendimiento moderado. Las acciones de empresas pueden rendir más a largo plazo, pero su precio sube y baja mucho. Diversificar es repartir el dinero en varias inversiones, para que si una cae, no pierdas todo. Si alguien promete rendimientos muy altos sin riesgo, casi siempre es fraude."
-        }
-       ]
+       "tipo": "escena",
+       "texto": "¿Verdadero o falso? Primero di lo que crees."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Alguien te ofrece duplicar tu dinero en un mes \"sin riesgo\". ¿Qué es probablemente?",
-       "opciones": [
-        "Un bono del gobierno",
-        "Un fraude",
-        "Una gran oportunidad"
-       ],
-       "correcta": 1
+       "tipo": "vf",
+       "afirmacion": "En Finanzas llevas materias de matemáticas o con muchos números.",
+       "respuesta": true,
+       "revelacion": "Sí: Contabilidad, Matemáticas, Matemáticas financieras. Muchos eligen carrera pensando en evitar las matemáticas; mejor saberlo desde ahora."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué es diversificar?",
-       "opciones": [
-        "Guardar todo debajo del colchón",
-        "Poner todo en una sola empresa",
-        "Repartir el dinero en varias inversiones"
-       ],
-       "correcta": 2
+       "tipo": "vf",
+       "afirmacion": "Es de las carreras más difíciles.",
+       "respuesta": false,
+       "revelacion": "Su dificultad es media-alta. Matemáticas financieras, Estadística y Valuación de empresas."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Una persona necesita el dinero en tres meses para pagar la inscripción de la universidad. ¿Dónde conviene más?",
-       "opciones": [
-        "En algo de bajo riesgo, como Cetes",
-        "En acciones muy volátiles",
-        "En criptomonedas desconocidas"
-       ],
-       "correcta": 0
+       "tipo": "vf",
+       "afirmacion": "La mayoría de quienes la estudian terminan trabajando en otra cosa.",
+       "respuesta": true,
+       "revelacion": "44 de cada 100 trabajan en algo de su carrera (IMCO, Compara Carreras 2026)."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué inversión tiene en general más riesgo?",
-       "opciones": [
-        "Una cuenta de ahorro",
-        "Cetes",
-        "Acciones de empresas"
-       ],
-       "correcta": 2
+       "tipo": "vf",
+       "afirmacion": "Casi todos los que se dedican a esto son hombres.",
+       "respuesta": false,
+       "revelacion": "De cada 100 personas que la ejercen, 44 son mujeres (IMCO, Compara Carreras 2026)."
       },
       {
        "tipo": "teves"
@@ -162,123 +129,101 @@
   },
   {
    "id": "u2",
-   "titulo": "Leer números",
-   "sub": "Créditos y estados financieros",
+   "titulo": "¿Va contigo?",
+   "sub": "Lo que pide y lo que estudias",
    "lecciones": [
     {
      "id": "3",
-     "titulo": "Créditos",
-     "minutos": 4,
+     "titulo": "¿Se te da?",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Para que una carrera te guste no basta con que te llame la atención. ¿Se te da lo que pide?"
+      },
+      {
        "tipo": "info",
-       "titulo": "Créditos",
-       "partes": [
-        {
-         "t": "Un crédito no solo cuesta la tasa de interés: también hay comisiones y seguros. Por eso en México se compara con el CAT, el costo anual total, que junta todo en un porcentaje. Las tarjetas de crédito cobran intereses altos si no pagas el total del mes; si solo pagas el mínimo, la deuda puede tardar años en bajar. Para saber cuánto pagas de interés en un mes, aproximadamente:"
-        },
-        {
-         "f": "interés del mes = deuda × {tasa anual|12}"
-        }
+       "titulo": "Lo que pide Finanzas",
+       "puntos": [
+        "Números y Excel",
+        "Toma de decisiones con riesgo",
+        "Comunicación",
+        "Ética"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Tienes una deuda de 10,000 pesos en la tarjeta con una tasa anual de 60 por ciento. ¿Cuánto pagas de interés en un mes, más o menos?",
-       "opciones": [
-        "500 pesos",
-        "60 pesos",
-        "6,000 pesos"
-       ],
-       "correcta": 0,
-       "formula": "10,000 × {0.60|12} = 500"
+       "tipo": "info",
+       "titulo": "Y lo que te tiene que gustar",
+       "puntos": [
+        "Dinero e inversiones",
+        "Bolsa y bancos",
+        "Negocios"
+       ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué indicador usas para comparar créditos en México?",
-       "opciones": [
-        "El color de la tarjeta",
-        "El CAT",
-        "El número de sucursales"
-       ],
-       "correcta": 1
+       "tipo": "reflexion",
+       "pregunta": "¿Me interesa cómo crece el dinero?",
+       "escala": [
+        "No",
+        "Sí"
+       ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Una persona paga solo el mínimo de su tarjeta cada mes. ¿Qué le pasa?",
-       "opciones": [
-        "La deuda baja muy lento y paga muchos intereses",
-        "Termina rápido",
-        "No paga intereses"
-       ],
-       "correcta": 0
+       "tipo": "reflexion",
+       "pregunta": "¿Me gusta analizar datos para decidir?",
+       "escala": [
+        "No",
+        "Sí"
+       ]
       },
       {
-       "tipo": "teves"
+       "tipo": "reflexion",
+       "pregunta": "¿Me veo en un banco o casa de bolsa?",
+       "escala": [
+        "No",
+        "Sí"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Si dijiste que no a algo, no pasa nada: sirve para saber qué preguntar y qué carreras parecidas ver."
       }
      ]
     },
     {
      "id": "4",
-     "titulo": "Los estados financieros",
-     "minutos": 4,
+     "titulo": "Lo que estudias",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "¿Qué crees que ves en el primer año de Finanzas?"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál crees que es el primer año?",
+       "opciones": [
+        "Contabilidad, Matemáticas, Economía",
+        "Fundamentos de programación, Cálculo, Matemáticas discretas",
+        "Cálculo, Física, Dibujo mecánico / CAD"
+       ],
+       "correcta": 0,
+       "explicacion": "Esas son materias de los primeros semestres. Las otras son de Computación y Ing. Mecánica.",
+       "adivina": true
+      },
+      {
        "tipo": "info",
-       "titulo": "Los estados financieros",
-       "partes": [
-        {
-         "t": "Un analista financiero lee los estados financieros de una empresa para saber si está sana. Unos indicadores muy usados son el margen de utilidad, que dice cuánto gana de cada peso que vende, y la liquidez, que dice si puede pagar lo que debe a corto plazo:"
-        },
-        {
-         "f": "margen = {utilidad neta|ventas} ;; liquidez = {activo circulante|pasivo circulante}"
-        },
-        {
-         "t": "Una liquidez menor a 1 significa que lo que debe pagar pronto es mayor que lo que tiene disponible pronto: es una señal de alerta."
-        }
+       "titulo": "Lo que vas viendo",
+       "puntos": [
+        "Semestres 1-2: Contabilidad, Matemáticas, Economía, Administración",
+        "Semestres 3-4: Matemáticas financieras, Estadística, Mercados financieros",
+        "Semestres 5-6: Finanzas corporativas, Valuación de empresas, Inversiones y portafolios, Riesgos",
+        "Semestres 7 en adelante: Banca, Proyecto o prácticas en institución financiera"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Una empresa vendió 1,000,000 de pesos y su utilidad neta fue de 80,000. ¿Cuál es su margen?",
-       "opciones": [
-        "0.08, o 8 por ciento",
-        "80",
-        "0.8"
-       ],
-       "correcta": 0,
-       "formula": "{80,000|1,000,000} = 0.08"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Una empresa tiene 300,000 pesos de activo circulante y 200,000 de pasivo circulante. ¿Cuál es su liquidez?",
-       "opciones": [
-        "0.67",
-        "1.5",
-        "100,000"
-       ],
-       "correcta": 1,
-       "formula": "{300,000|200,000} = 1.5"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Otra empresa tiene una liquidez de 0.6. ¿Qué significa?",
-       "opciones": [
-        "Que está muy sana",
-        "Nada",
-        "Que le podría costar pagar sus deudas de corto plazo"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué dice el margen de utilidad?",
-       "opciones": [
-        "Cuánto gana la empresa de cada peso que vende",
-        "Cuánto debe",
-        "Cuántos empleados tiene"
-       ],
-       "correcta": 0
+       "tipo": "clave",
+       "texto": "Los nombres cambian un poco según la universidad; la idea general es esta."
       },
       {
        "tipo": "teves"
@@ -289,59 +234,41 @@
   },
   {
    "id": "u3",
-   "titulo": "Decidir",
-   "sub": "Proyectos, finanzas personales y ética",
+   "titulo": "¿Y después?",
+   "sub": "Trabajo y dificultad",
    "lecciones": [
     {
      "id": "5",
-     "titulo": "Evaluar un proyecto",
-     "minutos": 4,
+     "titulo": "Dónde trabajarías",
+     "minutos": 2,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "Evaluar un proyecto",
-       "partes": [
-        {
-         "t": "Antes de invertir en un proyecto, como abrir una sucursal, se calcula si conviene. Una forma sencilla es el periodo de recuperación: cuánto tiempo tarda en regresar el dinero invertido."
-        },
-        {
-         "f": "periodo de recuperación = {inversión|flujo de efectivo por año}"
-        },
-        {
-         "t": "Una forma más completa es el valor presente neto: traer a hoy todo el dinero que dejará el proyecto y restarle la inversión. Si el resultado es positivo, el proyecto crea valor; si es negativo, conviene más dejar el dinero en otra opción."
-        }
-       ]
+       "tipo": "escena",
+       "texto": "Al terminar, ¿dónde crees que trabajaría alguien de Finanzas?"
       },
       {
        "tipo": "pregunta",
-       "pregunta": "Un proyecto cuesta 500,000 pesos y deja 100,000 al año. ¿En cuánto tiempo se recupera?",
+       "pregunta": "¿Cuál de estos lugares es más de Finanzas?",
        "opciones": [
-        "5 años",
-        "50 años",
-        "4 años"
+        "Empresas privadas",
+        "Comercio",
+        "Universidades"
        ],
        "correcta": 0,
-       "formula": "{500,000|100,000} = 5"
+       "explicacion": "Es uno de los lugares donde trabaja alguien de Finanzas.",
+       "adivina": true
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "El valor presente neto de un proyecto es negativo. ¿Qué significa?",
-       "opciones": [
-        "Que no importa",
-        "Que es un gran proyecto",
-        "Que conviene más otra opción"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Dos proyectos cuestan lo mismo. Uno se recupera en 2 años y el otro en 6, con riesgos parecidos. ¿Cuál es más atractivo en principio?",
-       "opciones": [
-        "El de 6 años",
-        "El de 2 años",
-        "Igual"
-       ],
-       "correcta": 1
+       "tipo": "info",
+       "titulo": "Dónde se trabaja",
+       "puntos": [
+        "Empresas privadas",
+        "Bancos",
+        "Aseguradoras",
+        "Consultoras",
+        "Despachos",
+        "Organismos públicos"
+       ]
       },
       {
        "tipo": "teves"
@@ -350,58 +277,39 @@
     },
     {
      "id": "6",
-     "titulo": "Finanzas personales",
-     "minutos": 4,
+     "titulo": "¿Hay trabajo?",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Ahora lo que todos preguntan: ¿hay trabajo y cuánto se gana?"
+      },
+      {
+       "tipo": "rango",
+       "pregunta": "De cada 100 que estudiaron Finanzas, ¿cuántos crees que trabajan en algo de su carrera?",
+       "min": 0,
+       "max": 100,
+       "paso": 5,
+       "unidad": "de cada 100",
+       "dato": "finanzas.ocupacion_afin"
+      },
+      {
+       "tipo": "rango",
+       "pregunta": "¿Cuánto crees que gana al mes, en promedio?",
+       "min": 5000,
+       "max": 50000,
+       "paso": 1000,
+       "unidad": "pesos al mes",
+       "dato": "finanzas.ingreso"
+      },
+      {
        "tipo": "info",
-       "titulo": "Finanzas personales",
-       "partes": [
-        {
-         "t": "Las mismas ideas sirven para tu propio dinero. Un presupuesto separa ingresos, gastos fijos, gastos variables y ahorro. Una regla útil es ahorrar primero, en cuanto llega el dinero, en vez de ahorrar \"lo que sobre\". Un fondo de emergencia de varios meses de gastos evita endeudarse cuando pasa algo inesperado. Y en México, el dinero del retiro se va acumulando en la Afore, donde también puedes hacer aportaciones voluntarias."
-        }
-       ]
+       "titulo": "Así está el trabajo",
+       "texto": "Tercera mejor pagada del país en 2026 ($27,290) y la de menor informalidad (11%); 37% tiene posgrado."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Ganas 10,000 pesos al mes y quieres ahorrar el 10 por ciento. ¿Cuánto apartas?",
-       "opciones": [
-        "10 pesos",
-        "100 pesos",
-        "1,000 pesos"
-       ],
-       "correcta": 2,
-       "formula": "10,000 × 0.10 = 1,000"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Cuándo conviene apartar el ahorro?",
-       "opciones": [
-        "En cuanto llega el dinero",
-        "Nunca",
-        "Al final del mes, si sobra"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Para qué sirve un fondo de emergencia?",
-       "opciones": [
-        "Para cubrir imprevistos sin endeudarse",
-        "Para vacaciones",
-        "Para apostar"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Dónde se acumula el dinero para el retiro de los trabajadores formales en México?",
-       "opciones": [
-        "En la Lotería",
-        "En la Afore",
-        "En el SAT"
-       ],
-       "correcta": 1
+       "tipo": "clave",
+       "texto": "Para asesorar inversiones se requieren certificaciones AMIB."
       },
       {
        "tipo": "teves"
@@ -410,47 +318,37 @@
     },
     {
      "id": "7",
-     "titulo": "Ética financiera",
-     "minutos": 4,
+     "titulo": "Qué tan difícil es",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "¿Dónde crees que está lo más difícil de Finanzas?"
+      },
+      {
        "tipo": "info",
-       "titulo": "Ética financiera",
-       "partes": [
-        {
-         "t": "En finanzas se maneja dinero de otras personas, así que la confianza lo es todo. Un asesor recomienda lo que le conviene al cliente, no lo que le deja más comisión a él. Usar información privada de una empresa para comprar o vender sus acciones antes que los demás es un delito llamado uso de información privilegiada. Y los riesgos de una inversión se explican claramente, aunque eso haga que el cliente no compre."
-        }
+       "titulo": "Lo más difícil",
+       "texto": "Dificultad media-alta. Matemáticas financieras, Estadística y Valuación de empresas."
+      },
+      {
+       "tipo": "info",
+       "titulo": "Cuánto dura",
+       "texto": "4 años."
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Te ves aguantando eso?",
+       "escala": [
+        "No",
+        "Sí"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Un producto te deja más comisión, pero no le conviene a tu cliente.",
-       "opciones": [
-        "Le vendes el de más comisión",
-        "Le recomiendas lo que le conviene a él",
-        "No le dices nada"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Te enteras en tu trabajo de que una empresa va a ser comprada, antes de que sea público, y quieres comprar sus acciones. ¿Qué es eso?",
-       "opciones": [
-        "Suerte",
-        "Una buena inversión",
-        "Uso de información privilegiada, que es un delito"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un cliente quiere invertir en algo muy riesgoso sin entenderlo.",
-       "opciones": [
-        "Le explicas claramente los riesgos",
-        "Le dices que no hay riesgo",
-        "Lo dejas sin decir nada"
-       ],
-       "correcta": 0
+       "tipo": "info",
+       "titulo": "Si te gusta, pero no del todo",
+       "puntos": [
+        "Mira también: Contaduría, Actuaría, Economía"
+       ]
       },
       {
        "tipo": "teves"
@@ -461,128 +359,27 @@
   },
   {
    "id": "u4",
-   "titulo": "Examen final",
-   "sub": "10 preguntas · apruebas con 7",
+   "titulo": "Tu decisión",
+   "sub": "¿La guardas o la descartas?",
    "lecciones": [
     {
      "id": "ex",
-     "titulo": "Examen final",
-     "minutos": 6,
-     "examen": true,
-     "aprobar": 7,
+     "titulo": "Tu veredicto",
+     "minutos": 2,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "Examen final",
-       "partes": [
-        {
-         "t": "Son 10 casos nuevos que mezclan todas las lecciones. Apruebas con 7. Si no, lo repites y las que fallaste regresan con otras palabras."
-        }
-       ]
+       "tipo": "escena",
+       "texto": "Ya sabes qué hace alguien de Finanzas, qué estudias, qué tan difícil es y si hay trabajo."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Inviertes 10,000 pesos al 8 por ciento anual. ¿Cuánto tienes en un año?",
-       "opciones": [
-        "18,000",
-        "10,800",
-        "10,008"
-       ],
-       "correcta": 1,
-       "formula": "10,000 × 1.08 = 10,800"
+       "tipo": "escuelas"
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Te ofrecen 22,000 pesos en un año con una tasa del 10 por ciento. ¿Cuánto valen hoy?",
-       "opciones": [
-        "19,800",
-        "22,000",
-        "20,000"
-       ],
-       "correcta": 2,
-       "formula": "{22,000|1.10} = 20,000"
+       "tipo": "veredicto"
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Te prometen rendimientos altísimos sin riesgo. ¿Qué es probablemente?",
-       "opciones": [
-        "Una cuenta de ahorro",
-        "Un fraude",
-        "Los Cetes"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué es diversificar?",
-       "opciones": [
-        "Concentrar todo",
-        "Repartir el dinero en varias inversiones",
-        "Gastar todo"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Una deuda de 12,000 pesos con tasa anual de 48 por ciento. ¿Cuánto pagas de interés en un mes, más o menos?",
-       "opciones": [
-        "5,760 pesos",
-        "480 pesos",
-        "48 pesos"
-       ],
-       "correcta": 1,
-       "formula": "12,000 × {0.48|12} = 480"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Con qué comparas créditos en México?",
-       "opciones": [
-        "Con el horario",
-        "Con el CAT",
-        "Con el logo"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Una empresa tiene una liquidez de 0.5. ¿Qué indica?",
-       "opciones": [
-        "Nada",
-        "Que está muy sana",
-        "Posible problema para pagar sus deudas de corto plazo"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un proyecto cuesta 300,000 pesos y deja 60,000 al año. ¿En cuánto tiempo se recupera?",
-       "opciones": [
-        "6 años",
-        "3 años",
-        "5 años"
-       ],
-       "correcta": 2,
-       "formula": "{300,000|60,000} = 5"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Cuándo conviene apartar el ahorro?",
-       "opciones": [
-        "Si sobra",
-        "Al final del año",
-        "En cuanto llega el dinero"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué es el uso de información privilegiada?",
-       "opciones": [
-        "Comprar o vender acciones con información privada antes que los demás, y es delito",
-        "Diversificar",
-        "Una estrategia legal"
-       ],
-       "correcta": 0
+       "tipo": "clave",
+       "texto": "Decidir «sigo en duda» también es avanzar."
       }
      ]
     }

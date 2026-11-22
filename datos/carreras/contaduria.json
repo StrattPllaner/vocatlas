@@ -1,14 +1,15 @@
 {
  "id": "contaduria",
- "version": 2,
+ "version": 3,
  "formato": 2,
  "estado": "completo",
- "revision": "Pendiente de revisión por un profesionista de la carrera. Generado con datos/importar_lecciones.py desde datos/fuentes/lecciones/contaduria.lec; no se edita a mano.",
+ "generado": true,
+ "revision": "Lecciones generales (de qué trata la carrera y si va contigo), armadas con datos/lecciones_generales.py desde la base de carreras con fuentes (2026-11-17).",
  "unidades": [
   {
    "id": "u1",
-   "titulo": "Las cuentas",
-   "sub": "Ecuación contable y estados financieros",
+   "titulo": "¿De qué se trata?",
+   "sub": "Qué hace y cómo es su día",
    "lecciones": [
     {
      "id": "0",
@@ -16,84 +17,70 @@
      "minutos": 1,
      "tarjetas": [
       {
-       "tipo": "ficha",
-       "texto": "Contaduría forma contadores públicos. Llevan las cuentas de empresas y personas, calculan sus impuestos y revisan que la información financiera sea cierta. Trabajan en despachos, en empresas, en el gobierno o por su cuenta con sus propios clientes.",
-       "cifras": [
-        "contaduria.ingreso",
-        "contaduria.duracion",
-        "contaduria.costo_publica",
-        "contaduria.costo_privada"
-       ]
+       "tipo": "escena",
+       "texto": "Antes de leer nada: ¿qué crees que hace alguien que estudió Contaduría?"
       },
       {
-       "tipo": "escena",
-       "texto": "Hoy llevas las cuentas de varios negocios. Vamos a ver si te cuadran."
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál de estas cosas crees que hace?",
+       "opciones": [
+        "Registra operaciones",
+        "Mantiene y gestiona equipo médico en hospitales (tomógrafos, monitores)",
+        "Resuelve problemas con modelos matemáticos en bancos, aseguradoras"
+       ],
+       "correcta": 0,
+       "explicacion": "En pocas palabras, Contaduría es registro, análisis y presentación de información financiera, impuestos, auditoría, costos, presupuestos y cumplimiento de obligaciones contables.",
+       "adivina": true
+      },
+      {
+       "tipo": "info",
+       "titulo": "Contaduría en una frase",
+       "texto": "Registro, análisis y presentación de información financiera, impuestos, auditoría, costos, presupuestos y cumplimiento de obligaciones contables."
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
      "id": "1",
-     "titulo": "La ecuación contable",
-     "minutos": 4,
+     "titulo": "Un día normal",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Imagina que acompañas un día entero a alguien de Contaduría. ¿Qué crees que hace?"
+      },
+      {
        "tipo": "info",
-       "titulo": "La ecuación contable",
-       "partes": [
-        {
-         "t": "Todo lo que una empresa tiene se llama activo: el dinero en el banco, la mercancía, las computadoras y lo que le deben sus clientes. Lo que la empresa debe se llama pasivo: préstamos, lo que les debe a sus proveedores y los impuestos por pagar. Lo que en realidad es de los dueños se llama capital. Siempre se cumple:"
-        },
-        {
-         "f": "activo = pasivo + capital"
-        },
-        {
-         "t": "Esto se llama partida doble: cada movimiento toca por lo menos dos cuentas y la ecuación sigue cuadrando. Si compras una computadora de contado, sube el equipo y baja el banco, y el activo total queda igual. Si la compras a crédito, sube el equipo y también sube el pasivo. Si la ecuación no cuadra, algo se registró mal."
-        }
+       "titulo": "Un día normal",
+       "puntos": [
+        "Registra operaciones",
+        "Prepara estados financieros",
+        "Calcula y presenta impuestos ante el SAT"
        ]
       },
       {
        "tipo": "pregunta",
-       "pregunta": "Una papelería tiene activos por 500,000 pesos y pasivos por 200,000. ¿Cuánto capital tienen los dueños?",
+       "pregunta": "¿Cuál de estas cosas NO es parte de su día?",
        "opciones": [
-        "700,000",
-        "300,000",
-        "200,000"
+        "Investiga fenómenos físicos",
+        "Prepara estados financieros",
+        "Calcula y presenta impuestos ante el SAT"
        ],
-       "correcta": 1,
-       "formula": "500,000 − 200,000 = 300,000"
+       "correcta": 0,
+       "explicacion": "Eso lo hace alguien de Física, no de Contaduría.",
+       "adivina": true
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "La empresa compra una impresora de 8,000 pesos y la paga con transferencia. ¿Qué pasa en las cuentas?",
+       "tipo": "reflexion",
+       "pregunta": "De ese día, ¿qué te late más?",
        "opciones": [
-        "El activo total sube 8,000",
-        "Sube el equipo, baja el banco y el activo total queda igual",
-        "El pasivo sube 8,000"
-       ],
-       "correcta": 1,
-       "explicacion": "Solo cambiaste un activo por otro."
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "La empresa compra mercancía por 50,000 pesos y la va a pagar en 30 días.",
-       "opciones": [
-        "Baja el capital",
-        "Sube el inventario y baja el banco",
-        "Sube el inventario y sube lo que se les debe a los proveedores"
-       ],
-       "correcta": 2,
-       "explicacion": "Todavía no sale dinero, pero ya hay una deuda."
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Al cerrar el mes, tus registros dicen activo 1,200,000, pasivo 400,000 y capital 750,000.",
-       "opciones": [
-        "Todo está bien",
-        "Faltan 50,000 por cuadrar, así que buscas qué movimiento se registró mal",
-        "Cambias el capital a mano para que cuadre"
-       ],
-       "correcta": 1,
-       "explicacion": "Pasivo más capital da 1,150,000, e inventar una cifra para que cuadre es falsear la contabilidad."
+        "Registra operaciones",
+        "Prepara estados financieros",
+        "Calcula y presenta impuestos ante el SAT",
+        "Nada de eso"
+       ]
       },
       {
        "tipo": "teves"
@@ -102,65 +89,36 @@
     },
     {
      "id": "2",
-     "titulo": "Los estados financieros",
-     "minutos": 4,
+     "titulo": "Mitos y realidades",
+     "minutos": 2,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "Los estados financieros",
-       "partes": [
-        {
-         "t": "Los estados financieros son los reportes que hace el contador. El estado de resultados dice si la empresa ganó o perdió en un periodo: ingresos menos costos y gastos. El balance general muestra cuánto activo, pasivo y capital había en una fecha exacta. El flujo de efectivo muestra el dinero que de verdad entró y salió. Una venta a crédito cuenta como ingreso cuando se hace, aunque el dinero llegue después; por eso una empresa puede tener utilidad y quedarse sin dinero en el banco. El margen de utilidad dice cuánto ganas de cada 100 pesos que vendes:"
-        },
-        {
-         "f": "margen = {utilidad|ventas} × 100"
-        },
-        {
-         "f": "{60,000|400,000} × 100 = 15"
-        }
-       ]
+       "tipo": "escena",
+       "texto": "¿Verdadero o falso? Primero di lo que crees."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué reporte te dice si la empresa ganó o perdió en el año?",
-       "opciones": [
-        "La lista de proveedores",
-        "El estado de resultados",
-        "El balance general"
-       ],
-       "correcta": 1
+       "tipo": "vf",
+       "afirmacion": "En Contaduría llevas materias de matemáticas o con muchos números.",
+       "respuesta": true,
+       "revelacion": "Sí: Contabilidad básica, Matemáticas, Contabilidad intermedia. Muchos eligen carrera pensando en evitar las matemáticas; mejor saberlo desde ahora."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Un taller vendió 400,000 pesos en el año y tuvo 340,000 de costos y gastos. ¿Cuál es su margen de utilidad?",
-       "opciones": [
-        "15 por ciento",
-        "60 por ciento",
-        "85 por ciento"
-       ],
-       "correcta": 0,
-       "explicacion": "La utilidad es de 60,000, y"
+       "tipo": "vf",
+       "afirmacion": "Es de las carreras más difíciles.",
+       "respuesta": false,
+       "revelacion": "Su dificultad es media-alta. Contabilidad intermedia, Impuestos (fiscal) y Costos; las leyes fiscales cambian cada año."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Un cliente compró 30,000 pesos a crédito en diciembre y paga en enero. ¿Cuándo cuenta esa venta como ingreso?",
-       "opciones": [
-        "En enero, cuando llega el dinero",
-        "Nunca",
-        "En diciembre, cuando se hizo la venta"
-       ],
-       "correcta": 2
+       "tipo": "vf",
+       "afirmacion": "La mayoría de quienes la estudian terminan trabajando en otra cosa.",
+       "respuesta": false,
+       "revelacion": "52 de cada 100 trabajan en algo de su carrera (IMCO, Compara Carreras 2026)."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "El dueño ve que hubo utilidad y quiere repartirla toda, pero en el banco casi no hay dinero. ¿Qué revisas primero?",
-       "opciones": [
-        "Nada, si hay utilidad hay dinero",
-        "Pides un préstamo para repartirlo",
-        "El flujo de efectivo, para ver si de verdad hay dinero para repartir"
-       ],
-       "correcta": 2,
-       "explicacion": "La utilidad puede estar todavía en ventas a crédito."
+       "tipo": "vf",
+       "afirmacion": "Casi todos los que se dedican a esto son hombres.",
+       "respuesta": false,
+       "revelacion": "De cada 100 personas que la ejercen, 56 son mujeres (IMCO, Compara Carreras 2026)."
       },
       {
        "tipo": "teves"
@@ -171,127 +129,101 @@
   },
   {
    "id": "u2",
-   "titulo": "Los impuestos",
-   "sub": "IVA, ISR y fechas del SAT",
+   "titulo": "¿Va contigo?",
+   "sub": "Lo que pide y lo que estudias",
    "lecciones": [
     {
      "id": "3",
-     "titulo": "El IVA",
-     "minutos": 4,
+     "titulo": "¿Se te da?",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Para que una carrera te guste no basta con que te llame la atención. ¿Se te da lo que pide?"
+      },
+      {
        "tipo": "info",
-       "titulo": "El IVA",
-       "partes": [
-        {
-         "t": "El IVA es un impuesto que en México casi siempre es del 16 por ciento. La empresa lo cobra cuando vende y lo paga cuando compra, y al SAT solo le entrega la diferencia. Si pagó más del que cobró, le queda saldo a favor. Para poder restar el IVA de una compra necesitas la factura electrónica, que se llama CFDI. Algunos productos tienen tasa cero, como la mayoría de los alimentos básicos y las medicinas."
-        },
-        {
-         "f": "precio con IVA = precio sin IVA × 1.16 ;; precio sin IVA = {precio con IVA|1.16}"
-        },
-        {
-         "f": "{2,320|1.16} = 2,000"
-        },
-        {
-         "t": "y 2,320 menos 2,000 da 320."
-        }
+       "titulo": "Lo que pide Contaduría",
+       "puntos": [
+        "Orden y precisión",
+        "Gusto por los números",
+        "Ética",
+        "Actualización constante"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Un producto cuesta 1,000 pesos sin IVA. ¿Cuánto cuesta con IVA?",
-       "opciones": [
-        "1,600",
-        "1,160",
-        "1,016"
-       ],
-       "correcta": 1,
-       "formula": "1,000 × 1.16 = 1,160"
+       "tipo": "info",
+       "titulo": "Y lo que te tiene que gustar",
+       "puntos": [
+        "Negocios",
+        "Leyes fiscales",
+        "Trabajo detallado"
+       ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Este mes cobraste 48,000 pesos de IVA en tus ventas y pagaste 30,000 en compras con factura. ¿Cuánto le pagas al SAT?",
-       "opciones": [
-        "18,000",
-        "78,000",
-        "48,000"
-       ],
-       "correcta": 0,
-       "formula": "48,000 − 30,000 = 18,000"
+       "tipo": "reflexion",
+       "pregunta": "¿Me relaja que todo cuadre al centavo?",
+       "escala": [
+        "No",
+        "Sí"
+       ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Un cliente te pide que le restes el IVA de unas compras que no tienen factura, \"porque sí las hice\".",
-       "opciones": [
-        "Le consigues facturas de otra persona",
-        "Le explicas que sin CFDI ese IVA no se puede restar y le pides que solicite las facturas",
-        "Las metes de todos modos"
-       ],
-       "correcta": 1,
-       "explicacion": "Usar facturas de otra persona para pagar menos es un delito."
+       "tipo": "reflexion",
+       "pregunta": "¿Soporto temporadas de mucho trabajo?",
+       "escala": [
+        "No",
+        "Sí"
+       ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Un ticket dice 2,320 pesos con IVA incluido. ¿Cuánto de eso es IVA?",
-       "opciones": [
-        "320",
-        "2,000",
-        "371.20"
-       ],
-       "correcta": 0,
-       "explicacion": "Sin IVA son"
+       "tipo": "reflexion",
+       "pregunta": "¿Me gustaría poner un despacho contable?",
+       "escala": [
+        "No",
+        "Sí"
+       ]
       },
       {
-       "tipo": "teves"
+       "tipo": "clave",
+       "texto": "Si dijiste que no a algo, no pasa nada: sirve para saber qué preguntar y qué carreras parecidas ver."
       }
      ]
     },
     {
      "id": "4",
-     "titulo": "El ISR y las fechas del SAT",
-     "minutos": 4,
+     "titulo": "Lo que estudias",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "¿Qué crees que ves en el primer año de Contaduría?"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál crees que es el primer año?",
+       "opciones": [
+        "Contabilidad básica, Matemáticas, Derecho",
+        "Cálculo, Física, Álgebra lineal",
+        "Cálculo diferencial e integral, Álgebra lineal, Física"
+       ],
+       "correcta": 0,
+       "explicacion": "Esas son materias de los primeros semestres. Las otras son de Ing. Eléctrica y Ing. Civil.",
+       "adivina": true
+      },
+      {
        "tipo": "info",
-       "titulo": "El ISR y las fechas del SAT",
-       "partes": [
-        {
-         "t": "El ISR, o impuesto sobre la renta, se cobra sobre lo que ganas, no sobre lo que vendes. Las empresas pagan el 30 por ciento de su utilidad fiscal. Para calcularla, a lo que vendiste le restas los gastos deducibles, que son los indispensables para el negocio y que tienen factura. Durante el año se hacen pagos cada mes, a más tardar el día 17 del mes siguiente. Al final viene la declaración anual: las empresas la presentan a más tardar el 31 de marzo y las personas el 30 de abril. Pagar tarde genera recargos y multas."
-        }
+       "titulo": "Lo que vas viendo",
+       "puntos": [
+        "Semestres 1-2: Contabilidad básica, Matemáticas, Derecho, Administración",
+        "Semestres 3-4: Contabilidad intermedia, Costos, Estadística, Derecho mercantil",
+        "Semestres 5-6: Impuestos (ISR, IVA), Auditoría, Finanzas, Contabilidad avanzada",
+        "Semestres 7 en adelante: Seminario fiscal, Prácticas profesionales"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Una empresa tuvo una utilidad fiscal de 200,000 pesos en el año. ¿Cuánto paga de ISR?",
-       "opciones": [
-        "60,000",
-        "140,000",
-        "6,000"
-       ],
-       "correcta": 0,
-       "formula": "200,000 × 0.30 = 60,000"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "El dueño quiere deducir el viaje de su familia a Cancún como gasto del negocio.",
-       "opciones": [
-        "Sí se puede si pide factura",
-        "No, porque no es indispensable para el negocio",
-        "Sí se puede, porque es un gasto"
-       ],
-       "correcta": 1,
-       "explicacion": "Aunque tenga factura, tiene que ser un gasto que el negocio necesite."
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Es 15 de abril y una clienta tuya todavía no presenta su declaración anual.",
-       "opciones": [
-        "Le avisas que vence el 30 de abril y le pides sus papeles hoy",
-        "Lo dejas para mayo",
-        "No le dices nada, porque no pasa nada"
-       ],
-       "correcta": 0,
-       "explicacion": "Si la presenta tarde, le cobran recargos o multas."
+       "tipo": "clave",
+       "texto": "Los nombres cambian un poco según la universidad; la idea general es esta."
       },
       {
        "tipo": "teves"
@@ -302,60 +234,41 @@
   },
   {
    "id": "u3",
-   "titulo": "El trabajo real",
-   "sub": "Depreciación, auditoría y clientes",
+   "titulo": "¿Y después?",
+   "sub": "Trabajo y dificultad",
    "lecciones": [
     {
      "id": "5",
-     "titulo": "La depreciación",
-     "minutos": 4,
+     "titulo": "Dónde trabajarías",
+     "minutos": 2,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "La depreciación",
-       "partes": [
-        {
-         "t": "Una camioneta o una computadora se usan varios años, así que su costo no se cuenta todo como gasto el año en que la compras: se reparte entre los años que dura. Eso se llama depreciación. La forma más sencilla es la línea recta: al costo le restas lo que valdrá cuando ya no la uses, que es el valor de rescate, y lo divides entre los años de uso."
-        },
-        {
-         "f": "depreciación por año = {costo − valor de rescate|años de vida útil}"
-        },
-        {
-         "t": "El valor en libros es lo que vale el bien en tus cuentas: el costo menos toda la depreciación acumulada."
-        }
-       ]
+       "tipo": "escena",
+       "texto": "Al terminar, ¿dónde crees que trabajaría alguien de Contaduría?"
       },
       {
        "tipo": "pregunta",
-       "pregunta": "Una camioneta costó 400,000 pesos, va a durar 5 años y al final valdrá 50,000. ¿Cuánto se deprecia cada año?",
+       "pregunta": "¿Cuál de estos lugares es más de Contaduría?",
        "opciones": [
-        "90,000",
-        "70,000",
-        "80,000"
-       ],
-       "correcta": 1,
-       "formula": "{400,000 − 50,000|5} = 70,000"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Por qué la camioneta no se cuenta completa como gasto el primer año?",
-       "opciones": [
-        "Para pagar más impuestos",
-        "Porque se usa varios años y su costo se reparte entre ellos",
-        "Porque así lo decide el dueño"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Con la misma camioneta, ¿cuál es su valor en libros después de 2 años?",
-       "opciones": [
-        "260,000",
-        "400,000",
-        "330,000"
+        "Empresas privadas",
+        "Universidades",
+        "Hospitales"
        ],
        "correcta": 0,
-       "formula": "400,000 − 70,000 × 2 = 260,000"
+       "explicacion": "Es uno de los lugares donde trabaja alguien de Contaduría.",
+       "adivina": true
+      },
+      {
+       "tipo": "info",
+       "titulo": "Dónde se trabaja",
+       "puntos": [
+        "Empresas privadas",
+        "Bancos",
+        "Aseguradoras",
+        "Consultoras",
+        "Despachos",
+        "Organismos públicos"
+       ]
       },
       {
        "tipo": "teves"
@@ -364,59 +277,39 @@
     },
     {
      "id": "6",
-     "titulo": "Auditoría y control",
-     "minutos": 4,
+     "titulo": "¿Hay trabajo?",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Ahora lo que todos preguntan: ¿hay trabajo y cuánto se gana?"
+      },
+      {
+       "tipo": "rango",
+       "pregunta": "De cada 100 que estudiaron Contaduría, ¿cuántos crees que trabajan en algo de su carrera?",
+       "min": 0,
+       "max": 100,
+       "paso": 5,
+       "unidad": "de cada 100",
+       "dato": "contaduria.ocupacion_afin"
+      },
+      {
+       "tipo": "rango",
+       "pregunta": "¿Cuánto crees que gana al mes, en promedio?",
+       "min": 5000,
+       "max": 50000,
+       "paso": 1000,
+       "unidad": "pesos al mes",
+       "dato": "contaduria.ingreso"
+      },
+      {
        "tipo": "info",
-       "titulo": "Auditoría y control",
-       "partes": [
-        {
-         "t": "Un auditor revisa que lo que dicen las cuentas sea cierto, y para eso pide evidencia: facturas, estados de cuenta y el inventario contado en persona. Una herramienta básica es la conciliación bancaria, que compara tus registros con el estado de cuenta del banco. Hay diferencias normales, como un cheque que ya entregaste y que el proveedor todavía no cobra. El control interno son reglas para evitar errores y robos; la principal es que una sola persona no debe cobrar, registrar y depositar el mismo dinero. El contador firma lo que revisa y responde por ello."
-        }
-       ]
+       "titulo": "Así está el trabajo",
+       "texto": "Carrera masiva (1.2 millones) con empleo estable y desempleo bajo (2%). IMCO la clasifica como 'Contabilidad y fiscalización'."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Tus registros dicen que hay 85,000 pesos en el banco y el estado de cuenta dice 92,000. Encuentras un cheque de 7,000 que le diste a un proveedor y que todavía no cobra.",
-       "opciones": [
-        "La diferencia ya está explicada",
-        "El banco se equivocó",
-        "Alguien se robó 7,000 pesos"
-       ],
-       "correcta": 0,
-       "explicacion": "Cuando lo cobre, las dos cifras van a quedar iguales."
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "En una tienda, la misma empleada cobra en la caja, anota las ventas y hace los depósitos.",
-       "opciones": [
-        "Es un riesgo; conviene separar esas tareas",
-        "Está bien, así se ahorra tiempo",
-        "Hay que despedirla"
-       ],
-       "correcta": 0,
-       "explicacion": "Si alguien se equivoca o roba, nadie más se daría cuenta."
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Los registros dicen que hay 1,000 piezas en el almacén, pero al contarlas encuentras 940.",
-       "opciones": [
-        "Firmas que hay 1,000",
-        "Investigas qué pasó con las 60 que faltan y ajustas el registro",
-        "No le das importancia porque son pocas"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "El director te pide que no aparezca una deuda grande en los estados financieros para que el banco le preste.",
-       "opciones": [
-        "La pones en una nota muy pequeña",
-        "Te niegas, porque esconderla engaña al banco, puede ser delito y tú firmas esos reportes",
-        "Lo haces"
-       ],
-       "correcta": 1
+       "tipo": "clave",
+       "texto": "Cédula para firmar dictámenes; la certificación del IMCP (contador certificado) abre puertas."
       },
       {
        "tipo": "teves"
@@ -425,48 +318,37 @@
     },
     {
      "id": "7",
-     "titulo": "Un día como contador",
-     "minutos": 4,
+     "titulo": "Qué tan difícil es",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "¿Dónde crees que está lo más difícil de Contaduría?"
+      },
+      {
        "tipo": "info",
-       "titulo": "Un día como contador",
-       "partes": [
-        {
-         "t": "En el trabajo real, un contador lleva varios clientes al mismo tiempo, cada uno con sus fechas límite, y además los asesora. Por ejemplo, una persona que abre un negocio puede elegir entre varios regímenes del SAT. Uno es el RESICO, para personas que ganan hasta 3.5 millones de pesos al año, con una tasa baja sobre lo que cobran. Para recomendar uno hay que revisar cuánto vende y cuánto gasta la persona. Las facturas llevan folio y sello del SAT: si una tiene un error, se cancela y se hace otra. Y el contador guarda el secreto de las cuentas de sus clientes."
-        }
+       "titulo": "Lo más difícil",
+       "texto": "Dificultad media-alta. Contabilidad intermedia, Impuestos (fiscal) y Costos; las leyes fiscales cambian cada año."
+      },
+      {
+       "tipo": "info",
+       "titulo": "Cuánto dura",
+       "texto": "4 a 4.5 años."
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Te ves aguantando eso?",
+       "escala": [
+        "No",
+        "Sí"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Una señora con una fonda vende 600,000 pesos al año y no sabe en qué régimen darse de alta.",
-       "opciones": [
-        "Revisas sus ingresos y gastos y comparas regímenes, como el RESICO, que le aplica porque no pasa de 3.5 millones al año",
-        "Le recomiendas el que tenga menos papeleo, sin revisar sus números",
-        "Le dices que mejor no se dé de alta"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un cliente te pide cambiar la fecha de una factura para que parezca del mes pasado.",
-       "opciones": [
-        "Lo haces",
-        "Lo haces si te paga extra",
-        "Le explicas que no se puede, porque el CFDI lleva fecha y sello del SAT; si tiene un error, se cancela y se hace otra"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Tres clientes tienen que presentar sus pagos el día 17 y hoy es 10.",
-       "opciones": [
-        "Atiendes primero al que te paga más",
-        "Esperas al 16 para hacerlos todos juntos",
-        "Revisas qué le falta a cada uno, les pides sus papeles hoy y te organizas por fechas"
-       ],
-       "correcta": 2,
-       "explicacion": "Si un cliente se atrasa, a él le cuesta en recargos."
+       "tipo": "info",
+       "titulo": "Si te gusta, pero no del todo",
+       "puntos": [
+        "Mira también: Finanzas, Economía, Actuaría"
+       ]
       },
       {
        "tipo": "teves"
@@ -477,128 +359,27 @@
   },
   {
    "id": "u4",
-   "titulo": "Examen final",
-   "sub": "10 preguntas · apruebas con 7",
+   "titulo": "Tu decisión",
+   "sub": "¿La guardas o la descartas?",
    "lecciones": [
     {
      "id": "ex",
-     "titulo": "Examen final",
-     "minutos": 6,
-     "examen": true,
-     "aprobar": 7,
+     "titulo": "Tu veredicto",
+     "minutos": 2,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "Examen final",
-       "partes": [
-        {
-         "t": "Son 10 casos nuevos que mezclan todas las lecciones. Apruebas con 7. Si no, lo repites y las que fallaste regresan con otras palabras."
-        }
-       ]
+       "tipo": "escena",
+       "texto": "Ya sabes qué hace alguien de Contaduría, qué estudias, qué tan difícil es y si hay trabajo."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Una empresa tiene activos por 800,000 pesos y un capital de 500,000. ¿Cuánto es su pasivo?",
-       "opciones": [
-        "500,000",
-        "1,300,000",
-        "300,000"
-       ],
-       "correcta": 2,
-       "formula": "800,000 − 500,000 = 300,000"
+       "tipo": "escuelas"
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Compras mercancía a crédito. ¿Qué pasa en las cuentas?",
-       "opciones": [
-        "Baja el capital",
-        "Baja el banco",
-        "Sube el inventario y sube el pasivo"
-       ],
-       "correcta": 2
+       "tipo": "veredicto"
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Un producto cuesta 5,000 pesos sin IVA. ¿Cuánto cuesta con IVA?",
-       "opciones": [
-        "5,800",
-        "5,160",
-        "5,016"
-       ],
-       "correcta": 0,
-       "formula": "5,000 × 1.16 = 5,800"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "En el mes cobraste 20,000 pesos de IVA y pagaste 26,000 en compras con factura.",
-       "opciones": [
-        "Le pagas 6,000 al SAT",
-        "Le pagas 46,000 al SAT",
-        "Te quedan 6,000 de saldo a favor"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué reporte te dice si la empresa ganó o perdió en el año?",
-       "opciones": [
-        "El balance general",
-        "La conciliación bancaria",
-        "El estado de resultados"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Una empresa tuvo una utilidad fiscal de 90,000 pesos. ¿Cuánto paga de ISR?",
-       "opciones": [
-        "63,000",
-        "9,000",
-        "27,000"
-       ],
-       "correcta": 2,
-       "formula": "90,000 × 0.30 = 27,000"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Una computadora de 30,000 pesos va a durar 3 años y al final no valdrá nada. ¿Cuánto se deprecia cada año?",
-       "opciones": [
-        "30,000",
-        "15,000",
-        "10,000"
-       ],
-       "correcta": 2,
-       "formula": "{30,000 − 0|3} = 10,000"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un gasto del negocio no tiene factura.",
-       "opciones": [
-        "No se puede deducir",
-        "Se deduce completo",
-        "Se deduce la mitad"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "En una empresa, la misma persona autoriza los pagos y también los registra.",
-       "opciones": [
-        "Así lo pide la ley",
-        "Es un riesgo de control interno",
-        "Es lo más eficiente"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Una factura salió con un error.",
-       "opciones": [
-        "La cancelas y haces una nueva",
-        "Corriges el PDF a mano",
-        "La dejas así"
-       ],
-       "correcta": 0
+       "tipo": "clave",
+       "texto": "Decidir «sigo en duda» también es avanzar."
       }
      ]
     }

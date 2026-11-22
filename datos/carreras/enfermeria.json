@@ -1,14 +1,15 @@
 {
  "id": "enfermeria",
- "version": 2,
+ "version": 3,
  "formato": 2,
  "estado": "completo",
- "revision": "Pendiente de revisión por un profesionista de la carrera. Generado con datos/importar_lecciones.py desde datos/fuentes/lecciones/enfermeria.lec; no se edita a mano.",
+ "generado": true,
+ "revision": "Lecciones generales (de qué trata la carrera y si va contigo), armadas con datos/lecciones_generales.py desde la base de carreras con fuentes (2026-11-17).",
  "unidades": [
   {
    "id": "u1",
-   "titulo": "Cuidar sin dañar",
-   "sub": "Manos limpias y medicamentos",
+   "titulo": "¿De qué se trata?",
+   "sub": "Qué hace y cómo es su día",
    "lecciones": [
     {
      "id": "0",
@@ -16,74 +17,73 @@
      "minutos": 1,
      "tarjetas": [
       {
-       "tipo": "ficha",
-       "texto": "Enfermería forma profesionales que cuidan a los pacientes día y noche: dan medicamentos, vigilan signos vitales, previenen complicaciones, educan a las familias y son quienes primero notan cuando alguien empeora. Trabajan en hospitales, centros de salud, escuelas, empresas y atención en casa.",
-       "cifras": [
-        "enfermeria.ingreso",
-        "enfermeria.duracion",
-        "enfermeria.costo_publica",
-        "enfermeria.costo_privada"
-       ]
+       "tipo": "escena",
+       "texto": "Antes de leer nada: ¿qué crees que hace alguien que estudió Enfermería?"
       },
       {
-       "tipo": "escena",
-       "texto": "Hoy estás a cargo de un piso del hospital. Vamos a ver si cuidas bien a tus pacientes."
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál de estas cosas crees que hace?",
+       "opciones": [
+        "Cuida pacientes de forma directa",
+        "Atiende casos de familias o personas vulnerables",
+        "Calcula o supervisa obras, puentes, carreteras, drenajes"
+       ],
+       "correcta": 0,
+       "explicacion": "En pocas palabras, Enfermería es atención integral de pacientes, vigilancia clínica, administración de tratamientos, promoción de la salud y acompañamiento durante distintas etapas de la vida.",
+       "adivina": true
+      },
+      {
+       "tipo": "info",
+       "titulo": "Enfermería en una frase",
+       "texto": "Atención integral de pacientes, vigilancia clínica, administración de tratamientos, promoción de la salud y acompañamiento durante distintas etapas de la vida."
+      },
+      {
+       "tipo": "teves"
       }
      ]
     },
     {
      "id": "1",
-     "titulo": "Lavado de manos",
-     "minutos": 4,
+     "titulo": "Un día normal",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Imagina que acompañas un día entero a alguien de Enfermería. ¿Qué crees que hace?"
+      },
+      {
        "tipo": "info",
-       "titulo": "Lavado de manos",
-       "partes": [
-        {
-         "t": "Las manos del personal de salud son la principal forma en que las infecciones pasan de un paciente a otro dentro de un hospital. Por eso la Organización Mundial de la Salud marca cinco momentos para lavarse las manos o usar gel con alcohol: antes de tocar al paciente, antes de hacer un procedimiento limpio o estéril, después de tener contacto con fluidos del cuerpo, después de tocar al paciente y después de tocar lo que está alrededor del paciente, como la cama o el monitor. Los guantes no sustituyen el lavado de manos. Si las manos se ven sucias, se lavan con agua y jabón, no solo con gel."
-        }
+       "titulo": "Un día normal",
+       "puntos": [
+        "Cuida pacientes de forma directa",
+        "Aplica medicamentos y curaciones",
+        "Vigila su evolución",
+        "Apoya al médico y orienta a familias",
+        "Trabaja por turnos (mañana",
+        "Tarde, noche) en hospital"
        ]
       },
       {
        "tipo": "pregunta",
-       "pregunta": "Vas a revisar a un paciente y luego al de la cama de al lado. ¿Qué haces entre los dos?",
+       "pregunta": "¿Cuál de estas cosas NO es parte de su día?",
        "opciones": [
-        "Nada, si no se ven sucias",
-        "Te lavas las manos o usas gel con alcohol",
-        "Solo te secas"
+        "Diseña y programa sistemas automáticos, líneas de producción, máquinas inteligentes",
+        "Aplica medicamentos y curaciones",
+        "Vigila su evolución"
        ],
-       "correcta": 1
+       "correcta": 0,
+       "explicacion": "Eso lo hace alguien de Mecatrónica, no de Enfermería.",
+       "adivina": true
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Usaste guantes para cambiar un pañal. Al quitártelos, ¿qué haces?",
+       "tipo": "reflexion",
+       "pregunta": "De ese día, ¿qué te late más?",
        "opciones": [
-        "Nada, ya traías guantes",
-        "Te pones otros sin lavarte",
-        "Te lavas las manos de todos modos"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Tus manos tienen sangre visible. ¿Qué usas?",
-       "opciones": [
-        "Una servilleta",
-        "Agua y jabón",
-        "Solo gel con alcohol"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Tocaste el barandal de la cama del paciente, pero no al paciente. ¿Necesitas higiene de manos al salir?",
-       "opciones": [
-        "No",
-        "Solo si lo tocaste mucho",
-        "Sí, también cuenta lo que está alrededor del paciente"
-       ],
-       "correcta": 2
+        "Cuida pacientes de forma directa",
+        "Aplica medicamentos y curaciones",
+        "Vigila su evolución",
+        "Nada de eso"
+       ]
       },
       {
        "tipo": "teves"
@@ -92,57 +92,36 @@
     },
     {
      "id": "2",
-     "titulo": "Dar medicamentos sin errores",
-     "minutos": 4,
+     "titulo": "Mitos y realidades",
+     "minutos": 2,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "Dar medicamentos sin errores",
-       "partes": [
-        {
-         "t": "Un error al dar medicamentos puede dañar gravemente a un paciente. Por eso enfermería revisa siempre los \"correctos\" antes de administrar: paciente correcto, medicamento correcto, dosis correcta, vía correcta y hora correcta. Al paciente se le identifica con dos datos, como su nombre completo y su fecha de nacimiento, nunca solo por el número de cama. Si una indicación no se entiende o parece rara, no se adivina: se pregunta al médico. Y todo lo que se administra se registra."
-        }
-       ]
+       "tipo": "escena",
+       "texto": "¿Verdadero o falso? Primero di lo que crees."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Cómo confirmas que es el paciente correcto?",
-       "opciones": [
-        "Preguntando \"¿usted es el de la cama 5?\"",
-        "Con dos datos, como su nombre completo y fecha de nacimiento",
-        "Por el número de cama"
-       ],
-       "correcta": 1
+       "tipo": "vf",
+       "afirmacion": "En Enfermería llevas materias de matemáticas o con muchos números.",
+       "respuesta": false,
+       "revelacion": "No aparecen como materia propia en su plan de estudios. Muchos eligen carrera pensando en evitar las matemáticas; mejor saberlo desde ahora."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "La indicación médica tiene una dosis que te parece diez veces más alta de lo normal.",
-       "opciones": [
-        "No la das y la confirmas con el médico",
-        "La das porque el médico la escribió",
-        "Das la mitad"
-       ],
-       "correcta": 0
+       "tipo": "vf",
+       "afirmacion": "Es de las carreras más difíciles.",
+       "respuesta": true,
+       "revelacion": "Su dificultad es alta. Anatomía, Fisiología y Farmacología al inicio; después, prácticas clínicas con turnos en hospital."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué haces después de dar un medicamento?",
-       "opciones": [
-        "Lo registras",
-        "Lo comentas en el pasillo",
-        "Nada"
-       ],
-       "correcta": 0
+       "tipo": "vf",
+       "afirmacion": "La mayoría de quienes la estudian terminan trabajando en otra cosa.",
+       "respuesta": false,
+       "revelacion": "75 de cada 100 trabajan en algo de su carrera (IMCO, Compara Carreras 2026)."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Hay dos pacientes con el mismo apellido en el piso. ¿Qué cuidado extra tienes?",
-       "opciones": [
-        "Darles lo mismo a los dos",
-        "Confirmar siempre con dos datos antes de cada medicamento",
-        "Ninguno"
-       ],
-       "correcta": 1
+       "tipo": "vf",
+       "afirmacion": "Casi todos los que se dedican a esto son hombres.",
+       "respuesta": false,
+       "revelacion": "De cada 100 personas que la ejercen, 82 son mujeres (IMCO, Compara Carreras 2026)."
       },
       {
        "tipo": "teves"
@@ -153,168 +132,101 @@
   },
   {
    "id": "u2",
-   "titulo": "Vigilar",
-   "sub": "Goteo, signos vitales y prevención",
+   "titulo": "¿Va contigo?",
+   "sub": "Lo que pide y lo que estudias",
    "lecciones": [
     {
      "id": "3",
-     "titulo": "Calcular un goteo",
-     "minutos": 4,
+     "titulo": "¿Se te da?",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Para que una carrera te guste no basta con que te llame la atención. ¿Se te da lo que pide?"
+      },
+      {
        "tipo": "info",
-       "titulo": "Calcular un goteo",
-       "partes": [
-        {
-         "t": "Muchas soluciones se pasan por la vena con un equipo de venoclisis. Para saber cuántas gotas por minuto deben caer, se usa el factor de goteo del equipo; en un macrogotero común, 20 gotas equivalen a un mililitro."
-        },
-        {
-         "f": "gotas por minuto = {mililitros × factor de goteo|minutos}"
-        },
-        {
-         "t": "Si va más rápido de lo indicado, el paciente puede recibir demasiado líquido; si va más lento, no recibe lo que necesita. Por eso se revisa el goteo en cada ronda."
-        }
+       "titulo": "Lo que pide Enfermería",
+       "puntos": [
+        "Paciencia y empatía",
+        "Resistencia física",
+        "Atención al detalle",
+        "Trabajo en equipo bajo presión"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Debes pasar 500 mililitros en 4 horas con un equipo de 20 gotas por mililitro. ¿Cuántas gotas por minuto?",
-       "opciones": [
-        "20",
-        "125",
-        "Unas 42"
-       ],
-       "correcta": 2,
-       "formula": "{500 × 20|240} = 41.7"
+       "tipo": "info",
+       "titulo": "Y lo que te tiene que gustar",
+       "puntos": [
+        "Salud",
+        "Cuidar a otros",
+        "Biología"
+       ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Debes pasar 1,000 mililitros en 8 horas con el mismo equipo. ¿Cuántas gotas por minuto, más o menos?",
-       "opciones": [
-        "Unas 42",
-        "8",
-        "125"
-       ],
-       "correcta": 0,
-       "formula": "{1,000 × 20|480} = 41.7"
+       "tipo": "reflexion",
+       "pregunta": "¿Me imagino cuidando pacientes en turnos de noche?",
+       "escala": [
+        "No",
+        "Sí"
+       ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "En tu ronda ves que la solución pasó mucho más rápido de lo indicado.",
-       "opciones": [
-        "Lo dejas así",
-        "La quitas sin avisar",
-        "Ajustas el goteo, revisas cómo está el paciente y avisas"
-       ],
-       "correcta": 2
+       "tipo": "reflexion",
+       "pregunta": "¿Me siento bien siguiendo protocolos con precisión?",
+       "escala": [
+        "No",
+        "Sí"
+       ]
       },
       {
-       "tipo": "teves"
+       "tipo": "reflexion",
+       "pregunta": "¿Quiero trabajar en salud sin estudiar 7 años?",
+       "escala": [
+        "No",
+        "Sí"
+       ]
+      },
+      {
+       "tipo": "clave",
+       "texto": "Si dijiste que no a algo, no pasa nada: sirve para saber qué preguntar y qué carreras parecidas ver."
       }
      ]
     },
     {
      "id": "4",
-     "titulo": "Signos vitales y alarmas",
-     "minutos": 4,
+     "titulo": "Lo que estudias",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "¿Qué crees que ves en el primer año de Enfermería?"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál crees que es el primer año?",
+       "opciones": [
+        "Anatomía y fisiología, Bioquímica, Fundamentos de enfermería",
+        "Cálculo, Física, Química",
+        "Cálculo diferencial e integral, Álgebra lineal, Física"
+       ],
+       "correcta": 0,
+       "explicacion": "Esas son materias de los primeros semestres. Las otras son de Biomédica y Ing. Civil.",
+       "adivina": true
+      },
+      {
        "tipo": "info",
-       "titulo": "Signos vitales y alarmas",
-       "partes": [
-        {
-         "t": "Enfermería mide los signos vitales varias veces al día y es quien primero nota cuando un paciente empeora. Los rangos normales de un adulto en reposo son, más o menos: pulso de 60 a 100 por minuto, respiración de 12 a 20 por minuto, temperatura de 36.5 a 37.5 grados y saturación de oxígeno de 95 a 100 por ciento. Más que un número aislado, importa el cambio: un paciente que en unas horas pasa de 16 a 28 respiraciones por minuto está empeorando, aunque diga que se siente bien. Ante cambios así, se avisa al médico de inmediato."
-        }
+       "titulo": "Lo que vas viendo",
+       "puntos": [
+        "Semestres 1-2: Anatomía y fisiología, Bioquímica, Fundamentos de enfermería, Psicología",
+        "Semestres 3-4: Farmacología, Enfermería del adulto, Microbiología, Salud comunitaria",
+        "Semestres 5-6: Enfermería materno-infantil, Enfermería pediátrica, Cuidados críticos, Administración de servicios",
+        "Semestres 7 en adelante: Prácticas clínicas intensivas, Servicio social"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Un paciente tenía 16 respiraciones por minuto en la mañana y ahora tiene 28. ¿Qué haces?",
-       "opciones": [
-        "Avisas al médico de inmediato, porque está empeorando",
-        "Esperas al siguiente turno",
-        "Nada, si dice que está bien"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Cuál es una saturación de oxígeno normal?",
-       "opciones": [
-        "De 50 a 60",
-        "De 95 a 100 por ciento",
-        "De 70 a 80"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un paciente tiene 38.5 grados de temperatura. ¿Cómo está?",
-       "opciones": [
-        "Con fiebre",
-        "Con hipotermia",
-        "Normal"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué es más importante vigilar?",
-       "opciones": [
-        "Nada",
-        "Cómo cambian los signos vitales con el tiempo",
-        "Solo un número aislado"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "teves"
-      }
-     ]
-    },
-    {
-     "id": "5",
-     "titulo": "Prevenir daños",
-     "minutos": 4,
-     "tarjetas": [
-      {
-       "tipo": "info",
-       "titulo": "Prevenir daños",
-       "partes": [
-        {
-         "t": "Mucho del trabajo de enfermería es prevenir. Un paciente que no se mueve puede desarrollar úlceras por presión, que son heridas en la piel donde se apoya el cuerpo, como la cadera o los talones. Se previenen cambiándolo de posición, más o menos cada dos horas, cuidando la piel y usando colchones especiales. Las caídas son otro riesgo, sobre todo en adultos mayores: se baja la cama, se suben los barandales cuando corresponde, se deja el timbre a la mano y se ayuda a caminar."
-        }
-       ]
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un adulto mayor lleva días en cama sin moverse. ¿Qué haces para prevenir úlceras?",
-       "opciones": [
-        "Nada",
-        "Lo dejas igual para que descanse",
-        "Lo cambias de posición seguido y cuidas su piel"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Dónde aparecen más las úlceras por presión?",
-       "opciones": [
-        "Donde el cuerpo se apoya, como la cadera y los talones",
-        "En la cara",
-        "En las manos"
-       ],
-       "correcta": 0
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Una paciente mayor quiere ir sola al baño de noche y está mareada.",
-       "opciones": [
-        "Le quitas el timbre",
-        "Le dejas el timbre a la mano y le pides que llame para ayudarla",
-        "La dejas ir sola"
-       ],
-       "correcta": 1
+       "tipo": "clave",
+       "texto": "Los nombres cambian un poco según la universidad; la idea general es esta."
       },
       {
        "tipo": "teves"
@@ -325,62 +237,82 @@
   },
   {
    "id": "u3",
-   "titulo": "Con las personas",
-   "sub": "Comunicación y ética",
+   "titulo": "¿Y después?",
+   "sub": "Trabajo y dificultad",
    "lecciones": [
     {
-     "id": "6",
-     "titulo": "Comunicar bien",
-     "minutos": 4,
+     "id": "5",
+     "titulo": "Dónde trabajarías",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "Al terminar, ¿dónde crees que trabajaría alguien de Enfermería?"
+      },
+      {
+       "tipo": "pregunta",
+       "pregunta": "¿Cuál de estos lugares es más de Enfermería?",
+       "opciones": [
+        "Hospitales",
+        "Empresas privadas",
+        "Organizaciones sociales"
+       ],
+       "correcta": 0,
+       "explicacion": "Es uno de los lugares donde trabaja alguien de Enfermería.",
+       "adivina": true
+      },
+      {
        "tipo": "info",
-       "titulo": "Comunicar bien",
-       "partes": [
-        {
-         "t": "Al cambiar de turno, enfermería entrega a sus pacientes al siguiente equipo, y ahí se pierde información si no se hace con orden. Un método común es decir: qué está pasando con el paciente, sus antecedentes importantes, cómo lo valoraste y qué recomiendas. Al llamar al médico por un problema se usa el mismo orden, con datos concretos. También se le explica al paciente qué se le va a hacer, con palabras sencillas, y se le pide su consentimiento. Lo que no se registra, para el hospital no se hizo."
-        }
+       "titulo": "Dónde se trabaja",
+       "puntos": [
+        "Hospitales",
+        "Clínicas",
+        "Centros comunitarios",
+        "Atención domiciliaria",
+        "Salud ocupacional",
+        "Instituciones públicas"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Al entregar el turno, ¿qué incluyes de cada paciente?",
-       "opciones": [
-        "Qué le pasa, sus antecedentes importantes, cómo lo encontraste y qué recomiendas",
-        "Solo su número de cama",
-        "Nada, que lo lean en el expediente"
-       ],
-       "correcta": 0
+       "tipo": "teves"
+      }
+     ]
+    },
+    {
+     "id": "6",
+     "titulo": "¿Hay trabajo?",
+     "minutos": 2,
+     "tarjetas": [
+      {
+       "tipo": "escena",
+       "texto": "Ahora lo que todos preguntan: ¿hay trabajo y cuánto se gana?"
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Llamas al médico porque un paciente empeoró. ¿Qué le das?",
-       "opciones": [
-        "Nada, que venga",
-        "Datos concretos: signos vitales, qué cambió y qué necesitas",
-        "\"Está raro\""
-       ],
-       "correcta": 1
+       "tipo": "rango",
+       "pregunta": "De cada 100 que estudiaron Enfermería, ¿cuántos crees que trabajan en algo de su carrera?",
+       "min": 0,
+       "max": 100,
+       "paso": 5,
+       "unidad": "de cada 100",
+       "dato": "enfermeria.ocupacion_afin"
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Vas a poner una sonda y el paciente pregunta qué le vas a hacer.",
-       "opciones": [
-        "Se lo explicas con palabras sencillas antes de empezar",
-        "No le contestas",
-        "Le dices que no se preocupe y lo haces"
-       ],
-       "correcta": 0
+       "tipo": "rango",
+       "pregunta": "¿Cuánto crees que gana al mes, en promedio?",
+       "min": 5000,
+       "max": 50000,
+       "paso": 1000,
+       "unidad": "pesos al mes",
+       "dato": "enfermeria.ingreso"
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Hiciste una curación pero no la anotaste. ¿Qué problema hay?",
-       "opciones": [
-        "Para el hospital es como si no se hubiera hecho",
-        "Ninguno",
-        "Que te sobra tiempo"
-       ],
-       "correcta": 0
+       "tipo": "info",
+       "titulo": "Así está el trabajo",
+       "texto": "Alta vinculación con el empleo (75% ejerce) y baja informalidad; muy demandada en hospitales públicos y privados."
+      },
+      {
+       "tipo": "clave",
+       "texto": "Título y cédula profesional."
       },
       {
        "tipo": "teves"
@@ -389,47 +321,37 @@
     },
     {
      "id": "7",
-     "titulo": "Ética del cuidado",
-     "minutos": 4,
+     "titulo": "Qué tan difícil es",
+     "minutos": 2,
      "tarjetas": [
       {
+       "tipo": "escena",
+       "texto": "¿Dónde crees que está lo más difícil de Enfermería?"
+      },
+      {
        "tipo": "info",
-       "titulo": "Ética del cuidado",
-       "partes": [
-        {
-         "t": "Enfermería conoce los detalles más íntimos de las personas, así que guarda la confidencialidad: la información del paciente solo se comparte con quien la necesita para atenderlo. Se respeta la dignidad: se cubre al paciente, se toca la puerta y se le habla por su nombre. Se atiende igual a todos, sin importar quiénes sean. Y cuando alguien del equipo hace algo que pone en riesgo a un paciente, se reporta por los canales del hospital."
-        }
+       "titulo": "Lo más difícil",
+       "texto": "Dificultad alta. Anatomía, Fisiología y Farmacología al inicio; después, prácticas clínicas con turnos en hospital."
+      },
+      {
+       "tipo": "info",
+       "titulo": "Cuánto dura",
+       "texto": "4 años más 1 año de servicio social."
+      },
+      {
+       "tipo": "reflexion",
+       "pregunta": "¿Te ves aguantando eso?",
+       "escala": [
+        "No",
+        "Sí"
        ]
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Un vecino del paciente te pregunta en el pasillo qué enfermedad tiene.",
-       "opciones": [
-        "Le enseñas el expediente",
-        "Le dices que no puedes dar información",
-        "Le cuentas"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Vas a bañar a un paciente en un cuarto compartido.",
-       "opciones": [
-        "Le pides que lo haga solo",
-        "Lo haces a la vista de todos",
-        "Cierras la cortina y lo cubres"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Ves que un compañero no se lava las manos entre pacientes.",
-       "opciones": [
-        "No dices nada",
-        "Lo publicas en redes",
-        "Se lo dices y, si sigue, lo reportas por los canales del hospital"
-       ],
-       "correcta": 2
+       "tipo": "info",
+       "titulo": "Si te gusta, pero no del todo",
+       "puntos": [
+        "Mira también: Medicina, Fisioterapia, Nutrición, QFB"
+       ]
       },
       {
        "tipo": "teves"
@@ -440,125 +362,27 @@
   },
   {
    "id": "u4",
-   "titulo": "Examen final",
-   "sub": "10 preguntas · apruebas con 7",
+   "titulo": "Tu decisión",
+   "sub": "¿La guardas o la descartas?",
    "lecciones": [
     {
      "id": "ex",
-     "titulo": "Examen final",
-     "minutos": 6,
-     "examen": true,
-     "aprobar": 7,
+     "titulo": "Tu veredicto",
+     "minutos": 2,
      "tarjetas": [
       {
-       "tipo": "info",
-       "titulo": "Examen final",
-       "partes": [
-        {
-         "t": "Son 10 casos nuevos que mezclan todas las lecciones. Apruebas con 7. Si no, lo repites y las que fallaste regresan con otras palabras."
-        }
-       ]
+       "tipo": "escena",
+       "texto": "Ya sabes qué hace alguien de Enfermería, qué estudias, qué tan difícil es y si hay trabajo."
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Sustituyen los guantes al lavado de manos?",
-       "opciones": [
-        "A veces",
-        "No",
-        "Sí"
-       ],
-       "correcta": 1
+       "tipo": "escuelas"
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "Tus manos tienen sangre visible. ¿Qué usas?",
-       "opciones": [
-        "Agua y jabón",
-        "Gel",
-        "Nada"
-       ],
-       "correcta": 0
+       "tipo": "veredicto"
       },
       {
-       "tipo": "pregunta",
-       "pregunta": "¿Cómo identificas a un paciente antes de darle un medicamento?",
-       "opciones": [
-        "Por su cara",
-        "Por la cama",
-        "Con dos datos, como nombre completo y fecha de nacimiento"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Una dosis te parece muy alta.",
-       "opciones": [
-        "La das",
-        "Das la mitad",
-        "La confirmas con el médico antes de darla"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Debes pasar 600 mililitros en 5 horas con un equipo de 20 gotas por mililitro. ¿Cuántas gotas por minuto?",
-       "opciones": [
-        "40",
-        "20",
-        "120"
-       ],
-       "correcta": 0,
-       "formula": "{600 × 20|300} = 40"
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un paciente pasó de 80 a 125 latidos por minuto en dos horas.",
-       "opciones": [
-        "Esperas",
-        "Nada",
-        "Avisas al médico"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Cómo se previenen las úlceras por presión?",
-       "opciones": [
-        "Dejándolo quieto",
-        "Cambiando de posición al paciente seguido y cuidando su piel",
-        "No se previenen"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué dejas a la mano de un paciente con riesgo de caídas?",
-       "opciones": [
-        "Nada",
-        "Sus zapatos en la escalera",
-        "El timbre"
-       ],
-       "correcta": 2
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "¿Qué pasa con algo que hiciste pero no registraste?",
-       "opciones": [
-        "Se registra solo",
-        "Para el hospital no se hizo",
-        "Nada"
-       ],
-       "correcta": 1
-      },
-      {
-       "tipo": "pregunta",
-       "pregunta": "Un desconocido te pregunta por un paciente.",
-       "opciones": [
-        "No das información",
-        "Le das el teléfono del paciente",
-        "Le cuentas todo"
-       ],
-       "correcta": 0
+       "tipo": "clave",
+       "texto": "Decidir «sigo en duda» también es avanzar."
       }
      ]
     }
