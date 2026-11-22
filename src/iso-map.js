@@ -58,6 +58,8 @@ var ISOMAP=(function(I,E,G){
    land+='</g></g>';
    if(opt.app&&!L.ghost)skLand+='<g id="skl-'+L.id+'">'+I.sketchAll(land.slice(land0).replace(/ class="[^"]*"/g,"").replace(/ style="[^"]*"/g,"").replace(/ data-a="[^"]*"/g,""))+'</g>';
   });
+  /* rediseño de #art (pestaña Islas): otro mar somero y otra tierra; la app no lo pasa */
+  if(opt.land3){var o3=opt.land3(W,ALL);sea=o3.sea;land=o3.land}
   /* caminos de adoquín: borde, cuerpo y piedritas */
   var rd="";W.edges.forEach(function(e){var q=e.pts.map(function(p){var inT=W.inPoly(p[0],p[1],W.byId[e.a].isle.plateau);return pj(p,inT?Z_TOP:0)});rd+=open(q)});
   roads+='<path d="'+rd+'" fill="none" stroke="#B48F63" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>';
@@ -75,24 +77,25 @@ var ISOMAP=(function(I,E,G){
    objs.push({k:(a[0]+c[0]+a[1]+c[1])/2-40,s:'<g class="m-o m-br" style="--ei:'+Math.max(EI[b.a]||0,EI[b.b]||0)+'">'+s+'</g>'});
   });
   /* edificios: cada carrera se define una vez (completa y simplificada) y se reutiliza; usa la versión elegida */
-  var defs=E.DEFS;
+  var defs=E.DEFS;if(opt.ver==="v3"&&I.setMound)I.setMound(true);
   W.nodes.forEach(function(n){
    var c=n.c,k=aff[c.id]!=null?aff[c.id]:.5,sc=(.92+.22*k).toFixed(3),p=pj([n.x,n.y],Z_TOP),v=opt.style||null,id=I.uid("b");
    var full,lite;
    if(opt.app){/* app: una sola versión (estructura), con id de edificio para tocar y redibujar delante de Rumbo */
-    var mk=function(){return typeof ART!=="undefined"&&ART.has(c.id)?ART.get(c.id,opt.detail||2,"s"):E.generic(n.isle.area.biome,c.color,G.hs(c.id))};
+    var mk=function(){return typeof ART!=="undefined"&&ART.has(c.id)?ART.get(c.id,opt.detail||2,"s",opt.ver?{ver:opt.ver}:null):E.generic(n.isle.area.biome,c.color,G.hs(c.id))};
     /* dos versiones: gris precalculado y color; el avance mezcla una con otra sin filtros */
     /* dos versiones completas: color y boceto. Cada una va recortada con la mancha de su carrera (dentro: color, fuera: boceto) */
     var tb='translate('+f1(p[0])+' '+f1(p[1])+') scale('+sc+')';
     defs+='<g id="'+id+'f">'+mk()+'</g><g id="'+id+'g">'+I.sketchAll(mk(),[+sc,0,0,+sc])+'</g>';
     objs.push({k:n.x+n.y,s:'<g class="poi m-b" id="poi-'+c.id+'" data-id="'+c.id+'" data-c="'+c.id+'" data-a="'+n.isle.id+'" style="--ei:'+EI[n.isle.id]+'"><g class="vco" clip-path="url(#col-'+c.id+')"><g transform="'+tb+'"><g class="pp"><use href="#'+id+'f"/></g></g></g><g class="vbz" clip-path="url(#skc-'+c.id+')"><g transform="'+tb+'"><g class="pp"><use href="#'+id+'g"/></g></g></g></g>'});return}
-   if(typeof ART!=="undefined"&&ART.has(c.id)){full=ART.get(c.id,2,v);lite=ART.get(c.id,0,v)}
+   if(typeof ART!=="undefined"&&ART.has(c.id)){var vo=opt.ver?{ver:opt.ver}:null;full=ART.get(c.id,2,v,vo);lite=ART.get(c.id,0,v,vo)}
    else{full=E.generic(n.isle.area.biome,c.color,G.hs(c.id));lite=full}
    defs+='<g id="'+id+'f">'+full+'</g><g id="'+id+'l">'+lite+'</g>';
    objs.push({k:n.x+n.y,s:'<g class="m-b'+(k>.66?' hi':'')+'" data-id="'+c.id+'" transform="translate('+f1(p[0])+' '+f1(p[1])+') scale('+sc+')">'+(k>.66?'<ellipse class="m-glow" cx="0" cy="4" rx="80" ry="40"/>':'')+'<use class="m-full" href="#'+id+'f"/><use class="m-lite" href="#'+id+'l"/></g>'});
   });
+  if(I.setMound)I.setMound(false);
   /* vegetación y objetos según el bioma, lejos de edificios, caminos y costa */
-  W.islands.forEach(function(L){
+  if(!opt.noDecor)W.islands.forEach(function(L){
    var b=E.BIOME[L.area.biome]||E.BIOME.ciudad,rr=G.rng(G.hs(L.id+"d")),placed=[],tries=L.nodes.length*90+120,want=opt.budget?opt.budget.isle:L.nodes.length*4+4,kinds=opt.decor||null;
    for(var t=0;t<tries&&placed.length<want;t++){
     var a=rr()*Math.PI*2,r=Math.sqrt(rr())*(L.R+40),x=L.x+Math.cos(a)*r,y=L.y+Math.sin(a)*r;
@@ -118,6 +121,7 @@ var ISOMAP=(function(I,E,G){
     objs.push({k:x+y,s:'<g class="m-d m-gh" style="--ei:'+W.islands.length+'" transform="translate('+f1(pp[0])+' '+f1(pp[1])+')">'+'<g opacity=".55">'+E.one(q[0],{d:2,k:q[2],ph:rr()*3,flip:rr()<.5})+'</g>'+'</g>'})});
    [[-30,-34,2.1,.3],[40,-10,1.7,1.7],[-8,6,1.5,2.9]].forEach(function(q){top+='<g class="m-fog" transform="translate('+f1(p[0]+q[0])+' '+f1(p[1]+q[1])+')" opacity=".94">'+E.cloud({k:q[2],ph:gi+q[3]})+'</g>'});
   });
+  if(opt.extra)opt.extra(W,function(k,s){objs.push({k:k,s:s})});
   objs.sort(function(a,b){return a.k-b.k});
   /* mar abierto: faro en su islote, barcos, ballena, delfines; arriba, nubes y gaviotas */
   var bb=W.bbox,cx=(bb[0]+bb[2])/2,cy=(bb[1]+bb[3])/2;

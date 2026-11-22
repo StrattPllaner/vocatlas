@@ -98,7 +98,15 @@ function renderArt(){
  h+='<section class="ia-sec" id="artVoz"><h2>Rumbo habla</h2><p>Explicación animada narrada por Rumbo (guion en datos/guiones/medicina.json). Toca ▶ para escuchar; con el botón de bocina se silencia y avanza al tocar.</p><div id="artEx"></div>'+
   '<h3>Formas de boca</h3><div class="vz-mouths">'+[["c","Cerrada"],["m","Entreabierta"],["a","Abierta (a)"],["o","Redonda (o, u)"],["e","Ancha (e, i)"]].map(function(q){return '<figure><div class="vz-mw" data-vis="'+q[0]+'">'+rumboEl()+'</div><figcaption>'+q[1]+'</figcaption></figure>'}).join("")+'</div>'+
   '<h3>Video (estado vacío)</h3>'+videoHTML({titulo:"Un día de internado",quien:"una persona que hace su internado"})+'</section>';
+ /* pestañas: la ilustración de siempre y el rediseño de las islas (este último se arma al abrirlo; no toca la app) */
+ h='<nav class="ia-tabs" role="tablist" aria-label="Secciones de arte"><button type="button" role="tab" data-tab="ilu" aria-selected="true">Ilustración</button><button type="button" role="tab" data-tab="islas" aria-selected="false">Islas: rediseño</button></nav><div data-pane="ilu">'+h+'</div><div data-pane="islas" hidden></div>';
  var el=document.createElement("div");el.id="art";el.className="ia";el.innerHTML=h;document.body.appendChild(el);
+ (function(){var tabs=el.querySelectorAll(".ia-tabs [data-tab]");function show(t){tabs.forEach(function(b){b.setAttribute("aria-selected",String(b.getAttribute("data-tab")===t))});
+   el.querySelectorAll("[data-pane]").forEach(function(p){p.hidden=p.getAttribute("data-pane")!==t});
+   var pn=el.querySelector('[data-pane="islas"]');if(t==="islas"&&!pn.__on&&typeof ISLAS3!=="undefined"){pn.__on=1;pn.innerHTML='<p class="ia-n">Armando el mapa…</p>';setTimeout(function(){ISLAS3.page(pn)},30)}
+   try{sessionStorage.setItem("vocatlas_art_tab",t)}catch(e){}}
+  tabs.forEach(function(b){b.onclick=function(){show(b.getAttribute("data-tab"));window.scrollTo(0,0)}});
+  var t0="ilu";try{t0=sessionStorage.getItem("vocatlas_art_tab")||"ilu"}catch(e){}if(t0!=="ilu")show(t0)})();
  if(GU&&GU.explicaciones[0]&&typeof EXPL!=="undefined")EXPL.mount(el.querySelector("#artEx"),GU.explicaciones[0]);
  el.querySelectorAll(".vz-mouths .vz-mw").forEach(function(w){var r=w.querySelector(".rb");if(!r)return;r.classList.remove("float");r.setAttribute("data-mood","talk");r.__vis=VOZ.SHAPE[w.getAttribute("data-vis")]});
  videoBind(el);

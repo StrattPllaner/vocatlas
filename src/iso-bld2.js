@@ -305,7 +305,10 @@
   var L=I.faceL(x,y,Z,w,dd);for(var u=4;u<w;u+=4)s+=line([L(u,0),L(u,9)],"#B98250",.5,{cap:"butt"});
   /* fruta sobre el mostrador */
   var fr=[[3,5,"#E2434B"],[7,6,"#F2B544"],[11,5,"#E2434B"],[15,6,"#7FC35A"],[19,5,"#F28C38"],[23,6,"#E2434B"],[27,5,"#F2B544"]];
-  fr.slice(0,d>0?7:4).forEach(function(q,i){s+=fruit(x+q[0],y+q[1]+(i%2)*3,Z+9,2.1,q[2],{leaf:d>1&&i%2===0})});
+  if(H.v3&&H.v3()){/* v3: como un puesto real, cajas de madera llenas de fruta de un solo tipo cada una */
+   var FC=["#E2434B","#F2B544","#7FC35A","#F28C38"];for(var cb=0;cb<4;cb++){var bx0=x+1+cb*5.6;s+=box(bx0,y+1.4,Z+9,5.2,11,1.6,"#C99A5B",{top:"#8A5E3C",right:"#A67A44",noGlint:true});
+    if(d>0)for(var rr=0;rr<3;rr++)for(var kk=0;kk<2;kk++)s+=fruit(bx0+1.4+kk*2.4,y+3+rr*3.4,Z+10.4,1.35,FC[cb],{leaf:false})}}
+  else fr.slice(0,d>0?7:4).forEach(function(q,i){s+=fruit(x+q[0],y+q[1]+(i%2)*3,Z+9,2.1,q[2],{leaf:d>1&&i%2===0})});
   /* báscula sobre el mostrador */
   s+=box(x+24,y+2,Z+9,5,5,2.4,"#E6ECF0",{noGlint:true})+I.cyl(x+26.5,y+4.5,Z+11.4,.5,1.4,"#9AA5B1",{noGlint:true})+I.cyl(x+26.5,y+4.5,Z+12.8,3,.6,"#C9D1DA",{noGlint:true});
   /* postes y toldo de rayas */
@@ -316,7 +319,9 @@
   var pz=I.shadowBox(18,8,Z,8,2,10)+'<g transform="'+I.planeX(18,10,Z)+'"><path d="M1 0L2 -12M7 0L6 -12" stroke="#8A5E3C" stroke-width="1"/><rect x="0" y="-13" width="8" height="8" rx="1" fill="#2F3A2F"/><rect x="0" y="-13" width="8" height="8" rx="1" fill="none" stroke="#B98656" stroke-width="1"/><path d="M1.6 -10.6H5.4M1.6 -8.6H6.2M1.6 -6.8H4.4" stroke="#FFFFFF" stroke-width=".5" opacity=".85"/></g>';
   /* cajas de fruta al pie del puesto */
   var cr=d>0?crate(30,0,6,5,"#E2434B")+crate(30,-8,6,5,"#F2B544"):"";
-  return piece(g,[["huerto",[hx,hy,hx+22,hy+14],hu],["puesto",[x-1,y-2,x+w+1,y+dd+4],stall],["pizarrón",[18,8,26,12],pz],d>0?["cajas",[30,-8,36,5],cr]:null,d>1?dp("treeRound",-34,-14,{k:.6,d:d}):null]);
+  /* v3: exhibidor escalonado al frente del mostrador, con más cajas de fruta */
+  if(H.v3&&H.v3()&&d>0){var ex=box(x+1,y+dd,Z,w-8,5,3,"#B98250",{top:"#D9A066",noGlint:true});["#E2434B","#7FC35A","#F2B544","#F28C38"].forEach(function(c,i){for(var k=0;k<2;k++)ex+=fruit(x+3+i*6+k*2.4,y+dd+2.4,Z+3.6,1.3,c,{leaf:false})});stall+=ex}
+  return piece(g,[["huerto",[hx,hy,hx+22,hy+14],hu],["puesto",[x-1,y-2,x+w+1,y+dd+5],stall],["pizarrón",[18,8,26,12],pz],d>0?["cajas",[30,-8,36,5],cr]:null,d>1?dp("treeRound",-34,-14,{k:.6,d:d}):null]);
  }
  /* emblema: manzana gigante partida a la mitad (cara interior con semillas), canasta de verduras y báscula */
  function nut_e(d){

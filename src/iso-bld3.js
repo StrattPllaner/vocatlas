@@ -33,16 +33,27 @@
   var g=plat("#D8CBA8","#9A8660"),s="",x=-24,y=-18,w=26,dd=22,ST="#8C96A3",OR="#E8603C";
   s+=sh(x,y,w,dd,30);
   /* planta baja terminada y pisos de estructura con losas */
-  s+=box(x,y,Z,w,dd,10,"#E9E2D4",{left:"#E6DED0",right:"#C9BFAF"});var L=I.faceL(x,y,Z,w,dd);s+=windows(L,w,10,3,1,2.4,3,5,4.6,8,0,d);
+  var V3=H.v3&&H.v3();
+  /* v3: una obra real no tiene la planta baja terminada: concreto aparente con vanos sin vidrio */
+  if(V3){s+=box(x,y,Z,w,dd,10,"#BFC3C8",{left:"#C6CACF",right:"#A2A8AF",top:"#D5D8DC"});var L=I.faceL(x,y,Z,w,dd),Rr=I.faceR(x,y,Z,w,dd);for(var o=0;o<3;o++)s+=quad(L,2.4+o*8,2.6,5,5.4,"#59626E",{st:false});s+=quad(Rr,3,2.6,6,5.4,"#4A525D",{st:false})+quad(Rr,12.6,2.6,6,5.4,"#4A525D",{st:false})}
+  else{s+=box(x,y,Z,w,dd,10,"#E9E2D4",{left:"#E6DED0",right:"#C9BFAF"});var L=I.faceL(x,y,Z,w,dd);s+=windows(L,w,10,3,1,2.4,3,5,4.6,8,0,d)}
   for(var f=1;f<=2;f++){var z=Z+10+(f-1)*9;
    [[0,0],[w-1.6,0],[0,dd-1.6],[w-1.6,dd-1.6]].forEach(function(q){s+=box(x+q[0],y+q[1],z,1.6,1.6,9,ST,{noGlint:true})});
    s+=box(x-.6,y-.6,z+8,w+1.2,dd+1.2,1.4,"#B8BEC6",{top:"#D5DADF"})}
-  if(d>0)s+=line([I.faceL(x,y,Z+19,w,dd)(1.6,-8),I.faceL(x,y,Z+19,w,dd)(w-1.6,0)],OR,.6,{cap:"butt"});
+  if(d>0&&!V3)s+=line([I.faceL(x,y,Z+19,w,dd)(1.6,-8),I.faceL(x,y,Z+19,w,dd)(w-1.6,0)],OR,.6,{cap:"butt"});
+  if(V3){/* varillas que asoman arriba de las columnas y malla verde de seguridad en el andamio del frente */
+   if(d>0)[[0,0],[w-1.6,0],[0,dd-1.6],[w-1.6,dd-1.6]].forEach(function(q){[.3,1.1].forEach(function(o){var a=P(x+q[0]+o,y+q[1]+.8,Z+29.4),b=P(x+q[0]+o,y+q[1]+.8,Z+33.4);s+=line([a,b],"#9C5A38",.45,{cap:"butt"})})});
+   var NF=I.faceL(x-.6,y-.6,Z,w+1.2,dd+2.2);s+=quad(NF,0,10,w+1.2,18.4,"#3E9B57",{st:false,op:.42});
+   if(d>0){for(var vv=13;vv<28;vv+=4.6)s+=line([NF(0,vv),NF(w+1.2,vv)],"#2F7A44",.45,{cap:"butt",op:.8});for(var uu=0;uu<=w+1.2;uu+=6.8)s+=line([NF(uu,10),NF(uu,28.4)],"#C9CED4",.6,{cap:"butt"})}}
   /* grúa torre: mástil, pluma, contrapluma, gancho */
   var mx=16,my=-14,cr="";cr+=sh(mx,my,3,3,40)+box(mx,my,Z,3,3,40,"#F2B544",{left:"#F2B544",right:"#C99227",top:"#FBD27A"});
   var M=I.faceL(mx,my,Z,3,3);if(d>0)for(var v=2;v<38;v+=4)cr+=line([M(0,v),M(3,v+4)],"#B07E1C",.45,{cap:"butt"});
   cr+=box(mx-22,my+.5,Z+40,32,2,2,"#F2B544",{left:"#F2B544",right:"#C99227",top:"#FBD27A"})+box(mx+6,my-1,Z+38.6,4,5,3,"#5A6573",{noGlint:true});
+  if(V3){/* cabina del operador bajo la pluma, zapata de concreto y carga de varilla colgando del gancho */
+   cr+=box(mx-1.6,my+3,Z+34.6,3.2,3,3.6,"#F2B544",{left:"#F2B544",right:"#C99227",top:"#FBD27A",noGlint:true})+quad(I.faceL(mx-1.6,my+3,Z+34.6,3.2,3),.4,1,2.4,2,GLASS,{st:false});
+   cr=box(mx-1.5,my-1.5,Z,6,6,1.4,"#A2A8AF",{top:"#C6CACF",noGlint:true})+cr}
   var hk=P(mx-16,my+1.5,Z+40),hk2=P(mx-16,my+1.5,Z+26);cr+='<path d="M'+f1(hk[0])+' '+f1(hk[1])+'V'+f1(hk2[1])+'" stroke="#3A4452" stroke-width=".6"/><path d="M'+f1(hk2[0]-1)+' '+f1(hk2[1])+'q1 2.2 2 0" stroke="#3A4452" stroke-width=".9" fill="none"/>';
+  if(V3&&d>0){var hl=P(mx-16,my+1.5,Z+24.6);cr+='<g transform="translate('+f1(hl[0])+' '+f1(hl[1])+')"><path d="M-1 -.6L-3.4 1.6M1 -.6L3.4 1.6" stroke="#3A4452" stroke-width=".4"/><path d="M-4.6 1.4L4.6 3.2" stroke="#8C4A2F" stroke-width="1.6" stroke-linecap="round"/><path d="M-4.6 2.4L4.6 4.2" stroke="#9C5A38" stroke-width="1.2" stroke-linecap="round"/></g>'}
   var cn="";if(d>0)[[24,16],[30,10]].forEach(function(q){cn+=at(q[0],q[1],Z,E.one("cone",{d:d}))});
   return piece(g,[["obra",[x-.6,y-.6,x+w+.6,y+dd+.6],s],["grúa",[mx-1,my-1,mx+10,my+4],cr],d>0?["conos",[21,7,33,19],cn]:null,d>1?dp("crate",-30,20,{d:d}):null]);
  }
@@ -69,23 +80,35 @@
 
  /* ---------- Aeroespacial: cohete en su plataforma con torre de servicio y antena ---------- */
  function aeroespacial_s(d){
-  var g=plat("#C9D3DC","#7E8B98"),s="";
-  s+=box(-16,-16,Z,22,22,3,"#9AA5B1",{top:"#BAC3CC"})+(d>0?line([P(-14,-5,Z+3.1),P(4,-5,Z+3.1)],"#F2B544",1.2,{cap:"butt",dash:"3 2"}):"");
+  var g=plat("#C9D3DC","#7E8B98"),s="",V3=H.v3&&H.v3();
+  s+=box(-16,-16,Z,22,22,3,"#9AA5B1",{top:"#BAC3CC"})+(d>0&&!V3?line([P(-14,-5,Z+3.1),P(4,-5,Z+3.1)],"#F2B544",1.2,{cap:"butt",dash:"3 2"}):"");
+  /* v3: foso de llamas bajo el cohete (por donde salen los gases), como en las plataformas reales */
+  if(V3)s+=poly([P(-10,1,Z+3.05),P(0,1,Z+3.05),P(0,6,Z+3.05),P(-10,6,Z+3.05)],"#3A4452",{st:false})+poly([P(-10,6,Z+3.05),P(0,6,Z+3.05),P(0,6,Z+1),P(-10,6,Z+1)],"#4F5A66",{st:false});
   /* cohete: cuerpo cilíndrico, franja, ventana, punta y aletas */
   var cx=-5,cy=-5,rk="";rk+=I.cyl(cx,cy,Z+3,4.4,26,"#F4F6F8",{top:"#FFFFFF",sideS:"#CDD3DA"});
-  var b=I.cylD(cx,cy,Z+12,4.4);rk+='<rect x="'+f1(b.cx-b.rx)+'" y="'+f1(b.cy-2)+'" width="'+f1(b.rx*2)+'" height="2.6" fill="#E2434B"/>';
+  var b=I.cylD(cx,cy,Z+12,4.4);rk+='<rect x="'+f1(b.cx-b.rx)+'" y="'+f1(b.cy-2)+'" width="'+f1(b.rx*2)+'" height="2.6" fill="'+(V3?"#2E3A46":"#E2434B")+'"/>';
   var wn=P(cx+2,cy+4.4,Z+21);rk+='<circle cx="'+f1(wn[0])+'" cy="'+f1(wn[1])+'" r="1.8" fill="#5A6573"/><circle cx="'+f1(wn[0])+'" cy="'+f1(wn[1])+'" r="1.2" fill="'+GLASS+'"/>';
-  var tp=P(cx,cy,Z+29),tb=I.cylD(cx,cy,Z+29,4.4);rk+='<path d="M'+f1(tb.cx-tb.rx)+' '+f1(tb.cy)+'Q'+f1(tp[0]-1)+' '+f1(tp[1]-9)+' '+f1(tp[0])+' '+f1(tp[1]-12)+'Q'+f1(tp[0]+1)+' '+f1(tp[1]-9)+' '+f1(tb.cx+tb.rx)+' '+f1(tb.cy)+'Z" fill="#E2434B"/><path d="M'+f1(tp[0])+' '+f1(tp[1]-12)+'Q'+f1(tp[0]+1)+' '+f1(tp[1]-9)+' '+f1(tb.cx+tb.rx)+' '+f1(tb.cy)+'L'+f1(tp[0]+1)+' '+f1(tb.cy)+'Z" fill="#B8303A"/>';
-  var fb=P(cx,cy+4.4,Z+3);rk+='<path d="M'+f1(fb[0]-1.6)+' '+f1(fb[1]-7)+'L'+f1(fb[0]-1.6)+' '+f1(fb[1]+1)+'L'+f1(fb[0]+3)+' '+f1(fb[1]+3)+'L'+f1(fb[0]+2)+' '+f1(fb[1]-3)+'Z" fill="#E2434B"/>';
-  var fl=P(cx-4.4,cy,Z+3);rk+='<path d="M'+f1(fl[0]+1)+' '+f1(fl[1]-7)+'L'+f1(fl[0]-3)+' '+f1(fl[1]+1)+'L'+f1(fl[0]+1)+' '+f1(fl[1]+1)+'Z" fill="#C8303A"/>';
+  var tp=P(cx,cy,Z+29),tb=I.cylD(cx,cy,Z+29,4.4);rk+='<path d="M'+f1(tb.cx-tb.rx)+' '+f1(tb.cy)+'Q'+f1(tp[0]-1)+' '+f1(tp[1]-9)+' '+f1(tp[0])+' '+f1(tp[1]-12)+'Q'+f1(tp[0]+1)+' '+f1(tp[1]-9)+' '+f1(tb.cx+tb.rx)+' '+f1(tb.cy)+'Z" fill="'+(V3?"#F4F6F8":"#E2434B")+'"/><path d="M'+f1(tp[0])+' '+f1(tp[1]-12)+'Q'+f1(tp[0]+1)+' '+f1(tp[1]-9)+' '+f1(tb.cx+tb.rx)+' '+f1(tb.cy)+'L'+f1(tp[0]+1)+' '+f1(tb.cy)+'Z" fill="'+(V3?"#CDD3DA":"#B8303A")+'"/>';
+  var fb=P(cx,cy+4.4,Z+3);rk+='<path d="M'+f1(fb[0]-1.6)+' '+f1(fb[1]-7)+'L'+f1(fb[0]-1.6)+' '+f1(fb[1]+1)+'L'+f1(fb[0]+3)+' '+f1(fb[1]+3)+'L'+f1(fb[0]+2)+' '+f1(fb[1]-3)+'Z" fill="'+(V3?"#3A4452":"#E2434B")+'"/>';
+  var fl=P(cx-4.4,cy,Z+3);rk+='<path d="M'+f1(fl[0]+1)+' '+f1(fl[1]-7)+'L'+f1(fl[0]-3)+' '+f1(fl[1]+1)+'L'+f1(fl[0]+1)+' '+f1(fl[1]+1)+'Z" fill="'+(V3?"#2E3A46":"#C8303A")+'"/>';
   /* torre de servicio */
-  var tw=sh(8,-14,4,4,34)+box(8,-14,Z,4,4,35,"#E2434B",{left:"#E2434B",right:"#B8303A",top:"#F07A80"});var TF=I.faceL(8,-14,Z,4,4);
+  var tw;if(V3){/* v3: torre de servicio de celosía de acero gris (no una caja), con pisos, brazos de acceso y grúa arriba */
+   var TC="#8C96A3",TCs="#6B7684";tw=sh(7,-15,6,6,40);[[7,-9],[13,-9],[7,-15],[13,-15]].forEach(function(q,i){tw+=box(q[0]-.4,q[1]-.4,Z,.8,.8,38,i<2?TC:TCs,{noGlint:true})});
+   var FL=I.faceL(7,-15,Z,6,6),FR=I.faceR(7,-15,Z,6,6);
+   for(var v=0;v<36;v+=6){tw+=line([FL(0,v),FL(6,v+6)],TC,.45,{cap:"butt"})+line([FL(6,v),FL(0,v+6)],TC,.45,{cap:"butt"})+line([FR(0,v),FR(6,v+6)],TCs,.45,{cap:"butt"})+line([FR(6,v),FR(0,v+6)],TCs,.45,{cap:"butt"});
+    tw+=box(6.6,-15.4,Z+v+5.6,6.8,6.8,.5,"#A9B4BF",{noGlint:true})}
+   tw+=box(-.6,-12.4,Z+24,7.8,1.6,1.4,"#E2434B",{noGlint:true})+box(-.6,-12.4,Z+14,7.8,1.6,1.4,"#9AA5B1",{noGlint:true});
+   tw+=box(9.4,-12.6,Z+38,1.2,1.2,4,TC,{noGlint:true})+box(-1,-12.6,Z+41.6,12,1.2,1,TC,{noGlint:true})}
+  else{tw=sh(8,-14,4,4,34)+box(8,-14,Z,4,4,35,"#E2434B",{left:"#E2434B",right:"#B8303A",top:"#F07A80"});var TF=I.faceL(8,-14,Z,4,4);
   if(d>0)for(var v=2;v<30;v+=4)tw+=line([TF(0,v),TF(4,v+4)],"#8E2731",.5,{cap:"butt"});
-  tw+=box(-.6,-12.6,Z+24,8.6,1.4,1.2,"#9AA5B1",{noGlint:true});
+  tw+=box(-.6,-12.6,Z+24,8.6,1.4,1.2,"#9AA5B1",{noGlint:true})}
   /* edificio de control con antena parabólica */
   var cb=sh(16,10,12,10,10)+box(16,10,Z,12,10,8,"#E6ECF0",{left:"#E6ECF0",right:"#BAC6D0"});var CF=I.faceL(16,10,Z,12,10);cb+=quad(CF,2,3,8,3,"#4C7FA8",{st:false});
   if(d>0){var dc=P(22,15,Z+8);cb+=I.cyl(22,15,Z+8,.5,3,"#5A6573",{noGlint:true})+'<g transform="translate('+f1(dc[0])+' '+f1(dc[1]-4)+') rotate(-30)"><ellipse rx="4" ry="2.2" fill="#F2F5F7"/><ellipse rx="3" ry="1.4" fill="#D5DCE3"/><path d="M0 0l2 -3" stroke="#5A6573" stroke-width=".5"/></g>'}
-  return piece(g,[["plataforma y cohete",[-16,-16,6,6],rk],["torre",[8,-14,12,-10],tw],["control",[16,10,28,20],cb],d>1?dp("rock",-30,20,{k:.6,d:d}):null]);
+  /* v3: tanque de agua en patas: el agua amortigua el ruido y el calor del despegue */
+  if(V3){var tx=20,ty=-30;cb=sh(tx-4,ty-4,8,8,22);[[tx-4,ty-4],[tx+4,ty-4],[tx-4,ty+4],[tx+4,ty+4]].forEach(function(q){cb+=box(q[0]-.4,q[1]-.4,Z,.8,.8,14,"#9AA5B1",{noGlint:true})});
+   cb+=I.cyl(tx,ty,Z+14,5,7,"#F4F6F8",{top:"#FFFFFF",sideS:"#C9D1DA"})+I.dome(tx,ty,Z+21,5,"#E6ECF0")}
+  return piece(g,[["plataforma y cohete",[-16,-16,6,6],rk],V3?["torre",[6.6,-15.4,13.4,-8.6],tw]:["torre",[8,-14,12,-10],tw],V3?["tanque",[15.6,-34.4,24.4,-25.6],cb]:["control",[16,10,28,20],cb],d>1?dp("rock",-30,20,{k:.6,d:d}):null]);
  }
 
  /* ---------- Ing. Ambiental: aerogenerador, paneles solares y casa con techo verde ---------- */
@@ -126,7 +149,17 @@
   var dc=P(cx,cy+15,Z);s+='<path d="M'+f1(dc[0]-3)+' '+f1(dc[1])+'V'+f1(dc[1]-9)+'Q'+f1(dc[0])+' '+f1(dc[1]-12)+' '+f1(dc[0]+3)+' '+f1(dc[1]-9)+'V'+f1(dc[1])+'Z" fill="#5A6573"/>';
   if(d>0)[-9,9].forEach(function(o){var wp=P(cx+o*.7,cy+15,Z+7);s+='<circle cx="'+f1(wp[0])+'" cy="'+f1(wp[1]+o*.1)+'" r="1.6" fill="'+GLASS+'"/>'});
   s+=I.dome(cx,cy,Z+14,15,"#9FB4C9");
-  var tp=P(cx,cy,Z+14);s+='<path d="M'+f1(tp[0]-2.4)+' '+f1(tp[1]-1)+'L'+f1(tp[0]-1.6)+' '+f1(tp[1]-15)+'L'+f1(tp[0]+2.2)+' '+f1(tp[1]-15)+'L'+f1(tp[0]+3)+' '+f1(tp[1]-1)+'Z" fill="#2E3A46"/>';
+  var tp=P(cx,cy,Z+14);
+  if(H.v3&&H.v3()){/* v3: como un observatorio real, la cúpula se abre por una ranura vertical; el telescopio queda adentro */
+   var arc=function(dx,r){var o=[];for(var t=0;t<=74;t+=6){var a=t*Math.PI/180;o.push(P(cx+dx,cy+r*Math.sin(a),Z+14+r*Math.cos(a)))}return o};
+   var rr=Math.sqrt(15*15-9),e1=arc(-3,rr),e2=arc(3,rr);
+   s+=poly(e1.concat(e2.slice().reverse()),"#2B3644",{st:false});
+   s+=line(e1,"#C5D3E0",.9)+line(e2,"#7F95AB",.9);
+   var t1=P(cx,cy+6.4,Z+14+8.6),t2=P(cx,cy+9.6,Z+14+10.2);s+='<path d="M'+f1(t1[0])+' '+f1(t1[1])+'L'+f1(t2[0])+' '+f1(t2[1])+'" stroke="#E6ECF0" stroke-width="3" stroke-linecap="round"/><ellipse cx="'+f1(t2[0])+'" cy="'+f1(t2[1])+'" rx="1.5" ry="1" fill="#5A6573"/>';
+   return piece(g,[["observatorio",[cx-15,cy-15,cx+15,cy+15],s],["átomo",[15,9,21,15],am3()],d>1?dp("bush",-32,22,{k:.5,d:d}):null,d>0?dp("lamp",4,30,{d:d}):null])}
+  function am3(){var ax=18,ay=12,am=I.shadowEll(ax,ay,Z,3)+I.cyl(ax,ay,Z,2.6,6,"#6FA8DC",{top:"#9CC6EC"}),ap=P(ax,ay,Z+14);
+   return am+'<g transform="translate('+f1(ap[0])+' '+f1(ap[1])+')"><ellipse rx="6" ry="2.2" fill="none" stroke="#3F7DA6" stroke-width=".9"/><ellipse rx="6" ry="2.2" fill="none" stroke="#3F7DA6" stroke-width=".9" transform="rotate(60)"/><ellipse rx="6" ry="2.2" fill="none" stroke="#3F7DA6" stroke-width=".9" transform="rotate(-60)"/><circle r="1.6" fill="#E2434B"/></g>'}
+  s+='<path d="M'+f1(tp[0]-2.4)+' '+f1(tp[1]-1)+'L'+f1(tp[0]-1.6)+' '+f1(tp[1]-15)+'L'+f1(tp[0]+2.2)+' '+f1(tp[1]-15)+'L'+f1(tp[0]+3)+' '+f1(tp[1]-1)+'Z" fill="#2E3A46"/>';
   s+='<g transform="translate('+f1(tp[0]+1)+' '+f1(tp[1]-12)+') rotate(-38)"><rect x="-1.8" y="-14" width="3.6" height="14" rx="1" fill="#E6ECF0"/><rect x="-1.8" y="-14" width="1.4" height="14" rx=".7" fill="#FFFFFF"/><rect x="-2.3" y="-15" width="4.6" height="2.2" rx=".8" fill="#5A6573"/></g>';
   /* átomo flotando sobre un pedestal */
   var ax=18,ay=12,am=I.shadowEll(ax,ay,Z,3)+I.cyl(ax,ay,Z,2.6,6,"#6FA8DC",{top:"#9CC6EC"}),ap=P(ax,ay,Z+14);
@@ -148,7 +181,23 @@
  }
 
  /* ---------- Finanzas: banco con columnas, frontón y moneda gigante ---------- */
- function finanzas_s(d){
+ /* v3: banco como los reales (Banco de México, bancos de principios del siglo XX): zócalo, dos pisos con ventanas,
+    escalinata a todo lo ancho, pórtico de seis columnas, friso con su nombre y frontón */
+ function finanzas3(d){
+  var g=plat("#E8D9A8","#B39A5E"),s="",x=-24,y=-20,w=32,dd=20,h=22,ST="#F4EFE6";
+  s+=sh(x,y,w,dd+6,h+12)+box(x-1,y-1,Z,w+2,dd+1,2.4,"#D9D1C2",{top:"#ECE6DA"})+box(x,y,Z+2.4,w,dd,h,ST,{left:"#EFE9DE",right:"#CEC6B6",top:"#FFFFFF"});
+  var L=I.faceL(x,y,Z+2.4,w,dd),R=I.faceR(x,y,Z+2.4,w,dd);s+=door(L,w/2-3,6,11,"#7A5236")+windows(R,dd,h,3,2,2.6,4,3.6,6,6,10,d)+quad(R,0,h-3,dd,1,"#DCD3C3",{st:false});
+  [[6,1.2],[4,2.4],[2,3.6]].forEach(function(q){s+=box(x+1,y+dd,Z+q[1]-1.2,w-2,q[0],1.2,"#EEE8DC",{left:"#E6DFD1",right:"#C9C0AF",top:"#F7F3EA",noGlint:true})});
+  for(var k=0;k<6;k++){var cx=x+3.2+k*5.12;s+=I.cyl(cx,y+dd+1.2,Z+3.6,1.35,h-1.2,"#FFFFFF",{sideS:"#D8D1C4",noGlint:true})+I.cyl(cx,y+dd+1.2,Z+2.4+h-1.2,1.8,1,"#F1EBE0",{noGlint:true})}
+  var ez=Z+2.4+h;s+=box(x-1,y-1,ez,w+2,dd+4,3,"#E9E2D4",{left:"#EDE6D9",right:"#CBC2B2",top:"#F6F2EA"});
+  if(d>0)s+='<g transform="'+I.planeX(x-1,y+dd+3,ez+.3)+'"><text x="'+f1((w+2)/2)+'" y="-.5" text-anchor="middle" font-size="2" font-weight="800" letter-spacing=".5" fill="#9C8F78" font-family="Nunito,system-ui,sans-serif">BANCO</text></g>';
+  s+=poly([P(x-1,y+dd+3,ez+3),P(x+w+1,y+dd+3,ez+3),P(x+w/2,y+dd+3,ez+10)],"#F6F2EA",{st:"#CEC6B6",sw:.6})+poly([P(x+w+1,y+dd+3,ez+3),P(x+w+1,y-1,ez+3),P(x+w/2,y-1,ez+10),P(x+w/2,y+dd+3,ez+10)],"#C9BFAF");
+  if(d>0){var pc=P(x+w/2,y+dd+3,ez+5.6);s+='<circle cx="'+f1(pc[0])+'" cy="'+f1(pc[1])+'" r="1.4" fill="#D9A845"/>'}
+  var mx=20,my=12,mn=I.shadowEll(mx,my,Z,5)+box(mx-3,my-1,Z,6,3,2,"#B8862A",{top:"#D9A845"});
+  mn+='<g transform="'+I.planeX(mx,my+.5,Z+11)+'"><circle r="8.4" fill="#C98E1E"/><circle r="8" fill="#F2B544"/><circle r="6.2" fill="none" stroke="#C98E1E" stroke-width=".9"/><text x="0" y="3.6" text-anchor="middle" font-size="10" font-weight="900" fill="#B07A16">$</text><path d="M-5.6 -3.4A6.4 6.4 0 0 1 -1.6 -6.4" stroke="#FFF1B8" stroke-width="1.1" fill="none" stroke-linecap="round"/></g>';
+  return piece(g,[["banco",[x-1,y-1,x+w+1,y+dd+6],s],["moneda",[15,10,25,14],mn],d>1?dp("bush",-32,22,{k:.5,d:d}):null,d>0?dp("lamp",-30,10,{d:d}):null]);
+ }
+ function finanzas_s(d){if(H.v3&&H.v3())return finanzas3(d);
   var g=plat("#E8D9A8","#B39A5E"),s="",x=-24,y=-18,w=32,dd=22,h=16,ST="#F4EFE6";
   s+=sh(x,y,w,dd,h+10)+box(x-2,y-2,Z,w+4,dd+4,2,"#D9D1C2",{top:"#ECE6DA"})+box(x,y,Z+2,w,dd,h,ST,{left:"#EFE9DE",right:"#CEC6B6",top:"#FFFFFF"});
   var L=I.faceL(x,y,Z+2,w,dd);s+=door(L,w/2-3,6,9,"#7A5236");
@@ -175,7 +224,13 @@
   var ck=L(w/2,h+3);s+='<circle cx="'+f1(ck[0])+'" cy="'+f1(ck[1])+'" r="2.4" fill="#FFFFFF" stroke="#5A3A22" stroke-width=".6"/><path d="M'+f1(ck[0])+' '+f1(ck[1])+'V'+f1(ck[1]-1.6)+'M'+f1(ck[0])+' '+f1(ck[1])+'H'+f1(ck[0]+1.2)+'" stroke="#5A3A22" stroke-width=".5"/>';
   /* asta con bandera */
   var fx=14,fy=14,fl=I.contact(1.2,{x:P(fx,fy,Z)[0],y:P(fx,fy,Z)[1]})+I.cyl(fx,fy,Z,.5,24,"#C9D1DA",{noGlint:true}),fp=P(fx,fy,Z+24);
-  fl+='<path class="iso-bob" d="M'+f1(fp[0])+' '+f1(fp[1])+'q3 -1.4 6 0t6 0v5q-3 -1.4 -6 0t-6 0z" fill="#3F9C7A"/>';
+  if(H.v3&&H.v3()){/* v3: bandera de México (verde, blanco y rojo, con el escudo al centro), como en toda escuela del país */
+   var fy0=function(u){return -1.2*Math.sin(Math.PI*u/6)},band=function(u0,u1,c){var o="M",i;for(i=0;i<=4;i++){var u=u0+(u1-u0)*i/4;o+=(i?"L":"")+f1(fp[0]+u)+" "+f1(fp[1]+fy0(u))}for(i=4;i>=0;i--){var u2=u0+(u1-u0)*i/4;o+="L"+f1(fp[0]+u2)+" "+f1(fp[1]+fy0(u2)+6)}return '<path d="'+o+'Z" fill="'+c+'"/>'};
+   fl+='<g class="iso-bob">'+band(0,4,"#1F7A4D")+band(4,8,"#FFFFFF")+band(8,12,"#CE2B37")+'<circle cx="'+f1(fp[0]+6)+'" cy="'+f1(fp[1]+fy0(6)+3)+'" r="1" fill="#9C6B3A"/></g>';
+   /* patio cívico al frente: cancha de concreto con líneas blancas */
+   g+=poly([P(-24,8,Z+.15),P(6,8,Z+.15),P(6,26,Z+.15),P(-24,26,Z+.15)],"#D9D4CA",{st:false});
+   if(d>0)g+=poly([P(-22,10,Z+.2),P(4,10,Z+.2),P(4,24,Z+.2),P(-22,24,Z+.2)],"none",{st:"#FFFFFF",sw:.6})+line([P(-9,10,Z+.2),P(-9,24,Z+.2)],"#FFFFFF",.6,{cap:"butt"})+(function(){var c=I.cylD(-9,17,Z+.2,3.2);return '<ellipse cx="'+f1(c.cx)+'" cy="'+f1(c.cy)+'" rx="'+f1(c.rx)+'" ry="'+f1(c.ry)+'" fill="none" stroke="#FFFFFF" stroke-width=".6"/>'})()}
+  else fl+='<path class="iso-bob" d="M'+f1(fp[0])+' '+f1(fp[1])+'q3 -1.4 6 0t6 0v5q-3 -1.4 -6 0t-6 0z" fill="#3F9C7A"/>';
   /* lápiz gigante recargado */
   var pc="";if(d>0){var a=P(24,-12,Z),b=P(24,-12,Z+18);pc=I.contact(1.6,{x:a[0],y:a[1]})+'<path d="M'+f1(a[0]-2)+' '+f1(a[1]-3)+'L'+f1(b[0]-2)+' '+f1(b[1])+'L'+f1(b[0]+2)+' '+f1(b[1])+'L'+f1(a[0]+2)+' '+f1(a[1]-3)+'Z" fill="#F2B544"/><path d="M'+f1(a[0]+.6)+' '+f1(a[1]-3)+'L'+f1(b[0]+.6)+' '+f1(b[1])+'L'+f1(b[0]+2)+' '+f1(b[1])+'L'+f1(a[0]+2)+' '+f1(a[1]-3)+'Z" fill="#D99A2A"/><path d="M'+f1(a[0]-2)+' '+f1(a[1]-3)+'L'+f1(a[0])+' '+f1(a[1]+1)+'L'+f1(a[0]+2)+' '+f1(a[1]-3)+'Z" fill="#E8C9A0"/><rect x="'+f1(b[0]-2)+'" y="'+f1(b[1]-3)+'" width="4" height="3" fill="#F28C9C"/>'}
   return piece(g,[["escuela",[x-1.8,y-1.8,x+w+1.8,y+dd+1.8],s],["bandera",[13,13,15,15],fl],d>0?["lápiz",[22,-14,26,-10],pc]:null,d>1?dp("treeRound",-32,14,{k:.55,d:d}):null]);
