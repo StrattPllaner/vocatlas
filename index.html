@@ -2383,7 +2383,7 @@ body.lp-open #amb{visibility:hidden}body.lp-open #amb *{animation-play-state:pau
 .lp-dark .tw-clouds i{background:#2A4566}
 @keyframes twCloud{to{transform:translateX(calc(100vw + 340px))}}
 .tw-stage{position:absolute;left:50%;transform:translateX(-50%);contain:layout;z-index:0}
-.tw-l{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.tw-l{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
 svg.tw-l{display:block;will-change:transform}
 img.tw-img{display:block;pointer-events:none;user-select:none}
 .tw-back{opacity:.62;filter:saturate(.7)}
@@ -2828,6 +2828,87 @@ body:not(.on-map):not(.lp-open)::before{content:"";position:fixed;left:0;right:0
 .es-empty{padding:12px 14px;border-radius:14px;background:rgba(0,0,0,.05);margin:8px 0}
 .es-alt{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
 .es-altb{min-height:44px;padding:8px 14px;border-radius:999px;border:2px solid #3A3026;background:#FFF8EA;font:inherit;font-weight:700;cursor:pointer}
+/* ================= puertas en las nubes de la espiral ================= */
+.tw-door{position:absolute;z-index:5;padding:0;margin:0;border:0;background:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;font:inherit;color:inherit;-webkit-tap-highlight-color:transparent;animation:ptBob 5.5s ease-in-out infinite}
+.tw-door.is-r{animation-delay:-2.7s}
+.tw-door .pt-cl{width:100%;height:auto;display:block;filter:drop-shadow(0 8px 14px rgba(40,60,110,.22));transition:transform .25s cubic-bezier(.3,1.4,.5,1)}
+.tw-door:active .pt-cl{transform:scale(.95)}
+.tw-door:focus-visible{outline:none}.tw-door:focus-visible .pt-cl{filter:drop-shadow(0 0 0 3px #fff) drop-shadow(0 0 6px var(--c,#3F86C6))}
+.tw-door .pt-lab{margin-top:-6px;display:flex;flex-direction:column;align-items:center;gap:1px;max-width:100%;padding:5px 10px 6px;border-radius:12px;background:rgba(255,255,255,.94);box-shadow:0 3px 10px rgba(20,50,63,.16);text-align:center;line-height:1.15}
+.tw-door .pt-lab b{font-size:12px;font-weight:900;color:#14323F}
+.tw-door .pt-lab small{font-size:10.5px;font-weight:700;color:#5C6B76}
+.tw-door.s-lock .pt-cl{filter:drop-shadow(0 8px 14px rgba(40,60,110,.18)) saturate(.55)}
+.tw-door.s-lock .pt-lab{background:rgba(255,255,255,.8)}
+.tw-door.s-ready .pt-lab{background:#FFF4C8;box-shadow:0 0 0 2px #F2C14E,0 4px 14px rgba(226,162,58,.45)}
+.tw-door.s-ready .pt-lab small{color:#8A5A1E}
+.tw-door.s-ready .pt-cl{filter:drop-shadow(0 0 12px rgba(255,214,102,.85)) drop-shadow(0 8px 14px rgba(40,60,110,.2))}
+.tw-door.s-ready .pt-key{animation:ptKey 1.8s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+.tw-door.unlock .pt-cl{animation:ptUnlock 1.4s cubic-bezier(.3,1.4,.5,1)}
+@keyframes ptBob{0%,100%{translate:0 0}50%{translate:0 -6px}}
+@keyframes ptKey{0%,100%{transform:translate(132px,46px) rotate(-30deg)}50%{transform:translate(132px,40px) rotate(-14deg)}}
+@keyframes ptUnlock{0%{transform:scale(1)}25%{transform:scale(1.18) rotate(-4deg)}50%{transform:scale(.96) rotate(3deg)}100%{transform:scale(1)}}
+.lp-dark .tw-door .pt-lab,.is-night .tw-door .pt-lab{background:rgba(20,40,60,.9)}.lp-dark .tw-door .pt-lab b{color:#F4F1EA}.lp-dark .tw-door .pt-lab small{color:#A9B8C4}
+.lp-dark .tw-door.s-ready .pt-lab{background:#4A3A12}.lp-dark .tw-door.s-ready .pt-lab small{color:#FFE29A}
+
+/* la llave que sale del cofre */
+.pt-got{display:flex;align-items:center;gap:12px;margin:12px auto 4px;padding:10px 14px;max-width:320px;border-radius:16px;background:#FFF4C8;box-shadow:inset 0 0 0 2px #F2C14E;text-align:left}
+.pt-got b{display:block;font-size:15px;color:#5A3A0E}.pt-got small{font-size:13px;color:#8A5A1E;font-weight:700}
+.pt-gk{flex:0 0 auto;width:84px;animation:ptGot 1s cubic-bezier(.3,1.5,.5,1) both}.pt-gk svg{width:100%;height:auto;display:block}
+@keyframes ptGot{0%{transform:scale(.2) rotate(-60deg);opacity:0}100%{transform:none;opacity:1}}
+
+/* ---------- el cuarto detrás de la puerta ---------- */
+.pt-room{position:fixed;inset:0;z-index:1000;display:flex;align-items:stretch;justify-content:center;background:rgba(14,32,48,0);perspective:1200px;transition:background .35s}
+.pt-room.on{background:rgba(14,32,48,.55)}
+.pt-in{position:relative;display:flex;flex-direction:column;width:100%;max-width:620px;height:100%;background:var(--c-bg,#F6EFE2);color:var(--c-ink,#14323F);opacity:0;transform:scale(.96);transition:opacity .35s .18s,transform .45s .18s cubic-bezier(.2,1,.3,1)}
+.pt-room.on .pt-in{opacity:1;transform:none}
+@media (min-width:700px){.pt-room{align-items:center;padding:24px}.pt-in{height:auto;max-height:calc(100dvh - 48px);border-radius:24px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.35)}}
+/* dos hojas de madera que se abren hacia adentro al entrar */
+.pt-door{position:absolute;inset:0;z-index:3;pointer-events:none;display:flex}
+.pt-leaf{flex:1;background:repeating-linear-gradient(90deg,#B47A44 0 22px,#A86E3A 22px 24px);box-shadow:inset 0 0 0 6px #8A5530;transition:transform .7s cubic-bezier(.6,.05,.3,1),opacity .2s .55s}
+.pt-leaf.l{transform-origin:0 50%}.pt-leaf.r{transform-origin:100% 50%}
+.pt-room.on .pt-leaf.l{transform:rotateY(-100deg);opacity:0}.pt-room.on .pt-leaf.r{transform:rotateY(100deg);opacity:0}
+.pt-head{flex:0 0 auto;display:flex;align-items:center;gap:12px;padding:calc(env(safe-area-inset-top,0px) + 12px) 16px 12px;background:var(--pc);color:#fff;position:relative;z-index:2}
+.pt-head::after{content:"";position:absolute;left:0;right:0;bottom:-10px;height:10px;background:linear-gradient(var(--pc),transparent);opacity:.35}
+.pt-x{flex:0 0 auto;width:44px;height:44px;border-radius:14px;border:0;background:rgba(255,255,255,.22);color:#fff;display:grid;place-items:center;cursor:pointer}
+.pt-x svg{width:22px;height:22px}.pt-x:focus-visible{outline:2px solid rgba(255,255,255,.8);outline-offset:2px}
+.pt-ht{min-width:0}.pt-ht small{display:block;font-size:12.5px;font-weight:800;opacity:.9}
+.pt-ht h3{margin:2px 0 0;font-size:21px;line-height:1.15;font-weight:900;color:#fff}
+.pt-body{flex:1 1 auto;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;padding:18px 16px calc(env(safe-area-inset-bottom,0px) + 28px)}
+.pt-hero{display:flex;align-items:center;gap:12px;margin:0 0 18px}
+.pt-rb{flex:0 0 auto;width:78px;height:78px;position:relative}.pt-rb .rb{width:100%;height:100%;position:relative}
+.pt-say{position:relative;margin:0;padding:12px 14px;border-radius:16px;background:var(--c-surface,#fff);box-shadow:0 2px 10px rgba(20,50,63,.08);font-size:15px;line-height:1.35;font-weight:700}
+.pt-say::before{content:"";position:absolute;left:-7px;top:50%;margin-top:-7px;border:7px solid transparent;border-left:0;border-right-color:var(--c-surface,#fff)}
+.pt-sec{margin:0 0 20px}
+.pt-sec h4,.pt-nav h4{margin:0 0 10px;font-size:13px;font-weight:900;letter-spacing:.04em;text-transform:uppercase;color:var(--c-ink-3,#5C6B76)}
+.pt-tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.pt-tile{padding:14px;border-radius:18px;background:var(--c-surface,#fff);box-shadow:0 2px 10px rgba(20,50,63,.07);border-top:5px solid var(--pc)}
+.pt-tile.is-pub{border-top-color:#3FA36B}.pt-tile.is-pri{border-top-color:#7A5FB5}
+.pt-tl{display:block;font-size:12.5px;font-weight:900;color:var(--c-ink-3,#5C6B76);text-transform:uppercase;letter-spacing:.04em}
+.pt-tile b{display:block;margin:4px 0 0;font-size:24px;line-height:1.1;font-weight:900;color:var(--c-ink,#14323F)}
+.pt-tu{display:block;font-size:13px;font-weight:700;color:var(--c-ink-2,#3B5260)}
+.pt-tile p{margin:8px 0 0;font-size:13.5px;line-height:1.4;color:var(--c-ink-2,#3B5260)}
+.pt-src{display:block;margin-top:8px;font-size:12px;line-height:1.35;color:var(--c-ink-3,#5C6B76)}.pt-src a{color:inherit;text-decoration:underline;text-underline-offset:2px}
+.pt-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.pt-list li{padding:12px 14px;border-radius:16px;background:var(--c-surface,#fff);box-shadow:0 2px 10px rgba(20,50,63,.06)}
+.pt-lt{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.pt-lt b{font-size:15.5px}
+.pt-list p{margin:6px 0 0;font-size:14px;line-height:1.4;color:var(--c-ink-2,#3B5260)}
+.pt-tag{font-size:11.5px;font-weight:800;padding:2px 8px;border-radius:999px;background:#E6F3EA;color:#256B45}.pt-tag.t-privada{background:#EEE8F8;color:#5A4290}
+.pt-site{display:inline-block;margin-top:8px;font-size:13.5px;font-weight:800;color:var(--pc)}
+.pt-note{padding:12px 14px;border-radius:16px;background:var(--c-surface,#fff);font-size:14px;line-height:1.4;margin:0 0 10px}
+.pt-empty{padding:16px;border-radius:16px;background:var(--c-surface,#fff);font-size:15px;line-height:1.45}
+.pt-lead{margin:0 0 12px;font-size:14.5px;line-height:1.4;color:var(--c-ink-2,#3B5260)}
+.pt-edos{display:flex;gap:8px;overflow-x:auto;margin:0 0 12px;padding-bottom:2px}
+.pt-edo{flex:0 0 auto;min-height:40px;padding:8px 14px;border-radius:999px;border:2px solid var(--c-line,#DDD3C2);background:var(--c-surface,#fff);color:var(--c-ink,#14323F);font:inherit;font-size:14px;font-weight:800;cursor:pointer}
+.pt-edo b{opacity:.6}.pt-edo[aria-selected=true]{border-color:var(--pc);background:var(--pc);color:#fff}
+.pt-es{margin:0}
+.pt-content .su-big{margin-top:0}
+.pt-foot{margin:6px 0 22px;font-size:12.5px;line-height:1.4;color:var(--c-ink-3,#5C6B76)}
+.pt-nav{display:flex;flex-direction:column;gap:8px}
+.pt-nb{display:flex;align-items:center;gap:12px;width:100%;min-height:56px;padding:10px 12px;border-radius:16px;border:0;background:var(--c-surface,#fff);color:var(--c-ink,#14323F);font:inherit;text-align:left;cursor:pointer;box-shadow:0 2px 8px rgba(20,50,63,.06)}
+.pt-nb b{display:block;font-size:14.5px}.pt-nb small{display:block;font-size:12.5px;color:var(--c-ink-3,#5C6B76);font-weight:700}
+.pt-nd{flex:0 0 auto;width:34px;height:34px;border-radius:11px;display:grid;place-items:center;color:#fff;font-weight:900}.pt-nd svg{width:18px;height:18px}
+.pt-nb.s-lock{opacity:.6}.pt-nb.s-lock .pt-nd{filter:grayscale(.7)}
+@media (prefers-reduced-motion:reduce){.tw-door,.tw-door.s-ready .pt-key,.pt-gk{animation:none}.pt-leaf{display:none}.pt-in{transition:opacity .01s}}
 /* explicación animada, globo de Rumbo y video */
 .ex{background:#FFF8EA;border:2px solid #3A3026;border-radius:20px;padding:12px;box-shadow:0 4px 0 #3A3026;max-width:520px;color:#14323F}
 .ex-say{position:relative;min-height:64px;margin-top:10px}
@@ -10810,6 +10891,9 @@ var TORRE=(function(I){
    h+='<div class="tw-sym tw-floor tw-3d'+(p>=1?" is-done":"")+'" data-k="'+symKey(id,f)+'" data-f="'+f+'" style="left:'+f1(c.x-sw/2)+'px;top:'+f1(c.y-sh*.72)+'px;width:'+f1(sw)+'px;height:'+f1(sh)+'px;animation-delay:-'+(f*.9)+'s">'+
     '<img class="tw-col" src="'+im+'" alt="" decoding="async"></div>';
    h+='<span class="tw-ul s-'+(u.state||"lock")+'" data-u="'+f+'">'+(f+1)+' · '+esc(u.t||"")+'</span>'}
+  /* una nube con puerta por unidad, a un lado de la espiral (izquierda y derecha alternadas), a la altura de su unidad */
+  if(o.door){var dw=Math.max(108,Math.min(150,Wp*.32));for(var f2=0;f2<nf;f2++){var dc=toPx(P(0,0,symZ(f2)+40)),rt=f2%2===1;
+   h+='<button type="button" class="tw-door s-'+o.door.state(id,f2)+(rt?' is-r':'')+'" data-c="'+id+'" data-u="'+f2+'" aria-label="'+esc(o.door.label(id,f2))+'" style="width:'+f1(dw)+'px;top:'+f1(dc.y-dw*.55)+'px;'+(rt?'right:':'left:')+'-'+f1(dw*.08)+'px">'+o.door.doorHTML(id,f2)+'</button>'}}
   var stc=toPx(P(0,0,zAt(a1)+70));
   h+='<div class="tw-sym tw-starw" style="left:'+f1(stc.x-55*k)+'px;top:'+f1(stc.y-55*k)+'px;width:'+f1(110*k)+'px;height:'+f1(110*k)+'px"><svg viewBox="-50 -50 100 100" aria-hidden="true">'+star(o.mastered,(byId[id]||{}).color)+'</svg></div>';
   h+='<canvas class="tw-cv tw-cf" aria-hidden="true"></canvas><svg class="tw-l tw-pf" viewBox="'+(-xs)+' '+ytop+' '+Wd+' '+Hd+'" aria-hidden="true">'+RIBS+'</svg>';
@@ -10962,7 +11046,7 @@ var PATH=(function(){
  function catalog(id){
   var U=estOf(id).unidades.map(function(u,ui){
    var items=u.lecciones.map(function(l,li){var cl=carLes(id,l[0]);return {lid:l[0],n:cl?cl.titulo:(carCat(id)?l[1]:(l[0]==="1.1"?"Qué haces":l[0]==="2.1"?"Mini reto":l[1])),parada:l[2],les:cl,u:ui,li:li,min:cl?cl.minutos:null}});
-   if(unitFull(id,ui))items.push({chest:ui,n:"Cofre de la unidad",u:ui,li:items.length,parada:"cofre"});
+   if(unitFull(id,ui))items.push({chest:ui,n:"Cofre con llave",u:ui,li:items.length,parada:"cofre"});
    return {t:u.titulo,sub:u.sub,items:items,n:u.lecciones.length}});
   var all=[],blocked=false;U.forEach(function(u){u.items.forEach(function(it){all.push(it)})});
   all.forEach(function(it,k){it.k2=k;
@@ -10993,9 +11077,9 @@ var PATH=(function(){
   var cu=cat.units.filter(function(u){return u.state==="cur"})[0]||cat.units.filter(function(u){return u.state!=="done"})[0]||cat.units[cat.units.length-1],cui=cat.units.indexOf(cu);
   var h='<div class="lp rt2 rt4 '+(st.tower?"rt8":"rt7")+(dark?" lp-dark":"")+'" style="--c:'+col+';--cd:'+cd+';--ct:'+txt+'">'+
    '<header class="rt2-head"><button class="lp-back rt2-back" id="pzx" aria-label="Volver al mapa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>'+
-   '<div class="rt2-t"><h2>'+esc(c.name)+'</h2>'+(st.tower?'<small class="rt8-unit">'+(pg.p>=1?"Carrera dominada":"Unidad "+(cui+1)+" · "+esc(cu.t))+'</small>':'')+'<div class="rt2-pg"><div class="rt2-bar"><i style="width:'+(pg.p*100).toFixed(1)+'%"></i></div><b class="num">'+pg.done+(st.tower?' de '+pg.total+' lecciones':'/'+pg.total)+'</b></div></div>'+(typeof escHas==="function"&&escHas(id)?'<button type="button" class="rt2-esc" id="lpEsc" aria-label="Dónde estudiar '+esc(c.name)+'">'+icon('<path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5M22 9v6"/>',"lp-ic")+'<span><b>Escuelas</b><small>'+escCount2(id)+'</small></span></button>':'')+'</header>'+
+   '<div class="rt2-t"><h2>'+esc(c.name)+'</h2>'+(st.tower?'<small class="rt8-unit">'+(pg.p>=1?"Carrera dominada":"Unidad "+(cui+1)+" · "+esc(cu.t))+'</small>':'')+'<div class="rt2-pg"><div class="rt2-bar"><i style="width:'+(pg.p*100).toFixed(1)+'%"></i></div><b class="num">'+pg.done+(st.tower?' de '+pg.total+' lecciones':'/'+pg.total)+'</b></div></div>'+(typeof escHas==="function"&&escHas(id)&&!(st.tower&&typeof PUERTAS!=="undefined")?'<button type="button" class="rt2-esc" id="lpEsc" aria-label="Dónde estudiar '+esc(c.name)+'">'+icon('<path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5M22 9v6"/>',"lp-ic")+'<span><b>Escuelas</b><small>'+escCount2(id)+'</small></span></button>':'')+'</header>'+
    (st.tower?'<div class="rt4-stage tw-wrap" id="lpScroll"><div class="tw-host" id="lpCol"></div></div>':'<div class="rt4-stage" id="lpScroll"><div class="rt4-col" id="lpCol"></div></div>')+
-   '<div class="rt2-card" id="lpPop" aria-live="polite"></div>'+(typeof suBtn==="function"?suBtn(id):'')+'</div>';
+   '<div class="rt2-card" id="lpPop" aria-live="polite"></div>'+(typeof suBtn==="function"&&!(st.tower&&typeof PUERTAS!=="undefined")?suBtn(id):'')+'</div>';
   p.innerHTML=h;st.el=p.querySelector(".lp");st.sc=$("#lpScroll");
   if(st.tower)drawTower(id,cat,pg);else draw(id,cat,pg);
   $("#pzx").onclick=function(){leave();exitPlaza()};var eb=$("#lpEsc");if(eb)eb.onclick=function(){escSheet(id)};var sb=$("#lpSu");if(sb)sb.onclick=function(){suSheet(id)};
@@ -11013,7 +11097,8 @@ var PATH=(function(){
   var mastered=pg.p>=1;
   st.items=cat.all;
   st.tw=TORRE.build({id:id,host:$("#lpCol"),units:cat.units,all:cat.all,pg:pg,mastered:mastered&&!!(S.twm&&S.twm[id]),cur:curIndex(),
-   rb:(typeof skinOn==="function"&&RUMBO.SKINS[id]&&skinOn(id)?skinRb(id):rumboEl()),nodeHTML:towerNode});
+   rb:(typeof skinOn==="function"&&RUMBO.SKINS[id]&&skinOn(id)?skinRb(id):rumboEl()),nodeHTML:towerNode,door:typeof PUERTAS!=="undefined"?PUERTAS:null});
+  if(typeof PUERTAS!=="undefined")PUERTAS.bind(st.tw.host,id);
   st.tw.onRender=globeFollow;
   PZ.rb=st.tw.rb.querySelector(".rb");PZ.el=null;wireRumbo(PZ.rb);
   each(st.tw.host.querySelectorAll(".tw-n"),function(b){b.onclick=function(e){e.stopPropagation();select(+b.getAttribute("data-i"),true)}});
@@ -11121,17 +11206,22 @@ var PATH=(function(){
   $("#lpLok").onclick=function(){onDone();o.classList.remove("on");setTimeout(function(){o.remove()},RM()?0:T.med)};
  }
  function openChest(it){
-  var id=st.id,c=byId[id],b=document.querySelector('.rt3-n[data-i="'+it.k2+'"]'),u=st.units[it.u];
+  var id=st.id,c=byId[id],b=document.querySelector('.rt3-n[data-i="'+it.k2+'"]'),u=st.units[it.u],P2=typeof PUERTAS!=="undefined"&&it.chest<PUERTAS.n()?PUERTAS:null;
   S.chest=S.chest||{};S.chest[id+":"+chestKey(it.chest)]=1;save();
   if(b){b.innerHTML=chestSVG(true);restart(b,"opened");burstAt(b)}
-  /* al cerrar la unidad 2 se gana el Rumbo de la carrera */
-  var skin=it.chest===1&&RUMBO.SKINS[id]&&!(S.skw&&S.skw[id]);
+  /* cada cofre trae la llave de su puerta; el de la unidad 2 trae además el Rumbo de la carrera */
+  var skin=it.chest===1&&RUMBO.SKINS[id]&&!(S.skw&&S.skw[id]),door=P2?P2.D[it.chest]:null;
+  var keyHTML=door?'<div class="pt-got"><div class="pt-gk">'+P2.KEY+'</div><div><b>Llave de la puerta '+(it.chest+1)+'</b><small>'+esc(door.t)+'</small></div></div>':'';
+  function after(openDoor){refresh(true);if(!P2)return;setTimeout(function(){P2.sync(id,true);var d=st.el&&st.el.querySelector('.tw-door[data-u="'+it.chest+'"]');
+    if(openDoor){P2.open(id,it.chest,d);return}if(d&&d.scrollIntoView&&st.sc){var r=d.getBoundingClientRect(),sr=st.sc.getBoundingClientRect();if(r.top<sr.top+40||r.bottom>sr.bottom-40)st.sc.scrollTo({top:st.sc.scrollTop+r.top-sr.top-sr.height*.35,behavior:RM()?"auto":"smooth"})}},RM()?0:420)}
   setTimeout(function(){
    if(skin){S.skw=S.skw||{};S.skw[id]=1;save();
-    lesson('<div class="rt-skin">'+skinRb(id,"cheer")+'</div><h2>¡Ganaste a '+esc(RUMBO.SKINS[id].n)+'!</h2><p>Ya está en tu colección.</p><button class="ui-btn is-block is-sec" id="rtUse">Ponérmelo</button>',"Seguir",function(){refresh(true)});
-    var ub=$("#rtUse");if(ub)ub.onclick=function(){setSkin(id);$("#lpLok").click()};return}
+    lesson('<div class="rt-skin">'+skinRb(id,"cheer")+'</div><h2>¡Ganaste a '+esc(RUMBO.SKINS[id].n)+'!</h2><p>Ya está en tu colección.</p>'+keyHTML+'<button class="ui-btn is-block is-sec" id="rtUse">Ponérmelo</button>'+(door?'<button class="ui-btn is-block is-sec" id="ptGo">Abrir la puerta '+(it.chest+1)+'</button>':''),"Seguir",function(){after(false)});
+    var ub=$("#rtUse");if(ub)ub.onclick=function(){setSkin(id);$("#lpLok").click()};
+    var pg2=$("#ptGo");if(pg2)pg2.onclick=function(){var o=$("#lpLesson");if(o){o.classList.remove("on");setTimeout(function(){o.remove()},RM()?0:T.med)}after(true)};return}
    var left=progOf(id);
-   lesson('<div class="lp-chestbig">'+chestSVG(true)+'</div><h2>¡Unidad completa!</h2><p>'+(left.p>=1?'Completaste '+esc(c.name)+'. Su sello te espera en el mapa.':'Te faltan '+(left.total-left.done)+' lecciones para el sello.')+'</p>',"Seguir",function(){refresh(true)})},RM()?0:500);
+   lesson('<div class="lp-chestbig">'+chestSVG(true)+'</div><h2>'+(door?'¡Encontraste una llave!':'¡Unidad completa!')+'</h2>'+keyHTML+'<p>'+(door?'Abre la puerta '+(it.chest+1)+' en la nube junto a la espiral. ':'')+(left.p>=1?'Completaste '+esc(c.name)+'. Su sello te espera en el mapa.':'Te faltan '+(left.total-left.done)+' lecciones para el sello.')+'</p>'+(door?'<button class="ui-btn is-block is-sec" id="ptGo">Abrir la puerta ahora</button>':''),"Seguir",function(){after(false)});
+   var pg=$("#ptGo");if(pg)pg.onclick=function(){var o=$("#lpLesson");if(o){o.classList.remove("on");setTimeout(function(){o.remove()},RM()?0:T.med)}after(true)}},RM()?0:500);
  }
  function burstAt(b){if(RM())return;var cols=["#F2B544","#FFFFFF","#7FB59A","#8FC9E8"];for(var i=0;i<12;i++){var s=document.createElement("i");s.className="lp-pt";s.style.background=cols[i%4];s.style.setProperty("--a",(i*30)+"deg");b.appendChild(s);setTimeout(function(x){return function(){x.remove()}}(s),700)}}
  /* al terminar una lección: la parada se llena, chispas, y Rumbo camina a la siguiente */
@@ -11996,7 +12086,10 @@ function suRank(){return C.filter(function(c){return suHas(c.id)}).map(function(
 function suBtn(id){var d=suDato(id,"ingreso");
  return '<button type="button" class="rt-su" id="lpSu" aria-label="Cuánto ganan en '+esc((byId[id]||{}).name||"")+'"><svg viewBox="0 0 24 24" class="lp-ic" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M15 9.2c-.5-1-1.6-1.6-3-1.6-1.8 0-3 .9-3 2.2 0 3 6 1.6 6 4.6 0 1.3-1.3 2.3-3 2.3-1.5 0-2.7-.7-3.1-1.8M12 6v1.6M12 16.7V18"/></svg>'+
   '<span><b>¿Cuánto ganan?</b><small>'+(d?suFmt(suNum(d))+' al mes':'Sin dato todavía')+'</small></span></button>'}
-function suSheet(id){var c=byId[id],d=suDato(id,"ingreso"),h='<h3>¿Cuánto gana alguien de '+esc(c.name)+'?</h3>';
+function suSheet(id){var c=byId[id],h='<h3>¿Cuánto gana alguien de '+esc(c.name)+'?</h3>'+suBody(id);
+ var el=document.createElement("div");el.className="ui-sheet su-sheet";el.setAttribute("role","dialog");el.setAttribute("aria-modal","true");el.setAttribute("aria-label","Cuánto ganan en "+c.name);
+ el.innerHTML=h;uiLayer(el,true)}
+function suBody(id){var c=byId[id],d=suDato(id,"ingreso"),h='';
  if(!d){h+='<p class="su-lead"><b>Todavía no tenemos este dato verificado.</b> No lo vamos a inventar. Lo puedes buscar en <a href="https://imco.org.mx/comparacarreras/" target="_blank" rel="noopener">IMCO, Compara Carreras</a>.</p>'}
  else{var R=suRank(),pos=R.findIndex(function(x){return x.c.id===id})+1,max=R[0].n,n=suNum(d);
   h+='<div class="su-big"><b class="num">'+suFmt(n)+'</b><span>'+esc(d.unidad||"")+'</span></div>'+
@@ -12010,8 +12103,125 @@ function suSheet(id){var c=byId[id],d=suDato(id,"ingreso"),h='<h3>¿Cuánto gana
    return '<li class="'+(r.c.id===id?'is-me':'')+'"><span class="su-n">'+esc(r.c.short||r.c.name)+'</span><span class="su-b"><i style="width:'+(r.n/max*100).toFixed(1)+'%;background:'+r.c.color+'"></i></span><b class="num">'+suFmt(r.n)+'</b></li>'}).join("")+'</ul>';
   var oc=suDato(id,"ocupacion_afin");if(oc)h+='<div class="su-x"><b class="num">'+esc(String(oc.valor))+'</b><span>'+esc(oc.unidad||"")+' trabajan en algo de su carrera</span></div>';
   h+='<p class="su-src">Fuente: '+(d.url?'<a href="'+esc(d.url)+'" target="_blank" rel="noopener">'+esc(d.fuente)+'</a>':esc(d.fuente))+'. Consultado el '+esc(d.consultado||"")+'.</p>'}
- var el=document.createElement("div");el.className="ui-sheet su-sheet";el.setAttribute("role","dialog");el.setAttribute("aria-modal","true");el.setAttribute("aria-label","Cuánto ganan en "+c.name);
- el.innerHTML=h;uiLayer(el,true)}
+ return h}
+
+/* ================= puertas en las nubes de la espiral =================
+   A los lados de la espiral de cada carrera flota una nube con una puerta, una por unidad. La llave sale del cofre
+   de esa unidad (el cofre de la unidad 2 trae además el Rumbo de la carrera). Detrás de cada puerta está lo que no
+   cabe en una lección: cuánto cuesta, dónde se estudia, cómo se entra y cuánto dura, y de qué se vive al salir.
+   Nada se inventa: todo sale de CAT.cif (cifras con fuente) y de CAT.uni (universidades con fuente); si un dato
+   no está verificado se marca «por confirmar», y si no existe se dice. */
+var PUERTAS=(function(){
+ var D=[
+  {k:"costo",t:"¿Cuánto cuesta?",s:"Colegiaturas, gastos y becas",col:"#E2A23A"},
+  {k:"escuelas",t:"¿Dónde se estudia?",s:"Universidades con fuente",col:"#3F86C6"},
+  {k:"entrar",t:"¿Cómo entras y cuánto dura?",s:"Examen de admisión y duración",col:"#7A5FB5"},
+  {k:"trabajo",t:"¿De qué vas a vivir?",s:"Sueldo y en qué trabajan",col:"#3FA36B"}];
+ function n(){return D.length}
+ function hasKey(id,u){return !!(S.chest&&S.chest[id+":u"+(u+1)])}
+ function seen(id,u){return !!(S.door&&S.door[id+":"+u])}
+ function state(id,u){return !hasKey(id,u)?"lock":seen(id,u)?"seen":"ready"}
+ function cif(id,k){var d=(CAT.cif||{})[id+"."+k];return d&&d.estado!=="pendiente"&&d.valor!=null?d:null}
+ function src(d){if(!d||!d.fuente)return "";var f=esc(d.fuente);return '<small class="pt-src">'+(d.url?'<a href="'+esc(d.url)+'" target="_blank" rel="noopener">'+f+'</a>':f)+(d.estado&&d.estado!=="verificado"?' · <i>por confirmar</i>':'')+'</small>'}
+ function srcU(o){if(!o||!o.fuente)return "";var f=o.fuente,link=/^https?:/.test(f);return '<small class="pt-src">'+(link?'<a href="'+esc(f)+'" target="_blank" rel="noopener">'+esc(f.replace(/^https?:\/\/(www\.)?/,"").split("/")[0])+'</a>':esc(f))+(o.conf&&o.conf!=="alta"?' · <i>por confirmar</i>':'')+'</small>'}
+
+ /* ---------- la nube con su puerta (svg) ---------- */
+ function cloudSVG(st,col,u){
+  var s='<svg class="pt-cl" viewBox="0 0 170 132" aria-hidden="true"><defs><radialGradient id="ptg'+u+'" cx=".4" cy=".3" r=".8"><stop offset="0" stop-color="#FFFFFF"/><stop offset=".7" stop-color="#F3F6FC"/><stop offset="1" stop-color="#D9E1F0"/></radialGradient>'+
+   '<linearGradient id="ptw'+u+'" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#C98A4E"/><stop offset="1" stop-color="#9A6234"/></linearGradient>'+
+   '<radialGradient id="ptl'+u+'" cx=".5" cy=".6" r=".7"><stop offset="0" stop-color="#FFF4C8"/><stop offset="1" stop-color="#F6C44E"/></radialGradient></defs>';
+  /* nube: bultos con panza sombreada */
+  s+='<ellipse cx="86" cy="118" rx="62" ry="7" fill="#5A72A8" opacity=".18"/>';
+  [[40,92,28],[70,80,34],[104,78,36],[134,92,26],[86,100,40],[52,104,24],[122,104,24]].forEach(function(c){s+='<circle cx="'+c[0]+'" cy="'+c[1]+'" r="'+c[2]+'" fill="url(#ptg'+u+')"/>'});
+  s+='<path d="M22 104Q86 126 150 104Q146 118 86 120Q28 118 22 104Z" fill="#C8D3E8" opacity=".7"/>';
+  /* marco de piedra con arco y escalón */
+  s+='<path d="M58 106V56Q58 30 85 30Q112 30 112 56V106Z" fill="#E9E1D0"/><path d="M58 106V56Q58 30 85 30Q112 30 112 56V106" fill="none" stroke="#C9BCA2" stroke-width="2"/>';
+  s+='<rect x="54" y="104" width="62" height="7" rx="2" fill="#D8CDB6"/>';
+  /* hueco: luz cálida cuando ya se abrió */
+  s+='<path d="M64 104V58Q64 37 85 37Q106 37 106 58V104Z" fill="'+(st==="seen"?'url(#ptl'+u+')':'#4A3322')+'"/>';
+  if(st==="seen"){/* puerta entreabierta, girada hacia adentro */
+   s+='<path d="M64 104V58Q64 40 76 38L80 40V102Z" fill="url(#ptw'+u+')"/><path d="M80 40V102L64 104V58Q64 40 76 38Z" fill="none" stroke="#7A4A26" stroke-width="1"/>';
+   s+='<circle cx="76" cy="74" r="1.8" fill="#F2C14E"/><path d="M86 104L106 104L120 116L72 116Z" fill="#FFE9A8" opacity=".55"/>'}
+  else{s+='<path d="M64 104V58Q64 37 85 37Q106 37 106 58V104Z" fill="url(#ptw'+u+')"/>';
+   [71,78,85,92,99].forEach(function(x){s+='<path d="M'+x+' 42V104" stroke="#8A5A30" stroke-width="1" opacity=".55"/>'});
+   s+='<path d="M64 62H106M64 92H106" stroke="#6E4524" stroke-width="2.6"/><circle cx="68" cy="62" r="1.3" fill="#3A2416"/><circle cx="68" cy="92" r="1.3" fill="#3A2416"/>';
+   s+='<circle cx="99" cy="76" r="2.6" fill="#F2C14E" stroke="#8A5A1E" stroke-width=".8"/><path d="M99 80.5v4" stroke="#3A2416" stroke-width="1.6" stroke-linecap="round"/>'}
+  /* letrero con el color de la puerta */
+  s+='<rect x="70" y="18" width="30" height="13" rx="6.5" fill="'+col+'" stroke="#FFFFFF" stroke-width="1.6"/><text x="85" y="28" text-anchor="middle" font-size="9.5" font-weight="900" fill="#FFFFFF" font-family="Nunito,system-ui,sans-serif">'+(u+1)+'</text>';
+  if(st==="lock")s+='<g transform="translate(85 70)"><path d="M-6 -2V-7Q-6 -13 0 -13Q6 -13 6 -7V-2" fill="none" stroke="#9AA5B1" stroke-width="3"/><rect x="-9" y="-3" width="18" height="15" rx="3" fill="#C9D1DA" stroke="#7E8B98" stroke-width="1.2"/><circle cx="0" cy="3" r="2.2" fill="#5A6573"/><path d="M0 4v4" stroke="#5A6573" stroke-width="1.8"/></g>';
+  if(st==="ready")s+='<g class="pt-key" transform="translate(132 46) rotate(-30)"><circle r="7" fill="#F6C44E" stroke="#B07A16" stroke-width="1.4"/><circle r="2.6" fill="#FFF4C8"/><path d="M7 0H24M18 0V5M22 0V4" stroke="#B07A16" stroke-width="3" stroke-linecap="round"/><path d="M7 0H24" stroke="#F6C44E" stroke-width="1.4" stroke-linecap="round"/></g>';
+  return s+'</svg>'}
+ function doorHTML(id,u){var d=D[u],st=state(id,u);
+  return cloudSVG(st,d.col,u)+'<span class="pt-lab"><b>'+esc(d.t)+'</b><small>'+(st==="lock"?"Llave en el cofre "+(u+1):st==="ready"?"¡Ya tienes la llave!":"Ábrela otra vez")+'</small></span>'}
+ function label(id,u){var d=D[u],st=state(id,u);return "Puerta "+(u+1)+": "+d.t+(st==="lock"?". Cerrada, su llave está en el cofre de la unidad "+(u+1):st==="ready"?". Tienes la llave":"")}
+
+ /* ---------- lo que hay detrás de cada puerta ---------- */
+ function unisOf(id,edo){var d=CAT.uni&&CAT.uni.car&&CAT.uni.car[id];if(!d)return null;var seenU={},out=[];
+  d.donde.forEach(function(x){if(edo&&x.edo.indexOf(edo)<0)return;var u=escUni(x.u);if(!u||seenU[u.id])return;seenU[u.id]=1;out.push({u:u,x:x})});
+  return out.sort(function(a,b){return (a.u.tipo==="publica"?0:1)-(b.u.tipo==="publica"?0:1)})}
+ function edoNow(id){var d=CAT.uni&&CAT.uni.car&&CAT.uni.car[id];if(!d)return null;var has={};d.donde.forEach(function(x){x.edo.forEach(function(e){has[e]=1})});
+  var m=S.edo&&S.edo!==EDO_NONE?S.edo:null;return m&&has[m]?m:has.CMX?"CMX":Object.keys(has)[0]}
+ function edoName(e){var o=typeof edoById==="function"&&edoById(e);return o?o.n:(ESC_EDO[e]||e)}
+ function noUni(){return '<div class="pt-empty">'+(CAT.uni?'Todavía no tenemos universidades verificadas para esta carrera. No las vamos a inventar.':'Las universidades se están descargando. Revisa tu conexión y vuelve a abrir esta puerta.')+'</div>'}
+ function money(d,cls,lab){return '<div class="pt-tile '+cls+'"><span class="pt-tl">'+lab+'</span><b class="num">'+esc(String(d.valor))+'</b><span class="pt-tu">'+esc(d.unidad||"")+'</span>'+(d.nota?'<p>'+esc(d.nota)+'</p>':'')+src(d)+'</div>'}
+ var BODY={
+  costo:function(id,c){var h="",pu=cif(id,"costo_publica"),pr=cif(id,"costo_privada"),be=cif(id,"becas");
+   if(pu||pr)h+='<section class="pt-sec"><h4>Lo que cobra la escuela</h4><div class="pt-tiles">'+(pu?money(pu,"is-pub","Pública"):'')+(pr?money(pr,"is-pri","Privada"):'')+'</div></section>';
+   else h+='<div class="pt-empty">Todavía no tenemos este dato verificado. No lo vamos a inventar.</div>';
+   var tec=cif(id,"costo_tec");if(tec)h+='<section class="pt-sec">'+money(tec,"is-pri","Tec de Monterrey")+'</section>';
+   var e=edoNow(id),L=e?unisOf(id,e):null;
+   if(L&&L.length)h+='<section class="pt-sec"><h4>Escuela por escuela en '+esc(edoName(e))+'</h4><ul class="pt-list">'+L.map(function(o){return '<li><div class="pt-lt"><b>'+esc(o.u.n)+'</b><span class="pt-tag t-'+o.u.tipo+'">'+(o.u.tipo==="publica"?"Pública":"Privada")+'</span></div><p>'+esc(o.u.costo.txt)+'</p>'+srcU(o.u.costo)+'</li>'}).join("")+'</ul></section>';
+   if(be||(CAT.uni&&CAT.uni.becas)){h+='<section class="pt-sec"><h4>Becas para pagarla</h4>';if(be)h+='<div class="pt-note"><b>'+esc(String(be.valor))+'</b>: '+esc(be.unidad||"")+'. '+esc(be.nota||"")+src(be)+'</div>';
+    if(CAT.uni&&CAT.uni.becas)h+='<ul class="pt-list pt-becas">'+CAT.uni.becas.filter(function(b){return !be||b.n!==be.valor}).map(function(b){return '<li><div class="pt-lt"><b>'+esc(b.n)+'</b></div><p>'+esc(b.quien)+'</p>'+(b.url?'<small class="pt-src"><a href="'+esc(b.url)+'" target="_blank" rel="noopener">Ver convocatoria</a></small>':'')+'</li>'}).join("")+'</ul>';h+='</section>'}
+   return h},
+  escuelas:function(id,c,edo){var d=CAT.uni&&CAT.uni.car&&CAT.uni.car[id];if(!d||!d.donde.length)return noUni();
+   var has={};d.donde.forEach(function(x){x.edo.forEach(function(e){has[e]=(has[e]||0)+1})});var cur=edo||edoNow(id),list=d.donde.filter(function(x){return x.edo.indexOf(cur)>=0}).sort(function(a,b){var ua=escUni(a.u),ub=escUni(b.u);return (ua&&ua.tipo==="publica"?0:1)-(ub&&ub.tipo==="publica"?0:1)});
+   var h='<div class="pt-edos" role="tablist" aria-label="Estado">'+Object.keys(has).map(function(e){return '<button type="button" role="tab" class="pt-edo" data-edo="'+e+'" aria-selected="'+(e===cur)+'">'+esc(edoName(e))+' <b>'+has[e]+'</b></button>'}).join("")+'</div>';
+   h+='<p class="pt-lead">'+list.length+' opci'+(list.length===1?'ón':'ones')+' en '+esc(edoName(cur))+', primero las públicas. Toca una para ver su costo y cómo se entra.</p><ul class="es-list pt-es">'+list.map(escItem).join("")+'</ul>';
+   return h},
+  entrar:function(id,c){var h="",du=cif(id,"duracion");
+   if(du)h+='<section class="pt-sec"><h4>Cuánto dura</h4><div class="pt-tiles">'+money(du,"is-dur","Duración")+'</div></section>';
+   var as=cif(id,"aspirantes");if(as)h+='<section class="pt-sec">'+money(as,"is-dur","Competencia")+'</section>';
+   var en=cif(id,"enarm");if(en)h+='<section class="pt-sec"><h4>Después de la carrera</h4>'+money(en,"is-dur","ENARM")+'</section>';
+   var e=edoNow(id),L=e?unisOf(id,e):null;
+   if(L&&L.length)h+='<section class="pt-sec"><h4>Cómo se entra en '+esc(edoName(e))+'</h4><ul class="pt-list">'+L.map(function(o){return '<li><div class="pt-lt"><b>'+esc(o.u.n)+'</b><span class="pt-tag t-'+o.u.tipo+'">'+(o.u.tipo==="publica"?"Pública":"Privada")+'</span></div><p><b>'+esc(o.u.adm.examen)+'.</b> '+esc(o.u.adm.txt)+'</p>'+srcU(o.u.adm)+(o.u.url?'<a class="pt-site" href="'+esc(o.u.url)+'" target="_blank" rel="noopener">Sitio oficial</a>':'')+'</li>'}).join("")+'</ul></section>';
+   else if(!du)h+=noUni();
+   return h},
+  trabajo:function(id,c){var d=cif(id,"ingreso");if(!d)return '<div class="pt-empty">Todavía no tenemos este dato verificado. No lo vamos a inventar. Lo puedes buscar en <a href="https://imco.org.mx/comparacarreras/" target="_blank" rel="noopener">IMCO, Compara Carreras</a>.</div>';
+   return typeof suBody==="function"?suBody(id):money(d,"is-pay","Sueldo promedio")}};
+ var SAY={costo:"Esto es lo que cuesta estudiar {c}. Cada cifra trae su fuente.",escuelas:"Aquí se estudia {c}. Toca una escuela para ver más.",entrar:"Así se entra a {c} y esto dura.",trabajo:"Esto gana en promedio quien estudió {c}."};
+
+ /* ---------- abrir una puerta: la puerta se abre a pantalla completa y adentro está la información ---------- */
+ function open(id,u,from){var c=byId[id],d=D[u];if(!c||!d)return;
+  if(!hasKey(id,u)){if(typeof toast==="function")toast("Esta puerta se abre con la llave del cofre de la unidad "+(u+1)+".");return}
+  var first=!seen(id,u);S.door=S.door||{};S.door[id+":"+u]=1;save();
+  var el=document.createElement("div");el.className="pt-room"+(first?" is-first":"");el.setAttribute("role","dialog");el.setAttribute("aria-modal","true");el.setAttribute("aria-label",d.t+" "+c.name);el.style.setProperty("--pc",d.col);el.style.setProperty("--cc",c.color);
+  el.innerHTML='<div class="pt-door" aria-hidden="true"><i class="pt-leaf l"></i><i class="pt-leaf r"></i></div>'+
+   '<div class="pt-in"><header class="pt-head"><button type="button" class="pt-x" aria-label="Cerrar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>'+
+   '<div class="pt-ht"><small>Puerta '+(u+1)+' de '+D.length+' · '+esc(c.name)+'</small><h3>'+esc(d.t)+'</h3></div></header>'+
+   '<div class="pt-body"><div class="pt-hero"><div class="pt-rb">'+(typeof skinOn==="function"&&RUMBO.SKINS[id]&&skinOn(id)?skinRb(id):rumboEl())+'</div><p class="pt-say">'+esc(SAY[d.k].replace("{c}",c.name))+'</p></div>'+
+   '<div class="pt-content">'+BODY[d.k](id,c)+'</div>'+
+   '<p class="pt-foot">'+(CAT.uni?esc(CAT.uni.nota)+' Datos reunidos al '+esc(CAT.uni.corte)+'.':'Las cifras cambian cada año: confírmalas en el sitio oficial de cada universidad.')+'</p>'+
+   nav(id,u)+'</div></div>';
+  var close=uiLayer(el,false,function(){if(from&&from.focus)from.focus();sync(id)});
+  el.querySelector(".pt-x").onclick=close;
+  var rb=el.querySelector(".pt-rb .rb");if(rb&&typeof wireRumbo==="function")wireRumbo(rb);
+  wire(el,id,u,close);
+  if(typeof sfx==="function")sfx("ok");
+  setTimeout(function(){var x=el.querySelector(".pt-x");if(x)x.focus()},RM()?0:420)}
+ function nav(id,u){var o="";for(var i=0;i<D.length;i++){if(i===u)continue;var st=state(id,i);o+='<button type="button" class="pt-nb s-'+st+'" data-u="'+i+'"'+(st==="lock"?' aria-disabled="true"':'')+'><span class="pt-nd" style="background:'+D[i].col+'">'+(st==="lock"?'<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4"><rect x="6" y="11" width="12" height="9" rx="2"/><path d="M9 11V8a3 3 0 016 0v3"/></svg>':(i+1))+'</span><span><b>'+esc(D[i].t)+'</b><small>'+(st==="lock"?"Llave en el cofre "+(i+1):D[i].s)+'</small></span></button>'}
+  return '<div class="pt-nav" role="navigation" aria-label="Otras puertas"><h4>Otras puertas</h4>'+o+'</div>'}
+ function wire(el,id,u,close){
+  each(el.querySelectorAll(".pt-edo"),function(b){b.onclick=function(){var box=el.querySelector(".pt-content");box.innerHTML=BODY.escuelas(id,byId[id],b.getAttribute("data-edo"));wire(el,id,u,close)}});
+  each(el.querySelectorAll(".pt-nb"),function(b){b.onclick=function(){var i=+b.getAttribute("data-u");if(!hasKey(id,i)){if(typeof toast==="function")toast("Esta puerta se abre con la llave del cofre de la unidad "+(i+1)+".");return}close();setTimeout(function(){open(id,i)},RM()?0:320)}})}
+ /* actualiza las nubes de la espiral (al abrir un cofre o al cerrar una puerta) */
+ function sync(id,anim){each(document.querySelectorAll('.tw-door[data-c="'+id+'"]'),function(b){var u=+b.getAttribute("data-u"),st=state(id,u);if(b.__st===st)return;var was=b.__st;b.__st=st;
+  b.className="tw-door s-"+st+(b.classList.contains("is-r")?" is-r":"");b.innerHTML=doorHTML(id,u);b.setAttribute("aria-label",label(id,u));
+  if(anim&&was==="lock"&&st==="ready"&&!RM()){b.classList.add("unlock");setTimeout(function(){b.classList.remove("unlock")},1600)}})}
+ function bind(host,id){each(host.querySelectorAll(".tw-door"),function(b){b.__st=b.className.match(/s-(\w+)/)[1];b.onclick=function(e){e.stopPropagation();open(id,+b.getAttribute("data-u"),b)}})}
+ /* el icono de llave para el cofre */
+ var KEY='<svg viewBox="0 0 120 60" aria-hidden="true"><g transform="translate(30 30) rotate(-12)"><circle r="20" fill="#F6C44E" stroke="#B07A16" stroke-width="3"/><circle r="8" fill="#FFF4C8" stroke="#B07A16" stroke-width="2"/><path d="M20 0H78M62 0V14M72 0V11" stroke="#B07A16" stroke-width="9" stroke-linecap="round"/><path d="M20 0H78M62 0V14M72 0V11" stroke="#F6C44E" stroke-width="5" stroke-linecap="round"/><path d="M-10 -10Q-4 -16 4 -15" stroke="#FFFFFF" stroke-width="3" fill="none" stroke-linecap="round" opacity=".8"/></g></svg>';
+ return {D:D,n:n,state:state,hasKey:hasKey,doorHTML:doorHTML,label:label,open:open,sync:sync,bind:bind,KEY:KEY}})();
 
 /* ================= Rumbo habla =================
    Voz: si existe media/voz/<id>.m4a (generada con datos/generar_voz.py, voz davefx) se usa ese audio; si no, la voz del navegador (Web Speech API):

@@ -207,6 +207,9 @@ var TORRE=(function(I){
    h+='<div class="tw-sym tw-floor tw-3d'+(p>=1?" is-done":"")+'" data-k="'+symKey(id,f)+'" data-f="'+f+'" style="left:'+f1(c.x-sw/2)+'px;top:'+f1(c.y-sh*.72)+'px;width:'+f1(sw)+'px;height:'+f1(sh)+'px;animation-delay:-'+(f*.9)+'s">'+
     '<img class="tw-col" src="'+im+'" alt="" decoding="async"></div>';
    h+='<span class="tw-ul s-'+(u.state||"lock")+'" data-u="'+f+'">'+(f+1)+' · '+esc(u.t||"")+'</span>'}
+  /* una nube con puerta por unidad, a un lado de la espiral (izquierda y derecha alternadas), a la altura de su unidad */
+  if(o.door){var dw=Math.max(108,Math.min(150,Wp*.32));for(var f2=0;f2<nf;f2++){var dc=toPx(P(0,0,symZ(f2)+40)),rt=f2%2===1;
+   h+='<button type="button" class="tw-door s-'+o.door.state(id,f2)+(rt?' is-r':'')+'" data-c="'+id+'" data-u="'+f2+'" aria-label="'+esc(o.door.label(id,f2))+'" style="width:'+f1(dw)+'px;top:'+f1(dc.y-dw*.55)+'px;'+(rt?'right:':'left:')+'-'+f1(dw*.08)+'px">'+o.door.doorHTML(id,f2)+'</button>'}}
   var stc=toPx(P(0,0,zAt(a1)+70));
   h+='<div class="tw-sym tw-starw" style="left:'+f1(stc.x-55*k)+'px;top:'+f1(stc.y-55*k)+'px;width:'+f1(110*k)+'px;height:'+f1(110*k)+'px"><svg viewBox="-50 -50 100 100" aria-hidden="true">'+star(o.mastered,(byId[id]||{}).color)+'</svg></div>';
   h+='<canvas class="tw-cv tw-cf" aria-hidden="true"></canvas><svg class="tw-l tw-pf" viewBox="'+(-xs)+' '+ytop+' '+Wd+' '+Hd+'" aria-hidden="true">'+RIBS+'</svg>';

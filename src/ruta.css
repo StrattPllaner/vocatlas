@@ -452,7 +452,7 @@
 .lp-dark .tw-clouds i{background:#2A4566}
 @keyframes twCloud{to{transform:translateX(calc(100vw + 340px))}}
 .tw-stage{position:absolute;left:50%;transform:translateX(-50%);contain:layout;z-index:0}
-.tw-l{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.tw-l{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
 svg.tw-l{display:block;will-change:transform}
 img.tw-img{display:block;pointer-events:none;user-select:none}
 .tw-back{opacity:.62;filter:saturate(.7)}

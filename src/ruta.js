@@ -85,7 +85,7 @@ var PATH=(function(){
  function catalog(id){
   var U=estOf(id).unidades.map(function(u,ui){
    var items=u.lecciones.map(function(l,li){var cl=carLes(id,l[0]);return {lid:l[0],n:cl?cl.titulo:(carCat(id)?l[1]:(l[0]==="1.1"?"Qué haces":l[0]==="2.1"?"Mini reto":l[1])),parada:l[2],les:cl,u:ui,li:li,min:cl?cl.minutos:null}});
-   if(unitFull(id,ui))items.push({chest:ui,n:"Cofre de la unidad",u:ui,li:items.length,parada:"cofre"});
+   if(unitFull(id,ui))items.push({chest:ui,n:"Cofre con llave",u:ui,li:items.length,parada:"cofre"});
    return {t:u.titulo,sub:u.sub,items:items,n:u.lecciones.length}});
   var all=[],blocked=false;U.forEach(function(u){u.items.forEach(function(it){all.push(it)})});
   all.forEach(function(it,k){it.k2=k;
@@ -116,9 +116,9 @@ var PATH=(function(){
   var cu=cat.units.filter(function(u){return u.state==="cur"})[0]||cat.units.filter(function(u){return u.state!=="done"})[0]||cat.units[cat.units.length-1],cui=cat.units.indexOf(cu);
   var h='<div class="lp rt2 rt4 '+(st.tower?"rt8":"rt7")+(dark?" lp-dark":"")+'" style="--c:'+col+';--cd:'+cd+';--ct:'+txt+'">'+
    '<header class="rt2-head"><button class="lp-back rt2-back" id="pzx" aria-label="Volver al mapa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>'+
-   '<div class="rt2-t"><h2>'+esc(c.name)+'</h2>'+(st.tower?'<small class="rt8-unit">'+(pg.p>=1?"Carrera dominada":"Unidad "+(cui+1)+" · "+esc(cu.t))+'</small>':'')+'<div class="rt2-pg"><div class="rt2-bar"><i style="width:'+(pg.p*100).toFixed(1)+'%"></i></div><b class="num">'+pg.done+(st.tower?' de '+pg.total+' lecciones':'/'+pg.total)+'</b></div></div>'+(typeof escHas==="function"&&escHas(id)?'<button type="button" class="rt2-esc" id="lpEsc" aria-label="Dónde estudiar '+esc(c.name)+'">'+icon('<path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5M22 9v6"/>',"lp-ic")+'<span><b>Escuelas</b><small>'+escCount2(id)+'</small></span></button>':'')+'</header>'+
+   '<div class="rt2-t"><h2>'+esc(c.name)+'</h2>'+(st.tower?'<small class="rt8-unit">'+(pg.p>=1?"Carrera dominada":"Unidad "+(cui+1)+" · "+esc(cu.t))+'</small>':'')+'<div class="rt2-pg"><div class="rt2-bar"><i style="width:'+(pg.p*100).toFixed(1)+'%"></i></div><b class="num">'+pg.done+(st.tower?' de '+pg.total+' lecciones':'/'+pg.total)+'</b></div></div>'+(typeof escHas==="function"&&escHas(id)&&!(st.tower&&typeof PUERTAS!=="undefined")?'<button type="button" class="rt2-esc" id="lpEsc" aria-label="Dónde estudiar '+esc(c.name)+'">'+icon('<path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5M22 9v6"/>',"lp-ic")+'<span><b>Escuelas</b><small>'+escCount2(id)+'</small></span></button>':'')+'</header>'+
    (st.tower?'<div class="rt4-stage tw-wrap" id="lpScroll"><div class="tw-host" id="lpCol"></div></div>':'<div class="rt4-stage" id="lpScroll"><div class="rt4-col" id="lpCol"></div></div>')+
-   '<div class="rt2-card" id="lpPop" aria-live="polite"></div>'+(typeof suBtn==="function"?suBtn(id):'')+'</div>';
+   '<div class="rt2-card" id="lpPop" aria-live="polite"></div>'+(typeof suBtn==="function"&&!(st.tower&&typeof PUERTAS!=="undefined")?suBtn(id):'')+'</div>';
   p.innerHTML=h;st.el=p.querySelector(".lp");st.sc=$("#lpScroll");
   if(st.tower)drawTower(id,cat,pg);else draw(id,cat,pg);
   $("#pzx").onclick=function(){leave();exitPlaza()};var eb=$("#lpEsc");if(eb)eb.onclick=function(){escSheet(id)};var sb=$("#lpSu");if(sb)sb.onclick=function(){suSheet(id)};
@@ -136,7 +136,8 @@ var PATH=(function(){
   var mastered=pg.p>=1;
   st.items=cat.all;
   st.tw=TORRE.build({id:id,host:$("#lpCol"),units:cat.units,all:cat.all,pg:pg,mastered:mastered&&!!(S.twm&&S.twm[id]),cur:curIndex(),
-   rb:(typeof skinOn==="function"&&RUMBO.SKINS[id]&&skinOn(id)?skinRb(id):rumboEl()),nodeHTML:towerNode});
+   rb:(typeof skinOn==="function"&&RUMBO.SKINS[id]&&skinOn(id)?skinRb(id):rumboEl()),nodeHTML:towerNode,door:typeof PUERTAS!=="undefined"?PUERTAS:null});
+  if(typeof PUERTAS!=="undefined")PUERTAS.bind(st.tw.host,id);
   st.tw.onRender=globeFollow;
   PZ.rb=st.tw.rb.querySelector(".rb");PZ.el=null;wireRumbo(PZ.rb);
   each(st.tw.host.querySelectorAll(".tw-n"),function(b){b.onclick=function(e){e.stopPropagation();select(+b.getAttribute("data-i"),true)}});
@@ -244,17 +245,22 @@ var PATH=(function(){
   $("#lpLok").onclick=function(){onDone();o.classList.remove("on");setTimeout(function(){o.remove()},RM()?0:T.med)};
  }
  function openChest(it){
-  var id=st.id,c=byId[id],b=document.querySelector('.rt3-n[data-i="'+it.k2+'"]'),u=st.units[it.u];
+  var id=st.id,c=byId[id],b=document.querySelector('.rt3-n[data-i="'+it.k2+'"]'),u=st.units[it.u],P2=typeof PUERTAS!=="undefined"&&it.chest<PUERTAS.n()?PUERTAS:null;
   S.chest=S.chest||{};S.chest[id+":"+chestKey(it.chest)]=1;save();
   if(b){b.innerHTML=chestSVG(true);restart(b,"opened");burstAt(b)}
-  /* al cerrar la unidad 2 se gana el Rumbo de la carrera */
-  var skin=it.chest===1&&RUMBO.SKINS[id]&&!(S.skw&&S.skw[id]);
+  /* cada cofre trae la llave de su puerta; el de la unidad 2 trae además el Rumbo de la carrera */
+  var skin=it.chest===1&&RUMBO.SKINS[id]&&!(S.skw&&S.skw[id]),door=P2?P2.D[it.chest]:null;
+  var keyHTML=door?'<div class="pt-got"><div class="pt-gk">'+P2.KEY+'</div><div><b>Llave de la puerta '+(it.chest+1)+'</b><small>'+esc(door.t)+'</small></div></div>':'';
+  function after(openDoor){refresh(true);if(!P2)return;setTimeout(function(){P2.sync(id,true);var d=st.el&&st.el.querySelector('.tw-door[data-u="'+it.chest+'"]');
+    if(openDoor){P2.open(id,it.chest,d);return}if(d&&d.scrollIntoView&&st.sc){var r=d.getBoundingClientRect(),sr=st.sc.getBoundingClientRect();if(r.top<sr.top+40||r.bottom>sr.bottom-40)st.sc.scrollTo({top:st.sc.scrollTop+r.top-sr.top-sr.height*.35,behavior:RM()?"auto":"smooth"})}},RM()?0:420)}
   setTimeout(function(){
    if(skin){S.skw=S.skw||{};S.skw[id]=1;save();
-    lesson('<div class="rt-skin">'+skinRb(id,"cheer")+'</div><h2>¡Ganaste a '+esc(RUMBO.SKINS[id].n)+'!</h2><p>Ya está en tu colección.</p><button class="ui-btn is-block is-sec" id="rtUse">Ponérmelo</button>',"Seguir",function(){refresh(true)});
-    var ub=$("#rtUse");if(ub)ub.onclick=function(){setSkin(id);$("#lpLok").click()};return}
+    lesson('<div class="rt-skin">'+skinRb(id,"cheer")+'</div><h2>¡Ganaste a '+esc(RUMBO.SKINS[id].n)+'!</h2><p>Ya está en tu colección.</p>'+keyHTML+'<button class="ui-btn is-block is-sec" id="rtUse">Ponérmelo</button>'+(door?'<button class="ui-btn is-block is-sec" id="ptGo">Abrir la puerta '+(it.chest+1)+'</button>':''),"Seguir",function(){after(false)});
+    var ub=$("#rtUse");if(ub)ub.onclick=function(){setSkin(id);$("#lpLok").click()};
+    var pg2=$("#ptGo");if(pg2)pg2.onclick=function(){var o=$("#lpLesson");if(o){o.classList.remove("on");setTimeout(function(){o.remove()},RM()?0:T.med)}after(true)};return}
    var left=progOf(id);
-   lesson('<div class="lp-chestbig">'+chestSVG(true)+'</div><h2>¡Unidad completa!</h2><p>'+(left.p>=1?'Completaste '+esc(c.name)+'. Su sello te espera en el mapa.':'Te faltan '+(left.total-left.done)+' lecciones para el sello.')+'</p>',"Seguir",function(){refresh(true)})},RM()?0:500);
+   lesson('<div class="lp-chestbig">'+chestSVG(true)+'</div><h2>'+(door?'¡Encontraste una llave!':'¡Unidad completa!')+'</h2>'+keyHTML+'<p>'+(door?'Abre la puerta '+(it.chest+1)+' en la nube junto a la espiral. ':'')+(left.p>=1?'Completaste '+esc(c.name)+'. Su sello te espera en el mapa.':'Te faltan '+(left.total-left.done)+' lecciones para el sello.')+'</p>'+(door?'<button class="ui-btn is-block is-sec" id="ptGo">Abrir la puerta ahora</button>':''),"Seguir",function(){after(false)});
+   var pg=$("#ptGo");if(pg)pg.onclick=function(){var o=$("#lpLesson");if(o){o.classList.remove("on");setTimeout(function(){o.remove()},RM()?0:T.med)}after(true)}},RM()?0:500);
  }
  function burstAt(b){if(RM())return;var cols=["#F2B544","#FFFFFF","#7FB59A","#8FC9E8"];for(var i=0;i<12;i++){var s=document.createElement("i");s.className="lp-pt";s.style.background=cols[i%4];s.style.setProperty("--a",(i*30)+"deg");b.appendChild(s);setTimeout(function(x){return function(){x.remove()}}(s),700)}}
  /* al terminar una lección: la parada se llena, chispas, y Rumbo camina a la siguiente */
