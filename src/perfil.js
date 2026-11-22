@@ -90,20 +90,19 @@ function renderYo(keep){
  /* 3. meta */
  h+='<section class="ui-card pf-goal at-in" style="--i:2"><div class="at-eb">Tu siguiente meta</div>'+Y.meta+'<div class="ui-prog is-gold" style="--v:'+(keep?Y.pr.toFixed(3):0)+'" data-v="'+Y.pr.toFixed(3)+'"><i></i></div></section>';
  /* 4. ajustes */
- h+=escYo();
  h+='<section class="at-sec at-in pf-aj" style="--i:3"><div class="at-sh"><h3>Ajustes</h3></div><div class="ui-card pf-list">'+
   row("edPick","map","Mis carreras",NP+" elegida"+(NP===1?"":"s")+" en tu mapa")+
   row("chg","heart","Mis temas",nt+" tema"+(nt===1?"":"s")+" elegido"+(nt===1?"":"s"))+
   row("edPerf2","user","Mi perfil y mi meta",(S.nick?esc(S.nick):"Sin apodo")+(S.grado?" · "+esc(gradoName(S.grado)):""))+
   '<div class="pf-edo pf-tema"><span class="pf-row-ic">'+ico(TEMA.dark()?"moon":"sun")+'</span><div class="pf-row-t"><b id="yTemaLab">Día o noche</b><div class="ui-seg" id="yTema" role="group" aria-labelledby="yTemaLab">'+[["auto","Automático"],["light","Día"],["dark","Noche"]].map(function(o){return '<button type="button" data-t="'+o[0]+'" aria-pressed="'+(TEMA.get()===o[0])+'">'+o[1]+'</button>'}).join("")+'</div></div></div>'+
-  '<div class="pf-edo"><span class="pf-row-ic">'+ico("globe")+'</span><div class="pf-row-t"><b id="yEdoLab">Mi estado</b><span>Opcional</span>'+edoWidget("y","yEdoLab")+'</div></div></div>'+
-  (Y.where&&!escYo()?'<div class="pf-soon">'+ico("book")+'<div>'+Y.where+'</div></div>':'')+
+  '<div class="pf-edo"><span class="pf-row-ic">'+ico("globe")+'</span><div class="pf-row-t"><b id="yEdoLab">Mis estados</b><span>Dónde vives y dónde quieres estudiar</span>'+edoWidget("y","yEdoLab")+'</div></div></div>'+
+  
   '<details class="priv pf-priv"><summary>Aviso de privacidad</summary>'+PRIV_FULL+'</details>'+'</section></div>';
  v.innerHTML=h;if(keep)v.scrollTop=sc;
  wireRumbo(v.querySelector(".pf-stage .rb"));
  if(!keep)requestAnimationFrame(function(){requestAnimationFrame(function(){var p=v.querySelector(".pf-goal .ui-prog");if(p)p.style.setProperty("--v",p.getAttribute("data-v"))})});
  skBind(v);escBind(v);
- bindEdo("y",function(id){renderYo(true);toast(id===EDO_NONE?"Listo, no lo guardamos":"Guardado: "+edoById(id).n)});
+ bindEdo("y",function(id,go){toast(go?"Guardado":(edoOk(id)?"Guardado: "+edoById(id).n:"Por ahora tenemos escuelas de Morelos y CDMX"))});
  $("#edPerf").onclick=$("#edPerf2").onclick=function(){showFlow("perfil",1,"edit")};
  $("#edPick").onclick=function(){openPicker("edit")};
  $("#chg").onclick=function(){appToQuiz()};

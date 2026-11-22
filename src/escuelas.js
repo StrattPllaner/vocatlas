@@ -20,7 +20,7 @@ function escItem(x){var u=escUni(x.u);if(!u)return "";
   '<details class="es-more"><summary>Costo y cómo se entra</summary><p><b>Costo.</b> '+esc(u.costo.txt)+' <small>('+escLink(u.costo.fuente)+(u.costo.conf!=="alta"?', por confirmar':'')+')</small></p>'+
   '<p><b>Examen.</b> '+esc(u.adm.examen)+'. '+esc(u.adm.txt)+' <small>('+escLink(u.adm.fuente)+(u.adm.conf!=="alta"?', por confirmar':'')+')</small></p>'+
   (u.url?'<a class="es-site" href="'+esc(u.url)+'" target="_blank" rel="noopener">Sitio oficial de '+esc(u.n)+'</a>':'')+'</details></li>'}
-function escSheet(id,edo){
+function escSheet(id,edo){if(typeof PUERTAS!=="undefined"){PUERTAS.sheet("escuelas",id,edo);return}
  var c=byId[id],d=CAT.uni.car[id],has={};d.donde.forEach(function(x){x.edo.forEach(function(e){has[e]=(has[e]||0)+1})});
  var cur=edo||(S.edo&&S.edo!==EDO_NONE&&edoById(S.edo)?S.edo:(has.CMX?"CMX":Object.keys(has)[0]));
  var list=d.donde.filter(function(x){return x.edo.indexOf(cur)>=0}).sort(function(a,b){var ua=escUni(a.u),ub=escUni(b.u);return (ua&&ua.tipo==="publica"?0:1)-(ub&&ub.tipo==="publica"?0:1)});

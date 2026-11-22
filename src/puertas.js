@@ -61,35 +61,46 @@ var PUERTAS=(function(){
  function big(lab,val,unit,cls,d){note(d);return '<div class="pt-big '+(cls||"")+'"><span class="pt-tl">'+lab+'</span><b class="num">'+esc(val)+'</b>'+(unit?'<span class="pt-tu">'+esc(unit)+'</span>':'')+'</div>'}
  function money$(v){return String(v).replace(/(^|\s|a\s)(\d)/g,function(m,p,dg){return p+"$"+dg}).replace(/^Gratis a \$/,"Gratis a $")}
  function pubpri(u){return '<span class="pt-tag t-'+u.tipo+'">'+(u.tipo==="publica"?"Pública":"Privada")+'</span>'}
+ /* pestañas de estado: solo Morelos y CDMX; cada uno con su propia información */
+ function tabs(id,cur){var L=EDO2.filter(function(e){return (CAT.uni&&CAT.uni.car&&CAT.uni.car[id]&&CAT.uni.car[id].donde.some(function(x){return x.edo.indexOf(e.id)>-1}))}),go=edosGo();
+  L.sort(function(a,b){return (go.indexOf(a.id)<0)-(go.indexOf(b.id)<0)});
+  return '<div class="pt-edos" role="tablist" aria-label="Estado">'+L.map(function(e){return '<button type="button" role="tab" class="pt-edo" data-edo="'+e.id+'" aria-selected="'+(e.id===cur)+'">'+esc(e.n)+'</button>'}).join("")+'</div>'}
+ function curEdo(id,edo){var d=CAT.uni&&CAT.uni.car&&CAT.uni.car[id];if(!d)return null;var has=function(e){return d.donde.some(function(x){return x.edo.indexOf(e)>-1})};
+  if(edo&&has(edo))return edo;var g=edosGo().filter(has);return g[0]||(has("MOR")?"MOR":has("CMX")?"CMX":null)}
+ function enEdo(id,e){var d=CAT.uni.car[id],seen={},out=[];d.donde.forEach(function(x){if(x.edo.indexOf(e)<0)return;var u=escUni(x.u);if(!u)return;
+   /* la sede tiene que estar en ese estado */
+   if(seen[u.id+x.sede])return;seen[u.id+x.sede]=1;out.push({u:u,x:x})});
+  return out.sort(function(a,b){return (a.u.tipo==="publica"?0:1)-(b.u.tipo==="publica"?0:1)})}
+ function enOne(L){var seen={},o=[];L.forEach(function(q){if(!seen[q.u.id]){seen[q.u.id]=1;o.push(q)}});return o}
+ function noEdo(id){return '<div class="pt-empty">Todavía no tenemos escuelas verificadas de esta carrera en Morelos ni en Ciudad de México. No las vamos a inventar.</div>'}
  var BODY={
-  costo:function(id,c){var h="",pu=cif(id,"costo_publica"),pr=cif(id,"costo_privada"),be=cif(id,"becas");
-   if(!pu&&!pr)return '<div class="pt-empty">Todavía no tenemos este dato verificado. No lo vamos a inventar.</div>';
-   h+='<p class="pt-q">Lo que cobra la escuela, por semestre:</p><div class="pt-bigs">'+(pu?big("Escuela pública",money$(pu.valor),"",'is-pub',pu):'')+(pr?big("Escuela privada",money$(pr.valor),"",'is-pri',pr):'')+'</div>';
+  costo:function(id,c,edo){var e=curEdo(id,edo);if(!e)return noEdo(id);var L=enOne(enEdo(id,e));
+   var pub=L.filter(function(q){return q.u.tipo==="publica"}),pri=L.filter(function(q){return q.u.tipo!=="publica"});
+   var h=tabs(id,e)+'<p class="pt-q">Lo que cobra cada escuela en '+esc(edoName2(e))+':</p>';
+   function row(q){note(q.u.costo);return '<li><div class="pt-lt"><b>'+esc(q.u.n)+'</b>'+pubpri(q.u)+'</div><p>'+esc(q.u.costo.txt)+'</p>'+(q.u.costo.conf!=="alta"?'<small class="pt-cf">Por confirmar</small>':'')+'</li>'}
+   if(pub.length)h+='<h4 class="pt-h">Públicas</h4><ul class="pt-list">'+pub.map(row).join("")+'</ul>';
+   if(pri.length)h+='<h4 class="pt-h">Privadas</h4><ul class="pt-list">'+pri.map(row).join("")+'</ul>';
    h+='<p class="pt-tip">Aparte, cuenta lo de transporte, comida y materiales.</p>';
-   if(be){note(be);h+='<div class="pt-card pt-beca"><b>¿No te alcanza? Hay becas</b><p>'+esc(String(be.valor))+'</p>'+(be.url?'<a class="pt-link" href="'+esc(be.url)+'" target="_blank" rel="noopener">Ver la beca</a>':'')+'</div>'}
-   var e=edoNow(id),L=e?unisOf(id,e):null;
-   if(L&&L.length)h+='<details class="pt-more"><summary>Ver escuela por escuela en '+esc(edoName(e))+'</summary><ul class="pt-list">'+L.map(function(o){note(o.u.costo);return '<li><div class="pt-lt"><b>'+esc(o.u.n)+'</b>'+pubpri(o.u)+'</div><p>'+esc(o.u.costo.txt)+'</p></li>'}).join("")+'</ul></details>';
+   var B=(CAT.uni&&CAT.uni.becas||[]).filter(function(b){return /Jóvenes|federal/i.test(b.n+b.quien)||L.some(function(q){return b.n.indexOf(q.u.n)>-1})});
+   if(B.length)h+='<div class="pt-card pt-beca"><b>¿No te alcanza? Hay becas</b>'+B.map(function(b){return '<p>'+esc(b.n)+(b.url?' · <a class="pt-link" href="'+esc(b.url)+'" target="_blank" rel="noopener">Ver</a>':'')+'</p>'}).join("")+'</div>';
    return h},
-  escuelas:function(id,c,edo){var d=CAT.uni&&CAT.uni.car&&CAT.uni.car[id];if(!d||!d.donde.length)return noUni();
-   var has={};d.donde.forEach(function(x){x.edo.forEach(function(e){has[e]=(has[e]||0)+1})});var cur=edo||edoNow(id),list=d.donde.filter(function(x){return x.edo.indexOf(cur)>=0}).sort(function(a,b){var ua=escUni(a.u),ub=escUni(b.u);return (ua&&ua.tipo==="publica"?0:1)-(ub&&ub.tipo==="publica"?0:1)});
-   var h='<div class="pt-edos" role="tablist" aria-label="Estado">'+Object.keys(has).map(function(e){return '<button type="button" role="tab" class="pt-edo" data-edo="'+e+'" aria-selected="'+(e===cur)+'">'+esc(edoName(e))+' <b>'+has[e]+'</b></button>'}).join("")+'</div>';
-   h+='<ul class="pt-list pt-unis">'+list.map(function(x){var u=escUni(x.u);if(!u)return "";note(u.costo);return '<li><div class="pt-lt"><b>'+esc(u.n)+'</b>'+pubpri(u)+'</div><p>'+esc(x.sede)+'</p>'+(u.url?'<a class="pt-link" href="'+esc(u.url)+'" target="_blank" rel="noopener">Sitio oficial</a>':'')+'</li>'}).join("")+'</ul>';
-   return h},
-  entrar:function(id,c){var h="",du=cif(id,"duracion");
+  escuelas:function(id,c,edo){var e=curEdo(id,edo);if(!e)return noEdo(id);var L=enEdo(id,e);
+   return tabs(id,e)+'<p class="pt-q">'+L.length+' opci'+(L.length===1?'ón':'ones')+' en '+esc(edoName2(e))+', primero las públicas:</p><ul class="pt-list pt-unis">'+L.map(function(q){note(q.u.costo);return '<li><div class="pt-lt"><b>'+esc(q.u.n)+'</b>'+pubpri(q.u)+(q.x.conf!=="alta"?'<span class="pt-tag t-cf">Por confirmar</span>':'')+'</div><p>'+esc(q.x.sede)+'</p>'+(q.u.url?'<a class="pt-link" href="'+esc(q.u.url)+'" target="_blank" rel="noopener">Sitio oficial</a>':'')+'</li>'}).join("")+'</ul>'},
+  entrar:function(id,c,edo){var e=curEdo(id,edo),h="",du=cif(id,"duracion");
    if(du)h+='<div class="pt-bigs">'+big("Dura",String(du.valor),du.unidad||"",'is-dur',du)+'</div>'+(du.nota&&du.nota.length<140?'<p class="pt-tip">'+esc(du.nota)+'</p>':'');
-   var e=edoNow(id),L=e?unisOf(id,e):null;
-   if(L&&L.length)h+='<p class="pt-q">Para entrar, haces un examen. En '+esc(edoName(e))+':</p><ul class="pt-list pt-exams">'+L.map(function(o){note(o.u.adm);return '<li><div class="pt-lt"><b>'+esc(o.u.n)+'</b>'+pubpri(o.u)+'</div><p>'+esc(o.u.adm.examen)+'</p></li>'}).join("")+'</ul>';
-   else if(!du)h+=noUni();
+   if(!e)return h+noEdo(id);var L=enOne(enEdo(id,e));
+   h+=tabs(id,e)+'<p class="pt-q">Para entrar haces un examen. En '+esc(edoName2(e))+':</p><ul class="pt-list pt-exams">'+L.map(function(q){note(q.u.adm);return '<li><div class="pt-lt"><b>'+esc(q.u.n)+'</b>'+pubpri(q.u)+'</div><p>'+esc(q.u.adm.examen)+'</p></li>'}).join("")+'</ul>';
    return h},
   trabajo:function(id,c){var d=cif(id,"ingreso");if(!d)return '<div class="pt-empty">Todavía no tenemos este dato verificado. No lo vamos a inventar.</div>';
    note(d);var n=suNum(d),R=typeof suRank==="function"?suRank():[],pos=R.findIndex(function(x){return x.c.id===id})+1,oc=cif(id,"ocupacion_afin");if(oc)note(oc);
-   var h='<p class="pt-q">Lo que gana en promedio quien estudió '+esc(c.name)+':</p><div class="pt-bigs">'+big("Al mes",suFmt(n),"",'is-pay',null)+'</div>';
+   var h='<div class="pt-nat">Promedio de todo México. No existe un dato confiable por estado, así que no lo separamos.</div><p class="pt-q">Lo que gana en promedio quien estudió '+esc(c.name)+':</p><div class="pt-bigs">'+big("Al mes",suFmt(n),"",'is-pay',null)+'</div>';
    if(pos&&R.length){var max=R[0].n;h+='<div class="pt-card"><b>Lugar '+pos+' de '+R.length+' carreras</b><div class="pt-rank"><i style="width:'+(n/max*100).toFixed(0)+'%;background:'+c.color+'"></i></div></div>'}
    if(oc)h+='<div class="pt-card"><b>'+esc(String(oc.valor))+' de cada 100</b><p>trabajan en algo de su carrera.</p></div>';
    h+='<p class="pt-tip">Es un promedio: unos ganan más y otros menos.</p>';return h}};
+ function edoName2(e){return e==="CMX"?"Ciudad de México":e==="MOR"?"Morelos":e}
  function body(k,id,c,x){SRC=[];var h=BODY[k](id,c,x);return h+srcList()}
  function srcList(){if(!SRC.length)return "";return '<details class="pt-srcs"><summary>¿De dónde salen estos datos?</summary><ul>'+SRC.map(function(x){return '<li>'+(x.u?'<a href="'+esc(x.u)+'" target="_blank" rel="noopener">'+esc(x.t.replace(/^https?:\/\/(www\.)?/,"").split("/")[0])+'</a>':esc(x.t))+(x.c?' <i>(por confirmar)</i>':'')+'</li>'}).join("")+'</ul><p>'+(CAT.uni?esc(CAT.uni.nota):'Las cifras cambian cada año.')+'</p></details>'}
- var SAY={costo:"¿Cuánto cuesta estudiar {c}? Depende mucho de la escuela.",escuelas:"Estas escuelas tienen {c}. Primero las públicas.",entrar:"Así entras a {c} y esto dura.",trabajo:"¿Y al terminar? Esto se gana."};
+ var SAY={costo:"¿Cuánto cuesta estudiar {c}? Depende de la escuela y del estado.",escuelas:"Aquí se estudia {c}. Cambia de estado arriba.",entrar:"Así entras a {c} y esto dura.",trabajo:"¿Y al terminar? Esto se gana."};
 
  /* ---------- abrir una puerta: la puerta se abre a pantalla completa y adentro está la información ---------- */
  function open(id,u,from){var c=byId[id],d=D[u];if(!c||!d)return;
@@ -111,7 +122,7 @@ var PUERTAS=(function(){
  function nav(id,u){var o="";for(var i=0;i<D.length;i++){if(i===u)continue;var st=state(id,i);o+='<button type="button" class="pt-nb s-'+st+'" data-u="'+i+'"'+(st==="lock"?' aria-disabled="true"':'')+'><span class="pt-nd" style="background:'+D[i].col+'">'+(st==="lock"?'<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4"><rect x="6" y="11" width="12" height="9" rx="2"/><path d="M9 11V8a3 3 0 016 0v3"/></svg>':(i+1))+'</span><span><b>'+esc(D[i].t)+'</b><small>'+(st==="lock"?"Llave en el cofre "+(i+1):D[i].s)+'</small></span></button>'}
   return '<div class="pt-nav" role="navigation" aria-label="Otras puertas"><h4>Otras puertas</h4>'+o+'</div>'}
  function wire(el,id,u,close){
-  each(el.querySelectorAll(".pt-edo"),function(b){b.onclick=function(){var box=el.querySelector(".pt-content");box.innerHTML=body("escuelas",id,byId[id],b.getAttribute("data-edo"));wire(el,id,u,close)}});
+  each(el.querySelectorAll(".pt-edo"),function(b){b.onclick=function(){var box=el.querySelector(".pt-content");box.innerHTML=body(D[u].k,id,byId[id],b.getAttribute("data-edo"));wire(el,id,u,close)}});
   each(el.querySelectorAll(".pt-nb"),function(b){b.onclick=function(){var i=+b.getAttribute("data-u");if(!hasKey(id,i)){if(typeof toast==="function")toast("Esta puerta se abre con la llave del cofre de la unidad "+(i+1)+".");return}close();setTimeout(function(){open(id,i)},RM()?0:320)}})}
  /* actualiza las nubes de la espiral (al abrir un cofre o al cerrar una puerta) */
  function sync(id,anim){each(document.querySelectorAll('.tw-door[data-c="'+id+'"]'),function(b){var u=+b.getAttribute("data-u"),st=state(id,u);if(b.__st===st)return;var was=b.__st;b.__st=st;
@@ -162,4 +173,9 @@ var PUERTAS=(function(){
   setTimeout(function(){var b=el.querySelector(".cer-go");if(b)b.focus()},RM()?0:1500);
   /* sin traje que mostrar, la llave se va sola a su puerta */
   if(d&&!o.skin)el.__auto=setTimeout(fly,RM()?600:3200)}
- return {ceremony:ceremony,D:D,n:n,state:state,hasKey:hasKey,doorHTML:doorHTML,label:label,open:open,sync:sync,bind:bind,KEY:KEY}})();
+ /* para otras pantallas: el contenido de una puerta, sin la puerta */
+ function sheet(k,id,edo){var c=byId[id];var el=document.createElement("div");el.className="ui-sheet pt-sheet";el.setAttribute("role","dialog");el.setAttribute("aria-modal","true");el.setAttribute("aria-label",D.filter(function(x){return x.k===k})[0].t);
+  el.style.setProperty("--pc",c.color);el.innerHTML='<h3>'+esc(D.filter(function(x){return x.k===k})[0].t)+' · '+esc(c.name)+'</h3><div class="pt-content">'+body(k,id,c,edo)+'</div><button type="button" class="ui-btn is-block pt-ok">Listo</button>';
+  var close=uiLayer(el,true);el.querySelector(".pt-ok").onclick=close;
+  (function w(){each(el.querySelectorAll(".pt-edo"),function(b){b.onclick=function(){el.querySelector(".pt-content").innerHTML=body(k,id,c,b.getAttribute("data-edo"));w()}})})()}
+ return {sheet:sheet,ceremony:ceremony,D:D,n:n,state:state,hasKey:hasKey,doorHTML:doorHTML,label:label,open:open,sync:sync,bind:bind,KEY:KEY}})();

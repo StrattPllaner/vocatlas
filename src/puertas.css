@@ -144,3 +144,12 @@
 .pt-srcs ul{margin:0;padding:0 16px 4px 34px;font-size:13.5px;line-height:1.5;color:var(--c-ink-2,#3B5260)}.pt-srcs a{color:inherit}
 .pt-srcs p{margin:6px 16px 14px;font-size:12.5px;color:var(--c-ink-3,#5C6B76)}
 .pt-unis li p,.pt-exams li p{margin-top:4px}
+.pt-h{margin:14px 0 8px;font-size:13px;font-weight:900;letter-spacing:.04em;text-transform:uppercase;color:var(--c-ink-3,#5C6B76)}
+.pt-cf,.pt-tag.t-cf{display:inline-block;margin-top:4px;font-size:11.5px;font-weight:800;color:#8A5A1E;background:#FFF1CC;padding:2px 8px;border-radius:999px}
+.pt-nat{margin:0 0 14px;padding:10px 14px;border-radius:14px;background:#EAF3FA;color:#2C5A7A;font-size:14px;font-weight:700;line-height:1.35}
+.pt-edos{position:sticky;top:0;z-index:1;background:var(--c-bg,#F6EFE2);padding:4px 0 8px;margin:0 0 6px}
+.edo2{display:flex;flex-direction:column;gap:14px}.edo2-q{display:flex;flex-direction:column;gap:8px}.edo2-l{font-size:14.5px;font-weight:800;color:var(--ink-2,#3B5260)}
+.edo2-o{display:flex;flex-wrap:wrap;gap:8px}
+.edo2-o button{min-height:44px;padding:0 16px;border-radius:999px;border:2px solid var(--line-2,#DDD3C2);background:var(--surface,#FFFBF2);color:var(--ink,#14323F);font:inherit;font-size:15.5px;font-weight:800;cursor:pointer}
+.edo2-o button[aria-checked=true],.edo2-o button[aria-pressed=true]{background:var(--ink,#14323F);border-color:var(--ink,#14323F);color:#fff}
+.edo2-n{font-size:13px;color:var(--ink-2,#3B5260)}

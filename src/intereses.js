@@ -82,7 +82,7 @@ function ipResult(e,old){
 /* comparador: dos o tres carreras de tu mapa lado a lado */
 function openCompare(){
  var cs=MC(),sel=cs.slice().sort(function(a,b){return progOf(b.id).p-progOf(a.id).p}).slice(0,Math.min(innerWidth<480?2:3,cs.length)).map(function(c){return c.id});
- var ROWS=[["Duración de la carrera","duracion"],["Costo por semestre, pública","costo_publica"],["Costo por semestre, privada","costo_privada"],["Ingreso mensual promedio","ingreso"],["Trabajan en algo de su carrera","ocupacion_afin"]];
+ var ROWS=[["Duración de la carrera","duracion"],["Ingreso mensual promedio (todo México)","ingreso"],["Trabajan en algo de su carrera","ocupacion_afin"]];
  function cell(id,k){var d=(CAT.cif||{})[id+"."+k];return d&&d.estado!=="pendiente"&&d.valor!=null?'<b class="num">'+esc(String(d.valor))+'</b> <small>'+esc(d.unidad||"")+'</small>':'<span class="cmp-p">Pendiente</span>'}
  function mine(id){var A=(S.auto||{})[id]||{},n=0,si=0,sc=0;for(var k in A){n++;si+=A[k].i;sc+=A[k].c}return {i:n?(si/n).toFixed(1):"—",c:n?(sc/n).toFixed(1):"—"}}
  var VER={si:"La guardo",duda:"En duda",no:"La descarto"};
