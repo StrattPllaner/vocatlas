@@ -3025,6 +3025,22 @@ body:not(.on-map):not(.lp-open)::before{content:"";position:fixed;left:0;right:0
 @keyframes bt2In{to{opacity:1;transform:none}}
 @keyframes bt2Seek{0%{transform:rotate(-140deg)}55%{transform:rotate(26deg)}75%{transform:rotate(-10deg)}88%{transform:rotate(4deg)}100%{transform:rotate(0)}}
 @media (prefers-reduced-motion:reduce){.bt2-cmp,.bt2-wm,.bt2-say,.bt2-bar{animation:none;opacity:1;transform:none}.bt2-needle{animation:none}}
+/* logo: las manecillas giran como un reloj y se detienen formando la V; abajo el nombre con relieve */
+.bt3-logo{width:132px;height:140px;color:var(--ink,#14323F)}.bt3-logo svg{width:100%;height:100%;overflow:visible}
+.bt3-h{transform-origin:238px 378px;transform-box:view-box}
+.bt3-l{animation:bt3L 1.9s cubic-bezier(.25,.1,.15,1) both}
+.bt3-r{animation:bt3R 1.9s cubic-bezier(.25,.1,.15,1) both}
+.bt3-ring{animation:bt3Ring .5s ease both}
+@keyframes bt3L{0%{transform:rotate(-900deg)}86%{transform:rotate(6deg)}100%{transform:rotate(0)}}
+@keyframes bt3R{0%{transform:rotate(-400deg)}86%{transform:rotate(-5deg)}100%{transform:rotate(0)}}
+@keyframes bt3Ring{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:none}}
+.bt3-wm{font-family:"Nunito",system-ui,sans-serif;font-weight:900;font-size:44px;letter-spacing:.01em;line-height:1;color:var(--ink,#14323F);
+ text-shadow:0 1px 0 #2A4B5B,0 2px 0 #2A4B5B,0 3px 0 #22404F,0 4px 0 #1C3644,0 5px 0 #162C38,0 9px 12px rgba(10,25,40,.28);
+ opacity:0;transform:translateY(10px) scale(.96);animation:bt2In .6s cubic-bezier(.2,1.2,.4,1) 1.5s forwards}
+:root[data-theme=dark] .bt3-wm{text-shadow:0 1px 0 #B9C6CF,0 2px 0 #9FB0BC,0 3px 0 #8A9CA9,0 4px 0 #758896,0 8px 12px rgba(0,0,0,.4)}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]) .bt3-wm{text-shadow:0 1px 0 #B9C6CF,0 2px 0 #9FB0BC,0 3px 0 #8A9CA9,0 4px 0 #758896,0 8px 12px rgba(0,0,0,.4)}}
+.bt2-say{animation-delay:1.7s}.bt2-bar{animation-delay:1.7s}
+@media (prefers-reduced-motion:reduce){.bt3-h,.bt3-ring,.bt3-wm{animation:none;opacity:1;transform:none}}
 /* explicación animada, globo de Rumbo y video */
 .ex{background:#FFF8EA;border:2px solid #3A3026;border-radius:20px;padding:12px;box-shadow:0 4px 0 #3A3026;max-width:520px;color:#14323F}
 .ex-say{position:relative;min-height:64px;margin-top:10px}
@@ -3100,12 +3116,12 @@ body:not(.on-map):not(.lp-open)::before{content:"";position:fixed;left:0;right:0
 
 <div id="boot" role="status" aria-label="Cargando Vocatlas">
   <div class="bt2">
-    <div class="bt2-cmp" aria-hidden="true">
-      <svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="54" class="bt2-ring"/><circle cx="60" cy="60" r="54" class="bt2-arc" pathLength="100"/>
-       <g class="bt2-ticks"><path d="M60 12v8M60 100v8M12 60h8M100 60h8"/></g>
-       <g class="bt2-needle"><path d="M60 22L67 60L60 66L53 60Z" class="n"/><path d="M60 98L67 60L60 54L53 60Z" class="s"/><circle cx="60" cy="60" r="4.5" class="c"/></g></svg>
-    </div>
-    <div class="bt-wm bt2-wm"><span class="logo" id="logob"></span><span class="wm">Vocatlas</span></div>
+    <div class="bt3-logo" aria-hidden="true"><svg viewBox="44 40 388 410">
+      <circle cx="238" cy="378" r="41" fill="none" stroke="currentColor" stroke-width="24" class="bt3-ring"/>
+      <g class="bt3-h bt3-l"><g stroke="currentColor" stroke-width="6" stroke-linejoin="round"><path d="M80 108L110 98L256 334L222 352Z" fill="currentColor"/><path d="M80 78L110 98L80 108Z" fill="#8E929C"/></g></g>
+      <g class="bt3-h bt3-r"><g stroke="currentColor" stroke-width="6" stroke-linejoin="round"><path d="M396 108L366 98L220 334L254 352Z" fill="currentColor"/><path d="M396 78L366 98L396 108Z" fill="#26408A"/></g></g>
+      <circle cx="238" cy="378" r="29" fill="var(--bg,#F7F5EA)"/><circle cx="238" cy="378" r="11" fill="currentColor"/></svg></div>
+    <div class="bt3-wm" aria-hidden="true">Vocatlas</div><span id="logob" style="display:none"></span>
     <p class="bt-say bt2-say" id="btSay">Trazando tu atlas</p>
     <div class="bt2-bar" id="btTrail" role="progressbar" aria-label="Cargando" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i></i></div>
     <div hidden><svg><path id="btRoute" d="M0 0L1 1"/><g id="btStops"></g></svg><div id="btRb"></div></div>
@@ -5761,7 +5777,7 @@ function boot(){
  function finish(){
   if(ended)return;ended=true;clearInterval(timer);
   var rb=bt.querySelector(".rb");if(rb&&shownAt){rb.classList.remove("walk");mood(rb,"happy","wave")}
-  var wait=shownAt?Math.max(RM()?0:1100,1000-(now()-shownAt)):0;
+  var wait=shownAt?Math.max(RM()?0:500,2300-(now()-shownAt)):0;
   setTimeout(function(){
    startApp(1);
    if(!shownAt){bt.style.display="none";return}

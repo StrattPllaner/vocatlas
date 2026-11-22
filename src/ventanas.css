@@ -31,3 +31,19 @@
 @keyframes bt2In{to{opacity:1;transform:none}}
 @keyframes bt2Seek{0%{transform:rotate(-140deg)}55%{transform:rotate(26deg)}75%{transform:rotate(-10deg)}88%{transform:rotate(4deg)}100%{transform:rotate(0)}}
 @media (prefers-reduced-motion:reduce){.bt2-cmp,.bt2-wm,.bt2-say,.bt2-bar{animation:none;opacity:1;transform:none}.bt2-needle{animation:none}}
+/* logo: las manecillas giran como un reloj y se detienen formando la V; abajo el nombre con relieve */
+.bt3-logo{width:132px;height:140px;color:var(--ink,#14323F)}.bt3-logo svg{width:100%;height:100%;overflow:visible}
+.bt3-h{transform-origin:238px 378px;transform-box:view-box}
+.bt3-l{animation:bt3L 1.9s cubic-bezier(.25,.1,.15,1) both}
+.bt3-r{animation:bt3R 1.9s cubic-bezier(.25,.1,.15,1) both}
+.bt3-ring{animation:bt3Ring .5s ease both}
+@keyframes bt3L{0%{transform:rotate(-900deg)}86%{transform:rotate(6deg)}100%{transform:rotate(0)}}
+@keyframes bt3R{0%{transform:rotate(-400deg)}86%{transform:rotate(-5deg)}100%{transform:rotate(0)}}
+@keyframes bt3Ring{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:none}}
+.bt3-wm{font-family:"Nunito",system-ui,sans-serif;font-weight:900;font-size:44px;letter-spacing:.01em;line-height:1;color:var(--ink,#14323F);
+ text-shadow:0 1px 0 #2A4B5B,0 2px 0 #2A4B5B,0 3px 0 #22404F,0 4px 0 #1C3644,0 5px 0 #162C38,0 9px 12px rgba(10,25,40,.28);
+ opacity:0;transform:translateY(10px) scale(.96);animation:bt2In .6s cubic-bezier(.2,1.2,.4,1) 1.5s forwards}
+:root[data-theme=dark] .bt3-wm{text-shadow:0 1px 0 #B9C6CF,0 2px 0 #9FB0BC,0 3px 0 #8A9CA9,0 4px 0 #758896,0 8px 12px rgba(0,0,0,.4)}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]) .bt3-wm{text-shadow:0 1px 0 #B9C6CF,0 2px 0 #9FB0BC,0 3px 0 #8A9CA9,0 4px 0 #758896,0 8px 12px rgba(0,0,0,.4)}}
+.bt2-say{animation-delay:1.7s}.bt2-bar{animation-delay:1.7s}
+@media (prefers-reduced-motion:reduce){.bt3-h,.bt3-ring,.bt3-wm{animation:none;opacity:1;transform:none}}
