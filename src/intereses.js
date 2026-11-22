@@ -27,7 +27,7 @@ function ipBindCred(root){each(root.querySelectorAll('[data-a="mod"]'),function(
 function ipDate(t){try{return new Date(t).toLocaleDateString("es-MX",{day:"numeric",month:"long",year:"numeric"})}catch(e){return ""}}
 
 /* pantalla de inicio del test */
-function openIP(){
+function openIP(){if(!ipReady("30")&&!ipReady("60")){ipsfRun();return}
  var ok30=ipReady("30"),ok60=ipReady("60"),hist=S.ip||[],dr=S.ipd,ver=dr&&ipReady(dr.v)?dr.v:"30";
  var h='<div class="ip-hero">'+rumboEl()+'<div><h3>¿Qué te gusta hacer?</h3><p>Contestas qué tanto te gustaría hacer distintas actividades. Al final ves tus seis tipos de interés y hacia qué carreras de Vocatlas apuntan.</p></div></div>';
  if(!ok30&&!ok60)h+='<div class="ip-wait"><b>El test está construido, pero todavía no tiene cargadas las preguntas oficiales.</b><p>Usamos las preguntas exactas del O*NET® Interest Profiler en español y no vamos a inventar ni traducir ninguna. En cuanto se carguen desde el servicio oficial, aquí podrás empezar.</p></div>';
@@ -113,3 +113,41 @@ function probarTop(){
  var top=last?IPA.slice().sort(function(a,b){return last.s[b]-last.s[a]}).slice(0,3).map(function(a){return ipName(a)}).join(", "):"";
  return '<div class="pb-cards"><button type="button" class="ui-card pb-card" id="pbIP"><span class="pb-ic">'+ico("compass")+'</span><span class="pb-t"><b>Test de intereses</b><small>'+(last?'Tu último resultado: '+esc(top):ready?(S.ipd&&S.ipd.a?'Lo dejaste a la mitad. Síguele.':'Qué tipo de actividades te atraen. 5 a 10 min.'):'Muy pronto: faltan las preguntas oficiales.')+'</small></span>'+ico("next")+'</button></div>'}
 function probarBind(v){var a=v.querySelector("#pbIP");if(a)a.onclick=openIP}
+
+/* ================= test de intereses (versión corta de 60 actividades) =================
+   Basado en el O*NET® Interest Profiler Short Form (60 actividades; se cuentan las que te gustaría hacer en cada una de las
+   seis áreas, de 0 a 10). Traducción al español nuestra; ver ipsfCredit. Usado bajo la O*NET Tools Developer License. */
+var IPSF={realistic:["Hacer muebles de cocina","Poner ladrillo o azulejo","Reparar aparatos de la casa","Criar peces en un criadero","Armar piezas electrónicas","Manejar un camión para entregar paquetes en oficinas y casas","Revisar la calidad de piezas antes de enviarlas","Reparar e instalar cerraduras","Preparar y operar máquinas para fabricar productos","Apagar incendios forestales"],
+ investigative:["Crear una medicina nueva","Estudiar cómo reducir la contaminación del agua","Hacer experimentos de química","Estudiar el movimiento de los planetas","Examinar muestras de sangre con un microscopio","Investigar la causa de un incendio","Encontrar una forma de predecir mejor el clima","Trabajar en un laboratorio de biología","Inventar un sustituto del azúcar","Hacer pruebas de laboratorio para identificar enfermedades"],
+ artistic:["Escribir libros u obras de teatro","Tocar un instrumento musical","Componer o hacer arreglos de música","Dibujar","Crear efectos especiales para películas","Pintar escenografías para obras de teatro","Escribir guiones de cine o televisión","Bailar jazz o tap","Cantar en una banda","Editar películas"],
+ social:["Enseñarle a alguien una rutina de ejercicio","Ayudar a personas con problemas personales o emocionales","Dar orientación vocacional","Dar terapia de rehabilitación","Hacer voluntariado en una organización sin fines de lucro","Enseñarles a niños a practicar deportes","Enseñar lengua de señas a personas sordas","Ayudar a dirigir una sesión de terapia en grupo","Cuidar niños en una guardería","Dar clases en una prepa"],
+ enterprising:["Comprar y vender acciones y bonos","Administrar una tienda","Tener un salón de belleza o una barbería","Dirigir un departamento en una empresa grande","Empezar tu propio negocio","Negociar contratos de negocios","Representar a un cliente en un juicio","Lanzar al mercado una nueva línea de ropa","Vender mercancía en una tienda departamental","Administrar una tienda de ropa"],
+ conventional:["Hacer una hoja de cálculo en la computadora","Revisar registros o formularios para corregir errores","Instalar programas en las computadoras de una red grande","Usar una calculadora","Llevar el registro de envíos y recepciones","Calcular los sueldos de los empleados","Hacer inventario de material con una computadora de mano","Registrar pagos de renta","Llevar registros de inventario","Sellar, ordenar y repartir el correo de una organización"]};
+var IPSF_N={realistic:["Hacer con las manos","Te gusta construir, reparar y trabajar con herramientas, máquinas o al aire libre."],investigative:["Investigar","Te gusta descubrir por qué pasan las cosas, experimentar y resolver problemas con ciencia."],
+ artistic:["Crear","Te gusta expresarte: escribir, dibujar, actuar, la música, el diseño."],social:["Ayudar","Te gusta enseñar, cuidar, escuchar y trabajar con personas."],
+ enterprising:["Emprender","Te gusta convencer, dirigir, vender y tomar decisiones."],conventional:["Organizar","Te gusta el orden: datos, registros, números y procesos claros."]};
+function ipsfCredit(){return '<p class="ipsf-cred">Este test usa información de las <a href="https://www.onetcenter.org/tools.html" target="_blank" rel="noopener">O*NET® Career Exploration Tools</a> del Departamento del Trabajo de EE. UU. (USDOL/ETA), usada bajo la <a href="https://www.onetcenter.org/license_tools.html" target="_blank" rel="noopener">O*NET Tools Developer License</a>. O*NET es marca registrada de USDOL/ETA. Vocatlas tradujo y adaptó la presentación; USDOL/ETA no aprobó, respaldó ni probó estas modificaciones.</p>'}
+function ipsfItems(){var L=[];IPA.forEach(function(a){IPSF[a].forEach(function(t,i){L.push({a:a,t:t,k:a.charAt(0)+i})})});
+ /* se intercalan las áreas para que no salgan diez seguidas del mismo tipo */
+ var o=[];for(var i=0;i<10;i++)IPA.forEach(function(a,j){o.push(L[j*10+((i*7+j*3)%10)])});return o}
+function ipsfRun(){var Q=ipsfItems(),i=0,ans={},el=document.createElement("div");el.className="ipsf";el.setAttribute("role","dialog");el.setAttribute("aria-modal","true");el.setAttribute("aria-label","Test de intereses");
+ el.innerHTML='<div class="ipsf-in"><header><button type="button" class="ipsf-x" aria-label="Cerrar">'+IC.x+'</button><div class="ipsf-bar"><i></i></div><span class="ipsf-n"></span></header><div class="ipsf-body"></div></div>';
+ document.body.appendChild(el);void el.offsetWidth;el.classList.add("on");
+ var body=el.querySelector(".ipsf-body");
+ function close(){el.classList.remove("on");setTimeout(function(){el.remove()},RM()?0:300)}
+ el.querySelector(".ipsf-x").onclick=close;
+ function intro(){body.innerHTML='<div class="ipsf-intro"><h2>Test de intereses</h2><p>Te vamos a mostrar 60 actividades de trabajo. En cada una dinos si te gustaría hacerla.</p><ul><li>No pienses en cuánto se gana ni en cuánto hay que estudiar.</li><li>No hay respuestas buenas ni malas.</li><li>Son unos 5 minutos.</li></ul><button type="button" class="ui-btn is-block" id="ipsfGo">Empezar</button>'+ipsfCredit()+'</div>';el.querySelector(".ipsf-n").textContent="";body.querySelector("#ipsfGo").onclick=function(){draw()}}
+ function draw(){var q=Q[i];el.querySelector(".ipsf-bar i").style.transform="scaleX("+(i/Q.length)+")";el.querySelector(".ipsf-n").textContent=(i+1)+" de "+Q.length;
+  body.innerHTML='<div class="ipsf-card"><p class="ipsf-k">¿Te gustaría…</p><p class="ipsf-q">'+esc(q.t)+'?</p></div><div class="ipsf-a"><button type="button" class="ipsf-no" data-v="0">No</button><button type="button" class="ipsf-yes" data-v="1">Sí, me gustaría</button></div>'+(i?'<button type="button" class="ipsf-back">Regresar</button>':'');
+  each(body.querySelectorAll(".ipsf-a button"),function(b){b.onclick=function(){ans[q.k]=b.getAttribute("data-v")==="1";b.classList.add("on");setTimeout(function(){i++;if(i<Q.length)draw();else done()},RM()?0:160)}});
+  var bk=body.querySelector(".ipsf-back");if(bk)bk.onclick=function(){i--;draw()}}
+ function done(){var sc={};IPA.forEach(function(a){sc[a]=0});Q.forEach(function(q){if(ans[q.k])sc[q.a]++});
+  var e={t:Date.now(),v:"sf",s:sc};S.ip=(S.ip||[]).concat([e]).slice(-10);save();
+  el.querySelector(".ipsf-bar i").style.transform="scaleX(1)";el.querySelector(".ipsf-n").textContent="";
+  var top=IPA.slice().sort(function(a,b){return sc[b]-sc[a]}),M=ipMatch(sc,10).slice(0,5);
+  body.innerHTML='<div class="ipsf-res"><h2>Tus intereses</h2><p>Tus tres áreas más fuertes:</p><ol class="ipsf-top">'+top.slice(0,3).map(function(a,k){return '<li><span class="ipsf-r">'+(k+1)+'</span><div><b>'+IPSF_N[a][0]+'</b><small>'+IPSF_N[a][1]+'</small><span class="ipsf-sb"><i style="width:'+(sc[a]*10)+'%"></i></span></div><em>'+sc[a]+'/10</em></li>'}).join("")+'</ol>'+
+   '<h3>Carreras que van con eso</h3><ul class="ipsf-car">'+M.map(function(m){var c=byId[m.id];return c?'<li><i style="background:'+c.color+'"></i>'+esc(c.name)+'</li>':''}).join("")+'</ul>'+
+   '<button type="button" class="ui-btn is-block" id="ipsfMap">Armar mi mapa con esto</button><button type="button" class="ui-btn is-block is-sec" id="ipsfBack">Elegir temas también</button>'+ipsfCredit()+'</div>';
+  body.querySelector("#ipsfMap").onclick=function(){close();if(typeof quizPreview==="function")try{updateCount()}catch(x){}var g=$("#go");if(g){g.disabled=false;g.click()}};
+  body.querySelector("#ipsfBack").onclick=function(){close();try{updateCount()}catch(x){}}}
+ intro()}

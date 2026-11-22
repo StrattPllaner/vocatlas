@@ -2685,6 +2685,61 @@ img.tw-img.tw-back{opacity:.62;filter:saturate(.7)}
 @keyframes qpIn{from{opacity:0;transform:translateY(4px)}}
 @media (prefers-reduced-motion:reduce){.q-prev li{animation:none}}
 .q-grpc{gap:8px}.q-grpc .chip{min-height:42px;padding:0 14px 0 10px;font-size:15.5px;gap:8px}
+
+/* ================= ¿Qué te late? (rediseño) ================= */
+#quiz .qscroll{padding-bottom:calc(200px + var(--sab))}
+.q2-head{padding:8px 0 16px}.q2-head h1{font-size:clamp(34px,8vw,48px);margin:4px 0 8px;letter-spacing:-.015em}.q2-head p{font-size:16.5px;color:var(--ink-2)}
+.q2-test{display:flex;align-items:center;gap:14px;width:100%;padding:16px;border-radius:22px;border:0;background:linear-gradient(135deg,#1F3B57,#14323F);color:#fff;font:inherit;text-align:left;cursor:pointer;box-shadow:0 10px 24px rgba(20,50,63,.2)}
+.q2-test-ic{flex:0 0 auto;width:48px;height:48px;border-radius:16px;background:#F2C14E;color:#14323F;display:grid;place-items:center}.q2-test-ic svg{width:26px;height:26px}
+.q2-test b{display:block;font-size:16.5px}.q2-test small{display:block;margin-top:3px;font-size:13.5px;line-height:1.35;opacity:.85}
+.q2-test-go{margin-left:auto;font-size:28px;opacity:.7}
+.q2-or{display:flex;align-items:center;gap:12px;margin:22px 0 6px;color:var(--ink-3);font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.06em}.q2-or::before,.q2-or::after{content:"";flex:1;height:1px;background:var(--line-2)}
+#chips.q2-grid{display:block;padding:0}
+.q2-g{margin:16px 0 4px}.q2-g h2{display:flex;align-items:center;gap:8px;margin:0 0 10px;font-size:15px;font-weight:900;color:var(--ink)}.q2-g h2::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--g)}
+.q2-tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:10px}
+.q2-t.chip{position:relative;display:flex;align-items:center;gap:10px;min-height:60px;padding:10px 12px;border-radius:18px;border:1.5px solid var(--line-2);background:var(--surface);color:var(--ink);text-align:left;font-size:15px;font-weight:700;line-height:1.2;cursor:pointer;transition:background .18s,border-color .18s,transform .12s}
+.q2-t.chip:active{transform:scale(.97)}
+.q2-ic{flex:0 0 auto;width:38px;height:38px;border-radius:12px;background:color-mix(in srgb,var(--g) 14%,transparent);color:var(--g);display:grid;place-items:center;transition:background .18s,color .18s}.q2-ic svg{width:22px;height:22px}
+.q2-l{flex:1;min-width:0}
+.q2-ck{position:absolute;top:7px;right:7px;width:18px;height:18px;border-radius:50%;background:#fff;color:var(--g);display:grid;place-items:center;transform:scale(0);transition:transform .2s cubic-bezier(.3,1.6,.5,1)}.q2-ck svg{width:12px;height:12px}
+.q2-t.chip.on{background:var(--g);border-color:var(--g);color:#fff}.q2-t.chip.on .q2-ic{background:rgba(255,255,255,.2);color:#fff}.q2-t.chip.on .q2-ck{transform:none}
+.q2-t.chip::before{display:none}
+.q2-add{margin:18px 0 0}
+.q2-foot{border-radius:24px 24px 0 0}.q2-foot .qfoot-in{gap:8px}
+.q2-aim{margin:0;font-size:14px;line-height:1.35;color:var(--ink-2);min-height:1.35em}.q2-aim b{color:var(--ink)}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]) .q2-t.chip:not(.on){background:var(--surface)}}
+
+/* ================= test de intereses ================= */
+.ipsf{position:fixed;inset:0;z-index:1000;display:flex;justify-content:center;align-items:stretch;background:rgba(10,22,36,0);transition:background .3s}
+.ipsf.on{background:rgba(10,22,36,.55)}
+.ipsf-in{display:flex;flex-direction:column;width:100%;max-width:560px;background:var(--bg,#F6EFE2);color:var(--ink,#14323F);transform:translateY(12px) scale(.98);opacity:0;transition:transform .3s cubic-bezier(.2,1,.3,1),opacity .2s}
+.ipsf.on .ipsf-in{transform:none;opacity:1}
+@media (min-width:700px){.ipsf{align-items:center;padding:24px}.ipsf-in{border-radius:26px;max-height:calc(100dvh - 48px);overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.35)}}
+.ipsf-in header{display:flex;align-items:center;gap:12px;padding:calc(env(safe-area-inset-top,0px) + 12px) 16px 12px}
+.ipsf-x{width:44px;height:44px;border-radius:14px;border:0;background:var(--sunken,#EEE5D5);color:var(--ink);display:grid;place-items:center;cursor:pointer}.ipsf-x svg{width:20px;height:20px}
+.ipsf-bar{flex:1;height:8px;border-radius:999px;background:var(--line,#EDE4D3);overflow:hidden}.ipsf-bar i{display:block;height:100%;background:#3F9C7A;transform-origin:0 50%;transform:scaleX(0);transition:transform .3s}
+.ipsf-n{font-size:13px;font-weight:800;color:var(--ink-2);min-width:52px;text-align:right}
+.ipsf-body{flex:1;overflow-y:auto;padding:8px 20px calc(env(safe-area-inset-bottom,0px) + 24px);display:flex;flex-direction:column}
+.ipsf-intro h2,.ipsf-res h2{margin:8px 0 8px;font-size:28px;font-weight:900}.ipsf-intro p{font-size:16.5px;line-height:1.45;color:var(--ink-2)}
+.ipsf-intro ul{margin:10px 0 22px;padding-left:20px;line-height:1.6;color:var(--ink-2)}
+.ipsf-card{flex:1;display:flex;flex-direction:column;justify-content:center;min-height:220px;padding:10px 4px;animation:ipsfIn .28s ease both}
+.ipsf-k{margin:0;font-size:16px;font-weight:800;color:var(--ink-3)}.ipsf-q{margin:6px 0 0;font-size:clamp(26px,7vw,34px);line-height:1.2;font-weight:900}
+@keyframes ipsfIn{from{opacity:0;transform:translateX(16px)}}
+.ipsf-a{display:grid;grid-template-columns:1fr 1.4fr;gap:10px;margin-top:16px}
+.ipsf-a button{min-height:60px;border-radius:18px;border:2px solid var(--line-2);background:var(--surface);color:var(--ink);font:inherit;font-size:17px;font-weight:900;cursor:pointer}
+.ipsf-a .ipsf-yes{background:#3F9C7A;border-color:#3F9C7A;color:#fff}.ipsf-a button.on{transform:scale(.97)}
+.ipsf-back{align-self:center;margin-top:10px;border:0;background:none;color:var(--ink-2);font:inherit;font-weight:800;padding:12px;cursor:pointer}
+.ipsf-top{list-style:none;margin:10px 0 20px;padding:0;display:flex;flex-direction:column;gap:10px}
+.ipsf-top li{display:flex;align-items:center;gap:12px;padding:14px;border-radius:18px;background:var(--surface)}
+.ipsf-r{flex:0 0 auto;width:34px;height:34px;border-radius:50%;background:#14323F;color:#fff;font-weight:900;display:grid;place-items:center}
+.ipsf-top div{flex:1}.ipsf-top b{display:block;font-size:17px}.ipsf-top small{display:block;font-size:13.5px;color:var(--ink-2);line-height:1.35}
+.ipsf-sb{display:block;height:6px;border-radius:999px;background:var(--line);margin-top:8px;overflow:hidden}.ipsf-sb i{display:block;height:100%;background:#3F9C7A}
+.ipsf-top em{font-style:normal;font-weight:900;color:var(--ink-2)}
+.ipsf-res h3{margin:4px 0 10px;font-size:17px}
+.ipsf-car{list-style:none;margin:0 0 20px;padding:0;display:flex;flex-wrap:wrap;gap:8px}.ipsf-car li{display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:var(--surface);font-weight:800;font-size:14.5px}.ipsf-car i{width:10px;height:10px;border-radius:50%}
+.ipsf-res .ui-btn{margin-top:8px}
+.ipsf-cred{margin:18px 0 0;font-size:11.5px;line-height:1.45;color:var(--ink-3)}.ipsf-cred a{color:inherit}
+.q2-foot.qfoot{background:var(--bg,#F6EFE2);backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:0 -8px 24px rgba(20,50,63,.1);border:0}
 /* ================= Comparar ================= */
 .cx{font-family:var(--ff);color:var(--c-ink)}
 .cx-t{margin:4px 0 14px;font-size:30px;letter-spacing:-.01em}
@@ -3189,23 +3244,21 @@ body:not(.on-map):not(.lp-open)::before{content:"";position:fixed;left:0;right:0
   <div class="qscroll">
     <div class="qwrap">
       <div class="qtop"><button type="button" class="iconbtn" id="qback" aria-label="Regresar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button><span class="logo" id="logoq"></span><span class="wm">Vocatlas</span><span id="rq"></span></div>
-      <div class="qhead">
-        <div class="eyebrow">El atlas de tu futuro</div>
+      <div class="qhead q2-head">
         <h1>¿Qué te late?</h1>
-        <p>Elige todo lo que te llame la atención. Con eso armamos tu mapa: mientras más coincida una carrera con tus gustos, más grande se ve su territorio.</p>
+        <p>Toca lo que te llame la atención. Con eso armamos tu mapa.</p>
       </div>
-      <div id="chips" class="chips"></div>
+      <button type="button" class="q2-test" id="qTest"><span class="q2-test-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4h6M10 4v5l-5 9a2 2 0 0 0 2 3h10a2 2 0 0 0 2-3l-5-9V4"/><path d="M7.5 15h9"/></svg></span><span class="q2-test-t"><b>¿No sabes qué elegir? Haz el test</b><small>60 actividades, unos 5 minutos. Te dice tus 3 tipos de interés y te recomienda carreras.</small></span><span class="q2-test-go" aria-hidden="true">›</span></button>
+      <div class="q2-or"><span>o elige temas</span></div>
+      <div id="chips" class="chips q2-grid"></div>
+      <div class="addrow q2-add"><input id="custom" type="text" class="field" placeholder="¿Falta algo? Escríbelo" maxlength="30" enterkeyhint="done" autocomplete="off"><button type="button" id="addc" class="btn">Agregar</button></div>
     </div>
   </div>
-  <div class="qfoot glass">
+  <div class="qfoot q2-foot">
     <div class="qfoot-in">
-      <div class="addrow">
-        <input id="custom" type="text" class="field" placeholder="¿Falta algo? Escríbelo aquí" maxlength="30" enterkeyhint="done" autocomplete="off">
-        <button type="button" id="addc" class="btn">Agregar</button>
-      </div>
       <div class="qstat"><span class="pips" id="pips"><i></i><i></i><i></i></span><span id="qcount"></span></div>
+      <p class="q2-aim" id="qAim" aria-live="polite"></p>
       <button type="button" id="go" class="btn primary wide" disabled>Armar mi mapa</button>
-      <div class="credit">Vocatlas · Hecho en México · 2026</div>
     </div>
   </div>
 </div>
@@ -3554,7 +3607,7 @@ var AFF={};
 var IPM=null;
 function computeAff(){
  var sel=new Set(S.interests),max=0;AFF={};
- IPM=null;try{var le=S.ip&&S.ip.length?S.ip[S.ip.length-1]:null;if(le&&typeof ipReady==="function"&&ipReady(le.v)){IPM={};ipMatch(le.s,ipMax(le.v)).forEach(function(x){IPM[x.id]=x.m})}}catch(e){IPM=null}
+ IPM=null;try{var le=S.ip&&S.ip.length?S.ip[S.ip.length-1]:null;if(le&&le.v==="sf"){IPM={};ipMatch(le.s,10).forEach(function(x){IPM[x.id]=x.m})}else if(le&&typeof ipReady==="function"&&ipReady(le.v)){IPM={};ipMatch(le.s,ipMax(le.v)).forEach(function(x){IPM[x.id]=x.m})}}catch(e){IPM=null}
  C.forEach(function(c){
   var tags=c.tags.split(" ");
   var m=tags.filter(function(t){return sel.has(t)}).map(function(t){return LAB[t]});
@@ -3861,67 +3914,50 @@ var RQ=$(".qtop .rb");wireRumbo(RQ);
 
 /* ---------- cuestionario ---------- */
 var sel=new Set(),customs=[],prevN=0;
+var TICO={cuerpo:'<circle cx="12" cy="5" r="2.2"/><path d="M12 7.5v7M8 10h8M12 14.5l-3 6M12 14.5l3 6"/>',salud:'<path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/><path d="M12 9v5M9.5 11.5h5"/>',
+ mente:'<path d="M9 20v-3a6 6 0 1 1 6-6v1l2 3h-2v2a2 2 0 0 1-2 2h-1"/><path d="M10 9a2 2 0 1 1 3 1.7"/>',ayudar:'<path d="M3 13l4-3 4 2 3-1 5 3-6 4-6-1-4 1z"/><path d="M12 7.5s-2-1.3-2-2.7a1.3 1.3 0 0 1 2-.9 1.3 1.3 0 0 1 2 .9c0 1.4-2 2.7-2 2.7z"/>',
+ deportes:'<circle cx="12" cy="12" r="8"/><path d="M4 12h16M12 4c3 3 3 13 0 16M12 4c-3 3-3 13 0 16"/>',animales:'<circle cx="7" cy="9" r="1.8"/><circle cx="17" cy="9" r="1.8"/><circle cx="10" cy="5.5" r="1.8"/><circle cx="14" cy="5.5" r="1.8"/><path d="M12 11c-3 0-5 3.5-5 6 0 1.5 1.5 2 3 1.5s2.5-.5 4 0 3 0 3-1.5c0-2.5-2-6-5-6z"/>',
+ ambiente:'<path d="M5 19c0-8 6-13 14-14-1 8-6 14-14 14z"/><path d="M5 19c3-4 6-7 10-9"/>',espacio:'<path d="M12 3c3 2.5 4 6 4 10l-2 3h-4l-2-3c0-4 1-7.5 4-10z"/><circle cx="12" cy="10" r="1.6"/><path d="M8 13l-3 3 3 1M16 13l3 3-3 1M11 19l1 2 1-2"/>',
+ fisica:'<circle cx="12" cy="12" r="1.8"/><ellipse cx="12" cy="12" rx="9" ry="3.6"/><ellipse cx="12" cy="12" rx="9" ry="3.6" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="9" ry="3.6" transform="rotate(-60 12 12)"/>',
+ mate:'<path d="M5 5h6M8 2v6M14 5h5M5 16l4 4M9 16l-4 4M14 15h5M14 19h5"/>',code:'<path d="M8 7l-5 5 5 5M16 7l5 5-5 5M13.5 5l-3 14"/>',robots:'<rect x="5" y="8" width="14" height="10" rx="2.5"/><circle cx="9.5" cy="13" r="1.3"/><circle cx="14.5" cy="13" r="1.3"/><path d="M12 8V5M10 18v2M14 18v2M3 12v3M21 12v3"/><circle cx="12" cy="4" r="1"/>',
+ videojuegos:'<path d="M6 8h12a3 3 0 0 1 3 3l1 5a2.4 2.4 0 0 1-4 2l-2-2H8l-2 2a2.4 2.4 0 0 1-4-2l1-5a3 3 0 0 1 3-3z"/><path d="M7 11v3M5.5 12.5h3"/><circle cx="16" cy="11.5" r=".8"/><circle cx="17.8" cy="13.5" r=".8"/>',
+ dibujo:'<path d="M4 20l4-1 11-11-3-3L5 16z"/><path d="M14 7l3 3"/>',diseno:'<path d="M12 3l2.5 5H20l-4.3 3.3 1.6 5.7L12 13.7 6.7 17l1.6-5.7L4 8h5.5z"/>',moda:'<path d="M9 3h6l1 3 4 2-2 4-2-1v10H8V11l-2 1-2-4 4-2z"/>',
+ cine:'<rect x="3" y="8" width="18" height="12" rx="2"/><path d="M3 8l2-4 16 0-2 4M8 4l-2 4M13 4l-2 4M18 4l-2 4"/>',escribir:'<path d="M4 5h7a2 2 0 0 1 2 2v13a2 2 0 0 0-2-2H4zM20 5h-7a2 2 0 0 0-2 2v13a2 2 0 0 1 2-2h7z"/>',
+ construccion:'<path d="M3 20h18M5 20V10l7-5 7 5v10"/><path d="M10 20v-6h4v6"/>',leyes:'<path d="M12 4v16M7 20h10M5 7h14M5 7l-3 6a3 3 0 0 0 6 0zM19 7l-3 6a3 3 0 0 0 6 0z"/>',
+ negocios:'<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 12h18"/>',marketing:'<path d="M4 10v4l3 .5L17 19V5L7 9.5z"/><path d="M7 14.5l1.5 4.5h2l-1-4"/><path d="M20 9v6"/>'};
+var TGRP=[["Personas y salud","#3F9C7A",["cuerpo","salud","mente","ayudar","deportes"]],["Ciencia y naturaleza","#3F7DA6",["animales","ambiente","espacio","fisica","mate"]],
+ ["Tecnología","#5B6FC9",["code","robots","videojuegos"]],["Crear y construir","#C9573F",["dibujo","diseno","moda","cine","escribir","construccion"]],["Sociedad y negocios","#C99A2E",["leyes","negocios","marketing"]]];
 function renderQuiz(){
- /* el Rumbo de esta pantalla se creó antes de que cargara el Rumbo actual: se cambia por el de hoy (en 3D) */
  if(RQ&&!RQ.querySelector("svg.rbx-U")&&typeof RUMBO!=="undefined"){var nw=document.createElement("div");nw.innerHTML=rumboEl();var nr=nw.firstChild;RQ.parentNode.replaceChild(nr,RQ);RQ=nr;wireRumbo(RQ)}
  sel=new Set(S.interests);customs=S.custom.slice();
- var box=$("#chips");box.innerHTML="";
- /* temas agrupados por mundo, con una pista de qué tipo de carreras abre cada uno */
- var GRP=[["Personas y salud","Cuidar, curar, escuchar, entrenar",["cuerpo","salud","mente","ayudar","deportes"]],["Ciencia y naturaleza","Descubrir cómo funciona el mundo",["animales","ambiente","espacio","fisica","mate"]],
-  ["Tecnología","Programar, construir aparatos, crear juegos",["code","robots","videojuegos"]],["Crear y construir","Diseñar, dibujar, contar historias, hacer espacios",["dibujo","diseno","moda","cine","escribir","construccion"]],
-  ["Sociedad y negocios","Leyes, dinero, ideas que convencen",["leyes","negocios","marketing"]]],gi=0;
- if(typeof ipReady==="function"&&ipReady("30")){var tc=document.createElement("button");tc.type="button";tc.className="q-test";tc.innerHTML='<span class="q-test-ic">'+IC.check+'</span><span><b>¿No sabes qué elegir? Haz el test de intereses</b><small>Unos minutos. Con tus resultados te recomendamos tu mapa.</small></span>';tc.onclick=function(){if(typeof ipRun==="function")ipRun("30")};box.appendChild(tc)}
- var order=[];GRP.forEach(function(g){g[2].forEach(function(id){order.push(id)})});TOPICS.forEach(function(t){if(order.indexOf(t.id)<0)order.push(t.id)});
- var gEl=null,gIdx=0;
- order.map(function(id){return TOPICS.filter(function(t){return t.id===id})[0]}).filter(Boolean).forEach(function(t,i){
-  var g=GRP.filter(function(x){return x[2].indexOf(t.id)>-1})[0];if(g&&(!gEl||gEl.__g!==g)){var hd=document.createElement("div");hd.className="q-grp";hd.innerHTML='<b>'+esc(g[0])+'</b><span>'+esc(g[1])+'</span>';box.appendChild(hd);gEl=document.createElement("div");gEl.className="q-grpc";gEl.__g=g;box.appendChild(gEl);gIdx++}
-  var dst=gEl||box;
-  var b=document.createElement("button");b.type="button";
-  b.className="chip sel-able enter"+(sel.has(t.id)?" on":"");
-  b.style.setProperty("--i",i);b.style.setProperty("--c",DOTC[i%3]);
-  b.setAttribute("aria-pressed",sel.has(t.id)?"true":"false");
-  b.innerHTML='<span class="slot"><span class="cd"></span>'+IC.check+'</span><span>'+esc(t.label)+'</span>';
-  b.onclick=function(){
-   if(sel.has(t.id))sel.delete(t.id);else sel.add(t.id);
-   var on=sel.has(t.id);b.classList.toggle("on",on);b.setAttribute("aria-pressed",on?"true":"false");
-   b.classList.remove("enter");if(!RM())restart(b,"pop");
-   updateCount();
-  };
-  b.addEventListener("animationend",function(e){if(e.animationName==="chipIn")b.classList.remove("enter");if(e.animationName==="pop")b.classList.remove("pop")});
-  dst.appendChild(b);
- });
+ var box=$("#chips"),h="",k=0;
+ TGRP.forEach(function(g){h+='<section class="q2-g" style="--g:'+g[1]+'"><h2>'+esc(g[0])+'</h2><div class="q2-tiles">';
+  g[2].forEach(function(id){var t=TOPICS.filter(function(x){return x.id===id})[0];if(!t)return;
+   h+='<button type="button" class="q2-t chip'+(sel.has(id)?' on':'')+'" data-id="'+id+'" aria-pressed="'+sel.has(id)+'" style="--i:'+(k++)+'"><span class="q2-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+(TICO[id]||"")+'</svg></span><span class="q2-l">'+esc(t.label)+'</span><span class="q2-ck" aria-hidden="true">'+IC.check+'</span></button>'});
+  h+='</div></section>'});
+ h+='<section class="q2-g q2-mine" style="--g:#14323F" hidden><h2>Tus temas</h2><div class="q2-tiles" id="qMine"></div></section>';
+ box.innerHTML=h;
+ each(box.querySelectorAll(".q2-t[data-id]"),function(b){b.onclick=function(){var id=b.getAttribute("data-id");if(sel.has(id))sel.delete(id);else sel.add(id);var on=sel.has(id);b.classList.toggle("on",on);b.setAttribute("aria-pressed",String(on));if(!RM())restart(b,"pop");updateCount()}});
+ var tb=$("#qTest");if(tb)tb.onclick=function(){if(typeof ipsfRun==="function")ipsfRun()};
  drawCustoms();prevN=sel.size+customs.length;updateCount(true);
 }
 function drawCustoms(fresh){
- var box=$("#chips");
- each(box.querySelectorAll(".chip.custom"),function(e){e.remove()});
- customs.forEach(function(w){
-  var b=document.createElement("button");b.type="button";
-  b.className="chip custom sel-able on"+(w===fresh?" enter":"");b.style.setProperty("--i",0);
-  b.setAttribute("aria-label","Quitar "+w);
-  b.innerHTML='<span>'+esc(w)+'</span><span class="slot">'+IC.x+'</span>';
-  b.onclick=function(){
-   var k=customs.indexOf(w);if(k>-1)customs.splice(k,1);
-   updateCount();
-   if(RM()){drawCustoms();return}
-   b.classList.add("leave");setTimeout(drawCustoms,T.fast);
-  };
-  b.addEventListener("animationend",function(e){if(e.animationName==="chipIn")b.classList.remove("enter")});
-  box.appendChild(b);
- });
+ var box=$("#qMine");if(!box)return;box.parentNode.hidden=!customs.length;box.innerHTML="";
+ customs.forEach(function(w){var b=document.createElement("button");b.type="button";b.className="q2-t chip on custom";b.setAttribute("aria-label","Quitar "+w);
+  b.innerHTML='<span class="q2-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M12 4v16M4 12h16"/></svg></span><span class="q2-l">'+esc(w)+'</span><span class="q2-ck">'+IC.x+'</span>';
+  b.onclick=function(){var k=customs.indexOf(w);if(k>-1)customs.splice(k,1);updateCount();drawCustoms()};box.appendChild(b)});
 }
 /* mientras eliges, se ve hacia qué carreras apunta tu mapa y por qué */
-function quizPreview(){var el=$("#qprev");if(!el){el=document.createElement("section");el.id="qprev";el.className="q-prev";el.setAttribute("aria-live","polite");$("#chips").parentNode.appendChild(el)}
- var n=sel.size+customs.length;if(!n){el.innerHTML='<p class="q-prev-e">Elige temas y aquí verás hacia qué carreras apunta tu mapa.</p>';return}
+function quizPreview(){var el=$("#qAim");if(!el)return;var n=sel.size+customs.length;if(!n){el.textContent="";return}
  var s0=S.interests,c0=S.custom;S.interests=Array.from(sel);S.custom=customs.slice();computeAff();S.interests=s0;S.custom=c0;
- var top=C.slice().sort(function(a,b){return (AFF[b.id].score-AFF[a.id].score)||(a.name<b.name?-1:1)}).filter(function(c){return AFF[c.id].score>0}).slice(0,5);
- el.innerHTML='<h3>Tu mapa apunta a…</h3>'+(top.length?'<ol>'+top.map(function(c){var a=AFF[c.id];return '<li><i style="background:'+c.color+'"></i><b>'+esc(c.name)+'</b><small>porque elegiste '+esc(a.matches.slice(0,2).join(" y ").toLowerCase())+'</small></li>'}).join("")+'</ol>':'<p class="q-prev-e">Todavía ninguna carrera coincide. Prueba con otros temas.</p>')+'<p class="q-prev-n">Es una primera idea: en el mapa puedes quitar o agregar carreras.</p>'}
+ var top=C.slice().sort(function(a,b){return (AFF[b.id].score-AFF[a.id].score)||(a.name<b.name?-1:1)}).filter(function(c){return AFF[c.id].score>0}).slice(0,3);
+ el.innerHTML=top.length?'Tu mapa apunta a <b>'+top.map(function(c){return esc(c.name)}).join("</b>, <b>")+'</b>…':'Todavía ninguna carrera coincide.'}
 function updateCount(silent){
  try{quizPreview()}catch(e){}
  var n=sel.size+customs.length;
- $("#qcount").textContent=n?("Elegiste "+n+(n<3?". Elige al menos 3.":" temas.")):"Elige al menos 3 temas.";
+ $("#qcount").textContent=n?("Elegiste "+n+(n<3?" · elige al menos 3":" temas")):"Elige al menos 3 temas";
  each($("#pips").children,function(p,i){p.classList.toggle("on",i<n)});
- $("#go").disabled=n<3;
+ $("#go").disabled=n<3&&!(S.ip&&S.ip.length&&S.ip[S.ip.length-1].v==="sf");
  if(n>=3)mood(RQ,"happy",(!silent&&prevN<3)?"jump":null);
  else mood(RQ,n?"think":"idle");
  prevN=n;
@@ -3935,7 +3971,7 @@ function addCustom(){
  TOPICS.forEach(function(t){if(topicKey(t.label)===k)hit=t});
  if(hit){
   /* ya está en la lista: se marca ese tema en vez de duplicarlo */
-  var b=$("#chips").children[TOPICS.indexOf(hit)];
+  var b=$("#chips").querySelector('[data-id="'+hit.id+'"]');
   if(!sel.has(hit.id)&&b)b.click();
   $("#custom").value="";if(b&&!RM())restart(b,"pop");return;
  }
@@ -11485,7 +11521,7 @@ function ipBindCred(root){each(root.querySelectorAll('[data-a="mod"]'),function(
 function ipDate(t){try{return new Date(t).toLocaleDateString("es-MX",{day:"numeric",month:"long",year:"numeric"})}catch(e){return ""}}
 
 /* pantalla de inicio del test */
-function openIP(){
+function openIP(){if(!ipReady("30")&&!ipReady("60")){ipsfRun();return}
  var ok30=ipReady("30"),ok60=ipReady("60"),hist=S.ip||[],dr=S.ipd,ver=dr&&ipReady(dr.v)?dr.v:"30";
  var h='<div class="ip-hero">'+rumboEl()+'<div><h3>¿Qué te gusta hacer?</h3><p>Contestas qué tanto te gustaría hacer distintas actividades. Al final ves tus seis tipos de interés y hacia qué carreras de Vocatlas apuntan.</p></div></div>';
  if(!ok30&&!ok60)h+='<div class="ip-wait"><b>El test está construido, pero todavía no tiene cargadas las preguntas oficiales.</b><p>Usamos las preguntas exactas del O*NET® Interest Profiler en español y no vamos a inventar ni traducir ninguna. En cuanto se carguen desde el servicio oficial, aquí podrás empezar.</p></div>';
@@ -11571,6 +11607,44 @@ function probarTop(){
  var top=last?IPA.slice().sort(function(a,b){return last.s[b]-last.s[a]}).slice(0,3).map(function(a){return ipName(a)}).join(", "):"";
  return '<div class="pb-cards"><button type="button" class="ui-card pb-card" id="pbIP"><span class="pb-ic">'+ico("compass")+'</span><span class="pb-t"><b>Test de intereses</b><small>'+(last?'Tu último resultado: '+esc(top):ready?(S.ipd&&S.ipd.a?'Lo dejaste a la mitad. Síguele.':'Qué tipo de actividades te atraen. 5 a 10 min.'):'Muy pronto: faltan las preguntas oficiales.')+'</small></span>'+ico("next")+'</button></div>'}
 function probarBind(v){var a=v.querySelector("#pbIP");if(a)a.onclick=openIP}
+
+/* ================= test de intereses (versión corta de 60 actividades) =================
+   Basado en el O*NET® Interest Profiler Short Form (60 actividades; se cuentan las que te gustaría hacer en cada una de las
+   seis áreas, de 0 a 10). Traducción al español nuestra; ver ipsfCredit. Usado bajo la O*NET Tools Developer License. */
+var IPSF={realistic:["Hacer muebles de cocina","Poner ladrillo o azulejo","Reparar aparatos de la casa","Criar peces en un criadero","Armar piezas electrónicas","Manejar un camión para entregar paquetes en oficinas y casas","Revisar la calidad de piezas antes de enviarlas","Reparar e instalar cerraduras","Preparar y operar máquinas para fabricar productos","Apagar incendios forestales"],
+ investigative:["Crear una medicina nueva","Estudiar cómo reducir la contaminación del agua","Hacer experimentos de química","Estudiar el movimiento de los planetas","Examinar muestras de sangre con un microscopio","Investigar la causa de un incendio","Encontrar una forma de predecir mejor el clima","Trabajar en un laboratorio de biología","Inventar un sustituto del azúcar","Hacer pruebas de laboratorio para identificar enfermedades"],
+ artistic:["Escribir libros u obras de teatro","Tocar un instrumento musical","Componer o hacer arreglos de música","Dibujar","Crear efectos especiales para películas","Pintar escenografías para obras de teatro","Escribir guiones de cine o televisión","Bailar jazz o tap","Cantar en una banda","Editar películas"],
+ social:["Enseñarle a alguien una rutina de ejercicio","Ayudar a personas con problemas personales o emocionales","Dar orientación vocacional","Dar terapia de rehabilitación","Hacer voluntariado en una organización sin fines de lucro","Enseñarles a niños a practicar deportes","Enseñar lengua de señas a personas sordas","Ayudar a dirigir una sesión de terapia en grupo","Cuidar niños en una guardería","Dar clases en una prepa"],
+ enterprising:["Comprar y vender acciones y bonos","Administrar una tienda","Tener un salón de belleza o una barbería","Dirigir un departamento en una empresa grande","Empezar tu propio negocio","Negociar contratos de negocios","Representar a un cliente en un juicio","Lanzar al mercado una nueva línea de ropa","Vender mercancía en una tienda departamental","Administrar una tienda de ropa"],
+ conventional:["Hacer una hoja de cálculo en la computadora","Revisar registros o formularios para corregir errores","Instalar programas en las computadoras de una red grande","Usar una calculadora","Llevar el registro de envíos y recepciones","Calcular los sueldos de los empleados","Hacer inventario de material con una computadora de mano","Registrar pagos de renta","Llevar registros de inventario","Sellar, ordenar y repartir el correo de una organización"]};
+var IPSF_N={realistic:["Hacer con las manos","Te gusta construir, reparar y trabajar con herramientas, máquinas o al aire libre."],investigative:["Investigar","Te gusta descubrir por qué pasan las cosas, experimentar y resolver problemas con ciencia."],
+ artistic:["Crear","Te gusta expresarte: escribir, dibujar, actuar, la música, el diseño."],social:["Ayudar","Te gusta enseñar, cuidar, escuchar y trabajar con personas."],
+ enterprising:["Emprender","Te gusta convencer, dirigir, vender y tomar decisiones."],conventional:["Organizar","Te gusta el orden: datos, registros, números y procesos claros."]};
+function ipsfCredit(){return '<p class="ipsf-cred">Este test usa información de las <a href="https://www.onetcenter.org/tools.html" target="_blank" rel="noopener">O*NET® Career Exploration Tools</a> del Departamento del Trabajo de EE. UU. (USDOL/ETA), usada bajo la <a href="https://www.onetcenter.org/license_tools.html" target="_blank" rel="noopener">O*NET Tools Developer License</a>. O*NET es marca registrada de USDOL/ETA. Vocatlas tradujo y adaptó la presentación; USDOL/ETA no aprobó, respaldó ni probó estas modificaciones.</p>'}
+function ipsfItems(){var L=[];IPA.forEach(function(a){IPSF[a].forEach(function(t,i){L.push({a:a,t:t,k:a.charAt(0)+i})})});
+ /* se intercalan las áreas para que no salgan diez seguidas del mismo tipo */
+ var o=[];for(var i=0;i<10;i++)IPA.forEach(function(a,j){o.push(L[j*10+((i*7+j*3)%10)])});return o}
+function ipsfRun(){var Q=ipsfItems(),i=0,ans={},el=document.createElement("div");el.className="ipsf";el.setAttribute("role","dialog");el.setAttribute("aria-modal","true");el.setAttribute("aria-label","Test de intereses");
+ el.innerHTML='<div class="ipsf-in"><header><button type="button" class="ipsf-x" aria-label="Cerrar">'+IC.x+'</button><div class="ipsf-bar"><i></i></div><span class="ipsf-n"></span></header><div class="ipsf-body"></div></div>';
+ document.body.appendChild(el);void el.offsetWidth;el.classList.add("on");
+ var body=el.querySelector(".ipsf-body");
+ function close(){el.classList.remove("on");setTimeout(function(){el.remove()},RM()?0:300)}
+ el.querySelector(".ipsf-x").onclick=close;
+ function intro(){body.innerHTML='<div class="ipsf-intro"><h2>Test de intereses</h2><p>Te vamos a mostrar 60 actividades de trabajo. En cada una dinos si te gustaría hacerla.</p><ul><li>No pienses en cuánto se gana ni en cuánto hay que estudiar.</li><li>No hay respuestas buenas ni malas.</li><li>Son unos 5 minutos.</li></ul><button type="button" class="ui-btn is-block" id="ipsfGo">Empezar</button>'+ipsfCredit()+'</div>';el.querySelector(".ipsf-n").textContent="";body.querySelector("#ipsfGo").onclick=function(){draw()}}
+ function draw(){var q=Q[i];el.querySelector(".ipsf-bar i").style.transform="scaleX("+(i/Q.length)+")";el.querySelector(".ipsf-n").textContent=(i+1)+" de "+Q.length;
+  body.innerHTML='<div class="ipsf-card"><p class="ipsf-k">¿Te gustaría…</p><p class="ipsf-q">'+esc(q.t)+'?</p></div><div class="ipsf-a"><button type="button" class="ipsf-no" data-v="0">No</button><button type="button" class="ipsf-yes" data-v="1">Sí, me gustaría</button></div>'+(i?'<button type="button" class="ipsf-back">Regresar</button>':'');
+  each(body.querySelectorAll(".ipsf-a button"),function(b){b.onclick=function(){ans[q.k]=b.getAttribute("data-v")==="1";b.classList.add("on");setTimeout(function(){i++;if(i<Q.length)draw();else done()},RM()?0:160)}});
+  var bk=body.querySelector(".ipsf-back");if(bk)bk.onclick=function(){i--;draw()}}
+ function done(){var sc={};IPA.forEach(function(a){sc[a]=0});Q.forEach(function(q){if(ans[q.k])sc[q.a]++});
+  var e={t:Date.now(),v:"sf",s:sc};S.ip=(S.ip||[]).concat([e]).slice(-10);save();
+  el.querySelector(".ipsf-bar i").style.transform="scaleX(1)";el.querySelector(".ipsf-n").textContent="";
+  var top=IPA.slice().sort(function(a,b){return sc[b]-sc[a]}),M=ipMatch(sc,10).slice(0,5);
+  body.innerHTML='<div class="ipsf-res"><h2>Tus intereses</h2><p>Tus tres áreas más fuertes:</p><ol class="ipsf-top">'+top.slice(0,3).map(function(a,k){return '<li><span class="ipsf-r">'+(k+1)+'</span><div><b>'+IPSF_N[a][0]+'</b><small>'+IPSF_N[a][1]+'</small><span class="ipsf-sb"><i style="width:'+(sc[a]*10)+'%"></i></span></div><em>'+sc[a]+'/10</em></li>'}).join("")+'</ol>'+
+   '<h3>Carreras que van con eso</h3><ul class="ipsf-car">'+M.map(function(m){var c=byId[m.id];return c?'<li><i style="background:'+c.color+'"></i>'+esc(c.name)+'</li>':''}).join("")+'</ul>'+
+   '<button type="button" class="ui-btn is-block" id="ipsfMap">Armar mi mapa con esto</button><button type="button" class="ui-btn is-block is-sec" id="ipsfBack">Elegir temas también</button>'+ipsfCredit()+'</div>';
+  body.querySelector("#ipsfMap").onclick=function(){close();if(typeof quizPreview==="function")try{updateCount()}catch(x){}var g=$("#go");if(g){g.disabled=false;g.click()}};
+  body.querySelector("#ipsfBack").onclick=function(){close();try{updateCount()}catch(x){}}}
+ intro()}
 
 /* ================= Comparar: dos carreras frente a frente =================
    Pestaña propia. Dos lugares (izquierda y derecha) con las carreras de tu mapa y, debajo, pocas tarjetas muy visuales:
