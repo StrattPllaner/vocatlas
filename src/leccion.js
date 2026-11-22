@@ -10,6 +10,7 @@ var LEC=(function(){
   if(o.length>1&&o.every(function(v,i){return v===i})){o.push(o.shift())}return o}
  function fb(kind,html){var f=L.el.querySelector(".lc-fb");f.className="lc-fb on is-"+kind;f.innerHTML='<span class="lc-fbi">'+ico(kind==="ok"?"check":kind==="no"?"x":"bulb")+'</span><div>'+html+'</div>';
   if(typeof sfx==="function")sfx(kind==="ok"?"ok":kind==="no"?"no":"tap");
+  var bd=L.el.querySelector(".lc-buddy");if(bd){bd.classList.remove("is-q");var brb=bd.querySelector(".rb");if(brb&&typeof mood==="function")mood(brb,kind==="ok"?"happy":kind==="no"?"think":"happy",kind==="ok"?"jump":kind==="no"?"shake":"tilt")}
   var b=L.el.querySelector(".lc-body");setTimeout(function(){b.scrollTo({top:b.scrollHeight,behavior:RM()?"auto":"smooth"})},60)}
  function main(label,on){var b=L.el.querySelector("#lcGo");b.textContent=label;b.setAttribute("aria-disabled",on?"false":"true");b.disabled=!on}
  function done(label){L.phase=1;main(label||(L.i>=L.cards.length-1?"Terminar":"Seguir"),true)}
@@ -110,7 +111,7 @@ var LEC=(function(){
    opts(box.querySelector(".lc-in"),ord.map(function(i){return t.opciones[i]}),function(i){pick=ord[i];main("Comprobar",true)});
    main("Comprobar",false);
    L.check=function(){var ok=pick===t.correcta;
-    each(box.querySelectorAll(".lc-opt"),function(b){var i=ord[+b.getAttribute("data-i")];if(i===t.correcta)b.classList.add("good");else if(i===pick)b.classList.add("bad")});
+    each(box.querySelectorAll(".lc-opt"),function(b){var i=ord[+b.getAttribute("data-i")];if(i===t.correcta)b.classList.add("good");else if(i===pick)b.classList.add(t.adivina?"mine":"bad")});
     /* preguntas para adivinar: no hay error, solo lo real; tampoco se repiten */
     if(t.adivina){fb(ok?"ok":"info",(ok?'<b>¡Le atinaste!</b> ':'<b>Lo real: '+h(t.opciones[t.correcta])+'.</b> ')+(t.explicacion?h(t.explicacion):""));done();return}
     if(t._key){var R0=repOf(L.id);if(ok)delete R0[t._key];else R0[t._key]={n:(R0[t._key]?R0[t._key].n||1:0)+1};save()}
@@ -267,6 +268,9 @@ var LEC=(function(){
   box.innerHTML="";box.setAttribute("data-t",t.tipo);
   (R[t.tipo]||R.escena)(t,box);
   var wr=box.querySelector(".rb");if(wr)wireRumbo(wr);
+  /* Rumbo acompaña abajo cuando sobra espacio: pensando con «?» en preguntas, contento al leer */
+  var bd=L.el.querySelector(".lc-buddy");if(bd){var q=/pregunta|vf|decision|ordenar|reflexion|rango|dos_caminos|teves|clasificar|armar/.test(t.tipo),hasRb=!!box.querySelector(".rb");
+   bd.hidden=hasRb;bd.classList.toggle("is-q",q);var brb=bd.querySelector(".rb");if(brb){if(!brb.__w){wireRumbo(brb);brb.__w=1}if(typeof mood==="function")mood(brb,q?"think":"happy",q?"tilt":null)}}
   restart(box,"in");L.el.querySelector(".lc-body").scrollTop=0;
   if(L.ctx.resume){S.lp=S.lp||{};S.lp[L.id+":"+L.les.id]=L.i;save()}
  }
@@ -283,7 +287,7 @@ var LEC=(function(){
   var el=document.createElement("div");el.className="lc";el.setAttribute("role","dialog");el.setAttribute("aria-modal","true");el.setAttribute("aria-label",les.titulo);
   var col=ctx.color||c.color;el.style.setProperty("--c",col);el.style.setProperty("--cd",dk(col,.38));el.style.setProperty("--ct",lum(col)>.62?"#14323F":"#FFFFFF");
   el.innerHTML='<header class="lc-top"><button type="button" class="ui-iconbtn" id="lcX" aria-label="Salir de la lección">'+ico("x")+'</button><div class="lc-seg" aria-hidden="true">'+cards.map(function(){return "<i></i>"}).join("")+'</div></header>'+
-   '<div class="lc-body"><div class="lc-wrap"><div class="lc-eb"></div><div class="lc-card"></div><div class="lc-fb" aria-live="polite"></div></div></div>'+
+   '<div class="lc-body"><div class="lc-wrap"><div class="lc-eb"></div><div class="lc-card"></div><div class="lc-fb" aria-live="polite"></div><div class="lc-buddy" aria-hidden="true"><span class="lc-bq">?</span>'+rumboEl()+'</div></div></div>'+
    '<footer class="lc-foot"><div class="lc-footin"><button type="button" class="ui-btn is-block" id="lcGo"></button></div></footer>';
   (document.getElementById("plaza").classList.contains("on")?document.getElementById("plaza"):document.body).appendChild(el);
   var start=0;if(ctx.resume&&S.lp&&S.lp[id+":"+les.id]!=null)start=Math.min(cards.length-1,S.lp[id+":"+les.id]);

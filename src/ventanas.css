@@ -81,3 +81,14 @@
 :root[data-theme=dark] .sc2{--sk0:#0E1D3A;--sk1:#1E3A5E;--sk2:#2E557A;--se0:#2A5F86;--se1:#1D4A70;--se2:#122F4E;--far:#2E5C6E;--far2:#3A6C7E;--cl:#5A7898;--clb:#4A6888;--sun:#F3E9D2}
 :root[data-theme=dark] .sc2 .sc-star{display:inline}
 @media (prefers-reduced-motion:reduce){.sc2 .sc-gl path,.sc2 .sc-c1,.sc2 .sc-c2{animation:none}}
+/* Rumbo acompaña en las lecciones */
+.lc-body{display:flex;flex-direction:column}.lc-wrap{flex:1 0 auto;display:flex;flex-direction:column;width:100%;box-sizing:border-box}
+.lc-buddy{position:relative;margin:auto auto 0;padding-top:18px;width:120px;height:138px;flex:0 0 auto}
+.lc-buddy .rb{position:absolute;left:0;bottom:0;width:120px;height:120px}
+.lc-bq{position:absolute;right:-6px;top:0;width:38px;height:38px;border-radius:50%;background:#F2C14E;color:#14323F;font-weight:900;font-size:24px;display:grid;place-items:center;box-shadow:0 4px 10px rgba(20,50,63,.18);opacity:0;transform:scale(.4) translateY(10px);transition:opacity .2s,transform .3s cubic-bezier(.3,1.6,.5,1)}
+.lc-buddy.is-q .lc-bq{opacity:1;transform:none;animation:lcBq 2.4s ease-in-out .4s infinite}
+@keyframes lcBq{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-6px) rotate(10deg)}}
+@media (max-height:640px){.lc-buddy{display:none}}
+@media (prefers-reduced-motion:reduce){.lc-buddy.is-q .lc-bq{animation:none}}
+.lc-opt.mine{border-color:#9AA5B1;background:var(--c-sunken,#EEE5D5)}
+.lc-buddy{width:150px;height:170px}.lc-buddy .rb{width:150px;height:150px}

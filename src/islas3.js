@@ -119,7 +119,7 @@ var ISLAS3=(function(I,E,G,M){
   ALL.forEach(function(L,li){var s0=G.hs(L.id+"s");
    sea+='<path d="'+M.closed(grow(L.coast,ST.sh[0],.55,s0),0)+'" fill="var(--m-sh1)" stroke="var(--m-sh1)" stroke-width="'+ST.sh[1]+'" stroke-linejoin="round"/>'});
   ALL.forEach(function(L){var s0=G.hs(L.id+"s");sea+='<path d="'+M.closed(grow(L.coast,ST.sh[2],.7,s0+1),0)+'" fill="var(--m-sh2)" stroke="var(--m-sh2)" stroke-width="'+ST.sh[3]+'" stroke-linejoin="round"/>';
-   var rr=G.rng(s0+5);for(var k=0;k<3;k++){var i=Math.floor(rr()*L.coast.length),g2=grow(L.coast,ST.sh[0],.2,s0+2)[i];sea+='<path d="'+M.closed(ringPts(g2[0],g2[1],16+rr()*14,s0+k),0)+'" fill="var(--m-sh3)" opacity=".55"/>'}
+   var rr=G.rng(s0+5);
    /* coral (Caribe): manchas rosas y naranjas en el agua somera */
    if(ST.coral&&!L.ghost)for(k=0;k<7;k++){var ci=Math.floor(rr()*L.coast.length),cq=grow(L.coast,ST.sh[2]+6+rr()*16,.3,s0+9)[ci];sea+='<path d="'+M.closed(ringPts(cq[0],cq[1],3+rr()*4,s0+40+k,9),0)+'" fill="'+(k%2?"#F59A8C":"#F7B86A")+'" opacity=".75"/>'}});
   ALL.forEach(function(L){var s0=G.hs(L.id+"s");sea+='<path d="'+M.closed(grow(L.coast,ST.sh[4],.9,s0+3),0)+'" fill="var(--m-sh3)" stroke="var(--m-sh3)" stroke-width="'+ST.sh[5]+'" stroke-linejoin="round"/>';

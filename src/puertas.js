@@ -25,8 +25,7 @@ var PUERTAS=(function(){
    '<radialGradient id="ptl'+u+'" cx=".5" cy=".6" r=".7"><stop offset="0" stop-color="#FFF4C8"/><stop offset="1" stop-color="#F6C44E"/></radialGradient></defs>';
   /* nube: bultos con panza sombreada */
   /* nube translúcida, del mismo tono que el camino de nubes */
-  s+='<g opacity=".62">';[[40,92,28],[70,80,34],[104,78,36],[134,92,26],[86,100,40],[52,104,24],[122,104,24]].forEach(function(c){s+='<circle cx="'+c[0]+'" cy="'+c[1]+'" r="'+c[2]+'" fill="url(#ptg'+u+')"/>'});
-  s+='<path d="M22 104Q86 126 150 104Q146 118 86 120Q28 118 22 104Z" fill="#B9C6E0" opacity=".7"/></g>';
+
   /* marco de piedra con arco y escalón */
   s+='<path d="M58 106V56Q58 30 85 30Q112 30 112 56V106Z" fill="#E9E1D0"/><path d="M58 106V56Q58 30 85 30Q112 30 112 56V106" fill="none" stroke="#C9BCA2" stroke-width="2"/>';
   s+='<rect x="54" y="104" width="62" height="7" rx="2" fill="#D8CDB6"/>';
@@ -44,8 +43,11 @@ var PUERTAS=(function(){
   if(st==="lock")s+='<g transform="translate(85 70)"><path d="M-6 -2V-7Q-6 -13 0 -13Q6 -13 6 -7V-2" fill="none" stroke="#9AA5B1" stroke-width="3"/><rect x="-9" y="-3" width="18" height="15" rx="3" fill="#C9D1DA" stroke="#7E8B98" stroke-width="1.2"/><circle cx="0" cy="3" r="2.2" fill="#5A6573"/><path d="M0 4v4" stroke="#5A6573" stroke-width="1.8"/></g>';
   if(st==="ready")s+='<g class="pt-key" transform="translate(132 46) rotate(-30)"><circle r="7" fill="#F6C44E" stroke="#B07A16" stroke-width="1.4"/><circle r="2.6" fill="#FFF4C8"/><path d="M7 0H24M18 0V5M22 0V4" stroke="#B07A16" stroke-width="3" stroke-linecap="round"/><path d="M7 0H24" stroke="#F6C44E" stroke-width="1.4" stroke-linecap="round"/></g>';
   return s+'</svg>'}
+ /* nube: las mismas bolitas que el camino de la espiral, igual de translúcidas */
+ function puffHTML(){var U=typeof TORRE!=="undefined"&&TORRE.puffURL?TORRE.puffURL():[];if(!U.length)return "";
+  return '<span class="pt-puffs" aria-hidden="true">'+[[-6,52,52,1],[18,40,62,0],[44,44,60,2],[66,54,46,1],[24,62,56,3]].map(function(q){return '<img src="'+U[q[3]%U.length]+'" alt="" style="left:'+q[0]+'%;top:'+q[1]+'%;width:'+q[2]+'%">'}).join("")+'</span>'}
  function doorHTML(id,u){var d=D[u],st=state(id,u);
-  return cloudSVG(st,d.col,u)+'<span class="pt-lab"><b>'+esc(d.t)+'</b>'+(st==="ready"?'<small>¡Ya tienes la llave!</small>':'')+'</span>'}
+  return puffHTML()+cloudSVG(st,d.col,u)+'<span class="pt-lab"><b>'+esc(d.t)+'</b>'+(st==="ready"?'<small>¡Ya tienes la llave!</small>':'')+'</span>'}
  function label(id,u){var d=D[u],st=state(id,u);return "Puerta "+(u+1)+": "+d.t+(st==="lock"?". Cerrada, su llave está en el cofre de la unidad "+(u+1):st==="ready"?". Tienes la llave":"")}
 
  /* ---------- lo que hay detrás de cada puerta ---------- */

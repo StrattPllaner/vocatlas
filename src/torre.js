@@ -162,6 +162,8 @@ var TORRE=(function(I){
   /* sombra suave debajo de la banda: se ve que flota */
   var c5=document.createElement("canvas");c5.width=c5.height=128;var g5=c5.getContext("2d"),r5=g5.createRadialGradient(64,64,4,64,64,62);r5.addColorStop(0,"rgba(52,74,128,.55)");r5.addColorStop(1,"rgba(52,74,128,0)");g5.fillStyle=r5;g5.fillRect(0,0,128,128);out.push(c5);
   return out}
+ /* las mismas bolitas de nube del camino, como imágenes (para la nube de las puertas) */
+ var PU=null;function puffURL(){if(!PU)try{PU=puffs(null).slice(0,4).map(function(c){return c.toDataURL("image/png")})}catch(e){PU=[]}return PU}
  function hsh(a,j){var x=Math.sin(a*12.9898+j*78.233)*43758.5453;return x-Math.floor(x)}
  /* dibuja la banda de nubes en dos lienzos del tamaño de la pantalla (atrás y adelante de los símbolos) */
  function clouds(S,rot,sc0,vh){var dpr=Math.min(1.25,window.devicePixelRatio||1),W=Math.round(S.Wp*dpr),top=sc0-140,H=Math.round((vh+280)*dpr),k=S.k,HW=17;
@@ -201,14 +203,14 @@ var TORRE=(function(I){
    '<div class="tw-gwrap" style="top:'+f1(gTop)+'px">'+ground(id,(-gx)/k,ytop+(gTop-padT)/k,gW/k,(SH2-gTop)/k)+'</div>'+
    '<div class="tw-stage" style="width:'+Wp+'px;height:'+Hp+'px;top:'+padT+'px">'+
    '<canvas class="tw-cv tw-cb" aria-hidden="true"></canvas><svg class="tw-l tw-pb" viewBox="'+(-xs)+' '+ytop+' '+Wd+' '+Hd+'" aria-hidden="true">'+RIBS+'</svg>'+bldHTML(id,ic.x,ic.y,k);
-  var sw=230*k,sh=230*k;
+  var sw=176*k,sh=176*k;
   for(var f=0;f<nf;f++){var u=o.units[f]||{done:0},L2=u.items?u.items.filter(function(it){return it.lid}):[],p=L2.length?u.done/L2.length:0,c=toPx(P(0,0,symZ(f)));
    var im=symImg(id,f);
    h+='<div class="tw-sym tw-floor tw-3d'+(p>=1?" is-done":"")+'" data-k="'+symKey(id,f)+'" data-f="'+f+'" style="left:'+f1(c.x-sw/2)+'px;top:'+f1(c.y-sh*.72)+'px;width:'+f1(sw)+'px;height:'+f1(sh)+'px;animation-delay:-'+(f*.9)+'s">'+
     '<img class="tw-col" src="'+im+'" alt="" decoding="async"></div>';
    h+='<span class="tw-ul s-'+(u.state||"lock")+'" data-u="'+f+'">'+(f+1)+' · '+esc(u.t||"")+'</span>'}
   /* una nube con puerta por unidad, pegada por fuera al camino a media unidad: gira, sube y baja con la espiral */
-  if(o.door){var dw=Math.max(96,Math.min(132,Wp*.28));for(var f2=0;f2<nf;f2++)
+  if(o.door){var dw=Math.max(118,Math.min(150,Wp*.34));for(var f2=0;f2<nf;f2++)
    h+='<button type="button" class="tw-door s-'+o.door.state(id,f2)+'" data-c="'+id+'" data-u="'+f2+'" aria-label="'+esc(o.door.label(id,f2))+'" style="width:'+f1(dw)+'px">'+o.door.doorHTML(id,f2)+'</button>'}
   var stc=toPx(P(0,0,zAt(a1)+70));
   h+='<div class="tw-sym tw-starw" style="left:'+f1(stc.x-55*k)+'px;top:'+f1(stc.y-55*k)+'px;width:'+f1(110*k)+'px;height:'+f1(110*k)+'px"><svg viewBox="-50 -50 100 100" aria-hidden="true">'+star(o.mastered,(byId[id]||{}).color)+'</svg></div>';
@@ -245,7 +247,7 @@ var TORRE=(function(I){
    if(b.__bz!==bz){b.__bz=bz;b.style.width=b.style.height=bz+"px"}
    b.style.transform="translate("+f1(p.x-bz/2)+"px,"+f1(p.y-bz*.62)+"px) scale("+sc.toFixed(3)+")";
    var z=q.d<-.15?2:6;if(b.__z!==z){b.__z=z;b.style.zIndex=z;b.classList.toggle("is-back",z===2)}});
-  (S.doors||[]).forEach(function(o){var q=proj(o.a,rot,4,R+46),p=S.toPx(q),sc=.72+.28*(q.d+1)/2,back=q.d<-.2,b=o.el,hw=o.w*sc/2,vw2=(S.sc&&S.sc.clientWidth)||S.Wp,ox=(S.Wp-vw2)/2,px=Math.max(ox+hw-o.w*.1,Math.min(ox+vw2-hw+o.w*.1,p.x));
+  (S.doors||[]).forEach(function(o){var q=proj(o.a,rot,4,R+46),p=S.toPx(q),sc=.84+.16*(q.d+1)/2,back=q.d<-.2,b=o.el,hw=o.w*sc/2,vw2=(S.sc&&S.sc.clientWidth)||S.Wp,ox=(S.Wp-vw2)/2,px=Math.max(ox+hw+4,Math.min(ox+vw2-hw-4,p.x));
    b.style.transform="translate("+f1(px-o.w/2)+"px,"+f1(p.y-o.w*.78)+"px) scale("+sc.toFixed(3)+")";
    if(b.__bk!==back){b.__bk=back;b.style.zIndex=back?2:5;b.classList.toggle("is-back",back)}});
   for(var u=0;u<S.ul.length;u++){var e=S.ul[u],fi=S.first[u],q2=proj(fi!=null?S.items[fi].a:u*360,rot),p2=S.toPx(q2),bs=S.base*(.8+.2*(q2.d+1)/2);
@@ -279,5 +281,5 @@ var TORRE=(function(I){
  function pos(S,i){var it=S.items[i];return it?{x:it.px,y:it.py,sz:it.sz}:null}
  /* vista previa para #art: los seis símbolos de la carrera */
  function preview(id,p){var s="";for(var f=0;f<6;f++){var q=Math.max(0,Math.min(1,p*6-f)),im=symImg(id,f);s+='<div class="tw-3d tw-pv"><img class="tw-col" src="'+im+'" alt=""></div>'}return '<div class="tw-pvg">'+s+'</div>'}
- return {has:has,build:build,preview:preview,render:render,focus:focus,place:place,hop:hop,climbTop:climbTop,scrollTo:scrollTo,pos:pos,doorFocus:doorFocus,floorSVG:floorSVG,star:star,symbols:symbols};
+ return {has:has,build:build,preview:preview,render:render,focus:focus,place:place,hop:hop,climbTop:climbTop,scrollTo:scrollTo,pos:pos,doorFocus:doorFocus,puffURL:puffURL,floorSVG:floorSVG,star:star,symbols:symbols};
 })(ISO);

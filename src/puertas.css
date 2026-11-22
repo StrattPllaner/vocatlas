@@ -153,3 +153,7 @@
 .edo2-o button{min-height:44px;padding:0 16px;border-radius:999px;border:2px solid var(--line-2,#DDD3C2);background:var(--surface,#FFFBF2);color:var(--ink,#14323F);font:inherit;font-size:15.5px;font-weight:800;cursor:pointer}
 .edo2-o button[aria-checked=true],.edo2-o button[aria-pressed=true]{background:var(--ink,#14323F);border-color:var(--ink,#14323F);color:#fff}
 .edo2-n{font-size:13px;color:var(--ink-2,#3B5260)}
+.tw-door{isolation:isolate}
+.pt-puffs{position:absolute;left:-10%;right:-10%;top:4%;aspect-ratio:170/120;z-index:-1;pointer-events:none;opacity:.85}
+.pt-puffs img{position:absolute;height:auto;display:block}
+.tw-door .pt-cl{position:relative}
