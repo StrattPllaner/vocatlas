@@ -1,6 +1,6 @@
 # Vocatlas · Currículo de carreras, versión 2
 
-Fecha: 21 de noviembre de 2026. Reemplaza la versión del 14 de noviembre. **Nada de esta versión está programado todavía: espero tu aprobación.**
+Fecha: 21 de noviembre de 2026. Reemplaza la versión del 14 de noviembre. **Aprobado el 21 de noviembre; las decisiones de la sección 0 quedaron tomadas.**
 
 Esta versión cambia tres cosas:
 - Cada lección sigue los ingredientes que la investigación sobre orientación vocacional ha encontrado que sí funcionan.
@@ -9,19 +9,25 @@ Esta versión cambia tres cosas:
 
 Lo que sigue vigente de la versión anterior está al final, en los anexos: las dinámicas por área, las otras carreras, el test de intereses y las fuentes.
 
-## 0. Lo que necesito que decidas
+## 0. Decisiones tomadas (21 de noviembre de 2026)
 
-1. **¿21 lecciones o 9 paradas en Medicina?** Pediste aplicarlo "a las 21 lecciones de Medicina". Hoy Medicina tiene 9 paradas en el formato 2 (20 de noviembre): una tarjeta de entrada, 7 lecciones de explicación con casos y un examen final de 10 preguntas.
-   - **Propuesta:** volver a 21 lecciones en 6 unidades y reutilizar todo el contenido del formato 2 dentro de ellas (sección 9).
-   - Si prefieres conservar las 9 paradas, la misma estructura de pasos aplica; solo cambia cuántas lecciones hay.
-2. **Claridad.** El mapa ya muestra un anillo de "Claridad" en porcentaje, que se calcula con tu avance.
-   - **Propuesta:** que la escala nueva del 1 al 5, al empezar y al terminar cada carrera (sección 7), se muestre en el Atlas por carrera.
-   - El anillo se queda como está.
-3. **Texto de Rumbo siempre visible.** El globo con lo que dice Rumbo sale siempre, por accesibilidad. La investigación sobre aprendizaje con multimedia encontró que repetir en pantalla, palabra por palabra, lo que se narra puede distraer.
-   - **Propuesta:** el globo muestra frases cortas, el estudiante avanza a su ritmo, y hay un botón para ocultar el globo cuando hay sonido.
-4. **Dónde guardar los videos.** No conviene meterlos al repositorio: GitHub Pages limita cada sitio publicado a 1 GB y recomienda no pasar de 100 GB de descarga al mes.
-   - **Propuesta:** un servicio de video que entregue la calidad según la conexión. Lo eliges tú cuando haya videos; mientras, el componente queda listo con su estado vacío.
-5. **Revisión médica.** ¿Quién revisa? Necesito un nombre o un rol (por ejemplo, un médico general con cédula) para la lista de la sección 9.4.
+Me pediste decidir lo que mejor funcione, con justificación. Esto queda así:
+
+1. **Medicina vuelve a 21 lecciones en 6 unidades y conserva todo el contenido del formato 2.**
+   - **Por qué:** los metaanálisis encontraron que el efecto de una intervención vocacional crece con el número de ingredientes críticos que combina (Brown et al., 2003).
+   - Las 9 paradas del formato 2 cubren sobre todo práctica e información.
+   - Las 21 lecciones agregan los otros ingredientes: modelos a seguir (unidad 3), apoyo de la red (actividades "Platícalo") y reflexión escrita (unidad 6).
+   - Las 7 explicaciones y el examen del formato 2 se reparten en las unidades 2, 3, 5 y 6 (sección 9).
+2. **Claridad del 1 al 5 por carrera, al empezar y al terminar, en el Atlas. El anillo del mapa se queda igual.**
+   - **Por qué:** qué tan decidido se siente el estudiante es uno de los resultados que miden los metaanálisis de intervenciones vocacionales (Whiston et al., 2017).
+   - El anillo mide otra cosa, el avance, y no conviene mezclar las dos.
+3. **El globo de Rumbo se ve siempre, con frases cortas y avance al ritmo del estudiante. Si hay sonido, se puede ocultar.**
+   - **Por qué:** las pautas de accesibilidad WCAG 2.2 piden subtítulos para todo audio grabado (criterio 1.2.2).
+   - Mayer (2020) encontró que el texto idéntico a la narración estorba menos cuando el texto es corto y el estudiante controla el ritmo.
+4. **Los videos irán fuera del repositorio**, en un servicio que entregue la calidad según la conexión.
+   - **Por qué:** GitHub Pages limita el sitio a 1 GB y recomienda no pasar de 100 GB de descarga al mes.
+   - Mientras no haya videos, el componente queda listo con su estado vacío. El servicio se elige cuando existan las grabaciones.
+5. **Revisa un médico general con cédula profesional que se pueda consultar en el Registro Nacional de Profesionistas de la SEP.** Su nombre y su número de cédula se anotan en `docs/REVISION_MEDICINA.md` al firmar.
 
 ## 1. Principios de orientación (base en evidencia)
 
@@ -265,7 +271,7 @@ Que las personas sean diversas: mujeres y hombres, escuelas públicas y privadas
 
 ## 12. Orden de trabajo
 
-1. **Este documento.** Espero tu aprobación.
+1. **Este documento.** Aprobado.
 2. **Rumbo hablando y una explicación animada** ("El recorrido de un paciente en urgencias"). Espero tu aprobación.
 3. **Todo aplicado a las lecciones de Medicina**, con su verificación.
 
