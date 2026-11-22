@@ -11131,8 +11131,8 @@ function suSheet(id){var c=byId[id],d=suDato(id,"ingreso"),h='<h3>¿Cuánto gana
  el.innerHTML=h;uiLayer(el,true)}
 
 /* ================= Rumbo habla =================
-   Voz: si existe media/voz/<id>.mp3 se usa ese audio (grabado); si no, la voz del navegador (Web Speech API),
-   eligiendo la mejor en español de México y, si no hay, otra en español.
+   Voz: si existe media/voz/<id>.mp3 se usa ese audio (grabado); si no, la voz del navegador (Web Speech API):
+   «Google español» en Chrome; en los demás, una voz de hombre en español (de México primero).
    Boca: cinco formas (cerrada, entreabierta, abierta, redonda o/u, ancha e/i). Con la voz del navegador sigue los avisos
    de palabra (onboundary) y reparte las vocales de cada palabra; si la voz no los manda (algunas de Android), sigue un
    ritmo calculado por el largo del texto. Con audio grabado sigue el volumen real.
@@ -11147,7 +11147,11 @@ var VOZ=(function(){
  function pickVoice(){if(!TTS)return null;var L=speechSynthesis.getVoices()||[],best=null,bs=-1;
   L.forEach(function(v){var l=(v.lang||"").toLowerCase().replace("_","-"),n=(v.name||"").toLowerCase(),s=-1;
    if(l.indexOf("es")!==0)return;s=l==="es-mx"?10:l==="es-us"||l==="es-419"?7:5;
-   if(/natural|premium|enhanced|mejorad|neural|google/.test(n))s+=2;if(/paulina|mónica|monica|juan|sabina|dalia|jorge/.test(n))s+=1;
+   /* Rumbo es hombre: primero «Google español» (Chrome), luego voces de hombre en español; las de mujer al final */
+   if(n==="google español")s+=30;
+   if(/\b(reed|eddy|rocko|jorge|juan|diego|carlos|pablo|jorge|enrique|raul|raúl)\b/.test(n))s+=12;
+   if(/paulina|mónica|monica|sabina|dalia|flo|sandy|shelley|grandma|helena|laura|lucia|lucía|elvira|paloma/.test(n))s-=12;
+   if(/natural|premium|enhanced|mejorad|neural/.test(n))s+=2;
    if(s>bs){bs=s;best=v}});return best}
  if(TTS){voice=pickVoice();if(speechSynthesis.addEventListener)speechSynthesis.addEventListener("voiceschanged",function(){voice=pickVoice()})}
  /* forma de boca por vocal */
