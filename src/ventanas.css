@@ -47,3 +47,18 @@
 @media (prefers-color-scheme:dark){:root:not([data-theme=light]) .bt3-wm{text-shadow:0 1px 0 #B9C6CF,0 2px 0 #9FB0BC,0 3px 0 #8A9CA9,0 4px 0 #758896,0 8px 12px rgba(0,0,0,.4)}}
 .bt2-say{animation-delay:1.7s}.bt2-bar{animation-delay:1.7s}
 @media (prefers-reduced-motion:reduce){.bt3-h,.bt3-ring,.bt3-wm{animation:none;opacity:1;transform:none}}
+/* ---------- Rumbo arma tu mapa ---------- */
+.mk2 .mk-in{width:min(460px,92vw)}
+.mk-map{position:relative}
+.mk-map svg{width:100%;height:auto;display:block;overflow:visible}
+.mk-paper{fill:#F6EBD2;stroke:#D9C49A;stroke-width:3;transform-origin:220px 110px;transform:scaleX(.04);animation:mkUnroll .55s cubic-bezier(.3,1.2,.4,1) .15s forwards}
+.mk-route{fill:none;stroke:#B07A3A;stroke-width:4;stroke-linecap:round;stroke-dasharray:3 9;stroke-dashoffset:0;opacity:0;animation:mkRoute 1.2s ease .9s forwards}
+.mk-isl .mk-pop{transform-box:fill-box;transform-origin:50% 80%;transform:scale(0);animation:mkPop .45s cubic-bezier(.3,1.6,.5,1) forwards;animation-delay:calc(.55s + var(--i)*.22s)}
+.mk-rb{position:absolute;left:4%;top:20%;width:22%;aspect-ratio:1;animation:mkRb .6s cubic-bezier(.3,1.4,.5,1) .3s both}
+.mk-rb .rb{width:100%;height:100%}
+.mk2 p{transition:opacity .18s,transform .18s}.mk2 p.sw{opacity:0;transform:translateY(4px)}
+@keyframes mkUnroll{to{transform:none}}
+@keyframes mkRoute{0%{opacity:1;clip-path:inset(0 100% 0 0)}100%{opacity:1;clip-path:inset(0 0 0 0)}}
+@keyframes mkPop{to{transform:none}}
+@keyframes mkRb{from{opacity:0;transform:translateY(20px) scale(.8)}}
+@media (prefers-reduced-motion:reduce){.mk-paper,.mk-route,.mk-isl .mk-pop,.mk-rb{animation:none;transform:none;opacity:1}}

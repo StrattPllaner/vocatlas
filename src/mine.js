@@ -176,11 +176,22 @@ function pkApply(add,rem){
 }
 /* Rumbo avisa que está armando el mapa */
 function making(cb){
- var o=document.createElement("div");o.className="mk";o.setAttribute("role","status");
- o.innerHTML='<div class="mk-in">'+rumboEl("walk")+'<p>Estoy armando tu mapa…</p></div>';
- document.body.appendChild(o);void o.offsetWidth;o.classList.add("on");
- wireRumbo(o.querySelector(".rb"));
- setTimeout(function(){cb();setTimeout(function(){o.classList.remove("on");setTimeout(function(){o.remove()},RM()?0:420)},RM()?60:650)},RM()?0:1150);
+ /* Rumbo arma el mapa: un pergamino se desenrolla, aparece una isla por cada área que elegiste y Rumbo traza la ruta entre ellas */
+ var ars=AREA_ORDER_FLOW.filter(function(a){return S.pick.some(function(id){return byId[id]&&byId[id].area===a})});if(!ars.length)ars=["salud"];
+ var P=[[66,160],[150,100],[226,150],[302,92],[378,146]].slice(0,Math.max(2,ars.length)),route="M"+P.map(function(q){return q.join(" ")}).join("L");
+ var isl=P.map(function(q,i){var a=ars[i%ars.length],c=AREA_COL_FLOW[a],n=S.pick.filter(function(id){return byId[id]&&byId[id].area===a}).length;
+  return '<g class="mk-isl" style="--i:'+i+'" transform="translate('+q[0]+' '+q[1]+')"><g class="mk-pop"><ellipse cx="0" cy="12" rx="46" ry="17" fill="#7CC7D8" opacity=".55"/><path d="M-36 4Q-36 20 0 22Q36 20 36 4L36 12Q36 28 0 30Q-36 28 -36 12Z" fill="#C79A62"/><ellipse cx="0" cy="4" rx="36" ry="14" fill="#E9D4A0"/><ellipse cx="0" cy="0" rx="27" ry="10" fill="'+c+'"/><ellipse cx="-6" cy="-3" rx="10" ry="3" fill="#FFFFFF" opacity=".25"/></g></g>'}).join("");
+ var o=document.createElement("div");o.className="mk mk2";o.setAttribute("role","status");
+ o.innerHTML='<div class="mk-in"><div class="mk-map"><svg viewBox="0 0 440 220" aria-hidden="true"><rect x="6" y="6" width="428" height="208" rx="18" class="mk-paper"/>'+
+  '<path d="'+route+'" class="mk-route" pathLength="100"/>'+isl+'</svg><div class="mk-rb">'+rumboEl()+'</div></div><p id="mkSay">Ubicando tus carreras…</p></div>';
+ document.body.appendChild(o);void o.offsetWidth;o.classList.add("on");var rb=o.querySelector(".rb");wireRumbo(rb);
+ [[900,"Trazando los caminos…"],[1900,"¡Listo! Vamos a verlo"]].forEach(function(q){setTimeout(function(){var e=o.querySelector("#mkSay");if(e){e.classList.add("sw");setTimeout(function(){e.textContent=q[1];e.classList.remove("sw")},180)}},RM()?0:q[0])});
+ /* Rumbo brinca de isla en isla siguiendo la ruta */
+ var rw=o.querySelector(".mk-rb");if(rw&&rw.animate&&!RM()){var kf=P.map(function(q,i){return {left:(q[0]/440*100-11)+"%",top:(q[1]/220*100-52)+"%",offset:i/(P.length-1)}});
+  var hop=[];kf.forEach(function(k,i){hop.push(k);if(i<kf.length-1){var n2=kf[i+1];hop.push({left:((parseFloat(k.left)+parseFloat(n2.left))/2)+"%",top:(Math.min(parseFloat(k.top),parseFloat(n2.top))-14)+"%",offset:(k.offset+n2.offset)/2})}});
+  rw.style.left=kf[0].left;rw.style.top=kf[0].top;setTimeout(function(){var an=rw.animate(hop,{duration:1300,easing:"linear",fill:"forwards"});an.onfinish=function(){if(rb)mood(rb,"happy","jump")}},950)}
+ else if(rb)setTimeout(function(){mood(rb,"happy","jump")},RM()?0:1950);
+ setTimeout(function(){cb();setTimeout(function(){o.classList.remove("on");setTimeout(function(){o.remove()},RM()?0:420)},RM()?60:350)},RM()?0:2500);
 }
 /* las islas emergen del mar una por una y la cámara termina con el mapa completo */
 function emergeMap(){
