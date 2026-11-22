@@ -30,7 +30,7 @@ var ART=(function(I,E){
  var V3=false;
  /* v3: en vez del disco alto (parecía posavasos), un montículo bajo de pasto con talud suave y una plaza de losas
     teñida con el color de la carrera */
- function plat3(top){var gr="#93CF6E",s=I.shadowEll(0,0,-1,50,.06),pv=I.mix(top,"#EFE6D2",.5);
+ function plat3(top){var gr=(I.moundGrass&&I.moundGrass())||"#93CF6E",s=I.shadowEll(0,0,-1,50,.06),pv=I.mix(top,"#EFE6D2",.5);
   [[0,50,.26],[1.8,49,.19],[3.6,48,.12],[5.4,47,.06]].forEach(function(q){s+=I.ell(0,0,q[0],q[1],I.shade(gr,q[2]))});
   s+=I.ell(0,0,7,46,gr)+I.ell(0,0,7.05,40,I.shade(pv,.1))+I.ell(0,0,7.1,38.6,pv);
   var a=I.cylD(0,0,7.1,38.6);s+='<ellipse cx="'+f1(a.cx)+'" cy="'+f1(a.cy)+'" rx="'+f1(a.rx-6)+'" ry="'+f1(a.ry-3)+'" fill="none" stroke="'+I.tint(pv,.5)+'" stroke-width="1" opacity=".8"/>';

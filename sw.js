@@ -1,7 +1,7 @@
 /* Vocatlas: funciona sin conexión.
    La página se pide primero a la red (así siempre llega la versión nueva) y, si no hay red, sale de la copia guardada.
    Íconos y fuentes salen de la copia y se actualizan por detrás. */
-var V = "vocatlas-v34";
+var V = "vocatlas-v36";
 var SHELL = ["./", "index.html", "manifest.webmanifest", "icons/icon-192.png", "icons/icon-512.png", "icons/apple-touch-icon.png", "icons/favicon-64.png", "icons/favicon-32.png"];
 
 self.addEventListener("install", function (e) {
@@ -16,7 +16,7 @@ self.addEventListener("activate", function (e) {
 function fromNetwork(req, key, fresh) {
   /* la página se revalida siempre con el servidor (sin la caché del navegador) */
   return (fresh ? fetch(req.url, { cache: "no-cache", credentials: "same-origin" }) : fetch(req)).then(function (r) {
-    if (r && (r.ok || r.type === "opaque")) { var cp = r.clone(); caches.open(V).then(function (c) { c.put(key || req, cp) }) }
+    if (r && r.status === 200 && r.type !== "opaque") { var cp = r.clone(); caches.open(V).then(function (c) { c.put(key || req, cp) }) }
     return r;
   });
 }
@@ -40,9 +40,11 @@ self.addEventListener("fetch", function (e) {
   }
   var font = /fonts\.(googleapis|gstatic)\.com$/.test(url.hostname);
   if (url.origin === location.origin || font) {
+    /* una copia guardada que no sirve (vacía o con error) no se usa: se pide a la red */
     e.respondWith(caches.match(req).then(function (hit) {
+      var good = hit && hit.status === 200 && hit.type !== "error";
       var net = fromNetwork(req).catch(function () { return hit });
-      return hit || net;
+      return good ? hit : net;
     }));
   }
 });

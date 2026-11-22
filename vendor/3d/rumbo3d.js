@@ -69,6 +69,9 @@ function draw(it,ts,still){it.last=ts;if(!it.t0)it.t0=ts;const t=(ts-it.t0)/1000
   const dir=wr&&wr.__dir;let target=walk?(dir?Math.atan2(dir[0],dir[1]):(left?-1.05:1.05)):(it.yaw==null?(left?.3:-.3):it.yaw)+(still?0:.1*Math.sin(t*.7));
   let dy=target-it.yawNow;while(dy>Math.PI)dy-=2*Math.PI;while(dy<-Math.PI)dy+=2*Math.PI;
   it.yawNow+=dy*Math.min(1,walk?.2:.08);it.piv.rotation.set(.1,it.yawNow+(it.spin?t*it.spin:0),0)}
+ /* nitidez: el lienzo sigue el tamaño real en pantalla (con el zoom del mapa); así nunca se ve borroso */
+ if(ts-(it.lastFit||0)>400){it.lastFit=ts;const w=it.cv.getBoundingClientRect().width;if(w>4){const want=Math.min(MAXPX,Math.max(48,Math.round(w*Math.min(3,window.devicePixelRatio||1))));
+  if(Math.abs(want-it.PX)/it.PX>.12){it.PX=want;it.cv.width=it.cv.height=want}}}
  const PX=it.PX;R.setViewport(0,0,PX,PX);R.setScissor(0,0,PX,PX);R.setClearColor(0,0);R.clear();
  scene.add(it.piv);R.render(scene,it.cam);scene.remove(it.piv);
  const cx=it.ctx;cx.clearRect(0,0,PX,PX);cx.drawImage(R.domElement,0,MAXPX-PX,PX,PX,0,0,PX,PX)}

@@ -159,8 +159,8 @@ var ISO=(function(){
  }
  /* plataforma de cada edificio: disco redondo con grosor y borde iluminado */
  /* rediseño de #art: mientras MOUND está encendido, la plataforma es un montículo bajo de pasto con plaza (la app no lo enciende) */
- var MOUND=false;function setMound(v){MOUND=!!v}
- function mound(r,top){var gr="#93CF6E",k=r/46,s=shadowEll(0,0,-1,r+4,.06),pv=mix(top,"#EFE6D2",.5);
+ var MOUND=false,MG=null;function setMound(v,g){MOUND=!!v;if(g!==undefined)MG=g}
+ function mound(r,top){var gr=MG||"#93CF6E",k=r/46,s=shadowEll(0,0,-1,r+4,.06),pv=mix(top,"#EFE6D2",.5);
   [[0,50,.26],[1.8,49,.19],[3.6,48,.12],[5.4,47,.06]].forEach(function(q){s+=ell(0,0,q[0],q[1]*k,shade(gr,q[2]))});
   s+=ell(0,0,7,46*k,gr)+ell(0,0,7.05,40*k,shade(pv,.1))+ell(0,0,7.1,38.6*k,pv);return s}
  function platform(r,top,o){if(MOUND)return mound(r,top);
@@ -200,5 +200,5 @@ var ISO=(function(){
  function cast(rx,len,o){o=o||{};var x=o.x||0,y=o.y||0;return '<path d="M'+f1(x-rx)+' '+f1(y)+'Q'+f1(x-rx*.4)+' '+f1(y+rx*.5)+' '+f1(x+len*.5)+' '+f1(y+rx*.62+len*.18)+'Q'+f1(x+len+rx*.4)+' '+f1(y+len*.3)+' '+f1(x+len*.9)+' '+f1(y+len*.08)+'Q'+f1(x+rx*.3)+' '+f1(y-rx*.36)+' '+f1(x-rx)+' '+f1(y)+'Z" fill="#13213F" opacity="'+(o.op||.13)+'"/>'}
  /* recorte por silueta: base en un tono, planos de sombra y luz dentro */
  function shaded(d,base,inner){var id=uid("k");return clipDef(id,d)+'<path d="'+d+'" fill="'+base+'"/><g clip-path="url(#'+id+')">'+inner+'</g>'}
- return {setMound:setMound,mound:mound,sketch:sketch,sketchAll:sketchAll,skDefs:skDefs,SKL:SKL,SKP:SKP,uid:uid,smooth:smooth,blobPts:blobPts,blob:blob,clipDef:clipDef,planeX:planeX,planeY:planeY,planeG:planeG,contact:contact,cast:cast,shaded:shaded,walk:walk,P:P,pts:pts,poly:poly,line:line,path:path,box:box,faceL:faceL,faceR:faceR,faceTop:faceTop,quad:quad,win:win,cyl:cyl,cylD:cylD,ell:ell,ball:ball,dome:dome,gable:gable,shadowEll:shadowEll,shadowBox:shadowBox,platform:platform,T:T,shade:shade,tint:tint,mix:mix,f1:f1,grey:grey,greyAll:greyAll};
+ return {moundGrass:function(){return MG},setMound:setMound,mound:mound,sketch:sketch,sketchAll:sketchAll,skDefs:skDefs,SKL:SKL,SKP:SKP,uid:uid,smooth:smooth,blobPts:blobPts,blob:blob,clipDef:clipDef,planeX:planeX,planeY:planeY,planeG:planeG,contact:contact,cast:cast,shaded:shaded,walk:walk,P:P,pts:pts,poly:poly,line:line,path:path,box:box,faceL:faceL,faceR:faceR,faceTop:faceTop,quad:quad,win:win,cyl:cyl,cylD:cylD,ell:ell,ball:ball,dome:dome,gable:gable,shadowEll:shadowEll,shadowBox:shadowBox,platform:platform,T:T,shade:shade,tint:tint,mix:mix,f1:f1,grey:grey,greyAll:greyAll};
 })();

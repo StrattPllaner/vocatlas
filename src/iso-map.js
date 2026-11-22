@@ -81,6 +81,8 @@ var ISOMAP=(function(I,E,G){
   /* edificios: cada carrera se define una vez (completa y simplificada) y se reutiliza; usa la versión elegida */
   var defs=E.DEFS;if(opt.ver==="v3"&&I.setMound)I.setMound(true);
   W.nodes.forEach(function(n){
+   /* el montículo de cada carrera lleva el mismo verde que el pasto de su isla */
+   if(opt.land3&&I.setMound&&typeof ISLAS3!=="undefined")I.setMound(true,ISLAS3.grass(n.isle.area.id,n.isle.area.biome));
    var c=n.c,k=aff[c.id]!=null?aff[c.id]:.5,sc=(.92+.22*k).toFixed(3),p=pj([n.x,n.y],Z_TOP),v=opt.style||null,id=I.uid("b");
    var full,lite;
    if(opt.app){/* app: una sola versión (estructura), con id de edificio para tocar y redibujar delante de Rumbo */
@@ -95,7 +97,7 @@ var ISOMAP=(function(I,E,G){
    defs+='<g id="'+id+'f">'+full+'</g><g id="'+id+'l">'+lite+'</g>';
    objs.push({k:n.x+n.y,s:'<g class="m-b'+(k>.66?' hi':'')+'" data-id="'+c.id+'" transform="translate('+f1(p[0])+' '+f1(p[1])+') scale('+sc+')">'+(k>.66?'<ellipse class="m-glow" cx="0" cy="4" rx="80" ry="40"/>':'')+'<use class="m-full" href="#'+id+'f"/><use class="m-lite" href="#'+id+'l"/></g>'});
   });
-  if(I.setMound)I.setMound(false);
+  if(I.setMound)I.setMound(false,null);
   /* vegetación y objetos según el bioma, lejos de edificios, caminos y costa */
   if(!opt.noDecor)W.islands.forEach(function(L){
    var b=E.BIOME[L.area.biome]||E.BIOME.ciudad,rr=G.rng(G.hs(L.id+"d")),placed=[],tries=L.nodes.length*90+120,want=opt.budget?opt.budget.isle:L.nodes.length*4+4,kinds=opt.decor||null;
@@ -186,7 +188,7 @@ var ISOMAP=(function(I,E,G){
   /* la subárea se nombra al frente de su grupo de edificios */
   W.subs.forEach(function(s){var xs=0,yb=-1e9;s.ids.forEach(function(id){var p=pj([W.byId[id].x,W.byId[id].y],Z_TOP);xs+=p[0];yb=Math.max(yb,p[1])});labels.push({k:"sl",el:mk("gm-sl",'<span>'+esc(s.sub)+'</span><b>'+s.n+'</b>'),x:xs/s.ids.length,y:yb+44,pri:5})});
   W.nodes.forEach(function(n){var p=pj([n.x,n.y],Z_TOP),k=aff[n.id]!=null?aff[n.id]:.5;
-   var e=mk("gm-pin",(typeof SIMB!=="undefined"&&SIMB.has(n.id)?'<span class="gm-sy">'+SIMB.icon(n.id,"a",40)+'</span>':'<i class="pn"></i>')+'<span class="br"><b class="nf">'+esc(n.c.name)+'</b><b class="ns">'+esc(n.c.short||n.c.name)+'</b></span>',{btn:true});e.style.setProperty("--c",n.c.color);e.setAttribute("data-id",n.id);e.setAttribute("aria-label",n.c.name);
+   var e=mk("gm-pin",'<i class="pn"></i>'+'<span class="br"><b class="nf">'+esc(n.c.name)+'</b><b class="ns">'+esc(n.c.short||n.c.name)+'</b></span>',{btn:true});e.style.setProperty("--c",n.c.color);e.setAttribute("data-id",n.id);e.setAttribute("aria-label",n.c.name);
    labels.push({k:"pin",el:e,x:p[0],y:p[1],pri:1+k*4,id:n.id});
    /* área de toque de al menos 48 px sobre el edificio */
    var hb=document.createElement("button");hb.type="button";hb.className="gm-hit";hb.setAttribute("data-id",n.id);hb.setAttribute("aria-label",n.c.name);hb.tabIndex=-1;lay.appendChild(hb);hits.push({el:hb,n:n,x:p[0],y:p[1]})});

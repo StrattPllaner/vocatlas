@@ -29,7 +29,7 @@ var ISLAS3=(function(I,E,G,M){
   montana:{id:"montana",n:"D · Montaña",d:"Una montaña grande de hasta cuatro terrazas con un arroyo que baja y cae en cascada por la pared de la isla.",sand:"#F2DCA8",wet:"#DFC38C",ct:"#C99A62",cb:"#9E7448",wall:18,exp:.3,head:[.78,.92],sh:[28,76,14,24,5,10],hill:66,hillDn:40,layers:4,lz:11,pond:false,fall:true,pier:true,palms:1,groves:1,pines:.5},
   rio:{id:"rio",n:"E · Río y selva",d:"Un río cruza la isla de costa a costa entre las carreras, con puentes de madera donde lo cruzan los caminos, cascadita al bajar a la playa y selva espesa.",sand:"#EAD6A0",wet:"#D6BC84",ct:"#B98E5C",cb:"#8E6A42",wall:14,exp:.38,head:[.8,.94],sh:[26,70,14,22,5,10],vars:"--m-sh1:rgba(90,200,190,.34);--m-sh2:#5CC6BE;--m-sh3:#9EE0D4",hill:0,pond:false,river:true,pier:false,palms:2.4,groves:1.7,pines:0,grass:.08},
   pueblo:{id:"pueblo",n:"F · Pueblo",d:"En el claro más grande, una plaza empedrada con kiosco, faroles, bancas y bugambilias, como la plaza de un pueblo; playa con lanchas de pescadores.",sand:"#F2DCA8",wet:"#DFC38C",ct:"#C9946A",cb:"#9E6E4C",wall:15,exp:.4,head:[.78,.92],sh:[28,80,14,24,5,10],hill:0,hillDn:44,pond:false,plaza:true,pier:true,palms:1.2,groves:.8,pines:0,boats:true},
-  cenote:{id:"cenote",n:"G · Río, selva y cenote",d:"El de río y selva, y además un cenote en el claro más grande (pozo de agua turquesa con paredes de roca y raíces) y una pirámide maya en ruinas, como en la península de Yucatán.",sand:"#F4E6C2",wet:"#E2CFA0",ct:"#C9B48A",cb:"#9E8A64",wall:14,exp:.38,head:[.8,.94],sh:[30,80,16,26,6,12],vars:"--m-sh1:rgba(90,215,205,.36);--m-sh2:#5CD0C6;--m-sh3:#A6EADF",hill:0,hillDn:46,pond:false,river:true,cenote:true,ruins:true,pier:false,palms:2.4,groves:1.8,pines:0,grass:.1},
+  cenote:{id:"cenote",n:"G · Río, selva y cenote",d:"El de río y selva, y además un cenote en el claro más grande (pozo de agua turquesa con paredes de roca y raíces) como en la península de Yucatán.",sand:"#F4E6C2",wet:"#E2CFA0",ct:"#C9B48A",cb:"#9E8A64",wall:14,exp:.38,head:[.8,.94],sh:[30,80,16,26,6,12],vars:"--m-sh1:rgba(90,215,205,.36);--m-sh2:#5CD0C6;--m-sh3:#A6EADF",hill:0,hillDn:46,pond:false,river:true,cenote:true,pier:false,palms:1.2,groves:.8,pines:0,grass:.1},
   chinampas:{id:"chinampas",n:"H · Chinampas",d:"Como Xochimilco: canales rectos entre las carreras con camellones de flores (cempasúchil y otras), trajineras de colores y puentes donde cruzan los caminos.",sand:"#E9D9AE",wet:"#D6C08E",ct:"#A88A60",cb:"#7E6644",wall:10,exp:.5,head:null,sh:[26,70,14,22,5,10],hill:0,pond:false,canals:true,pier:true,palms:.6,groves:1.2,pines:0}};
  var ST=STY.tropical;
  /* cada área con su propio pasto y sus propios árboles (especies que de verdad se ven en México):
@@ -70,11 +70,13 @@ var ISLAS3=(function(I,E,G,M){
    /* plaza de pueblo: en el claro más grande (el mismo lugar que tendría el cerro) */
    if(ST.plaza&&hp&&bs>=6)f.plaza={x:hp[0],y:hp[1],R:Math.min(bs+20,40)};
    /* río: la línea con curvas que cruza la isla de costa a costa lo más lejos posible de las carreras y de los puentes */
-   if(ST.river){var rb=null,rv=-1;for(k=0;k<260;k++){var th=rr()*Math.PI,off=(rr()-.5)*L.R*.9,dx=Math.cos(th),dy=Math.sin(th),cx0=L.x-dy*off,cy0=L.y+dx*off;
+   if(ST.river&&L.nodes.length>=3){var rb=null,rv=-1;for(k=0;k<260;k++){var th=rr()*Math.PI,off=(rr()-.5)*L.R*.9,dx=Math.cos(th),dy=Math.sin(th),cx0=L.x-dy*off,cy0=L.y+dx*off;
      if(!W.inPoly(cx0,cy0,L.plateau))continue;
      var ex=function(sg){var t=0;while(t<L.R*3&&W.inPoly(cx0+dx*t*sg,cy0+dy*t*sg,L.coast))t+=3;return [cx0+dx*(t+8)*sg,cy0+dy*(t+8)*sg]},ra=ex(-1),rb2=ex(1),w1=(rr()-.5)*46,w2=(rr()-.5)*30,rp=[];
      for(var s2=0;s2<=30;s2++){var u=s2/30,wg=Math.sin(u*Math.PI)*(w1*Math.sin(u*Math.PI*2)+w2);rp.push([ra[0]+(rb2[0]-ra[0])*u-dy*wg,ra[1]+(rb2[1]-ra[1])*u+dx*wg])}
-     var sc2=1e9;rp.forEach(function(q){sc2=Math.min(sc2,dn(q[0],q[1]));W.bridges.forEach(function(bb){sc2=Math.min(sc2,Math.hypot(bb.p0[0]-q[0],bb.p0[1]-q[1])+16,Math.hypot(bb.p1[0]-q[0],bb.p1[1]-q[1])+16)})});
+     /* un río de verdad: casi todo sobre el pasto y que baje a la playa solo en sus dos extremos (no que corra por la orilla) */
+     var ins=0,cr=0,pv=null;rp.forEach(function(q){var v=W.inPoly(q[0],q[1],pl);if(v)ins++;if(pv!==null&&v!==pv)cr++;pv=v});if(cr>2||ins<rp.length*.7)continue;
+     var sc2=1e9;rp.forEach(function(q){if(W.inPoly(q[0],q[1],pl)&&W.edgeDist(q[0],q[1],pl)<10&&q!==rp[0]&&q!==rp[rp.length-1])sc2=Math.min(sc2,W.edgeDist(q[0],q[1],pl)*4);sc2=Math.min(sc2,dn(q[0],q[1]));W.bridges.forEach(function(bb){sc2=Math.min(sc2,Math.hypot(bb.p0[0]-q[0],bb.p0[1]-q[1])+16,Math.hypot(bb.p1[0]-q[0],bb.p1[1]-q[1])+16)})});
      if(sc2>rv){rv=sc2;rb=rp}}
     if(rb&&rv>=50)f.rivers=[rb]}
    /* chinampas (Xochimilco): canales rectos dentro de la meseta, entre las carreras, con camellones de flores */
@@ -85,7 +87,9 @@ var ISLAS3=(function(I,E,G,M){
     cand.sort(function(a,b){return b.s-a.s});cand.forEach(function(c){if(f.rivers.length>=3)return;if(f.rivers.some(function(r){return r.some(function(a){return c.p.some(function(b){return Math.hypot(a[0]-b[0],a[1]-b[1])<30})})}))return;f.rivers.push(c.p);
      var cp=c.p;for(var bi2=2;bi2<cp.length-2;bi2+=2)[-1,1].forEach(function(sd){var bx=cp[bi2][0]-c.dy*sd*11,by=cp[bi2][1]+c.dx*sd*11;if(dn(bx,by)>46&&de(bx,by)>10&&W.inPoly(bx,by,pl))f.beds.push([bx,by,c.dx,c.dy,["#F29A2E","#E0607A","#F2C744","#9B7BD4"][(bi2+(sd>0?1:0))%4]])})})}
    /* cenote: el claro más grande se vuelve un pozo de agua turquesa con paredes de roca y raíces que cuelgan */
-   if(ST.cenote&&hp&&bs>=12)f.cenote={x:hp[0],y:hp[1],R:Math.min(bs+14,30)};
+   if(ST.cenote&&L.nodes.length>=2){var cb=null,cv=-1;for(k=0;k<500;k++){var ca2=rr()*6.28,cr2=Math.sqrt(rr())*L.R,cx2=L.x+Math.cos(ca2)*cr2,cy2=L.y+Math.sin(ca2)*cr2;if(!W.inPoly(cx2,cy2,pl))continue;
+     var sv=Math.min(dn(cx2,cy2)-58,de(cx2,cy2)-16,W.edgeDist(cx2,cy2,pl)-18);(f.rivers||[]).forEach(function(r){r.forEach(function(q){sv=Math.min(sv,Math.hypot(q[0]-cx2,q[1]-cy2)-28)})});if(sv>cv){cv=sv;cb=[cx2,cy2]}}
+    if(cb&&cv>=8)f.cenote={x:cb[0],y:cb[1],R:Math.min(cv+10,24)}}
    if(f.rivers&&f.rivers.length){f.cross=[];f.drops=[];f.rivers.forEach(function(rb){
      /* cruces con los caminos: ahí van puentes */
      W.edges.forEach(function(e){var q=e.pts;for(var j=1;j<q.length;j++)for(var m2=1;m2<rb.length;m2++){var A=q[j-1],B2=q[j],C2=rb[m2-1],D=rb[m2],den=(B2[0]-A[0])*(D[1]-C2[1])-(B2[1]-A[1])*(D[0]-C2[0]);if(Math.abs(den)<1e-6)continue;
@@ -195,13 +199,13 @@ var ISLAS3=(function(I,E,G,M){
    var GREENS=ST.grass?["#3F8F57","#357F4C","#4A9A5E","#2F7448"]:["#4FAE52","#3F9C4A","#5DBB5A","#46A35C"],tk=b.tree==="pine"||ST.pines>.6?"treePine":"treeRound";
    /* arboledas */
    var groves=Math.round((1+L.nodes.length)*ST.groves);for(var gi=0,t=0;gi<groves&&t<300;t++){var a=rr()*6.28,r=Math.sqrt(rr())*L.R,cx=L.x+Math.cos(a)*r,cy=L.y+Math.sin(a)*r;
-    if(!onTop(cx,cy,14)||!far(cx,cy,70,22,20))continue;gi++;var nT=4+Math.floor(rr()*3);
+    if(!onTop(cx,cy,14)||!far(cx,cy,70,22,20))continue;gi++;var nT=3+Math.floor(rr()*2);
     for(var k=0,tt=0;k<nT&&tt<60;tt++){var x=cx+(rr()-.5)*34,y=cy+(rr()-.5)*30;if(!onTop(x,y)||!far(x,y,62,15,8.5))continue;k++;
      var sp=FL&&!(ST.pines&&rr()<ST.pines*.6)?FL[Math.floor(rr()*FL.length)]:[ST.pines&&rr()<ST.pines?"treePine":tk,GREENS[Math.floor(rr()*4)]];
      put(x,y,Z_TOP,E.one(sp[0],{d:2,k:(sp[0]==="bush"?.75:.72)+rr()*.3,ph:rr()*3,flip:rr()<.5,c:ST.grass&&sp[0]!=="bush"&&!/^#(9B|B3|F2|F5|E8|EE|C2)/.test(sp[1])?I.mix(sp[1],"#2F7448",ST.grass*2):sp[1]}))}
     for(k=0;k<2;k++){var bx=cx+(rr()-.5)*44,by=cy+(rr()-.5)*40;if(onTop(bx,by)&&far(bx,by,60,13,7))put(bx,by,Z_TOP,E.one("bush",{d:2,k:.6+rr()*.25,ph:rr()*3}))}}
    /* flores y algo del bioma sueltos */
-   for(var f=0,t2=0;f<L.nodes.length*2+1&&t2<200;t2++){var fx=L.x+(rr()-.5)*2*L.R,fy=L.y+(rr()-.5)*2*L.R;if(onTop(fx,fy)&&far(fx,fy,58,13,12)){f++;put(fx,fy,Z_TOP,E.one(f%2?"flowers":b.deco[Math.floor(rr()*b.deco.length)],{d:2,k:.85,ph:rr()*3}))}}
+   for(var f=0,t2=0;f<Math.ceil(L.nodes.length*.7)&&t2<200;t2++){var fx=L.x+(rr()-.5)*2*L.R,fy=L.y+(rr()-.5)*2*L.R;if(onTop(fx,fy)&&far(fx,fy,58,13,12)){f++;put(fx,fy,Z_TOP,E.one(f%2?"flowers":b.deco[Math.floor(rr()*b.deco.length)],{d:2,k:.85,ph:rr()*3}))}}
    /* palmeras en la arena */
    for(var pc=0,t3=0;pc<(L.nodes.length+2)*ST.palms/2&&t3<600;t3++){var a3=rr()*6.28,r3=L.R*(.7+rr()*.6),px=L.x+Math.cos(a3)*r3,py=L.y+Math.sin(a3)*r3;
     if(!W.inPoly(px,py,L.coast)||W.edgeDist(px,py,L.coast)<7||W.inPoly(px,py,L.plateau)||W.edgeDist(px,py,L.plateau)<4||!far(px,py,60,14,16))continue;pc++;
@@ -222,7 +226,7 @@ var ISLAS3=(function(I,E,G,M){
      [-Lg,-Lg/2,0,Lg/2,Lg].forEach(function(u){var h0=.6+2*(1-Math.abs(u)/Lg),a=bp(u,v,h0),b=bp(u,v,h0+3);o+='<path d="M'+f1(a[0])+' '+f1(a[1])+'L'+f1(b[0])+' '+f1(b[1])+'" stroke="#7A5236" stroke-width=".8"/>'})});
     push(c.x+c.y+3,o,c.x,c.y)});
    /* selva: más árboles y helechos a la orilla del río */
-   if(fe.rivers&&!ST.canals){var RV=fe.rivers[0];for(var rv2=0,t5=0;rv2<14&&t5<300;t5++){var q6=RV[2+Math.floor(rr()*(RV.length-4))],sd2=rr()<.5?-1:1,ox=q6[0]+sd2*(11+rr()*8),oy=q6[1]-sd2*(6+rr()*8);
+   if(fe.rivers&&!ST.canals){var RV=fe.rivers[0];for(var rv2=0,t5=0;rv2<5&&t5<300;t5++){var q6=RV[2+Math.floor(rr()*(RV.length-4))],sd2=rr()<.5?-1:1,ox=q6[0]+sd2*(11+rr()*8),oy=q6[1]-sd2*(6+rr()*8);
      if(!onTop(ox,oy,5)||!far(ox,oy,56,12,8))continue;var near2=RV.some(function(r){return Math.hypot(r[0]-ox,r[1]-oy)<9});if(near2)continue;rv2++;put(ox,oy,Z_TOP,E.one(rv2%3?"treeRound":"bush",{d:2,k:.65+rr()*.3,ph:rr()*3,flip:rr()<.5,c:["#2F8F4A","#3F9C4A","#277A40"][rv2%3]}))}}
    /* plaza: kiosco al centro, faroles y bancas alrededor, bugambilias en las jardineras */
    if(fe.plaza){var pz=fe.plaza,kp=pj([pz.x,pz.y],Z_TOP),k8="",kr=9,ang;
@@ -239,11 +243,6 @@ var ISLAS3=(function(I,E,G,M){
    /* trajineras de colores en los canales */
    if(ST.canals&&fe.rivers)fe.rivers.forEach(function(cv,ci){if(ci>2)return;var q7=cv[Math.floor(cv.length*(.3+ci*.2))],tp=pj(q7,Z_TOP-.5),C=[["#E2434B","#F2C744"],["#2F8FB5","#F29A2E"],["#3FA34D","#E0607A"]][ci%3];
     push(q7[0]+q7[1]+2,'<g transform="translate('+f1(tp[0])+' '+f1(tp[1])+')"><ellipse cx="0" cy="1" rx="8" ry="2.6" fill="#13213F" opacity=".18"/><path d="M-8 -1L8 -1L6.6 1.8L-6.6 1.8Z" fill="'+C[0][0]+'"/><path d="M-8 -1H8V-2H-8Z" fill="'+C[0][1]+'"/><path d="M-6 -2V-7M6 -2V-7" stroke="#7A5236" stroke-width=".7"/><path d="M-7 -7Q0 -10.4 7 -7V-6H-7Z" fill="'+C[0][1]+'"/><rect x="-4.4" y="-9.4" width="8.8" height="2.6" rx=".4" fill="#FFFFFF" stroke="'+C[0][0]+'" stroke-width=".4"/></g>',q7[0],q7[1])});
-   /* pirámide maya en ruinas junto al cenote */
-   if(ST.ruins){var rp2=null;for(var t7=0;t7<300;t7++){var a7=rr()*6.28,r7=Math.sqrt(rr())*L.R,x7=L.x+Math.cos(a7)*r7,y7=L.y+Math.sin(a7)*r7;if(onTop(x7,y7,18)&&far(x7,y7,60,20,26)){rp2=[x7,y7];break}}
-    if(rp2){var pr="",ST2=["#CDBB97","#C2AF8A","#B8A47E","#AE9A74"];for(var lv=0;lv<4;lv++){var hw=12-lv*2.6;pr+=I.box(rp2[0]-hw,rp2[1]-hw,Z_TOP+lv*4,hw*2,hw*2,4,ST2[lv],{noGlint:true})}
-     pr+=I.box(rp2[0]-2.6,rp2[1]+1.6,Z_TOP,5.2,10.4,1.2,"#E0D2B2",{noGlint:true});for(var stp=0;stp<4;stp++)pr+=I.box(rp2[0]-2.4,rp2[1]+11-stp*2.6,Z_TOP+stp*4,4.8,2.6,4,"#E6D9BC",{noGlint:true});
-     pr+=I.box(rp2[0]-3,rp2[1]-3,Z_TOP+16,6,6,5,"#C2AF8A",{noGlint:true});push(rp2[0]+rp2[1]+12,pr);placed.push(rp2)}}
    /* lanchas de pescadores en la arena */
    if(ST.boats)for(var bt=0,t6=0;bt<2&&t6<400;t6++){var a9=rr()*6.28,r9=L.R*(.8+rr()*.5),bx2=L.x+Math.cos(a9)*r9,by2=L.y+Math.sin(a9)*r9;
     if(!W.inPoly(bx2,by2,L.coast)||W.edgeDist(bx2,by2,L.coast)<5||W.inPoly(bx2,by2,L.plateau)||!far(bx2,by2,60,16,18))continue;bt++;var bc=["#2F8FB5","#E2434B"][bt%2];
@@ -307,5 +306,5 @@ var ISLAS3=(function(I,E,G,M){
   el.querySelectorAll(".i3-sty [data-s]").forEach(function(b){b.onclick=function(){out.innerHTML='<p class="ia-n">Armando el mapa…</p>';var k=b.getAttribute("data-s");setTimeout(function(){show(k)},30)}});
   show(cur)}
  function use(id){ST=STY[id]||STY.tropical;return ST}
- return {land3:land3,extra:extra,page:page,use:use,STY:STY,grass:function(a,b){var q=AREA3[a];return q?q.grass:M.look(b).grass},look:function(a,b){return AREA3[a]||M.look(b)}};
+ return {land3:land3,extra:extra,page:page,use:use,STY:STY,grass:function(a,b){var q=AREA3[a],g=q?q.grass:M.look(b).grass;return ST.grass?I.mix(g,"#4F8A5E",ST.grass):g},look:function(a,b){return AREA3[a]||M.look(b)}};
 })(ISO,ENV,MAPGEN,ISOMAP);
