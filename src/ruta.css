@@ -464,6 +464,7 @@ img.tw-img.tw-back{opacity:.62;filter:saturate(.7)}
 .tw-col{transition:opacity .8s ease}
 .tw-floor.flash .tw-col{animation:twFlash 1.4s ease}
 @keyframes twFlash{0%{filter:none}30%{filter:saturate(1.35) drop-shadow(0 0 3px #FFE7A0)}100%{filter:none}}
+.tw-medal .m1,.tw-medal.is-on .m0{display:none}.tw-medal.is-on .m1{display:inline}
 .tw-star-b{fill:#B9AE97}.tw-star-t{fill:#ECE4D2;stroke:#9C8F75;stroke-width:1.5;stroke-linejoin:round}
 .tw-star.is-on .tw-star-b{fill:#C98A1E}.tw-star.is-on .tw-star-t{fill:#F6C64E;stroke:#E2A72E}
 .tw-star.is-on{filter:drop-shadow(0 0 12px rgba(255,214,102,.9))}

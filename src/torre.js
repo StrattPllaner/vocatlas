@@ -76,8 +76,22 @@ var TORRE=(function(I){
  var SYM3D=null;function live3d(host){if(!window.WebGLRenderingContext)return;(SYM3D||(SYM3D=import("./vendor/3d/sym3d.js?v=__V3D__"))).then(function(m){m.mount(host)}).catch(function(){})}
  function symImg(id,k){if(typeof SIMB!=="undefined"&&SIMB.has(id)){var q=SIMB.six(id)[k];if(q)return "media/sym/"+q.id+"."+q.v+".webp"}return ""}
  function has(id){return !!byId[id]&&typeof ISO!=="undefined"}
- function star(on){var r=40,ri=17,p=[];for(var i=0;i<10;i++){var a=-Math.PI/2+i*Math.PI/5,rr=i%2?ri:r;p.push(f1(Math.cos(a)*rr)+","+f1(Math.sin(a)*rr))}
-  var pl=p.join(" ");return '<g class="tw-star'+(on?" is-on":"")+'"><polygon points="'+pl+'" transform="translate(0 6)" class="tw-star-b"/><polygon points="'+pl+'" class="tw-star-t"/></g>'}
+ /* la cima: medalla de oro con rosa de los vientos (el rumbo), corona de laurel y listón del color de la carrera.
+    Bloqueada se ve en piedra clara; al dominar la carrera se vuelve de oro y brilla */
+ function star(on0,col){return '<g class="tw-star tw-medal'+(on0?" is-on":"")+'"><g class="m0">'+medal(false,col)+'</g><g class="m1">'+medal(true,col)+'</g></g>'}
+ function medal(on,col){col=col||"#3F7DA6";var u="twm"+(on?1:0),G=on?["#FFF1B8","#F6C64E","#C98A1E"]:["#F6F1E6","#E3DACA","#B9AE97"],lf=on?["#7CC35A","#4E9A3A"]:["#D8D2C4","#BDB5A4"],rb=on?col:"#CFC6B4",rb2=on?I.shade(col,.25):"#B5AB97";
+  var o='<defs><radialGradient id="'+u+'g" cx=".38" cy=".32" r=".75"><stop offset="0" stop-color="'+G[0]+'"/><stop offset=".55" stop-color="'+G[1]+'"/><stop offset="1" stop-color="'+G[2]+'"/></radialGradient></defs>';
+  /* listón */
+  o+='<path d="M-6 14L-20 44L-13 40L-9 48L2 18Z" fill="'+rb2+'"/><path d="M6 14L20 44L13 40L9 48L-2 18Z" fill="'+rb+'"/>';
+  /* laurel: hojas a lo largo de dos arcos */
+  for(var sd=-1;sd<=1;sd+=2)for(var k=0;k<7;k++){var a=Math.PI*(.5+.12+k*.105),x=sd*Math.cos(a)*-31,y=Math.sin(a)*31+2;
+   o+='<ellipse cx="'+f1(x)+'" cy="'+f1(y)+'" rx="7.4" ry="3.4" fill="'+(k%2?lf[0]:lf[1])+'" transform="rotate('+f1(Math.atan2(y-2,x)*180/Math.PI+90+sd*38)+' '+f1(x)+' '+f1(y)+')"/>'}
+  /* medalla con canto, aro interior y rosa de los vientos */
+  o+='<circle cx="0" cy="3" r="25" fill="'+G[2]+'"/><circle cx="0" cy="0" r="25" fill="url(#'+u+'g)"/><circle cx="0" cy="0" r="19.5" fill="none" stroke="'+G[2]+'" stroke-width="1.6" opacity=".7"/>';
+  o+='<path d="M0 -16L3.6 -3.6L16 0L3.6 3.6L0 16L-3.6 3.6L-16 0L-3.6 -3.6Z" fill="'+G[0]+'" stroke="'+G[2]+'" stroke-width="1" stroke-linejoin="round"/><path d="M0 -16L3.6 -3.6L0 0ZM16 0L3.6 3.6L0 0ZM0 16L-3.6 3.6L0 0ZM-16 0L-3.6 -3.6L0 0Z" fill="'+G[2]+'" opacity=".45"/>';
+  o+='<path d="M-9 -9L-2 -2M9 -9L2 -2M9 9L2 2M-9 9L-2 2" stroke="'+G[2]+'" stroke-width="1.4" stroke-linecap="round" opacity=".6"/><circle cx="0" cy="0" r="2.4" fill="'+(on?rb:G[2])+'"/>';
+  o+='<ellipse cx="-9" cy="-12" rx="7" ry="3.4" fill="#FFFFFF" opacity=".45" transform="rotate(-35 -9 -12)"/>';
+  return o}
 
  /* ---------- la avioneta de Rumbo ---------- */
  /* avioneta 3D (tipo Ryan STA, ala baja y cabina abierta), mismo estilo que los símbolos; la hélice gira enfrente de la nariz */
@@ -194,7 +208,7 @@ var TORRE=(function(I){
     '<img class="tw-col" src="'+im+'" alt="" decoding="async"></div>';
    h+='<span class="tw-ul s-'+(u.state||"lock")+'" data-u="'+f+'">'+(f+1)+' · '+esc(u.t||"")+'</span>'}
   var stc=toPx(P(0,0,zAt(a1)+70));
-  h+='<div class="tw-sym tw-starw" style="left:'+f1(stc.x-55*k)+'px;top:'+f1(stc.y-55*k)+'px;width:'+f1(110*k)+'px;height:'+f1(110*k)+'px"><svg viewBox="-50 -50 100 100" aria-hidden="true">'+star(o.mastered)+'</svg></div>';
+  h+='<div class="tw-sym tw-starw" style="left:'+f1(stc.x-55*k)+'px;top:'+f1(stc.y-55*k)+'px;width:'+f1(110*k)+'px;height:'+f1(110*k)+'px"><svg viewBox="-50 -50 100 100" aria-hidden="true">'+star(o.mastered,(byId[id]||{}).color)+'</svg></div>';
   h+='<canvas class="tw-cv tw-cf" aria-hidden="true"></canvas><svg class="tw-l tw-pf" viewBox="'+(-xs)+' '+ytop+' '+Wd+' '+Hd+'" aria-hidden="true">'+RIBS+'</svg>';
   A.forEach(function(it){h+='<button type="button" class="rt3-n tw-n s-'+it.state+(it.chest!=null?" is-chest":"")+'" data-i="'+it.k2+'" aria-label="'+(it.lid?it.lid+" ":"")+esc(it.n)+(it.state==="done"?", hecha":it.state==="lock"?", todavía no":it.state==="soon"?", llega pronto":"")+'">'+o.nodeHTML(it)+'</button>'});
   h+='<div class="tw-globe" id="twGlobe" hidden></div><div class="tw-rb" id="lpRb"><div class="tw-ship">'+PLANE+

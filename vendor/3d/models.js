@@ -1186,7 +1186,7 @@ export const MODELS={
 export function faceTex(o){o=o||{};const c=document.createElement('canvas');c.width=c.height=512;const g=c.getContext('2d'),R=256;
   /* espalda: tapa de latón cerrada, como un reloj de bolsillo real: anillos grabados, rosa de los vientos al centro
      (por su nombre, Rumbo), rayado radial fino y bisagra arriba */
-  if(o.back){const gr=g.createRadialGradient(R-60,R-70,20,R,R,256);gr.addColorStop(0,'#F7D27A');gr.addColorStop(.55,'#E3A845');gr.addColorStop(1,'#B8802A');g.fillStyle=gr;g.fillRect(0,0,512,512);
+  if(o.back){const gr=g.createRadialGradient(R-60,R-70,20,R,R,256);gr.addColorStop(0,'#E8BE62');gr.addColorStop(.6,'#D19C40');gr.addColorStop(1,'#A8752A');g.fillStyle=gr;g.fillRect(0,0,512,512);
     g.strokeStyle='rgba(122,74,22,.25)';g.lineWidth=2;for(let a=0;a<360;a+=4){const t=a*Math.PI/180;g.beginPath();g.moveTo(R+Math.cos(t)*120,R+Math.sin(t)*120);g.lineTo(R+Math.cos(t)*200,R+Math.sin(t)*200);g.stroke()}
     [[236,10,'#9C6A22'],[212,5,'#FFE6A8'],[200,4,'#9C6A22'],[120,6,'#9C6A22'],[108,3,'#FFE6A8']].forEach(q=>{g.strokeStyle=q[2];g.lineWidth=q[1];g.beginPath();g.arc(R,R,q[0],0,7);g.stroke()});
     /* rosa de los vientos: cuatro puntas largas y cuatro cortas, en dos tonos */
@@ -1228,6 +1228,17 @@ export function rumbo3d(K,o){o=o||{};
   const ft=o.faceCanvas?new THREE.CanvasTexture(o.faceCanvas):texMat(K,faceTex({}));ft.colorSpace=THREE.SRGBColorSpace;
   const fm=new THREE.Mesh(new THREE.CircleGeometry(19.8,72),new THREE.MeshBasicMaterial({map:ft}));fm.position.z=6.6;fm.userData.ink=1;body.add(fm);body.userData.face=fm;body.userData.faceTex=ft;
   const bm=new THREE.Mesh(new THREE.CircleGeometry(19.8,72),new THREE.MeshBasicMaterial({map:texMat(K,faceTex({back:true}))}));bm.position.z=-6.6;bm.rotation.y=Math.PI;bm.userData.ink=1;body.add(bm);
+  /* espalda: mochila de aviador de cuero (lo que lleva un piloto para el paracaídas o el mapa), con tapa, hebilla de latón,
+     bolsillo, costuras, dos correas que suben por los hombros hasta el gorro */
+  {const LE='#8A5530',LE2='#A8693C',LE3='#6E4022';
+   K.box(24,21,6.8,LE,{parent:body,p:[0,-4,-9.6],rad:3.6});
+   K.box(24.8,9,7.6,LE2,{parent:body,p:[0,2.6,-9.8],rad:3.2});
+   K.box(3,8,.8,LE3,{parent:body,p:[0,-1.2,-13.7],rad:.3});
+   K.box(4.6,3.4,1,GOLD,{parent:body,p:[0,-4.4,-13.9],rad:.5,m:'metal'});K.box(2.6,1.4,1.2,LE3,{parent:body,p:[0,-4.4,-14.1],rad:.3});
+   K.box(15,7,2.6,LE2,{parent:body,p:[0,-10.6,-13.4],rad:1.6});K.box(15.4,1.6,3,LE3,{parent:body,p:[0,-7.6,-13.4],rad:.5});
+   [-1,1].forEach(sd=>{K.tube([[sd*6.6,6,-9],[sd*7.4,13,-8.6],[sd*7.6,19.5,-6.2],[sd*7.4,24,-2]],1,LE3,{parent:body});
+     K.box(2.4,14,4.8,LE3,{parent:body,p:[sd*12.4,-4,-9.8],rad:.8})});
+}
   /* gorro de aviador como uno real: una sola pieza de cuero (casquete y orejeras cortados juntos) que envuelve la caja,
      paneles cosidos de adelante hacia atrás, borde de borrego continuo y esponjado por toda la orilla (frente y orejeras),
      correa con hebilla en la orejera izquierda y botón arriba */
