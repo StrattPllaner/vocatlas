@@ -13,7 +13,7 @@ function addInk(g){const L=[];g.traverse(o=>{if(o.isMesh&&!o.userData.ink)L.push
   im.onBeforeCompile=sh=>{sh.vertexShader=sh.vertexShader.replace('#include <begin_vertex>','vec3 transformed = vec3( position ) + normalize(normal) * .9;')};const m=new THREE.Mesh(o.geometry,im);m.userData.ink=1;o.add(m)})}
 export function mount(host,opt){opt=opt||{};
  let R;try{R=new THREE.WebGLRenderer({antialias:true,alpha:true})}catch(e){return null}
- const PX=Math.round((opt.px||90)*Math.min(2,window.devicePixelRatio||1));R.setPixelRatio(1);R.setSize(PX,PX,false);R.setClearColor(0,0);R.outputColorSpace=THREE.SRGBColorSpace;
+ const PX=Math.round((opt.px||90)*Math.min(3,window.devicePixelRatio||1));R.setPixelRatio(1);R.setSize(PX,PX,false);R.setClearColor(0,0);R.outputColorSpace=THREE.SRGBColorSpace;
  const cv=R.domElement;cv.className='rb3d';cv.setAttribute('aria-hidden','true');host.appendChild(cv);
  const scene=new THREE.Scene(),key=new THREE.DirectionalLight(0xffffff,2.6);key.position.set(-60,90,120);scene.add(key);scene.add(new THREE.AmbientLight(0xffffff,.55));
  /* la cara: lienzo que copia la carátula del Rumbo plano (sin gorro, piernas ni manos) */
