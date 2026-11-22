@@ -7,7 +7,11 @@
 (function(I,E,H){
  if(typeof ART==="undefined"||!ART.addV3)return;
  var P=I.P,box=I.box,quad=I.quad,win=I.win,cyl=I.cyl,poly=I.poly,line=I.line,T=I.T,f1=I.f1;
- var Z=H.Z,GLASS=H.GLASS,FRAME=H.FRAME,piece=H.piece,dp=H.dp,at=H.at,plat=H.plat;
+ var Z=H.Z,GLASS=H.GLASS,FRAME=H.FRAME,piece=H.piece,dp=H.dp,at=H.at;
+ /* todo lo que va sobre la plataforma se dibuja 1.4 veces más grande alrededor del centro: así el edificio llena la
+    plaza como Medicina o Derecho, en vez de quedar chiquito en medio de un disco vacío */
+ var K=1.4,C0=P(0,0,Z);
+ function plat(t,sd){return H.plat(t,sd)+'<g transform="translate('+f1(C0[0])+' '+f1(C0[1])+') scale('+K+') translate('+f1(-C0[0])+' '+f1(-C0[1])+')">'}
  function sh(x,y,w,d,h){return I.shadowBox(x,y,Z,w,d,h)}
  function door(F,u,w,h,col){return quad(F,u,0,w,h,col||"#7A5236",{st:false})+line([F(u+w/2,0),F(u+w/2,h)],"#00000033",.5,{cap:"butt"})}
  function wins(F,w,cols,rows,ww,wh,v0,gy,d,col){if(d===0)return quad(F,2,v0,w-4,Math.max(3,(rows-1)*gy+wh),I.shade(col||GLASS,.1),{st:false});
@@ -18,6 +22,7 @@
   return s+quad(F,.8,.8,w-1.6,7.4,col,{st:false})+(icon?icon(F,w):"")}
  /* edificio base: muros, ventanas en las dos caras, franja, puerta y techo plano con pretil o de dos aguas */
  function B(o,d){var x=o.x,y=o.y,w=o.w,dd=o.d,h=o.h,t=T(o.c),rh=o.roof==="gable"?(o.roofH||8):1.2,s=o.noShadow?"":sh(x,y,w,dd,h+rh);
+  if(!o.z&&!o.noWalk)s+=box(x-1.6,y-1.6,Z,w+3.2,dd+5,.5,"#E4E2DC",{right:"#C9C6BE",top:"#EEECE6",noGlint:true});
   s+=box(x,y,Z+(o.z||0),w,dd,h,o.c,{left:o.c,right:t.s,top:o.top||I.tint(o.c,.35)});
   var L=I.faceL(x,y,Z+(o.z||0),w,dd),R=I.faceR(x,y,Z+(o.z||0),w,dd);
   if(o.glass){s+=quad(L,1,1.4,w-2,h-3.2,o.glassC||"#6FB7E3",{st:false})+quad(R,1,1.4,dd-2,h-3.2,I.shade(o.glassC||"#6FB7E3",.18),{st:false});
@@ -26,8 +31,16 @@
   if(o.band)s+=quad(L,0,h-3,w,2.2,o.band,{st:false})+quad(R,0,h-3,dd,2.2,I.shade(o.band,.25),{st:false});
   if(o.door!=null)s+=door(L,o.door,o.doorW||5,o.doorH||8,o.doorC||"#4C6A80");
   if(o.roof==="gable")s+=I.gable(x,y,Z+(o.z||0)+h,w,dd,rh,o.roofC||"#C9604F",{ov:1.6,th:1.4});
-  else s+=box(x-.3,y-.3,Z+(o.z||0)+h,w+.6,dd+.6,1.2,I.tint(o.c,.12),{top:o.roofC||I.shade(o.c,.08),noGlint:true});
-  return {s:s,L:L,R:R,zt:Z+(o.z||0)+h+(o.roof==="gable"?rh:1.2)}}
+  else{/* azotea real: pretil alrededor, impermeabilizante adentro, cubo de escalera y equipos de aire acondicionado */
+   var zr=Z+(o.z||0)+h,Tp=I.faceTop(x-.3,y-.3,zr+1.6);
+   s+=quad(L,0,h-1,w,1,I.shade(o.c,.1),{st:false})+quad(R,0,h-1,dd,1,I.shade(t.s,.1),{st:false});
+   s+=box(x-.3,y-.3,zr,w+.6,dd+.6,1.6,I.tint(o.c,.12),{top:I.tint(o.c,.3),noGlint:true});
+   s+=quad(Tp,1,1,w-1.4,dd-1.4,o.roofC||"#D6DADF",{st:false});
+   if(d>0&&!o.bare&&w>=14&&dd>=10){s+=box(x+1.6,y+1.4,zr+1.2,5,4,4,I.tint(o.c,.08),{right:t.s,top:"#C9CED4",noGlint:true})+door(I.faceL(x+1.6,y+1.4,zr+1.2,5,4),1.4,2.2,3,"#5A6573");
+    [[w-7.5,1.6],[w-7.5,5.4]].slice(0,w>=22?2:1).forEach(function(q){s+=box(x+q[0],y+q[1],zr+1.2,5,3,2.2,"#DDE2E7",{right:"#AEB8C2",top:"#EEF1F4",noGlint:true});var c=I.cylD(x+q[0]+3.2,y+q[1]+1.5,zr+3.42,1);s+='<ellipse cx="'+f1(c.cx)+'" cy="'+f1(c.cy)+'" rx="'+f1(c.rx)+'" ry="'+f1(c.ry)+'" fill="#5A6573"/>'})}}
+  /* marquesina sobre la puerta */
+  if(o.door!=null&&!o.noCanopy)s+=box(x+o.door-1.2,y+dd,Z+(o.z||0)+(o.doorH||8)+.4,(o.doorW||5)+2.4,3.2,.9,o.canopy||I.shade(o.c,.25),{noGlint:true});
+  return {s:s,L:L,R:R,zt:Z+(o.z||0)+h+(o.roof==="gable"?rh:1.6)}}
  function tree(x,y,d,k,c){return d>0?dp("treeRound",x,y,{k:k||.6,d:d,c:c}):null}
  function bush(x,y,d){return d>1?dp("bush",x,y,{k:.5,d:d}):null}
  /* piezas sueltas */
@@ -58,11 +71,15 @@
   var mac=d>0?box(10,6,Z,6,5,4,"#9BD47C",{noGlint:true})+at(13,8.5,Z+4,E.one("flowers",{d:d,k:.7})):"";
   return piece(g,[["consultorio",[-24,-16,4,4],s],d>0?["macetero",[10,6,16,11],mac]:null,tree(22,-14,d),bush(-30,16,d),bench(16,22,d)])};
  F.fisioterapia=function(d){var g=plat("#C7E8B6","#79A866");
-  var b=B({x:-26,y:-20,w:32,d:20,h:14,c:"#F5F1E8",glass:true,glassC:"#8CCBEA"},d),s=b.s;s+=door(b.L,13,6,9,"#4C6A80");
+  var b=B({x:-26,y:-20,w:32,d:20,h:14,c:"#F5F1E8",glass:true,glassC:"#8CCBEA",band:"#3FA39A"},d),s=b.s;s+=door(b.L,13,6,9,"#4C6A80");
   /* afuera: barras paralelas para reaprender a caminar y pelotas de terapia */
   var bp="";if(d>0){[[-12,10],[-12,15],[4,10],[4,15]].forEach(function(q){bp+=cyl(q[0],q[1],Z,.4,4.6,"#8A97A0",{noGlint:true})});bp+=line([P(-12,10,Z+4.6),P(4,10,Z+4.6)],"#C9D1DA",.9)+line([P(-12,15,Z+4.6),P(4,15,Z+4.6)],"#C9D1DA",.9)+poly([P(-12,10,Z+.1),P(4,10,Z+.1),P(4,15,Z+.1),P(-12,15,Z+.1)],"#7FB7E8",{st:false,op:.6})}
+  /* pérgola de madera que da sombra al área de terapia al aire libre */
+  if(d>0){var pg="";[[-14,8],[6,8],[-14,18],[6,18]].forEach(function(q){pg+=box(q[0]-.5,q[1]-.5,Z,1,1,10,"#A8774A",{noGlint:true})});
+   pg+=box(-14.5,7.5,Z+10,21,1,.9,"#B98552",{noGlint:true})+box(-14.5,17.5,Z+10,21,1,.9,"#B98552",{noGlint:true});for(var u=-14;u<=6;u+=2.5)pg+=box(u-.3,7,Z+10.9,.6,12,.6,"#C99A5B",{noGlint:true});bp+=pg}
+  s+=sign(-18,-10,b.zt,14,"#3FA39A",function(Fs,w){var c=Fs(w/2,1.2);return '<circle cx="'+f1(c[0]+.4)+'" cy="'+f1(c[1]-6)+'" r="1" fill="#FFFFFF"/><path d="M'+f1(c[0]+.2)+' '+f1(c[1]-4.8)+'l-1 2.6l-2 1.6M'+f1(c[0]-.8)+' '+f1(c[1]-2.2)+'l1.6 2M'+f1(c[0]-.1)+' '+f1(c[1]-4.4)+'l2.6 1" stroke="#FFFFFF" stroke-width=".8" stroke-linecap="round" fill="none"/>'});
   var bl=d>0?sphere(14,14,Z,2.8,"#F28C38")+sphere(19,10,Z,2.2,"#5DA9E9"):"";
-  return piece(g,[["centro",[-26,-20,6,0],s],d>0?["barras",[-12,10,4,15],bp]:null,d>0?["pelotas",[11,7,22,17],bl]:null,tree(24,-14,d),bush(-32,20,d)])};
+  return piece(g,[["centro",[-26,-20,6,0],s],d>0?["pérgola",[-14.5,7,6.5,19],bp]:null,d>0?["pelotas",[11,7,22,17],bl]:null,tree(24,-14,d),bush(-32,20,d)])};
  F.qfb=function(d){var g=plat("#CFE9D9","#7FAE92");
   var b=B({x:-24,y:-18,w:28,d:22,h:16,c:"#F7F7F2",band:"#2E9E5B",cols:3,rcols:3,v0:5,door:11,doorW:6,doorH:9,doorC:"#7FCB9F"},d),s=b.s;
   /* cruz verde de farmacia (como en México) y chimeneas de las campanas de extracción del laboratorio */
@@ -100,33 +117,58 @@
   var ll="";if(d>0)[[12,8,3],[16,12,2]].forEach(function(q){for(var i=0;i<q[2];i++)ll+=cyl(q[0],q[1],Z+i*1.6,2.4,1.6,"#2A3340",{top:"#3A4452",noGlint:true})+I.ell(q[0],q[1],Z+i*1.6+1.61,1,"#8A97A0")});
   return piece(g,[["taller",[-26,-18,6,2],s],["coche",[-22,4,-10,10],cr],d>0?["llantas",[9,5,19,15],ll]:null,tree(24,-14,d)])};
  F.electrica=function(d){var g=plat("#D5DCC4","#8F9C78");
-  /* subestación: casa de control, transformadores con aletas de enfriamiento, cerca y torre de transmisión */
-  var b=B({x:-30,y:-2,w:16,d:12,h:10,c:"#E9E4D6",cols:2,rcols:1,v0:4,door:12,doorW:4,doorH:7,doorC:"#5A6573"},d),s=b.s;
-  var tf="";[[-6,-6],[4,-6]].forEach(function(q){tf+=I.shadowBox(q[0],q[1],Z,6,6,8)+box(q[0],q[1],Z,6,6,7,"#6F8A6B",{right:"#57704F",top:"#8BA585"});var L=I.faceL(q[0],q[1],Z,6,6);if(d>0)for(var u=1;u<6;u+=1.2)tf+=line([L(u,1),L(u,6)],"#4E6346",.45,{cap:"butt"});
-   [1.5,3,4.5].forEach(function(u){tf+=cyl(q[0]+u,q[1]+3,Z+7,.45,3,"#C9B48C",{noGlint:true})})});
-  var fc=d>0?line([P(-10,-10,Z+4),P(14,-10,Z+4),P(14,4,Z+4),P(-10,4,Z+4),P(-10,-10,Z+4)],"#9AA5B1",.4)+[[-10,-10],[14,-10],[14,4],[-10,4]].map(function(q){return line([P(q[0],q[1],Z),P(q[0],q[1],Z+4)],"#9AA5B1",.5)}).join(""):"";
-  /* torre de transmisión de celosía con crucetas, aisladores y cables */
-  var tx=18,ty=-22,h=42,tw="",lg=[[-3,-3],[3,-3],[3,3],[-3,3]];lg.forEach(function(q){tw+=line([P(tx+q[0],ty+q[1],Z),P(tx+q[0]*.25,ty+q[1]*.25,Z+h)],"#7E8B98",.8)});
-  if(d>0)for(var z=0;z<h-4;z+=6){var k0=1-.75*z/h,k1=1-.75*(z+6)/h;tw+=line([P(tx-3*k0,ty+3*k0,Z+z),P(tx+3*k1,ty+3*k1,Z+z+6)],"#9AA5B1",.4)+line([P(tx+3*k0,ty+3*k0,Z+z),P(tx-3*k1,ty+3*k1,Z+z+6)],"#9AA5B1",.4)+line([P(tx+3*k0,ty-3*k0,Z+z),P(tx+3*k1,ty+3*k1,Z+z+6)],"#7E8B98",.4)}
-  [h-6,h-12].forEach(function(z,i){var a=10-i*2;tw+=line([P(tx,ty-a,Z+z),P(tx,ty+a,Z+z)],"#7E8B98",.9);[-a,a].forEach(function(o){tw+=line([P(tx,ty+o,Z+z),P(tx,ty+o,Z+z-2.4)],"#E6ECF0",.9);
-   var p0=P(tx,ty+o,Z+z-2.4),p1=P(tx-34,ty+o-10,Z+z+6);tw+='<path d="M'+f1(p0[0])+' '+f1(p0[1])+'Q'+f1((p0[0]+p1[0])/2)+' '+f1((p0[1]+p1[1])/2+6)+' '+f1(p1[0])+' '+f1(p1[1])+'" stroke="#3A4452" stroke-width=".35" fill="none"/>'})});
-  return piece(g,[["casa de control",[-30,-2,-14,10],s],["transformadores",[-10,-10,14,4],tf+fc],["torre",[tx-3,ty-3,tx+3,ty+3],tw],bush(-26,20,d),tree(20,16,d)])};
+  /* subestación: patio de grava cercado, dos transformadores grandes con radiadores y boquillas, marco de llegada de
+     líneas (pórtico) y la torre de transmisión detrás; los cables bajan de la torre al pórtico y del pórtico a los transformadores */
+  g+=poly([P(-12,-22,Z+.12),P(22,-22,Z+.12),P(22,6,Z+.12),P(-12,6,Z+.12)],"#C4C1B6",{st:false});
+  if(d>0)for(var i=0;i<60;i++){var gx=-11+((i*37)%33),gy=-21+((i*53)%26),gp=P(gx,gy,Z+.15);g+='<circle cx="'+f1(gp[0])+'" cy="'+f1(gp[1])+'" r=".35" fill="#A9A59A"/>'}
+  var b=B({x:-32,y:-4,w:18,d:14,h:12,c:"#E9E4D6",band:"#E2B13C",cols:2,rcols:2,v0:4,door:12,doorW:4,doorH:7,doorC:"#5A6573"},d),s=b.s;
+  if(d>0){var wp=b.L(5,8.6);s+='<path d="M'+f1(wp[0]-1.6)+' '+f1(wp[1]+1.2)+'l1.6-2.8l1.6 2.8z" fill="#F2C744" stroke="#3A4452" stroke-width=".25"/>'}
+  var tf="",bush3=[];[[-8,-10],[5,-10]].forEach(function(q){var x=q[0],y=q[1];tf+=I.shadowBox(x,y,Z,8,8,10)+box(x,y,Z,8,8,1,"#9AA5B1",{noGlint:true})+box(x,y,Z+1,8,8,8,"#6F8A6B",{right:"#57704F",top:"#8BA585"});
+   var L=I.faceL(x,y,Z+1,8,8),R=I.faceR(x,y,Z+1,8,8);if(d>0)for(var u=.8;u<8;u+=1.1){tf+=line([L(u,.6),L(u,7.4)],"#4E6346",.5,{cap:"butt"})+line([R(u,.6),R(u,7.4)],"#435840",.5,{cap:"butt"})}
+   tf+=cyl(x+6.4,y+1.6,Z+9,1.4,2.6,"#7E9877",{noGlint:true})+I.dome(x+6.4,y+1.6,Z+11.6,1.4,"#8BA585");
+   [2,4,6].forEach(function(u){var bx=x+u,by=y+4;for(var k=0;k<4;k++)tf+=cyl(bx,by,Z+9+k*1.1,.75-k*.05,1,k%2?"#B07A4A":"#C9905A",{noGlint:true});bush3.push([bx,by,Z+13.4])})});
+  var fc="";if(d>0){var C=[[-14,-24],[26,-24],[26,8],[-14,8]];fc+=line([P(-12,6,Z+4),P(22,6,Z+4),P(22,-22,Z+4)],"#8A97A0",.45)+line([P(-12,6,Z+4),P(-12,-22,Z+4)],"#8A97A0",.45);
+   for(var u2=-12;u2<=22;u2+=3.4)fc+=line([P(u2,6,Z),P(u2,6,Z+4)],"#8A97A0",.35);for(var v2=-22;v2<=6;v2+=3.5)fc+=line([P(22,v2,Z),P(22,v2,Z+4)],"#8A97A0",.35)}
+  /* pórtico de llegada */
+  var pt="",py=-18;[-10,14].forEach(function(x){pt+=box(x-.7,py-.7,Z,1.4,1.4,18,"#9AA5B1",{noGlint:true})});pt+=box(-10.7,py-.7,Z+18,25.4,1.4,1.4,"#9AA5B1",{noGlint:true});
+  var hang=[-6,2,10].map(function(x){pt+=line([P(x,py,Z+18),P(x,py,Z+15.4)],"#E6ECF0",1);return [x,py,Z+15.4]});
+  /* torre */
+  var tx=16,ty=-28,h=36,tw="",lg=[[-3.4,-3.4],[3.4,-3.4],[3.4,3.4],[-3.4,3.4]];lg.forEach(function(q){tw+=line([P(tx+q[0],ty+q[1],Z),P(tx+q[0]*.25,ty+q[1]*.25,Z+h)],"#7E8B98",.9)});
+  if(d>0)for(var z=0;z<h-4;z+=5){var k0=1-.75*z/h,k1=1-.75*(z+5)/h;tw+=line([P(tx-3.4*k0,ty+3.4*k0,Z+z),P(tx+3.4*k1,ty+3.4*k1,Z+z+5)],"#9AA5B1",.4)+line([P(tx+3.4*k0,ty+3.4*k0,Z+z),P(tx-3.4*k1,ty+3.4*k1,Z+z+5)],"#9AA5B1",.4)}
+  var arms=[];[h-4,h-11].forEach(function(z,i){var a=9-i*2;tw+=line([P(tx-a,ty,Z+z),P(tx+a,ty,Z+z)],"#7E8B98",1);[-a,a].forEach(function(o){tw+=line([P(tx+o,ty,Z+z),P(tx+o,ty,Z+z-2.6)],"#E6ECF0",1);arms.push([tx+o,ty,Z+z-2.6])})});
+  function sag(a,b2,k){var p0=P(a[0],a[1],a[2]),p1=P(b2[0],b2[1],b2[2]);return '<path d="M'+f1(p0[0])+' '+f1(p0[1])+'Q'+f1((p0[0]+p1[0])/2)+' '+f1((p0[1]+p1[1])/2+k)+' '+f1(p1[0])+' '+f1(p1[1])+'" stroke="#3A4452" stroke-width=".4" fill="none"/>'}
+  var wr="";[0,2,3].forEach(function(ai,i){wr+=sag(arms[ai],hang[i],3)});if(d>0)hang.forEach(function(hp,i){var t=bush3[i*2]||bush3[0];wr+=sag(hp,t,1.4)});
+  return piece(g,[["torre",[tx-3.4,ty-3.4,tx+3.4,ty+3.4],tw],["pórtico",[-10.7,py-.7,14.7,py+.7],pt+wr],["transformadores",[-8,-10,13,-2],tf],["cerca",[-12,5.6,22,6.4],fc],["casa de control",[-32,-4,-14,10],s],bush(-24,22,d),tree(16,18,d)])};
  F.electronica=function(d){var g=plat("#C7DCEB","#7E9BB4");
-  /* planta de ensamble de electrónica: edificio de vidrio azul con letrero de chip y antena; patio con dibujo de pistas de circuito */
-  var b=B({x:-24,y:-20,w:30,d:22,h:20,c:"#E8EEF3",glass:true,glassC:"#5D9FD3"},d),s=b.s;s+=door(b.L,12,6,7,"#2F5A82");
-  s+=sign(-16,-10,b.zt,14,"#1F3B5A",function(Fs,w){var c=Fs(w/2,3.7),o='<rect x="'+f1(c[0]-2.6)+'" y="'+f1(c[1]-2.6)+'" width="5.2" height="5.2" rx=".6" fill="#7CF2C8"/>';for(var k=-1;k<=1;k++)o+='<path d="M'+f1(c[0]-4)+' '+f1(c[1]+k*1.6)+'h1.4M'+f1(c[0]+2.6)+' '+f1(c[1]+k*1.6)+'h1.4" stroke="#7CF2C8" stroke-width=".5"/>';return o});
-  s+=cyl(2,-16,b.zt,.4,8,"#8A97A0",{noGlint:true});var ap=P(2,-16,b.zt+8);s+='<circle cx="'+f1(ap[0])+'" cy="'+f1(ap[1])+'" r="1" fill="#E2434B"/>';
-  if(d>0){var pc=[[[-20,10],[-6,10],[-6,20],[12,20]],[[-14,14],[0,14],[0,26]],[[8,6],[20,6],[20,16]]];pc.forEach(function(q){g+=line(q.map(function(p){return P(p[0],p[1],Z+.2)}),"#E2B13C",.8);var e=P(q[q.length-1][0],q[q.length-1][1],Z+.2);g+='<circle cx="'+f1(e[0])+'" cy="'+f1(e[1])+'" r="1" fill="#E2B13C"/>'})}
-  return piece(g,[["planta",[-24,-20,6,2],s],tree(24,-14,d),bush(-30,22,d),bench(16,24,d)])};
+  /* planta de ensamble de electrónica: oficinas de vidrio azul con letrero de chip y antena, y la nave de producción
+     (cuarto limpio) con techo de dientes de sierra para que entre luz, andén de carga y camioneta de reparto */
+  var b=B({x:-28,y:-26,w:20,d:18,h:24,c:"#E8EEF3",glass:true,glassC:"#5D9FD3"},d),s=b.s;s+=door(b.L,7,6,7,"#2F5A82");
+  s+=sign(-24,-16,b.zt,14,"#1F3B5A",function(Fs,w){var c=Fs(w/2,3.7),o='<rect x="'+f1(c[0]-2.6)+'" y="'+f1(c[1]-2.6)+'" width="5.2" height="5.2" rx=".6" fill="#7CF2C8"/>';for(var k=-1;k<=1;k++)o+='<path d="M'+f1(c[0]-4)+' '+f1(c[1]+k*1.6)+'h1.4M'+f1(c[0]+2.6)+' '+f1(c[1]+k*1.6)+'h1.4" stroke="#7CF2C8" stroke-width=".5"/>';return o});
+  s+=cyl(-10,-22,b.zt,.4,8,"#8A97A0",{noGlint:true});var ap=P(-10,-22,b.zt+8);s+='<circle cx="'+f1(ap[0])+'" cy="'+f1(ap[1])+'" r="1" fill="#E2434B"/>';
+  var nx=-4,ny=-18,nw=28,nd=20,nh=10,n=I.shadowBox(nx,ny,Z,nw,nd,nh+5)+box(nx-1.4,ny-1.4,Z,nw+2.8,nd+5,.5,"#E4E2DC",{noGlint:true})+box(nx,ny,Z,nw,nd,nh,"#F2F4F6",{right:"#C9D1DA",top:"#E6EAEE"});
+  var NL=I.faceL(nx,ny,Z,nw,nd),NR=I.faceR(nx,ny,Z,nw,nd);n+=quad(NL,0,nh-2,nw,1.4,"#2F6DB5",{st:false})+quad(NR,0,nh-2,nd,1.4,I.shade("#2F6DB5",.25),{st:false});
+  n+=quad(NL,3,0,8,7,"#9AA5B1",{st:false});if(d>0)for(var v=1;v<7;v+=1.2)n+=line([NL(3,v),NL(11,v)],"#7E8B98",.4,{cap:"butt"});
+  n+=box(nx+2,ny+nd,Z,12,3,1.4,"#C9CED4",{noGlint:true});n+=wins(NL,nw,2,1,5,3,4,8,d).replace(/^/,"");
+  /* dientes de sierra: cara vertical de vidrio hacia atrás, pendiente hacia el frente */
+  for(var k=0;k<4;k++){var y0=ny+k*5,z0=Z+nh;n+=poly([P(nx,y0,z0+3.4),P(nx+nw,y0,z0+3.4),P(nx+nw,y0+5,z0),P(nx,y0+5,z0)],k%2?"#D5DCE3":"#DDE3E8",{st:false})+poly([P(nx+nw,y0,z0),P(nx+nw,y0,z0+3.4),P(nx+nw,y0+5,z0)],"#AEB8C2",{st:false});
+   if(k>0)n+=poly([P(nx,y0,z0),P(nx+nw,y0,z0),P(nx+nw,y0,z0+3.4),P(nx,y0,z0+3.4)],"#7FB6DA",{st:false,op:.0})}
+  var van=car(-6,8,"#FFFFFF",d,{cab:"#2F6DB5"});
+  return piece(g,[["oficinas",[-28,-26,-8,-8],s],["nave",[nx,ny,nx+nw,ny+nd+3],n],["camioneta",[-6,8,6,14],van],tree(-30,14,d),bush(26,14,d),bench(16,20,d)])};
  F.quimicaing=function(d){var g=plat("#D8D4C6","#9A9480");
-  /* planta química: columnas de destilación con plataformas, tanque esférico, tuberías y casa de control */
-  var b=B({x:-28,y:4,w:14,d:12,h:8,c:"#EEF0F2",cols:2,rcols:1,v0:3},d),cb=b.s;
-  var cl="";[[-14,-18,30,3.2],[-5,-20,24,2.6]].forEach(function(q){cl+=I.shadowEll(q[0],q[1],Z,q[3]+1)+cyl(q[0],q[1],Z,q[3],q[2],"#D5DCE3",{sideS:"#A9B4BF",noGlint:true})+I.dome(q[0],q[1],Z+q[2],q[3],"#E6ECF0");
-   /* plataformas de servicio: anillos con barandal (no discos) alrededor de la columna */
+  /* planta química: dos columnas de destilación con plataformas, tanques de almacenamiento con escalera en espiral,
+     esfera de gas sobre patas, rack de tuberías de colores, chimenea de quemador y casa de control */
+  var b=B({x:-32,y:4,w:16,d:12,h:11,c:"#EEF0F2",band:"#E86E3A",cols:2,rcols:2,v0:4,door:11,doorW:4,doorH:7},d),cb=b.s;
+  var cl="";[[2,-22,34,3.6],[11,-20,26,3]].forEach(function(q){cl+=I.shadowEll(q[0],q[1],Z,q[3]+1)+cyl(q[0],q[1],Z,q[3],q[2],"#D5DCE3",{sideS:"#A9B4BF",noGlint:true})+I.dome(q[0],q[1],Z+q[2],q[3],"#E6ECF0");
    if(d>0)for(var z=7;z<q[2];z+=8){var e=I.cylD(q[0],q[1],Z+z,q[3]+1.6);cl+='<path d="M'+f1(e.cx-e.rx)+' '+f1(e.cy)+'A'+f1(e.rx)+' '+f1(e.ry)+' 0 0 0 '+f1(e.cx+e.rx)+' '+f1(e.cy)+'" stroke="#E2B13C" stroke-width="1.1" fill="none"/><path d="M'+f1(e.cx-e.rx)+' '+f1(e.cy-1.4)+'A'+f1(e.rx)+' '+f1(e.ry)+' 0 0 0 '+f1(e.cx+e.rx)+' '+f1(e.cy-1.4)+'" stroke="#E2B13C" stroke-width=".5" fill="none"/>'}});
-  var sp=sphere(14,-10,Z+4,7,"#E8EDF2");sp=cyl(10,-12,Z,.5,6,"#8A97A0",{noGlint:true})+cyl(18,-8,Z,.5,6,"#8A97A0",{noGlint:true})+sp;
-  var pp=d>0?line([P(-14,-18,Z+12),P(-14,-6,Z+12),P(14,-6,Z+12),P(14,-6,Z)],"#7E8B98",1.2)+line([P(-5,-20,Z+8),P(-5,-4,Z+8),P(8,-4,Z+8)],"#C9573F",1.1)+line([P(-5,-4,Z+8),P(-5,-4,Z)],"#C9573F",1.1):"";
-  return piece(g,[["control",[-28,4,-14,16],cb],["columnas",[-17.2,-23,-2.4,-14.8],cl],["tanque",[7,-17,21,-3],sp+pp],bush(20,18,d),tree(-34,-8,d)])};
+  var fl=cyl(-22,-24,Z,.8,30,"#9AA5B1",{noGlint:true}),fp=P(-22,-24,Z+30);if(d>0)fl+='<path d="M'+f1(fp[0]-1.4)+' '+f1(fp[1])+'q-.4-3 1.4-5.4q.2 2 1.2 2.4q.4-1 .2-2q1.8 2 .6 5z" fill="#F2994A"/><path d="M'+f1(fp[0]-.6)+' '+f1(fp[1])+'q0-2 .8-3q.6 1.4 .4 3z" fill="#F2C744"/>';
+  var tk="";[[-20,-10,6.4,9],[-6,-12,5.6,8]].forEach(function(q){tk+=I.shadowEll(q[0],q[1],Z,q[2]+1)+cyl(q[0],q[1],Z,q[2],q[3],"#F4F6F8",{sideS:"#C3CCD5",top:"#E6EAEE",noGlint:true});
+   if(d>0){var e0=I.cylD(q[0],q[1],Z+1,q[2]);tk+='<path d="M'+f1(e0.cx-e0.rx*.2)+' '+f1(e0.cy+e0.ry)+'L'+f1(e0.cx+e0.rx*.95)+' '+f1(e0.cy-q[3]*1.05)+'" stroke="#E2B13C" stroke-width=".8"/>';var e1=I.cylD(q[0],q[1],Z+q[3],q[2]);tk+='<ellipse cx="'+f1(e1.cx)+'" cy="'+f1(e1.cy)+'" rx="'+f1(e1.rx)+'" ry="'+f1(e1.ry)+'" fill="none" stroke="#E2B13C" stroke-width=".6"/>'}});
+  var sp=cyl(14,-2,Z,.5,5,"#8A97A0",{noGlint:true})+cyl(20,2,Z,.5,5,"#8A97A0",{noGlint:true})+cyl(18,-4,Z,.5,5,"#8A97A0",{noGlint:true})+sphere(17,-1,Z+4,6.4,"#E8EDF2");
+  /* rack de tuberías */
+  var pr="";if(d>0){for(var x=-12;x<=12;x+=6)pr+=box(x-.4,-3.4,Z,.8,.8,9,"#7E8B98",{noGlint:true})+box(x-.4,.6,Z,.8,.8,9,"#7E8B98",{noGlint:true})+box(x-.4,-3.4,Z+9,.8,4.8,.6,"#7E8B98",{noGlint:true});
+   [["#C9573F",-2.4],["#3A7CC0",-1],["#E2B13C",.4],["#9AA5B1",1.8]].forEach(function(c){pr+=line([P(-14,c[1],Z+9.9),P(14,c[1],Z+9.9)],c[0],1.1,{cap:"butt"})});
+   pr+=line([P(-12,-1,Z+9.9),P(-12,-1,Z+12),P(-6,-12,Z+12),P(-6,-12,Z+8)],"#3A7CC0",1)+line([P(10,.4,Z+9.9),P(10,-6,Z+12),P(2,-18,Z+12)],"#E2B13C",1)}
+  return piece(g,[["quemador",[-23,-25,-21,-23],fl],["columnas",[-1.6,-25.6,14,-17],cl],["tanques",[-26.4,-17.6,.4,-3.6],tk],["rack",[-14,-3.8,14,1.4],pr],["esfera",[11,-7.4,23,5.4],sp],["control",[-32,4,-16,16],cb],bush(20,18,d),tree(-30,-8,d),tree(4,22,d)])};
  F.biomedica=function(d){var g=plat("#D6E4F0","#8AA2B8");
   /* laboratorio de ingeniería biomédica: edificio con letrero de electrocardiograma; afuera, rampa y una banca */
   var b=B({x:-24,y:-18,w:30,d:22,h:18,c:"#FFFFFF",band:"#E0607A",cols:4,rows:1,rcols:3,v0:9,door:12,doorW:6,doorH:8,doorC:"#7FB6DA"},d),s=b.s;
@@ -136,12 +178,17 @@
   return piece(g,[["laboratorio",[-24,-18,6,4],s],tree(22,-14,d),bush(-30,18,d),bench(14,20,d),d>1?dp("lamp",2,28,{d:d}):null])};
  /* ---------------- TECNOLOGÍA Y CIENCIAS ---------------- */
  F.ia=function(d){var g=plat("#C9D9F0","#7E94B8");
-  /* centro de investigación en IA: edificio de vidrio con letrero de red neuronal y, al frente, un robot de servicio */
-  var b=B({x:-26,y:-22,w:28,d:22,h:26,c:"#EEF2F8",glass:true,glassC:"#7A8FD0"},d),s=b.s;s+=door(b.L,11,6,7,"#2F3F82");
-  s+=sign(-19,-12,b.zt,16,"#1E2650",function(Fs,w){var N=[[3,2],[3,5.4],[8,1.4],[8,3.7],[8,6],[13,3.7]].map(function(q){return Fs(q[0],q[1])}),o="";[[0,2],[0,3],[0,4],[1,2],[1,3],[1,4],[2,5],[3,5],[4,5]].forEach(function(e){o+='<path d="M'+f1(N[e[0]][0])+' '+f1(N[e[0]][1])+'L'+f1(N[e[1]][0])+' '+f1(N[e[1]][1])+'" stroke="#8AB8FF" stroke-width=".35"/>'});N.forEach(function(p){o+='<circle cx="'+f1(p[0])+'" cy="'+f1(p[1])+'" r=".9" fill="#FFC857"/>'});return o});
-  var rx=14,ry=14,rb=I.shadowEll(rx,ry,Z,3)+box(rx-2,ry-1.6,Z,4,3.2,2,"#5A6573",{noGlint:true})+box(rx-2.6,ry-2,Z+2,5.2,4,6,"#E6ECF0",{right:"#BFC9D3"})+box(rx-2,ry-1.6,Z+8,4,3.2,3.4,"#F4F6F8",{right:"#C9D1DA"});
+  /* centro de investigación en IA: torre de vidrio con letrero de red neuronal y, junto, el centro de datos donde
+     se entrenan los modelos: nave cerrada con rejillas de ventilación y enfriadores en la azotea; al frente, un robot de servicio */
+  var b=B({x:-28,y:-26,w:22,d:18,h:32,c:"#EEF2F8",glass:true,glassC:"#7A8FD0"},d),s=b.s;s+=door(b.L,8,6,7,"#2F3F82");
+  s+=sign(-22,-16,b.zt,16,"#1E2650",function(Fs,w){var N=[[3,2],[3,5.4],[8,1.4],[8,3.7],[8,6],[13,3.7]].map(function(q){return Fs(q[0],q[1])}),o="";[[0,2],[0,3],[0,4],[1,2],[1,3],[1,4],[2,5],[3,5],[4,5]].forEach(function(e){o+='<path d="M'+f1(N[e[0]][0])+' '+f1(N[e[0]][1])+'L'+f1(N[e[1]][0])+' '+f1(N[e[1]][1])+'" stroke="#8AB8FF" stroke-width=".35"/>'});N.forEach(function(p){o+='<circle cx="'+f1(p[0])+'" cy="'+f1(p[1])+'" r=".9" fill="#FFC857"/>'});return o});
+  var dc=B({x:-2,y:-16,w:26,d:16,h:11,c:"#4A5568",cols:0,bare:true,door:3,doorW:4,doorH:7,doorC:"#2A3340",roofC:"#6B7686"},d),ds=dc.s;
+  if(d>0){for(var u=9;u<25;u+=2)ds+=line([dc.L(u,2),dc.L(u,8)],"#2F3846",.7,{cap:"butt"});for(var v=2;v<9;v+=2)ds+=line([dc.R(1.5,v),dc.R(14.5,v)],"#3A4452",.6,{cap:"butt"});
+   ds+=quad(dc.L,8,9,16,.7,"#5DE0FF",{st:false});
+   for(var i=0;i<4;i++){var cx=.4+i*6,cy=-13;ds+=box(cx,cy,dc.zt,5,10,2.6,"#D5DCE3",{right:"#A9B4BF",top:"#E6ECF0",noGlint:true});[2.6,7.4].forEach(function(o){var c=I.cylD(cx+2.5,cy+o,dc.zt+2.62,1.7);ds+='<ellipse cx="'+f1(c.cx)+'" cy="'+f1(c.cy)+'" rx="'+f1(c.rx)+'" ry="'+f1(c.ry)+'" fill="#3A4452"/><path d="M'+f1(c.cx-c.rx*.8)+' '+f1(c.cy)+'h'+f1(c.rx*1.6)+'M'+f1(c.cx)+' '+f1(c.cy-c.ry*.8)+'v'+f1(c.ry*1.6)+'" stroke="#8A97A0" stroke-width=".35"/>'})}}
+  var rx=12,ry=14,rb=I.shadowEll(rx,ry,Z,3)+box(rx-2,ry-1.6,Z,4,3.2,2,"#5A6573",{noGlint:true})+box(rx-2.6,ry-2,Z+2,5.2,4,6,"#E6ECF0",{right:"#BFC9D3"})+box(rx-2,ry-1.6,Z+8,4,3.2,3.4,"#F4F6F8",{right:"#C9D1DA"});
   var RF=I.faceL(rx-2,ry-1.6,Z+8,4,3.2);rb+='<circle cx="'+f1(RF(1.2,2)[0])+'" cy="'+f1(RF(1.2,2)[1])+'" r=".6" fill="#4FA8E0"/><circle cx="'+f1(RF(2.8,2)[0])+'" cy="'+f1(RF(2.8,2)[1])+'" r=".6" fill="#4FA8E0"/>';
-  return piece(g,[["centro",[-26,-22,2,0],s],["robot",[rx-2.6,ry-2,rx+2.6,ry+2],rb],tree(24,-12,d),bush(-30,16,d)])};
+  return piece(g,[["centro",[-28,-26,-6,-8],s],["datos",[-2,-16,24,0],ds],["robot",[rx-2.6,ry-2,rx+2.6,ry+2],rb],tree(-30,14,d),bush(24,16,d),bench(-8,18,d)])};
  F.ciberseguridad=function(d){var g=plat("#C3CCD6","#7A8796");
   /* centro de operaciones de seguridad: edificio cerrado con pocas ventanas, letrero de escudo, cámaras y caseta con pluma */
   var b=B({x:-24,y:-22,w:28,d:22,h:20,c:"#3B4A5C",band:"#2BC48A",cols:3,rows:1,rcols:2,v0:14,ww:5,wh:2.6,winC:"#1E2A38",door:12,doorW:5,doorH:8,doorC:"#1E2A38"},d),s=b.s;
@@ -184,14 +231,17 @@
   var bx=d>0?box(10,6,Z,6,5,4,"#D9B07A",{noGlint:true})+box(10,6,Z+4,6,5,4,"#C99A5B",{noGlint:true})+box(17,7,Z,5,4,4,"#D9B07A",{noGlint:true}):"";
   return piece(g,[["despacho",[-22,-20,2,0],s],d>0?["archivo",[10,6,22,11],bx]:null,tree(24,-12,d),bush(-30,16,d),bench(-8,22,d)])};
  F.economia=function(d){var g=plat("#E6DCC4","#A8956A");
-  /* bolsa de valores: edificio de columnas con pantalla de cotizaciones en verde y rojo, y la escultura del toro */
-  var x=-26,y=-22,w=30,dd=20,h=18,s=sh(x,y,w,dd+5,h+4)+box(x,y,Z,w,dd,h,"#F1EADB",{right:"#CFC3AA"}),L=I.faceL(x,y,Z,w,dd);
-  for(var k=0;k<6;k++)s+=cyl(x+2.6+k*5,y+dd+1.4,Z,1.2,h-4,"#FFFFFF",{sideS:"#D3C7AE",noGlint:true});
-  s+=box(x-.6,y-.6,Z+h-4,w+1.2,dd+3.4,4,"#E8DFCC",{top:"#F6F0E2"});var FR=I.faceL(x-.6,y-.6,Z+h-4,w+1.2,dd+3.4);s+=quad(FR,1,.8,w-.8,2.4,"#14202B",{st:false});
-  if(d>0)s+='<g transform="'+I.planeX(x+.4,y+dd+2.8,Z+h-3.2)+'"><text x="1" y="-.3" font-size="1.9" font-weight="800" font-family="monospace"><tspan fill="#3DDC84">IPC ▲1.2%</tspan><tspan fill="#FF5A5A"> USD ▼0.4%</tspan><tspan fill="#3DDC84"> ORO ▲</tspan></text></g>';
-  var bl=I.shadowEll(16,14,Z,6)+box(11,11,Z,10,6,1.6,"#9AA5B1",{noGlint:true});var bp=P(16,14,Z+1.6);
-  bl+='<g transform="translate('+f1(bp[0])+' '+f1(bp[1])+')"><path d="M-7 -1l1-6c1-2 4-3 7-3c2 0 3-1 4-2l1 2l-1 1c1 1 1 3 0 4l1 4h-2l-1-3h-6l-1 3h-2z" fill="#8A5A2E"/><path d="M4 -12q2-2 3-1M4 -12q-1-2-3-2" stroke="#E8D8B8" stroke-width=".8" fill="none"/></g>';
-  return piece(g,[["bolsa",[x-.6,y-.6,x+w+.6,y+dd+3],s],["toro",[10,10,22,18],bl],tree(-32,14,d),bush(24,-14,d)])};
+  /* centro financiero: torre de oficinas de vidrio y, al frente, la sala de remates bajo una cúpula de vidrio espejo,
+     con la pantalla de cotizaciones corriendo alrededor de su base; en la plaza, la escultura del toro (símbolo del mercado al alza) */
+  var b=B({x:-28,y:-28,w:20,d:16,h:38,c:"#3E6E7E",glass:true,glassC:"#4F8A9C"},d),s=b.s;s+=door(b.L,7,6,7,"#1F3A44");
+  var cx=6,cy=-6,r=12,dm=I.shadowEll(cx,cy,Z,r+2)+cyl(cx,cy,Z,r+1.6,2,"#E4DAC5",{sideS:"#C9BB9C",noGlint:true})+cyl(cx,cy,Z+2,r,3,"#14202B",{noGlint:true});
+  if(d>0){var e=I.cylD(cx,cy,Z+3.6,r);dm+='<path id="tk3" d="M'+f1(e.cx-e.rx)+' '+f1(e.cy)+'A'+f1(e.rx)+' '+f1(e.ry)+' 0 0 0 '+f1(e.cx+e.rx)+' '+f1(e.cy)+'" fill="none"/><text font-size="2" font-weight="800" font-family="monospace"><textPath href="#tk3" startOffset="4%"><tspan fill="#3DDC84">IPC ▲1.2  </tspan><tspan fill="#FF5A5A">USD ▼0.4  </tspan><tspan fill="#3DDC84">ORO ▲0.8</tspan></textPath></text>'}
+  dm+=I.dome(cx,cy,Z+5,r,"#8FC3D6");
+  if(d>0){var c0=I.cylD(cx,cy,Z+5,r);for(var k=1;k<6;k++){var f=k/6,xx=c0.cx-c0.rx+2*c0.rx*f;dm+='<path d="M'+f1(xx)+' '+f1(c0.cy+c0.ry*Math.sin(Math.acos(2*f-1)))+'Q'+f1(c0.cx+(xx-c0.cx)*1.05)+' '+f1(c0.cy-c0.rx*.9)+' '+f1(c0.cx)+' '+f1(c0.cy-c0.rx*.92)+'" stroke="#DDF0F6" stroke-width=".35" fill="none" opacity=".8"/>'}
+   for(var j=1;j<3;j++){var hh=c0.rx*.92*j/3,rr=c0.rx*Math.sqrt(1-Math.pow(j/3,2));dm+='<ellipse cx="'+f1(c0.cx)+'" cy="'+f1(c0.cy-hh)+'" rx="'+f1(rr)+'" ry="'+f1(rr*c0.ry/c0.rx)+'" fill="none" stroke="#DDF0F6" stroke-width=".35" opacity=".7"/>'}}
+  var bl=I.shadowEll(15,17,Z,7)+box(9,13,Z,13,8,2,"#9AA5B1",{right:"#7E8B98",noGlint:true});var bp=P(17,19,Z+2);
+  bl+='<g transform="translate('+f1(bp[0])+' '+f1(bp[1])+') scale(1.15)"><path d="M-7 -1l1-6c1-2 4-3 7-3c2 0 3-1 4-2l1 2l-1 1c1 1 1 3 0 4l1 4h-2l-1-3h-6l-1 3h-2z" fill="#8A5A2E"/><path d="M-4 -8c2-1 5-1.4 7-1.2" stroke="#A9773F" stroke-width=".8" fill="none"/><path d="M4 -12q2-2 3-1M4 -12q-1-2-3-2" stroke="#E8D8B8" stroke-width=".8" fill="none"/></g>';
+  return piece(g,[["torre",[-28,-28,-8,-12],s],["cúpula",[cx-r-1.6,cy-r-1.6,cx+r+1.6,cy+r+1.6],dm],["toro",[9,13,22,21],bl],tree(-30,8,d),bush(24,-20,d),bench(-14,20,d)])};
  F.actuaria=function(d){var g=plat("#DCE3EE","#8E9CB4");
   /* aseguradora: torre de oficinas con letrero de paraguas (el símbolo de los seguros) */
   var b=B({x:-20,y:-20,w:20,d:20,h:40,c:"#5D86B8",glass:true,glassC:"#5D86B8"},d),s=b.s;s+=door(b.L,7,6,6,"#22436A");
@@ -275,15 +325,18 @@
   var b=B({x:-26,y:-22,w:30,d:20,h:14,c:"#E4E0DA",cols:0,roof:"gable",roofC:"#5C6B7A",roofH:6},d),s=b.s;
   s+=quad(b.L,2,2,26,9,"#9CCDE8",{st:false});if(d>0)for(var u=2;u<=28;u+=6.5)s+=line([b.L(u,2),b.L(u,11)],"#4C5866",.6,{cap:"butt"});
   s+=box(-22,-2,Z,6,4,7,"#3A4452",{noGlint:true});
-  var ch=I.shadowEll(14,12,Z,6),cp=P(14,12,Z);ch+='<g transform="translate('+f1(cp[0])+' '+f1(cp[1])+')"><path d="M-6 0l1-5M6 0l-1-5M-2 3l1-5M3 3l-1-5" stroke="#3A4452" stroke-width=".8"/><path d="M-7 -6q7-3 14 0q-1 2-7 3q-6-1-7-3z" fill="#E86E3A"/><path d="M-6 -6q-1-6 2-9q4-1 8 0q2 3 2 9q-6-2-12 0z" fill="#F2994A"/></g>';
-  return piece(g,[["taller",[-26,-22,4,-2],s],["silla",[8,8,20,16],ch],tree(-32,12,d),bush(24,-14,d)])};
+  var ch=I.shadowEll(14,12,Z,7)+cyl(14,12,Z,6.4,2.4,"#FFFFFF",{sideS:"#D5DCE3",noGlint:true}),cp=P(14,12,Z+2.4);ch+='<g transform="translate('+f1(cp[0])+' '+f1(cp[1])+')"><path d="M-6 0l1-5M6 0l-1-5M-2 3l1-5M3 3l-1-5" stroke="#3A4452" stroke-width=".8"/><path d="M-7 -6q7-3 14 0q-1 2-7 3q-6-1-7-3z" fill="#E86E3A"/><path d="M-6 -6q-1-6 2-9q4-1 8 0q2 3 2 9q-6-2-12 0z" fill="#F2994A"/></g>';
+  return piece(g,[["taller",[-26,-22,4,-2],s],["silla",[7.6,5.6,20.4,18.4],ch],d>0?["materiales",[-30,6,-20,14],box(-30,6,Z,10,8,1.2,"#9AA5B1",{noGlint:true})+box(-29.5,6.5,Z+1.2,9,7,1.4,"#C99A5B",{noGlint:true})+box(-29.5,6.5,Z+2.6,9,7,.8,"#E2434B",{noGlint:true})+box(-29.5,6.5,Z+3.4,9,7,1.2,"#F2F4F6",{noGlint:true})+box(-29.5,6.5,Z+4.6,9,7,.8,"#3A7CC0",{noGlint:true})]:null,tree(-30,-2,d),bush(24,-14,d)])};
  F.animacion=function(d){var g=plat("#E2D6F2","#9E8AC0");
   /* estudio de animación: edificio con fachada de cuadros de storyboard y un gran lápiz en la entrada */
   var b=B({x:-24,y:-20,w:30,d:20,h:18,c:"#FBF8FF",cols:0,door:12,doorW:6,doorH:8,doorC:"#6B4FA8"},d),s=b.s;
   var FR=["#F2C744","#4FC3E8","#F28CB2","#7CD38C"];for(var k=0;k<4;k++){s+=quad(b.L,1.4+k*7,10,6,6,"#FFFFFF",{st:"#3A4452",sw:.5});if(d>0){var c=b.L(4.4+k*7,13);s+='<circle cx="'+f1(c[0]+(k-1.5)*.6)+'" cy="'+f1(c[1])+'" r="1.4" fill="'+FR[k]+'"/>'}}
   s+=wins(b.R,20,2,1,4,4,8,8,d);
-  var pc="",a=P(14,12,Z),bb=P(14,12,Z+20);pc=I.contact(1.8,{x:a[0],y:a[1]})+'<path d="M'+f1(a[0]-2.2)+' '+f1(a[1]-3)+'L'+f1(bb[0]-2.2)+' '+f1(bb[1])+'L'+f1(bb[0]+2.2)+' '+f1(bb[1])+'L'+f1(a[0]+2.2)+' '+f1(a[1]-3)+'Z" fill="#6B4FA8"/><path d="M'+f1(a[0]+.6)+' '+f1(a[1]-3)+'L'+f1(bb[0]+.6)+' '+f1(bb[1])+'L'+f1(bb[0]+2.2)+' '+f1(bb[1])+'L'+f1(a[0]+2.2)+' '+f1(a[1]-3)+'Z" fill="#53398A"/><path d="M'+f1(a[0]-2.2)+' '+f1(a[1]-3)+'L'+f1(a[0])+' '+f1(a[1]+1)+'L'+f1(a[0]+2.2)+' '+f1(a[1]-3)+'Z" fill="#E8C9A0"/><rect x="'+f1(bb[0]-2.2)+'" y="'+f1(bb[1]-3)+'" width="4.4" height="3" fill="#F28CB2"/>';
-  return piece(g,[["estudio",[-24,-20,6,0],s],["lápiz",[12,10,16,14],pc],tree(24,-12,d),bush(-30,18,d)])};
+  /* pantalla exterior en dos postes con la pelota que rebota: el primer ejercicio de cualquier animador */
+  var pc=cyl(10,12,Z,.6,9,"#5A6573",{noGlint:true})+cyl(22,12,Z,.6,9,"#5A6573",{noGlint:true})+box(8,11.2,Z+9,16,1.6,10,"#2A2F3A",{right:"#1E222B",top:"#3A4050"});
+  var SF=I.faceL(8,11.2,Z+9,16,1.6);pc+=quad(SF,.8,.8,14.4,8.4,"#1B1F4A",{st:false})+quad(SF,.8,.8,14.4,1.4,"#3FA34D",{st:false});
+  if(d>0){var bb=[[2.4,8],[4.6,4.6],[6.8,2.4],[9,4.6],[11.2,8],[13.2,6]];bb.forEach(function(q,k){var c=SF(q[0],q[1]-.2);pc+='<ellipse cx="'+f1(c[0])+'" cy="'+f1(c[1])+'" rx="'+(k===2?1.5:1.2)+'" ry="'+(k===2?1:1.4)+'" fill="#FFB054" opacity="'+(.45+k*.11)+'"/>'})}
+  return piece(g,[["estudio",[-24,-20,6,0],s],["pantalla",[8,11,24,13],pc],tree(24,-12,d),bush(-30,18,d)])};
  F.gastronomia=function(d){var g=plat("#F2DCC4","#BE9670");
   /* restaurante escuela: fachada de ladrillo con toldo, chimenea de la cocina, letrero de gorro de chef y terraza con mesas */
   var b=B({x:-26,y:-22,w:28,d:18,h:15,c:"#C9704F",cols:3,rcols:2,v0:6,ww:5,wh:6,door:11,doorW:6,doorH:8,doorC:"#5A3A22",top:"#B4603F"},d),s=b.s;
@@ -332,5 +385,5 @@
   fk+=line([P(16,9,Z),P(16,9,Z+7)],"#3A4452",.6)+line([P(16,13,Z),P(16,13,Z+7)],"#3A4452",.6)+box(16,8.6,Z+.6,5,4,.5,"#3A4452",{noGlint:true})+box(16.6,9,Z+1.1,4,3.4,3,"#C99A5B",{noGlint:true});
   [11.4,14.6].forEach(function(u){fk+=H.discX(u,13,Z+1,1.1,"#2A3340",{hub:"#8A97A0"})});
   return piece(g,[["planta",[x,y,x+w,y+dd+3],s],["montacargas",[10,8,21,13],fk],tree(24,-14,d),bush(-32,18,d)])};
- Object.keys(F).forEach(function(id){ART.addV3(id,F[id])});
+ Object.keys(F).forEach(function(id){ART.addV3(id,function(d){return F[id](d)+"</g>"})});
 })(ISO,ENV,ART.H);
