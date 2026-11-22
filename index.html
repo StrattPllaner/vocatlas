@@ -2667,6 +2667,24 @@ img.tw-img.tw-back{opacity:.62;filter:saturate(.7)}
 .cmp small{color:var(--c-ink-3)}
 .cmp-p{display:inline-block;padding:2px 8px;border-radius:99px;background:var(--c-warn-bg);color:var(--c-warn-ink);font-size:12.5px;font-weight:750}
 .cmp tbody tr:last-child th,.cmp tbody tr:last-child td{border-bottom:0}
+
+/* ---------- ¿Qué te late? con temas por mundo y el mapa que se va armando ---------- */
+#chips{display:block}
+.q-grp{display:flex;flex-direction:column;gap:2px;margin:18px 0 8px}.q-grp:first-child{margin-top:4px}
+.q-grp b{font-size:17px;font-weight:900;color:var(--ink,#14323F)}.q-grp span{font-size:14px;color:var(--ink-2,#3B5260)}
+.q-grpc{display:flex;flex-wrap:wrap;gap:10px}
+.q-test{display:flex;align-items:center;gap:12px;width:100%;margin:2px 0 6px;padding:14px 16px;border-radius:20px;border:2px solid #F2C14E;background:#FFF6DA;color:#5A3A0E;font:inherit;text-align:left;cursor:pointer}
+.q-test b{display:block;font-size:16px}.q-test small{display:block;font-size:14px;color:#8A5A1E;margin-top:2px}
+.q-test-ic{flex:0 0 auto;width:40px;height:40px;border-radius:12px;background:#F2C14E;color:#fff;display:grid;place-items:center}.q-test-ic svg{width:22px;height:22px}
+.q-prev{margin:22px 0 10px;padding:16px 18px;border-radius:22px;background:var(--surface,#FFFBF2);box-shadow:0 2px 14px rgba(20,50,63,.07)}
+.q-prev h3{margin:0 0 10px;font-size:17px;font-weight:900}
+.q-prev ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.q-prev li{display:grid;grid-template-columns:12px 1fr;column-gap:10px;align-items:center;animation:qpIn .35s ease both}
+.q-prev li i{width:12px;height:12px;border-radius:50%;grid-row:span 2}.q-prev li b{font-size:15.5px}.q-prev li small{grid-column:2;font-size:13px;color:var(--ink-2,#3B5260)}
+.q-prev-e,.q-prev-n{margin:0;font-size:14px;color:var(--ink-2,#3B5260)}.q-prev-n{margin-top:10px;font-size:13px}
+@keyframes qpIn{from{opacity:0;transform:translateY(4px)}}
+@media (prefers-reduced-motion:reduce){.q-prev li{animation:none}}
+.q-grpc{gap:8px}.q-grpc .chip{min-height:42px;padding:0 14px 0 10px;font-size:15.5px;gap:8px}
 /* ================= Comparar ================= */
 .cx{font-family:var(--ff);color:var(--c-ink)}
 .cx-t{margin:4px 0 14px;font-size:30px;letter-spacing:-.01em}
@@ -3457,8 +3475,10 @@ var saveWarned=false;
 function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){if(!saveWarned){saveWarned=true;setTimeout(function(){toast("Este navegador no deja guardar: tu avance se borrará al cerrar")},900)}}}
 
 var AFF={};
+var IPM=null;
 function computeAff(){
  var sel=new Set(S.interests),max=0;AFF={};
+ IPM=null;try{var le=S.ip&&S.ip.length?S.ip[S.ip.length-1]:null;if(le&&typeof ipReady==="function"&&ipReady(le.v)){IPM={};ipMatch(le.s,ipMax(le.v)).forEach(function(x){IPM[x.id]=x.m})}}catch(e){IPM=null}
  C.forEach(function(c){
   var tags=c.tags.split(" ");
   var m=tags.filter(function(t){return sel.has(t)}).map(function(t){return LAB[t]});
@@ -3468,7 +3488,9 @@ function computeAff(){
    if(hit)m.push(w);
   });
   AFF[c.id]={score:m.length,matches:m};
-  if(m.length>max)max=m.length;
+  /* si hiciste el test de intereses, tus resultados también cuentan (hasta 2 puntos) */
+  if(IPM&&IPM[c.id]!=null){AFF[c.id].score+=2*IPM[c.id];if(IPM[c.id]>.6)m.push("tu test de intereses")}
+  if(AFF[c.id].score>max)max=AFF[c.id].score;
  });
  C.forEach(function(c){var a=AFF[c.id];a.aff=max?Math.max(.12,a.score/max):.35;a.r=55+70*a.aff});
 }
@@ -3764,9 +3786,20 @@ var RQ=$(".qtop .rb");wireRumbo(RQ);
 /* ---------- cuestionario ---------- */
 var sel=new Set(),customs=[],prevN=0;
 function renderQuiz(){
+ /* el Rumbo de esta pantalla se creó antes de que cargara el Rumbo actual: se cambia por el de hoy (en 3D) */
+ if(RQ&&!RQ.querySelector("svg.rbx-U")&&typeof RUMBO!=="undefined"){var nw=document.createElement("div");nw.innerHTML=rumboEl();var nr=nw.firstChild;RQ.parentNode.replaceChild(nr,RQ);RQ=nr;wireRumbo(RQ)}
  sel=new Set(S.interests);customs=S.custom.slice();
  var box=$("#chips");box.innerHTML="";
- TOPICS.forEach(function(t,i){
+ /* temas agrupados por mundo, con una pista de qué tipo de carreras abre cada uno */
+ var GRP=[["Personas y salud","Cuidar, curar, escuchar, entrenar",["cuerpo","salud","mente","ayudar","deportes"]],["Ciencia y naturaleza","Descubrir cómo funciona el mundo",["animales","ambiente","espacio","fisica","mate"]],
+  ["Tecnología","Programar, construir aparatos, crear juegos",["code","robots","videojuegos"]],["Crear y construir","Diseñar, dibujar, contar historias, hacer espacios",["dibujo","diseno","moda","cine","escribir","construccion"]],
+  ["Sociedad y negocios","Leyes, dinero, ideas que convencen",["leyes","negocios","marketing"]]],gi=0;
+ if(typeof ipReady==="function"&&ipReady("30")){var tc=document.createElement("button");tc.type="button";tc.className="q-test";tc.innerHTML='<span class="q-test-ic">'+IC.check+'</span><span><b>¿No sabes qué elegir? Haz el test de intereses</b><small>Unos minutos. Con tus resultados te recomendamos tu mapa.</small></span>';tc.onclick=function(){if(typeof ipRun==="function")ipRun("30")};box.appendChild(tc)}
+ var order=[];GRP.forEach(function(g){g[2].forEach(function(id){order.push(id)})});TOPICS.forEach(function(t){if(order.indexOf(t.id)<0)order.push(t.id)});
+ var gEl=null,gIdx=0;
+ order.map(function(id){return TOPICS.filter(function(t){return t.id===id})[0]}).filter(Boolean).forEach(function(t,i){
+  var g=GRP.filter(function(x){return x[2].indexOf(t.id)>-1})[0];if(g&&(!gEl||gEl.__g!==g)){var hd=document.createElement("div");hd.className="q-grp";hd.innerHTML='<b>'+esc(g[0])+'</b><span>'+esc(g[1])+'</span>';box.appendChild(hd);gEl=document.createElement("div");gEl.className="q-grpc";gEl.__g=g;box.appendChild(gEl);gIdx++}
+  var dst=gEl||box;
   var b=document.createElement("button");b.type="button";
   b.className="chip sel-able enter"+(sel.has(t.id)?" on":"");
   b.style.setProperty("--i",i);b.style.setProperty("--c",DOTC[i%3]);
@@ -3779,7 +3812,7 @@ function renderQuiz(){
    updateCount();
   };
   b.addEventListener("animationend",function(e){if(e.animationName==="chipIn")b.classList.remove("enter");if(e.animationName==="pop")b.classList.remove("pop")});
-  box.appendChild(b);
+  dst.appendChild(b);
  });
  drawCustoms();prevN=sel.size+customs.length;updateCount(true);
 }
@@ -3801,7 +3834,14 @@ function drawCustoms(fresh){
   box.appendChild(b);
  });
 }
+/* mientras eliges, se ve hacia qué carreras apunta tu mapa y por qué */
+function quizPreview(){var el=$("#qprev");if(!el){el=document.createElement("section");el.id="qprev";el.className="q-prev";el.setAttribute("aria-live","polite");$("#chips").parentNode.appendChild(el)}
+ var n=sel.size+customs.length;if(!n){el.innerHTML='<p class="q-prev-e">Elige temas y aquí verás hacia qué carreras apunta tu mapa.</p>';return}
+ var s0=S.interests,c0=S.custom;S.interests=Array.from(sel);S.custom=customs.slice();computeAff();S.interests=s0;S.custom=c0;
+ var top=C.slice().sort(function(a,b){return (AFF[b.id].score-AFF[a.id].score)||(a.name<b.name?-1:1)}).filter(function(c){return AFF[c.id].score>0}).slice(0,5);
+ el.innerHTML='<h3>Tu mapa apunta a…</h3>'+(top.length?'<ol>'+top.map(function(c){var a=AFF[c.id];return '<li><i style="background:'+c.color+'"></i><b>'+esc(c.name)+'</b><small>porque elegiste '+esc(a.matches.slice(0,2).join(" y ").toLowerCase())+'</small></li>'}).join("")+'</ol>':'<p class="q-prev-e">Todavía ninguna carrera coincide. Prueba con otros temas.</p>')+'<p class="q-prev-n">Es una primera idea: en el mapa puedes quitar o agregar carreras.</p>'}
 function updateCount(silent){
+ try{quizPreview()}catch(e){}
  var n=sel.size+customs.length;
  $("#qcount").textContent=n?("Elegiste "+n+(n<3?". Elige al menos 3.":" temas.")):"Elige al menos 3 temas.";
  each($("#pips").children,function(p,i){p.classList.toggle("on",i<n)});
@@ -11413,7 +11453,7 @@ function ipRun(ver){
   each(box.querySelectorAll(".ip-opts button"),function(b){b.onclick=function(){if(el._busy)return;el._busy=true;each(box.querySelectorAll(".ip-opts button"),function(x){x.setAttribute("aria-checked",x===b?"true":"false")});
    if(d.a.length<=i)d.a+=b.getAttribute("data-v");else setA(i,b.getAttribute("data-v"));S.ipd=d;save();if(typeof sfx==="function")sfx("tap");
    setTimeout(function(){el._busy=false;if(i<n-1){i++;draw()}else if(d.a.length>=n)end()},RM()?0:180)}})}
- function end(){var e={t:Date.now(),v:ver,a:d.a,s:ipScore(ver,d.a)};S.ip=(S.ip||[]).concat([e]).slice(-10);S.ipd=null;save();out();ipResult(e,false);if(curView==="probar")renderProbar()}
+ function end(){var e={t:Date.now(),v:ver,a:d.a,s:ipScore(ver,d.a)};S.ip=(S.ip||[]).concat([e]).slice(-10);S.ipd=null;save();out();ipResult(e,false);if(typeof quizPreview==="function"&&$("#quiz").classList.contains("on"))try{quizPreview()}catch(x){}if(curView==="probar")renderProbar()}
  function out(){el.classList.remove("on");setTimeout(function(){el.remove()},RM()?0:260)}
  el.querySelector("#ipX").onclick=function(){out();if(curView==="probar")renderProbar()};
  el.querySelector("#ipB").onclick=function(){if(i>0){i--;draw()}};

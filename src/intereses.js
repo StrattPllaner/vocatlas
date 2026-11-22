@@ -60,7 +60,7 @@ function ipRun(ver){
   each(box.querySelectorAll(".ip-opts button"),function(b){b.onclick=function(){if(el._busy)return;el._busy=true;each(box.querySelectorAll(".ip-opts button"),function(x){x.setAttribute("aria-checked",x===b?"true":"false")});
    if(d.a.length<=i)d.a+=b.getAttribute("data-v");else setA(i,b.getAttribute("data-v"));S.ipd=d;save();if(typeof sfx==="function")sfx("tap");
    setTimeout(function(){el._busy=false;if(i<n-1){i++;draw()}else if(d.a.length>=n)end()},RM()?0:180)}})}
- function end(){var e={t:Date.now(),v:ver,a:d.a,s:ipScore(ver,d.a)};S.ip=(S.ip||[]).concat([e]).slice(-10);S.ipd=null;save();out();ipResult(e,false);if(curView==="probar")renderProbar()}
+ function end(){var e={t:Date.now(),v:ver,a:d.a,s:ipScore(ver,d.a)};S.ip=(S.ip||[]).concat([e]).slice(-10);S.ipd=null;save();out();ipResult(e,false);if(typeof quizPreview==="function"&&$("#quiz").classList.contains("on"))try{quizPreview()}catch(x){}if(curView==="probar")renderProbar()}
  function out(){el.classList.remove("on");setTimeout(function(){el.remove()},RM()?0:260)}
  el.querySelector("#ipX").onclick=function(){out();if(curView==="probar")renderProbar()};
  el.querySelector("#ipB").onclick=function(){if(i>0){i--;draw()}};
