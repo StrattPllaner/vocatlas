@@ -92,3 +92,23 @@
 @media (prefers-reduced-motion:reduce){.lc-buddy.is-q .lc-bq{animation:none}}
 .lc-opt.mine{border-color:#9AA5B1;background:var(--c-sunken,#EEE5D5)}
 .lc-buddy{width:150px;height:170px}.lc-buddy .rb{width:150px;height:150px}
+
+/* ---------- pasaporte: libreta que se llena aquí mismo ---------- */
+.pp2{margin:18px 0 10px;border-radius:22px;background:#1F3B57;padding:0 0 10px;box-shadow:0 14px 34px rgba(20,50,63,.22),inset 0 0 0 2px rgba(242,193,78,.35)}
+.pp2-top{display:flex;align-items:center;gap:12px;padding:16px 18px;color:#F6E3B0}
+.pp2-em{width:40px;height:40px;border-radius:50%;background:rgba(242,193,78,.16);display:grid;place-items:center;padding:7px;color:#F2C14E;flex:0 0 auto}.pp2-em svg{color:#F2C14E!important}.pp2-em svg [stroke="currentColor"],.pp2-em svg [fill="currentColor"]{color:#F2C14E}
+.pp2-top b{display:block;font-size:15px;letter-spacing:.08em;text-transform:uppercase}.pp2-top small{display:block;font-size:12.5px;opacity:.75;letter-spacing:.04em}
+.pp2-no{margin-left:auto;font:700 13px/1 ui-monospace,Menlo,monospace;opacity:.7;letter-spacing:.08em}
+.pp2-page{margin:0 8px;border-radius:16px;padding:18px 16px 16px;background:repeating-linear-gradient(0deg,rgba(31,59,87,.035) 0 1px,transparent 1px 22px),linear-gradient(160deg,#FFFBF0,#F6EBD2);color:#14323F;position:relative;overflow:hidden}
+.pp2-page::before{content:"";position:absolute;right:-40px;top:-40px;width:180px;height:180px;border-radius:50%;border:2px dashed rgba(31,59,87,.08)}
+.pp2-page .fld{margin:0 0 18px}.pp2-page .lbl{font-size:12.5px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:#5C6B76}
+.pp2-page .field{background:transparent;border:0;border-bottom:2px solid #C9B48C;border-radius:0;padding:0 2px;font-size:20px;font-weight:800;height:44px}
+.pp2-page .field:focus{border-bottom-color:#1F3B57;outline:none}
+.pp2-stamps{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding-top:6px;border-top:2px dashed rgba(31,59,87,.15)}
+.pp2-st{font:800 12px/1 ui-monospace,Menlo,monospace;text-transform:uppercase;letter-spacing:.06em;padding:6px 10px;border:2px solid rgba(31,59,87,.18);border-radius:8px;color:rgba(31,59,87,.3);transform:rotate(-4deg)}
+.pp2-st:nth-child(2){transform:rotate(3deg)}.pp2-st:nth-child(3){transform:rotate(-2deg)}
+.pp2-st.on{color:#2E8B57;border-color:#2E8B57;animation:ppStamp .45s cubic-bezier(.3,1.6,.5,1)}
+.pp2-big{margin-left:auto;font-size:13px;padding:8px 12px;border-radius:50px}.pp2-big.on{color:#C0392B;border-color:#C0392B}
+@keyframes ppStamp{0%{transform:scale(2.2) rotate(-14deg);opacity:0}100%{opacity:1}}
+#flow[data-step=perfil] .pp{display:none}
+@media (prefers-reduced-motion:reduce){.pp2-st.on{animation:none}}
