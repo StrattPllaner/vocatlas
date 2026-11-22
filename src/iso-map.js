@@ -59,7 +59,9 @@ var ISOMAP=(function(I,E,G){
    if(opt.app&&!L.ghost)skLand+='<g id="skl-'+L.id+'">'+I.sketchAll(land.slice(land0).replace(/ class="[^"]*"/g,"").replace(/ style="[^"]*"/g,"").replace(/ data-a="[^"]*"/g,""))+'</g>';
   });
   /* rediseño de #art (pestaña Islas): otro mar somero y otra tierra; la app no lo pasa */
-  if(opt.land3){var o3=opt.land3(W,ALL);sea=o3.sea;land=o3.land}
+  if(opt.land3){var o3=opt.land3(W,ALL,{ei:ei});sea=o3.sea;land=o3.land;
+   /* app: el boceto de cada isla sale de la misma tierra nueva */
+   if(opt.app){skLand="";o3.isles.forEach(function(q){if(!q.ghost)skLand+='<g id="skl-'+q.id+'">'+I.sketchAll(q.s.replace(/ class="[^"]*"/g,"").replace(/ style="[^"]*"/g,"").replace(/ data-a="[^"]*"/g,""))+'</g>'})}}
   /* caminos de adoquín: borde, cuerpo y piedritas */
   var rd="";W.edges.forEach(function(e){var q=e.pts.map(function(p){var inT=W.inPoly(p[0],p[1],W.byId[e.a].isle.plateau);return pj(p,inT?Z_TOP:0)});rd+=open(q)});
   roads+='<path d="'+rd+'" fill="none" stroke="#B48F63" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>';
@@ -82,7 +84,7 @@ var ISOMAP=(function(I,E,G){
    var c=n.c,k=aff[c.id]!=null?aff[c.id]:.5,sc=(.92+.22*k).toFixed(3),p=pj([n.x,n.y],Z_TOP),v=opt.style||null,id=I.uid("b");
    var full,lite;
    if(opt.app){/* app: una sola versión (estructura), con id de edificio para tocar y redibujar delante de Rumbo */
-    var mk=function(){return typeof ART!=="undefined"&&ART.has(c.id)?ART.get(c.id,opt.detail||2,"s",opt.ver?{ver:opt.ver}:null):E.generic(n.isle.area.biome,c.color,G.hs(c.id))};
+    var mk=function(){return typeof ART!=="undefined"&&(ART.has(c.id)||opt.ver==="v3"&&ART.has3&&ART.has3(c.id))?ART.get(c.id,opt.detail||2,"s",opt.ver?{ver:opt.ver}:null):E.generic(n.isle.area.biome,c.color,G.hs(c.id))};
     /* dos versiones: gris precalculado y color; el avance mezcla una con otra sin filtros */
     /* dos versiones completas: color y boceto. Cada una va recortada con la mancha de su carrera (dentro: color, fuera: boceto) */
     var tb='translate('+f1(p[0])+' '+f1(p[1])+') scale('+sc+')';
@@ -121,7 +123,10 @@ var ISOMAP=(function(I,E,G){
     objs.push({k:x+y,s:'<g class="m-d m-gh" style="--ei:'+W.islands.length+'" transform="translate('+f1(pp[0])+' '+f1(pp[1])+')">'+'<g opacity=".55">'+E.one(q[0],{d:2,k:q[2],ph:rr()*3,flip:rr()<.5})+'</g>'+'</g>'})});
    [[-30,-34,2.1,.3],[40,-10,1.7,1.7],[-8,6,1.5,2.9]].forEach(function(q){top+='<g class="m-fog" transform="translate('+f1(p[0]+q[0])+' '+f1(p[1]+q[1])+')" opacity=".94">'+E.cloud({k:q[2],ph:gi+q[3]})+'</g>'});
   });
-  if(opt.extra)opt.extra(W,function(k,s){objs.push({k:k,s:s})});
+  /* objetos del rediseño; en la app cada uno se pinta a color o en boceto según la carrera más cercana, igual que la vegetación */
+  if(opt.extra)opt.extra(W,function(k,s,x,y){if(opt.app&&x!=null&&W.nodes.length){var nn=null,nd=1e9;W.nodes.forEach(function(o){var dd=Math.hypot(o.x-x,o.y-y);if(dd<nd){nd=dd;nn=o}});var L=nn.isle;
+    objs.push({k:k,s:'<g class="m-d" data-a="'+L.id+'" data-c="'+nn.id+'" style="--ei:'+EI[L.id]+'"><g class="vco" clip-path="url(#col-'+nn.id+')">'+s+'</g><g class="vbz" clip-path="url(#skc-'+nn.id+')">'+I.sketchAll(s)+'</g></g>'})}
+   else objs.push({k:k,s:s})});
   objs.sort(function(a,b){return a.k-b.k});
   /* mar abierto: faro en su islote, barcos, ballena, delfines; arriba, nubes y gaviotas */
   var bb=W.bbox,cx=(bb[0]+bb[2])/2,cy=(bb[1]+bb[3])/2;

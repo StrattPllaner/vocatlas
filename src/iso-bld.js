@@ -178,6 +178,9 @@ var ART=(function(I,E){
   var fx=x+w+9,rz=ez+3.4,th=1.6,RF=T(V3?"#B8AE9B":"#C9604F");
   var a=P(x-1,y-3,rz-2),b=P(fx,y-3,rz),r1=P(x-1,y+dd/2,rz+8),r2=P(fx,y+dd/2,rz+10),cc=P(fx,y+dd+3,rz),ddp=P(x-1,y+dd+3,rz-2);
   s+=poly([a,b,r2,r1],RF.s)+poly([r1,r2,cc,ddp],RF.b);
+  /* v3: lámina con juntas alzadas que bajan del caballete y caballete marcado */
+  if(V3&&d>0){var lp=function(p,q,t){return [p[0]+(q[0]-p[0])*t,p[1]+(q[1]-p[1])*t]};for(var ti=.04;ti<1;ti+=.055){s+=line([lp(a,b,ti),lp(r1,r2,ti)],I.shade(RF.s,.12),.5,{cap:"butt"})+line([lp(r1,r2,ti),lp(ddp,cc,ti)],I.shade(RF.b,.1),.5,{cap:"butt"})}
+   s+=line([r1,r2],I.tint(RF.b,.35),1.6,{cap:"round"})}
   s+=poly([ddp,cc,[cc[0],cc[1]+th],[ddp[0],ddp[1]+th]],RF.d,{st:false});
   s+=line([[r1[0]+.6,r1[1]+.3],[r2[0]-.8,r2[1]+.3]],RF.h,1.1,{cap:"butt",op:.9});
   s+=poly([b,cc,r2],"#E4D8BF");

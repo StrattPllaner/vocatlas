@@ -52,6 +52,7 @@
 .gm .iso-smoke{animation:mSmoke 3s ease-out infinite}
 @keyframes mSmoke{0%{transform:translateY(0) scale(.6);opacity:.7}100%{transform:translateY(-14px) scale(1.4);opacity:0}}
 @media (prefers-reduced-motion:reduce){.gm *,.ia *{animation:none!important}.gm .iso-whale,.gm .iso-dolphin,.gm .m-glint{opacity:0}}
+.gm.v3{--m-sh1:rgba(90,215,205,.36);--m-sh2:#5CD0C6;--m-sh3:#A6EADF}
 :root[data-theme=dark] .gm,.gm.is-night{--m-sea:#163B5C;--m-sea2:#0E2A44;--m-sh1:rgba(60,120,160,.3);--m-sh2:#2B5F82;--m-sh3:#3A7598;background:radial-gradient(120% 90% at 30% 20%,#21507A 0%,var(--m-sea) 45%,var(--m-sea2) 100%)}
 /* de noche solo cambia el mar: las islas conservan sus colores (y el boceto no se oscurece) */
 .gm.is-night .iso-lamp{filter:drop-shadow(0 0 3px #FFE08A)}

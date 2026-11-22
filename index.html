@@ -1356,6 +1356,7 @@ html.kit-on body>*:not(#kit):not(.ui-scrim):not(.ui-modal):not(.ui-sheet):not(.u
 .gm .iso-smoke{animation:mSmoke 3s ease-out infinite}
 @keyframes mSmoke{0%{transform:translateY(0) scale(.6);opacity:.7}100%{transform:translateY(-14px) scale(1.4);opacity:0}}
 @media (prefers-reduced-motion:reduce){.gm *,.ia *{animation:none!important}.gm .iso-whale,.gm .iso-dolphin,.gm .m-glint{opacity:0}}
+.gm.v3{--m-sh1:rgba(90,215,205,.36);--m-sh2:#5CD0C6;--m-sh3:#A6EADF}
 :root[data-theme=dark] .gm,.gm.is-night{--m-sea:#163B5C;--m-sea2:#0E2A44;--m-sh1:rgba(60,120,160,.3);--m-sh2:#2B5F82;--m-sh3:#3A7598;background:radial-gradient(120% 90% at 30% 20%,#21507A 0%,var(--m-sea) 45%,var(--m-sea2) 100%)}
 /* de noche solo cambia el mar: las islas conservan sus colores (y el boceto no se oscurece) */
 .gm.is-night .iso-lamp{filter:drop-shadow(0 0 3px #FFE08A)}
@@ -3928,7 +3929,9 @@ function isoReady(){
 function isoGeo(){
  var FULL=ISOFIX.catalog(20),W=MAPGEN.build(FULL.filter(function(c){return picked(c.id)}),ISOFIX.AREAS,{stable:true,full:FULL,ghosts:true}),P=ISO.P,ZT=8;
  var mobile=Math.min(innerWidth,innerHeight)<700;
- var R=ISOMAP.render(W,{app:true,amb:true,detail:mobile?1:2,budget:mobile?{isle:5,sea:3}:null});
+ /* mapa con el rediseño elegido: G · Río, selva y cenote (estructuras v3, pasto y árboles por área) */
+ var I3=typeof ISLAS3!=="undefined";if(I3)ISLAS3.use("cenote");
+ var R=ISOMAP.render(W,{app:true,amb:true,ver:I3?"v3":null,land3:I3?ISLAS3.land3:null,extra:I3?ISLAS3.extra:null,noDecor:I3,detail:mobile?1:2,budget:mobile?{isle:5,sea:3}:null});
  var sb=R.box,pad=240,OX=pad-sb[0],OY=pad-sb[1];
  WW=Math.round(sb[2]-sb[0]+2*pad);WH=Math.round(sb[3]-sb[1]+2*pad);
  function pj(p,z){var q=P(p[0],p[1],z||0);return [q[0]+OX,q[1]+OY]}
@@ -3966,7 +3969,7 @@ function isoGeo(){
   ns.forEach(function(n,i){var d=samp[i].sort(function(a,b){return a-b});if(!d.length)d=[60];
    var cxs=L.coast.map(function(q){return q[0]}),cys=L.coast.map(function(q){return q[1]}),zb=[Math.min.apply(null,cxs)-260,Math.min.apply(null,cys)-260,Math.max.apply(null,cxs)+260,Math.max.apply(null,cys)+260];
    var cb=pj([n.x,n.y],ZT+34),Rz=150;L.coast.forEach(function(q){var bi=0,bd=1e9;for(var k=0;k<ns.length;k++){var dd=Math.hypot(ns[k].x-q[0],ns[k].y-q[1]);if(dd<bd){bd=dd;bi=k}}if(bi!==i)return;var sp=pj(q,0);Rz=Math.max(Rz,Math.hypot((sp[0]-cb[0])/1.3,(sp[1]+16-cb[1])/.85)+36)});
-   cells[n.id]={poly:cellPoly(i,sites,ws,bb).map(function(q){return pj(q,ZT)}),zone:cellPoly(i,sites,ws,zb).map(function(q){return pj(q,ZT)}),cb:cb,Rz:Rz,d:d,R:d[d.length-1]+12,c:pj([n.x,n.y],ZT),isle:L.id,grass:ISOMAP.grass(L.area.biome)}});
+   cells[n.id]={poly:cellPoly(i,sites,ws,bb).map(function(q){return pj(q,ZT)}),zone:cellPoly(i,sites,ws,zb).map(function(q){return pj(q,ZT)}),cb:cb,Rz:Rz,d:d,R:d[d.length-1]+12,c:pj([n.x,n.y],ZT),isle:L.id,grass:typeof ISLAS3!=="undefined"?ISLAS3.grass(L.area.id,L.area.biome):ISOMAP.grass(L.area.biome)}});
  });
  var fit=[1e9,1e9,-1e9,-1e9];W.islands.forEach(function(L){L.coast.forEach(function(p){var q=pj(p,0);fit[0]=Math.min(fit[0],q[0]);fit[1]=Math.min(fit[1],q[1]-96);fit[2]=Math.max(fit[2],q[0]);fit[3]=Math.max(fit[3],q[1]+16)})});
  var ghosts=W.ghosts.map(function(g){var q=pj([g.x,g.y],6),ly=-1e9;g.coast.forEach(function(p){ly=Math.max(ly,pj(p,0)[1])});return {x:q[0],y:q[1],ly:ly+30,area:g.area&&AREAS[g.area.id]?g.area.id:""}});
@@ -3979,7 +3982,7 @@ function isoGeo(){
 function isoWorld(w,defs){
  var R=ISOW.R.parts,OX=ISOW.OX,OY=ISOW.OY,tr="translate("+OX.toFixed(1)+" "+OY.toFixed(1)+")",night=(DMQ&&DMQ.matches)?" is-night":"";
  /* mar liso como en el modelo de arte: solo el degradado azul del fondo y los anillos de agua baja, sin textura encima */
- var g1=sv("g",{"class":"gm isow"+night,transform:tr,"pointer-events":"none"},w);
+ var g1=sv("g",{"class":"gm isow v3"+night,transform:tr,"pointer-events":"none"},w);
  g1.innerHTML='<defs>'+R.defs+'</defs><g class="m-sea">'+R.sea+'</g><g class="m-land">'+R.land+'</g><g class="m-roads">'+R.roads+'</g>';
  /* territorios. Cada carrera tiene una sola mancha (la acuarela) y de ella salen dos recortes:
     «col-id» deja ver lo que cae dentro (versión a color) y «skc-id» lo que cae fuera (versión boceto).
@@ -4009,7 +4012,7 @@ function isoWorld(w,defs){
    refs[c.id]={g:tg,ps:ps,R:K.R,host:inner,cs:cs,cc:cc,ring:ring,gs:gs,wob:wob,outer:outer,bc:[bx,by],Rz:K.Rz,K:K,st:-1};
   });
  });
- var g2=sv("g",{"class":"gm isow"+night,transform:tr},w);
+ var g2=sv("g",{"class":"gm isow v3"+night,transform:tr},w);
  g2.innerHTML='<g pointer-events="none">'+R.seaObjs+'</g><g class="m-objs">'+R.objs+'</g><g class="m-top" pointer-events="none">'+R.top+'</g>';
  /* lavado de acuarela: mientras la carrera no está completa, lo que ya tiene color lleva una capa de papel encima
     (más ligera conforme avanzas). Así 75 % se ve todavía en proceso y solo 100 % queda a todo color */
@@ -7808,6 +7811,9 @@ var ART=(function(I,E){
   var fx=x+w+9,rz=ez+3.4,th=1.6,RF=T(V3?"#B8AE9B":"#C9604F");
   var a=P(x-1,y-3,rz-2),b=P(fx,y-3,rz),r1=P(x-1,y+dd/2,rz+8),r2=P(fx,y+dd/2,rz+10),cc=P(fx,y+dd+3,rz),ddp=P(x-1,y+dd+3,rz-2);
   s+=poly([a,b,r2,r1],RF.s)+poly([r1,r2,cc,ddp],RF.b);
+  /* v3: lámina con juntas alzadas que bajan del caballete y caballete marcado */
+  if(V3&&d>0){var lp=function(p,q,t){return [p[0]+(q[0]-p[0])*t,p[1]+(q[1]-p[1])*t]};for(var ti=.04;ti<1;ti+=.055){s+=line([lp(a,b,ti),lp(r1,r2,ti)],I.shade(RF.s,.12),.5,{cap:"butt"})+line([lp(r1,r2,ti),lp(ddp,cc,ti)],I.shade(RF.b,.1),.5,{cap:"butt"})}
+   s+=line([r1,r2],I.tint(RF.b,.35),1.6,{cap:"round"})}
   s+=poly([ddp,cc,[cc[0],cc[1]+th],[ddp[0],ddp[1]+th]],RF.d,{st:false});
   s+=line([[r1[0]+.6,r1[1]+.3],[r2[0]-.8,r2[1]+.3]],RF.h,1.1,{cap:"butt",op:.9});
   s+=poly([b,cc,r2],"#E4D8BF");
@@ -8675,18 +8681,29 @@ var ART=(function(I,E){
  /* v3: banco como los reales (Banco de México, bancos de principios del siglo XX): zócalo, dos pisos con ventanas,
     escalinata a todo lo ancho, pórtico de seis columnas, friso con su nombre y frontón */
  function finanzas3(d){
-  var g=plat("#E8D9A8","#B39A5E"),s="",x=-24,y=-20,w=32,dd=20,h=22,ST="#F4EFE6";
+  var C0=P(0,0,Z),g=plat("#E8D9A8","#B39A5E")+'<g transform="translate('+f1(C0[0])+' '+f1(C0[1])+') scale(1.22) translate('+f1(-C0[0])+' '+f1(-C0[1])+')">',s="",x=-24,y=-20,w=32,dd=20,h=22,ST="#F4EFE6";
   s+=sh(x,y,w,dd+6,h+12)+box(x-1,y-1,Z,w+2,dd+1,2.4,"#D9D1C2",{top:"#ECE6DA"})+box(x,y,Z+2.4,w,dd,h,ST,{left:"#EFE9DE",right:"#CEC6B6",top:"#FFFFFF"});
   var L=I.faceL(x,y,Z+2.4,w,dd),R=I.faceR(x,y,Z+2.4,w,dd);s+=door(L,w/2-3,6,11,"#7A5236")+windows(R,dd,h,3,2,2.6,4,3.6,6,6,10,d)+quad(R,0,h-3,dd,1,"#DCD3C3",{st:false});
   [[6,1.2],[4,2.4],[2,3.6]].forEach(function(q){s+=box(x+1,y+dd,Z+q[1]-1.2,w-2,q[0],1.2,"#EEE8DC",{left:"#E6DFD1",right:"#C9C0AF",top:"#F7F3EA",noGlint:true})});
   for(var k=0;k<6;k++){var cx=x+3.2+k*5.12;s+=I.cyl(cx,y+dd+1.2,Z+3.6,1.35,h-1.2,"#FFFFFF",{sideS:"#D8D1C4",noGlint:true})+I.cyl(cx,y+dd+1.2,Z+2.4+h-1.2,1.8,1,"#F1EBE0",{noGlint:true})}
   var ez=Z+2.4+h;s+=box(x-1,y-1,ez,w+2,dd+4,3,"#E9E2D4",{left:"#EDE6D9",right:"#CBC2B2",top:"#F6F2EA"});
-  if(d>0)s+='<g transform="'+I.planeX(x-1,y+dd+3,ez+.3)+'"><text x="'+f1((w+2)/2)+'" y="-.5" text-anchor="middle" font-size="2" font-weight="800" letter-spacing=".5" fill="#9C8F78" font-family="Nunito,system-ui,sans-serif">BANCO</text></g>';
-  s+=poly([P(x-1,y+dd+3,ez+3),P(x+w+1,y+dd+3,ez+3),P(x+w/2,y+dd+3,ez+10)],"#F6F2EA",{st:"#CEC6B6",sw:.6})+poly([P(x+w+1,y+dd+3,ez+3),P(x+w+1,y-1,ez+3),P(x+w/2,y-1,ez+10),P(x+w/2,y+dd+3,ez+10)],"#C9BFAF");
-  if(d>0){var pc=P(x+w/2,y+dd+3,ez+5.6);s+='<circle cx="'+f1(pc[0])+'" cy="'+f1(pc[1])+'" r="1.4" fill="#D9A845"/>'}
+  /* techo de lámina de cobre con pátina verde, como los bancos y edificios públicos de principios del siglo XX:
+     juntas alzadas que bajan del caballete, caballete con remate y alero con sombra; frontón con cornisa en relieve,
+     dentículos y un escudo con laureles en el tímpano */
+  var RH=9,rf=function(f,yy){return P(x+w+1-(w/2+1)*f,yy,ez+3+RH*f)};
+  s+=poly([rf(0,y+dd+3),rf(0,y-1),rf(1,y-1),rf(1,y+dd+3)],"#7FA89A");
+  if(d>0){for(var yy=y;yy<y+dd+3;yy+=2.2)s+=line([rf(0,yy),rf(1,yy)],"#6A9285",.55,{cap:"butt"});s+=line([rf(.02,y+dd+3),rf(.02,y-1)],"#5C8174",1.2,{cap:"butt"})}
+  s+=line([rf(1,y+dd+3.4),rf(1,y-1.4)],"#A9C9BD",1.4,{cap:"round"});
+  s+=box(x-1,y+dd+2,ez+2.4,w+2,1.4,.8,"#EFE9DE",{left:"#F4EFE6",right:"#CBC2B2",top:"#FFFFFF",noGlint:true});
+  if(d>0){var FD=I.faceL(x-1,y+dd+2,ez+2.4,w+2,1.4);for(var u=.6;u<w+1.6;u+=1.3)s+=quad(FD,u,0,.7,.5,"#D8D0C0",{st:false})}
+  if(d>0)s+='<g transform="'+I.planeX(x-1,y+dd+3.45,ez+.2)+'"><text x="'+f1((w+2)/2)+'" y="-.4" text-anchor="middle" font-size="1.9" font-weight="800" letter-spacing=".6" fill="#9C8F78" font-family="Nunito,system-ui,sans-serif">BANCO</text></g>';
+  var pa=P(x-1,y+dd+3.4,ez+3),pb=P(x+w+1,y+dd+3.4,ez+3),pt=P(x+w/2,y+dd+3.4,ez+3+RH);
+  s+=poly([pa,pb,pt],"#E9E2D4",{st:false});var ia=P(x+1.6,y+dd+3.4,ez+3.8),ib=P(x+w-1.6,y+dd+3.4,ez+3.8),it=P(x+w/2,y+dd+3.4,ez+2.4+RH);s+=poly([ia,ib,it],"#F6F2EA",{st:false});
+  s+='<path d="M'+f1(pa[0]-.6)+' '+f1(pa[1]+.4)+'L'+f1(pt[0])+' '+f1(pt[1]-.8)+'L'+f1(pb[0]+.6)+' '+f1(pb[1]+.4)+'" fill="none" stroke="#FFFFFF" stroke-width="1.6" stroke-linejoin="round"/><path d="M'+f1(pa[0])+' '+f1(pa[1]+1.2)+'L'+f1(pt[0])+' '+f1(pt[1])+'L'+f1(pb[0])+' '+f1(pb[1]+1.2)+'" fill="none" stroke="#CBC2B2" stroke-width=".6" stroke-linejoin="round"/>';
+  if(d>0){var pc=P(x+w/2,y+dd+3.4,ez+6.2);s+='<g transform="translate('+f1(pc[0])+' '+f1(pc[1])+')"><path d="M-4.4 1.4q-1.2-3 .6-5M4.4 1.4q1.2-3-.6-5" stroke="#9FB86A" stroke-width="1.1" fill="none" stroke-linecap="round"/><path d="M-1.8 -2.6h3.6v2.4q0 1.8-1.8 2.6q-1.8-.8-1.8-2.6z" fill="#D9A845" stroke="#B07A16" stroke-width=".4"/></g>'}
   var mx=20,my=12,mn=I.shadowEll(mx,my,Z,5)+box(mx-3,my-1,Z,6,3,2,"#B8862A",{top:"#D9A845"});
   mn+='<g transform="'+I.planeX(mx,my+.5,Z+11)+'"><circle r="8.4" fill="#C98E1E"/><circle r="8" fill="#F2B544"/><circle r="6.2" fill="none" stroke="#C98E1E" stroke-width=".9"/><text x="0" y="3.6" text-anchor="middle" font-size="10" font-weight="900" fill="#B07A16">$</text><path d="M-5.6 -3.4A6.4 6.4 0 0 1 -1.6 -6.4" stroke="#FFF1B8" stroke-width="1.1" fill="none" stroke-linecap="round"/></g>';
-  return piece(g,[["banco",[x-1,y-1,x+w+1,y+dd+6],s],["moneda",[15,10,25,14],mn],d>1?dp("bush",-32,22,{k:.5,d:d}):null,d>0?dp("lamp",-30,10,{d:d}):null]);
+  return piece(g,[["banco",[x-1,y-1,x+w+1,y+dd+6],s],["moneda",[15,10,25,14],mn],d>1?dp("bush",-32,22,{k:.5,d:d}):null,d>0?dp("lamp",-30,10,{d:d}):null])+"</g>";
  }
  function finanzas_s(d){if(H.v3&&H.v3())return finanzas3(d);
   var g=plat("#E8D9A8","#B39A5E"),s="",x=-24,y=-18,w=32,dd=22,h=16,ST="#F4EFE6";
@@ -9238,7 +9255,9 @@ var ISOMAP=(function(I,E,G){
    if(opt.app&&!L.ghost)skLand+='<g id="skl-'+L.id+'">'+I.sketchAll(land.slice(land0).replace(/ class="[^"]*"/g,"").replace(/ style="[^"]*"/g,"").replace(/ data-a="[^"]*"/g,""))+'</g>';
   });
   /* rediseño de #art (pestaña Islas): otro mar somero y otra tierra; la app no lo pasa */
-  if(opt.land3){var o3=opt.land3(W,ALL);sea=o3.sea;land=o3.land}
+  if(opt.land3){var o3=opt.land3(W,ALL,{ei:ei});sea=o3.sea;land=o3.land;
+   /* app: el boceto de cada isla sale de la misma tierra nueva */
+   if(opt.app){skLand="";o3.isles.forEach(function(q){if(!q.ghost)skLand+='<g id="skl-'+q.id+'">'+I.sketchAll(q.s.replace(/ class="[^"]*"/g,"").replace(/ style="[^"]*"/g,"").replace(/ data-a="[^"]*"/g,""))+'</g>'})}}
   /* caminos de adoquín: borde, cuerpo y piedritas */
   var rd="";W.edges.forEach(function(e){var q=e.pts.map(function(p){var inT=W.inPoly(p[0],p[1],W.byId[e.a].isle.plateau);return pj(p,inT?Z_TOP:0)});rd+=open(q)});
   roads+='<path d="'+rd+'" fill="none" stroke="#B48F63" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>';
@@ -9261,7 +9280,7 @@ var ISOMAP=(function(I,E,G){
    var c=n.c,k=aff[c.id]!=null?aff[c.id]:.5,sc=(.92+.22*k).toFixed(3),p=pj([n.x,n.y],Z_TOP),v=opt.style||null,id=I.uid("b");
    var full,lite;
    if(opt.app){/* app: una sola versión (estructura), con id de edificio para tocar y redibujar delante de Rumbo */
-    var mk=function(){return typeof ART!=="undefined"&&ART.has(c.id)?ART.get(c.id,opt.detail||2,"s",opt.ver?{ver:opt.ver}:null):E.generic(n.isle.area.biome,c.color,G.hs(c.id))};
+    var mk=function(){return typeof ART!=="undefined"&&(ART.has(c.id)||opt.ver==="v3"&&ART.has3&&ART.has3(c.id))?ART.get(c.id,opt.detail||2,"s",opt.ver?{ver:opt.ver}:null):E.generic(n.isle.area.biome,c.color,G.hs(c.id))};
     /* dos versiones: gris precalculado y color; el avance mezcla una con otra sin filtros */
     /* dos versiones completas: color y boceto. Cada una va recortada con la mancha de su carrera (dentro: color, fuera: boceto) */
     var tb='translate('+f1(p[0])+' '+f1(p[1])+') scale('+sc+')';
@@ -9300,7 +9319,10 @@ var ISOMAP=(function(I,E,G){
     objs.push({k:x+y,s:'<g class="m-d m-gh" style="--ei:'+W.islands.length+'" transform="translate('+f1(pp[0])+' '+f1(pp[1])+')">'+'<g opacity=".55">'+E.one(q[0],{d:2,k:q[2],ph:rr()*3,flip:rr()<.5})+'</g>'+'</g>'})});
    [[-30,-34,2.1,.3],[40,-10,1.7,1.7],[-8,6,1.5,2.9]].forEach(function(q){top+='<g class="m-fog" transform="translate('+f1(p[0]+q[0])+' '+f1(p[1]+q[1])+')" opacity=".94">'+E.cloud({k:q[2],ph:gi+q[3]})+'</g>'});
   });
-  if(opt.extra)opt.extra(W,function(k,s){objs.push({k:k,s:s})});
+  /* objetos del rediseño; en la app cada uno se pinta a color o en boceto según la carrera más cercana, igual que la vegetación */
+  if(opt.extra)opt.extra(W,function(k,s,x,y){if(opt.app&&x!=null&&W.nodes.length){var nn=null,nd=1e9;W.nodes.forEach(function(o){var dd=Math.hypot(o.x-x,o.y-y);if(dd<nd){nd=dd;nn=o}});var L=nn.isle;
+    objs.push({k:k,s:'<g class="m-d" data-a="'+L.id+'" data-c="'+nn.id+'" style="--ei:'+EI[L.id]+'"><g class="vco" clip-path="url(#col-'+nn.id+')">'+s+'</g><g class="vbz" clip-path="url(#skc-'+nn.id+')">'+I.sketchAll(s)+'</g></g>'})}
+   else objs.push({k:k,s:s})});
   objs.sort(function(a,b){return a.k-b.k});
   /* mar abierto: faro en su islote, barcos, ballena, delfines; arriba, nubes y gaviotas */
   var bb=W.bbox,cx=(bb[0]+bb[2])/2,cy=(bb[1]+bb[3])/2;
@@ -9561,7 +9583,7 @@ var ISLAS3=(function(I,E,G,M){
     cand.sort(function(a,b){return b.s-a.s});cand.forEach(function(c){if(f.rivers.length>=3)return;if(f.rivers.some(function(r){return r.some(function(a){return c.p.some(function(b){return Math.hypot(a[0]-b[0],a[1]-b[1])<30})})}))return;f.rivers.push(c.p);
      var cp=c.p;for(var bi2=2;bi2<cp.length-2;bi2+=2)[-1,1].forEach(function(sd){var bx=cp[bi2][0]-c.dy*sd*11,by=cp[bi2][1]+c.dx*sd*11;if(dn(bx,by)>46&&de(bx,by)>10&&W.inPoly(bx,by,pl))f.beds.push([bx,by,c.dx,c.dy,["#F29A2E","#E0607A","#F2C744","#9B7BD4"][(bi2+(sd>0?1:0))%4]])})})}
    /* cenote: el claro más grande se vuelve un pozo de agua turquesa con paredes de roca y raíces que cuelgan */
-   if(ST.cenote&&hp&&bs>=4)f.cenote={x:hp[0],y:hp[1],R:Math.min(bs+14,30)};
+   if(ST.cenote&&hp&&bs>=12)f.cenote={x:hp[0],y:hp[1],R:Math.min(bs+14,30)};
    if(f.rivers&&f.rivers.length){f.cross=[];f.drops=[];f.rivers.forEach(function(rb){
      /* cruces con los caminos: ahí van puentes */
      W.edges.forEach(function(e){var q=e.pts;for(var j=1;j<q.length;j++)for(var m2=1;m2<rb.length;m2++){var A=q[j-1],B2=q[j],C2=rb[m2-1],D=rb[m2],den=(B2[0]-A[0])*(D[1]-C2[1])-(B2[1]-A[1])*(D[0]-C2[0]);if(Math.abs(den)<1e-6)continue;
@@ -9586,7 +9608,7 @@ var ISLAS3=(function(I,E,G,M){
    if(ST.pier&&bestI>-1&&bv>.75)f.pier=[L.coast[bestI][0]-6,L.coast[bestI][1]];
    F[L.id]=f});
   return W.__f3[ST.id]=F}
- function land3(W,ALL){var sea="",land="";
+ function land3(W,ALL,o3){o3=o3||{};var sea="",land="",isles=[];
   /* agua somera: tres bandas de ancho variable y bajos de arena más claros */
   ALL.forEach(function(L,li){var s0=G.hs(L.id+"s");
    sea+='<path d="'+M.closed(grow(L.coast,ST.sh[0],.55,s0),0)+'" fill="var(--m-sh1)" stroke="var(--m-sh1)" stroke-width="'+ST.sh[1]+'" stroke-linejoin="round"/>'});
@@ -9602,7 +9624,7 @@ var ISLAS3=(function(I,E,G,M){
   ALL.forEach(function(L){sea+='<path d="'+M.closed(grow(L.coast,5,.4,G.hs(L.id+"u")),0,ST.wall+12)+'" fill="#0B4A72" opacity=".22"/>'});
   ALL.forEach(function(L,li){var look=lk(L),gh=L.ghost,cid=I.uid("i3"),cid2=I.uid("i3"),s0=G.hs(L.id+"t"),fe=FE[L.id];
    var pl=fe?fe.pl:grow(L.plateau,2.5,1.4,s0),dp=M.closed(pl,Z_TOP);
-   land+='<g class="m-isle'+(gh?' m-ghost':'')+'"><g class="m-isle-in">';
+   var l0=land.length,oc=pj([L.x,L.y],0);land+='<g class="m-isle'+(gh?' m-ghost':'')+'" data-a="'+L.id+'"'+(o3.ei?' style="--ei:'+o3.ei(L)+'"':'')+'><g class="m-isle-in" style="transform-origin:'+f1(oc[0])+'px '+f1(oc[1])+'px">';
    /* pared: roca abajo, tierra arriba, línea mojada al pie */
    var Wd=ST.wall;land+='<path d="'+M.closed(L.coast,0,Wd)+'" fill="'+(gh?"#B3A68C":ST.cb)+'"/><path d="'+M.closed(L.coast,0,Wd*.53)+'" fill="'+(gh?"#C7BB9F":ST.ct)+'"/>';
    /* acantilados: estratos de roca (franjas) en la pared */
@@ -9655,10 +9677,10 @@ var ISLAS3=(function(I,E,G,M){
    if(fe&&fe.fall){var fa=fe.fall,mid=[(fa.a[0]+fa.b[0])/2+8,(fa.a[1]+fa.b[1])/2-6],sp=[fa.a,mid,fa.b].map(function(q){return pj(q,Z_TOP)});
     land+='<path d="'+I.smooth(sp,false)+'" fill="none" stroke="#7FC8E6" stroke-width="5" stroke-linecap="round"/><path d="'+I.smooth(sp,false)+'" fill="none" stroke="#4FA8D8" stroke-width="2.6" stroke-linecap="round"/>';
     var top=pj(fa.b,Z_TOP),bot=pj(fa.c,0);land+='<path d="M'+f1(top[0]-3)+' '+f1(top[1])+'L'+f1(top[0]+3)+' '+f1(top[1])+'L'+f1(bot[0]+4)+' '+f1(bot[1]+Wd)+'L'+f1(bot[0]-4)+' '+f1(bot[1]+Wd)+'Z" fill="#BFE8F6"/><path d="M'+f1(top[0])+' '+f1(top[1])+'L'+f1(bot[0])+' '+f1(bot[1]+Wd)+'" stroke="#FFFFFF" stroke-width="1.2" opacity=".9"/>'}
-   land+='</g></g>'});
+   land+='</g></g>';isles.push({id:L.id,ghost:!!gh,s:land.slice(l0)})});
   /* espuma al pie de la cascada */
   ALL.forEach(function(L){var fe2=FE[L.id];if(fe2&&fe2.fall){var c=pj(fe2.fall.c,0);sea+='<ellipse cx="'+f1(c[0])+'" cy="'+f1(c[1]+ST.wall+2)+'" rx="9" ry="3.4" fill="#FFFFFF" opacity=".75"/>'}});
-  return {sea:sea,land:land}}
+  return {sea:sea,land:land,isles:isles}}
  /* vegetación: arboledas, arbustos en sus orillas, flores en claros, palmeras en la arena y rocas en el agua */
  function extra(W,push){
   var FE=feats(W);
@@ -9667,7 +9689,7 @@ var ISLAS3=(function(I,E,G,M){
     for(m=0;m<W.edges.length;m++){var q=W.edges[m].pts;for(var j=0;j<q.length;j++)if(Math.hypot(q[j][0]-x,q[j][1]-y)<de)return false}
     for(m=0;m<placed.length;m++)if(Math.hypot(placed[m][0]-x,placed[m][1]-y)<dp)return false;return true}
    function onTop(x,y,m){return W.inPoly(x,y,L.plateau)&&W.edgeDist(x,y,L.plateau)>(m||7)}
-   function put(x,y,z,art){placed.push([x,y]);var p=pj([x,y],z);push(x+y,'<g transform="translate('+f1(p[0])+' '+f1(p[1])+')">'+art+'</g>')}
+   function put(x,y,z,art){placed.push([x,y]);var p=pj([x,y],z);push(x+y,'<g transform="translate('+f1(p[0])+' '+f1(p[1])+')">'+art+'</g>',x,y)}
    var GREENS=ST.grass?["#3F8F57","#357F4C","#4A9A5E","#2F7448"]:["#4FAE52","#3F9C4A","#5DBB5A","#46A35C"],tk=b.tree==="pine"||ST.pines>.6?"treePine":"treeRound";
    /* arboledas */
    var groves=Math.round((1+L.nodes.length)*ST.groves);for(var gi=0,t=0;gi<groves&&t<300;t++){var a=rr()*6.28,r=Math.sqrt(rr())*L.R,cx=L.x+Math.cos(a)*r,cy=L.y+Math.sin(a)*r;
@@ -9696,7 +9718,7 @@ var ISLAS3=(function(I,E,G,M){
     for(var u=-Lg+1.5;u<Lg;u+=2.2){var a=bp(u,-Wb,.6+2*(1-Math.abs(u)/Lg)),b=bp(u,Wb,.6+2*(1-Math.abs(u)/Lg));o+='<path d="M'+f1(a[0])+' '+f1(a[1])+'L'+f1(b[0])+' '+f1(b[1])+'" stroke="#8E6238" stroke-width=".45"/>'}
     [-Wb,Wb].forEach(function(v){var r1=[bp(-Lg,v,3.6),bp(0,v,5.6),bp(Lg,v,3.6)];o+='<path d="M'+f1(r1[0][0])+' '+f1(r1[0][1])+'Q'+f1(r1[1][0])+' '+f1(r1[1][1]-2)+' '+f1(r1[2][0])+' '+f1(r1[2][1])+'" stroke="#7A5236" stroke-width=".9" fill="none"/>';
      [-Lg,-Lg/2,0,Lg/2,Lg].forEach(function(u){var h0=.6+2*(1-Math.abs(u)/Lg),a=bp(u,v,h0),b=bp(u,v,h0+3);o+='<path d="M'+f1(a[0])+' '+f1(a[1])+'L'+f1(b[0])+' '+f1(b[1])+'" stroke="#7A5236" stroke-width=".8"/>'})});
-    push(c.x+c.y+3,o)});
+    push(c.x+c.y+3,o,c.x,c.y)});
    /* selva: más árboles y helechos a la orilla del río */
    if(fe.rivers&&!ST.canals){var RV=fe.rivers[0];for(var rv2=0,t5=0;rv2<14&&t5<300;t5++){var q6=RV[2+Math.floor(rr()*(RV.length-4))],sd2=rr()<.5?-1:1,ox=q6[0]+sd2*(11+rr()*8),oy=q6[1]-sd2*(6+rr()*8);
      if(!onTop(ox,oy,5)||!far(ox,oy,56,12,8))continue;var near2=RV.some(function(r){return Math.hypot(r[0]-ox,r[1]-oy)<9});if(near2)continue;rv2++;put(ox,oy,Z_TOP,E.one(rv2%3?"treeRound":"bush",{d:2,k:.65+rr()*.3,ph:rr()*3,flip:rr()<.5,c:["#2F8F4A","#3F9C4A","#277A40"][rv2%3]}))}}
@@ -9714,7 +9736,7 @@ var ISLAS3=(function(I,E,G,M){
      var bx=pz.x+Math.cos(a8)*pz.R*.36,by=pz.y+Math.sin(a8)*pz.R*.36;if(qd%2===0)put(bx,by,Z_TOP,E.one("bench",{d:2}))})}
    /* trajineras de colores en los canales */
    if(ST.canals&&fe.rivers)fe.rivers.forEach(function(cv,ci){if(ci>2)return;var q7=cv[Math.floor(cv.length*(.3+ci*.2))],tp=pj(q7,Z_TOP-.5),C=[["#E2434B","#F2C744"],["#2F8FB5","#F29A2E"],["#3FA34D","#E0607A"]][ci%3];
-    push(q7[0]+q7[1]+2,'<g transform="translate('+f1(tp[0])+' '+f1(tp[1])+')"><ellipse cx="0" cy="1" rx="8" ry="2.6" fill="#13213F" opacity=".18"/><path d="M-8 -1L8 -1L6.6 1.8L-6.6 1.8Z" fill="'+C[0][0]+'"/><path d="M-8 -1H8V-2H-8Z" fill="'+C[0][1]+'"/><path d="M-6 -2V-7M6 -2V-7" stroke="#7A5236" stroke-width=".7"/><path d="M-7 -7Q0 -10.4 7 -7V-6H-7Z" fill="'+C[0][1]+'"/><rect x="-4.4" y="-9.4" width="8.8" height="2.6" rx=".4" fill="#FFFFFF" stroke="'+C[0][0]+'" stroke-width=".4"/></g>')});
+    push(q7[0]+q7[1]+2,'<g transform="translate('+f1(tp[0])+' '+f1(tp[1])+')"><ellipse cx="0" cy="1" rx="8" ry="2.6" fill="#13213F" opacity=".18"/><path d="M-8 -1L8 -1L6.6 1.8L-6.6 1.8Z" fill="'+C[0][0]+'"/><path d="M-8 -1H8V-2H-8Z" fill="'+C[0][1]+'"/><path d="M-6 -2V-7M6 -2V-7" stroke="#7A5236" stroke-width=".7"/><path d="M-7 -7Q0 -10.4 7 -7V-6H-7Z" fill="'+C[0][1]+'"/><rect x="-4.4" y="-9.4" width="8.8" height="2.6" rx=".4" fill="#FFFFFF" stroke="'+C[0][0]+'" stroke-width=".4"/></g>',q7[0],q7[1])});
    /* pirámide maya en ruinas junto al cenote */
    if(ST.ruins){var rp2=null;for(var t7=0;t7<300;t7++){var a7=rr()*6.28,r7=Math.sqrt(rr())*L.R,x7=L.x+Math.cos(a7)*r7,y7=L.y+Math.sin(a7)*r7;if(onTop(x7,y7,18)&&far(x7,y7,60,20,26)){rp2=[x7,y7];break}}
     if(rp2){var pr="",ST2=["#CDBB97","#C2AF8A","#B8A47E","#AE9A74"];for(var lv=0;lv<4;lv++){var hw=12-lv*2.6;pr+=I.box(rp2[0]-hw,rp2[1]-hw,Z_TOP+lv*4,hw*2,hw*2,4,ST2[lv],{noGlint:true})}
@@ -9726,7 +9748,7 @@ var ISLAS3=(function(I,E,G,M){
     put(bx2,by2,0,'<g transform="scale(1.6)"><ellipse cx="0" cy="1.6" rx="9" ry="2.6" fill="#13213F" opacity=".15"/><path d="M-9 -2Q-8 2 -3 2.4H5Q9 2 10 -2.6Z" fill="'+bc+'"/><path d="M-9 -2H10L9.4 -3.2H-8.6Z" fill="#FFFFFF"/><path d="M-4 -2.6h6v1.2h-6z" fill="#B98552"/></g>')}
    /* juncos en la orilla de la laguna */
    if(fe.pond){var pd2=fe.pond;for(var jr=0;jr<4;jr++){var ja=Math.PI*(.15+jr*.22),jx=pd2.x+Math.cos(ja)*pd2.r*.95,jy=pd2.y+Math.sin(ja)*pd2.r*.95*.9,jp=pj([jx,jy],Z_TOP);
-     push(jx+jy,'<g transform="translate('+f1(jp[0])+' '+f1(jp[1])+')"><path d="M-1.4 0q-.6 -4 -1.6 -7M0 0v-8.4M1.4 0q.6 -4 1.8 -6.6" stroke="#4E8F3A" stroke-width=".9" fill="none" stroke-linecap="round"/><ellipse cx="0" cy="-8.6" rx=".7" ry="1.6" fill="#8A5E3C"/></g>')}}
+     push(jx+jy,'<g transform="translate('+f1(jp[0])+' '+f1(jp[1])+')"><path d="M-1.4 0q-.6 -4 -1.6 -7M0 0v-8.4M1.4 0q.6 -4 1.8 -6.6" stroke="#4E8F3A" stroke-width=".9" fill="none" stroke-linecap="round"/><ellipse cx="0" cy="-8.6" rx=".7" ry="1.6" fill="#8A5E3C"/></g>',jx,jy)}}
    /* cabos: rocas grandes donde el pasto llega al mar */
    (fe.rocks||[]).forEach(function(r){put(r[0],r[1],-2,E.one("rock",{d:2,k:r[2],c:"#9C968C"}))});
    /* muelle con su lancha */
@@ -9783,7 +9805,7 @@ var ISLAS3=(function(I,E,G,M){
   el.querySelectorAll(".i3-sty [data-s]").forEach(function(b){b.onclick=function(){out.innerHTML='<p class="ia-n">Armando el mapa…</p>';var k=b.getAttribute("data-s");setTimeout(function(){show(k)},30)}});
   show(cur)}
  function use(id){ST=STY[id]||STY.tropical;return ST}
- return {land3:land3,extra:extra,page:page,use:use,STY:STY};
+ return {land3:land3,extra:extra,page:page,use:use,STY:STY,grass:function(a,b){var q=AREA3[a];return q?q.grass:M.look(b).grass},look:function(a,b){return AREA3[a]||M.look(b)}};
 })(ISO,ENV,MAPGEN,ISOMAP);
 
 /* ================= símbolos de las carreras =================
@@ -10688,7 +10710,7 @@ var TORRE=(function(I){
  /* ---------- el suelo: la isla de la carrera, igual a las del mapa (playa, acantilado, ladera y pasto de su área),
     tan grande que cubre lo de abajo de orilla a orilla; encima, el edificio de la carrera y los árboles y objetos de su bioma ---------- */
  var BIO={salud:"jardin",ing:"industria",tec:"vidrio",neg:"ciudad",arte:"barrio"};
- function ground(id,vx,vy,vw,vh){var c=byId[id]||{},bio=BIO[c.area]||"ciudad",M=ISOMAP,look=M.look(bio),E=ENV,sd=7;for(var i=0;i<id.length;i++)sd=(sd*31+id.charCodeAt(i))>>>0;
+ function ground(id,vx,vy,vw,vh){var c=byId[id]||{},bio=BIO[c.area]||"ciudad",M=ISOMAP,look=typeof ISLAS3!=="undefined"&&ISLAS3.look?ISLAS3.look(c.area,bio):M.look(bio),E=ENV,sd=7;for(var i=0;i<id.length;i++)sd=(sd*31+id.charCodeAt(i))>>>0;
   function rnd(){sd=(sd*1664525+1013904223)>>>0;return sd/4294967296}
   var S2=Math.SQRT2,need=Math.max((vw/2)/S2*1.5+90,(vy+vh)*S2+120),rb=92,ph=rnd()*6;
   function rad(t,ex){var b=-(Math.cos(t)+Math.sin(t))/S2,s=Math.pow((1-b)/2,.75);return (rb+(need-rb)*s)*(1+.035*Math.sin(3*t+ph)+.025*Math.sin(7*t+ph*2))+(ex||0)}
@@ -10722,7 +10744,7 @@ var TORRE=(function(I){
  /* el edificio de la carrera, el mismo del mapa, en el centro donde arranca la escalera: capa propia para que se note
     (las nubes de atrás pasan detrás de él y solo las de adelante lo cruzan); una luz suave en el piso lo destaca */
  function bldHTML(id,x,y,k){var c=byId[id]||{},bio=BIO[c.area]||"ciudad",E=ENV;
-  var b=typeof ART!=="undefined"&&ART.has(id)?ART.get(id,2,null,{noPlat:true}):E.generic(bio,c.color||"#3F7DA6",7);if(!b)return "";
+  var v3=typeof ART!=="undefined"&&ART.has3&&ART.has3(id),b=typeof ART!=="undefined"&&(ART.has(id)||v3)?ART.get(id,2,null,{noPlat:true,ver:v3?"v3":null}):E.generic(bio,c.color||"#3F7DA6",7);if(!b)return "";
   var sc=(2*k).toFixed(3);
   return '<svg class="tw-bld" style="left:'+f1(x)+'px;top:'+f1(y)+'px" width="1" height="1" aria-hidden="true"><defs>'+E.DEFS+'<radialGradient id="twBG"><stop offset="0" stop-color="#FFF3C4" stop-opacity=".75"/><stop offset="1" stop-color="#FFF3C4" stop-opacity="0"/></radialGradient></defs>'+
    '<ellipse cx="0" cy="'+f1(6*k)+'" rx="'+f1(150*k)+'" ry="'+f1(62*k)+'" fill="url(#twBG)"/><g transform="scale('+sc+')">'+b+'</g></svg>'}

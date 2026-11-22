@@ -107,7 +107,7 @@ var TORRE=(function(I){
  /* ---------- el suelo: la isla de la carrera, igual a las del mapa (playa, acantilado, ladera y pasto de su área),
     tan grande que cubre lo de abajo de orilla a orilla; encima, el edificio de la carrera y los árboles y objetos de su bioma ---------- */
  var BIO={salud:"jardin",ing:"industria",tec:"vidrio",neg:"ciudad",arte:"barrio"};
- function ground(id,vx,vy,vw,vh){var c=byId[id]||{},bio=BIO[c.area]||"ciudad",M=ISOMAP,look=M.look(bio),E=ENV,sd=7;for(var i=0;i<id.length;i++)sd=(sd*31+id.charCodeAt(i))>>>0;
+ function ground(id,vx,vy,vw,vh){var c=byId[id]||{},bio=BIO[c.area]||"ciudad",M=ISOMAP,look=typeof ISLAS3!=="undefined"&&ISLAS3.look?ISLAS3.look(c.area,bio):M.look(bio),E=ENV,sd=7;for(var i=0;i<id.length;i++)sd=(sd*31+id.charCodeAt(i))>>>0;
   function rnd(){sd=(sd*1664525+1013904223)>>>0;return sd/4294967296}
   var S2=Math.SQRT2,need=Math.max((vw/2)/S2*1.5+90,(vy+vh)*S2+120),rb=92,ph=rnd()*6;
   function rad(t,ex){var b=-(Math.cos(t)+Math.sin(t))/S2,s=Math.pow((1-b)/2,.75);return (rb+(need-rb)*s)*(1+.035*Math.sin(3*t+ph)+.025*Math.sin(7*t+ph*2))+(ex||0)}
@@ -141,7 +141,7 @@ var TORRE=(function(I){
  /* el edificio de la carrera, el mismo del mapa, en el centro donde arranca la escalera: capa propia para que se note
     (las nubes de atrás pasan detrás de él y solo las de adelante lo cruzan); una luz suave en el piso lo destaca */
  function bldHTML(id,x,y,k){var c=byId[id]||{},bio=BIO[c.area]||"ciudad",E=ENV;
-  var b=typeof ART!=="undefined"&&ART.has(id)?ART.get(id,2,null,{noPlat:true}):E.generic(bio,c.color||"#3F7DA6",7);if(!b)return "";
+  var v3=typeof ART!=="undefined"&&ART.has3&&ART.has3(id),b=typeof ART!=="undefined"&&(ART.has(id)||v3)?ART.get(id,2,null,{noPlat:true,ver:v3?"v3":null}):E.generic(bio,c.color||"#3F7DA6",7);if(!b)return "";
   var sc=(2*k).toFixed(3);
   return '<svg class="tw-bld" style="left:'+f1(x)+'px;top:'+f1(y)+'px" width="1" height="1" aria-hidden="true"><defs>'+E.DEFS+'<radialGradient id="twBG"><stop offset="0" stop-color="#FFF3C4" stop-opacity=".75"/><stop offset="1" stop-color="#FFF3C4" stop-opacity="0"/></radialGradient></defs>'+
    '<ellipse cx="0" cy="'+f1(6*k)+'" rx="'+f1(150*k)+'" ry="'+f1(62*k)+'" fill="url(#twBG)"/><g transform="scale('+sc+')">'+b+'</g></svg>'}

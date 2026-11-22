@@ -184,18 +184,29 @@
  /* v3: banco como los reales (Banco de México, bancos de principios del siglo XX): zócalo, dos pisos con ventanas,
     escalinata a todo lo ancho, pórtico de seis columnas, friso con su nombre y frontón */
  function finanzas3(d){
-  var g=plat("#E8D9A8","#B39A5E"),s="",x=-24,y=-20,w=32,dd=20,h=22,ST="#F4EFE6";
+  var C0=P(0,0,Z),g=plat("#E8D9A8","#B39A5E")+'<g transform="translate('+f1(C0[0])+' '+f1(C0[1])+') scale(1.22) translate('+f1(-C0[0])+' '+f1(-C0[1])+')">',s="",x=-24,y=-20,w=32,dd=20,h=22,ST="#F4EFE6";
   s+=sh(x,y,w,dd+6,h+12)+box(x-1,y-1,Z,w+2,dd+1,2.4,"#D9D1C2",{top:"#ECE6DA"})+box(x,y,Z+2.4,w,dd,h,ST,{left:"#EFE9DE",right:"#CEC6B6",top:"#FFFFFF"});
   var L=I.faceL(x,y,Z+2.4,w,dd),R=I.faceR(x,y,Z+2.4,w,dd);s+=door(L,w/2-3,6,11,"#7A5236")+windows(R,dd,h,3,2,2.6,4,3.6,6,6,10,d)+quad(R,0,h-3,dd,1,"#DCD3C3",{st:false});
   [[6,1.2],[4,2.4],[2,3.6]].forEach(function(q){s+=box(x+1,y+dd,Z+q[1]-1.2,w-2,q[0],1.2,"#EEE8DC",{left:"#E6DFD1",right:"#C9C0AF",top:"#F7F3EA",noGlint:true})});
   for(var k=0;k<6;k++){var cx=x+3.2+k*5.12;s+=I.cyl(cx,y+dd+1.2,Z+3.6,1.35,h-1.2,"#FFFFFF",{sideS:"#D8D1C4",noGlint:true})+I.cyl(cx,y+dd+1.2,Z+2.4+h-1.2,1.8,1,"#F1EBE0",{noGlint:true})}
   var ez=Z+2.4+h;s+=box(x-1,y-1,ez,w+2,dd+4,3,"#E9E2D4",{left:"#EDE6D9",right:"#CBC2B2",top:"#F6F2EA"});
-  if(d>0)s+='<g transform="'+I.planeX(x-1,y+dd+3,ez+.3)+'"><text x="'+f1((w+2)/2)+'" y="-.5" text-anchor="middle" font-size="2" font-weight="800" letter-spacing=".5" fill="#9C8F78" font-family="Nunito,system-ui,sans-serif">BANCO</text></g>';
-  s+=poly([P(x-1,y+dd+3,ez+3),P(x+w+1,y+dd+3,ez+3),P(x+w/2,y+dd+3,ez+10)],"#F6F2EA",{st:"#CEC6B6",sw:.6})+poly([P(x+w+1,y+dd+3,ez+3),P(x+w+1,y-1,ez+3),P(x+w/2,y-1,ez+10),P(x+w/2,y+dd+3,ez+10)],"#C9BFAF");
-  if(d>0){var pc=P(x+w/2,y+dd+3,ez+5.6);s+='<circle cx="'+f1(pc[0])+'" cy="'+f1(pc[1])+'" r="1.4" fill="#D9A845"/>'}
+  /* techo de lámina de cobre con pátina verde, como los bancos y edificios públicos de principios del siglo XX:
+     juntas alzadas que bajan del caballete, caballete con remate y alero con sombra; frontón con cornisa en relieve,
+     dentículos y un escudo con laureles en el tímpano */
+  var RH=9,rf=function(f,yy){return P(x+w+1-(w/2+1)*f,yy,ez+3+RH*f)};
+  s+=poly([rf(0,y+dd+3),rf(0,y-1),rf(1,y-1),rf(1,y+dd+3)],"#7FA89A");
+  if(d>0){for(var yy=y;yy<y+dd+3;yy+=2.2)s+=line([rf(0,yy),rf(1,yy)],"#6A9285",.55,{cap:"butt"});s+=line([rf(.02,y+dd+3),rf(.02,y-1)],"#5C8174",1.2,{cap:"butt"})}
+  s+=line([rf(1,y+dd+3.4),rf(1,y-1.4)],"#A9C9BD",1.4,{cap:"round"});
+  s+=box(x-1,y+dd+2,ez+2.4,w+2,1.4,.8,"#EFE9DE",{left:"#F4EFE6",right:"#CBC2B2",top:"#FFFFFF",noGlint:true});
+  if(d>0){var FD=I.faceL(x-1,y+dd+2,ez+2.4,w+2,1.4);for(var u=.6;u<w+1.6;u+=1.3)s+=quad(FD,u,0,.7,.5,"#D8D0C0",{st:false})}
+  if(d>0)s+='<g transform="'+I.planeX(x-1,y+dd+3.45,ez+.2)+'"><text x="'+f1((w+2)/2)+'" y="-.4" text-anchor="middle" font-size="1.9" font-weight="800" letter-spacing=".6" fill="#9C8F78" font-family="Nunito,system-ui,sans-serif">BANCO</text></g>';
+  var pa=P(x-1,y+dd+3.4,ez+3),pb=P(x+w+1,y+dd+3.4,ez+3),pt=P(x+w/2,y+dd+3.4,ez+3+RH);
+  s+=poly([pa,pb,pt],"#E9E2D4",{st:false});var ia=P(x+1.6,y+dd+3.4,ez+3.8),ib=P(x+w-1.6,y+dd+3.4,ez+3.8),it=P(x+w/2,y+dd+3.4,ez+2.4+RH);s+=poly([ia,ib,it],"#F6F2EA",{st:false});
+  s+='<path d="M'+f1(pa[0]-.6)+' '+f1(pa[1]+.4)+'L'+f1(pt[0])+' '+f1(pt[1]-.8)+'L'+f1(pb[0]+.6)+' '+f1(pb[1]+.4)+'" fill="none" stroke="#FFFFFF" stroke-width="1.6" stroke-linejoin="round"/><path d="M'+f1(pa[0])+' '+f1(pa[1]+1.2)+'L'+f1(pt[0])+' '+f1(pt[1])+'L'+f1(pb[0])+' '+f1(pb[1]+1.2)+'" fill="none" stroke="#CBC2B2" stroke-width=".6" stroke-linejoin="round"/>';
+  if(d>0){var pc=P(x+w/2,y+dd+3.4,ez+6.2);s+='<g transform="translate('+f1(pc[0])+' '+f1(pc[1])+')"><path d="M-4.4 1.4q-1.2-3 .6-5M4.4 1.4q1.2-3-.6-5" stroke="#9FB86A" stroke-width="1.1" fill="none" stroke-linecap="round"/><path d="M-1.8 -2.6h3.6v2.4q0 1.8-1.8 2.6q-1.8-.8-1.8-2.6z" fill="#D9A845" stroke="#B07A16" stroke-width=".4"/></g>'}
   var mx=20,my=12,mn=I.shadowEll(mx,my,Z,5)+box(mx-3,my-1,Z,6,3,2,"#B8862A",{top:"#D9A845"});
   mn+='<g transform="'+I.planeX(mx,my+.5,Z+11)+'"><circle r="8.4" fill="#C98E1E"/><circle r="8" fill="#F2B544"/><circle r="6.2" fill="none" stroke="#C98E1E" stroke-width=".9"/><text x="0" y="3.6" text-anchor="middle" font-size="10" font-weight="900" fill="#B07A16">$</text><path d="M-5.6 -3.4A6.4 6.4 0 0 1 -1.6 -6.4" stroke="#FFF1B8" stroke-width="1.1" fill="none" stroke-linecap="round"/></g>';
-  return piece(g,[["banco",[x-1,y-1,x+w+1,y+dd+6],s],["moneda",[15,10,25,14],mn],d>1?dp("bush",-32,22,{k:.5,d:d}):null,d>0?dp("lamp",-30,10,{d:d}):null]);
+  return piece(g,[["banco",[x-1,y-1,x+w+1,y+dd+6],s],["moneda",[15,10,25,14],mn],d>1?dp("bush",-32,22,{k:.5,d:d}):null,d>0?dp("lamp",-30,10,{d:d}):null])+"</g>";
  }
  function finanzas_s(d){if(H.v3&&H.v3())return finanzas3(d);
   var g=plat("#E8D9A8","#B39A5E"),s="",x=-24,y=-18,w=32,dd=22,h=16,ST="#F4EFE6";

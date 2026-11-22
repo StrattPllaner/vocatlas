@@ -85,7 +85,7 @@ var ISLAS3=(function(I,E,G,M){
     cand.sort(function(a,b){return b.s-a.s});cand.forEach(function(c){if(f.rivers.length>=3)return;if(f.rivers.some(function(r){return r.some(function(a){return c.p.some(function(b){return Math.hypot(a[0]-b[0],a[1]-b[1])<30})})}))return;f.rivers.push(c.p);
      var cp=c.p;for(var bi2=2;bi2<cp.length-2;bi2+=2)[-1,1].forEach(function(sd){var bx=cp[bi2][0]-c.dy*sd*11,by=cp[bi2][1]+c.dx*sd*11;if(dn(bx,by)>46&&de(bx,by)>10&&W.inPoly(bx,by,pl))f.beds.push([bx,by,c.dx,c.dy,["#F29A2E","#E0607A","#F2C744","#9B7BD4"][(bi2+(sd>0?1:0))%4]])})})}
    /* cenote: el claro más grande se vuelve un pozo de agua turquesa con paredes de roca y raíces que cuelgan */
-   if(ST.cenote&&hp&&bs>=4)f.cenote={x:hp[0],y:hp[1],R:Math.min(bs+14,30)};
+   if(ST.cenote&&hp&&bs>=12)f.cenote={x:hp[0],y:hp[1],R:Math.min(bs+14,30)};
    if(f.rivers&&f.rivers.length){f.cross=[];f.drops=[];f.rivers.forEach(function(rb){
      /* cruces con los caminos: ahí van puentes */
      W.edges.forEach(function(e){var q=e.pts;for(var j=1;j<q.length;j++)for(var m2=1;m2<rb.length;m2++){var A=q[j-1],B2=q[j],C2=rb[m2-1],D=rb[m2],den=(B2[0]-A[0])*(D[1]-C2[1])-(B2[1]-A[1])*(D[0]-C2[0]);if(Math.abs(den)<1e-6)continue;
@@ -110,7 +110,7 @@ var ISLAS3=(function(I,E,G,M){
    if(ST.pier&&bestI>-1&&bv>.75)f.pier=[L.coast[bestI][0]-6,L.coast[bestI][1]];
    F[L.id]=f});
   return W.__f3[ST.id]=F}
- function land3(W,ALL){var sea="",land="";
+ function land3(W,ALL,o3){o3=o3||{};var sea="",land="",isles=[];
   /* agua somera: tres bandas de ancho variable y bajos de arena más claros */
   ALL.forEach(function(L,li){var s0=G.hs(L.id+"s");
    sea+='<path d="'+M.closed(grow(L.coast,ST.sh[0],.55,s0),0)+'" fill="var(--m-sh1)" stroke="var(--m-sh1)" stroke-width="'+ST.sh[1]+'" stroke-linejoin="round"/>'});
@@ -126,7 +126,7 @@ var ISLAS3=(function(I,E,G,M){
   ALL.forEach(function(L){sea+='<path d="'+M.closed(grow(L.coast,5,.4,G.hs(L.id+"u")),0,ST.wall+12)+'" fill="#0B4A72" opacity=".22"/>'});
   ALL.forEach(function(L,li){var look=lk(L),gh=L.ghost,cid=I.uid("i3"),cid2=I.uid("i3"),s0=G.hs(L.id+"t"),fe=FE[L.id];
    var pl=fe?fe.pl:grow(L.plateau,2.5,1.4,s0),dp=M.closed(pl,Z_TOP);
-   land+='<g class="m-isle'+(gh?' m-ghost':'')+'"><g class="m-isle-in">';
+   var l0=land.length,oc=pj([L.x,L.y],0);land+='<g class="m-isle'+(gh?' m-ghost':'')+'" data-a="'+L.id+'"'+(o3.ei?' style="--ei:'+o3.ei(L)+'"':'')+'><g class="m-isle-in" style="transform-origin:'+f1(oc[0])+'px '+f1(oc[1])+'px">';
    /* pared: roca abajo, tierra arriba, línea mojada al pie */
    var Wd=ST.wall;land+='<path d="'+M.closed(L.coast,0,Wd)+'" fill="'+(gh?"#B3A68C":ST.cb)+'"/><path d="'+M.closed(L.coast,0,Wd*.53)+'" fill="'+(gh?"#C7BB9F":ST.ct)+'"/>';
    /* acantilados: estratos de roca (franjas) en la pared */
@@ -179,10 +179,10 @@ var ISLAS3=(function(I,E,G,M){
    if(fe&&fe.fall){var fa=fe.fall,mid=[(fa.a[0]+fa.b[0])/2+8,(fa.a[1]+fa.b[1])/2-6],sp=[fa.a,mid,fa.b].map(function(q){return pj(q,Z_TOP)});
     land+='<path d="'+I.smooth(sp,false)+'" fill="none" stroke="#7FC8E6" stroke-width="5" stroke-linecap="round"/><path d="'+I.smooth(sp,false)+'" fill="none" stroke="#4FA8D8" stroke-width="2.6" stroke-linecap="round"/>';
     var top=pj(fa.b,Z_TOP),bot=pj(fa.c,0);land+='<path d="M'+f1(top[0]-3)+' '+f1(top[1])+'L'+f1(top[0]+3)+' '+f1(top[1])+'L'+f1(bot[0]+4)+' '+f1(bot[1]+Wd)+'L'+f1(bot[0]-4)+' '+f1(bot[1]+Wd)+'Z" fill="#BFE8F6"/><path d="M'+f1(top[0])+' '+f1(top[1])+'L'+f1(bot[0])+' '+f1(bot[1]+Wd)+'" stroke="#FFFFFF" stroke-width="1.2" opacity=".9"/>'}
-   land+='</g></g>'});
+   land+='</g></g>';isles.push({id:L.id,ghost:!!gh,s:land.slice(l0)})});
   /* espuma al pie de la cascada */
   ALL.forEach(function(L){var fe2=FE[L.id];if(fe2&&fe2.fall){var c=pj(fe2.fall.c,0);sea+='<ellipse cx="'+f1(c[0])+'" cy="'+f1(c[1]+ST.wall+2)+'" rx="9" ry="3.4" fill="#FFFFFF" opacity=".75"/>'}});
-  return {sea:sea,land:land}}
+  return {sea:sea,land:land,isles:isles}}
  /* vegetación: arboledas, arbustos en sus orillas, flores en claros, palmeras en la arena y rocas en el agua */
  function extra(W,push){
   var FE=feats(W);
@@ -191,7 +191,7 @@ var ISLAS3=(function(I,E,G,M){
     for(m=0;m<W.edges.length;m++){var q=W.edges[m].pts;for(var j=0;j<q.length;j++)if(Math.hypot(q[j][0]-x,q[j][1]-y)<de)return false}
     for(m=0;m<placed.length;m++)if(Math.hypot(placed[m][0]-x,placed[m][1]-y)<dp)return false;return true}
    function onTop(x,y,m){return W.inPoly(x,y,L.plateau)&&W.edgeDist(x,y,L.plateau)>(m||7)}
-   function put(x,y,z,art){placed.push([x,y]);var p=pj([x,y],z);push(x+y,'<g transform="translate('+f1(p[0])+' '+f1(p[1])+')">'+art+'</g>')}
+   function put(x,y,z,art){placed.push([x,y]);var p=pj([x,y],z);push(x+y,'<g transform="translate('+f1(p[0])+' '+f1(p[1])+')">'+art+'</g>',x,y)}
    var GREENS=ST.grass?["#3F8F57","#357F4C","#4A9A5E","#2F7448"]:["#4FAE52","#3F9C4A","#5DBB5A","#46A35C"],tk=b.tree==="pine"||ST.pines>.6?"treePine":"treeRound";
    /* arboledas */
    var groves=Math.round((1+L.nodes.length)*ST.groves);for(var gi=0,t=0;gi<groves&&t<300;t++){var a=rr()*6.28,r=Math.sqrt(rr())*L.R,cx=L.x+Math.cos(a)*r,cy=L.y+Math.sin(a)*r;
@@ -220,7 +220,7 @@ var ISLAS3=(function(I,E,G,M){
     for(var u=-Lg+1.5;u<Lg;u+=2.2){var a=bp(u,-Wb,.6+2*(1-Math.abs(u)/Lg)),b=bp(u,Wb,.6+2*(1-Math.abs(u)/Lg));o+='<path d="M'+f1(a[0])+' '+f1(a[1])+'L'+f1(b[0])+' '+f1(b[1])+'" stroke="#8E6238" stroke-width=".45"/>'}
     [-Wb,Wb].forEach(function(v){var r1=[bp(-Lg,v,3.6),bp(0,v,5.6),bp(Lg,v,3.6)];o+='<path d="M'+f1(r1[0][0])+' '+f1(r1[0][1])+'Q'+f1(r1[1][0])+' '+f1(r1[1][1]-2)+' '+f1(r1[2][0])+' '+f1(r1[2][1])+'" stroke="#7A5236" stroke-width=".9" fill="none"/>';
      [-Lg,-Lg/2,0,Lg/2,Lg].forEach(function(u){var h0=.6+2*(1-Math.abs(u)/Lg),a=bp(u,v,h0),b=bp(u,v,h0+3);o+='<path d="M'+f1(a[0])+' '+f1(a[1])+'L'+f1(b[0])+' '+f1(b[1])+'" stroke="#7A5236" stroke-width=".8"/>'})});
-    push(c.x+c.y+3,o)});
+    push(c.x+c.y+3,o,c.x,c.y)});
    /* selva: más árboles y helechos a la orilla del río */
    if(fe.rivers&&!ST.canals){var RV=fe.rivers[0];for(var rv2=0,t5=0;rv2<14&&t5<300;t5++){var q6=RV[2+Math.floor(rr()*(RV.length-4))],sd2=rr()<.5?-1:1,ox=q6[0]+sd2*(11+rr()*8),oy=q6[1]-sd2*(6+rr()*8);
      if(!onTop(ox,oy,5)||!far(ox,oy,56,12,8))continue;var near2=RV.some(function(r){return Math.hypot(r[0]-ox,r[1]-oy)<9});if(near2)continue;rv2++;put(ox,oy,Z_TOP,E.one(rv2%3?"treeRound":"bush",{d:2,k:.65+rr()*.3,ph:rr()*3,flip:rr()<.5,c:["#2F8F4A","#3F9C4A","#277A40"][rv2%3]}))}}
@@ -238,7 +238,7 @@ var ISLAS3=(function(I,E,G,M){
      var bx=pz.x+Math.cos(a8)*pz.R*.36,by=pz.y+Math.sin(a8)*pz.R*.36;if(qd%2===0)put(bx,by,Z_TOP,E.one("bench",{d:2}))})}
    /* trajineras de colores en los canales */
    if(ST.canals&&fe.rivers)fe.rivers.forEach(function(cv,ci){if(ci>2)return;var q7=cv[Math.floor(cv.length*(.3+ci*.2))],tp=pj(q7,Z_TOP-.5),C=[["#E2434B","#F2C744"],["#2F8FB5","#F29A2E"],["#3FA34D","#E0607A"]][ci%3];
-    push(q7[0]+q7[1]+2,'<g transform="translate('+f1(tp[0])+' '+f1(tp[1])+')"><ellipse cx="0" cy="1" rx="8" ry="2.6" fill="#13213F" opacity=".18"/><path d="M-8 -1L8 -1L6.6 1.8L-6.6 1.8Z" fill="'+C[0][0]+'"/><path d="M-8 -1H8V-2H-8Z" fill="'+C[0][1]+'"/><path d="M-6 -2V-7M6 -2V-7" stroke="#7A5236" stroke-width=".7"/><path d="M-7 -7Q0 -10.4 7 -7V-6H-7Z" fill="'+C[0][1]+'"/><rect x="-4.4" y="-9.4" width="8.8" height="2.6" rx=".4" fill="#FFFFFF" stroke="'+C[0][0]+'" stroke-width=".4"/></g>')});
+    push(q7[0]+q7[1]+2,'<g transform="translate('+f1(tp[0])+' '+f1(tp[1])+')"><ellipse cx="0" cy="1" rx="8" ry="2.6" fill="#13213F" opacity=".18"/><path d="M-8 -1L8 -1L6.6 1.8L-6.6 1.8Z" fill="'+C[0][0]+'"/><path d="M-8 -1H8V-2H-8Z" fill="'+C[0][1]+'"/><path d="M-6 -2V-7M6 -2V-7" stroke="#7A5236" stroke-width=".7"/><path d="M-7 -7Q0 -10.4 7 -7V-6H-7Z" fill="'+C[0][1]+'"/><rect x="-4.4" y="-9.4" width="8.8" height="2.6" rx=".4" fill="#FFFFFF" stroke="'+C[0][0]+'" stroke-width=".4"/></g>',q7[0],q7[1])});
    /* pirámide maya en ruinas junto al cenote */
    if(ST.ruins){var rp2=null;for(var t7=0;t7<300;t7++){var a7=rr()*6.28,r7=Math.sqrt(rr())*L.R,x7=L.x+Math.cos(a7)*r7,y7=L.y+Math.sin(a7)*r7;if(onTop(x7,y7,18)&&far(x7,y7,60,20,26)){rp2=[x7,y7];break}}
     if(rp2){var pr="",ST2=["#CDBB97","#C2AF8A","#B8A47E","#AE9A74"];for(var lv=0;lv<4;lv++){var hw=12-lv*2.6;pr+=I.box(rp2[0]-hw,rp2[1]-hw,Z_TOP+lv*4,hw*2,hw*2,4,ST2[lv],{noGlint:true})}
@@ -250,7 +250,7 @@ var ISLAS3=(function(I,E,G,M){
     put(bx2,by2,0,'<g transform="scale(1.6)"><ellipse cx="0" cy="1.6" rx="9" ry="2.6" fill="#13213F" opacity=".15"/><path d="M-9 -2Q-8 2 -3 2.4H5Q9 2 10 -2.6Z" fill="'+bc+'"/><path d="M-9 -2H10L9.4 -3.2H-8.6Z" fill="#FFFFFF"/><path d="M-4 -2.6h6v1.2h-6z" fill="#B98552"/></g>')}
    /* juncos en la orilla de la laguna */
    if(fe.pond){var pd2=fe.pond;for(var jr=0;jr<4;jr++){var ja=Math.PI*(.15+jr*.22),jx=pd2.x+Math.cos(ja)*pd2.r*.95,jy=pd2.y+Math.sin(ja)*pd2.r*.95*.9,jp=pj([jx,jy],Z_TOP);
-     push(jx+jy,'<g transform="translate('+f1(jp[0])+' '+f1(jp[1])+')"><path d="M-1.4 0q-.6 -4 -1.6 -7M0 0v-8.4M1.4 0q.6 -4 1.8 -6.6" stroke="#4E8F3A" stroke-width=".9" fill="none" stroke-linecap="round"/><ellipse cx="0" cy="-8.6" rx=".7" ry="1.6" fill="#8A5E3C"/></g>')}}
+     push(jx+jy,'<g transform="translate('+f1(jp[0])+' '+f1(jp[1])+')"><path d="M-1.4 0q-.6 -4 -1.6 -7M0 0v-8.4M1.4 0q.6 -4 1.8 -6.6" stroke="#4E8F3A" stroke-width=".9" fill="none" stroke-linecap="round"/><ellipse cx="0" cy="-8.6" rx=".7" ry="1.6" fill="#8A5E3C"/></g>',jx,jy)}}
    /* cabos: rocas grandes donde el pasto llega al mar */
    (fe.rocks||[]).forEach(function(r){put(r[0],r[1],-2,E.one("rock",{d:2,k:r[2],c:"#9C968C"}))});
    /* muelle con su lancha */
@@ -307,5 +307,5 @@ var ISLAS3=(function(I,E,G,M){
   el.querySelectorAll(".i3-sty [data-s]").forEach(function(b){b.onclick=function(){out.innerHTML='<p class="ia-n">Armando el mapa…</p>';var k=b.getAttribute("data-s");setTimeout(function(){show(k)},30)}});
   show(cur)}
  function use(id){ST=STY[id]||STY.tropical;return ST}
- return {land3:land3,extra:extra,page:page,use:use,STY:STY};
+ return {land3:land3,extra:extra,page:page,use:use,STY:STY,grass:function(a,b){var q=AREA3[a];return q?q.grass:M.look(b).grass},look:function(a,b){return AREA3[a]||M.look(b)}};
 })(ISO,ENV,MAPGEN,ISOMAP);
