@@ -1200,38 +1200,38 @@ export function faceTex(o){o=o||{};const c=document.createElement('canvas');c.wi
   g.strokeStyle='#3A2213';g.lineWidth=12;g.lineCap='round';g.beginPath();g.arc(R,R+78,34,Math.PI*.18,Math.PI*.82);g.stroke();
   return c}
 function texMat(K,canvas){const t=new THREE.CanvasTexture(canvas);t.colorSpace=THREE.SRGBColorSpace;t.anisotropy=4;return t}
-export function rumbo3d(K,o){
-  const GOLD='#D9A441',GOLDL='#EEC56E',CREAM='#FBF0DA',CAP='#9A5B33',CAPD='#7A4424',FUR='#F6E8CF',BLUE='#3F78C8',SOLE='#D9B98A',GLV='#FFFFFF',STR='#4E2E19';
+/* Rumbo 3D fiel al dibujo de siempre (modelo U): mismas medidas (coordenadas del dibujo de 100, y hacia arriba,
+   centro de la caja en 0), mismos colores y mismas piezas. La carátula lleva la cara real del dibujo (lienzo en vivo). */
+export function rumbo3d(K,o){o=o||{};
+  const SRING='#E9B44C',SRINGS='#C68E2E',SDIAL='#FBF3E2',CAP='#9A5B33',CAPS='#7A4426',CAPL='#B27245',FUR='#F6E8CF',STR='#4E2E19',GOLD='#E3A845',LENS='#8FB7D6',BOOT='#3F78C8',SOLE='#D9B98A';
   const body=K.group({p:[0,0,0]});
-  // caja de la brújula: cilindro grueso con aro redondeado al frente y atrás
-  K.cyl(24,24,16,GOLD,{r:[90,0,0],parent:body,seg:64});
-  K.tor(22.6,2.6,GOLDL,{p:[0,0,8],parent:body});K.tor(22.6,2.6,GOLDL,{p:[0,0,-8],parent:body});
-  // carátula con cara (frente) y reverso con rosa de los vientos
-  const tO=texMat(K,faceTex({})),tC=texMat(K,faceTex({closed:true}));
-  const fm=new THREE.Mesh(new THREE.CircleGeometry(20.6,64),new THREE.MeshBasicMaterial({map:tO}));fm.userData.tO=tO;fm.userData.tC=tC;fm.position.z=8.4;fm.userData.ink=1;body.add(fm);
-  const bm=new THREE.Mesh(new THREE.CircleGeometry(20.6,64),new THREE.MeshBasicMaterial({map:texMat(K,faceTex({back:true}))}));bm.position.z=-8.4;bm.rotation.y=Math.PI;bm.userData.ink=1;body.add(bm);
-  body.userData.face=fm;
-  // botón de cuerda arriba a la derecha (como reloj de bolsillo)
-  K.cyl(3,3,4,GOLDL,{p:[16,17,0],r:[0,0,-45],parent:body});
-  // gorro de aviador: casquete achatado al frente, ceñido a la caja
-  const hat=K.group({p:[0,8.5,0],parent:body});
-  const dome=K.sph(25.5,CAP,{parent:hat,p:[0,4,0],s:[1,.95,.62]});
-  dome.geometry=new THREE.SphereGeometry(25.5,48,24,0,Math.PI*2,0,Math.PI*.5);
-  K.box(6,1.6,2,CAPD,{p:[0,28.5,0],parent:hat,rad:.6});
-  // borde de borrego: aro esponjoso alrededor
-  for(let i=0;i<26;i++){const a=i/26*Math.PI*2;K.sph(i%2?3.6:4.1,FUR,{parent:hat,p:[Math.cos(a)*24.2,4.2+Math.sin(a*3)*.4,Math.sin(a)*15.4]})}
-  // orejeras
-  [-1,1].forEach(sd=>{K.box(5,14,9,CAP,{p:[sd*24.5,-4,0],parent:hat,rad:2.4});K.box(1.6,10,7,FUR,{p:[sd*26.8,-5,0],parent:hat,rad:.8})});
-  // gafas sobre el gorro
-  [-1,1].forEach(sd=>{K.tor(4.6,1.4,'#E3A845',{p:[sd*7,17,12.4],r:[-28,0,0],parent:hat});K.cyl(3.6,3.6,.8,'#8FB7D6',{p:[sd*7,17,12.4],r:[62,0,0],parent:hat,m:'glass'})});
-  K.box(5,1.6,1.4,'#E3A845',{p:[0,17.4,13.6],r:[-28,0,0],parent:hat,rad:.5});
-  K.tube([[-23,13,4],[-14,17,10.6],[0,18.6,12.6],[14,17,10.6],[23,13,4]],1,STR,{parent:hat});
-  // flecha
-  K.cyl(1,1,12,'#E3A845',{p:[0,35,0],parent:hat});K.cone(3.6,6,'#E3A845',{p:[0,43,0],parent:hat});
-  // piernas y botas
-  [-1,1].forEach(sd=>{K.cyl(3.6,3.4,10,BLUE,{p:[sd*8,-28,0],parent:body});K.box(10,6,14,BLUE,{p:[sd*8,-35,2.4],rad:3,parent:body});K.box(10.6,2,14.6,SOLE,{p:[sd*8,-38.6,2.4],rad:.9,parent:body})});
-  if(o.drive){const w=wheel3d(K,body);w.position.set(0,-18.5,18);body.userData.wheel=w;body.userData.gl=[glove3d(K,w,[-9,0,1.6]),glove3d(K,w,[9,0,1.6])];body.userData.gl[0].rotation.z=-1.2;body.userData.gl[1].rotation.z=1.2}
-  else{const a=glove3d(K,body,[-31,-6,4]),b=glove3d(K,body,[31,-6,4]);a.rotation.z=.5;b.rotation.z=-.5}
+  /* caja: aro de latón de radio 24.4 con grosor; la carátula de radio 19.8 al frente, hundida un poco */
+  K.cyl(24.4,24.4,13,SRING,{r:[90,0,0],parent:body,seg:72});
+  K.tor(22.2,2.3,SRING,{p:[0,0,6.4],parent:body});K.tor(22.2,2.3,SRINGS,{p:[0,0,-6.4],parent:body});
+  const ft=o.faceCanvas?new THREE.CanvasTexture(o.faceCanvas):texMat(K,faceTex({}));ft.colorSpace=THREE.SRGBColorSpace;
+  const fm=new THREE.Mesh(new THREE.CircleGeometry(19.8,72),new THREE.MeshBasicMaterial({map:ft}));fm.position.z=6.6;fm.userData.ink=1;body.add(fm);body.userData.face=fm;body.userData.faceTex=ft;
+  const bm=new THREE.Mesh(new THREE.CircleGeometry(19.8,72),new THREE.MeshBasicMaterial({map:texMat(K,faceTex({back:true}))}));bm.position.z=-6.6;bm.rotation.y=Math.PI;bm.userData.ink=1;body.add(bm);
+  /* gorro: casquete (de x ±23.2, de y 12 a 35) que envuelve la caja; franja clara al centro, correa oscura y botón arriba */
+  const hat=K.group({parent:body});
+  const dome=K.sph(23.6,CAP,{parent:hat,p:[0,12,0],s:[1,.98,.66]});dome.geometry=new THREE.SphereGeometry(23.6,56,28,0,Math.PI*2,0,Math.PI*.5);
+  const pan=K.sph(23.75,CAPL,{parent:hat,p:[0,12,0],s:[1,.98,.665]});pan.geometry=new THREE.SphereGeometry(23.75,24,16,Math.PI*.5-.26,.52,.08,Math.PI*.42);
+  const st=K.sph(23.9,STR,{parent:hat,p:[0,12,0],s:[1,.98,.67]});st.geometry=new THREE.SphereGeometry(23.9,56,6,Math.PI*.12,Math.PI*.76,Math.PI*.36,Math.PI*.05);
+  K.sph(2.4,CAPS,{parent:hat,p:[0,34.8,0],s:[1,.6,1]});
+  /* borde de borrego: sube al frente como en el dibujo (de y 11.8 a los lados a y 17 al centro) */
+  for(let i=0;i<36;i++){const a=i/36*Math.PI*2,c=Math.cos(a),sn=Math.sin(a),front=Math.max(0,sn);K.sph(i%2?2.6:2.9,FUR,{parent:hat,p:[c*23.6,11.6+5.4*front*front,sn*15.8]})}
+  /* orejeras largas (de y 16 a -8) con forro de borrego abajo; la izquierda con correa y hebilla */
+  [-1,1].forEach(sd=>{const f=K.group({parent:hat,p:[sd*25.6,2,2.6],r:[0,0,sd*-6]});K.box(6.4,25,10,sd<0?CAP:CAPS,{parent:f,rad:3});K.box(6.6,4.4,8.4,FUR,{parent:f,p:[0,-11,0],rad:2});
+    if(sd<0){K.box(1.4,8,1.2,STR,{parent:f,p:[1.4,-16,4],rad:.4});K.box(3,2.6,.8,GOLD,{parent:f,p:[1.4,-19.6,4.2],rad:.4})}});
+  /* gafas sobre el gorro: aros dorados con cristal azul y su puente */
+  [-1,1].forEach(sd=>{const g=K.group({parent:hat,p:[sd*8.8,25,12.6],r:[-32,sd*-14,0]});K.tor(5,1.3,GOLD,{parent:g});K.cyl(4.1,4.1,1,LENS,{parent:g,r:[90,0,0]});K.sph(1.1,'#C4DDF0',{parent:g,p:[-1.6,1.6,.7],s:[1,1,.3]})});
+  K.box(5.2,2.4,1.6,GOLD,{parent:hat,p:[0,25.6,13.4],r:[-32,0,0],rad:.6});
+  /* flecha dorada inclinada sobre el botón */
+  const ar=K.group({parent:hat,p:[0,35,0],r:[0,0,16]});K.cyl(.75,.75,15,GOLD,{parent:ar,p:[0,7.5,0]});K.ext('M-4.6 0 L0 -8 L4.6 0 Z',1.8,GOLD,{parent:ar,p:[0,14.6,0],bevel:.4});
+  /* botas: espinilla azul con botón dorado, pie que apunta hacia afuera y suela beige */
+  [-1,1].forEach(sd=>{const L=K.group({parent:body,p:[sd*8.5,-19,0]});K.cyl(5.3,5.3,13,BOOT,{parent:L,p:[0,-6.5,0]});K.sph(1.2,GOLD,{parent:L,p:[sd*-2.7,-6.4,5]});
+    K.box(15,6,11,BOOT,{parent:L,p:[sd*3,-15.4,1.2],rad:2.8});K.box(15.6,1.8,11.6,SOLE,{parent:L,p:[sd*3,-18.6,1.2],rad:.8})});
+  if(o.drive){const w=wheel3d(K,body);w.position.set(0,-19,17);body.userData.wheel=w;body.userData.gl=[glove3d(K,w,[-9,0,1.6]),glove3d(K,w,[9,0,1.6])];body.userData.gl[0].rotation.z=-1.2;body.userData.gl[1].rotation.z=1.2}
+  else{const a=glove3d(K,body,[-35,-10,2]),b=glove3d(K,body,[36,-2,2]);a.rotation.z=Math.PI+.35;b.rotation.z=Math.PI-.35}
   return body}
-export function glove3d(K,parent,p){const h=K.group({p:p,parent:parent});K.sph(4.2,'#FFFFFF',{parent:h,s:[1,1.05,.9]});K.cap(1.5,3,'#FFFFFF',{parent:h,p:[-3.6,1.2,1],r:[0,0,40]});K.cyl(3.4,3.8,2.4,'#FFFFFF',{parent:h,p:[0,-4.4,0]});return h}
+export function glove3d(K,parent,p){const h=K.group({p:p,parent:parent});K.sph(4,'#FFFFFF',{parent:h,s:[1.05,1,.75]});[-2.4,-.8,.8,2.4].forEach((x,i)=>K.cap(.95,3.2-Math.abs(i-1.5)*.5,'#FFFFFF',{parent:h,p:[x,4.6,0]}));K.cap(1,2.4,'#FFFFFF',{parent:h,p:[-4.2,.6,.6],r:[0,0,50]});K.cyl(3.6,3.9,2.4,'#FFFFFF',{parent:h,p:[0,-4.4,0]});return h}
 export function wheel3d(K,parent){const w=K.group({parent:parent});K.tor(9,1.5,'#5B4A3A',{parent:w});K.box(18,1.6,1.6,'#5B4A3A',{parent:w,rad:.6});K.box(1.6,9,1.6,'#5B4A3A',{parent:w,p:[0,-4.5,0],rad:.6});K.cyl(2.4,2.4,2,'#E3A845',{parent:w,r:[90,0,0]});K.cyl(1.4,1.4,14,'#5B4A3A',{parent:w,p:[0,-8,-5],r:[50,0,0]});return w}
