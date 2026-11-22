@@ -1204,40 +1204,64 @@ function texMat(K,canvas){const t=new THREE.CanvasTexture(canvas);t.colorSpace=T
    centro de la caja en 0), mismos colores y mismas piezas. La carátula lleva la cara real del dibujo (lienzo en vivo). */
 export function rumbo3d(K,o){o=o||{};
   const SRING='#E9B44C',SRINGS='#C68E2E',SDIAL='#FBF3E2',CAP='#9A5B33',CAPS='#7A4426',CAPL='#B27245',FUR='#F6E8CF',STR='#4E2E19',GOLD='#E3A845',LENS='#8FB7D6',BOOT='#3F78C8',SOLE='#D9B98A';
-  const body=K.group({p:[0,0,0]});
+  /* articulaciones iguales a las del dibujo: cada grupo gira y se mueve alrededor del mismo pivote que su pieza plana
+     (rk-root, rk-body, rk-hat, rk-gog, rk-arrow, rk-legL/R, rk-kneeL/R, rk-ftL/R, rk-handL/R); dentro de cada grupo
+     las piezas usan coordenadas absolutas (x = X−50, y = 57.6−Y del dibujo de 100) */
+  const top=K.group({p:[0,0,0]}),J={};
+  const pg=(parent,X,Y,name)=>{const x=X-50,y=57.6-Y,out=K.group({parent,p:[x,y,0]}),inn=K.group({parent:out,p:[-x,-y,0]});out.name=name;out.userData.pv=[x,y];J[name]=out;return inn};
+  const root=pg(top,50,97,'root'),body=pg(root,50,82,'body');
   /* caja: aro de latón de radio 24.4 con grosor; la carátula de radio 19.8 al frente, hundida un poco */
   K.cyl(24.4,24.4,13,SRING,{r:[90,0,0],parent:body,seg:72});
   K.tor(22.2,2.3,SRING,{p:[0,0,6.4],parent:body});K.tor(22.2,2.3,SRINGS,{p:[0,0,-6.4],parent:body});
   const ft=o.faceCanvas?new THREE.CanvasTexture(o.faceCanvas):texMat(K,faceTex({}));ft.colorSpace=THREE.SRGBColorSpace;
   const fm=new THREE.Mesh(new THREE.CircleGeometry(19.8,72),new THREE.MeshBasicMaterial({map:ft}));fm.position.z=6.6;fm.userData.ink=1;body.add(fm);body.userData.face=fm;body.userData.faceTex=ft;
   const bm=new THREE.Mesh(new THREE.CircleGeometry(19.8,72),new THREE.MeshBasicMaterial({map:texMat(K,faceTex({back:true}))}));bm.position.z=-6.6;bm.rotation.y=Math.PI;bm.userData.ink=1;body.add(bm);
-  /* gorro: casquete más ancho que la caja (radio 26.4) que baja y la envuelve, como en el dibujo; franja clara al centro
-     con costuras, correa oscura y botón arriba */
-  const hat=K.group({parent:body});const HY=9.4,HR=26,HZ=.46;
-  const dome=K.sph(HR,CAP,{parent:hat,p:[0,HY,0],s:[1,1.02,HZ]});dome.geometry=new THREE.SphereGeometry(HR,64,32,0,Math.PI*2,0,Math.PI*.52);
-  const pan=K.sph(HR+.15,CAPL,{parent:hat,p:[0,HY,0],s:[1,1.02,HZ+.006]});pan.geometry=new THREE.SphereGeometry(HR+.15,24,20,Math.PI*.5-.25,.5,.05,Math.PI*.44);
-  const st=K.sph(HR+.3,STR,{parent:hat,p:[0,HY,0],s:[1,1.02,HZ+.012]});st.geometry=new THREE.SphereGeometry(HR+.3,64,6,Math.PI*.1,Math.PI*.8,Math.PI*.33,Math.PI*.055);
-  K.sph(2.6,CAPS,{parent:hat,p:[0,HY+HR*1.02-.4,0],s:[1,.55,1]});
-  /* borde de borrego: grueso y esponjado; sube al frente (y de 8.6 a 14) y tapa el borde de arriba de la carátula */
-  
-  for(let i=0;i<52;i++){const a=i/52*Math.PI*2,c=Math.cos(a),sn=Math.sin(a),front=Math.max(0,sn),arch=front*Math.max(0,1-c*c*1.15),r=(i%2?3.3:3.9)+(i%3===0?.35:0);
-    K.sph(r,FUR,{parent:hat,p:[c*(HR-.6),HY+2.2+5.6*arch,sn*(HR*HZ+1.6)+front*1.2],s:[1,.9,.85]})}
-  /* orejeras: el contorno exacto del dibujo (lengüeta redonda), extruido, pegado al lado de la cara y con forro de borrego */
-  const FL='M27.6 41.6L28.4 42.8C24.2 47.8 23 54.6 24 60.4C24.8 64.8 29.6 65.6 31.2 61.8C32.4 57.4 33.6 50 34 46.4L34 41.6Z';
-  [-1,1].forEach(sd=>{const f=K.group({parent:hat,p:[sd*25.8,1.6,3.2],r:[0,sd*.95,sd*-.08]}),g2=K.group({parent:f});g2.scale.set(sd>0?-1.22:1.22,1.22,1.22);
-    const m=K.ext(FL,3.4,sd<0?CAP:CAPS,{parent:g2,bevel:1.1});m.geometry.translate(-29,53.6,0);
-    K.tube([[-4.4,-7.4,1.8],[-3.6,-10.6,1.9],[-.6,-11.6,1.9],[2,-9.4,1.8]],1.3,FUR,{parent:g2});
-    if(sd<0){K.box(1.1,6,.9,STR,{parent:g2,p:[1.2,-12.6,1.4],rad:.4});K.box(2.6,2.2,.8,GOLD,{parent:g2,p:[1.2,-15.8,1.5],rad:.4})}});
+  /* gorro de aviador como uno real: una sola pieza de cuero (casquete y orejeras cortados juntos) que envuelve la caja,
+     paneles cosidos de adelante hacia atrás, borde de borrego continuo y esponjado por toda la orilla (frente y orejeras),
+     correa con hebilla en la orejera izquierda y botón arriba */
+  const hat=pg(body,50,42,'hat');const HY=9.4,HR=26,HZ=.48,ARC=Math.PI*HR/2;
+  /* hasta dónde baja la orilla según el ángulo alrededor de la cabeza (0 = derecha, 90° = frente) */
+  const sm=(e0,e1,x)=>{const t=Math.min(1,Math.max(0,(x-e0)/(e1-e0)));return t*t*(3-2*t)};
+  const edge=f=>{const c=Math.abs(Math.cos(f)),fr=Math.max(0,Math.sin(f)),bk=Math.max(0,-Math.sin(f));
+    const flap=27*Math.sqrt(sm(.8,.985,c));return ARC*(.8-.02*fr*fr)+ARC*.1*bk+(1-fr*.5)*ARC*.06*c+flap};
+  /* punto de la superficie: arco de esfera hasta el ecuador y luego cae recto (como cae el cuero sobre las orejas) */
+  const pt=(f,u,o)=>{o=o||0;let r,y;if(u<=ARC){const t=u/HR;r=(HR+o)*Math.sin(t);y=HY+(HR+o)*Math.cos(t)}else{r=HR+o;y=HY-(u-ARC)};
+    return new THREE.Vector3(r*Math.cos(f),y,r*Math.sin(f)*HZ+(o?o*.4*Math.sin(f):0))};
+  const surf=(f0,f1,nf,nu,c,o,cut)=>{const P=[],I=[];for(let j=0;j<=nu;j++)for(let i=0;i<=nf;i++){const f=f0+(f1-f0)*i/nf,U=cut?Math.min(edge(f),cut):edge(f),v=pt(f,U*j/nu,o);P.push(v.x,v.y,v.z)}
+    for(let j=0;j<nu;j++)for(let i=0;i<nf;i++){const A=j*(nf+1)+i,B=A+1,C=A+nf+1,D=C+1;I.push(A,B,C,B,D,C)}
+    const gm=new THREE.BufferGeometry();gm.setAttribute('position',new THREE.Float32BufferAttribute(P,3));gm.setIndex(I);gm.computeVertexNormals();
+    const m=K.sph(1,c,{parent:hat});m.geometry=gm;return m};
+  surf(0,Math.PI*2,128,40,CAP,0);
+  /* panel claro del centro (de la frente a la nuca) y la correa oscura donde van las gafas */
+  surf(Math.PI*.5-.3,Math.PI*.5+.3,16,24,CAPL,.25);surf(-Math.PI*.5-.3,-Math.PI*.5+.3,16,24,CAPL,.25,ARC*.92);
+  /* costuras: líneas finas a cada lado de los paneles */
+  [.5-.115,.5+.115,-.5-.115,-.5+.115,.2,.8,-.2,-.8].forEach(k=>{const f=Math.PI*k,L=[];for(let j=1;j<=10;j++)L.push(pt(f,Math.min(edge(f),ARC*.98)*j/10.6,.45).toArray());K.tube(L,.42,CAPS,{parent:hat})});
+  K.sph(2.8,CAPS,{parent:hat,p:[0,HY+HR-.2,0],s:[1,.55,1]});
+  /* borde de borrego: un rollo continuo por toda la orilla, con bultos irregulares como lana */
+  {const L=[];for(let i=0;i<120;i++){const f=i/120*Math.PI*2;L.push(pt(f,edge(f)-.6,1.4))}
+   const crv=new THREE.CatmullRomCurve3(L,true),TS=360,RS=20;const gm=new THREE.TubeGeometry(crv,TS,3.6,RS,true);const P=gm.attributes.position,v=new THREE.Vector3(),c=new THREE.Vector3();
+   /* más grueso al frente, más delgado en las orejeras; bultos grandes y suaves como lana de borrego */
+   for(let s=0;s<=TS;s++){c.set(0,0,0);for(let r=0;r<=RS;r++)c.add(v.fromBufferAttribute(P,s*(RS+1)+r));c.multiplyScalar(1/(RS+1));
+    const fr=Math.max(0,c.z)/(HR*HZ),up=sm(HY-6,HY+5,c.y),th=(.34+.66*up)*(.8+.2*Math.min(1,fr*1.3));
+    for(let r=0;r<=RS;r++){const i=s*(RS+1)+r;v.fromBufferAttribute(P,i);const d=v.clone().sub(c);
+     const k=1+.22*Math.sin(v.x*.55+v.y*.45+1)*Math.sin(v.z*.7-v.y*.5)+.12*Math.sin(v.x*1.2-v.z+v.y*.9);
+     d.multiplyScalar(th*k);P.setXYZ(i,c.x+d.x,c.y+d.y,c.z+d.z)}}
+   gm.computeVertexNormals();const m=K.sph(1,FUR,{parent:hat});m.geometry=gm}
+  /* correa con hebilla dorada en la orejera izquierda */
+  {const f=Math.PI,e=edge(f);const a1=pt(f,e-3,1.6),a2=pt(f,e+3.5,1.2);a2.x+=1.5;a2.z+=3;const a3=a2.clone().add(new THREE.Vector3(3.2,-5,3.4));
+   K.tube([a1.toArray(),a2.toArray(),a3.toArray()],.9,STR,{parent:hat});K.box(3,2.6,1,GOLD,{parent:hat,p:[a2.x+.6,a2.y-1.2,a2.z+.9],rad:.4})}
   /* gafas sobre el gorro: aros dorados con cristal azul, su brillo y el puente */
-  [-1,1].forEach(sd=>{const g=K.group({parent:hat,p:[sd*8.9,25.2,10.6],r:[-26,sd*-16,0]});K.tor(5.6,1.45,GOLD,{parent:g});K.cyl(4.5,4.5,1,LENS,{parent:g,r:[90,0,0]});K.sph(1.2,'#C4DDF0',{parent:g,p:[-1.7,1.7,.7],s:[1,1,.3]})});
-  K.box(5,2.6,1.6,GOLD,{parent:hat,p:[0,25.8,11.6],r:[-26,0,0],rad:.6});
+  const gog=pg(hat,50,32.6,'gog');[-1,1].forEach(sd=>{const g=K.group({parent:gog,p:[sd*8.9,25.2,10.6],r:[-26,sd*-16,0]});K.tor(5.6,1.45,GOLD,{parent:g});K.cyl(4.5,4.5,1,LENS,{parent:g,r:[90,0,0]});K.sph(1.2,'#C4DDF0',{parent:g,p:[-1.7,1.7,.7],s:[1,1,.3]})});
+  K.box(5,2.6,1.6,GOLD,{parent:gog,p:[0,25.8,11.6],r:[-26,0,0],rad:.6});
   /* flecha dorada inclinada sobre el botón */
-  const ar=K.group({parent:hat,p:[0,HY+HR*1.02-1,0],r:[0,0,16]});K.cyl(.75,.75,15,GOLD,{parent:ar,p:[0,7.5,0]});K.ext('M-4.6 0 L0 -8 L4.6 0 Z',1.8,GOLD,{parent:ar,p:[0,14.6,0],bevel:.4});
-  /* botas: espinilla azul con botón dorado, pie que apunta hacia afuera y suela beige */
-  [-1,1].forEach(sd=>{const L=K.group({parent:body,p:[sd*8.5,-19,0]});K.cyl(5.3,5.3,13,BOOT,{parent:L,p:[0,-6.5,0]});K.sph(1.2,GOLD,{parent:L,p:[sd*-2.7,-6.4,5]});
-    K.box(15,6,11,BOOT,{parent:L,p:[sd*3,-15.4,1.2],rad:2.8});K.box(15.6,1.8,11.6,SOLE,{parent:L,p:[sd*3,-18.6,1.2],rad:.8})});
-  if(o.drive){const w=wheel3d(K,body);w.position.set(0,-19,17);body.userData.wheel=w;body.userData.gl=[glove3d(K,w,[-9,0,1.6]),glove3d(K,w,[9,0,1.6])];body.userData.gl[0].rotation.z=-1.2;body.userData.gl[1].rotation.z=1.2}
-  else{const a=glove3d(K,body,[-35,-10,2]),b=glove3d(K,body,[36,-2,2]);a.rotation.z=Math.PI+.35;b.rotation.z=Math.PI-.35}
-  return body}
+  const ar=K.group({parent:pg(hat,50,24.4,'arrow'),p:[0,HY+HR*1.02-1,0],r:[0,0,16]});K.cyl(.75,.75,15,GOLD,{parent:ar,p:[0,7.5,0]});K.ext('M-4.6 0 L0 -8 L4.6 0 Z',1.8,GOLD,{parent:ar,p:[0,14.6,0],bevel:.4});
+  /* piernas con cadera, rodilla y tobillo: muslo azul oscuro (casi todo detrás de la caja), espinilla con botón dorado y bota */
+  [-1,1].forEach(sd=>{const n=sd<0?'L':'R',hx=50+sd*8.5,x=sd*8.5;const leg=pg(root,hx,74.8,'leg'+n);K.cyl(4.4,4.4,14.6,'#2F5FA8',{parent:leg,p:[x,-20.1,-1]});
+    const kn=pg(leg,hx,81,'knee'+n);K.cyl(5.3,5.3,13.4,BOOT,{parent:kn,p:[x,-25.7,0]});K.sph(1.2,GOLD,{parent:kn,p:[x-sd*2.7,-25.8,5]});
+    const ft=pg(kn,hx,88.4,'ft'+n);K.box(15,6,11,BOOT,{parent:ft,p:[x+sd*3,-34.4,1.2],rad:2.8});K.box(15.6,1.8,11.6,SOLE,{parent:ft,p:[x+sd*3,-37.6,1.2],rad:.8})});
+  if(o.drive){const w=wheel3d(K,root);w.position.set(0,-19,17);top.userData.wheel=w;top.userData.gl=[glove3d(K,w,[-9,0,1.6]),glove3d(K,w,[9,0,1.6])];top.userData.gl[0].rotation.z=-1.2;top.userData.gl[1].rotation.z=1.2}
+  else{const a=glove3d(K,pg(root,15,70,'handL'),[-35,-12.4,2]),b=glove3d(K,pg(root,86,60,'handR'),[36,-2.4,2]);a.rotation.z=Math.PI+.35;b.rotation.z=Math.PI-.35}
+  top.userData.face=body.userData.face;top.userData.faceTex=body.userData.faceTex;top.userData.J=J;
+  return top}
 export function glove3d(K,parent,p){const h=K.group({p:p,parent:parent});K.sph(4,'#FFFFFF',{parent:h,s:[1.05,1,.75]});[-2.4,-.8,.8,2.4].forEach((x,i)=>K.cap(.95,3.2-Math.abs(i-1.5)*.5,'#FFFFFF',{parent:h,p:[x,4.6,0]}));K.cap(1,2.4,'#FFFFFF',{parent:h,p:[-4.2,.6,.6],r:[0,0,50]});K.cyl(3.6,3.9,2.4,'#FFFFFF',{parent:h,p:[0,-4.4,0]});return h}
 export function wheel3d(K,parent){const w=K.group({parent:parent});K.tor(9,1.5,'#5B4A3A',{parent:w});K.box(18,1.6,1.6,'#5B4A3A',{parent:w,rad:.6});K.box(1.6,9,1.6,'#5B4A3A',{parent:w,p:[0,-4.5,0],rad:.6});K.cyl(2.4,2.4,2,'#E3A845',{parent:w,r:[90,0,0]});K.cyl(1.4,1.4,14,'#5B4A3A',{parent:w,p:[0,-8,-5],r:[50,0,0]});return w}

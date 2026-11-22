@@ -937,3 +937,7 @@ var RUMBO=(function(){
  function skin(k){if(k!==undefined)skinCur=SKINS[k]?k:null;return skinCur}
  return {skin:skin,SKINS:SKINS,svg:svg,build:build,pick:pick,EYES:EYES,EYEK:EYEK,eyePick:eyePick,FIN:FIN,FINK:FINK,finPick:finPick,NAMES:NAMES,models:["U","T","S","P","O","R","v1","A","B","C"]};
 })();
+/* Rumbo en 3D en toda la app (vendor/3d/rumbo3d.js). Si el navegador no tiene WebGL, se queda el dibujo plano. */
+(function(){if(typeof window==="undefined"||!window.WebGLRenderingContext)return;
+ function go(){import("./vendor/3d/rumbo3d.js").then(function(m){m.auto()}).catch(function(){})}
+ if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",go);else setTimeout(go,0)})();

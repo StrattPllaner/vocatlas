@@ -2578,6 +2578,9 @@ img.tw-img.tw-back{opacity:.62;filter:saturate(.7)}
 /* Rumbo 3D en la cabina: el lienzo ocupa más que la caja del piloto; el dibujo plano se esconde cuando ya cargó */
 .tw-pilot .rb3d{position:absolute;left:50%;bottom:-20%;width:150%;height:150%;transform:translateX(-50%);pointer-events:none}
 .tw-pilot.is-3d .rb{visibility:hidden}
+/* Rumbo 3D en toda la app: el dibujo plano queda invisible (sigue moviendo al 3D y dándole la cara) */
+.rb.is-3d>svg.rbx{visibility:hidden}
+.rb>.rb3d-u{position:absolute;left:-15%;top:-15%;width:130%;height:130%;pointer-events:none;display:block}
 /* ================= Probar: test de intereses y comparador ================= */
 .pb-cards{display:grid;gap:12px;margin:0 0 26px}
 .pb-card{display:flex;align-items:center;gap:14px;width:100%;text-align:left;font:inherit;color:var(--c-ink);cursor:pointer;-webkit-tap-highlight-color:transparent}
@@ -6707,6 +6710,10 @@ var RUMBO=(function(){
  function skin(k){if(k!==undefined)skinCur=SKINS[k]?k:null;return skinCur}
  return {skin:skin,SKINS:SKINS,svg:svg,build:build,pick:pick,EYES:EYES,EYEK:EYEK,eyePick:eyePick,FIN:FIN,FINK:FINK,finPick:finPick,NAMES:NAMES,models:["U","T","S","P","O","R","v1","A","B","C"]};
 })();
+/* Rumbo en 3D en toda la app (vendor/3d/rumbo3d.js). Si el navegador no tiene WebGL, se queda el dibujo plano. */
+(function(){if(typeof window==="undefined"||!window.WebGLRenderingContext)return;
+ function go(){import("./vendor/3d/rumbo3d.js").then(function(m){m.auto()}).catch(function(){})}
+ if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",go);else setTimeout(go,0)})();
 
 /* ================= ilustración isométrica: biblioteca =================
    Proyección 2:1. Coordenadas del mundo (x, y en el suelo; z hacia arriba) → pantalla.
