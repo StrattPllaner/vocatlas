@@ -64,15 +64,15 @@ var ISLAS3=(function(I,E,G,M){
    f.rocks=[];f.headPts=[];for(i=0;i<n;i++)if(head[i]>.5)f.headPts.push(pl[i]);
    for(i=0;i<n;i+=4)if(head[i]>.6){var q=L.plateau[i],best=null,bd=1e9;L.coast.forEach(function(c){var d=Math.hypot(c[0]-pl[i][0],c[1]-pl[i][1]);if(d<bd){bd=d;best=c}});if(best)f.rocks.push([best[0]+(rr()-.5)*6,best[1]+(rr()-.5)*6,.7+rr()*.8])}
    /* cerro: el punto más libre de la meseta */
-   var bs=-1,hp=null;for(var k=0;k<500;k++){var aa=rr()*6.28,r=Math.sqrt(rr())*L.R,x=L.x+Math.cos(aa)*r,y=L.y+Math.sin(aa)*r;if(!W.inPoly(x,y,L.plateau))continue;
+   var bs=-1,hp=null;for(var k=0;k<180;k++){var aa=rr()*6.28,r=Math.sqrt(rr())*L.R,x=L.x+Math.cos(aa)*r,y=L.y+Math.sin(aa)*r;if(!W.inPoly(x,y,L.plateau))continue;
     var sc=Math.min(dn(x,y)-ST.hillDn,de(x,y)-12,W.edgeDist(x,y,L.plateau)+4);if(sc>bs){bs=sc;hp=[x,y]}}
    if(ST.hill&&hp&&bs>=16)f.hill={x:hp[0],y:hp[1],R:Math.min(bs+4,ST.hill)};
    /* plaza de pueblo: en el claro más grande (el mismo lugar que tendría el cerro) */
    if(ST.plaza&&hp&&bs>=6)f.plaza={x:hp[0],y:hp[1],R:Math.min(bs+20,40)};
    /* río: la línea con curvas que cruza la isla de costa a costa lo más lejos posible de las carreras y de los puentes */
-   if(ST.river&&L.nodes.length>=3){var rb=null,rv=-1;for(k=0;k<260;k++){var th=rr()*Math.PI,off=(rr()-.5)*L.R*.9,dx=Math.cos(th),dy=Math.sin(th),cx0=L.x-dy*off,cy0=L.y+dx*off;
+   if(ST.river&&L.nodes.length>=3){var rb=null,rv=-1;for(k=0;k<90;k++){var th=rr()*Math.PI,off=(rr()-.5)*L.R*.9,dx=Math.cos(th),dy=Math.sin(th),cx0=L.x-dy*off,cy0=L.y+dx*off;
      if(!W.inPoly(cx0,cy0,L.plateau))continue;
-     var ex=function(sg){var t=0;while(t<L.R*3&&W.inPoly(cx0+dx*t*sg,cy0+dy*t*sg,L.coast))t+=3;return [cx0+dx*(t+8)*sg,cy0+dy*(t+8)*sg]},ra=ex(-1),rb2=ex(1),w1=(rr()-.5)*46,w2=(rr()-.5)*30,rp=[];
+     var ex=function(sg){var t=0;while(t<L.R*3&&W.inPoly(cx0+dx*t*sg,cy0+dy*t*sg,L.coast))t+=6;return [cx0+dx*(t+8)*sg,cy0+dy*(t+8)*sg]},ra=ex(-1),rb2=ex(1),w1=(rr()-.5)*46,w2=(rr()-.5)*30,rp=[];
      for(var s2=0;s2<=30;s2++){var u=s2/30,wg=Math.sin(u*Math.PI)*(w1*Math.sin(u*Math.PI*2)+w2);rp.push([ra[0]+(rb2[0]-ra[0])*u-dy*wg,ra[1]+(rb2[1]-ra[1])*u+dx*wg])}
      /* un río de verdad: casi todo sobre el pasto y que baje a la playa solo en sus dos extremos (no que corra por la orilla) */
      var ins=0,cr=0,pv=null;rp.forEach(function(q){var v=W.inPoly(q[0],q[1],pl);if(v)ins++;if(pv!==null&&v!==pv)cr++;pv=v});if(cr>2||ins<rp.length*.7)continue;
@@ -87,7 +87,7 @@ var ISLAS3=(function(I,E,G,M){
     cand.sort(function(a,b){return b.s-a.s});cand.forEach(function(c){if(f.rivers.length>=3)return;if(f.rivers.some(function(r){return r.some(function(a){return c.p.some(function(b){return Math.hypot(a[0]-b[0],a[1]-b[1])<30})})}))return;f.rivers.push(c.p);
      var cp=c.p;for(var bi2=2;bi2<cp.length-2;bi2+=2)[-1,1].forEach(function(sd){var bx=cp[bi2][0]-c.dy*sd*11,by=cp[bi2][1]+c.dx*sd*11;if(dn(bx,by)>46&&de(bx,by)>10&&W.inPoly(bx,by,pl))f.beds.push([bx,by,c.dx,c.dy,["#F29A2E","#E0607A","#F2C744","#9B7BD4"][(bi2+(sd>0?1:0))%4]])})})}
    /* cenote: el claro más grande se vuelve un pozo de agua turquesa con paredes de roca y raíces que cuelgan */
-   if(ST.cenote&&L.nodes.length>=2){var cb=null,cv=-1;for(k=0;k<500;k++){var ca2=rr()*6.28,cr2=Math.sqrt(rr())*L.R,cx2=L.x+Math.cos(ca2)*cr2,cy2=L.y+Math.sin(ca2)*cr2;if(!W.inPoly(cx2,cy2,pl))continue;
+   if(ST.cenote&&L.nodes.length>=2){var cb=null,cv=-1;for(k=0;k<160;k++){var ca2=rr()*6.28,cr2=Math.sqrt(rr())*L.R,cx2=L.x+Math.cos(ca2)*cr2,cy2=L.y+Math.sin(ca2)*cr2;if(!W.inPoly(cx2,cy2,pl))continue;
      var sv=Math.min(dn(cx2,cy2)-58,de(cx2,cy2)-16,W.edgeDist(cx2,cy2,pl)-18);(f.rivers||[]).forEach(function(r){r.forEach(function(q){sv=Math.min(sv,Math.hypot(q[0]-cx2,q[1]-cy2)-28)})});if(sv>cv){cv=sv;cb=[cx2,cy2]}}
     if(cb&&cv>=8)f.cenote={x:cb[0],y:cb[1],R:Math.min(cv+10,24)}}
    if(f.rivers&&f.rivers.length){f.cross=[];f.drops=[];f.rivers.forEach(function(rb){
@@ -99,7 +99,7 @@ var ISLAS3=(function(I,E,G,M){
      /* dónde baja de la meseta a la playa: ahí cae en cascadita */
      for(var m3=1;m3<rb.length;m3++){var i0=W.inPoly(rb[m3-1][0],rb[m3-1][1],pl),i1=W.inPoly(rb[m3][0],rb[m3][1],pl);if(i0!==i1&&!ST.canals)f.drops.push(i0?rb[m3-1]:rb[m3])}})}
    /* laguna: otro punto libre, lejos del cerro */
-   bs=-1;var pp=null;for(k=0;k<500;k++){aa=rr()*6.28;r=Math.sqrt(rr())*L.R;x=L.x+Math.cos(aa)*r;y=L.y+Math.sin(aa)*r;if(!W.inPoly(x,y,L.plateau))continue;
+   bs=-1;var pp=null;for(k=0;k<(ST.pond?180:0);k++){aa=rr()*6.28;r=Math.sqrt(rr())*L.R;x=L.x+Math.cos(aa)*r;y=L.y+Math.sin(aa)*r;if(!W.inPoly(x,y,L.plateau))continue;
     sc=Math.min(dn(x,y)-48,de(x,y)-12,W.edgeDist(x,y,L.plateau)-6,f.hill?Math.hypot(f.hill.x-x,f.hill.y-y)-f.hill.R-14:1e9);if(sc>bs){bs=sc;pp=[x,y]}}
    if(ST.pond&&pp&&bs>=9)f.pond={x:pp[0],y:pp[1],r:Math.min(bs*.8,17)};
    /* cascada (montaña): un arroyo baja del cerro hasta el borde más cercano de la meseta y cae por la pared */

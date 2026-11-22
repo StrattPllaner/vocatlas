@@ -2486,8 +2486,8 @@ img.tw-img.tw-back{opacity:.62;filter:saturate(.7)}
 .tw-stage .tw-globe::after{bottom:auto;top:-9px;border-right:0;border-bottom:0;border-left:2px solid #3A3026;border-top:2px solid #3A3026}
 /* ===== espiral v3: rampa sólida, isla en el suelo, símbolos 3D y avioneta ===== */
 .tw-rib{fill:none;stroke-linecap:round;stroke-linejoin:round}
-.tw-pf .tw-rib.is-rest{stroke:#F3EADA;stroke-width:15;filter:drop-shadow(0 4px 0 #8C7B60)}
-.tw-pf .tw-rib.is-done{stroke:var(--c);stroke-width:15;filter:drop-shadow(0 4px 0 var(--cd))}
+.tw-pf .tw-rib.is-rest{stroke:#F3EADA;stroke-width:15}
+.tw-pf .tw-rib.is-done{stroke:var(--c);stroke-width:15}
 .tw-pb .tw-rib.is-rest{stroke:#E6DCC8;stroke-width:9;opacity:.5}
 .tw-pb .tw-rib.is-done{stroke:var(--c);stroke-width:9;opacity:.4}
 .lp-dark .tw-pf .tw-rib.is-rest{stroke:#C9BFAA}
@@ -2536,7 +2536,7 @@ img.tw-img.tw-back{opacity:.62;filter:saturate(.7)}
 .tw-rib.L-pl.k1{stroke:#FFFFFF}
 .tw-pb .L-pl{stroke-width:2.4;opacity:.7}
 @keyframes twGlint{to{stroke-dashoffset:-44}}
-.tw-pf .tw-rib.L-pl.k0{filter:drop-shadow(0 0 3px #FFD45C)}
+.tw-pf .tw-rib.L-pl.k0{}
 .lp-dark .tw-cv{filter:brightness(.82) saturate(.9)}
 /* el suelo: isla de orilla a orilla */
 .tw-gwrap{position:absolute;left:0;right:0;bottom:0;z-index:0;pointer-events:none;overflow:hidden}
@@ -2847,20 +2847,21 @@ body:not(.on-map):not(.lp-open)::before{content:"";position:fixed;left:0;right:0
 .es-alt{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
 .es-altb{min-height:44px;padding:8px 14px;border-radius:999px;border:2px solid #3A3026;background:#FFF8EA;font:inherit;font-weight:700;cursor:pointer}
 /* ================= puertas en las nubes de la espiral ================= */
-.tw-door{position:absolute;left:0;top:0;z-index:5;transform-origin:50% 80%;transition:opacity .3s;padding:0;margin:0;border:0;background:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;font:inherit;color:inherit;-webkit-tap-highlight-color:transparent;}
+.tw-door{position:absolute;left:0;top:0;will-change:transform;z-index:5;transform-origin:50% 80%;transition:opacity .3s;padding:0;margin:0;border:0;background:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;font:inherit;color:inherit;-webkit-tap-highlight-color:transparent;}
 .tw-door.is-back{opacity:.35;pointer-events:none}
 .tw-door .pt-cl{opacity:.92}
-.tw-door .pt-cl{width:100%;height:auto;display:block;filter:drop-shadow(0 8px 14px rgba(40,60,110,.22));transition:transform .25s cubic-bezier(.3,1.4,.5,1)}
+.tw-door .pt-cl{width:100%;height:auto;display:block;transition:transform .25s cubic-bezier(.3,1.4,.5,1)}
 .tw-door:active .pt-cl{transform:scale(.95)}
 .tw-door:focus-visible{outline:none}.tw-door:focus-visible .pt-cl{filter:drop-shadow(0 0 0 3px #fff) drop-shadow(0 0 6px var(--c,#3F86C6))}
 .tw-door .pt-lab{margin-top:-6px;display:flex;flex-direction:column;align-items:center;gap:1px;max-width:100%;padding:5px 10px 6px;border-radius:12px;background:rgba(255,255,255,.94);box-shadow:0 3px 10px rgba(20,50,63,.16);text-align:center;line-height:1.15}
 .tw-door .pt-lab b{font-size:12px;font-weight:900;color:#14323F}
 .tw-door .pt-lab small{font-size:10.5px;font-weight:700;color:#5C6B76}
-.tw-door.s-lock .pt-cl{filter:drop-shadow(0 8px 14px rgba(40,60,110,.18)) saturate(.55)}
+.tw-door.s-lock .pt-cl{opacity:.8}
 .tw-door.s-lock .pt-lab{background:rgba(255,255,255,.8)}
 .tw-door.s-ready .pt-lab{background:#FFF4C8;box-shadow:0 0 0 2px #F2C14E,0 4px 14px rgba(226,162,58,.45)}
 .tw-door.s-ready .pt-lab small{color:#8A5A1E}
-.tw-door.s-ready .pt-cl{filter:drop-shadow(0 0 12px rgba(255,214,102,.85)) drop-shadow(0 8px 14px rgba(40,60,110,.2))}
+.tw-door.s-ready .pt-lab{animation:ptGlow 2s ease-in-out infinite}
+@keyframes ptGlow{50%{box-shadow:0 0 0 2px #F2C14E,0 0 18px rgba(255,214,102,.9)}}
 .tw-door.s-ready .pt-key{animation:ptKey 1.8s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
 .tw-door.unlock .pt-cl{animation:ptUnlock 1.4s cubic-bezier(.3,1.4,.5,1)}
 @keyframes ptBob{0%,100%{translate:0 0}50%{translate:0 -6px}}
@@ -6705,7 +6706,10 @@ var RUMBO=(function(){
    raf=0;var dt=Math.min(.05,Math.max(0,(now-(last||now))/1000))*(window.__rbSlow||1);last=now;
    if(document.hidden)return;
    var any=false,rm=RMq();
-   for(var i=0;i<list.length;i++){var svg=list[i],st=ST.get(svg)||init(svg);if(!VIS.get(svg))continue;any=true;step(svg,st,dt,rm,now)}
+   for(var i=0;i<list.length;i++){var svg=list[i],st=ST.get(svg)||init(svg);if(!VIS.get(svg))continue;any=true;
+    /* el Rumbo de la avioneta en 3D no copia el dibujo plano: no hace falta moverlo */
+    if(st.p3==null){var pr=svg.parentNode;st.p3=!!(pr&&pr.closest&&pr.closest('.tw-pilot'))}if(st.p3&&svg.parentNode.classList.contains('is-3d'))continue;
+    step(svg,st,dt,rm,now)}
    if(any)raf=requestAnimationFrame(frame);
   }
   function go(){if(!raf&&!document.hidden){last=0;raf=requestAnimationFrame(frame)}}
@@ -6952,7 +6956,7 @@ var RUMBO=(function(){
 })();
 /* Rumbo en 3D en toda la app (vendor/3d/rumbo3d.js). Si el navegador no tiene WebGL, se queda el dibujo plano. */
 (function(){if(typeof window==="undefined"||!window.WebGLRenderingContext)return;
- function go(){import("./vendor/3d/rumbo3d.js?v=39cd995de0").then(function(m){m.auto()}).catch(function(){})}
+ function go(){import("./vendor/3d/rumbo3d.js?v=90f9b938ec").then(function(m){m.auto()}).catch(function(){})}
  if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",go);else setTimeout(go,0)})();
 
 /* ================= imágenes que no cargan =================
@@ -9790,15 +9794,15 @@ var ISLAS3=(function(I,E,G,M){
    f.rocks=[];f.headPts=[];for(i=0;i<n;i++)if(head[i]>.5)f.headPts.push(pl[i]);
    for(i=0;i<n;i+=4)if(head[i]>.6){var q=L.plateau[i],best=null,bd=1e9;L.coast.forEach(function(c){var d=Math.hypot(c[0]-pl[i][0],c[1]-pl[i][1]);if(d<bd){bd=d;best=c}});if(best)f.rocks.push([best[0]+(rr()-.5)*6,best[1]+(rr()-.5)*6,.7+rr()*.8])}
    /* cerro: el punto más libre de la meseta */
-   var bs=-1,hp=null;for(var k=0;k<500;k++){var aa=rr()*6.28,r=Math.sqrt(rr())*L.R,x=L.x+Math.cos(aa)*r,y=L.y+Math.sin(aa)*r;if(!W.inPoly(x,y,L.plateau))continue;
+   var bs=-1,hp=null;for(var k=0;k<180;k++){var aa=rr()*6.28,r=Math.sqrt(rr())*L.R,x=L.x+Math.cos(aa)*r,y=L.y+Math.sin(aa)*r;if(!W.inPoly(x,y,L.plateau))continue;
     var sc=Math.min(dn(x,y)-ST.hillDn,de(x,y)-12,W.edgeDist(x,y,L.plateau)+4);if(sc>bs){bs=sc;hp=[x,y]}}
    if(ST.hill&&hp&&bs>=16)f.hill={x:hp[0],y:hp[1],R:Math.min(bs+4,ST.hill)};
    /* plaza de pueblo: en el claro más grande (el mismo lugar que tendría el cerro) */
    if(ST.plaza&&hp&&bs>=6)f.plaza={x:hp[0],y:hp[1],R:Math.min(bs+20,40)};
    /* río: la línea con curvas que cruza la isla de costa a costa lo más lejos posible de las carreras y de los puentes */
-   if(ST.river&&L.nodes.length>=3){var rb=null,rv=-1;for(k=0;k<260;k++){var th=rr()*Math.PI,off=(rr()-.5)*L.R*.9,dx=Math.cos(th),dy=Math.sin(th),cx0=L.x-dy*off,cy0=L.y+dx*off;
+   if(ST.river&&L.nodes.length>=3){var rb=null,rv=-1;for(k=0;k<90;k++){var th=rr()*Math.PI,off=(rr()-.5)*L.R*.9,dx=Math.cos(th),dy=Math.sin(th),cx0=L.x-dy*off,cy0=L.y+dx*off;
      if(!W.inPoly(cx0,cy0,L.plateau))continue;
-     var ex=function(sg){var t=0;while(t<L.R*3&&W.inPoly(cx0+dx*t*sg,cy0+dy*t*sg,L.coast))t+=3;return [cx0+dx*(t+8)*sg,cy0+dy*(t+8)*sg]},ra=ex(-1),rb2=ex(1),w1=(rr()-.5)*46,w2=(rr()-.5)*30,rp=[];
+     var ex=function(sg){var t=0;while(t<L.R*3&&W.inPoly(cx0+dx*t*sg,cy0+dy*t*sg,L.coast))t+=6;return [cx0+dx*(t+8)*sg,cy0+dy*(t+8)*sg]},ra=ex(-1),rb2=ex(1),w1=(rr()-.5)*46,w2=(rr()-.5)*30,rp=[];
      for(var s2=0;s2<=30;s2++){var u=s2/30,wg=Math.sin(u*Math.PI)*(w1*Math.sin(u*Math.PI*2)+w2);rp.push([ra[0]+(rb2[0]-ra[0])*u-dy*wg,ra[1]+(rb2[1]-ra[1])*u+dx*wg])}
      /* un río de verdad: casi todo sobre el pasto y que baje a la playa solo en sus dos extremos (no que corra por la orilla) */
      var ins=0,cr=0,pv=null;rp.forEach(function(q){var v=W.inPoly(q[0],q[1],pl);if(v)ins++;if(pv!==null&&v!==pv)cr++;pv=v});if(cr>2||ins<rp.length*.7)continue;
@@ -9813,7 +9817,7 @@ var ISLAS3=(function(I,E,G,M){
     cand.sort(function(a,b){return b.s-a.s});cand.forEach(function(c){if(f.rivers.length>=3)return;if(f.rivers.some(function(r){return r.some(function(a){return c.p.some(function(b){return Math.hypot(a[0]-b[0],a[1]-b[1])<30})})}))return;f.rivers.push(c.p);
      var cp=c.p;for(var bi2=2;bi2<cp.length-2;bi2+=2)[-1,1].forEach(function(sd){var bx=cp[bi2][0]-c.dy*sd*11,by=cp[bi2][1]+c.dx*sd*11;if(dn(bx,by)>46&&de(bx,by)>10&&W.inPoly(bx,by,pl))f.beds.push([bx,by,c.dx,c.dy,["#F29A2E","#E0607A","#F2C744","#9B7BD4"][(bi2+(sd>0?1:0))%4]])})})}
    /* cenote: el claro más grande se vuelve un pozo de agua turquesa con paredes de roca y raíces que cuelgan */
-   if(ST.cenote&&L.nodes.length>=2){var cb=null,cv=-1;for(k=0;k<500;k++){var ca2=rr()*6.28,cr2=Math.sqrt(rr())*L.R,cx2=L.x+Math.cos(ca2)*cr2,cy2=L.y+Math.sin(ca2)*cr2;if(!W.inPoly(cx2,cy2,pl))continue;
+   if(ST.cenote&&L.nodes.length>=2){var cb=null,cv=-1;for(k=0;k<160;k++){var ca2=rr()*6.28,cr2=Math.sqrt(rr())*L.R,cx2=L.x+Math.cos(ca2)*cr2,cy2=L.y+Math.sin(ca2)*cr2;if(!W.inPoly(cx2,cy2,pl))continue;
      var sv=Math.min(dn(cx2,cy2)-58,de(cx2,cy2)-16,W.edgeDist(cx2,cy2,pl)-18);(f.rivers||[]).forEach(function(r){r.forEach(function(q){sv=Math.min(sv,Math.hypot(q[0]-cx2,q[1]-cy2)-28)})});if(sv>cv){cv=sv;cb=[cx2,cy2]}}
     if(cb&&cv>=8)f.cenote={x:cb[0],y:cb[1],R:Math.min(cv+10,24)}}
    if(f.rivers&&f.rivers.length){f.cross=[];f.drops=[];f.rivers.forEach(function(rb){
@@ -9825,7 +9829,7 @@ var ISLAS3=(function(I,E,G,M){
      /* dónde baja de la meseta a la playa: ahí cae en cascadita */
      for(var m3=1;m3<rb.length;m3++){var i0=W.inPoly(rb[m3-1][0],rb[m3-1][1],pl),i1=W.inPoly(rb[m3][0],rb[m3][1],pl);if(i0!==i1&&!ST.canals)f.drops.push(i0?rb[m3-1]:rb[m3])}})}
    /* laguna: otro punto libre, lejos del cerro */
-   bs=-1;var pp=null;for(k=0;k<500;k++){aa=rr()*6.28;r=Math.sqrt(rr())*L.R;x=L.x+Math.cos(aa)*r;y=L.y+Math.sin(aa)*r;if(!W.inPoly(x,y,L.plateau))continue;
+   bs=-1;var pp=null;for(k=0;k<(ST.pond?180:0);k++){aa=rr()*6.28;r=Math.sqrt(rr())*L.R;x=L.x+Math.cos(aa)*r;y=L.y+Math.sin(aa)*r;if(!W.inPoly(x,y,L.plateau))continue;
     sc=Math.min(dn(x,y)-48,de(x,y)-12,W.edgeDist(x,y,L.plateau)-6,f.hill?Math.hypot(f.hill.x-x,f.hill.y-y)-f.hill.R-14:1e9);if(sc>bs){bs=sc;pp=[x,y]}}
    if(ST.pond&&pp&&bs>=9)f.pond={x:pp[0],y:pp[1],r:Math.min(bs*.8,17)};
    /* cascada (montaña): un arroyo baja del cerro hasta el borde más cercano de la meseta y cae por la pared */
@@ -10905,7 +10909,7 @@ var TORRE=(function(I){
  /* los seis símbolos 3D de la carrera (media/sym), uno por unidad */
  function symKey(id,k){if(typeof SIMB!=="undefined"&&SIMB.has(id)){var q=SIMB.six(id)[k];if(q)return q.id+"."+q.v}return ""}
  /* símbolos 3D vivos: el motor se carga solo al abrir una espiral */
- var SYM3D=null;function live3d(host){if(!window.WebGLRenderingContext)return;(SYM3D||(SYM3D=import("./vendor/3d/sym3d.js?v=39cd995de0"))).then(function(m){m.mount(host)}).catch(function(){})}
+ var SYM3D=null;function live3d(host){if(!window.WebGLRenderingContext)return;(SYM3D||(SYM3D=import("./vendor/3d/sym3d.js?v=90f9b938ec"))).then(function(m){m.mount(host)}).catch(function(){})}
  function symImg(id,k){if(typeof SIMB!=="undefined"&&SIMB.has(id)){var q=SIMB.six(id)[k];if(q)return "media/sym/"+q.id+"."+q.v+".webp"}return ""}
  function has(id){return !!byId[id]&&typeof ISO!=="undefined"}
  /* la cima: medalla de oro con rosa de los vientos (el rumbo), corona de laurel y listón del color de la carrera.
@@ -10996,11 +11000,11 @@ var TORRE=(function(I){
   return out}
  function hsh(a,j){var x=Math.sin(a*12.9898+j*78.233)*43758.5453;return x-Math.floor(x)}
  /* dibuja la banda de nubes en dos lienzos del tamaño de la pantalla (atrás y adelante de los símbolos) */
- function clouds(S,rot,sc0,vh){var dpr=Math.min(2,window.devicePixelRatio||1),W=Math.round(S.Wp*dpr),top=sc0-140,H=Math.round((vh+280)*dpr),k=S.k,HW=17;
+ function clouds(S,rot,sc0,vh){var dpr=Math.min(1.25,window.devicePixelRatio||1),W=Math.round(S.Wp*dpr),top=sc0-140,H=Math.round((vh+280)*dpr),k=S.k,HW=17;
   [S.cb,S.cf].forEach(function(c){if(!c)return;if(c.width!==W||c.height!==H){c.width=W;c.height=H;c.style.width=S.Wp+"px";c.style.height=(vh+280)+"px"}c.style.transform="translateY("+f1(top)+"px)";c.getContext("2d").clearRect(0,0,W,H)});
   if(!S.cb||!S.cf)return;
   var P2=[],ymin=top-60,ymax=top+vh+340;
-  for(var a=S.a0;a<=S.a1+.1;a+=6){var q=proj(a,rot),py=(q.y-S.ytop)*k;if(py<ymin||py>ymax)continue;var kind=a<=S.doneA?1:0,n=Math.round(a/6),fa=Math.min(1,.22+.78*Math.max(0,a-S.a0)/330);
+  for(var a=S.a0;a<=S.a1+.1;a+=8){var q=proj(a,rot),py=(q.y-S.ytop)*k;if(py<ymin||py>ymax)continue;var kind=a<=S.doneA?1:0,n=Math.round(a/8),fa=Math.min(1,.22+.78*Math.max(0,a-S.a0)/330);
    /* bultos grandes y de tamaños distintos: uno al centro y, alternando, uno por orilla; la base más plana y sombreada */
    for(var j=-1;j<=1;j++){if(j!==0&&(n+j+3)%2)continue;var hj=hsh(a,j),big=hj>.72?1.45:1,r=R+j*HW*.62+(hj-.5)*6,lf=(j===0?6:2)+hj*7*big,p=proj(a,rot,lf,r),sz=(HW*(j===0?1.85:1.5)+hj*10)*big*k*p.k;
     P2.push({x:(p.x+S.xs)*k,y:(p.y-S.ytop)*k-top,s:sz,d:q.d+j*.02*(q.d<0?-1:1)+lf*.001,b:q.d<0,v:Math.floor(hj*3)%3,t:kind,al:fa})}
@@ -11016,7 +11020,7 @@ var TORRE=(function(I){
   '<path d="M41 77H59M50 77V86" stroke="#5B4A3A" stroke-width="2" stroke-linecap="round"/><circle cx="50" cy="77" r="2.6" fill="#E3A845" stroke="#3A3026" stroke-width="1"/></g>';
  /* Rumbo en 3D en la cabina (se ve bien desde cualquier ángulo); si no hay WebGL, queda el dibujo plano de frente */
  var RB3D=null;function drive3d(host){var pl=host.querySelector(".tw-pilot");if(!pl||!window.WebGLRenderingContext||pl.__r3)return;pl.__r3=1;
-  (RB3D||(RB3D=import("./vendor/3d/rumbo3d.js?v=39cd995de0"))).then(function(m){var r=m.mount(pl,{px:150});if(r)pl.classList.add("is-3d")}).catch(function(){})}
+  (RB3D||(RB3D=import("./vendor/3d/rumbo3d.js?v=90f9b938ec"))).then(function(m){var r=m.mount(pl,{px:150});if(r)pl.classList.add("is-3d")}).catch(function(){})}
  function drive(host){setTimeout(function(){drive3d(host)},120);var rb=host.querySelector(".tw-pilot .rb");if(!rb)return;rb.classList.add("drive");rb.classList.remove("float");rb.setAttribute("data-pose-l","puño");rb.setAttribute("data-pose-r","puño");
   var root=rb.querySelector(".rk-root"),hd=rb.querySelector(".rk-handL");if(root&&hd&&!root.querySelector(".rk-wheel")){var t=document.createElementNS("http://www.w3.org/2000/svg","g");t.innerHTML=WHEEL;root.insertBefore(t.firstChild,hd)}}
  /* ---------- arma la escena ---------- */

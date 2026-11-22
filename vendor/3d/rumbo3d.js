@@ -36,7 +36,9 @@ function grab(it){const src=it.src;if(!src||it.busy||!src.isConnected)return;it.
  c.querySelectorAll('.rk-hat,.rk-legL,.rk-legR,.rk-handL,.rk-handR,.rk-shadow,.rk-wheel,.rk-zz').forEach(e=>e.remove());
  ['.rk-root','.rk-body'].forEach(q=>{const e=c.querySelector(q);if(e)e.removeAttribute('transform')});
  c.removeAttribute('style');c.setAttribute('viewBox','30.2 37.8 39.6 39.6');c.setAttribute('width','512');c.setAttribute('height','512');c.setAttribute('xmlns','http://www.w3.org/2000/svg');
- const u=URL.createObjectURL(new Blob([new XMLSerializer().serializeToString(c)],{type:'image/svg+xml'})),im=new Image();
+ /* solo se vuelve a pintar si la cara cambió (parpadeo, boca, gesto); si es igual no se hace nada */
+ const str=new XMLSerializer().serializeToString(c);if(str===it.lastFace){it.busy=false;return}it.lastFace=str;
+ const u=URL.createObjectURL(new Blob([str],{type:'image/svg+xml'})),im=new Image();
  im.onload=()=>{const fx=it.fx;fx.fillStyle='#FBF3E2';fx.fillRect(0,0,512,512);fx.drawImage(im,0,0,512,512);URL.revokeObjectURL(u);it.busy=false;it.tex.needsUpdate=true};
  im.onerror=()=>{URL.revokeObjectURL(u);it.busy=false};im.src=u}
 
@@ -58,7 +60,7 @@ function loop(ts){raf=0;if(document.hidden)return;
  for(let i=0;i<n;i++){const it=vis[(turn+i)%vis.length];if(ts-it.last<30&&vis.length<=2)continue;draw(it,ts,still)}
  turn=(turn+n)%Math.max(1,vis.length);
  /* la cara: una o dos copias por cuadro, repartidas */
- const gi=vis[grabTurn%vis.length];grabTurn++;if(gi&&ts-gi.lastGrab>90){gi.lastGrab=ts;grab(gi)}}
+ const gi=vis[grabTurn%vis.length];grabTurn++;if(gi&&ts-gi.lastGrab>140){gi.lastGrab=ts;grab(gi)}}
 
 function draw(it,ts,still){it.last=ts;if(!it.t0)it.t0=ts;const t=(ts-it.t0)/1000,wr=it.wr;
  const walk=!!(wr&&(wr.classList.contains('walk')||wr.__wv>.05)),left=!!(wr&&wr.classList.contains('left'));

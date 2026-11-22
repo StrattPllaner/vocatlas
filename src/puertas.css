@@ -1,18 +1,19 @@
 /* ================= puertas en las nubes de la espiral ================= */
-.tw-door{position:absolute;left:0;top:0;z-index:5;transform-origin:50% 80%;transition:opacity .3s;padding:0;margin:0;border:0;background:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;font:inherit;color:inherit;-webkit-tap-highlight-color:transparent;}
+.tw-door{position:absolute;left:0;top:0;will-change:transform;z-index:5;transform-origin:50% 80%;transition:opacity .3s;padding:0;margin:0;border:0;background:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;font:inherit;color:inherit;-webkit-tap-highlight-color:transparent;}
 .tw-door.is-back{opacity:.35;pointer-events:none}
 .tw-door .pt-cl{opacity:.92}
-.tw-door .pt-cl{width:100%;height:auto;display:block;filter:drop-shadow(0 8px 14px rgba(40,60,110,.22));transition:transform .25s cubic-bezier(.3,1.4,.5,1)}
+.tw-door .pt-cl{width:100%;height:auto;display:block;transition:transform .25s cubic-bezier(.3,1.4,.5,1)}
 .tw-door:active .pt-cl{transform:scale(.95)}
 .tw-door:focus-visible{outline:none}.tw-door:focus-visible .pt-cl{filter:drop-shadow(0 0 0 3px #fff) drop-shadow(0 0 6px var(--c,#3F86C6))}
 .tw-door .pt-lab{margin-top:-6px;display:flex;flex-direction:column;align-items:center;gap:1px;max-width:100%;padding:5px 10px 6px;border-radius:12px;background:rgba(255,255,255,.94);box-shadow:0 3px 10px rgba(20,50,63,.16);text-align:center;line-height:1.15}
 .tw-door .pt-lab b{font-size:12px;font-weight:900;color:#14323F}
 .tw-door .pt-lab small{font-size:10.5px;font-weight:700;color:#5C6B76}
-.tw-door.s-lock .pt-cl{filter:drop-shadow(0 8px 14px rgba(40,60,110,.18)) saturate(.55)}
+.tw-door.s-lock .pt-cl{opacity:.8}
 .tw-door.s-lock .pt-lab{background:rgba(255,255,255,.8)}
 .tw-door.s-ready .pt-lab{background:#FFF4C8;box-shadow:0 0 0 2px #F2C14E,0 4px 14px rgba(226,162,58,.45)}
 .tw-door.s-ready .pt-lab small{color:#8A5A1E}
-.tw-door.s-ready .pt-cl{filter:drop-shadow(0 0 12px rgba(255,214,102,.85)) drop-shadow(0 8px 14px rgba(40,60,110,.2))}
+.tw-door.s-ready .pt-lab{animation:ptGlow 2s ease-in-out infinite}
+@keyframes ptGlow{50%{box-shadow:0 0 0 2px #F2C14E,0 0 18px rgba(255,214,102,.9)}}
 .tw-door.s-ready .pt-key{animation:ptKey 1.8s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
 .tw-door.unlock .pt-cl{animation:ptUnlock 1.4s cubic-bezier(.3,1.4,.5,1)}
 @keyframes ptBob{0%,100%{translate:0 0}50%{translate:0 -6px}}

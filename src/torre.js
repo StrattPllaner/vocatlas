@@ -164,11 +164,11 @@ var TORRE=(function(I){
   return out}
  function hsh(a,j){var x=Math.sin(a*12.9898+j*78.233)*43758.5453;return x-Math.floor(x)}
  /* dibuja la banda de nubes en dos lienzos del tamaño de la pantalla (atrás y adelante de los símbolos) */
- function clouds(S,rot,sc0,vh){var dpr=Math.min(2,window.devicePixelRatio||1),W=Math.round(S.Wp*dpr),top=sc0-140,H=Math.round((vh+280)*dpr),k=S.k,HW=17;
+ function clouds(S,rot,sc0,vh){var dpr=Math.min(1.25,window.devicePixelRatio||1),W=Math.round(S.Wp*dpr),top=sc0-140,H=Math.round((vh+280)*dpr),k=S.k,HW=17;
   [S.cb,S.cf].forEach(function(c){if(!c)return;if(c.width!==W||c.height!==H){c.width=W;c.height=H;c.style.width=S.Wp+"px";c.style.height=(vh+280)+"px"}c.style.transform="translateY("+f1(top)+"px)";c.getContext("2d").clearRect(0,0,W,H)});
   if(!S.cb||!S.cf)return;
   var P2=[],ymin=top-60,ymax=top+vh+340;
-  for(var a=S.a0;a<=S.a1+.1;a+=6){var q=proj(a,rot),py=(q.y-S.ytop)*k;if(py<ymin||py>ymax)continue;var kind=a<=S.doneA?1:0,n=Math.round(a/6),fa=Math.min(1,.22+.78*Math.max(0,a-S.a0)/330);
+  for(var a=S.a0;a<=S.a1+.1;a+=8){var q=proj(a,rot),py=(q.y-S.ytop)*k;if(py<ymin||py>ymax)continue;var kind=a<=S.doneA?1:0,n=Math.round(a/8),fa=Math.min(1,.22+.78*Math.max(0,a-S.a0)/330);
    /* bultos grandes y de tamaños distintos: uno al centro y, alternando, uno por orilla; la base más plana y sombreada */
    for(var j=-1;j<=1;j++){if(j!==0&&(n+j+3)%2)continue;var hj=hsh(a,j),big=hj>.72?1.45:1,r=R+j*HW*.62+(hj-.5)*6,lf=(j===0?6:2)+hj*7*big,p=proj(a,rot,lf,r),sz=(HW*(j===0?1.85:1.5)+hj*10)*big*k*p.k;
     P2.push({x:(p.x+S.xs)*k,y:(p.y-S.ytop)*k-top,s:sz,d:q.d+j*.02*(q.d<0?-1:1)+lf*.001,b:q.d<0,v:Math.floor(hj*3)%3,t:kind,al:fa})}

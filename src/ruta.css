@@ -555,8 +555,8 @@ img.tw-img.tw-back{opacity:.62;filter:saturate(.7)}
 .tw-stage .tw-globe::after{bottom:auto;top:-9px;border-right:0;border-bottom:0;border-left:2px solid #3A3026;border-top:2px solid #3A3026}
 /* ===== espiral v3: rampa sólida, isla en el suelo, símbolos 3D y avioneta ===== */
 .tw-rib{fill:none;stroke-linecap:round;stroke-linejoin:round}
-.tw-pf .tw-rib.is-rest{stroke:#F3EADA;stroke-width:15;filter:drop-shadow(0 4px 0 #8C7B60)}
-.tw-pf .tw-rib.is-done{stroke:var(--c);stroke-width:15;filter:drop-shadow(0 4px 0 var(--cd))}
+.tw-pf .tw-rib.is-rest{stroke:#F3EADA;stroke-width:15}
+.tw-pf .tw-rib.is-done{stroke:var(--c);stroke-width:15}
 .tw-pb .tw-rib.is-rest{stroke:#E6DCC8;stroke-width:9;opacity:.5}
 .tw-pb .tw-rib.is-done{stroke:var(--c);stroke-width:9;opacity:.4}
 .lp-dark .tw-pf .tw-rib.is-rest{stroke:#C9BFAA}
@@ -605,7 +605,7 @@ img.tw-img.tw-back{opacity:.62;filter:saturate(.7)}
 .tw-rib.L-pl.k1{stroke:#FFFFFF}
 .tw-pb .L-pl{stroke-width:2.4;opacity:.7}
 @keyframes twGlint{to{stroke-dashoffset:-44}}
-.tw-pf .tw-rib.L-pl.k0{filter:drop-shadow(0 0 3px #FFD45C)}
+.tw-pf .tw-rib.L-pl.k0{}
 .lp-dark .tw-cv{filter:brightness(.82) saturate(.9)}
 /* el suelo: isla de orilla a orilla */
 .tw-gwrap{position:absolute;left:0;right:0;bottom:0;z-index:0;pointer-events:none;overflow:hidden}

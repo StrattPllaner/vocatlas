@@ -692,7 +692,10 @@ var RUMBO=(function(){
    raf=0;var dt=Math.min(.05,Math.max(0,(now-(last||now))/1000))*(window.__rbSlow||1);last=now;
    if(document.hidden)return;
    var any=false,rm=RMq();
-   for(var i=0;i<list.length;i++){var svg=list[i],st=ST.get(svg)||init(svg);if(!VIS.get(svg))continue;any=true;step(svg,st,dt,rm,now)}
+   for(var i=0;i<list.length;i++){var svg=list[i],st=ST.get(svg)||init(svg);if(!VIS.get(svg))continue;any=true;
+    /* el Rumbo de la avioneta en 3D no copia el dibujo plano: no hace falta moverlo */
+    if(st.p3==null){var pr=svg.parentNode;st.p3=!!(pr&&pr.closest&&pr.closest('.tw-pilot'))}if(st.p3&&svg.parentNode.classList.contains('is-3d'))continue;
+    step(svg,st,dt,rm,now)}
    if(any)raf=requestAnimationFrame(frame);
   }
   function go(){if(!raf&&!document.hidden){last=0;raf=requestAnimationFrame(frame)}}
