@@ -661,3 +661,7 @@ img.tw-img.tw-back{opacity:.62;filter:saturate(.7)}
 /* edificio de la carrera en su propia capa, entre las nubes de atrás (1) y las de adelante (4) */
 .tw-bld{position:absolute;z-index:2;overflow:visible;pointer-events:none}
 .lp-dark .tw-bld{filter:brightness(.88)}
+
+/* Rumbo 3D en la cabina: el lienzo ocupa más que la caja del piloto; el dibujo plano se esconde cuando ya cargó */
+.tw-pilot .rb3d{position:absolute;left:50%;bottom:-20%;width:150%;height:150%;transform:translateX(-50%);pointer-events:none}
+.tw-pilot.is-3d .rb{visibility:hidden}

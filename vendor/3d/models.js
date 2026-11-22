@@ -38,6 +38,35 @@ const PU='#8E5BB5',TE='#2FA39A',OR='#F08A2E',PK='#F3A3B5',GL='#AEE0F2';const GY=
 
 const circ=(cx,cy,r,n,a0,a1)=>{a0=a0==null?0:a0;a1=a1==null?Math.PI*2:a1;const o=[];for(let i=0;i<n;i++){const a=a0+(a1-a0)*i/(n-(Math.abs(a1-a0-Math.PI*2)<1e-6?0:1));o.push([cx+Math.cos(a)*r,cy+Math.sin(a)*r])}return o};
 export const MODELS={
+  // Rumbo en 3D: brújula de bolsillo con grosor (aro de latón, carátula con su cara y reverso con marcas),
+  // gorro de aviador con borrego, gafas, orejeras y flecha; guantes, piernas y botas. Mira hacia +z.
+  'rumbo'(K){rumbo3d(K,{})},
+  'rumbo-drive'(K){rumbo3d(K,{drive:true})},
+  'avioneta-wheel'(K){wheel3d(K)},
+  // avioneta de Rumbo, tipo Ryan STA: ala baja, cabina abierta, ruedas con carenado, timón y estabilizador. La nariz apunta a -x
+  'avioneta'(K){
+    const RD='#D9493B',YL='#F2C870',CRM='#F6EBD2',DK='#3A3026',MT='#B8C2CC';
+    const prof=[[0,-44],[6,-43],[9.5,-40],[10.5,-34],[11,-24],[11,-12],[10.4,-2],[9,10],[7,20],[5,30],[3.2,38],[1.6,43],[0,44]];
+    K.lathe(prof,RD,{r:[0,0,-90]});
+    K.cyl(10.2,9.6,6,CRM,{r:[0,0,90],p:[-36,0,0],seg:48});
+    K.cone(5,9,YL,{r:[0,0,90],p:[-48,0,0]});
+    K.cyl(1.2,1.2,1,DK,{r:[0,0,90],p:[-44.5,0,0]});
+    // franja crema a los lados
+    [1,-1].forEach(s=>K.tube([[-30,3,10.9*s],[-12,3.2,11.2*s],[4,3,10.5*s],[20,2.4,7.4*s],[34,1.6,4.3*s]],0.9,CRM));
+    // cabina abierta y parabrisas
+    K.tor(5.4,1.1,DK,{r:[90,0,0],p:[-4,10.2,0]});
+    K.cyl(5,5,1,DK,{p:[-4,9.6,0]});
+    // ala baja
+    const wing=[[-22,0],[0,0],[-3,56],[-17,56]];
+    [1,-1].forEach(s=>K.shape(wing.map(p=>[p[0],p[1]*s]),[],3,YL,{r:[90,0,0],p:[-4,-7,0],bevel:1}));
+    // estabilizador y timón
+    const hs=[[0,0],[10,0],[9,19],[3,19]];
+    [1,-1].forEach(s=>K.shape(hs.map(p=>[p[0],p[1]*s]),[],1.8,YL,{r:[90,0,0],p:[33,1,0],bevel:.6}));
+    K.ext('M30 0 L44 0 L46 -17 L40 -19 Z',2,RD,{bevel:.6,p:[0,1,0]});
+    // tren de aterrizaje con carenado
+    [1,-1].forEach(s=>{K.cyl(1,1,15,MT,{p:[-14,-14,13*s],r:[s*-12,0,0]});K.cap(4.2,8,YL,{r:[0,0,90],p:[-14,-22,14.6*s]});K.cyl(3.4,3.4,2.6,DK,{r:[90,0,0],p:[-14,-24.5,14.6*s]})});
+    K.cyl(.7,.7,6,MT,{p:[40,-4,0],r:[0,0,25]});K.sph(1.4,DK,{p:[41.5,-6.5,0]});
+  },
   // Capitolio: escalinata, columnas, frontón, tambor y cúpula
   'politicas.a'(K){
     const WH='#EFE6D2';
@@ -1152,3 +1181,57 @@ export const MODELS={
     K.ext('M0 6 C-8 0 -10 -4 -8 -7 C-6 -10 -2 -9 0 -6 C2 -9 6 -10 8 -7 C10 -4 8 0 0 6 Z',2.4,RE,{bevel:0.8,p:[-12,12,21]});
   },
 };
+
+/* cara de Rumbo pintada en un lienzo: crema, marcas, ojos grandes con brillo, sonrisa, chapas y pecas */
+export function faceTex(o){o=o||{};const c=document.createElement('canvas');c.width=c.height=512;const g=c.getContext('2d'),R=256;
+  g.fillStyle='#FBF0DA';g.fillRect(0,0,512,512);
+  g.strokeStyle='#C9B48C';g.lineCap='round';
+  for(let a=0;a<360;a+=30){if(a===270)continue;const t=a*Math.PI/180,r0=a%90===0?196:208;g.lineWidth=a%90===0?9:7;g.beginPath();g.moveTo(R+Math.cos(t)*r0,R+Math.sin(t)*r0);g.lineTo(R+Math.cos(t)*232,R+Math.sin(t)*232);g.stroke()}
+  if(o.back){g.fillStyle='#D9534F';g.beginPath();g.moveTo(R,70);g.lineTo(R+22,150);g.lineTo(R-22,150);g.fill();g.fillStyle='#C9B48C';g.beginPath();g.moveTo(R,442);g.lineTo(R+22,362);g.lineTo(R-22,362);g.fill();
+    g.fillStyle='#E3A845';g.beginPath();g.arc(R,R,16,0,7);g.fill();return c}
+  // chapas y pecas
+  g.fillStyle='rgba(244,160,150,.7)';[[R-120,R+92],[R+120,R+92]].forEach(p=>{g.beginPath();g.ellipse(p[0],p[1],34,22,0,0,7);g.fill()});
+  g.fillStyle='rgba(150,90,50,.55)';[[-126,70],[-110,84],[-134,88],[126,70],[110,84],[134,88]].forEach(p=>{g.beginPath();g.arc(R+p[0],R+p[1],4.5,0,7);g.fill()});
+  // ojos
+  [-1,1].forEach(sd=>{const x=R+sd*64,y=R+18;g.fillStyle='#3A2213';g.beginPath();
+    if(o.closed){g.lineWidth=12;g.strokeStyle='#3A2213';g.beginPath();g.arc(x,y+10,30,Math.PI*1.1,Math.PI*1.9);g.stroke()}
+    else{g.ellipse(x,y,33,56,0,0,7);g.fill();g.fillStyle='#FFFFFF';g.beginPath();g.ellipse(x-10,y-22,11,16,-.3,0,7);g.fill();g.beginPath();g.arc(x+11,y+22,6,0,7);g.fill()}});
+  // sonrisa
+  g.strokeStyle='#3A2213';g.lineWidth=12;g.lineCap='round';g.beginPath();g.arc(R,R+78,34,Math.PI*.18,Math.PI*.82);g.stroke();
+  return c}
+function texMat(K,canvas){const t=new THREE.CanvasTexture(canvas);t.colorSpace=THREE.SRGBColorSpace;t.anisotropy=4;return t}
+export function rumbo3d(K,o){
+  const GOLD='#D9A441',GOLDL='#EEC56E',CREAM='#FBF0DA',CAP='#9A5B33',CAPD='#7A4424',FUR='#F6E8CF',BLUE='#3F78C8',SOLE='#D9B98A',GLV='#FFFFFF',STR='#4E2E19';
+  const body=K.group({p:[0,0,0]});
+  // caja de la brújula: cilindro grueso con aro redondeado al frente y atrás
+  K.cyl(24,24,16,GOLD,{r:[90,0,0],parent:body,seg:64});
+  K.tor(22.6,2.6,GOLDL,{p:[0,0,8],parent:body});K.tor(22.6,2.6,GOLDL,{p:[0,0,-8],parent:body});
+  // carátula con cara (frente) y reverso con rosa de los vientos
+  const tO=texMat(K,faceTex({})),tC=texMat(K,faceTex({closed:true}));
+  const fm=new THREE.Mesh(new THREE.CircleGeometry(20.6,64),new THREE.MeshBasicMaterial({map:tO}));fm.userData.tO=tO;fm.userData.tC=tC;fm.position.z=8.4;fm.userData.ink=1;body.add(fm);
+  const bm=new THREE.Mesh(new THREE.CircleGeometry(20.6,64),new THREE.MeshBasicMaterial({map:texMat(K,faceTex({back:true}))}));bm.position.z=-8.4;bm.rotation.y=Math.PI;bm.userData.ink=1;body.add(bm);
+  body.userData.face=fm;
+  // botón de cuerda arriba a la derecha (como reloj de bolsillo)
+  K.cyl(3,3,4,GOLDL,{p:[16,17,0],r:[0,0,-45],parent:body});
+  // gorro de aviador: casquete achatado al frente, ceñido a la caja
+  const hat=K.group({p:[0,8.5,0],parent:body});
+  const dome=K.sph(25.5,CAP,{parent:hat,p:[0,4,0],s:[1,.95,.62]});
+  dome.geometry=new THREE.SphereGeometry(25.5,48,24,0,Math.PI*2,0,Math.PI*.5);
+  K.box(6,1.6,2,CAPD,{p:[0,28.5,0],parent:hat,rad:.6});
+  // borde de borrego: aro esponjoso alrededor
+  for(let i=0;i<26;i++){const a=i/26*Math.PI*2;K.sph(i%2?3.6:4.1,FUR,{parent:hat,p:[Math.cos(a)*24.2,4.2+Math.sin(a*3)*.4,Math.sin(a)*15.4]})}
+  // orejeras
+  [-1,1].forEach(sd=>{K.box(5,14,9,CAP,{p:[sd*24.5,-4,0],parent:hat,rad:2.4});K.box(1.6,10,7,FUR,{p:[sd*26.8,-5,0],parent:hat,rad:.8})});
+  // gafas sobre el gorro
+  [-1,1].forEach(sd=>{K.tor(4.6,1.4,'#E3A845',{p:[sd*7,17,12.4],r:[-28,0,0],parent:hat});K.cyl(3.6,3.6,.8,'#8FB7D6',{p:[sd*7,17,12.4],r:[62,0,0],parent:hat,m:'glass'})});
+  K.box(5,1.6,1.4,'#E3A845',{p:[0,17.4,13.6],r:[-28,0,0],parent:hat,rad:.5});
+  K.tube([[-23,13,4],[-14,17,10.6],[0,18.6,12.6],[14,17,10.6],[23,13,4]],1,STR,{parent:hat});
+  // flecha
+  K.cyl(1,1,12,'#E3A845',{p:[0,35,0],parent:hat});K.cone(3.6,6,'#E3A845',{p:[0,43,0],parent:hat});
+  // piernas y botas
+  [-1,1].forEach(sd=>{K.cyl(3.6,3.4,10,BLUE,{p:[sd*8,-28,0],parent:body});K.box(10,6,14,BLUE,{p:[sd*8,-35,2.4],rad:3,parent:body});K.box(10.6,2,14.6,SOLE,{p:[sd*8,-38.6,2.4],rad:.9,parent:body})});
+  if(o.drive){const w=wheel3d(K,body);w.position.set(0,-18.5,18);body.userData.wheel=w;body.userData.gl=[glove3d(K,w,[-9,0,1.6]),glove3d(K,w,[9,0,1.6])];body.userData.gl[0].rotation.z=-1.2;body.userData.gl[1].rotation.z=1.2}
+  else{const a=glove3d(K,body,[-31,-6,4]),b=glove3d(K,body,[31,-6,4]);a.rotation.z=.5;b.rotation.z=-.5}
+  return body}
+export function glove3d(K,parent,p){const h=K.group({p:p,parent:parent});K.sph(4.2,'#FFFFFF',{parent:h,s:[1,1.05,.9]});K.cap(1.5,3,'#FFFFFF',{parent:h,p:[-3.6,1.2,1],r:[0,0,40]});K.cyl(3.4,3.8,2.4,'#FFFFFF',{parent:h,p:[0,-4.4,0]});return h}
+export function wheel3d(K,parent){const w=K.group({parent:parent});K.tor(9,1.5,'#5B4A3A',{parent:w});K.box(18,1.6,1.6,'#5B4A3A',{parent:w,rad:.6});K.box(1.6,9,1.6,'#5B4A3A',{parent:w,p:[0,-4.5,0],rad:.6});K.cyl(2.4,2.4,2,'#E3A845',{parent:w,r:[90,0,0]});K.cyl(1.4,1.4,14,'#5B4A3A',{parent:w,p:[0,-8,-5],r:[50,0,0]});return w}

@@ -28,7 +28,7 @@ function material(col,m){let c=new THREE.Color(col);
  const mt=new THREE.MeshToonMaterial(o);mt.userData.ink=c.clone().multiplyScalar(0.38);mt.userData.glass=m==='glass'||m==='membrane';return mt}
 function addInk(g){const list=[];g.traverse(o=>{if(o.isMesh&&!o.userData.ink)list.push(o)});
  list.forEach(o=>{if(o.material.userData.glass)return;const im=new THREE.MeshBasicMaterial({color:o.material.userData.ink||new THREE.Color(0x222222),side:THREE.BackSide});
-  im.onBeforeCompile=sh=>{sh.vertexShader=sh.vertexShader.replace('#include <begin_vertex>','vec3 transformed = vec3( position ) + normalize(objectNormal) * 1.5;')};
+  im.onBeforeCompile=sh=>{sh.vertexShader=sh.vertexShader.replace('#include <begin_vertex>','vec3 transformed = vec3( position ) + normalize(normal) * 1.5;')};
   const m=new THREE.Mesh(o.geometry,im);m.userData.ink=1;o.add(m)})}
 function shapesOf(d,t){const svg='<svg xmlns="http://www.w3.org/2000/svg"><path d="'+d+'"'+(t?' transform="'+t+'"':'')+'/></svg>';const data=loader.parse(svg);const out=[];data.paths.forEach(p=>{SVGLoader.createShapes(p).forEach(s=>out.push(s))});return out}
 function curvesOf(d,t){const svg='<svg xmlns="http://www.w3.org/2000/svg"><path d="'+d+'"'+(t?' transform="'+t+'"':'')+' fill="none" stroke="#000"/></svg>';const data=loader.parse(svg);const out=[];data.paths.forEach(p=>p.subPaths.forEach(sp=>{const pts=sp.getPoints(48);if(pts.length>1)out.push(pts)}));return out}

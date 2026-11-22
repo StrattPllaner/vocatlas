@@ -168,7 +168,10 @@ var TORRE=(function(I){
  /* Rumbo manejando: puños en el volante (dentro de su dibujo, entre el cuerpo y las manos) */
  var WHEEL='<g class="rk-wheel"><path d="M50 77V92" stroke="#3A3026" stroke-width="3.2" stroke-linecap="round"/><circle cx="50" cy="77" r="9.4" fill="none" stroke="#3A3026" stroke-width="4.6"/><circle cx="50" cy="77" r="9.4" fill="none" stroke="#5B4A3A" stroke-width="2.6"/>'+
   '<path d="M41 77H59M50 77V86" stroke="#5B4A3A" stroke-width="2" stroke-linecap="round"/><circle cx="50" cy="77" r="2.6" fill="#E3A845" stroke="#3A3026" stroke-width="1"/></g>';
- function drive(host){var rb=host.querySelector(".tw-pilot .rb");if(!rb)return;rb.classList.add("drive","side");rb.classList.remove("float");rb.setAttribute("data-pose-l","puño");rb.setAttribute("data-pose-r","puño");
+ /* Rumbo en 3D en la cabina (se ve bien desde cualquier ángulo); si no hay WebGL, queda el dibujo plano de frente */
+ var RB3D=null;function drive3d(host){var pl=host.querySelector(".tw-pilot");if(!pl||!window.WebGLRenderingContext||pl.__r3)return;pl.__r3=1;
+  (RB3D||(RB3D=import("./vendor/3d/rumbo3d.js"))).then(function(m){var r=m.mount(pl,{px:110});if(r)pl.classList.add("is-3d")}).catch(function(){})}
+ function drive(host){setTimeout(function(){drive3d(host)},120);var rb=host.querySelector(".tw-pilot .rb");if(!rb)return;rb.classList.add("drive");rb.classList.remove("float");rb.setAttribute("data-pose-l","puño");rb.setAttribute("data-pose-r","puño");
   var root=rb.querySelector(".rk-root"),hd=rb.querySelector(".rk-handL");if(root&&hd&&!root.querySelector(".rk-wheel")){var t=document.createElementNS("http://www.w3.org/2000/svg","g");t.innerHTML=WHEEL;root.insertBefore(t.firstChild,hd)}}
  /* ---------- arma la escena ---------- */
  function build(o){
