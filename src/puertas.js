@@ -56,33 +56,40 @@ var PUERTAS=(function(){
   var m=S.edo&&S.edo!==EDO_NONE?S.edo:null;return m&&has[m]?m:has.CMX?"CMX":Object.keys(has)[0]}
  function edoName(e){var o=typeof edoById==="function"&&edoById(e);return o?o.n:(ESC_EDO[e]||e)}
  function noUni(){return '<div class="pt-empty">'+(CAT.uni?'Todavía no tenemos universidades verificadas para esta carrera. No las vamos a inventar.':'Las universidades se están descargando. Revisa tu conexión y vuelve a abrir esta puerta.')+'</div>'}
- function money(d,cls,lab){return '<div class="pt-tile '+cls+'"><span class="pt-tl">'+lab+'</span><b class="num">'+esc(String(d.valor))+'</b><span class="pt-tu">'+esc(d.unidad||"")+'</span>'+(d.nota?'<p>'+esc(d.nota)+'</p>':'')+src(d)+'</div>'}
+ /* ---------- lo que hay detrás de cada puerta: poco texto, cifras grandes y claras; las fuentes van juntas al final ---------- */
+ var SRC=[];function note(d){if(!d||!d.fuente)return;var k=d.fuente+(d.url||"");if(SRC.some(function(x){return x.k===k}))return;SRC.push({k:k,t:d.fuente,u:d.url||(/^https?:/.test(d.fuente)?d.fuente:null),c:d.estado?d.estado!=="verificado":d.conf&&d.conf!=="alta"})}
+ function big(lab,val,unit,cls,d){note(d);return '<div class="pt-big '+(cls||"")+'"><span class="pt-tl">'+lab+'</span><b class="num">'+esc(val)+'</b>'+(unit?'<span class="pt-tu">'+esc(unit)+'</span>':'')+'</div>'}
+ function money$(v){return String(v).replace(/(^|\s|a\s)(\d)/g,function(m,p,dg){return p+"$"+dg}).replace(/^Gratis a \$/,"Gratis a $")}
+ function pubpri(u){return '<span class="pt-tag t-'+u.tipo+'">'+(u.tipo==="publica"?"Pública":"Privada")+'</span>'}
  var BODY={
   costo:function(id,c){var h="",pu=cif(id,"costo_publica"),pr=cif(id,"costo_privada"),be=cif(id,"becas");
-   if(pu||pr)h+='<section class="pt-sec"><h4>Lo que cobra la escuela</h4><div class="pt-tiles">'+(pu?money(pu,"is-pub","Pública"):'')+(pr?money(pr,"is-pri","Privada"):'')+'</div></section>';
-   else h+='<div class="pt-empty">Todavía no tenemos este dato verificado. No lo vamos a inventar.</div>';
-   var tec=cif(id,"costo_tec");if(tec)h+='<section class="pt-sec">'+money(tec,"is-pri","Tec de Monterrey")+'</section>';
+   if(!pu&&!pr)return '<div class="pt-empty">Todavía no tenemos este dato verificado. No lo vamos a inventar.</div>';
+   h+='<p class="pt-q">Lo que cobra la escuela, por semestre:</p><div class="pt-bigs">'+(pu?big("Escuela pública",money$(pu.valor),"",'is-pub',pu):'')+(pr?big("Escuela privada",money$(pr.valor),"",'is-pri',pr):'')+'</div>';
+   h+='<p class="pt-tip">Aparte, cuenta lo de transporte, comida y materiales.</p>';
+   if(be){note(be);h+='<div class="pt-card pt-beca"><b>¿No te alcanza? Hay becas</b><p>'+esc(String(be.valor))+'</p>'+(be.url?'<a class="pt-link" href="'+esc(be.url)+'" target="_blank" rel="noopener">Ver la beca</a>':'')+'</div>'}
    var e=edoNow(id),L=e?unisOf(id,e):null;
-   if(L&&L.length)h+='<section class="pt-sec"><h4>Escuela por escuela en '+esc(edoName(e))+'</h4><ul class="pt-list">'+L.map(function(o){return '<li><div class="pt-lt"><b>'+esc(o.u.n)+'</b><span class="pt-tag t-'+o.u.tipo+'">'+(o.u.tipo==="publica"?"Pública":"Privada")+'</span></div><p>'+esc(o.u.costo.txt)+'</p>'+srcU(o.u.costo)+'</li>'}).join("")+'</ul></section>';
-   if(be||(CAT.uni&&CAT.uni.becas)){h+='<section class="pt-sec"><h4>Becas para pagarla</h4>';if(be)h+='<div class="pt-note"><b>'+esc(String(be.valor))+'</b>: '+esc(be.unidad||"")+'. '+esc(be.nota||"")+src(be)+'</div>';
-    if(CAT.uni&&CAT.uni.becas)h+='<ul class="pt-list pt-becas">'+CAT.uni.becas.filter(function(b){return !be||b.n!==be.valor}).map(function(b){return '<li><div class="pt-lt"><b>'+esc(b.n)+'</b></div><p>'+esc(b.quien)+'</p>'+(b.url?'<small class="pt-src"><a href="'+esc(b.url)+'" target="_blank" rel="noopener">Ver convocatoria</a></small>':'')+'</li>'}).join("")+'</ul>';h+='</section>'}
+   if(L&&L.length)h+='<details class="pt-more"><summary>Ver escuela por escuela en '+esc(edoName(e))+'</summary><ul class="pt-list">'+L.map(function(o){note(o.u.costo);return '<li><div class="pt-lt"><b>'+esc(o.u.n)+'</b>'+pubpri(o.u)+'</div><p>'+esc(o.u.costo.txt)+'</p></li>'}).join("")+'</ul></details>';
    return h},
   escuelas:function(id,c,edo){var d=CAT.uni&&CAT.uni.car&&CAT.uni.car[id];if(!d||!d.donde.length)return noUni();
    var has={};d.donde.forEach(function(x){x.edo.forEach(function(e){has[e]=(has[e]||0)+1})});var cur=edo||edoNow(id),list=d.donde.filter(function(x){return x.edo.indexOf(cur)>=0}).sort(function(a,b){var ua=escUni(a.u),ub=escUni(b.u);return (ua&&ua.tipo==="publica"?0:1)-(ub&&ub.tipo==="publica"?0:1)});
    var h='<div class="pt-edos" role="tablist" aria-label="Estado">'+Object.keys(has).map(function(e){return '<button type="button" role="tab" class="pt-edo" data-edo="'+e+'" aria-selected="'+(e===cur)+'">'+esc(edoName(e))+' <b>'+has[e]+'</b></button>'}).join("")+'</div>';
-   h+='<p class="pt-lead">'+list.length+' opci'+(list.length===1?'ón':'ones')+' en '+esc(edoName(cur))+', primero las públicas. Toca una para ver su costo y cómo se entra.</p><ul class="es-list pt-es">'+list.map(escItem).join("")+'</ul>';
+   h+='<ul class="pt-list pt-unis">'+list.map(function(x){var u=escUni(x.u);if(!u)return "";note(u.costo);return '<li><div class="pt-lt"><b>'+esc(u.n)+'</b>'+pubpri(u)+'</div><p>'+esc(x.sede)+'</p>'+(u.url?'<a class="pt-link" href="'+esc(u.url)+'" target="_blank" rel="noopener">Sitio oficial</a>':'')+'</li>'}).join("")+'</ul>';
    return h},
   entrar:function(id,c){var h="",du=cif(id,"duracion");
-   if(du)h+='<section class="pt-sec"><h4>Cuánto dura</h4><div class="pt-tiles">'+money(du,"is-dur","Duración")+'</div></section>';
-   var as=cif(id,"aspirantes");if(as)h+='<section class="pt-sec">'+money(as,"is-dur","Competencia")+'</section>';
-   var en=cif(id,"enarm");if(en)h+='<section class="pt-sec"><h4>Después de la carrera</h4>'+money(en,"is-dur","ENARM")+'</section>';
+   if(du)h+='<div class="pt-bigs">'+big("Dura",String(du.valor),du.unidad||"",'is-dur',du)+'</div>'+(du.nota&&du.nota.length<140?'<p class="pt-tip">'+esc(du.nota)+'</p>':'');
    var e=edoNow(id),L=e?unisOf(id,e):null;
-   if(L&&L.length)h+='<section class="pt-sec"><h4>Cómo se entra en '+esc(edoName(e))+'</h4><ul class="pt-list">'+L.map(function(o){return '<li><div class="pt-lt"><b>'+esc(o.u.n)+'</b><span class="pt-tag t-'+o.u.tipo+'">'+(o.u.tipo==="publica"?"Pública":"Privada")+'</span></div><p><b>'+esc(o.u.adm.examen)+'.</b> '+esc(o.u.adm.txt)+'</p>'+srcU(o.u.adm)+(o.u.url?'<a class="pt-site" href="'+esc(o.u.url)+'" target="_blank" rel="noopener">Sitio oficial</a>':'')+'</li>'}).join("")+'</ul></section>';
+   if(L&&L.length)h+='<p class="pt-q">Para entrar, haces un examen. En '+esc(edoName(e))+':</p><ul class="pt-list pt-exams">'+L.map(function(o){note(o.u.adm);return '<li><div class="pt-lt"><b>'+esc(o.u.n)+'</b>'+pubpri(o.u)+'</div><p>'+esc(o.u.adm.examen)+'</p></li>'}).join("")+'</ul>';
    else if(!du)h+=noUni();
    return h},
-  trabajo:function(id,c){var d=cif(id,"ingreso");if(!d)return '<div class="pt-empty">Todavía no tenemos este dato verificado. No lo vamos a inventar. Lo puedes buscar en <a href="https://imco.org.mx/comparacarreras/" target="_blank" rel="noopener">IMCO, Compara Carreras</a>.</div>';
-   return typeof suBody==="function"?suBody(id):money(d,"is-pay","Sueldo promedio")}};
- var SAY={costo:"Esto es lo que cuesta estudiar {c}. Cada cifra trae su fuente.",escuelas:"Aquí se estudia {c}. Toca una escuela para ver más.",entrar:"Así se entra a {c} y esto dura.",trabajo:"Esto gana en promedio quien estudió {c}."};
+  trabajo:function(id,c){var d=cif(id,"ingreso");if(!d)return '<div class="pt-empty">Todavía no tenemos este dato verificado. No lo vamos a inventar.</div>';
+   note(d);var n=suNum(d),R=typeof suRank==="function"?suRank():[],pos=R.findIndex(function(x){return x.c.id===id})+1,oc=cif(id,"ocupacion_afin");if(oc)note(oc);
+   var h='<p class="pt-q">Lo que gana en promedio quien estudió '+esc(c.name)+':</p><div class="pt-bigs">'+big("Al mes",suFmt(n),"",'is-pay',null)+'</div>';
+   if(pos&&R.length){var max=R[0].n;h+='<div class="pt-card"><b>Lugar '+pos+' de '+R.length+' carreras</b><div class="pt-rank"><i style="width:'+(n/max*100).toFixed(0)+'%;background:'+c.color+'"></i></div></div>'}
+   if(oc)h+='<div class="pt-card"><b>'+esc(String(oc.valor))+' de cada 100</b><p>trabajan en algo de su carrera.</p></div>';
+   h+='<p class="pt-tip">Es un promedio: unos ganan más y otros menos.</p>';return h}};
+ function body(k,id,c,x){SRC=[];var h=BODY[k](id,c,x);return h+srcList()}
+ function srcList(){if(!SRC.length)return "";return '<details class="pt-srcs"><summary>¿De dónde salen estos datos?</summary><ul>'+SRC.map(function(x){return '<li>'+(x.u?'<a href="'+esc(x.u)+'" target="_blank" rel="noopener">'+esc(x.t.replace(/^https?:\/\/(www\.)?/,"").split("/")[0])+'</a>':esc(x.t))+(x.c?' <i>(por confirmar)</i>':'')+'</li>'}).join("")+'</ul><p>'+(CAT.uni?esc(CAT.uni.nota):'Las cifras cambian cada año.')+'</p></details>'}
+ var SAY={costo:"¿Cuánto cuesta estudiar {c}? Depende mucho de la escuela.",escuelas:"Estas escuelas tienen {c}. Primero las públicas.",entrar:"Así entras a {c} y esto dura.",trabajo:"¿Y al terminar? Esto se gana."};
 
  /* ---------- abrir una puerta: la puerta se abre a pantalla completa y adentro está la información ---------- */
  function open(id,u,from){var c=byId[id],d=D[u];if(!c||!d)return;
@@ -93,8 +100,7 @@ var PUERTAS=(function(){
    '<div class="pt-in"><header class="pt-head"><button type="button" class="pt-x" aria-label="Cerrar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>'+
    '<div class="pt-ht"><small>Puerta '+(u+1)+' de '+D.length+' · '+esc(c.name)+'</small><h3>'+esc(d.t)+'</h3></div></header>'+
    '<div class="pt-body"><div class="pt-hero"><div class="pt-rb">'+(typeof skinOn==="function"&&RUMBO.SKINS[id]&&skinOn(id)?skinRb(id):rumboEl())+'</div><p class="pt-say">'+esc(SAY[d.k].replace("{c}",c.name))+'</p></div>'+
-   '<div class="pt-content">'+BODY[d.k](id,c)+'</div>'+
-   '<p class="pt-foot">'+(CAT.uni?esc(CAT.uni.nota)+' Datos reunidos al '+esc(CAT.uni.corte)+'.':'Las cifras cambian cada año: confírmalas en el sitio oficial de cada universidad.')+'</p>'+
+   '<div class="pt-content">'+body(d.k,id,c)+'</div>'+
    nav(id,u)+'</div></div>';
   var close=uiLayer(el,false,function(){if(from&&from.focus)from.focus();sync(id)});
   el.querySelector(".pt-x").onclick=close;
@@ -105,7 +111,7 @@ var PUERTAS=(function(){
  function nav(id,u){var o="";for(var i=0;i<D.length;i++){if(i===u)continue;var st=state(id,i);o+='<button type="button" class="pt-nb s-'+st+'" data-u="'+i+'"'+(st==="lock"?' aria-disabled="true"':'')+'><span class="pt-nd" style="background:'+D[i].col+'">'+(st==="lock"?'<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4"><rect x="6" y="11" width="12" height="9" rx="2"/><path d="M9 11V8a3 3 0 016 0v3"/></svg>':(i+1))+'</span><span><b>'+esc(D[i].t)+'</b><small>'+(st==="lock"?"Llave en el cofre "+(i+1):D[i].s)+'</small></span></button>'}
   return '<div class="pt-nav" role="navigation" aria-label="Otras puertas"><h4>Otras puertas</h4>'+o+'</div>'}
  function wire(el,id,u,close){
-  each(el.querySelectorAll(".pt-edo"),function(b){b.onclick=function(){var box=el.querySelector(".pt-content");box.innerHTML=BODY.escuelas(id,byId[id],b.getAttribute("data-edo"));wire(el,id,u,close)}});
+  each(el.querySelectorAll(".pt-edo"),function(b){b.onclick=function(){var box=el.querySelector(".pt-content");box.innerHTML=body("escuelas",id,byId[id],b.getAttribute("data-edo"));wire(el,id,u,close)}});
   each(el.querySelectorAll(".pt-nb"),function(b){b.onclick=function(){var i=+b.getAttribute("data-u");if(!hasKey(id,i)){if(typeof toast==="function")toast("Esta puerta se abre con la llave del cofre de la unidad "+(i+1)+".");return}close();setTimeout(function(){open(id,i)},RM()?0:320)}})}
  /* actualiza las nubes de la espiral (al abrir un cofre o al cerrar una puerta) */
  function sync(id,anim){each(document.querySelectorAll('.tw-door[data-c="'+id+'"]'),function(b){var u=+b.getAttribute("data-u"),st=state(id,u);if(b.__st===st)return;var was=b.__st;b.__st=st;
@@ -114,4 +120,46 @@ var PUERTAS=(function(){
  function bind(host,id){each(host.querySelectorAll(".tw-door"),function(b){b.__st=b.className.match(/s-(\w+)/)[1];b.onclick=function(e){e.stopPropagation();open(id,+b.getAttribute("data-u"),b)}})}
  /* el icono de llave para el cofre */
  var KEY='<svg viewBox="0 0 120 60" aria-hidden="true"><g transform="translate(30 30) rotate(-12)"><circle r="20" fill="#F6C44E" stroke="#B07A16" stroke-width="3"/><circle r="8" fill="#FFF4C8" stroke="#B07A16" stroke-width="2"/><path d="M20 0H78M62 0V14M72 0V11" stroke="#B07A16" stroke-width="9" stroke-linecap="round"/><path d="M20 0H78M62 0V14M72 0V11" stroke="#F6C44E" stroke-width="5" stroke-linecap="round"/><path d="M-10 -10Q-4 -16 4 -15" stroke="#FFFFFF" stroke-width="3" fill="none" stroke-linecap="round" opacity=".8"/></g></svg>';
- return {D:D,n:n,state:state,hasKey:hasKey,doorHTML:doorHTML,label:label,open:open,sync:sync,bind:bind,KEY:KEY}})();
+
+ /* ---------- el cofre: aparece al centro, se abre, sale la llave de la carrera y vuela a su puerta ---------- */
+ function hsh(t){var h=7;for(var i=0;i<t.length;i++)h=(h*31+t.charCodeAt(i))>>>0;return h}
+ function chestArt(id){var c=(byId[id]||{}).color||"#3F7DA6",d=I3.shade(c,.3),l=I3.tint(c,.25),G="#F2C14E",GD="#B07A16";
+  var base='<svg class="cer-base" viewBox="0 0 220 130" aria-hidden="true"><ellipse cx="110" cy="122" rx="96" ry="9" fill="#0B1A2A" opacity=".25"/>'+
+   '<rect x="14" y="8" width="192" height="108" rx="16" fill="'+c+'"/><rect x="14" y="78" width="192" height="38" rx="16" fill="'+d+'"/><rect x="14" y="8" width="192" height="12" rx="6" fill="'+l+'"/>'+
+   '<rect x="40" y="8" width="16" height="108" fill="'+G+'"/><rect x="164" y="8" width="16" height="108" fill="'+G+'"/><rect x="40" y="8" width="5" height="108" fill="#FFE29A" opacity=".7"/><rect x="164" y="8" width="5" height="108" fill="#FFE29A" opacity=".7"/>'+
+   '<rect x="10" y="4" width="200" height="10" rx="5" fill="'+G+'" stroke="'+GD+'" stroke-width="1.5"/><rect class="cer-hole" x="18" y="0" width="184" height="12" rx="6" fill="#3A2416"/><rect class="cer-hole" x="30" y="2" width="160" height="6" rx="3" fill="#FFE29A" opacity=".8"/>'+
+   '<circle cx="110" cy="58" r="34" fill="'+G+'" stroke="'+GD+'" stroke-width="3"/><circle cx="110" cy="58" r="27" fill="#FFF6DA"/></svg>';
+  var lid='<svg class="cer-lid" viewBox="0 0 220 80" aria-hidden="true"><path d="M14 78V44Q14 6 110 6Q206 6 206 44V78Z" fill="'+l+'"/><path d="M14 78V60Q60 70 110 70Q160 70 206 60V78Z" fill="'+c+'"/>'+
+   '<path d="M40 76V16Q46 12 56 10V76Z" fill="'+G+'"/><path d="M164 10Q174 12 180 16V76H164Z" fill="'+G+'"/><rect x="10" y="70" width="200" height="10" rx="5" fill="'+G+'" stroke="'+GD+'" stroke-width="1.5"/>'+
+   '<path d="M96 70h28v14a14 14 0 0 1-28 0z" fill="'+G+'" stroke="'+GD+'" stroke-width="2"/><circle cx="110" cy="80" r="3.4" fill="#5A3A0E"/><path d="M30 30Q70 12 110 12" stroke="#FFFFFF" stroke-width="5" fill="none" stroke-linecap="round" opacity=".35"/></svg>';
+  return '<div class="cer-chest">'+base+'<span class="cer-emb">'+(typeof SIMB!=="undefined"?SIMB.icon(id,"a",46):'')+'</span>'+lid+'</div>'}
+ function keyArt(id){var c=(byId[id]||{}).color||"#3F7DA6",h=hsh(id),t="";for(var i=0;i<3;i++){var w=6+(h>>(i*3)&3)*3;t+='<rect x="'+(118+i*14)+'" y="44" width="9" height="'+w+'" rx="2" fill="#F2C14E" stroke="#B07A16" stroke-width="1.5"/>'}
+  return '<div class="cer-key"><svg viewBox="0 0 170 80" aria-hidden="true"><rect x="58" y="34" width="104" height="12" rx="6" fill="#F2C14E" stroke="#B07A16" stroke-width="2"/>'+t+
+   '<rect x="60" y="36" width="98" height="3" rx="1.5" fill="#FFF1B8" opacity=".8"/><circle cx="40" cy="40" r="36" fill="#F2C14E" stroke="#B07A16" stroke-width="3"/><circle cx="40" cy="40" r="27" fill="'+c+'"/><circle cx="40" cy="40" r="27" fill="none" stroke="#FFF1B8" stroke-width="2" opacity=".6"/></svg>'+
+   '<span class="cer-kemb">'+(typeof SIMB!=="undefined"?SIMB.icon(id,"a",34):'')+'</span></div>'}
+ var I3=typeof ISO!=="undefined"?ISO:{shade:function(c){return c},tint:function(c){return c}};
+ /* o: {skin:html|null, skinName, onSkin(), focus(u,cb(el)), done()} */
+ function ceremony(id,u,o){o=o||{};var d=D[u],c=byId[id];if(typeof I!=="undefined"&&I.shade)I3=I;
+  var el=document.createElement("div");el.className="cer";el.setAttribute("role","dialog");el.setAttribute("aria-modal","true");el.setAttribute("aria-label","Cofre de la unidad "+(u+1));
+  el.innerHTML='<div class="cer-glow" aria-hidden="true"></div><div class="cer-stage">'+chestArt(id)+keyArt(id)+'<div class="cer-spark" aria-hidden="true">'+'<i></i>'.repeat(10)+'</div></div>'+
+   '<div class="cer-txt"><h2>'+(d?'¡La llave de la puerta '+(u+1)+'!':'¡Unidad completa!')+'</h2>'+(d?'<p>'+esc(d.t)+'</p>':'')+'</div>'+
+   (o.skin?'<div class="cer-skin"><div class="cer-srb">'+o.skin+'</div><div><b>¡Y ganaste a '+esc(o.skinName||"un Rumbo nuevo")+'!</b><button type="button" class="ui-btn is-sec cer-use">Ponérmelo</button></div></div>':'')+
+   '<div class="cer-act"><button type="button" class="ui-btn is-block cer-go">'+(d?'Abrir la puerta':'Seguir')+'</button>'+(d?'<button type="button" class="cer-later">Después</button>':'')+'</div>';
+  document.body.appendChild(el);void el.offsetWidth;el.classList.add("on");
+  if(typeof sfx==="function")setTimeout(function(){sfx("ok")},RM()?0:650);
+  var gone=false;function close(cb){if(gone)return;gone=true;el.classList.add("out");setTimeout(function(){el.remove();cb&&cb()},RM()?0:300)}
+  var use=el.querySelector(".cer-use");if(use)use.onclick=function(){o.onSkin&&o.onSkin();use.textContent="¡Puesto!";use.disabled=true};
+  var later=el.querySelector(".cer-later");if(later)later.onclick=function(){close(function(){o.done&&o.done(false)})};
+  function fly(){if(gone)return;var k=el.querySelector(".cer-key"),r=k.getBoundingClientRect(),fk=k.cloneNode(true);
+   fk.className="cer-key cer-fly";fk.style.cssText="left:"+r.left+"px;top:"+r.top+"px;width:"+r.width+"px;height:"+r.height+"px";
+   close(function(){});document.body.appendChild(fk);
+   if(!o.focus){fk.remove();o.done&&o.done(true);return}
+   o.focus(u,function(door){if(!door||RM()){fk.remove();o.done&&o.done(true);return}
+    var dr=door.getBoundingClientRect(),tx=dr.left+dr.width/2-(r.left+r.width/2),ty=dr.top+dr.height*.42-(r.top+r.height/2);
+    var an=fk.animate([{transform:"translate(0,0) rotate(0) scale(1)"},{transform:"translate("+(tx*.5)+"px,"+(ty*.5-90)+"px) rotate(-200deg) scale(.8)",offset:.55},{transform:"translate("+tx+"px,"+ty+"px) rotate(-360deg) scale(.32)"}],{duration:1100,easing:"cubic-bezier(.45,0,.3,1)",fill:"forwards"});
+    an.onfinish=function(){fk.classList.add("in");setTimeout(function(){fk.remove()},260);door.classList.add("unlock");setTimeout(function(){door.classList.remove("unlock");o.done&&o.done(true)},900)}})}
+  el.querySelector(".cer-go").onclick=function(){if(!d){close(function(){o.done&&o.done(false)});return}fly()};
+  setTimeout(function(){var b=el.querySelector(".cer-go");if(b)b.focus()},RM()?0:1500);
+  /* sin traje que mostrar, la llave se va sola a su puerta */
+  if(d&&!o.skin)el.__auto=setTimeout(fly,RM()?600:3200)}
+ return {ceremony:ceremony,D:D,n:n,state:state,hasKey:hasKey,doorHTML:doorHTML,label:label,open:open,sync:sync,bind:bind,KEY:KEY}})();

@@ -273,8 +273,11 @@ var TORRE=(function(I){
   for(var n=0;n<22;n++){var m=(lo+hi)/2,y=S.toPx(proj(m,m)).y;if(y>yc)lo=m;else hi=m}return Math.max(S.a0,Math.min(S.a1,(lo+hi)/2))}
  function follow(S,y){var sc=S.sc;if(!sc)return;var want=y+S.padT-sc.clientHeight*.55;sc.scrollTop+=(want-sc.scrollTop)*.14}
  function scrollTo(S,y,smooth){var sc=S.sc;if(!sc)return;var t=Math.max(0,y+S.padT-sc.clientHeight*.58);if(smooth&&sc.scrollTo)sc.scrollTo({top:t,behavior:"smooth"});else sc.scrollTop=t}
+ /* trae al frente la puerta de una unidad: la espiral gira hasta ella y la pantalla baja o sube a su altura */
+ function doorFocus(S,u,done){var o=(S.doors||[])[u];if(!o){done&&done();return}var r0=S.rot,r1=o.a;
+  anim(S,Math.min(1100,350+Math.abs(r1-r0)*1.1),function(e){S.rot=r0+(r1-r0)*e;render(S);var q=proj(o.a,S.rot,4,R+46);follow(S,S.toPx(q).y-30)},function(){render(S);done&&done(o.el)})}
  function pos(S,i){var it=S.items[i];return it?{x:it.px,y:it.py,sz:it.sz}:null}
  /* vista previa para #art: los seis símbolos de la carrera */
  function preview(id,p){var s="";for(var f=0;f<6;f++){var q=Math.max(0,Math.min(1,p*6-f)),im=symImg(id,f);s+='<div class="tw-3d tw-pv"><img class="tw-col" src="'+im+'" alt=""></div>'}return '<div class="tw-pvg">'+s+'</div>'}
- return {has:has,build:build,preview:preview,render:render,focus:focus,place:place,hop:hop,climbTop:climbTop,scrollTo:scrollTo,pos:pos,floorSVG:floorSVG,star:star,symbols:symbols};
+ return {has:has,build:build,preview:preview,render:render,focus:focus,place:place,hop:hop,climbTop:climbTop,scrollTo:scrollTo,pos:pos,doorFocus:doorFocus,floorSVG:floorSVG,star:star,symbols:symbols};
 })(ISO);

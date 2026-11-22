@@ -1,0 +1,16 @@
+/* ================= ventanas: ninguna sale de abajo =================
+   Todas las ventanas de la app (hojas, avisos de acierto o error, cofres y premios) aparecen al centro de la pantalla,
+   como tarjetas que crecen un poco al abrirse, con el fondo atenuado. */
+.ui-sheet{top:50%;bottom:auto;left:50%;right:auto;width:min(560px,calc(100% - 28px));max-height:min(86dvh,860px);overflow-y:auto;overscroll-behavior:contain;margin:0;
+ padding:var(--sp-6) var(--sp-6) var(--sp-6);border-radius:24px;border:var(--bw) solid var(--c-line);
+ transform:translate(-50%,-50%) scale(.92);opacity:0;transition:transform .22s cubic-bezier(.3,0,.8,.15),opacity .18s}
+.ui-sheet.on{transform:translate(-50%,-50%);opacity:1;transition:transform .34s cubic-bezier(.2,1.2,.4,1),opacity .2s}
+.ui-sheet .grab{display:none}
+.ui-fb{top:50%;bottom:auto;left:50%;right:auto;width:min(520px,calc(100% - 28px));border-radius:24px;border:var(--bw) solid var(--fb-line);box-shadow:0 24px 60px rgba(10,25,40,.3);
+ padding:var(--sp-5) var(--sp-6);transform:translate(-50%,-50%) scale(.9);opacity:0;transition:transform .2s,opacity .16s}
+.ui-fb.on{transform:translate(-50%,-50%);opacity:1;transition:transform .32s cubic-bezier(.2,1.3,.4,1),opacity .18s}
+.ui-fb.is-static,.ui-sheet.is-static{position:relative;top:auto;left:auto;transform:none;opacity:1;width:auto}
+.lp-lesson{align-items:center;padding:16px}
+.lp-lin{border-radius:24px;max-height:88%;padding:22px 20px 20px;transform:scale(.92);opacity:0;transition:transform .34s cubic-bezier(.2,1.2,.4,1),opacity .2s}
+.lp-lesson.on .lp-lin{transform:none;opacity:1}
+@media (prefers-reduced-motion:reduce){.ui-sheet,.ui-fb,.lp-lin{transition:opacity .01s!important}}

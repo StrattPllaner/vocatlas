@@ -245,22 +245,17 @@ var PATH=(function(){
   $("#lpLok").onclick=function(){onDone();o.classList.remove("on");setTimeout(function(){o.remove()},RM()?0:T.med)};
  }
  function openChest(it){
-  var id=st.id,c=byId[id],b=document.querySelector('.rt3-n[data-i="'+it.k2+'"]'),u=st.units[it.u],P2=typeof PUERTAS!=="undefined"&&it.chest<PUERTAS.n()?PUERTAS:null;
+  var id=st.id,c=byId[id],b=document.querySelector('.rt3-n[data-i="'+it.k2+'"]'),P2=typeof PUERTAS!=="undefined"&&it.chest<PUERTAS.n()?PUERTAS:null;
   S.chest=S.chest||{};S.chest[id+":"+chestKey(it.chest)]=1;save();
-  if(b){b.innerHTML=chestSVG(true);restart(b,"opened");burstAt(b)}
-  /* cada cofre trae la llave de su puerta; el de la unidad 2 trae además el Rumbo de la carrera */
-  var skin=it.chest===1&&RUMBO.SKINS[id]&&!(S.skw&&S.skw[id]),door=P2?P2.D[it.chest]:null;
-  var keyHTML=door?'<div class="pt-got"><div class="pt-gk">'+P2.KEY+'</div><div><b>Llave de la puerta '+(it.chest+1)+'</b><small>'+esc(door.t)+'</small></div></div>':'';
-  function after(openDoor){refresh(true);if(!P2)return;setTimeout(function(){P2.sync(id,true);var d=st.el&&st.el.querySelector('.tw-door[data-u="'+it.chest+'"]');
-    if(openDoor){P2.open(id,it.chest,d);return}if(d&&d.scrollIntoView&&st.sc){var r=d.getBoundingClientRect(),sr=st.sc.getBoundingClientRect();if(r.top<sr.top+40||r.bottom>sr.bottom-40)st.sc.scrollTo({top:st.sc.scrollTop+r.top-sr.top-sr.height*.35,behavior:RM()?"auto":"smooth"})}},RM()?0:420)}
-  setTimeout(function(){
-   if(skin){S.skw=S.skw||{};S.skw[id]=1;save();
-    lesson('<div class="rt-skin">'+skinRb(id,"cheer")+'</div><h2>¡Ganaste a '+esc(RUMBO.SKINS[id].n)+'!</h2><p>Ya está en tu colección.</p>'+keyHTML+'<button class="ui-btn is-block is-sec" id="rtUse">Ponérmelo</button>'+(door?'<button class="ui-btn is-block is-sec" id="ptGo">Abrir la puerta '+(it.chest+1)+'</button>':''),"Seguir",function(){after(false)});
-    var ub=$("#rtUse");if(ub)ub.onclick=function(){setSkin(id);$("#lpLok").click()};
-    var pg2=$("#ptGo");if(pg2)pg2.onclick=function(){var o=$("#lpLesson");if(o){o.classList.remove("on");setTimeout(function(){o.remove()},RM()?0:T.med)}after(true)};return}
-   var left=progOf(id);
-   lesson('<div class="lp-chestbig">'+chestSVG(true)+'</div><h2>'+(door?'¡Encontraste una llave!':'¡Unidad completa!')+'</h2>'+keyHTML+'<p>'+(door?'Abre la puerta '+(it.chest+1)+' en la nube junto a la espiral. ':'')+(left.p>=1?'Completaste '+esc(c.name)+'. Su sello te espera en el mapa.':'Te faltan '+(left.total-left.done)+' lecciones para el sello.')+'</p>'+(door?'<button class="ui-btn is-block is-sec" id="ptGo">Abrir la puerta ahora</button>':''),"Seguir",function(){after(false)});
-   var pg=$("#ptGo");if(pg)pg.onclick=function(){var o=$("#lpLesson");if(o){o.classList.remove("on");setTimeout(function(){o.remove()},RM()?0:T.med)}after(true)}},RM()?0:500);
+  if(b){b.innerHTML=chestSVG(true);restart(b,"opened")}
+  /* el cofre de la unidad 2 trae además el Rumbo de la carrera */
+  var skin=it.chest===1&&RUMBO.SKINS[id]&&!(S.skw&&S.skw[id]);if(skin){S.skw=S.skw||{};S.skw[id]=1;save()}
+  var gl=$("#twGlobe");if(gl)gl.hidden=true;
+  if(P2){P2.ceremony(id,it.chest,{skin:skin?skinRb(id,"cheer"):null,skinName:skin?RUMBO.SKINS[id].n:null,onSkin:function(){setSkin(id)},
+    focus:function(u,cb){if(st.tw&&TORRE.doorFocus)TORRE.doorFocus(st.tw,u,cb);else cb(null)},
+    done:function(opened){refresh(false);P2.sync(id,!opened);if(opened){var d=st.el&&st.el.querySelector('.tw-door[data-u="'+it.chest+'"]');P2.open(id,it.chest,d)}}});return}
+  setTimeout(function(){var left=progOf(id);
+   lesson('<div class="lp-chestbig">'+chestSVG(true)+'</div><h2>¡Unidad completa!</h2><p>'+(left.p>=1?'Completaste '+esc(c.name)+'. Su sello te espera en el mapa.':'Te faltan '+(left.total-left.done)+' lecciones para el sello.')+'</p>',"Seguir",function(){refresh(true)})},RM()?0:300);
  }
  function burstAt(b){if(RM())return;var cols=["#F2B544","#FFFFFF","#7FB59A","#8FC9E8"];for(var i=0;i<12;i++){var s=document.createElement("i");s.className="lp-pt";s.style.background=cols[i%4];s.style.setProperty("--a",(i*30)+"deg");b.appendChild(s);setTimeout(function(x){return function(){x.remove()}}(s),700)}}
  /* al terminar una lección: la parada se llena, chispas, y Rumbo camina a la siguiente */

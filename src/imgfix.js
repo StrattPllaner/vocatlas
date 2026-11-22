@@ -4,4 +4,5 @@
 (function(){if(typeof document==="undefined")return;
  document.addEventListener("error",function(e){var t=e.target;if(!t||t.tagName!=="IMG")return;var s=t.getAttribute("src")||"";if(!s||/^data:|^blob:/.test(s))return;
   if(!t.__rt){t.__rt=1;t.src=s+(s.indexOf("?")<0?"?":"&")+"r="+Date.now();return}
-  t.style.visibility="hidden"},true)})();
+  t.style.visibility="hidden"},true);
+ document.addEventListener("load",function(e){var t=e.target;if(t&&t.tagName==="IMG"&&t.__rt)t.style.visibility=""},true)})();
