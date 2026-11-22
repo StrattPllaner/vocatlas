@@ -116,7 +116,7 @@ var PATH=(function(){
   var cu=cat.units.filter(function(u){return u.state==="cur"})[0]||cat.units.filter(function(u){return u.state!=="done"})[0]||cat.units[cat.units.length-1],cui=cat.units.indexOf(cu);
   var h='<div class="lp rt2 rt4 '+(st.tower?"rt8":"rt7")+(dark?" lp-dark":"")+'" style="--c:'+col+';--cd:'+cd+';--ct:'+txt+'">'+
    '<header class="rt2-head"><button class="lp-back rt2-back" id="pzx" aria-label="Volver al mapa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>'+
-   '<div class="rt2-t"><h2>'+esc(c.name)+'</h2>'+(st.tower?'<small class="rt8-unit">'+(pg.p>=1?"Carrera dominada":"Unidad "+(cui+1)+" · "+esc(cu.t))+'</small>':'')+'<div class="rt2-pg"><div class="rt2-bar"><i style="width:'+(pg.p*100).toFixed(1)+'%"></i></div><b class="num">'+pg.done+(st.tower?' de '+pg.total+' lecciones':'/'+pg.total)+'</b></div></div>'+(typeof escHas==="function"&&escHas(id)?'<button type="button" class="rt2-esc" id="lpEsc" aria-label="Dónde estudiar '+esc(c.name)+'">'+icon('<path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5M22 9v6"/>',"lp-ic")+'<span><b>Escuelas</b><small>'+escCount(id)+'</small></span></button>':'')+'</header>'+
+   '<div class="rt2-t"><h2>'+esc(c.name)+'</h2>'+(st.tower?'<small class="rt8-unit">'+(pg.p>=1?"Carrera dominada":"Unidad "+(cui+1)+" · "+esc(cu.t))+'</small>':'')+'<div class="rt2-pg"><div class="rt2-bar"><i style="width:'+(pg.p*100).toFixed(1)+'%"></i></div><b class="num">'+pg.done+(st.tower?' de '+pg.total+' lecciones':'/'+pg.total)+'</b></div></div>'+(typeof escHas==="function"&&escHas(id)?'<button type="button" class="rt2-esc" id="lpEsc" aria-label="Dónde estudiar '+esc(c.name)+'">'+icon('<path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5M22 9v6"/>',"lp-ic")+'<span><b>Escuelas</b><small>'+escCount2(id)+'</small></span></button>':'')+'</header>'+
    (st.tower?'<div class="rt4-stage tw-wrap" id="lpScroll"><div class="tw-host" id="lpCol"></div></div>':'<div class="rt4-stage" id="lpScroll"><div class="rt4-col" id="lpCol"></div></div>')+
    '<div class="rt2-card" id="lpPop" aria-live="polite"></div>'+(typeof suBtn==="function"?suBtn(id):'')+'</div>';
   p.innerHTML=h;st.el=p.querySelector(".lp");st.sc=$("#lpScroll");
@@ -219,7 +219,7 @@ var PATH=(function(){
   TORRE.focus(st.tw,i);
  }
  /* cuántas opciones hay en tu estado (o en toda la región) */
- function escCount(id){var d=CAT.uni.car[id],m=escMine(),n=m?d.donde.filter(function(x){return x.edo.indexOf(m)>=0}).length:d.donde.length;return m?(n?n+" en "+ESC_EDO[m]:"Ver en CDMX"):n+" opciones"}
+
  function toIsle(){}
  /* abrir una lección */
  function run(it){
