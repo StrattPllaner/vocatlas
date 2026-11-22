@@ -93,7 +93,15 @@ function renderArt(){
  h+='<section><h2>Mapa generado desde el catálogo</h2><p class="ia-n">Usa tus elecciones. Lejos: islas y áreas. Medio: carreras simplificadas con nombre corto. Cerca: todo el detalle y nombres completos.</p>'+
   '<div class="ia-ctl"><div class="ia-seg" role="group" aria-label="Cantidad de carreras"><button type="button" data-n="20" aria-pressed="true">20 carreras</button><button type="button" data-n="50">50</button><button type="button" data-n="120">120</button></div><div class="ia-seg" role="group" aria-label="Zoom"><button type="button" data-z="fit">Lejos</button><button type="button" data-z=".45">Medio</button><button type="button" data-z=".9">Cerca</button></div><button type="button" class="ia-night" aria-pressed="false">Noche</button></div>'+
   '<div class="ia-map" id="iaMap"></div><p class="ia-n" id="iaStat"></p></section>';
+ /* Rumbo habla: explicación animada de Medicina, sus formas de boca y el componente de video vacío */
+ var GU=(CAT.guiones||{}).medicina;
+ h+='<section class="ia-sec" id="artVoz"><h2>Rumbo habla</h2><p>Explicación animada narrada por Rumbo (guion en datos/guiones/medicina.json). Toca ▶ para escuchar; con el botón de bocina se silencia y avanza al tocar.</p><div id="artEx"></div>'+
+  '<h3>Formas de boca</h3><div class="vz-mouths">'+[["c","Cerrada"],["m","Entreabierta"],["a","Abierta (a)"],["o","Redonda (o, u)"],["e","Ancha (e, i)"]].map(function(q){return '<figure><div class="vz-mw" data-vis="'+q[0]+'">'+rumboEl()+'</div><figcaption>'+q[1]+'</figcaption></figure>'}).join("")+'</div>'+
+  '<h3>Video (estado vacío)</h3>'+videoHTML({titulo:"Un día de internado",quien:"una persona que hace su internado"})+'</section>';
  var el=document.createElement("div");el.id="art";el.className="ia";el.innerHTML=h;document.body.appendChild(el);
+ if(GU&&GU.explicaciones[0]&&typeof EXPL!=="undefined")EXPL.mount(el.querySelector("#artEx"),GU.explicaciones[0]);
+ el.querySelectorAll(".vz-mouths .vz-mw").forEach(function(w){var r=w.querySelector(".rb");if(!r)return;r.classList.remove("float");r.setAttribute("data-mood","talk");r.__vis=VOZ.SHAPE[w.getAttribute("data-vis")]});
+ videoBind(el);
 
  /* se dibuja por partes para no trabar la página */
  (function(){var cat=ISOFIX.catalog(20),host=document.getElementById("iaInk"),i=0;

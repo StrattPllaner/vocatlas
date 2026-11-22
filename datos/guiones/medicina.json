@@ -1,0 +1,32 @@
+{
+  "carrera": "medicina",
+  "nota": "Guiones de Rumbo para Medicina. Cada línea tiene un id: si existe media/voz/<id>.mp3 se usa ese audio con el mismo texto como subtítulo; si no, la voz del navegador. Marca de revisión: medico (lo revisa un médico), oficial (se confirma en fuente oficial) o listo.",
+  "explicaciones": [
+    {
+      "id": "med-urgencias",
+      "titulo": "El recorrido de un paciente en urgencias",
+      "leccion": "1.1",
+      "revisar": "medico",
+      "etapas": [
+        {"id": "med-urg-1", "escena": "llegada", "dice": "Llega alguien a urgencias. Aquí no importa quién llegó primero, sino quién está más grave."},
+        {"id": "med-urg-2", "escena": "triaje", "dice": "En el triaje lo revisan rápido y le ponen un color. Rojo pasa de inmediato; verde puede esperar."},
+        {"id": "med-urg-3", "escena": "abc", "dice": "Con un paciente grave, el orden es siempre el mismo: primero que el aire entre, luego que respire, luego la sangre y el pulso."},
+        {"id": "med-urg-4", "escena": "estudios", "dice": "Después se piden los estudios que contestan una pregunta concreta, no todos por si acaso."},
+        {"id": "med-urg-5", "escena": "decision", "dice": "Con eso se decide: se queda en el hospital, o se va a su casa con indicaciones claras."},
+        {"id": "med-urg-6", "escena": "seguimiento", "dice": "Y no termina ahí: alguien revisa que de verdad mejore. Eso también es medicina."}
+      ],
+      "pregunta": {
+        "id": "med-urg-q",
+        "texto": "¿Qué decide quién pasa primero en urgencias?",
+        "opciones": ["Quién llegó antes", "Quién tiene más riesgo", "Quién se queja más"],
+        "correcta": 1,
+        "bien": {"id": "med-urg-q-ok", "dice": "¡Exacto! Se atiende primero a quien corre más riesgo, aunque grite menos."},
+        "mal": {"id": "med-urg-q-no", "dice": "Casi. En urgencias se atiende primero a quien corre más riesgo, no a quien llegó antes ni a quien grita más."}
+      }
+    }
+  ],
+  "frases": {
+    "presenta-1.1": {"id": "med-pres-1-1", "dice": "Hoy vas a ver cómo piensa un médico cuando alguien llega con dolor.", "revisar": "listo"},
+    "reflexion": {"id": "med-refl", "dice": "Antes de irte: ¿cómo te sentiste haciendo esto? No hay respuesta mala.", "revisar": "listo"}
+  }
+}

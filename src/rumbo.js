@@ -819,6 +819,7 @@ var RUMBO=(function(){
      var hgL=PL==="relajada"?1:0,hgR=PR==="relajada"?1:0,sw=W.walk*14*s1;
      hl.r+=hgL*(196+sw);hl.y-=hgL*7.5;hl.x+=hgL*1.4;hr.r-=hgR*(202-sw);hr.y-=hgR*6.5;hr.x-=hgR*1.8;
      var QL=HPOSE[PL]||{},QR=HPOSE[PR]||{},hvw=wr.getAttribute("data-hview"),vf=function(Q){return hvw==="dorso"?-1:hvw==="palma"?1:(Q.v||1)};hl.r-=(QL.r||0)*vf(QL);hr.r+=(QR.r||0)*vf(QR)}
+    if(mood==="talk"&&!cls.contains("drive")&&!rm){hr.x+=-3;hr.y+=-10-4*Math.sin(t*4.6);hr.r+=-30+18*Math.sin(t*3.1);hl.y+=-4*Math.max(0,Math.sin(t*3.7+1));hl.r+=8*Math.sin(t*2.9)}
     if(cls.contains("drive")&&!rm){var stg=spring(st.sp.steer,(cls.contains("fast")?20:12)*Math.sin(t*2*Math.PI/1.9)+4*Math.sin(t*2*Math.PI/.73),dt,90,9,40),ra=stg*Math.PI/180,WX=50,WY=77,WR=9.4;
      /* agarre: izquierda a las 9 y derecha a las 3 del volante, giradas con él; puños hacia adentro */
      var gl=[WX-WR*Math.cos(ra),WY-WR*Math.sin(ra)],gr=[WX+WR*Math.cos(ra),WY+WR*Math.sin(ra)];
@@ -919,7 +920,10 @@ var RUMBO=(function(){
    /* bocas con fundido corto */
    var fa=rm?1:1-Math.exp(-dt/.05);
    st.dp.forEach(function(d){var tgt=d.w.indexOf(mood)>-1?1:0;if(d.o<0)d.o=tgt;else d.o+=(tgt-d.o)*fa;var v=Math.round(d.o*100)/100;if(v!==d.last){d.e.style.opacity=v;d.last=v}});
-   if(g.mouth&&mood==="talk"){var m=.35+.65*(.5+.5*Math.sin(t*2*Math.PI*3.6));var my=+g.mouth.getAttribute("cy");g.mouth.setAttribute("transform","translate(0 "+my+") scale(1 "+f(m)+") translate(0 "+(-my)+")")}
+   /* al hablar: si VOZ manda forma de boca (wr.__vis = [ancho, alto]) se usa; si no, abre y cierra con un ritmo */
+   if(g.mouth&&mood==="talk"){var V=wr.__vis,mx=+(g.mouth.getAttribute("cx")||50),my=+g.mouth.getAttribute("cy");st.mv=st.mv||[1,.5];var tg2=V||[1,.35+.65*(.5+.5*Math.sin(t*2*Math.PI*3.6))];
+    st.mv[0]+=(tg2[0]-st.mv[0])*Math.min(1,dt*28);st.mv[1]+=(tg2[1]-st.mv[1])*Math.min(1,dt*28);
+    g.mouth.setAttribute("transform","translate("+mx+" "+my+") scale("+f(st.mv[0])+" "+f(st.mv[1])+") translate("+(-mx)+" "+(-my)+")")}
    if(g.zz){var z=(t%2.4)/2.4;g.zz.setAttribute("transform","translate("+f(z*2)+" "+f(2-z*6)+")");g.zz.style.opacity=mood==="sleep"?f(Math.sin(Math.PI*z)):0}
   }
   return {go:go};

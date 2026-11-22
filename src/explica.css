@@ -1,0 +1,50 @@
+/* explicación animada, globo de Rumbo y video */
+.ex{background:#FFF8EA;border:2px solid #3A3026;border-radius:20px;padding:12px;box-shadow:0 4px 0 #3A3026;max-width:520px;color:#14323F}
+.ex-say{position:relative;min-height:64px;margin-top:10px}
+.ex-say .vz-globo{position:relative;left:auto;right:auto;top:auto}
+.ex-say .vz-globo::before{content:"";position:absolute;left:28px;top:-9px;width:14px;height:14px;background:#fff;border-left:2px solid #3A3026;border-top:2px solid #3A3026;transform:rotate(45deg)}
+.ex-head{display:flex;justify-content:space-between;gap:8px;align-items:baseline;margin-bottom:6px}.ex-head b{font-size:16px}
+.ex-rev{font-size:11px;font-weight:800;color:#B0303A}
+.ex-stage{position:relative;border-radius:14px;background:linear-gradient(#DDEFF8,#F4FAFF);overflow:hidden;min-height:200px}
+.ex-svg{display:block;width:72%;margin-left:28%;height:auto}
+.ex-sc{opacity:0;transition:opacity .35s ease;pointer-events:none}
+.ex-sc.on{opacity:1}
+.ex-sc .ex-pop,.ex-sc .ex-chk{opacity:0;transform-box:fill-box;transform-origin:50% 50%}
+.ex-sc.go .ex-pop{animation:exPop .45s cubic-bezier(.3,1.5,.5,1) var(--d,0s) both}
+.ex-sc.go .ex-chk{animation:exPop .4s cubic-bezier(.3,1.6,.5,1) var(--d,0s) both}
+@keyframes exPop{from{opacity:0;transform:scale(.4)}to{opacity:1;transform:scale(1)}}
+.ex-sc.go .ex-walk{animation:exWalk 2.2s ease-out both}
+@keyframes exWalk{from{transform:translateX(-90px)}to{transform:translateX(110px)}}
+.ex-sc.go .ex-in-r{animation:exIn .6s ease-out both}
+@keyframes exIn{from{opacity:0;transform:translateX(30px)}to{opacity:1;transform:none}}
+.ex-sc.go .ex-ecg{animation:exEcg 1.6s linear infinite}
+@keyframes exEcg{0%{opacity:.2;transform:translateX(-6px)}50%{opacity:1}100%{opacity:.2;transform:translateX(6px)}}
+.ex-rb{position:absolute;left:2%;bottom:4px;width:27%;aspect-ratio:1}
+.ex-rb .rb{width:100%;height:100%}
+.vz-globo{position:absolute;left:4%;right:4%;top:8px;z-index:3;background:#FFFFFF;border:2px solid #3A3026;border-radius:14px;padding:8px 12px;font-size:16px;line-height:1.3;font-weight:600;box-shadow:0 3px 0 #3A3026;opacity:0;transform:translateY(-4px);transition:opacity .2s,transform .2s}
+.vz-globo.on{opacity:1;transform:none}.vz-globo.is-hidden{opacity:0!important}
+.ex-bar{display:flex;gap:4px;margin:10px 0 8px}.ex-bar i{flex:1;height:6px;border-radius:3px;background:rgba(0,0,0,.12)}.ex-bar i.done{background:#58B05A}.ex-bar i.cur{background:#F2A23A}
+.ex-ctl{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.ex-b{width:48px;height:48px;border-radius:50%;border:2px solid #3A3026;background:#FFFFFF;color:#14323F;display:grid;place-items:center;cursor:pointer;box-shadow:0 3px 0 #3A3026}
+.ex-b svg{width:24px;height:24px}.ex-b:active{transform:translateY(2px);box-shadow:0 1px 0 #3A3026}
+.ex-main{width:56px;height:56px;background:#F2A23A;color:#fff}
+.ex-b.pulse{animation:exPulse 1s ease-in-out infinite}
+@keyframes exPulse{50%{transform:scale(1.12)}}
+.ex-rate{min-height:44px;border-radius:12px;border:2px solid #3A3026;padding:0 8px;font:inherit;background:#fff}
+.ex-skip{min-height:44px;padding:0 14px;border-radius:999px;border:2px solid #3A3026;background:transparent;font:inherit;font-weight:700;margin-left:auto;cursor:pointer}
+.ex-log{margin-top:10px;font-size:15px}.ex-log summary{cursor:pointer;font-weight:700;min-height:44px;display:flex;align-items:center}
+.ex-q{margin-top:10px;display:grid;gap:8px}.ex-qt{font-weight:800;margin:0 0 4px;font-size:16px}
+.ex-op{min-height:48px;text-align:left;padding:10px 14px;border-radius:14px;border:2px solid #3A3026;background:#fff;font:inherit;font-weight:600;cursor:pointer}
+.ex-op.is-ok{background:#D9F2D6}.ex-op.is-no{background:#F8D7D5}
+@media (prefers-reduced-motion:reduce){.ex-sc.go .ex-pop,.ex-sc.go .ex-chk,.ex-sc.go .ex-walk,.ex-sc.go .ex-in-r,.ex-sc.go .ex-ecg,.ex-b.pulse{animation:none;opacity:1}}
+/* video vertical */
+.vd{max-width:300px;border:2px solid #3A3026;border-radius:20px;overflow:hidden;background:#FFF8EA;box-shadow:0 4px 0 #3A3026}
+.vd video{display:block;width:100%;aspect-ratio:9/16;background:#14323F}
+.vd-ctl,.vd-tr{padding:8px 12px}.vd-ctl select{min-height:40px}
+.vd-empty{padding:14px;text-align:center}.vd-empty p{margin:6px 0 0;font-size:15px}
+.vd-ph{position:relative;aspect-ratio:9/12;border-radius:14px;background:linear-gradient(#DDEFF8,#F4FAFF);display:grid;place-items:center;margin-bottom:10px}
+.vd-rb{width:46%;aspect-ratio:1}.vd-rb .rb{width:100%;height:100%}
+.vd-cam{position:absolute;right:12px;top:12px;width:30px;height:30px;color:#3A3026}
+/* bocas de muestra */
+.vz-mouths{display:flex;flex-wrap:wrap;gap:10px}.vz-mouths figure{margin:0;width:96px;text-align:center;font-size:13px}.vz-mouths .vz-mw{width:96px;height:96px;position:relative}.vz-mouths .rb{position:relative!important;left:auto!important;top:auto!important;transform:none!important;margin:0!important;width:100%;height:100%}
+#artVoz h3{margin-top:22px}
