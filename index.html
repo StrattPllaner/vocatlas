@@ -3254,6 +3254,10 @@ body:not(.on-map):not(.lp-open)::before{content:"";position:fixed;left:0;right:0
 .bt4-w{text-shadow:0 4px 0 #0A1B24!important;margin-left:-16px!important;padding:0 6px 8px 0!important;margin-bottom:-4px!important}
 /* «ocatlas» plano, sin relieve */
 .bt4-w{text-shadow:none!important}
+/* centrado: mientras es brújula, su centro va al centro de la pantalla; al formarse «Vocatlas», la palabra queda centrada */
+.bt4{transform:translateY(-40px);animation:bt4Up .6s cubic-bezier(.3,0,.2,1) 1.9s forwards}
+@keyframes bt4Up{to{transform:translateY(-10px)}}
+@media (prefers-reduced-motion:reduce){.bt4{animation:none;transform:translateY(-10px)}}
 /* explicación animada, globo de Rumbo y video */
 .ex{background:#FFF8EA;border:2px solid #3A3026;border-radius:20px;padding:12px;box-shadow:0 4px 0 #3A3026;max-width:520px;color:#14323F}
 .ex-say{position:relative;min-height:64px;margin-top:10px}
