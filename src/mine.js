@@ -52,7 +52,7 @@ function artBake(ids){if(typeof sprMake!=="function")return;var night=!!(DMQ&&DM
 function artUse(id,v,op){artDef(id);var o=ARTIMG[id+v+((DMQ&&DMQ.matches)?"n":"d")];var a=op!=null?' opacity="'+op+'"':'';return o&&o.u?sprImg(o).replace("<image ",'<image'+a+' '):'<use href="#ad-'+id+v+'"'+a+'/>'}
 function artSVG(id,p){
  p=1;
- return '<svg class="ar" viewBox="-58 -84 116 116" aria-hidden="true">'+(p<1?artUse(id,"-g"):'')+(p>0?artUse(id,"",p<1?p.toFixed(2):null):'')+'</svg>';
+ return '<svg class="ar" viewBox="-68 -92 136 136" aria-hidden="true">'+(p<1?artUse(id,"-g"):'')+(p>0?artUse(id,"",p<1?p.toFixed(2):null):'')+'</svg>';
 }
 function shortName(c){return c.name.replace(/^Ing\. /,"")}
 
@@ -73,17 +73,20 @@ function miniMap(ids){
 /* ================= pantalla de elección de carreras ================= */
 var PK={mode:"new",sel:[],q:"",area:"",mt:0};
 function recoList(){
- var l=C.slice().sort(function(a,b){return AFF[b.id].score-AFF[a.id].score||(a.id<b.id?-1:1)}),top=l.filter(function(c){return AFF[c.id].score>0}).slice(0,5);
+ var l=C.filter(function(c){return !carSoon(c.id)}).sort(function(a,b){return AFF[b.id].score-AFF[a.id].score||(a.id<b.id?-1:1)}),top=l.filter(function(c){return AFF[c.id].score>0}).slice(0,5);
  /* sin coincidencias suficientes: una de cada área, para empezar variado */
- AREA_ORDER.forEach(function(a){var c=inArea(a)[0];if(top.length<3&&top.indexOf(c)<0)top.push(c)});
+ AREA_ORDER.forEach(function(a){var c=inArea(a).filter(function(x){return !carSoon(x.id)})[0];if(top.length<3&&top.indexOf(c)<0)top.push(c)});
  return top;
 }
 function whyReco(c){
  var m=AFF[c.id].matches;
  return m.length?"Coincide con: "+m.slice(0,3).map(function(x){return x.charAt(0).toLowerCase()+x.slice(1)}).join(", "):"Para asomarte a "+AREAS[c.area].n.toLowerCase();
 }
+/* carreras sin lecciones todavía: se ven en gris, «Próximamente», y no se pueden elegir */
+function carSoon(id){return typeof CAT!=="undefined"&&CAT.car&&!CAT.car[id]}
 function pkCard(c,why){
  var on=PK.sel.indexOf(c.id)>-1;
+ if(carSoon(c.id))return '<div class="pk-card pk-soon" aria-disabled="true" data-id="'+c.id+'" data-a="'+c.area+'" data-h="'+esc(normQ(c.name+" "+AREAS[c.area].n))+'"><span class="pk-art">'+artSVG(c.id,1)+'</span><b>'+esc(c.name)+'</b><small>'+esc(AREAS[c.area].n)+'</small><em class="pk-soon-t">Próximamente</em></div>';
  return '<button type="button" class="pk-card" role="checkbox" aria-checked="'+(on?"true":"false")+'" data-id="'+c.id+'" data-a="'+c.area+'" data-h="'+esc(normQ(c.name+" "+AREAS[c.area].n+" "+c.tags.split(" ").map(function(t){return LAB[t]||t}).join(" ")))+'">'+
   '<span class="pk-art">'+artSVG(c.id,1)+(typeof SIMB!=="undefined"&&SIMB.has(c.id)?'<span class="sy-badge">'+SIMB.icon(c.id,"a",52)+'</span>':'')+'</span><b>'+esc(c.name)+'</b><small>'+esc(AREAS[c.area].n)+'</small>'+(why?'<em class="pk-why">'+esc(why)+'</em>':'')+
   '<span class="pk-ck" aria-hidden="true">'+ico("check")+'</span></button>';
@@ -113,7 +116,7 @@ function openPicker(mode,area){
  el.innerHTML=h;
  el.classList.remove("leaving");el.classList.add("on");
  if(!RM())restart(el,"pk-enter");
- each(el.querySelectorAll(".pk-card"),function(b){b.onclick=function(){pkToggle(b.getAttribute("data-id"))}});
+ each(el.querySelectorAll(".pk-card:not(.pk-soon)"),function(b){b.onclick=function(){pkToggle(b.getAttribute("data-id"))}});
  each(el.querySelectorAll(".pk-filters .ui-chip"),function(b){b.onclick=function(){PK.area=b.getAttribute("data-f");each(el.querySelectorAll(".pk-filters .ui-chip"),function(x){x.setAttribute("aria-pressed",x===b?"true":"false")});pkFilter()}});
  $("#pkQ").oninput=function(){PK.q=normQ(this.value);pkFilter()};
  $("#pkGo").onclick=pkConfirm;
@@ -258,7 +261,7 @@ function mapChange(add,rem){
   });
  }else rebuild();
 }
-$("#addCar").onclick=function(){openPicker("edit")};
+$("#addCar").onclick=function(){if(typeof APUNTES!=="undefined")APUNTES.menu(this);else openPicker("edit")};
 
 /* ---------- sello y celebración al completar una carrera ---------- */
 function stampHTML(c,on){

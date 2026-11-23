@@ -259,7 +259,7 @@ var PATH=(function(){
  }
  function burstAt(b){if(RM())return;var cols=["#F2B544","#FFFFFF","#7FB59A","#8FC9E8"];for(var i=0;i<12;i++){var s=document.createElement("i");s.className="lp-pt";s.style.background=cols[i%4];s.style.setProperty("--a",(i*30)+"deg");b.appendChild(s);setTimeout(function(x){return function(){x.remove()}}(s),700)}}
  /* al terminar una lección: la parada se llena, chispas, y Rumbo camina a la siguiente */
- function complete(it){
+ function complete(it){if(typeof APUNTES!=="undefined"&&typeof toast==="function")setTimeout(function(){toast("Lo que viste ya está en tus Apuntes")},RM()?0:900);
   var b=document.querySelector('.rt3-n[data-i="'+it.k2+'"]');if(b){b.classList.remove("s-cur");b.classList.add("s-done","fill");burstAt(b)}
   if(typeof sfx==="function")sfx("ok");
   setTimeout(function(){refresh(true)},RM()?0:650);
