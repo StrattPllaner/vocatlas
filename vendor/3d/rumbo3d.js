@@ -58,7 +58,8 @@ function loop(ts){raf=0;if(document.hidden)return;
  if(!live.size)return;raf=requestAnimationFrame(loop);if(!vis.length)return;
  /* hasta 4 Rumbos por cuadro (a 60 Hz cada uno va a 30 fps si hay 2; con muchos se turnan) */
  const n=Math.min(vis.length,4);const still=RM();
- for(let i=0;i<n;i++){const it=vis[(turn+i)%vis.length];if(ts-it.last<30&&vis.length<=2)continue;draw(it,ts,still)}
+ /* en reposo cada Rumbo se dibuja a ~22 cuadros por segundo (casi no se nota y libera mucho trabajo); caminando o manejando, a ~33 */
+ for(let i=0;i<n;i++){const it=vis[(turn+i)%vis.length],w=it.wr,act=it.drive||(w&&(w.classList.contains('walk')||w.getAttribute('data-mood')==='talk'));if(ts-it.last<(act?30:45))continue;draw(it,ts,still)}
  turn=(turn+n)%Math.max(1,vis.length);
  /* la cara: una o dos copias por cuadro, repartidas */
  const gi=vis[grabTurn%vis.length];grabTurn++;if(gi&&ts-gi.lastGrab>240){gi.lastGrab=ts;grab(gi)}}

@@ -691,7 +691,8 @@ var RUMBO=(function(){
     py:0,vy:0,px:0,vx:0,pr:0,vr:0,idleEye:svg.getAttribute("data-ojos-idle"),asH:svg.getAttribute("data-hatr")?+svg.getAttribute("data-hatr"):svg.getAttribute("data-asim")?-6:0,asA:svg.getAttribute("data-arr")?+svg.getAttribute("data-arr"):svg.getAttribute("data-asim")?5:0,eyefix:!!svg.getAttribute("data-eyefix"),isR:svg.classList.contains("rbx-R")||svg.classList.contains("rbx-P")||svg.classList.contains("rbx-S"),browAuto:!!svg.getAttribute("data-brow-auto"),browO:-1,spin:0,asF:svg.getAttribute("data-asim")?-24:0,bk:(EYES[svg.getAttribute("data-ojos")]||{}).brow||1};
    ST.set(svg,st);if(io)io.observe(svg);else VIS.set(svg,true);return st}
   function frame(now){
-   raf=0;var dt=Math.min(.05,Math.max(0,(now-(last||now))/1000))*(window.__rbSlow||1);last=now;
+   raf=0;if(last&&now-last<28&&!document.querySelector(".rb.walk")){raf=requestAnimationFrame(frame);return}
+   var dt=Math.min(.05,Math.max(0,(now-(last||now))/1000))*(window.__rbSlow||1);last=now;
    if(document.hidden)return;
    var any=false,rm=RMq();
    for(var i=0;i<list.length;i++){var svg=list[i],st=ST.get(svg)||init(svg);if(!VIS.get(svg))continue;if(window.__shown&&!window.__shown(svg))continue;any=true;
