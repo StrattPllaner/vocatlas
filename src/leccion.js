@@ -269,7 +269,9 @@ var LEC=(function(){
   (R[t.tipo]||R.escena)(t,box);
   var wr=box.querySelector(".rb");if(wr)wireRumbo(wr);
   /* Rumbo acompaña abajo cuando sobra espacio: pensando con «?» en preguntas, contento al leer */
-  var bd=L.el.querySelector(".lc-buddy");if(bd){var q=/pregunta|vf|decision|ordenar|reflexion|rango|dos_caminos|teves|clasificar|armar/.test(t.tipo),hasRb=!!box.querySelector(".rb");
+  var bd=L.el.querySelector(".lc-buddy");if(bd){var q=/pregunta|vf|decision|ordenar|reflexion|rango|dos_caminos|teves|clasificar|armar|escena/.test(t.tipo),hasRb=!!box.querySelector(".rb");
+   /* en «Imagina» el Rumbo chico de la tarjeta se quita: el grande ocupa el espacio vacío */
+   if(hasRb&&t.tipo==="escena"){var sr=box.querySelector(".rb");if(sr)sr.remove();hasRb=false}
    bd.hidden=hasRb;bd.classList.toggle("is-q",q);var brb=bd.querySelector(".rb");if(brb){if(!brb.__w){wireRumbo(brb);brb.__w=1}if(typeof mood==="function")mood(brb,q?"think":"happy",q?"tilt":null)}}
   restart(box,"in");L.el.querySelector(".lc-body").scrollTop=0;
   if(L.ctx.resume){S.lp=S.lp||{};S.lp[L.id+":"+L.les.id]=L.i;save()}

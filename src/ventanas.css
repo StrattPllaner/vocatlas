@@ -112,3 +112,10 @@
 @keyframes ppStamp{0%{transform:scale(2.2) rotate(-14deg);opacity:0}100%{opacity:1}}
 #flow[data-step=perfil] .pp{display:none}
 @media (prefers-reduced-motion:reduce){.pp2-st.on{animation:none}}
+/* Rumbo llena el espacio vacío de la lección; signo «?» como globo 3D */
+.lc-buddy{flex:1 1 auto;margin:12px auto 0;width:min(260px,70vw);height:auto;min-height:170px;display:flex;align-items:flex-end;justify-content:center}
+.lc-buddy .rb{position:relative;left:auto;bottom:auto;width:min(220px,58vw);height:min(220px,58vw);max-height:100%}
+.lc-bq{right:4%;top:6%;width:58px;height:66px;border-radius:50% 50% 50% 50%/46% 46% 54% 54%;font-size:34px;color:#fff;text-shadow:0 2px 0 #B8731B;
+ background:radial-gradient(circle at 34% 28%,#FFF4C8 0 10%,#FFD25E 28%,#F2A62E 70%,#C9781C 100%);box-shadow:inset -6px -8px 14px rgba(150,80,10,.35),0 10px 18px rgba(20,50,63,.22)}
+.lc-bq::after{content:"";position:absolute;left:50%;bottom:-7px;width:10px;height:9px;margin-left:-5px;background:#D98A22;clip-path:polygon(50% 0,100% 100%,0 100%)}
+.lc-bq::before{content:"";position:absolute;left:50%;top:100%;width:1.5px;height:28px;background:rgba(20,50,63,.35);transform:translateY(8px)}

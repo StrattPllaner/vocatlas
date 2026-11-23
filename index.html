@@ -3174,6 +3174,13 @@ body:not(.on-map):not(.lp-open)::before{content:"";position:fixed;left:0;right:0
 @keyframes ppStamp{0%{transform:scale(2.2) rotate(-14deg);opacity:0}100%{opacity:1}}
 #flow[data-step=perfil] .pp{display:none}
 @media (prefers-reduced-motion:reduce){.pp2-st.on{animation:none}}
+/* Rumbo llena el espacio vacío de la lección; signo «?» como globo 3D */
+.lc-buddy{flex:1 1 auto;margin:12px auto 0;width:min(260px,70vw);height:auto;min-height:170px;display:flex;align-items:flex-end;justify-content:center}
+.lc-buddy .rb{position:relative;left:auto;bottom:auto;width:min(220px,58vw);height:min(220px,58vw);max-height:100%}
+.lc-bq{right:4%;top:6%;width:58px;height:66px;border-radius:50% 50% 50% 50%/46% 46% 54% 54%;font-size:34px;color:#fff;text-shadow:0 2px 0 #B8731B;
+ background:radial-gradient(circle at 34% 28%,#FFF4C8 0 10%,#FFD25E 28%,#F2A62E 70%,#C9781C 100%);box-shadow:inset -6px -8px 14px rgba(150,80,10,.35),0 10px 18px rgba(20,50,63,.22)}
+.lc-bq::after{content:"";position:absolute;left:50%;bottom:-7px;width:10px;height:9px;margin-left:-5px;background:#D98A22;clip-path:polygon(50% 0,100% 100%,0 100%)}
+.lc-bq::before{content:"";position:absolute;left:50%;top:100%;width:1.5px;height:28px;background:rgba(20,50,63,.35);transform:translateY(8px)}
 /* explicación animada, globo de Rumbo y video */
 .ex{background:#FFF8EA;border:2px solid #3A3026;border-radius:20px;padding:12px;box-shadow:0 4px 0 #3A3026;max-width:520px;color:#14323F}
 .ex-say{position:relative;min-height:64px;margin-top:10px}
@@ -10921,7 +10928,9 @@ var LEC=(function(){
   (R[t.tipo]||R.escena)(t,box);
   var wr=box.querySelector(".rb");if(wr)wireRumbo(wr);
   /* Rumbo acompaña abajo cuando sobra espacio: pensando con «?» en preguntas, contento al leer */
-  var bd=L.el.querySelector(".lc-buddy");if(bd){var q=/pregunta|vf|decision|ordenar|reflexion|rango|dos_caminos|teves|clasificar|armar/.test(t.tipo),hasRb=!!box.querySelector(".rb");
+  var bd=L.el.querySelector(".lc-buddy");if(bd){var q=/pregunta|vf|decision|ordenar|reflexion|rango|dos_caminos|teves|clasificar|armar|escena/.test(t.tipo),hasRb=!!box.querySelector(".rb");
+   /* en «Imagina» el Rumbo chico de la tarjeta se quita: el grande ocupa el espacio vacío */
+   if(hasRb&&t.tipo==="escena"){var sr=box.querySelector(".rb");if(sr)sr.remove();hasRb=false}
    bd.hidden=hasRb;bd.classList.toggle("is-q",q);var brb=bd.querySelector(".rb");if(brb){if(!brb.__w){wireRumbo(brb);brb.__w=1}if(typeof mood==="function")mood(brb,q?"think":"happy",q?"tilt":null)}}
   restart(box,"in");L.el.querySelector(".lc-body").scrollTop=0;
   if(L.ctx.resume){S.lp=S.lp||{};S.lp[L.id+":"+L.les.id]=L.i;save()}
