@@ -182,3 +182,9 @@
 .ap-clave{font-weight:800;background:linear-gradient(transparent 55%,rgba(242,193,78,.5) 55%)}
 .ap-mut{color:#8A96A0;font-style:italic}.ap-l.is-lock h4{color:#9AA5B1;text-decoration-color:#D5DBE0}
 .ap-empty{margin:10px 0;padding:8px 12px;border-radius:12px;background:rgba(242,193,78,.18);line-height:22px}
+#boot .bt2-say,#boot .bt2-bar{display:none!important}
+/* «ocatlas»: misma tinta del logo, trazo grueso y limpio con un relieve sólido de un solo tono */
+.bt4-w{font-family:"Nunito",system-ui,sans-serif;font-weight:900;font-size:64px;letter-spacing:-.025em;color:var(--ink,#14323F);
+ text-shadow:0 4px 0 #0A1B24,0 8px 14px rgba(10,25,40,.18)!important;-webkit-font-smoothing:antialiased;margin-left:-2px}
+@media (max-width:380px){.bt4-w{font-size:52px}}
+.bt4-w{text-shadow:0 4px 0 #0A1B24!important;margin-left:-16px!important;padding:0 6px 8px 0!important;margin-bottom:-4px!important}

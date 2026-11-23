@@ -35,6 +35,7 @@ function go(){if(!raf)raf=requestAnimationFrame(loop)}
 function grab(it){const src=it.src;if(!src||it.busy||!src.isConnected)return;it.busy=true;const c=src.cloneNode(true);
  c.querySelectorAll('.rk-hat,.rk-legL,.rk-legR,.rk-handL,.rk-handR,.rk-shadow,.rk-wheel,.rk-zz').forEach(e=>e.remove());
  ['.rk-root','.rk-body'].forEach(q=>{const e=c.querySelector(q);if(e)e.removeAttribute('transform')});
+ if(it.wr&&it.wr.getAttribute('data-mood')==='think'){const a=c.querySelector('.rk-fs'),b=c.querySelector('.rk-fthink');if(a)a.setAttribute('opacity','0');if(b)b.setAttribute('opacity','1')}
  c.removeAttribute('style');c.setAttribute('viewBox','30.2 37.8 39.6 39.6');c.setAttribute('width','512');c.setAttribute('height','512');c.setAttribute('xmlns','http://www.w3.org/2000/svg');
  /* solo se vuelve a pintar si la cara cambió (parpadeo, boca, gesto); si es igual no se hace nada */
  const str=new XMLSerializer().serializeToString(c);if(str===it.lastFace){it.busy=false;return}it.lastFace=str;
@@ -68,7 +69,7 @@ function draw(it,ts,still){it.last=ts;if(!it.t0)it.t0=ts;const t=(ts-it.t0)/1000
   if(it.wheel)it.wheel.rotation.z=-st*1.6;it.piv.rotation.set(.16,(it.yaw==null?-.72:it.yaw)+st*.25+(it.spin?t*it.spin:0),st*.18)}
  else{PARTS.forEach(k=>copyJoint(it,k,walk));
   /* pensando: la mano izquierda cambia a puño con el índice y pasa al frente de la cara */
-  const H=it.hands,th=!!(it.src&&it.src.__PL==="pensando");if(H&&H.Lt){if(H.Lt.visible!==th){H.Lt.visible=th;H.L.visible=!th;if(H.brows)H.brows.visible=th}const jl=it.J.handL;if(jl&&th){jl.position.z=9;H.Lt.position.set(-30,-6,2);H.Lt.rotation.z=-.35+(still?0:.08*Math.sin(t*2.6))}}
+  const H=it.hands,th=!!(it.src&&it.src.__PL==="pensando");if(H&&H.Lt){if(H.Lt.visible!==th){H.Lt.visible=th;H.L.visible=!th;if(H.brows)H.brows.visible=th}const jl=it.J.handL;if(jl&&th){jl.position.z=9;H.Lt.position.set(-29,-18+(still?0:.6*Math.sin(t*2.6)),3);H.Lt.scale.setScalar(1.3);H.Lt.rotation.z=-.15+(still?0:.12*Math.sin(t*2.6));it.piv.rotation.z=still?0:.06*Math.sin(t*.9)-.05}}
   /* caminando mira hacia donde va: de frente si baja por la pantalla, de espaldas si sube, de lado si cruza */
   const dir=wr&&wr.__dir;let target=walk?(dir?Math.atan2(dir[0],dir[1]):(left?-1.05:1.05)):(it.yaw==null?(left?.3:-.3):it.yaw)+(still?0:.1*Math.sin(t*.7));
   let dy=target-it.yawNow;while(dy>Math.PI)dy-=2*Math.PI;while(dy<-Math.PI)dy+=2*Math.PI;

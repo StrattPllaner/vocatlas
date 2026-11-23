@@ -1287,7 +1287,7 @@ export function rumbo3d(K,o){o=o||{};
    /* mano para pensar: puño con el índice estirado, apoyada en la barbilla */
    const t=gloveThink3d(K,hL,[-35,-12.4,2]);t.visible=false;
    /* cejas de pensar: una levantada y otra fruncida, al frente de la carátula (solo se ven pensando) */
-   const bw=K.group({parent:body,p:[0,0,7.2]});bw.visible=false;
+   const bw=K.group({parent:body,p:[0,0,7.2]});bw.visible=false;bw.scale.setScalar(0);
    K.cap(.8,4.4,'#4A2A16',{parent:bw,p:[-7.2,12.2,.4],r:[0,0,68]});K.cap(.8,4.4,'#4A2A16',{parent:bw,p:[7,10.4,.4],r:[0,0,-74]});
    top.userData.hands={L:a,Lt:t,brows:bw}}
   top.userData.face=body.userData.face;top.userData.faceTex=body.userData.faceTex;top.userData.J=J;

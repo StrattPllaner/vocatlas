@@ -528,6 +528,8 @@ var RUMBO=(function(){
   s+=grp("rk-fs",115,138,F(P.big,id+"fs"));
   s+=grp("rk-fc",114,156,F(P.chin));
   s+='<g class="rk-ff">'+P.fl.map(function(d){return F(d)}).join("")+P.fr.map(function(d){return F(d)}).join("")+'</g>';
+  /* cara de duda: ceja izquierda alta, derecha fruncida y boca torcida de lado («mmm…») */
+  s+='<g class="rk-fthink" opacity="0"><path d="M54 34Q78 18 102 30" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round"/><path d="M136 46Q158 44 182 30" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round"/><path d="M100 146Q116 138 134 136Q138 135.4 140 138" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/></g>';
   s+='<ellipse class="rk-fO" cx="114" cy="140" rx="8" ry="10" fill="currentColor" opacity="0"/>';
   /* boca hablando: misma tinta que la cara, abierta en D con lengua; se abre y cierra desde arriba */
   s+='<g data-p="talk" class="rk-mouth" cy="133"><path d="M91 133Q114 126.5 137 133Q136 158 114 159.5Q92 158 91 133Z" fill="currentColor" stroke="currentColor" stroke-width="4.4" stroke-linejoin="round"/><path d="M101 151Q114 142 127 151Q122 157.6 114 157.8Q106 157.6 101 151Z" fill="#E86A6A"/></g>';

@@ -669,3 +669,5 @@ img.tw-img.tw-back{opacity:.62;filter:saturate(.7)}
 /* Rumbo 3D en toda la app: el dibujo plano queda invisible (sigue moviendo al 3D y dándole la cara) */
 .rb.is-3d>svg.rbx{visibility:hidden}
 .rb>.rb3d-u{position:absolute;left:-15%;top:-15%;width:130%;height:130%;pointer-events:none;display:block}
+
+.rb[data-mood=think] .rk-fs{opacity:0}.rb[data-mood=think] .rk-fthink{opacity:1}
