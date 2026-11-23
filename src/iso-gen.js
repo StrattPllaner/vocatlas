@@ -208,15 +208,23 @@ var MAPGEN=(function(){
   for(var i=0;i<L.length;i++)for(var j=i+1;j<L.length;j++){var gap=Math.hypot(L[i].x-L[j].x,L[i].y-L[j].y)-L[i].R-L[j].R;cand.push({i:i,j:j,w:gap/(1+3*jac(tagsOf[L[i].id],tagsOf[L[j].id]))})}
   cand.sort(function(a,b){return a.w-b.w});
   var comp=L.map(function(_,k){return k});function fd(k){while(comp[k]!==k)k=comp[k]=comp[comp[k]];return k}
-  var chosen=[];cand.forEach(function(c){var a=fd(c.i),b=fd(c.j);if(a!==b){comp[a]=b;chosen.push(c)}});
-  var rest=cand.filter(function(c){return chosen.indexOf(c)<0});if(rest.length&&L.length>2)chosen.push(rest[0]);
+  /* punta de cada orilla más cercana entre dos islas */
+  function ends(A,B){var best=null,bd=1e9;for(var p=0;p<A.coast.length;p+=2)for(var q=0;q<B.coast.length;q+=2){var d=Math.hypot(A.coast[p][0]-B.coast[q][0],A.coast[p][1]-B.coast[q][1]);if(d<bd){bd=d;best=[A.coast[p],B.coast[q]]}}return best}
+  /* un puente no puede pasar encima de otra isla (ni rozar su orilla) */
+  function clear(c,e){for(var k=0;k<L.length;k++){if(k===c.i||k===c.j)continue;var I=L[k];
+    for(var t=0;t<=1.0001;t+=.05){var x=e[0][0]+(e[1][0]-e[0][0])*t,y=e[0][1]+(e[1][1]-e[0][1])*t;if(inPoly(x,y,I.coast)||edgeDist(x,y,I.coast)<34)return false}}return true}
+  /* tampoco debe cruzarse con otro puente */
+  function crossB(e,ch){return ch.some(function(o){return cross(e[0],e[1],o.e[0],o.e[1])})}
+  var chosen=[],later=[];
+  cand.forEach(function(c){var a=fd(c.i),b=fd(c.j);if(a===b)return;var e=ends(L[c.i],L[c.j]);if(!e)return;c.e=e;
+   if(clear(c,e)&&!crossB(e,chosen)){comp[a]=b;chosen.push(c)}else later.push(c)});
+  /* solo si quedó alguna isla sin conectar se acepta un puente que no cumpla (caso raro) */
+  later.forEach(function(c){var a=fd(c.i),b=fd(c.j);if(a!==b){comp[a]=b;chosen.push(c)}});
   chosen.forEach(function(c){
-   var A=L[c.i],B=L[c.j],best=null,bd=1e9;
-   for(var p=0;p<A.coast.length;p+=2)for(var q=0;q<B.coast.length;q+=2){var d=Math.hypot(A.coast[p][0]-B.coast[q][0],A.coast[p][1]-B.coast[q][1]);if(d<bd){bd=d;best=[A.coast[p],B.coast[q]]}}
-   if(!best)return;
+   var best=c.e;if(!best)return;
    /* el puente entra un poco a cada isla y se une con la carrera más cercana por un camino */
    var a=best[0],b=best[1],dx=b[0]-a[0],dy=b[1]-a[1],l=Math.hypot(dx,dy)||1,ux=dx/l,uy=dy/l;
-   var a2=[a[0]-ux*16,a[1]-uy*16],b2=[b[0]+ux*16,b[1]+uy*16];
+   var A=L[c.i],B=L[c.j],a2=[a[0]-ux*16,a[1]-uy*16],b2=[b[0]+ux*16,b[1]+uy*16];
    W.bridges.push({a:A.id,b:B.id,p0:a2,p1:b2,len:l+32});
    [[A,a2],[B,b2]].forEach(function(z){var isle=z[0],pt=z[1],nn=null,nd=1e9;isle.nodes.forEach(function(o){var d=Math.hypot(o.x-pt[0],o.y-pt[1]);if(d<nd){nd=d;nn=o}});if(nn)W.edges.push({a:nn.id,b:null,dock:true,pts:curve([nn.x,nn.y],pt,hs(nn.id+"b"))})});
   });
