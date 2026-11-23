@@ -181,7 +181,9 @@ var PATH=(function(){
   if(PZ.rb)mood(PZ.rb,it.state==="done"?"happy":"idle")}
  /* el globo acompaña a su botón mientras la espiral gira */
  function globeFollow(){var g=$("#twGlobe");if(!g||g.hidden||st.sel==null)return;var q=TORRE.pos(st.tw,st.sel);if(!q)return;
-  var sw=g.parentNode.clientWidth,gw=g.offsetWidth||180,x=Math.max(gw/2+6,Math.min(sw-gw/2-6,q.x));
+  /* medidas guardadas: leerlas en cada cuadro obliga a recalcular la página */
+  if(!g.__sw||g.__html!==g.innerHTML.length){g.__sw=g.parentNode.clientWidth;g.__gw=g.offsetWidth||180;g.__html=g.innerHTML.length}
+  var sw=g.__sw,gw=g.__gw,x=Math.max(gw/2+6,Math.min(sw-gw/2-6,q.x));
   g.style.setProperty("--ax",Math.max(-(gw/2-20),Math.min(gw/2-20,q.x-x))+"px");g.style.left=x+"px";g.style.top=(q.y+q.sz*.5+14)+"px"}
  /* Rumbo se asoma junto a la lección que sigue */
  function placeRumbo(i,walk){if(st.tower){towerRumbo(i,walk);return}var e=$("#lpRb"),b=document.querySelector('.rt7-n[data-i="'+i+'"]');if(!e||!b)return;var it=st.items[i];

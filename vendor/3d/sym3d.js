@@ -79,9 +79,10 @@ function loop(ts) {
   const t = (ts - T0) / 1000, still = RM();
   live.forEach(it => {
     if (!it.cv.isConnected) { live.delete(it); return }
-    if (!it.vis || document.hidden) return;
+    if (!it.vis || document.hidden || (window.__shown && !window.__shown(it.cv))) return;
     const S = it.host.__S, rot = S ? S.rot * Math.PI / 180 : 0;
-    const yaw = -0.48 + it.ph + rot + (still ? 0 : t * 0.55);
+    const yaw = -0.48 + it.ph + rot + (still ? 0 : t * 0.25);
+    if (it.t && ts - it.t < (S && S.raf ? 32 : 66)) return;
     if (it.last !== undefined && Math.abs(yaw - it.last) < 0.004) return;
     if (it.t && ts - it.t < 32) return; it.t = ts;
     it.last = yaw;

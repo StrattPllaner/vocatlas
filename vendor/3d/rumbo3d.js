@@ -54,7 +54,7 @@ function copyJoint(it,k,walk){const el=it.g2[k],o=it.J[k];if(!el||!o)return;cons
  else{o.position.set(pv[0]+dx,pv[1]-dy,0);o.rotation.set(0,0,-r);o.scale.set(sx,sy,(sx+sy)/2)}}
 
 function loop(ts){raf=0;if(document.hidden)return;
- const vis=[];live.forEach(it=>{if(!it.cv.isConnected){live.delete(it);it.dispose();return}if(it.vis)vis.push(it)});
+ const vis=[];live.forEach(it=>{if(!it.cv.isConnected){live.delete(it);it.dispose();return}if(it.vis&&(!window.__shown||window.__shown(it.cv)))vis.push(it)});
  if(!live.size)return;raf=requestAnimationFrame(loop);if(!vis.length)return;
  /* hasta 4 Rumbos por cuadro (a 60 Hz cada uno va a 30 fps si hay 2; con muchos se turnan) */
  const n=Math.min(vis.length,4);const still=RM();

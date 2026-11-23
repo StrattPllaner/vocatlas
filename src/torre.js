@@ -225,8 +225,8 @@ var TORRE=(function(I){
    ul:host.querySelectorAll(".tw-ul"),pb:host.querySelectorAll(".tw-pb path"),pf:host.querySelectorAll(".tw-pf path"),btn:{},cur:o.cur,rot:A[o.cur]?A[o.cur].a:0,base:Math.round(58*Math.min(1.2,k))};
   S.cb=host.querySelector(".tw-cb");S.cf=host.querySelector(".tw-cf");S.spr=puffs(null);S.sprD=puffs((byId[id]||{}).color||"#3F7DA6");host.__S=S;setTimeout(function(){live3d(host)},60);drive(host);
   /* al subir o bajar, la espiral gira: el tramo que queda a media pantalla siempre viene al frente */
-  if(S.sc&&!S.sc.__twScroll){var tk=0;S.sc.__twScroll=1;S.sc.addEventListener("scroll",function(){var s2=S.sc.__S2||S;if(s2.raf||tk)return;tk=requestAnimationFrame(function(){tk=0;if(performance.now()>=(s2.quiet||0)){var a=angleAtScroll(s2);if(a!=null)s2.rot=a}render(s2)})},{passive:true})}
-  if(S.sc)S.sc.__S2=S;
+  if(S.sc&&!S.sc.__twScroll){var tk=0;S.sc.__twScroll=1;S.sc.addEventListener("scroll",function(){var s2=S.sc.__S2||S;s2.stop=null;if(s2.raf||tk)return;tk=requestAnimationFrame(function(){tk=0;s2.stop=S.sc.scrollTop;if(performance.now()>=(s2.quiet||0)){var a=angleAtScroll(s2);if(a!=null)s2.rot=a}render(s2)})},{passive:true})}
+  if(S.sc){S.sc.__S2=S;if(!S.sc.__rz){S.sc.__rz=1;window.addEventListener("resize",function(){var s3=S.sc.__S2;if(s3){s3.vh=0;s3.vw2=0}})}}
   A.forEach(function(it){S.btn[it.k2]=host.querySelector('.tw-n[data-i="'+it.k2+'"]')});
   S.doors=[];each(host.querySelectorAll(".tw-door"),function(b){var u=+b.getAttribute("data-u");S.doors.push({el:b,a:u*360+180,w:parseFloat(b.style.width)||110})});
   S.first=o.units.map(function(u){var it=u.items[0];return it?A.indexOf(it):null});
@@ -236,8 +236,9 @@ var TORRE=(function(I){
  /* ---------- dibuja con el giro actual: camino (atrás y adelante), botones, etiquetas y Rumbo ---------- */
  function render(S,rbA,arc){
   /* el camino es una banda de nubes (lienzos) con destellos que viajan por el centro (svg) */
-  var rot=S.rot,sc0=S.sc?S.sc.scrollTop-S.padT:0,vh=S.sc?S.sc.clientHeight:900,pyMin=sc0-350,pyMax=sc0+vh+350,run=null,seg={b:{pl:["",""]},f:{pl:["",""]}};
-  clouds(S,rot,sc0,vh);
+  var rot=S.rot,sc0=S.sc?(S.stop!=null?S.stop:S.sc.scrollTop)-S.padT:0,vh=S.vh||(S.vh=S.sc?S.sc.clientHeight:900),pyMin=sc0-350,pyMax=sc0+vh+350,run=null,seg={b:{pl:["",""]},f:{pl:["",""]}};
+  /* la banda de nubes es lo más caro de pintar: mientras se mueve se repinta a lo más 20 veces por segundo, y al detenerse una vez más */
+  var nw=performance.now();if(nw-(S.clT||0)>48){S.clT=nw;clouds(S,rot,sc0,vh)}clearTimeout(S.clTm);S.clTm=setTimeout(function(){S.clT=0;clouds(S,S.rot,S.sc?S.sc.scrollTop-S.padT:0,S.vh||vh)},90);
   for(var a=S.a0;a<=S.a1+.1;a+=5){var q=proj(a,rot,6),py=(q.y-S.ytop)*S.k;if(py<pyMin||py>pyMax){run=null;continue}
    var side=q.d<0?"b":"f",kind=a<=S.doneA?1:0,key=side+kind,c=f1(q.x)+" "+f1(q.y);
    if(run&&run.key===key)seg[side].pl[kind]+="L"+c;else{seg[side].pl[kind]+=(run?"M"+run.c+"L":"M")+c}run={key:key,c:c}}
@@ -247,7 +248,7 @@ var TORRE=(function(I){
    if(b.__bz!==bz){b.__bz=bz;b.style.width=b.style.height=bz+"px"}
    b.style.transform="translate("+f1(p.x-bz/2)+"px,"+f1(p.y-bz*.62)+"px) scale("+sc.toFixed(3)+")";
    var z=q.d<-.15?2:6;if(b.__z!==z){b.__z=z;b.style.zIndex=z;b.classList.toggle("is-back",z===2)}});
-  (S.doors||[]).forEach(function(o){var q=proj(o.a,rot,4,R+46),p=S.toPx(q),sc=.84+.16*(q.d+1)/2,back=q.d<-.2,b=o.el,hw=o.w*sc/2,vw2=(S.sc&&S.sc.clientWidth)||S.Wp,ox=(S.Wp-vw2)/2,px=Math.max(ox+hw+4,Math.min(ox+vw2-hw-4,p.x));
+  (S.doors||[]).forEach(function(o){var q=proj(o.a,rot,4,R+46),p=S.toPx(q),sc=.84+.16*(q.d+1)/2,back=q.d<-.2,b=o.el,hw=o.w*sc/2,vw2=S.vw2||(S.vw2=(S.sc&&S.sc.clientWidth)||S.Wp),ox=(S.Wp-vw2)/2,px=Math.max(ox+hw+4,Math.min(ox+vw2-hw-4,p.x));
    b.style.transform="translate("+f1(px-o.w/2)+"px,"+f1(p.y-o.w*.78)+"px) scale("+sc.toFixed(3)+")";
    if(b.__bk!==back){b.__bk=back;b.style.zIndex=back?2:5;b.classList.toggle("is-back",back)}});
   for(var u=0;u<S.ul.length;u++){var e=S.ul[u],fi=S.first[u],q2=proj(fi!=null?S.items[fi].a:u*360,rot),p2=S.toPx(q2),bs=S.base*(.8+.2*(q2.d+1)/2);
@@ -273,8 +274,8 @@ var TORRE=(function(I){
  function climbTop(S,i0,done){var a0=S.items[i0]?S.items[i0].a:S.rot;S.cur=-1;fly(S,a0,S.a1-10,1800,20,done)}
  function angleAtScroll(S){var sc=S.sc;if(!sc)return null;var yc=sc.scrollTop-S.padT+sc.clientHeight*.55,lo=S.a0,hi=S.a1;
   for(var n=0;n<22;n++){var m=(lo+hi)/2,y=S.toPx(proj(m,m)).y;if(y>yc)lo=m;else hi=m}return Math.max(S.a0,Math.min(S.a1,(lo+hi)/2))}
- function follow(S,y){var sc=S.sc;if(!sc)return;var want=y+S.padT-sc.clientHeight*.55;sc.scrollTop+=(want-sc.scrollTop)*.14}
- function scrollTo(S,y,smooth){var sc=S.sc;if(!sc)return;var t=Math.max(0,y+S.padT-sc.clientHeight*.58);if(smooth&&sc.scrollTo)sc.scrollTo({top:t,behavior:"smooth"});else sc.scrollTop=t}
+ function follow(S,y){var sc=S.sc;if(!sc)return;var want=y+S.padT-sc.clientHeight*.55;var nt=(S.stop!=null?S.stop:sc.scrollTop);nt+=(want-nt)*.14;sc.scrollTop=nt;S.stop=nt}
+ function scrollTo(S,y,smooth){var sc=S.sc;if(!sc)return;var t=Math.max(0,y+S.padT-sc.clientHeight*.58);if(smooth&&sc.scrollTo)sc.scrollTo({top:t,behavior:"smooth"});else{sc.scrollTop=t;S.stop=t}}
  /* trae al frente la puerta de una unidad: la espiral gira hasta ella y la pantalla baja o sube a su altura */
  function doorFocus(S,u,done){var o=(S.doors||[])[u];if(!o){done&&done();return}var r0=S.rot,r1=o.a;
   anim(S,Math.min(1100,350+Math.abs(r1-r0)*1.1),function(e){S.rot=r0+(r1-r0)*e;render(S);var q=proj(o.a,S.rot,4,R+46);follow(S,S.toPx(q).y-30)},function(){render(S);done&&done(o.el)})}
