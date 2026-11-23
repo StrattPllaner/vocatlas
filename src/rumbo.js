@@ -814,9 +814,9 @@ var RUMBO=(function(){
     /* manos con articulaciones: pose de cada mano (las dos nunca iguales) y su lugar */
     var PL="relajada",PR="relajada";
     if(st.hk){if(up>.5)PL=PR="celebrando";if(A&&A.k==="yes"){PL="celebrando";PR="pulgar"}if(wv>.3)PR="saludo";if(pt>.3)PR="señalar";if(mood==="think")PL="pensando";if(A&&A.k==="oops")PL=PR="sosteniendo";
-     var xl=wr.getAttribute("data-pose-l")||svg.getAttribute("data-pose-l"),xr=wr.getAttribute("data-pose-r");if(xl)PL=xl;if(xr)PR=xr;st.PL=PL;st.PR=PR;
+     var xl=wr.getAttribute("data-pose-l")||svg.getAttribute("data-pose-l"),xr=wr.getAttribute("data-pose-r");if(xl)PL=xl;if(xr)PR=xr;st.PL=PL;st.PR=PR;svg.__PL=PL;svg.__PR=PR;
      if(PL==="aplaudiendo"||PR==="aplaudiendo"){var cl3=Math.abs(Math.sin(t*2*Math.PI/.7));hl.x+=29-cl3*2.4;hl.y+=7;hl.r+=70;hr.x-=31-cl3*2.4;hr.y+=17;hr.r-=70}
-     if(PL==="pensando"){hl.x+=26;hl.y+=4;hl.r-=24}
+     if(PL==="pensando"){hl.x+=29;hl.y+=6;hl.r-=24}
      if(pt>.3)hr.r+=pt*160;
      /* en reposo las manos cuelgan: dedos hacia abajo, inclinadas hacia el cuerpo; al caminar se balancean como péndulo */
      var hgL=PL==="relajada"?1:0,hgR=PR==="relajada"?1:0,sw=W.walk*14*s1;

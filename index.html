@@ -3181,6 +3181,11 @@ body:not(.on-map):not(.lp-open)::before{content:"";position:fixed;left:0;right:0
  background:radial-gradient(circle at 34% 28%,#FFF4C8 0 10%,#FFD25E 28%,#F2A62E 70%,#C9781C 100%);box-shadow:inset -6px -8px 14px rgba(150,80,10,.35),0 10px 18px rgba(20,50,63,.22)}
 .lc-bq::after{content:"";position:absolute;left:50%;bottom:-7px;width:10px;height:9px;margin-left:-5px;background:#D98A22;clip-path:polygon(50% 0,100% 100%,0 100%)}
 .lc-bq::before{content:"";position:absolute;left:50%;top:100%;width:1.5px;height:28px;background:rgba(20,50,63,.35);transform:translateY(8px)}
+/* «?» de globo metálico dorado */
+.lc-bq{background:none!important;box-shadow:none!important;border-radius:0!important;width:76px!important;height:90px!important;text-shadow:none!important;right:0!important;top:0!important;filter:drop-shadow(0 8px 10px rgba(120,70,10,.25))}
+.lc-bq::before,.lc-bq::after{display:none!important}
+.lc-bq svg{width:100%;height:100%;display:block;overflow:visible}
+.lc-buddy .lc-bq{top:auto!important;bottom:calc(min(220px,58vw) - 46px)!important;right:auto!important;left:calc(50% + min(220px,58vw)*.2)!important;width:64px!important;height:76px!important}
 /* explicación animada, globo de Rumbo y video */
 .ex{background:#FFF8EA;border:2px solid #3A3026;border-radius:20px;padding:12px;box-shadow:0 4px 0 #3A3026;max-width:520px;color:#14323F}
 .ex-say{position:relative;min-height:64px;margin-top:10px}
@@ -3237,7 +3242,8 @@ body:not(.on-map):not(.lp-open)::before{content:"";position:fixed;left:0;right:0
 /* tema elegido en el perfil (auto, light, dark): las reglas @media (prefers-color-scheme) se reescriben para obedecerlo */
 (function(){
  var MQ=window.matchMedia?matchMedia("(prefers-color-scheme: dark)"):null,ORIG=[],cur="auto";
- try{cur=localStorage.getItem("vocatlas_tema")||"auto"}catch(e){}
+ /* de día siempre, salvo que la persona elija otra cosa en su perfil */
+ cur="light";try{cur=localStorage.getItem("vocatlas_tema")||"light"}catch(e){}
  function walk(rules){for(var i=0;i<rules.length;i++){var r=rules[i];if(r.media&&/prefers-color-scheme/.test(r.media.mediaText))ORIG.push([r,r.media.mediaText]);if(r.cssRules&&r.type!==1)walk(r.cssRules)}}
  function apply(){
   if(!ORIG.length){for(var i=0;i<document.styleSheets.length;i++){try{walk(document.styleSheets[i].cssRules)}catch(e){/* hoja de otro origen (fuentes): no se puede leer ni hace falta */}}}
@@ -6954,9 +6960,9 @@ var RUMBO=(function(){
     /* manos con articulaciones: pose de cada mano (las dos nunca iguales) y su lugar */
     var PL="relajada",PR="relajada";
     if(st.hk){if(up>.5)PL=PR="celebrando";if(A&&A.k==="yes"){PL="celebrando";PR="pulgar"}if(wv>.3)PR="saludo";if(pt>.3)PR="señalar";if(mood==="think")PL="pensando";if(A&&A.k==="oops")PL=PR="sosteniendo";
-     var xl=wr.getAttribute("data-pose-l")||svg.getAttribute("data-pose-l"),xr=wr.getAttribute("data-pose-r");if(xl)PL=xl;if(xr)PR=xr;st.PL=PL;st.PR=PR;
+     var xl=wr.getAttribute("data-pose-l")||svg.getAttribute("data-pose-l"),xr=wr.getAttribute("data-pose-r");if(xl)PL=xl;if(xr)PR=xr;st.PL=PL;st.PR=PR;svg.__PL=PL;svg.__PR=PR;
      if(PL==="aplaudiendo"||PR==="aplaudiendo"){var cl3=Math.abs(Math.sin(t*2*Math.PI/.7));hl.x+=29-cl3*2.4;hl.y+=7;hl.r+=70;hr.x-=31-cl3*2.4;hr.y+=17;hr.r-=70}
-     if(PL==="pensando"){hl.x+=26;hl.y+=4;hl.r-=24}
+     if(PL==="pensando"){hl.x+=29;hl.y+=6;hl.r-=24}
      if(pt>.3)hr.r+=pt*160;
      /* en reposo las manos cuelgan: dedos hacia abajo, inclinadas hacia el cuerpo; al caminar se balancean como péndulo */
      var hgL=PL==="relajada"?1:0,hgR=PR==="relajada"?1:0,sw=W.walk*14*s1;
@@ -7082,7 +7088,7 @@ var RUMBO=(function(){
 })();
 /* Rumbo en 3D en toda la app (vendor/3d/rumbo3d.js). Si el navegador no tiene WebGL, se queda el dibujo plano. */
 (function(){if(typeof window==="undefined"||!window.WebGLRenderingContext)return;
- function go(){import("./vendor/3d/rumbo3d.js?v=90f9b938ec").then(function(m){m.auto()}).catch(function(){})}
+ function go(){import("./vendor/3d/rumbo3d.js?v=56432e2fac").then(function(m){m.auto()}).catch(function(){})}
  if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",go);else setTimeout(go,0)})();
 
 /* ================= imágenes que no cargan =================
@@ -10948,7 +10954,7 @@ var LEC=(function(){
   var el=document.createElement("div");el.className="lc";el.setAttribute("role","dialog");el.setAttribute("aria-modal","true");el.setAttribute("aria-label",les.titulo);
   var col=ctx.color||c.color;el.style.setProperty("--c",col);el.style.setProperty("--cd",dk(col,.38));el.style.setProperty("--ct",lum(col)>.62?"#14323F":"#FFFFFF");
   el.innerHTML='<header class="lc-top"><button type="button" class="ui-iconbtn" id="lcX" aria-label="Salir de la lección">'+ico("x")+'</button><div class="lc-seg" aria-hidden="true">'+cards.map(function(){return "<i></i>"}).join("")+'</div></header>'+
-   '<div class="lc-body"><div class="lc-wrap"><div class="lc-eb"></div><div class="lc-card"></div><div class="lc-fb" aria-live="polite"></div><div class="lc-buddy" aria-hidden="true"><span class="lc-bq">?</span>'+rumboEl()+'</div></div></div>'+
+   '<div class="lc-body"><div class="lc-wrap"><div class="lc-eb"></div><div class="lc-card"></div><div class="lc-fb" aria-live="polite"></div><div class="lc-buddy" aria-hidden="true"><span class="lc-bq"><svg viewBox="0 0 110 130" aria-hidden="true"><defs><linearGradient id="lqG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF0B0"/><stop offset=".25" stop-color="#F7C948"/><stop offset=".5" stop-color="#E9A21E"/><stop offset=".72" stop-color="#FFD866"/><stop offset="1" stop-color="#B8730E"/></linearGradient><radialGradient id="lqD" cx=".38" cy=".32" r=".7"><stop offset="0" stop-color="#FFF6CF"/><stop offset=".35" stop-color="#F7C948"/><stop offset="1" stop-color="#B8730E"/></radialGradient></defs><g class="lq-q"><path d="M28 40C28 20 42 10 57 10C74 10 84 22 84 37C84 52 70 56 63 64C59 69 58 73 58 80" fill="none" stroke="#9A5E0C" stroke-width="26" stroke-linecap="round"/><path d="M28 40C28 20 42 10 57 10C74 10 84 22 84 37C84 52 70 56 63 64C59 69 58 73 58 80" fill="none" stroke="url(#lqG)" stroke-width="21" stroke-linecap="round"/><path d="M34 34C36 23 45 17 56 17" fill="none" stroke="#FFFBE6" stroke-width="5" stroke-linecap="round" opacity=".85"/><path d="M76 30C78 36 77 42 72 47" fill="none" stroke="#FFF3C4" stroke-width="3" stroke-linecap="round" opacity=".6"/><path d="M30 46C33 52 38 53 41 50" fill="none" stroke="#8A520A" stroke-width="2.4" stroke-linecap="round" opacity=".45"/><circle cx="58" cy="108" r="14" fill="#9A5E0C"/><circle cx="58" cy="107" r="12" fill="url(#lqD)"/><ellipse cx="53" cy="102" rx="4" ry="2.6" fill="#FFFBE6" opacity=".85" transform="rotate(-30 53 102)"/></g></svg></span>'+rumboEl()+'</div></div></div>'+
    '<footer class="lc-foot"><div class="lc-footin"><button type="button" class="ui-btn is-block" id="lcGo"></button></div></footer>';
   (document.getElementById("plaza").classList.contains("on")?document.getElementById("plaza"):document.body).appendChild(el);
   var start=0;if(ctx.resume&&S.lp&&S.lp[id+":"+les.id]!=null)start=Math.min(cards.length-1,S.lp[id+":"+les.id]);
@@ -11042,7 +11048,7 @@ var TORRE=(function(I){
  /* los seis símbolos 3D de la carrera (media/sym), uno por unidad */
  function symKey(id,k){if(typeof SIMB!=="undefined"&&SIMB.has(id)){var q=SIMB.six(id)[k];if(q)return q.id+"."+q.v}return ""}
  /* símbolos 3D vivos: el motor se carga solo al abrir una espiral */
- var SYM3D=null;function live3d(host){if(!window.WebGLRenderingContext)return;(SYM3D||(SYM3D=import("./vendor/3d/sym3d.js?v=90f9b938ec"))).then(function(m){m.mount(host)}).catch(function(){})}
+ var SYM3D=null;function live3d(host){if(!window.WebGLRenderingContext)return;(SYM3D||(SYM3D=import("./vendor/3d/sym3d.js?v=56432e2fac"))).then(function(m){m.mount(host)}).catch(function(){})}
  function symImg(id,k){if(typeof SIMB!=="undefined"&&SIMB.has(id)){var q=SIMB.six(id)[k];if(q)return "media/sym/"+q.id+"."+q.v+".webp"}return ""}
  function has(id){return !!byId[id]&&typeof ISO!=="undefined"}
  /* la cima: medalla de oro con rosa de los vientos (el rumbo), corona de laurel y listón del color de la carrera.
@@ -11155,7 +11161,7 @@ var TORRE=(function(I){
   '<path d="M41 77H59M50 77V86" stroke="#5B4A3A" stroke-width="2" stroke-linecap="round"/><circle cx="50" cy="77" r="2.6" fill="#E3A845" stroke="#3A3026" stroke-width="1"/></g>';
  /* Rumbo en 3D en la cabina (se ve bien desde cualquier ángulo); si no hay WebGL, queda el dibujo plano de frente */
  var RB3D=null;function drive3d(host){var pl=host.querySelector(".tw-pilot");if(!pl||!window.WebGLRenderingContext||pl.__r3)return;pl.__r3=1;
-  (RB3D||(RB3D=import("./vendor/3d/rumbo3d.js?v=90f9b938ec"))).then(function(m){var r=m.mount(pl,{px:150});if(r)pl.classList.add("is-3d")}).catch(function(){})}
+  (RB3D||(RB3D=import("./vendor/3d/rumbo3d.js?v=56432e2fac"))).then(function(m){var r=m.mount(pl,{px:150});if(r)pl.classList.add("is-3d")}).catch(function(){})}
  function drive(host){setTimeout(function(){drive3d(host)},120);var rb=host.querySelector(".tw-pilot .rb");if(!rb)return;rb.classList.add("drive");rb.classList.remove("float");rb.setAttribute("data-pose-l","puño");rb.setAttribute("data-pose-r","puño");
   var root=rb.querySelector(".rk-root"),hd=rb.querySelector(".rk-handL");if(root&&hd&&!root.querySelector(".rk-wheel")){var t=document.createElementNS("http://www.w3.org/2000/svg","g");t.innerHTML=WHEEL;root.insertBefore(t.firstChild,hd)}}
  /* ---------- arma la escena ---------- */

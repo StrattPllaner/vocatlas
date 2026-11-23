@@ -67,6 +67,8 @@ function draw(it,ts,still){it.last=ts;if(!it.t0)it.t0=ts;const t=(ts-it.t0)/1000
  if(it.drive){const fast=it.host.closest('.is-flying')?1:0;const st=still?0:((fast?.36:.22)*Math.sin(t*2*Math.PI/1.9)+.07*Math.sin(t*2*Math.PI/.73));
   if(it.wheel)it.wheel.rotation.z=-st*1.6;it.piv.rotation.set(.16,(it.yaw==null?-.72:it.yaw)+st*.25+(it.spin?t*it.spin:0),st*.18)}
  else{PARTS.forEach(k=>copyJoint(it,k,walk));
+  /* pensando: la mano izquierda cambia a puño con el índice y pasa al frente de la cara */
+  const H=it.hands,th=!!(it.src&&it.src.__PL==="pensando");if(H&&H.Lt){if(H.Lt.visible!==th){H.Lt.visible=th;H.L.visible=!th;if(H.brows)H.brows.visible=th}const jl=it.J.handL;if(jl&&th){jl.position.z=9;H.Lt.position.set(-30,-6,2);H.Lt.rotation.z=-.35+(still?0:.08*Math.sin(t*2.6))}}
   /* caminando mira hacia donde va: de frente si baja por la pantalla, de espaldas si sube, de lado si cruza */
   const dir=wr&&wr.__dir;let target=walk?(dir?Math.atan2(dir[0],dir[1]):(left?-1.05:1.05)):(it.yaw==null?(left?.3:-.3):it.yaw)+(still?0:.1*Math.sin(t*.7));
   let dy=target-it.yawNow;while(dy>Math.PI)dy-=2*Math.PI;while(dy<-Math.PI)dy+=2*Math.PI;
@@ -93,7 +95,7 @@ export function mount(host,opt){opt=opt||{};if(!setup())return null;const drive=
   g.position.set(0,-7.6,0);const d=65/Math.tan(THREE.MathUtils.degToRad(11));cam.position.set(0,0,d);cam.near=d/10;cam.far=d*4}
  cam.lookAt(0,0,0);cam.updateProjectionMatrix();
  const g2={};if(src)PARTS.forEach(k=>{g2[k]=src.querySelector('.'+CLS[k])});
- const it={host,cv,ctx:cv.getContext('2d'),fx,tex:top.userData.faceTex,src,g2,J:top.userData.J||{},piv,cam,PX,drive,wheel:top.userData.wheel,yaw:opt.yaw,spin:opt.spin,
+ const it={host,cv,ctx:cv.getContext('2d'),fx,hands:top.userData.hands,tex:top.userData.faceTex,src,g2,J:top.userData.J||{},piv,cam,PX,drive,wheel:top.userData.wheel,yaw:opt.yaw,spin:opt.spin,
   wr:opt.wrap||(src&&src.closest('.rb')),yawNow:opt.yaw==null?-.3:opt.yaw,vis:!io,last:0,lastGrab:-1e9,t0:0,busy:false,
   dispose(){g.traverse(o=>{if(o.isMesh){if(o.material.map&&o.material.map!==grad)o.material.map.dispose();o.material.dispose()}})}};
  cv.__r3=it;live.add(it);if(io)io.observe(cv);grab(it);go();return {canvas:cv}}

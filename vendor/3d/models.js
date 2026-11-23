@@ -1283,8 +1283,21 @@ export function rumbo3d(K,o){o=o||{};
     const kn=pg(leg,hx,81,'knee'+n);K.cyl(5.3,5.3,13.4,BOOT,{parent:kn,p:[x,-25.7,0]});K.sph(1.2,GOLD,{parent:kn,p:[x-sd*2.7,-25.8,5]});
     const ft=pg(kn,hx,88.4,'ft'+n);K.box(15,6,11,BOOT,{parent:ft,p:[x+sd*3,-34.4,1.2],rad:2.8});K.box(15.6,1.8,11.6,SOLE,{parent:ft,p:[x+sd*3,-37.6,1.2],rad:.8})});
   if(o.drive){const w=wheel3d(K,root);w.position.set(0,-19,17);top.userData.wheel=w;top.userData.gl=[glove3d(K,w,[-9,0,1.6]),glove3d(K,w,[9,0,1.6])];top.userData.gl[0].rotation.z=-1.2;top.userData.gl[1].rotation.z=1.2}
-  else{const a=glove3d(K,pg(root,15,70,'handL'),[-35,-12.4,2]),b=glove3d(K,pg(root,86,60,'handR'),[36,-2.4,2]);a.rotation.z=Math.PI+.35;b.rotation.z=Math.PI-.35}
+  else{const hL=pg(root,15,70,'handL'),a=glove3d(K,hL,[-35,-12.4,2]),b=glove3d(K,pg(root,86,60,'handR'),[36,-2.4,2]);a.rotation.z=Math.PI+.35;b.rotation.z=Math.PI-.35;
+   /* mano para pensar: puño con el índice estirado, apoyada en la barbilla */
+   const t=gloveThink3d(K,hL,[-35,-12.4,2]);t.visible=false;
+   /* cejas de pensar: una levantada y otra fruncida, al frente de la carátula (solo se ven pensando) */
+   const bw=K.group({parent:body,p:[0,0,7.2]});bw.visible=false;
+   K.cap(.8,4.4,'#4A2A16',{parent:bw,p:[-7.2,12.2,.4],r:[0,0,68]});K.cap(.8,4.4,'#4A2A16',{parent:bw,p:[7,10.4,.4],r:[0,0,-74]});
+   top.userData.hands={L:a,Lt:t,brows:bw}}
   top.userData.face=body.userData.face;top.userData.faceTex=body.userData.faceTex;top.userData.J=J;
   return top}
 export function glove3d(K,parent,p){const h=K.group({p:p,parent:parent});K.sph(4,'#FFFFFF',{parent:h,s:[1.05,1,.75]});[-2.4,-.8,.8,2.4].forEach((x,i)=>K.cap(.95,3.2-Math.abs(i-1.5)*.5,'#FFFFFF',{parent:h,p:[x,4.6,0]}));K.cap(1,2.4,'#FFFFFF',{parent:h,p:[-4.2,.6,.6],r:[0,0,50]});K.cyl(3.6,3.9,2.4,'#FFFFFF',{parent:h,p:[0,-4.4,0]});return h}
+export function gloveThink3d(K,parent,p){const h=K.group({p:p,parent:parent});
+ K.sph(4,'#FFFFFF',{parent:h,s:[1.05,1,.85]});
+ /* tres dedos doblados (nudillos al frente) */
+ [-.6,1.2,2.9].forEach((x,i)=>K.sph(1.45,'#FFFFFF',{parent:h,p:[x,2.6-i*.2,2.3],s:[1,1,1]}));
+ /* índice estirado hacia arriba y el pulgar debajo */
+ K.cap(1.05,5.2,'#FFFFFF',{parent:h,p:[-2.6,6.4,1.2],r:[0,0,6]});K.cap(1.05,2.4,'#FFFFFF',{parent:h,p:[-3.2,-.4,2.4],r:[0,0,-70]});
+ K.cyl(3.6,3.9,2.4,'#FFFFFF',{parent:h,p:[0,-4.4,0]});return h}
 export function wheel3d(K,parent){const w=K.group({parent:parent});K.tor(9,1.5,'#5B4A3A',{parent:w});K.box(18,1.6,1.6,'#5B4A3A',{parent:w,rad:.6});K.box(1.6,9,1.6,'#5B4A3A',{parent:w,p:[0,-4.5,0],rad:.6});K.cyl(2.4,2.4,2,'#E3A845',{parent:w,r:[90,0,0]});K.cyl(1.4,1.4,14,'#5B4A3A',{parent:w,p:[0,-8,-5],r:[50,0,0]});return w}
