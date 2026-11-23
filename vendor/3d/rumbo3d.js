@@ -60,7 +60,7 @@ function loop(ts){raf=0;if(document.hidden)return;
  for(let i=0;i<n;i++){const it=vis[(turn+i)%vis.length];if(ts-it.last<30&&vis.length<=2)continue;draw(it,ts,still)}
  turn=(turn+n)%Math.max(1,vis.length);
  /* la cara: una o dos copias por cuadro, repartidas */
- const gi=vis[grabTurn%vis.length];grabTurn++;if(gi&&ts-gi.lastGrab>140){gi.lastGrab=ts;grab(gi)}}
+ const gi=vis[grabTurn%vis.length];grabTurn++;if(gi&&ts-gi.lastGrab>240){gi.lastGrab=ts;grab(gi)}}
 
 function draw(it,ts,still){it.last=ts;if(!it.t0)it.t0=ts;const t=(ts-it.t0)/1000,wr=it.wr;
  const walk=!!(wr&&(wr.classList.contains('walk')||wr.__wv>.05)),left=!!(wr&&wr.classList.contains('left'));

@@ -7152,7 +7152,7 @@ var RUMBO=(function(){
 })();
 /* Rumbo en 3D en toda la app (vendor/3d/rumbo3d.js). Si el navegador no tiene WebGL, se queda el dibujo plano. */
 (function(){if(typeof window==="undefined"||!window.WebGLRenderingContext)return;
- function go(){import("./vendor/3d/rumbo3d.js?v=56432e2fac").then(function(m){m.auto()}).catch(function(){})}
+ function go(){import("./vendor/3d/rumbo3d.js?v=645daaa380").then(function(m){m.auto()}).catch(function(){})}
  if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",go);else setTimeout(go,0)})();
 
 /* ================= imágenes que no cargan =================
@@ -11112,7 +11112,7 @@ var TORRE=(function(I){
  /* los seis símbolos 3D de la carrera (media/sym), uno por unidad */
  function symKey(id,k){if(typeof SIMB!=="undefined"&&SIMB.has(id)){var q=SIMB.six(id)[k];if(q)return q.id+"."+q.v}return ""}
  /* símbolos 3D vivos: el motor se carga solo al abrir una espiral */
- var SYM3D=null;function live3d(host){if(!window.WebGLRenderingContext)return;(SYM3D||(SYM3D=import("./vendor/3d/sym3d.js?v=56432e2fac"))).then(function(m){m.mount(host)}).catch(function(){})}
+ var SYM3D=null;function live3d(host){if(!window.WebGLRenderingContext)return;(SYM3D||(SYM3D=import("./vendor/3d/sym3d.js?v=645daaa380"))).then(function(m){m.mount(host)}).catch(function(){})}
  function symImg(id,k){if(typeof SIMB!=="undefined"&&SIMB.has(id)){var q=SIMB.six(id)[k];if(q)return "media/sym/"+q.id+"."+q.v+".webp"}return ""}
  function has(id){return !!byId[id]&&typeof ISO!=="undefined"}
  /* la cima: medalla de oro con rosa de los vientos (el rumbo), corona de laurel y listón del color de la carrera.
@@ -11225,7 +11225,7 @@ var TORRE=(function(I){
   '<path d="M41 77H59M50 77V86" stroke="#5B4A3A" stroke-width="2" stroke-linecap="round"/><circle cx="50" cy="77" r="2.6" fill="#E3A845" stroke="#3A3026" stroke-width="1"/></g>';
  /* Rumbo en 3D en la cabina (se ve bien desde cualquier ángulo); si no hay WebGL, queda el dibujo plano de frente */
  var RB3D=null;function drive3d(host){var pl=host.querySelector(".tw-pilot");if(!pl||!window.WebGLRenderingContext||pl.__r3)return;pl.__r3=1;
-  (RB3D||(RB3D=import("./vendor/3d/rumbo3d.js?v=56432e2fac"))).then(function(m){var r=m.mount(pl,{px:150});if(r)pl.classList.add("is-3d")}).catch(function(){})}
+  (RB3D||(RB3D=import("./vendor/3d/rumbo3d.js?v=645daaa380"))).then(function(m){var r=m.mount(pl,{px:150});if(r)pl.classList.add("is-3d")}).catch(function(){})}
  function drive(host){setTimeout(function(){drive3d(host)},120);var rb=host.querySelector(".tw-pilot .rb");if(!rb)return;rb.classList.add("drive");rb.classList.remove("float");rb.setAttribute("data-pose-l","puño");rb.setAttribute("data-pose-r","puño");
   var root=rb.querySelector(".rk-root"),hd=rb.querySelector(".rk-handL");if(root&&hd&&!root.querySelector(".rk-wheel")){var t=document.createElementNS("http://www.w3.org/2000/svg","g");t.innerHTML=WHEEL;root.insertBefore(t.firstChild,hd)}}
  /* ---------- arma la escena ---------- */
