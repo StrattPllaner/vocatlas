@@ -3258,6 +3258,10 @@ body:not(.on-map):not(.lp-open)::before{content:"";position:fixed;left:0;right:0
 .bt4{transform:translateY(-40px);animation:bt4Up .6s cubic-bezier(.3,0,.2,1) 1.9s forwards}
 @keyframes bt4Up{to{transform:translateY(-10px)}}
 @media (prefers-reduced-motion:reduce){.bt4{animation:none;transform:translateY(-10px)}}
+/* con otra pestaña al frente, el mapa no se pinta ni anima (vuelve al instante porque no se borra) */
+#app[data-v]:not([data-v=map]) #v-map{visibility:hidden;transition:visibility 0s .32s}
+#app[data-v]:not([data-v=map]) #v-map *{animation-play-state:paused!important}
+#app[data-v=map] #v-map{visibility:visible;transition:none}
 /* explicación animada, globo de Rumbo y video */
 .ex{background:#FFF8EA;border:2px solid #3A3026;border-radius:20px;padding:12px;box-shadow:0 4px 0 #3A3026;max-width:520px;color:#14323F}
 .ex-say{position:relative;min-height:64px;margin-top:10px}
@@ -5231,13 +5235,17 @@ function updateHud(animate){
 $("#clar").onclick=function(){showView("atlas")};
 /* ---------- vistas ---------- */
 var ORDER=["map","probar","comparar","atlas","yo"],curView="map",outT;
+var VSIG=null;
 function showView(v,instant){
  if(v!=="map"&&RB.plan){var tg=RB.target;stopWalk();RB.at=tg;S.at=tg;save();var nn=NODES[tg];RB.x=nn[0];RB.y=nn[1];selTerr(null)}
  var prev=curView,from=ORDER.indexOf(prev),to=ORDER.indexOf(v),changed=prev!==v;
- if(v==="probar")renderProbar();
+ /* cada pestaña solo se vuelve a armar si algo cambió desde la última vez (armarla siempre trababa el cambio) */
+ var sig;try{sig=JSON.stringify(S)+"|"+(TEMA&&TEMA.get())}catch(e){sig=Math.random()}
+ VSIG=VSIG||{};var fresh=VSIG[v]!==sig||!document.querySelector("#v-"+v+">*");VSIG[v]=sig;
+ if(fresh){if(v==="probar")renderProbar();
  if(v==="atlas")renderAtlas();
  if(v==="comparar")renderComparar();
- if(v==="yo")renderYo();
+ if(v==="yo")renderYo();}
  clearTimeout(outT);
  each(document.querySelectorAll(".view"),function(s){
   var name=s.id.slice(2);
@@ -5249,7 +5257,7 @@ function showView(v,instant){
  outT=setTimeout(function(){each(document.querySelectorAll(".view.out"),function(s){s.classList.remove("out")})},T.fast);
  each(document.querySelectorAll("nav button"),function(b){b.classList.toggle("on",b.getAttribute("data-v")===v)});
  $("#ind").style.setProperty("--i",to);
- curView=v;$("#app").setAttribute("data-v",v);ambSync();
+ curView=v;$("#app").setAttribute("data-v",v);ambSync();window.__view=v==="map"?null:$("#v-"+v);
  if(v==="map"){
   apply();
   if(pendingWave){
@@ -6918,7 +6926,7 @@ var RUMBO=(function(){
    raf=0;var dt=Math.min(.05,Math.max(0,(now-(last||now))/1000))*(window.__rbSlow||1);last=now;
    if(document.hidden)return;
    var any=false,rm=RMq();
-   for(var i=0;i<list.length;i++){var svg=list[i],st=ST.get(svg)||init(svg);if(!VIS.get(svg))continue;if(window.__top&&!window.__top.contains(svg))continue;any=true;
+   for(var i=0;i<list.length;i++){var svg=list[i],st=ST.get(svg)||init(svg);if(!VIS.get(svg))continue;if(window.__shown&&!window.__shown(svg))continue;any=true;
     /* el Rumbo de la avioneta en 3D no copia el dibujo plano: no hace falta moverlo */
     if(st.p3==null){var pr=svg.parentNode;st.p3=!!(pr&&pr.closest&&pr.closest('.tw-pilot'))}if(st.p3&&svg.parentNode.classList.contains('is-3d'))continue;
     step(svg,st,dt,rm,now)}
@@ -7187,7 +7195,7 @@ var RUMBO=(function(){
 (function(){if(typeof document==="undefined")return;var SEL=".lc,.pt-room,.ap,.ipsf,.cer,.lp-lesson.on";window.__top=null;var t=0;
  function upd(){t=0;var L=document.querySelectorAll(SEL);window.__top=L.length?L[L.length-1]:null}
  new MutationObserver(function(){if(!t)t=setTimeout(upd,60)}).observe(document.documentElement,{childList:true,subtree:true});
- window.__shown=function(el){var T=window.__top;return !T||T.contains(el)}})();
+ window.__shown=function(el){var T=window.__top||window.__view;return !T||T.contains(el)}})();
 
 /* ================= ilustración isométrica: biblioteca =================
    Proyección 2:1. Coordenadas del mundo (x, y en el suelo; z hacia arriba) → pantalla.
@@ -11892,7 +11900,9 @@ var SPRC={p:null};
 function sprCache(){if(SPRC.p)return SPRC.p;SPRC.p=(window.caches&&window.isSecureContext)?caches.open("vocatlas-spr-1").catch(function(){return null}):Promise.resolve(null);return SPRC.p}
 /* las imágenes se dibujan de una en una, con una pausa entre cada una: así el arranque no se traba */
 var SQ=[],SQB=false;
-function sNext(){if(!SQ.length){SQB=false;return}SQB=true;var f=SQ.shift();f(function(){if(window.requestIdleCallback)requestIdleCallback(sNext,{timeout:120});else setTimeout(sNext,24)})}
+/* mientras tocas, arrastras, deslizas o hay otra pestaña al frente, el horneado espera: no compite con lo que haces */
+var SQIN=0;["pointerdown","pointermove","wheel","touchmove","keydown"].forEach(function(e){addEventListener(e,function(){SQIN=performance.now()},{passive:true,capture:true})});addEventListener("scroll",function(){SQIN=performance.now()},{passive:true,capture:true});
+function sNext(){if(!SQ.length){SQB=false;return}SQB=true;if(performance.now()-SQIN<700||window.__top||window.__view){setTimeout(sNext,350);return}var f=SQ.shift();f(function(){if(window.requestIdleCallback)requestIdleCallback(sNext,{timeout:120});else setTimeout(sNext,24)})}
 function sQueue(f){SQ.push(f);if(!SQB)sNext()}
 function sprMake(art,night,cb){
  var key=(night?"n":"d")+art;if(SPR.cache[key]){cb(SPR.cache[key]);return}

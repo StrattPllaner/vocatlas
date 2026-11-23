@@ -22,7 +22,9 @@ var SPRC={p:null};
 function sprCache(){if(SPRC.p)return SPRC.p;SPRC.p=(window.caches&&window.isSecureContext)?caches.open("vocatlas-spr-1").catch(function(){return null}):Promise.resolve(null);return SPRC.p}
 /* las imágenes se dibujan de una en una, con una pausa entre cada una: así el arranque no se traba */
 var SQ=[],SQB=false;
-function sNext(){if(!SQ.length){SQB=false;return}SQB=true;var f=SQ.shift();f(function(){if(window.requestIdleCallback)requestIdleCallback(sNext,{timeout:120});else setTimeout(sNext,24)})}
+/* mientras tocas, arrastras, deslizas o hay otra pestaña al frente, el horneado espera: no compite con lo que haces */
+var SQIN=0;["pointerdown","pointermove","wheel","touchmove","keydown"].forEach(function(e){addEventListener(e,function(){SQIN=performance.now()},{passive:true,capture:true})});addEventListener("scroll",function(){SQIN=performance.now()},{passive:true,capture:true});
+function sNext(){if(!SQ.length){SQB=false;return}SQB=true;if(performance.now()-SQIN<700||window.__top||window.__view){setTimeout(sNext,350);return}var f=SQ.shift();f(function(){if(window.requestIdleCallback)requestIdleCallback(sNext,{timeout:120});else setTimeout(sNext,24)})}
 function sQueue(f){SQ.push(f);if(!SQB)sNext()}
 function sprMake(art,night,cb){
  var key=(night?"n":"d")+art;if(SPR.cache[key]){cb(SPR.cache[key]);return}

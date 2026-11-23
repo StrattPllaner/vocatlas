@@ -5,4 +5,4 @@
 (function(){if(typeof document==="undefined")return;var SEL=".lc,.pt-room,.ap,.ipsf,.cer,.lp-lesson.on";window.__top=null;var t=0;
  function upd(){t=0;var L=document.querySelectorAll(SEL);window.__top=L.length?L[L.length-1]:null}
  new MutationObserver(function(){if(!t)t=setTimeout(upd,60)}).observe(document.documentElement,{childList:true,subtree:true});
- window.__shown=function(el){var T=window.__top;return !T||T.contains(el)}})();
+ window.__shown=function(el){var T=window.__top||window.__view;return !T||T.contains(el)}})();

@@ -194,3 +194,7 @@
 .bt4{transform:translateY(-40px);animation:bt4Up .6s cubic-bezier(.3,0,.2,1) 1.9s forwards}
 @keyframes bt4Up{to{transform:translateY(-10px)}}
 @media (prefers-reduced-motion:reduce){.bt4{animation:none;transform:translateY(-10px)}}
+/* con otra pestaña al frente, el mapa no se pinta ni anima (vuelve al instante porque no se borra) */
+#app[data-v]:not([data-v=map]) #v-map{visibility:hidden;transition:visibility 0s .32s}
+#app[data-v]:not([data-v=map]) #v-map *{animation-play-state:paused!important}
+#app[data-v=map] #v-map{visibility:visible;transition:none}
