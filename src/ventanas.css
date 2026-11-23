@@ -188,3 +188,5 @@
  text-shadow:0 4px 0 #0A1B24,0 8px 14px rgba(10,25,40,.18)!important;-webkit-font-smoothing:antialiased;margin-left:-2px}
 @media (max-width:380px){.bt4-w{font-size:52px}}
 .bt4-w{text-shadow:0 4px 0 #0A1B24!important;margin-left:-16px!important;padding:0 6px 8px 0!important;margin-bottom:-4px!important}
+/* «ocatlas» plano, sin relieve */
+.bt4-w{text-shadow:none!important}
