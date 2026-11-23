@@ -124,3 +124,23 @@
 .lc-bq::before,.lc-bq::after{display:none!important}
 .lc-bq svg{width:100%;height:100%;display:block;overflow:visible}
 .lc-buddy .lc-bq{top:auto!important;bottom:calc(min(220px,58vw) - 46px)!important;right:auto!important;left:calc(50% + min(220px,58vw)*.2)!important;width:64px!important;height:76px!important}
+/* carga: brújula que se desarma mientras las manecillas giran; queda la V y a su lado «ocatlas» */
+.bt3-logo,.bt3-wm{display:none!important}
+.bt4{display:flex;align-items:flex-end;justify-content:center;height:120px;color:var(--ink,#14323F)}
+.bt4-v{position:relative;width:104px;height:104px;flex:0 0 auto;transform:translateX(var(--sx,0));animation:bt4Slide .5s cubic-bezier(.3,0,.2,1) 2.05s both}
+.bt4-logo{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.bt4-cmp{position:absolute;left:50%;top:81.4%;width:164%;height:164%;transform:translate(-50%,-50%);overflow:visible;pointer-events:none}
+.bt4-seg{fill:none;stroke:currentColor;stroke-width:18;stroke-linecap:round}
+.bt4-tk{stroke:currentColor;stroke-width:10;stroke-linecap:round;opacity:.7}
+.bt4-l{font:900 56px/1 Nunito,system-ui,sans-serif;fill:currentColor}
+.bt4-seg,.bt4-tk,.bt4-l{transform-box:view-box;transform-origin:238px 378px;animation:bt4Off .7s cubic-bezier(.5,0,.8,.4) forwards;animation-delay:calc(1.05s + var(--a)*.0012s)}
+.bt4-ring{animation:bt4Ring .45s ease both}
+@keyframes bt4Ring{from{opacity:0;transform:scale(.85)}}
+@keyframes bt4Off{0%{opacity:1;transform:rotate(0) translate(0,0)}100%{opacity:0;transform:rotate(calc(var(--a)*.2deg)) translate(calc(cos(var(--a)*1deg)*120px),calc(sin(var(--a)*1deg)*120px)) scale(.6)}}
+.bt4-w{font-family:"Nunito",system-ui,sans-serif;font-weight:900;font-size:70px;line-height:.9;letter-spacing:-.01em;margin-left:-6px;padding-bottom:2px;
+ text-shadow:0 1px 0 #2A4B5B,0 2px 0 #2A4B5B,0 3px 0 #22404F,0 4px 0 #1C3644,0 5px 0 #162C38,0 9px 12px rgba(10,25,40,.28);
+ max-width:0;overflow:hidden;white-space:nowrap;padding:0 4px 14px 0;margin-bottom:-12px;opacity:0;animation:bt4W .7s cubic-bezier(.2,.9,.3,1) 2.05s forwards}
+@keyframes bt4W{to{max-width:320px;opacity:1}}
+@keyframes bt4Slide{from{transform:translateX(0)}}
+@media (max-width:380px){.bt4-w{font-size:58px}.bt4-v{width:88px;height:88px}}
+@media (prefers-reduced-motion:reduce){.bt4-seg,.bt4-tk,.bt4-l{animation:none;opacity:0}.bt4-w{animation:none;max-width:none;opacity:1}}

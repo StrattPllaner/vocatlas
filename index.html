@@ -655,7 +655,7 @@ nav button:active svg{transform:scale(.84)}
 @media (prefers-color-scheme:dark){:root{--chart-sea:#0F2A35;--chart-grid:rgba(143,201,232,.07);--chart-land:#18394A;--chart-edge:rgba(246,239,226,.24);--chart-contour:rgba(246,239,226,.09);--chart-lbl:rgba(246,239,226,.7);--chart-sea-lbl:rgba(143,201,232,.48);--route:#F6EFE2;--paper:#14323F}}
 /* carga: Rumbo recorre la barra */
 #boot{position:fixed;inset:0;z-index:80;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;padding:24px;background:var(--bg);transition:opacity var(--t-med) var(--soft)}
-html.ret #boot{opacity:0;pointer-events:none}
+html.ret #boot{opacity:1}
 html.ret #boot.show{opacity:1;pointer-events:auto}
 #boot.out,html.ret #boot.out{opacity:0;pointer-events:none}
 .bt-wm{display:flex;align-items:center;gap:8px}
@@ -3186,6 +3186,26 @@ body:not(.on-map):not(.lp-open)::before{content:"";position:fixed;left:0;right:0
 .lc-bq::before,.lc-bq::after{display:none!important}
 .lc-bq svg{width:100%;height:100%;display:block;overflow:visible}
 .lc-buddy .lc-bq{top:auto!important;bottom:calc(min(220px,58vw) - 46px)!important;right:auto!important;left:calc(50% + min(220px,58vw)*.2)!important;width:64px!important;height:76px!important}
+/* carga: brújula que se desarma mientras las manecillas giran; queda la V y a su lado «ocatlas» */
+.bt3-logo,.bt3-wm{display:none!important}
+.bt4{display:flex;align-items:flex-end;justify-content:center;height:120px;color:var(--ink,#14323F)}
+.bt4-v{position:relative;width:104px;height:104px;flex:0 0 auto;transform:translateX(var(--sx,0));animation:bt4Slide .5s cubic-bezier(.3,0,.2,1) 2.05s both}
+.bt4-logo{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.bt4-cmp{position:absolute;left:50%;top:81.4%;width:164%;height:164%;transform:translate(-50%,-50%);overflow:visible;pointer-events:none}
+.bt4-seg{fill:none;stroke:currentColor;stroke-width:18;stroke-linecap:round}
+.bt4-tk{stroke:currentColor;stroke-width:10;stroke-linecap:round;opacity:.7}
+.bt4-l{font:900 56px/1 Nunito,system-ui,sans-serif;fill:currentColor}
+.bt4-seg,.bt4-tk,.bt4-l{transform-box:view-box;transform-origin:238px 378px;animation:bt4Off .7s cubic-bezier(.5,0,.8,.4) forwards;animation-delay:calc(1.05s + var(--a)*.0012s)}
+.bt4-ring{animation:bt4Ring .45s ease both}
+@keyframes bt4Ring{from{opacity:0;transform:scale(.85)}}
+@keyframes bt4Off{0%{opacity:1;transform:rotate(0) translate(0,0)}100%{opacity:0;transform:rotate(calc(var(--a)*.2deg)) translate(calc(cos(var(--a)*1deg)*120px),calc(sin(var(--a)*1deg)*120px)) scale(.6)}}
+.bt4-w{font-family:"Nunito",system-ui,sans-serif;font-weight:900;font-size:70px;line-height:.9;letter-spacing:-.01em;margin-left:-6px;padding-bottom:2px;
+ text-shadow:0 1px 0 #2A4B5B,0 2px 0 #2A4B5B,0 3px 0 #22404F,0 4px 0 #1C3644,0 5px 0 #162C38,0 9px 12px rgba(10,25,40,.28);
+ max-width:0;overflow:hidden;white-space:nowrap;padding:0 4px 14px 0;margin-bottom:-12px;opacity:0;animation:bt4W .7s cubic-bezier(.2,.9,.3,1) 2.05s forwards}
+@keyframes bt4W{to{max-width:320px;opacity:1}}
+@keyframes bt4Slide{from{transform:translateX(0)}}
+@media (max-width:380px){.bt4-w{font-size:58px}.bt4-v{width:88px;height:88px}}
+@media (prefers-reduced-motion:reduce){.bt4-seg,.bt4-tk,.bt4-l{animation:none;opacity:0}.bt4-w{animation:none;max-width:none;opacity:1}}
 /* explicación animada, globo de Rumbo y video */
 .ex{background:#FFF8EA;border:2px solid #3A3026;border-radius:20px;padding:12px;box-shadow:0 4px 0 #3A3026;max-width:520px;color:#14323F}
 .ex-say{position:relative;min-height:64px;margin-top:10px}
@@ -3262,12 +3282,18 @@ body:not(.on-map):not(.lp-open)::before{content:"";position:fixed;left:0;right:0
 
 <div id="boot" role="status" aria-label="Cargando Vocatlas">
   <div class="bt2">
-    <div class="bt3-logo" aria-hidden="true"><svg viewBox="44 40 388 410">
-      <circle cx="238" cy="378" r="41" fill="none" stroke="currentColor" stroke-width="24" class="bt3-ring"/>
-      <g class="bt3-h bt3-l"><g stroke="currentColor" stroke-width="6" stroke-linejoin="round"><path d="M80 108L110 98L256 334L222 352Z" fill="currentColor"/><path d="M80 78L110 98L80 108Z" fill="#8E929C"/></g></g>
-      <g class="bt3-h bt3-r"><g stroke="currentColor" stroke-width="6" stroke-linejoin="round"><path d="M396 108L366 98L220 334L254 352Z" fill="currentColor"/><path d="M396 78L366 98L396 108Z" fill="#26408A"/></g></g>
-      <circle cx="238" cy="378" r="29" fill="var(--bg,#F7F5EA)"/><circle cx="238" cy="378" r="11" fill="currentColor"/></svg></div>
-    <div class="bt3-wm" aria-hidden="true">Vocatlas</div><span id="logob" style="display:none"></span>
+    <div class="bt4" aria-hidden="true">
+     <div class="bt4-v"><svg class="bt4-cmp" viewBox="-80 60 636 636">
+       <g class="bt4-ring"><path class="bt4-seg" style="--a:0" d="M537.3 398.9 A300 300 0 0 1 464.4 574.8"/><path class="bt4-seg" style="--a:45" d="M434.8 604.4 A300 300 0 0 1 258.9 677.3"/><path class="bt4-seg" style="--a:90" d="M217.1 677.3 A300 300 0 0 1 41.2 604.4"/><path class="bt4-seg" style="--a:135" d="M11.6 574.8 A300 300 0 0 1 -61.3 398.9"/><path class="bt4-seg" style="--a:180" d="M-61.3 357.1 A300 300 0 0 1 11.6 181.2"/><path class="bt4-seg" style="--a:225" d="M41.2 151.6 A300 300 0 0 1 217.1 78.7"/><path class="bt4-seg" style="--a:270" d="M258.9 78.7 A300 300 0 0 1 434.8 151.6"/><path class="bt4-seg" style="--a:315" d="M464.4 181.2 A300 300 0 0 1 537.3 357.1"/><path class="bt4-tk" style="--a:0" d="M508.0 378.0 L478.0 378.0"/><path class="bt4-tk" style="--a:30" d="M471.8 513.0 L458.0 505.0"/><path class="bt4-tk" style="--a:60" d="M373.0 611.8 L365.0 598.0"/><path class="bt4-tk" style="--a:90" d="M238.0 648.0 L238.0 618.0"/><path class="bt4-tk" style="--a:120" d="M103.0 611.8 L111.0 598.0"/><path class="bt4-tk" style="--a:150" d="M4.2 513.0 L18.0 505.0"/><path class="bt4-tk" style="--a:180" d="M-32.0 378.0 L-2.0 378.0"/><path class="bt4-tk" style="--a:210" d="M4.2 243.0 L18.0 251.0"/><path class="bt4-tk" style="--a:240" d="M103.0 144.2 L111.0 158.0"/><path class="bt4-tk" style="--a:270" d="M238.0 108.0 L238.0 138.0"/><path class="bt4-tk" style="--a:300" d="M373.0 144.2 L365.0 158.0"/><path class="bt4-tk" style="--a:330" d="M471.8 243.0 L458.0 251.0"/>
+        <text class="bt4-l" style="--a:270" x="238" y="132" text-anchor="middle">N</text><text class="bt4-l" style="--a:90" x="238" y="650" text-anchor="middle">S</text><text class="bt4-l" style="--a:0" x="500" y="394" text-anchor="middle">E</text><text class="bt4-l" style="--a:180" x="-24" y="394" text-anchor="middle">O</text></g>
+      </svg>
+      <svg class="bt4-logo" viewBox="44 62 388 388">
+       <g class="bt3-h bt3-l"><g stroke="currentColor" stroke-width="6" stroke-linejoin="round"><path d="M80 108L110 98L256 334L222 352Z" fill="currentColor"/><path d="M80 78L110 98L80 108Z" fill="#8E929C"/></g></g>
+       <g class="bt3-h bt3-r"><g stroke="currentColor" stroke-width="6" stroke-linejoin="round"><path d="M396 108L366 98L220 334L254 352Z" fill="currentColor"/><path d="M396 78L366 98L396 108Z" fill="#26408A"/></g></g>
+       <circle cx="238" cy="378" r="41" fill="var(--bg,#F7F5EA)" stroke="currentColor" stroke-width="24"/><circle cx="238" cy="378" r="11" fill="currentColor"/></svg></div>
+     <span class="bt4-w">ocatlas</span>
+    </div>
+    <span id="logob" style="display:none"></span>
     <p class="bt-say bt2-say" id="btSay">Trazando tu atlas</p>
     <div class="bt2-bar" id="btTrail" role="progressbar" aria-label="Cargando" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i></i></div>
     <div hidden><svg><path id="btRoute" d="M0 0L1 1"/><g id="btStops"></g></svg><div id="btRb"></div></div>
@@ -5859,7 +5885,7 @@ var STEPS={
 function boot(){
  if(typeof migrateLessons==="function")migrateLessons();
  if(location.hash==="#kit"||location.hash==="#art"||location.hash==="#rumbo"||location.hash==="#din"){var b0=document.getElementById("boot");if(b0)b0.style.display="none";if(location.hash==="#art")renderArt();else if(location.hash==="#rumbo")renderRumbo();else if(location.hash==="#din")renderDin();else renderKit();return}
- var ret=document.documentElement.classList.contains("ret"),bt=$("#boot"),trail=$("#btTrail"),sayEl=$("#btSay");
+ var ret=false,bt=$("#boot"),trail=$("#btTrail"),sayEl=$("#btSay");
  var now=function(){return window.performance?performance.now():Date.now()};
  var total=0,fin=0,ended=false,shownAt=ret?0:now(),phr=0,timer=0;
  var PH=["Trazando tu atlas","Cada carrera es una isla","Probar quita dudas","Lo que te gusta es una pista"];
@@ -5893,7 +5919,7 @@ function boot(){
  function finish(){
   if(ended)return;ended=true;clearInterval(timer);
   var rb=bt.querySelector(".rb");if(rb&&shownAt){rb.classList.remove("walk");mood(rb,"happy","wave")}
-  var wait=shownAt?Math.max(RM()?0:500,2300-(now()-shownAt)):0;
+  var wait=shownAt?Math.max(RM()?0:500,3500-(now()-shownAt)):0;
   setTimeout(function(){
    startApp(1);
    if(!shownAt){bt.style.display="none";return}
