@@ -262,3 +262,4 @@
 .ap-book{flex:1 1 auto;min-height:0}
 /* menú de tres barras: en la esquina superior derecha */
 #v-map .addc.mm-btn{position:absolute;top:calc(12px + var(--sat,0px));right:calc(12px + var(--sar,0px));left:auto;bottom:auto;z-index:6}
+.tw-stage svg.tw-l{display:none!important}
