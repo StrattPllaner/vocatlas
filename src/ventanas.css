@@ -280,3 +280,12 @@
 .tw-lv2.is-open .tw-lv2-cl{opacity:.2;transition:opacity 1.2s}
 @keyframes lvDrift{to{translate:14px 0}}
 @media (prefers-reduced-motion:reduce){.tw-lv2-cl{animation:none}}
+/* nivel 2: niebla suave (las mismas nubes del camino) y un letrero tenue */
+.tw-lv2{width:260px;height:170px}
+.tw-lv2-c,.tw-lv2-cl{display:none!important}
+.tw-lv2-l{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:1;display:flex;flex-direction:column;align-items:center;gap:2px;color:#F6EFE2;font-weight:900;font-size:22px;text-shadow:0 2px 10px rgba(20,50,63,.5);opacity:.75;white-space:nowrap}
+.tw-lv2-l svg{width:22px;height:22px}.tw-lv2-l small{font-size:12.5px;font-weight:800;opacity:.9}
+.tw-lv2-fog{position:absolute;inset:0;z-index:2;pointer-events:none}
+.tw-lv2-fog img{position:absolute;height:auto;transform:translate(-50%,-50%);opacity:.62;animation:lvDrift 10s ease-in-out infinite alternate}
+.tw-lv2-fog img:nth-child(2n){animation-duration:13s;animation-direction:alternate-reverse}
+.tw-lv2.is-open .tw-lv2-fog img{opacity:.18;transition:opacity 1.2s}.tw-lv2.is-open .tw-lv2-l{opacity:1}
