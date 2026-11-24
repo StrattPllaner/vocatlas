@@ -38,7 +38,7 @@ var APUNTES=(function(){
   var close=uiLayer(el,true);el.querySelector(".ap-x").onclick=close;
   var page=el.querySelector(".ap-page");
   function show(k){id=k;each(el.querySelectorAll(".ap-tabs button"),function(b){b.setAttribute("aria-selected",String(b.getAttribute("data-id")===k))});page.style.setProperty("--c",byId[k].color);
-   page.innerHTML='<h2 class="ap-tt" style="color:'+byId[k].color+'">'+h(byId[k].name)+'</h2><div class="ap-bd"></div>';body(k,page.querySelector(".ap-bd"));page.parentNode.scrollTop=0}
+   var sb=el.querySelector('.ap-tabs [aria-selected=true]');if(sb&&sb.scrollIntoView)sb.scrollIntoView({inline:"center",block:"nearest"});page.innerHTML='<h2 class="ap-tt" style="color:'+byId[k].color+'">'+h(byId[k].name)+'</h2><div class="ap-bd"></div>';body(k,page.querySelector(".ap-bd"));page.parentNode.scrollTop=0}
   each(el.querySelectorAll(".ap-tabs button"),function(b){b.onclick=function(){show(b.getAttribute("data-id"))}});show(id)}
  /* menú de tres barras: se abre en un recuadro arriba; se cierra al tocar fuera, con Esc o al elegir */
  function menu(btn){var m=document.querySelector(".mm-pop");if(m){m.__close();return}

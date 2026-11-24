@@ -255,3 +255,10 @@
 .cxk-pend{font-style:normal;font-size:12.5px;font-weight:800;color:#8A5A1E;background:#FFF1CC;padding:3px 8px;border-radius:999px}
 .cxk-note{margin:6px 0;padding:8px 10px;border-radius:12px;background:var(--c-bg,#F6EFE2);border-left:4px solid var(--k);font-size:13.5px;line-height:1.4}
 .cxk-src{margin:14px 0 0;font-size:12px;line-height:1.4;color:var(--c-ink-3,#5C6B76)}
+/* apuntes: pestañas sin encimarse con la hoja */
+.ap-hd,.ap-tabs{flex:0 0 auto}
+.ap-tabs{min-height:56px;align-items:center;padding:6px 14px 12px;overflow-y:hidden}
+.ap-tabs button{flex:0 0 auto;white-space:nowrap;min-height:40px}
+.ap-book{flex:1 1 auto;min-height:0}
+/* menú de tres barras: en la esquina superior derecha */
+#v-map .addc.mm-btn{position:absolute;top:calc(12px + var(--sat,0px));right:calc(12px + var(--sar,0px));left:auto;bottom:auto;z-index:6}
