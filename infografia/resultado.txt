@@ -1,0 +1,5 @@
+Rumbo_bandera.png {"mediaId":"MAHbwOKV7mA"}
+Rumbo_pensando.png {"mediaId":"MAHbwCaCwCA"}
+Rumbo_leyendo.png {"mediaId":"MAHbwKAtia4"}
+App_celular.png {"mediaId":"MAHbwMNOSFU"}
+Logo_PrepaTec_blanco.png {"mediaId":"MAHbwOI927o"}

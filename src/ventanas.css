@@ -198,3 +198,5 @@
 #app[data-v]:not([data-v=map]) #v-map{visibility:hidden;transition:visibility 0s .32s}
 #app[data-v]:not([data-v=map]) #v-map *{animation-play-state:paused!important}
 #app[data-v=map] #v-map{visibility:visible;transition:none}
+
+@media (pointer:coarse){.tw-cv{transition:opacity .12s}.tw-sym{animation:none!important}.tw-door .pt-key,.tw-door.s-ready .pt-lab{animation:none!important}}

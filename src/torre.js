@@ -73,7 +73,7 @@ var TORRE=(function(I){
  /* los seis símbolos 3D de la carrera (media/sym), uno por unidad */
  function symKey(id,k){if(typeof SIMB!=="undefined"&&SIMB.has(id)){var q=SIMB.six(id)[k];if(q)return q.id+"."+q.v}return ""}
  /* símbolos 3D vivos: el motor se carga solo al abrir una espiral */
- var SYM3D=null;function live3d(host){if(!window.WebGLRenderingContext)return;(SYM3D||(SYM3D=import("./vendor/3d/sym3d.js?v=__V3D__"))).then(function(m){m.mount(host)}).catch(function(){})}
+ var SYM3D=null,COARSE=window.matchMedia&&matchMedia("(pointer:coarse)").matches;function live3d(host){if(!window.WebGLRenderingContext||COARSE)return;(SYM3D||(SYM3D=import("./vendor/3d/sym3d.js?v=__V3D__"))).then(function(m){m.mount(host)}).catch(function(){})}
  function symImg(id,k){if(typeof SIMB!=="undefined"&&SIMB.has(id)){var q=SIMB.six(id)[k];if(q)return "media/sym/"+q.id+"."+q.v+".webp"}return ""}
  function has(id){return !!byId[id]&&typeof ISO!=="undefined"}
  /* la cima: medalla de oro con rosa de los vientos (el rumbo), corona de laurel y listón del color de la carrera.
@@ -238,7 +238,7 @@ var TORRE=(function(I){
   /* el camino es una banda de nubes (lienzos) con destellos que viajan por el centro (svg) */
   var rot=S.rot,sc0=S.sc?(S.stop!=null?S.stop:S.sc.scrollTop)-S.padT:0,vh=S.vh||(S.vh=S.sc?S.sc.clientHeight:900),pyMin=sc0-350,pyMax=sc0+vh+350,run=null,seg={b:{pl:["",""]},f:{pl:["",""]}};
   /* la banda de nubes es lo más caro de pintar: mientras se mueve se repinta a lo más 20 veces por segundo, y al detenerse una vez más */
-  var nw=performance.now();if(nw-(S.clT||0)>48){S.clT=nw;clouds(S,rot,sc0,vh)}clearTimeout(S.clTm);S.clTm=setTimeout(function(){S.clT=0;clouds(S,S.rot,S.sc?S.sc.scrollTop-S.padT:0,S.vh||vh)},90);
+  var nw=performance.now();if(!COARSE&&nw-(S.clT||0)>48){S.clT=nw;clouds(S,rot,sc0,vh)}clearTimeout(S.clTm);S.clTm=setTimeout(function(){S.clT=0;clouds(S,S.rot,S.sc?S.sc.scrollTop-S.padT:0,S.vh||vh)},COARSE?140:90);
   for(var a=S.a0;a<=S.a1+.1;a+=5){var q=proj(a,rot,6),py=(q.y-S.ytop)*S.k;if(py<pyMin||py>pyMax){run=null;continue}
    var side=q.d<0?"b":"f",kind=a<=S.doneA?1:0,key=side+kind,c=f1(q.x)+" "+f1(q.y);
    if(run&&run.key===key)seg[side].pl[kind]+="L"+c;else{seg[side].pl[kind]+=(run?"M"+run.c+"L":"M")+c}run={key:key,c:c}}
