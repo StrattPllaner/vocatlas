@@ -147,12 +147,12 @@ function pkFilter(){
 function pkBar(now){
  var n=PK.sel.length,go=$("#pkGo");
  $("#pkN").textContent=n===0?"Ninguna carrera":n===1?"1 carrera":n+" carreras";
- $("#pkMsg").textContent=n===0?"Elige al menos una para continuar.":n<3?"Buen comienzo. Con 3 a 6 se compara mejor.":n<=6?"¡Buena selección para empezar!":"Son bastantes. Ve a tu ritmo, sin prisa.";
- go.setAttribute("aria-disabled",n?"false":"true");
+ $("#pkMsg").textContent=n<2?(n?"Elige una más: necesitas al menos 2 para comparar.":"Elige al menos 2 carreras para continuar."):n<3?"Buen comienzo. Con 3 a 6 se compara mejor.":n<=6?"¡Buena selección para empezar!":"Son bastantes. Ve a tu ritmo, sin prisa.";
+ go.setAttribute("aria-disabled",n>=2?"false":"true");
  clearTimeout(PK.mt);PK.mt=setTimeout(function(){var m=$("#pkMini");if(m){m.innerHTML=miniMap(PK.sel);if(!now&&!RM())restart(m,"pop")}},now?0:140);
 }
 function pkConfirm(){
- if(!PK.sel.length){restart($("#pkGo"),"shake");restart($("#pkMsg"),"pk-warn");return}
+ if(PK.sel.length<2){restart($("#pkGo"),"shake");restart($("#pkMsg"),"pk-warn");return}
  var old=S.pick,add=PK.sel.filter(function(id){return old.indexOf(id)<0}),rem=old.filter(function(id){return PK.sel.indexOf(id)<0});
  if(PK.mode==="edit"&&rem.length){confirmRemove(rem,function(){pkApply(add,rem)});return}
  pkApply(add,rem);
