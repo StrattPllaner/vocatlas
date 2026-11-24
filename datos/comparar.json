@@ -1,0 +1,1671 @@
+{
+"medicina": {
+"sueldo": {
+"prom": 27823,
+"rango": [
+16836,
+36499
+],
+"jov": 20143,
+"exp": 29777,
+"rank": 2,
+"aprox": false,
+"campo": "Medicina general"
+},
+"desempleo": 2,
+"informal": 22,
+"ejerce": 81,
+"mujeres": 52,
+"posgrado": 0,
+"duracion": "6 a 7 años contando internado de pregrado (1 año) y servicio social (1 año); la especialidad es aparte (3 a 6 años más).",
+"dificultad": "Muy alta",
+"requiere": "Título y cédula profesional para ejercer; para especializarse hay que aprobar el ENARM (examen nacional de residencias médicas).",
+"competencia": "UNAM Facultad de Medicina (CU): 117 aciertos de corte en 2026; tasa de admisión cercana al 1.2%.",
+"escuelas": {
+"CMX": {
+"pub": 3,
+"pri": 4
+},
+"MOR": {
+"pub": 1,
+"pri": 0
+}
+},
+"fuente_empleo": "IMCO, Compara Carreras 2026 (datos de la ENOE 2T2025 a 1T2026, INEGI). Promedios nacionales, pesos mensuales.",
+"corte": "2026-11-17"
+},
+"nutricion": {
+"sueldo": {
+"prom": 17773,
+"rango": [
+11684,
+20412
+],
+"jov": 16079,
+"exp": 18798,
+"rank": 54,
+"aprox": false,
+"campo": "Nutrición"
+},
+"desempleo": 4,
+"informal": 37,
+"ejerce": 44,
+"mujeres": 83,
+"posgrado": 5,
+"duracion": "4 años más servicio social.",
+"dificultad": "Media-alta",
+"requiere": "Título y cédula profesional.",
+"escuelas": {
+"CMX": {
+"pub": 3,
+"pri": 4
+},
+"MOR": {
+"pub": 1,
+"pri": 1
+}
+},
+"fuente_empleo": "IMCO, Compara Carreras 2026 (datos de la ENOE 2T2025 a 1T2026, INEGI). Promedios nacionales, pesos mensuales.",
+"corte": "2026-11-17"
+},
+"psicologia": {
+"sueldo": {
+"prom": 18813,
+"rango": [
+11878,
+22145
+],
+"jov": 15474,
+"exp": 20104,
+"rank": 48,
+"aprox": false,
+"campo": "Psicología"
+},
+"desempleo": 3,
+"informal": 33,
+"ejerce": 50,
+"mujeres": 77,
+"posgrado": 14,
+"duracion": "4 a 4.5 años más servicio social. Para dar terapia suele hacerse maestría.",
+"dificultad": "Media-alta",
+"requiere": "Título y cédula; para psicoterapia se recomienda posgrado y formación clínica supervisada.",
+"competencia": "UNAM Facultad de Psicología (CU): 99 aciertos mínimos históricos 2021-2026.",
+"escuelas": {
+"CMX": {
+"pub": 3,
+"pri": 6
+},
+"MOR": {
+"pub": 1,
+"pri": 1
+}
+},
+"fuente_empleo": "IMCO, Compara Carreras 2026 (datos de la ENOE 2T2025 a 1T2026, INEGI). Promedios nacionales, pesos mensuales.",
+"corte": "2026-11-17"
+},
+"veterinaria": {
+"sueldo": {
+"prom": 19585,
+"rango": [
+11591,
+24386
+],
+"jov": 14524,
+"exp": 21024,
+"rank": 39,
+"aprox": false,
+"campo": "Veterinaria"
+},
+"desempleo": 3,
+"informal": 42,
+"ejerce": 49,
+"mujeres": 38,
+"posgrado": 4,
+"duracion": "5 años más servicio social.",
+"dificultad": "Alta",
+"requiere": "Título y cédula profesional.",
+"escuelas": {
+"CMX": {
+"pub": 2,
+"pri": 0
+},
+"MOR": {
+"pub": 1,
+"pri": 0
+}
+},
+"fuente_empleo": "IMCO, Compara Carreras 2026 (datos de la ENOE 2T2025 a 1T2026, INEGI). Promedios nacionales, pesos mensuales.",
+"corte": "2026-11-17"
+},
+"civil": {
+"sueldo": {
+"prom": 25603,
+"rango": [
+14200,
+30483
+],
+"jov": 20861,
+"exp": 26990,
+"rank": 7,
+"aprox": false,
+"campo": "Construcción e ingeniería civil"
+},
+"desempleo": 4,
+"informal": 29,
+"ejerce": 50,
+"mujeres": 12,
+"posgrado": 4,
+"duracion": "4.5 a 5 años.",
+"dificultad": "Alta",
+"requiere": "Cédula para firmar proyectos; en CDMX, registro como Director Responsable de Obra para grandes construcciones.",
+"escuelas": {
+"CMX": {
+"pub": 3,
+"pri": 5
+},
+"MOR": {
+"pub": 0,
+"pri": 2
+}
+},
+"fuente_empleo": "IMCO, Compara Carreras 2026 (datos de la ENOE 2T2025 a 1T2026, INEGI). Promedios nacionales, pesos mensuales.",
+"corte": "2026-11-17"
+},
+"mecatronica": {
+"sueldo": {
+"prom": 25953,
+"rango": [
+14243,
+32039
+],
+"jov": 21416,
+"exp": 28134,
+"rank": 6,
+"aprox": true,
+"campo": "Electrónica automatización y aplicaciones de la mecánica-eléctrica"
+},
+"desempleo": 3,
+"informal": 19,
+"ejerce": 51,
+"mujeres": 11,
+"posgrado": 3,
+"duracion": "4.5 a 5 años.",
+"dificultad": "Alta",
+"requiere": "No requiere cédula para la mayoría de puestos.",
+"escuelas": {
+"CMX": {
+"pub": 2,
+"pri": 5
+},
+"MOR": {
+"pub": 1,
+"pri": 3
+}
+},
+"fuente_empleo": "IMCO, Compara Carreras 2026 (datos de la ENOE 2T2025 a 1T2026, INEGI). Promedios nacionales, pesos mensuales.",
+"corte": "2026-11-17"
+},
+"aeroespacial": {
+"sueldo": {
+"prom": 20700,
+"rango": [
+13436,
+24606
+],
+"jov": 17756,
+"exp": 22956,
+"rank": 31,
+"aprox": false,
+"campo": "Vehículos barcos y aeronaves motorizadas"
+},
+"desempleo": 5,
+"informal": 34,
+"ejerce": 44,
+"mujeres": 6,
+"posgrado": 3,
+"duracion": "4.5 a 5 años.",
+"dificultad": "Muy alta",
+"requiere": "Para mantenimiento de aeronaves se requiere licencia de la Agencia Federal de Aviación Civil.",
+"competencia": "UNAM Ingeniería Aeroespacial (Facultad de Ingeniería): 111 aciertos mínimos históricos; 96 en el examen de control 2026.",
+"escuelas": {
+"CMX": {
+"pub": 2,
+"pri": 0
+}
+},
+"fuente_empleo": "IMCO, Compara Carreras 2026 (datos de la ENOE 2T2025 a 1T2026, INEGI). Promedios nacionales, pesos mensuales.",
+"corte": "2026-11-17"
+},
+"ambiental": {
+"sueldo": {
+"prom": 19496,
+"rango": [
+12536,
+22965
+],
+"jov": 17844,
+"exp": 20515,
+"rank": 40,
+"aprox": false,
+"campo": "Tecnología para la protección del medio ambiente"
+},
+"desempleo": 9,
+"informal": 27,
+"ejerce": 25,
+"mujeres": 59,
+"posgrado": 6,
+"duracion": "4.5 años.",
+"dificultad": "Media-alta",
+"requiere": "Para firmar estudios de impacto ambiental se requieren registros ante SEMARNAT o la autoridad estatal.",
+"escuelas": {
+"CMX": {
+"pub": 2,
+"pri": 1
+},
+"MOR": {
+"pub": 1,
+"pri": 1
+}
+},
+"fuente_empleo": "IMCO, Compara Carreras 2026 (datos de la ENOE 2T2025 a 1T2026, INEGI). Promedios nacionales, pesos mensuales.",
+"corte": "2026-11-17"
+},
+"computacion": {
+"sueldo": {
+"prom": 24927,
+"rango": [
+13518,
+29138
+],
+"jov": 19423,
+"exp": 26416,
+"rank": 12,
+"aprox": false,
+"campo": "Desarrollo de software"
+},
+"desempleo": 3,
+"informal": 18,
+"ejerce": 45,
+"mujeres": 25,
+"posgrado": 4,
+"duracion": "4 a 4.5 años.",
+"dificultad": "Alta",
+"requiere": "No requiere cédula; certificaciones (AWS, Google, Microsoft) y portafolio pesan mucho.",
+"escuelas": {
+"CMX": {
+"pub": 3,
+"pri": 4
+},
+"MOR": {
+"pub": 1,
+"pri": 1
+}
+},
+"fuente_empleo": "IMCO, Compara Carreras 2026 (datos de la ENOE 2T2025 a 1T2026, INEGI). Promedios nacionales, pesos mensuales.",
+"corte": "2026-11-17"
+},
+"datos": {
+"sueldo": {
+"prom": 24983,
+"rango": [
+13248,
+32376
+],
+"jov": 18500,
+"exp": 26357,
+"rank": 10,
+"aprox": true,
+"campo": "Ciencias computacionales"
+},
+"desempleo": 5,
+"informal": 23,
+"ejerce": 9,
+"mujeres": 54,
+"posgrado": 6,
+"duracion": "4 a 4.5 años.",
+"dificultad": "Alta",
+"requiere": "No requiere cédula; el portafolio de proyectos es clave.",
+"escuelas": {
+"CMX": {
+"pub": 2,
+"pri": 1
+},
+"MOR": {
+"pub": 0,
+"pri": 1
+}
+},
+"fuente_empleo": "IMCO, Compara Carreras 2026 (datos de la ENOE 2T2025 a 1T2026, INEGI). Promedios nacionales, pesos mensuales.",
+"corte": "2026-11-17"
+},
+"biotec": {
+"sueldo": {
+"prom": 22756,
+"rango": [
+12914,
+28491
+],
+"jov": 17180,
+"exp": 25993,
+"rank": 25,
+"aprox": true,
+"campo": "Bioquímica y biofísica"
+},
+"desempleo": 4,
+"informal": 22,
+"ejerce": 48,
+"mujeres": 58,
+"posgrado": 9,
+"duracion": "4.5 a 5 años.",
+"dificultad": "Alta",
+"requiere": "No requiere cédula para la mayoría de puestos; la investigación pide posgrado.",
+"escuelas": {
+"MOR": {
+"pub": 2,
+"pri": 1
+},
+"CMX": {
+"pub": 2,
+"pri": 1
+}
+},
+"fuente_empleo": "IMCO, Compara Carreras 2026 (datos de la ENOE 2T2025 a 1T2026, INEGI). Promedios nacionales, pesos mensuales.",
+"corte": "2026-11-17"
+},
+"fisica": {
+"duracion": "4 a 4.5 años.",
+"dificultad": "Muy alta",
+"requiere": "No requiere cédula; la carrera científica pide doctorado.",
+"competencia": "UNAM Física (Facultad de Ciencias): 104 aciertos mínimos históricos.",
+"escuelas": {
+"CMX": {
+"pub": 3,
+"pri": 0
+},
+"MOR": {
+"pub": 1,
+"pri": 0
+}
+},
+"fuente_empleo": null,
+"corte": "2026-11-17"
+},
+"derecho": {
+"sueldo": {
+"prom": 24178,
+"rango": [
+12950,
+27358
+],
+"jov": 19408,
+"exp": 25309,
+"rank": 18,
+"aprox": false,
+"campo": "Derecho"
+},
+"desempleo": 3,
+"informal": 28,
+"ejerce": 53,
+"mujeres": 49,
+"posgrado": 8,
+"duracion": "4 a 5 años.",
+"dificultad": "Media-alta",
+"requiere": "Título y cédula para litigar.",
+"competencia": "UNAM Facultad de Derecho (CU): 105 aciertos de corte en 2026.",
+"escuelas": {
+"CMX": {
+"pub": 2,
+"pri": 6
+},
+"MOR": {
+"pub": 1,
+"pri": 2
+}
+},
+"fuente_empleo": "IMCO, Compara Carreras 2026 (datos de la ENOE 2T2025 a 1T2026, INEGI). Promedios nacionales, pesos mensuales.",
+"corte": "2026-11-17"
+},
+"negocios": {
+"sueldo": {
+"prom": 23576,
+"rango": [
+13194,
+26386
+],
+"jov": 17878,
+"exp": 25133,
+"rank": 24,
+"aprox": false,
+"campo": "Administración de empresas"
+},
+"desempleo": 4,
+"informal": 22,
+"ejerce": 38,
+"mujeres": 58,
+"posgrado": 12,
+"duracion": "4 años (8 semestres) o 3 años en planes cuatrimestrales.",
+"dificultad": "Media",
+"requiere": "No requiere cédula para la mayoría de puestos.",
+"escuelas": {
+"CMX": {
+"pub": 3,
+"pri": 6
+},
+"MOR": {
+"pub": 1,
+"pri": 3
+}
+},
+"fuente_empleo": "IMCO, Compara Carreras 2026 (datos de la ENOE 2T2025 a 1T2026, INEGI). Promedios nacionales, pesos mensuales.",
+"corte": "2026-11-17"
+},
+"finanzas": {
+"sueldo": {
+"prom": 27290,
+"rango": [
+14271,
+38851
+],
+"jov": 23679,
+"exp": 28263,
+"rank": 3,
+"aprox": false,
+"campo": "Finanzas banca y seguros"
+},
+"desempleo": 4,
+"informal": 11,
+"ejerce": 44,
+"mujeres": 44,
+"posgrado": 37,
+"duracion": "4 años.",
+"dificultad": "Media-alta",
+"requiere": "Para asesorar inversiones se requieren certificaciones AMIB.",
+"escuelas": {
+"CMX": {
+"pub": 0,
+"pri": 5
+},
+"MOR": {
+"pub": 0,
+"pri": 1
+}
+},
+"fuente_empleo": "IMCO, Compara Carreras 2026 (datos de la ENOE 2T2025 a 1T2026, INEGI). Promedios nacionales, pesos mensuales.",
+"corte": "2026-11-17"
+},
+"educacion": {
+"sueldo": {
+"prom": 15934,
+"rango": [
+10665,
+19102
+],
+"jov": 13717,
+"exp": 16965,
+"rank": 62,
+"aprox": false,
+"campo": "Diseño curricular y pedagogía"
+},
+"desempleo": 4,
+"informal": 29,
+"ejerce": 10,
+"mujeres": 76,
+"posgrado": 10,
+"duracion": "4 años.",
+"dificultad": "Media",
+"requiere": "Para dar clases en escuelas públicas de educación básica se pide formación normalista o concursar en USICAMM.",
+"escuelas": {
+"CMX": {
+"pub": 1,
+"pri": 5
+},
+"MOR": {
+"pub": 1,
+"pri": 1
+}
+},
+"fuente_empleo": "IMCO, Compara Carreras 2026 (datos de la ENOE 2T2025 a 1T2026, INEGI). Promedios nacionales, pesos mensuales.",
+"corte": "2026-11-17"
+},
+"arquitectura": {
+"sueldo": {
+"prom": 26822,
+"rango": [
+16188,
+31923
+],
+"jov": 19534,
+"exp": 29157,
+"rank": 4,
+"aprox": false,
+"campo": "Arquitectura y urbanismo"
+},
+"desempleo": 4,
+"informal": 27,
+"ejerce": 60,
+"mujeres": 33,
+"posgrado": 6,
+"duracion": "5 años.",
+"dificultad": "Alta",
+"requiere": "Cédula para firmar proyectos y licencias; los materiales y el software son caros.",
+"escuelas": {
+"CMX": {
+"pub": 3,
+"pri": 6
+},
+"MOR": {
+"pub": 1,
+"pri": 2
+}
+},
+"fuente_empleo": "IMCO, Compara Carreras 2026 (datos de la ENOE 2T2025 a 1T2026, INEGI). Promedios nacionales, pesos mensuales.",
+"corte": "2026-11-17"
+},
+"moda": {
+"sueldo": {
+"prom": 25503,
+"rango": [
+15541,
+32376
+],
+"jov": 19086,
+"exp": 27459,
+"rank": 8,
+"aprox": false,
+"campo": "Diseño industrial de moda e interiores"
+},
+"desempleo": 5,
+"informal": 34,
+"ejerce": 26,
+"mujeres": 70,
+"posgrado": 3,
+"duracion": "4 años.",
+"dificultad": "Media",
+"requiere": "No requiere cédula.",
+"escuelas": {
+"CMX": {
+"pub": 1,
+"pri": 2
+}
+},
+"fuente_empleo": "IMCO, Compara Carreras 2026 (datos de la ENOE 2T2025 a 1T2026, INEGI). Promedios nacionales, pesos mensuales.",
+"corte": "2026-11-17"
+},
+"comunicacion": {
+"sueldo": {
+"prom": 24898,
+"rango": [
+13181,
+29052
+],
+"jov": 18281,
+"exp": 26486,
+"rank": 13,
+"aprox": false,
+"campo": "Comunicación y periodismo"
+},
+"desempleo": 6,
+"informal": 30,
+"ejerce": 21,
+"mujeres": 54,
+"posgrado": 6,
+"duracion": "4 años.",
+"dificultad": "Media",
+"requiere": "No requiere cédula.",
+"competencia": "UNAM Ciencias de la Comunicación (FCPyS): 94 aciertos mínimos.",
+"escuelas": {
+"CMX": {
+"pub": 2,
+"pri": 5
+},
+"MOR": {
+"pub": 1,
+"pri": 3
+}
+},
+"fuente_empleo": "IMCO, Compara Carreras 2026 (datos de la ENOE 2T2025 a 1T2026, INEGI). Promedios nacionales, pesos mensuales.",
+"corte": "2026-11-17"
+},
+"enfermeria": {
+"sueldo": {
+"prom": 19970,
+"rango": [
+12860,
+24606
+],
+"jov": 15282,
+"exp": 22205,
+"rank": 36,
+"aprox": false,
+"campo": "Enfermería general y obstetricia"
+},
+"desempleo": 2,
+"informal": 24,
+"ejerce": 75,
+"mujeres": 82,
+"posgrado": 1,
+"duracion": "4 años más 1 año de servicio social.",
+"dificultad": "Alta",
+"requiere": "Título y cédula profesional.",
+"escuelas": {
+"CMX": {
+"pub": 3,
+"pri": 1
+},
+"MOR": {
+"pub": 1,
+"pri": 0
+}
+},
+"fuente_empleo": "IMCO, Compara Carreras 2026 (datos de la ENOE 2T2025 a 1T2026, INEGI). Promedios nacionales, pesos mensuales.",
+"corte": "2026-11-17"
+},
+"odontologia": {
+"sueldo": {
+"prom": 22241,
+"rango": [
+13566,
+28653
+],
+"jov": 18983,
+"exp": 23018,
+"rank": 28,
+"aprox": false,
+"campo": "Estomatología y odontología general"
+},
+"desempleo": 2,
+"informal": 36,
+"ejerce": 73,
+"mujeres": 65,
+"posgrado": 2,
+"duracion": "4 a 5 años más 1 año de servicio social.",
+"dificultad": "Alta",
+"requiere": "Título y cédula profesional. El instrumental y los materiales corren por cuenta del alumno y son caros.",
+"competencia": "UNAM Cirujano Dentista 2026: 98 aciertos en CU, 90 en FES Zaragoza y 89 en FES Iztacala.",
+"escuelas": {
+"CMX": {
+"pub": 2,
+"pri": 4
+}
+},
+"fuente_empleo": "IMCO, Compara Carreras 2026 (datos de la ENOE 2T2025 a 1T2026, INEGI). Promedios nacionales, pesos mensuales.",
+"corte": "2026-11-17"
+},
+"fisioterapia": {
+"sueldo": {
+"prom": 17141,
+"rango": [
+10274,
+20893
+],
+"jov": 14849,
+"exp": 19740,
+"rank": 57,
+"aprox": false,
+"campo": "Terapia y rehabilitación"
+},
+"desempleo": 3,
+"informal": 52,
+"ejerce": 68,
+"mujeres": 67,
+"posgrado": 5,
+"duracion": "4 años más servicio social.",
+"dificultad": "Media-alta",
+"requiere": "Título y cédula profesional.",
+"escuelas": {
+"CMX": {
+"pub": 1,
+"pri": 4
+},
+"MOR": {
+"pub": 0,
+"pri": 1
+}
+},
+"fuente_empleo": "IMCO, Compara Carreras 2026 (datos de la ENOE 2T2025 a 1T2026, INEGI). Promedios nacionales, pesos mensuales.",
+"corte": "2026-11-17"
+},
+"qfb": {
+"sueldo": {
+"prom": 22756,
+"rango": [
+12914,
+28491
+],
+"jov": 17180,
+"exp": 25993,
+"rank": 25,
+"aprox": true,
+"campo": "Bioquímica y biofísica"
+},
+"desempleo": 4,
+"informal": 22,
+"ejerce": 48,
+"mujeres": 58,
+"posgrado": 9,
+"duracion": "4 a 5 años.",
+"dificultad": "Alta",
+"requiere": "Título y cédula; algunos puestos de responsable sanitario requieren experiencia y registro ante COFEPRIS.",
+"escuelas": {
+"CMX": {
+"pub": 3,
+"pri": 1
+},
+"MOR": {
+"pub": 1,
+"pri": 0
+}
+},
+"fuente_empleo": "IMCO, Compara Carreras 2026 (datos de la ENOE 2T2025 a 1T2026, INEGI). Promedios nacionales, pesos mensuales.",
+"corte": "2026-11-17"
+},
+"educfisica": {
+"sueldo": {
+"prom": 19139,
+"rango": [
+12054,
+22404
+],
+"jov": 15623,
+"exp": 20765,
+"rank": 45,
+"aprox": false,
+"campo": "Deportes"
+},
+"desempleo": 4,
+"informal": 31,
+"ejerce": 44,
+"mujeres": 26,
+"posgrado": 4,
+"duracion": "4 años.",
+"dificultad": "Media",
+"requiere": "Para escuelas públicas, concurso en USICAMM.",
+"escuelas": {
+"MOR": {
+"pub": 1,
+"pri": 0
+},
+"CMX": {
+"pub": 0,
+"pri": 1
+}
+},
+"fuente_empleo": "IMCO, Compara Carreras 2026 (datos de la ENOE 2T2025 a 1T2026, INEGI). Promedios nacionales, pesos mensuales.",
+"corte": "2026-11-17"
+},
+"industrial": {
+"sueldo": {
+"prom": 24869,
+"rango": [
+14432,
+31291
+],
+"jov": 19642,
+"exp": 26731,
+"rank": 14,
+"aprox": false,
+"campo": "Ingeniería industrial"
+},
+"desempleo": 4,
+"informal": 17,
+"ejerce": 29,
+"mujeres": 28,
+"posgrado": 2,
+"duracion": "4 a 4.5 años.",
+"dificultad": "Media-alta",
+"requiere": "No requiere cédula para la mayoría de puestos; certificaciones Lean Six Sigma ayudan.",
+"escuelas": {
+"CMX": {
+"pub": 3,
+"pri": 6
+},
+"MOR": {
+"pub": 1,
+"pri": 3
+}
+},
+"fuente_empleo": "IMCO, Compara Carreras 2026 (datos de la ENOE 2T2025 a 1T2026, INEGI). Promedios nacionales, pesos mensuales.",
+"corte": "2026-11-17"
+},
+"mecanica": {
+"sueldo": {
+"prom": 24449,
+"rango": [
+13643,
+29577
+],
+"jov": 17920,
+"exp": 27732,
+"rank": 16,
+"aprox": false,
+"campo": "Mecánica y profesiones afines al trabajo metálico"
+},
+"desempleo": 2,
+"informal": 23,
+"ejerce": 44,
+"mujeres": 6,
+"posgrado": 3,
+"duracion": "4.5 a 5 años.",
+"dificultad": "Alta",
+"requiere": "No requiere cédula para la mayoría de puestos.",
+"escuelas": {
+"CMX": {
+"pub": 3,
+"pri": 3
+},
+"MOR": {
+"pub": 1,
+"pri": 1
+}
+},
+"fuente_empleo": "IMCO, Compara Carreras 2026 (datos de la ENOE 2T2025 a 1T2026, INEGI). Promedios nacionales, pesos mensuales.",
+"corte": "2026-11-17"
+},
+"electrica": {
+"sueldo": {
+"prom": 23837,
+"rango": [
+13782,
+28815
+],
+"jov": 18805,
+"exp": 25220,
+"rank": 21,
+"aprox": false,
+"campo": "Electricidad y generación de energía"
+},
+"desempleo": 3,
+"informal": 22,
+"ejerce": 60,
+"mujeres": 8,
+"posgrado": 5,
+"duracion": "4.5 a 5 años.",
+"dificultad": "Alta",
+"requiere": "Cédula y, para firmar instalaciones, registro como unidad de verificación (UVIE).",
+"escuelas": {
+"CMX": {
+"pub": 3,
+"pri": 0
+},
+"MOR": {
+"pub": 1,
+"pri": 0
+}
+},
+"fuente_empleo": "IMCO, Compara Carreras 2026 (datos de la ENOE 2T2025 a 1T2026, INEGI). Promedios nacionales, pesos mensuales.",
+"corte": "2026-11-17"
+},
+"electronica": {
+"sueldo": {
+"prom": 25953,
+"rango": [
+14243,
+32039
+],
+"jov": 21416,
+"exp": 28134,
+"rank": 6,
+"aprox": false,
+"campo": "Electrónica automatización y aplicaciones de la mecánica-eléctrica"
+},
+"desempleo": 3,
+"informal": 19,
+"ejerce": 51,
+"mujeres": 11,
+"posgrado": 3,
+"duracion": "4.5 a 5 años.",
+"dificultad": "Alta",
+"requiere": "No requiere cédula para la mayoría de puestos.",
+"escuelas": {
+"CMX": {
+"pub": 3,
+"pri": 1
+},
+"MOR": {
+"pub": 1,
+"pri": 1
+}
+},
+"fuente_empleo": "IMCO, Compara Carreras 2026 (datos de la ENOE 2T2025 a 1T2026, INEGI). Promedios nacionales, pesos mensuales.",
+"corte": "2026-11-17"
+},
+"quimicaing": {
+"sueldo": {
+"prom": 22633,
+"rango": [
+13194,
+27358
+],
+"jov": 19264,
+"exp": 24228,
+"rank": 26,
+"aprox": false,
+"campo": "Ingeniería de procesos químicos"
+},
+"desempleo": 4,
+"informal": 21,
+"ejerce": 32,
+"mujeres": 40,
+"posgrado": 4,
+"duracion": "4.5 a 5 años.",
+"dificultad": "Muy alta",
+"requiere": "No requiere cédula para la mayoría de puestos.",
+"escuelas": {
+"CMX": {
+"pub": 3,
+"pri": 3
+},
+"MOR": {
+"pub": 1,
+"pri": 1
+}
+},
+"fuente_empleo": "IMCO, Compara Carreras 2026 (datos de la ENOE 2T2025 a 1T2026, INEGI). Promedios nacionales, pesos mensuales.",
+"corte": "2026-11-17"
+},
+"biomedica": {
+"sueldo": {
+"prom": 25953,
+"rango": [
+14243,
+32039
+],
+"jov": 21416,
+"exp": 28134,
+"rank": 6,
+"aprox": true,
+"campo": "Electrónica automatización y aplicaciones de la mecánica-eléctrica"
+},
+"desempleo": 3,
+"informal": 19,
+"ejerce": 51,
+"mujeres": 11,
+"posgrado": 3,
+"duracion": "4.5 a 5 años.",
+"dificultad": "Alta",
+"requiere": "No requiere cédula para la mayoría de puestos; COFEPRIS regula dispositivos médicos.",
+"escuelas": {
+"CMX": {
+"pub": 3,
+"pri": 3
+},
+"MOR": {
+"pub": 0,
+"pri": 1
+}
+},
+"fuente_empleo": "IMCO, Compara Carreras 2026 (datos de la ENOE 2T2025 a 1T2026, INEGI). Promedios nacionales, pesos mensuales.",
+"corte": "2026-11-17"
+},
+"ia": {
+"sueldo": {
+"prom": 24983,
+"rango": [
+13248,
+32376
+],
+"jov": 18500,
+"exp": 26357,
+"rank": 10,
+"aprox": true,
+"campo": "Ciencias computacionales"
+},
+"desempleo": 5,
+"informal": 23,
+"ejerce": 9,
+"mujeres": 54,
+"posgrado": 6,
+"duracion": "4 a 4.5 años.",
+"dificultad": "Alta",
+"requiere": "No requiere cédula.",
+"escuelas": {
+"CMX": {
+"pub": 1,
+"pri": 1
+},
+"MOR": {
+"pub": 1,
+"pri": 1
+}
+},
+"fuente_empleo": "IMCO, Compara Carreras 2026 (datos de la ENOE 2T2025 a 1T2026, INEGI). Promedios nacionales, pesos mensuales.",
+"corte": "2026-11-17"
+},
+"ciberseguridad": {
+"sueldo": {
+"prom": 23590,
+"rango": [
+12452,
+28791
+],
+"jov": 19896,
+"exp": 23992,
+"rank": 23,
+"aprox": true,
+"campo": "Informática"
+},
+"desempleo": 5,
+"informal": 21,
+"ejerce": 40,
+"mujeres": 44,
+"posgrado": 7,
+"duracion": "4 años.",
+"dificultad": "Media-alta",
+"requiere": "No requiere cédula; certificaciones (CompTIA Security+, CEH, OSCP) son muy valoradas.",
+"escuelas": {
+"CMX": {
+"pub": 1,
+"pri": 2
+}
+},
+"fuente_empleo": "IMCO, Compara Carreras 2026 (datos de la ENOE 2T2025 a 1T2026, INEGI). Promedios nacionales, pesos mensuales.",
+"corte": "2026-11-17"
+},
+"quimica": {
+"sueldo": {
+"prom": 24940,
+"rango": [
+16836,
+28491
+],
+"jov": 21195,
+"exp": 26108,
+"rank": 11,
+"aprox": false,
+"campo": "Química"
+},
+"desempleo": 4,
+"informal": 17,
+"ejerce": 47,
+"mujeres": 57,
+"posgrado": 19,
+"duracion": "4 a 4.5 años.",
+"dificultad": "Alta",
+"requiere": "No requiere cédula para la mayoría de puestos.",
+"competencia": "UNAM Química (Facultad de Química): 97 aciertos mínimos.",
+"escuelas": {
+"CMX": {
+"pub": 3,
+"pri": 0
+},
+"MOR": {
+"pub": 1,
+"pri": 0
+}
+},
+"fuente_empleo": "IMCO, Compara Carreras 2026 (datos de la ENOE 2T2025 a 1T2026, INEGI). Promedios nacionales, pesos mensuales.",
+"corte": "2026-11-17"
+},
+"biologia": {
+"sueldo": {
+"prom": 20150,
+"rango": [
+12417,
+24444
+],
+"jov": 15394,
+"exp": 21331,
+"rank": 34,
+"aprox": false,
+"campo": "Biología"
+},
+"desempleo": 8,
+"informal": 32,
+"ejerce": 27,
+"mujeres": 55,
+"posgrado": 14,
+"duracion": "4 a 4.5 años.",
+"dificultad": "Media-alta",
+"requiere": "No requiere cédula; la investigación pide maestría y doctorado.",
+"escuelas": {
+"CMX": {
+"pub": 3,
+"pri": 0
+},
+"MOR": {
+"pub": 2,
+"pri": 0
+}
+},
+"fuente_empleo": "IMCO, Compara Carreras 2026 (datos de la ENOE 2T2025 a 1T2026, INEGI). Promedios nacionales, pesos mensuales.",
+"corte": "2026-11-17"
+},
+"matematicas": {
+"sueldo": {
+"prom": 29887,
+"rango": [
+19426,
+42736
+],
+"jov": 22482,
+"exp": 30138,
+"rank": 1,
+"aprox": false,
+"campo": "Matemáticas"
+},
+"desempleo": 1,
+"informal": 23,
+"ejerce": 70,
+"mujeres": 36,
+"posgrado": 20,
+"duracion": "4 a 4.5 años.",
+"dificultad": "Muy alta",
+"requiere": "No requiere cédula.",
+"escuelas": {
+"CMX": {
+"pub": 3,
+"pri": 0
+},
+"MOR": {
+"pub": 1,
+"pri": 0
+}
+},
+"fuente_empleo": "IMCO, Compara Carreras 2026 (datos de la ENOE 2T2025 a 1T2026, INEGI). Promedios nacionales, pesos mensuales.",
+"corte": "2026-11-17"
+},
+"contaduria": {
+"sueldo": {
+"prom": 22192,
+"rango": [
+12914,
+25901
+],
+"jov": 17357,
+"exp": 23370,
+"rank": 29,
+"aprox": false,
+"campo": "Contabilidad y fiscalización"
+},
+"desempleo": 2,
+"informal": 22,
+"ejerce": 52,
+"mujeres": 56,
+"posgrado": 2,
+"duracion": "4 a 4.5 años.",
+"dificultad": "Media-alta",
+"requiere": "Cédula para firmar dictámenes; la certificación del IMCP (contador certificado) abre puertas.",
+"escuelas": {
+"CMX": {
+"pub": 2,
+"pri": 6
+},
+"MOR": {
+"pub": 1,
+"pri": 2
+}
+},
+"fuente_empleo": "IMCO, Compara Carreras 2026 (datos de la ENOE 2T2025 a 1T2026, INEGI). Promedios nacionales, pesos mensuales.",
+"corte": "2026-11-17"
+},
+"economia": {
+"sueldo": {
+"prom": 24434,
+"rango": [
+13896,
+29138
+],
+"jov": 19335,
+"exp": 25323,
+"rank": 17,
+"aprox": false,
+"campo": "Economía"
+},
+"desempleo": 7,
+"informal": 24,
+"ejerce": 29,
+"mujeres": 38,
+"posgrado": 13,
+"duracion": "4 a 4.5 años.",
+"dificultad": "Alta",
+"requiere": "No requiere cédula; los mejores puestos suelen pedir maestría.",
+"escuelas": {
+"CMX": {
+"pub": 3,
+"pri": 3
+},
+"MOR": {
+"pub": 1,
+"pri": 0
+}
+},
+"fuente_empleo": "IMCO, Compara Carreras 2026 (datos de la ENOE 2T2025 a 1T2026, INEGI). Promedios nacionales, pesos mensuales.",
+"corte": "2026-11-17"
+},
+"actuaria": {
+"sueldo": {
+"prom": 29887,
+"rango": [
+19426,
+42736
+],
+"jov": 22482,
+"exp": 30138,
+"rank": 1,
+"aprox": true,
+"campo": "Matemáticas"
+},
+"desempleo": 1,
+"informal": 23,
+"ejerce": 70,
+"mujeres": 36,
+"posgrado": 20,
+"duracion": "4 a 4.5 años.",
+"dificultad": "Muy alta",
+"requiere": "Para firmar notas técnicas de seguros se requiere certificación ante el Colegio Nacional de Actuarios / CNSF.",
+"competencia": "UNAM Actuaría en Facultad de Ciencias: 101 aciertos mínimos históricos 2021-2026.",
+"escuelas": {
+"CMX": {
+"pub": 1,
+"pri": 2
+}
+},
+"fuente_empleo": "IMCO, Compara Carreras 2026 (datos de la ENOE 2T2025 a 1T2026, INEGI). Promedios nacionales, pesos mensuales.",
+"corte": "2026-11-17"
+},
+"mercadotecnia": {
+"sueldo": {
+"prom": 24668,
+"rango": [
+14440,
+29462
+],
+"jov": 19542,
+"exp": 26730,
+"rank": 15,
+"aprox": false,
+"campo": "Mercadotecnia y publicidad"
+},
+"desempleo": 5,
+"informal": 28,
+"ejerce": 32,
+"mujeres": 58,
+"posgrado": 9,
+"duracion": "4 años.",
+"dificultad": "Media",
+"requiere": "No requiere cédula.",
+"escuelas": {
+"CMX": {
+"pub": 1,
+"pri": 6
+},
+"MOR": {
+"pub": 1,
+"pri": 3
+}
+},
+"fuente_empleo": "IMCO, Compara Carreras 2026 (datos de la ENOE 2T2025 a 1T2026, INEGI). Promedios nacionales, pesos mensuales.",
+"corte": "2026-11-17"
+},
+"comext": {
+"sueldo": {
+"prom": 22628,
+"rango": [
+12637,
+27889
+],
+"jov": 18662,
+"exp": 25616,
+"rank": 27,
+"aprox": false,
+"campo": "Negocios y comercio"
+},
+"desempleo": 4,
+"informal": 21,
+"ejerce": 46,
+"mujeres": 55,
+"posgrado": 9,
+"duracion": "4 años.",
+"dificultad": "Media",
+"requiere": "Para ser agente aduanal se requiere patente; no es necesaria para la mayoría de puestos.",
+"escuelas": {
+"CMX": {
+"pub": 2,
+"pri": 6
+},
+"MOR": {
+"pub": 0,
+"pri": 3
+}
+},
+"fuente_empleo": "IMCO, Compara Carreras 2026 (datos de la ENOE 2T2025 a 1T2026, INEGI). Promedios nacionales, pesos mensuales.",
+"corte": "2026-11-17"
+},
+"turismo": {
+"sueldo": {
+"prom": 19413,
+"rango": [
+12044,
+23311
+],
+"jov": 14398,
+"exp": 21562,
+"rank": 43,
+"aprox": false,
+"campo": "Hospitalidad y turismo"
+},
+"desempleo": 5,
+"informal": 28,
+"ejerce": 24,
+"mujeres": 68,
+"posgrado": 1,
+"duracion": "4 años.",
+"dificultad": "Media",
+"requiere": "No requiere cédula.",
+"escuelas": {
+"CMX": {
+"pub": 1,
+"pri": 1
+},
+"MOR": {
+"pub": 1,
+"pri": 2
+}
+},
+"fuente_empleo": "IMCO, Compara Carreras 2026 (datos de la ENOE 2T2025 a 1T2026, INEGI). Promedios nacionales, pesos mensuales.",
+"corte": "2026-11-17"
+},
+"politicas": {
+"sueldo": {
+"prom": 26095,
+"rango": [
+16933,
+30434
+],
+"jov": 22391,
+"exp": 27873,
+"rank": 5,
+"aprox": false,
+"campo": "Ciencias políticas"
+},
+"desempleo": 4,
+"informal": 19,
+"ejerce": 24,
+"mujeres": 62,
+"posgrado": 9,
+"duracion": "4 años.",
+"dificultad": "Media",
+"requiere": "No requiere cédula.",
+"escuelas": {
+"CMX": {
+"pub": 2,
+"pri": 2
+},
+"MOR": {
+"pub": 1,
+"pri": 0
+}
+},
+"fuente_empleo": "IMCO, Compara Carreras 2026 (datos de la ENOE 2T2025 a 1T2026, INEGI). Promedios nacionales, pesos mensuales.",
+"corte": "2026-11-17"
+},
+"rrii": {
+"sueldo": {
+"prom": 26095,
+"rango": [
+16933,
+30434
+],
+"jov": 22391,
+"exp": 27873,
+"rank": 5,
+"aprox": true,
+"campo": "Ciencias políticas"
+},
+"desempleo": 4,
+"informal": 19,
+"ejerce": 24,
+"mujeres": 62,
+"posgrado": 9,
+"duracion": "4 años.",
+"dificultad": "Media",
+"requiere": "Para el Servicio Exterior Mexicano hay que aprobar un concurso de ingreso.",
+"competencia": "UNAM Relaciones Internacionales (FCPyS): 98 aciertos mínimos.",
+"escuelas": {
+"CMX": {
+"pub": 1,
+"pri": 3
+},
+"MOR": {
+"pub": 0,
+"pri": 1
+}
+},
+"fuente_empleo": "IMCO, Compara Carreras 2026 (datos de la ENOE 2T2025 a 1T2026, INEGI). Promedios nacionales, pesos mensuales.",
+"corte": "2026-11-17"
+},
+"sociologia": {
+"sueldo": {
+"prom": 17137,
+"rango": [
+11655,
+20995
+],
+"jov": 13505,
+"exp": 17908,
+"rank": 58,
+"aprox": false,
+"campo": "Sociología y antropología"
+},
+"desempleo": 2,
+"informal": 31,
+"ejerce": 22,
+"mujeres": 62,
+"posgrado": 18,
+"duracion": "4 a 4.5 años.",
+"dificultad": "Media",
+"requiere": "No requiere cédula; la carrera académica pide posgrado.",
+"escuelas": {
+"CMX": {
+"pub": 2,
+"pri": 1
+},
+"MOR": {
+"pub": 1,
+"pri": 0
+}
+},
+"fuente_empleo": "IMCO, Compara Carreras 2026 (datos de la ENOE 2T2025 a 1T2026, INEGI). Promedios nacionales, pesos mensuales.",
+"corte": "2026-11-17"
+},
+"trabajosocial": {
+"sueldo": {
+"prom": 16266,
+"rango": [
+10609,
+19426
+],
+"jov": 13317,
+"exp": 17263,
+"rank": 60,
+"aprox": false,
+"campo": "Trabajo y atención social"
+},
+"desempleo": 3,
+"informal": 32,
+"ejerce": 29,
+"mujeres": 92,
+"posgrado": 3,
+"duracion": "4 años más servicio social.",
+"dificultad": "Media",
+"requiere": "Título y cédula profesional.",
+"escuelas": {
+"CMX": {
+"pub": 1,
+"pri": 0
+},
+"MOR": {
+"pub": 1,
+"pri": 0
+}
+},
+"fuente_empleo": "IMCO, Compara Carreras 2026 (datos de la ENOE 2T2025 a 1T2026, INEGI). Promedios nacionales, pesos mensuales.",
+"corte": "2026-11-17"
+},
+"criminologia": {
+"sueldo": {
+"prom": 18993,
+"rango": [
+11461,
+24023
+],
+"jov": 17372,
+"exp": 20174,
+"rank": 47,
+"aprox": false,
+"campo": "Criminología y criminalística"
+},
+"desempleo": 6,
+"informal": 38,
+"ejerce": 19,
+"mujeres": 56,
+"posgrado": 8,
+"duracion": "4 años.",
+"dificultad": "Media",
+"requiere": "Para peritajes oficiales se requiere certificación como perito.",
+"escuelas": {
+"CMX": {
+"pub": 1,
+"pri": 2
+},
+"MOR": {
+"pub": 1,
+"pri": 0
+}
+},
+"fuente_empleo": "IMCO, Compara Carreras 2026 (datos de la ENOE 2T2025 a 1T2026, INEGI). Promedios nacionales, pesos mensuales.",
+"corte": "2026-11-17"
+},
+"grafico": {
+"sueldo": {
+"prom": 23897,
+"rango": [
+13413,
+28491
+],
+"jov": 17487,
+"exp": 25802,
+"rank": 20,
+"aprox": false,
+"campo": "Diseño y comunicación gráfica y editorial"
+},
+"desempleo": 4,
+"informal": 32,
+"ejerce": 46,
+"mujeres": 56,
+"posgrado": 2,
+"duracion": "4 años.",
+"dificultad": "Media",
+"requiere": "No requiere cédula; el portafolio es lo que consigue trabajo.",
+"escuelas": {
+"CMX": {
+"pub": 2,
+"pri": 5
+},
+"MOR": {
+"pub": 1,
+"pri": 2
+}
+},
+"fuente_empleo": "IMCO, Compara Carreras 2026 (datos de la ENOE 2T2025 a 1T2026, INEGI). Promedios nacionales, pesos mensuales.",
+"corte": "2026-11-17"
+},
+"disindustrial": {
+"sueldo": {
+"prom": 25503,
+"rango": [
+15541,
+32376
+],
+"jov": 19086,
+"exp": 27459,
+"rank": 8,
+"aprox": false,
+"campo": "Diseño industrial de moda e interiores"
+},
+"desempleo": 5,
+"informal": 34,
+"ejerce": 26,
+"mujeres": 70,
+"posgrado": 3,
+"duracion": "4 a 4.5 años.",
+"dificultad": "Media-alta",
+"requiere": "No requiere cédula; el portafolio es clave.",
+"escuelas": {
+"CMX": {
+"pub": 2,
+"pri": 3
+},
+"MOR": {
+"pub": 0,
+"pri": 1
+}
+},
+"fuente_empleo": "IMCO, Compara Carreras 2026 (datos de la ENOE 2T2025 a 1T2026, INEGI). Promedios nacionales, pesos mensuales.",
+"corte": "2026-11-17"
+},
+"animacion": {
+"sueldo": {
+"prom": 23897,
+"rango": [
+13413,
+28491
+],
+"jov": 17487,
+"exp": 25802,
+"rank": 20,
+"aprox": true,
+"campo": "Diseño y comunicación gráfica y editorial"
+},
+"desempleo": 4,
+"informal": 32,
+"ejerce": 46,
+"mujeres": 56,
+"posgrado": 2,
+"duracion": "4 años.",
+"dificultad": "Media",
+"requiere": "No requiere cédula; el demo reel lo es todo.",
+"escuelas": {
+"CMX": {
+"pub": 1,
+"pri": 2
+}
+},
+"fuente_empleo": "IMCO, Compara Carreras 2026 (datos de la ENOE 2T2025 a 1T2026, INEGI). Promedios nacionales, pesos mensuales.",
+"corte": "2026-11-17"
+},
+"gastronomia": {
+"sueldo": {
+"prom": 17532,
+"rango": [
+11202,
+21837
+],
+"jov": 15622,
+"exp": 18959,
+"rank": 56,
+"aprox": false,
+"campo": "Gastronomía y servicios de alimentos"
+},
+"desempleo": 5,
+"informal": 41,
+"ejerce": 49,
+"mujeres": 46,
+"posgrado": 1,
+"duracion": "3.5 a 4 años.",
+"dificultad": "Media",
+"requiere": "No requiere cédula; los materiales y uniformes son un gasto fuerte.",
+"escuelas": {
+"CMX": {
+"pub": 0,
+"pri": 2
+},
+"MOR": {
+"pub": 0,
+"pri": 1
+}
+},
+"fuente_empleo": "IMCO, Compara Carreras 2026 (datos de la ENOE 2T2025 a 1T2026, INEGI). Promedios nacionales, pesos mensuales.",
+"corte": "2026-11-17"
+}
+}
