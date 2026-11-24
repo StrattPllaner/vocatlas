@@ -193,7 +193,7 @@ var TORRE=(function(I){
  function build(o){
   var id=o.id,host=o.host,A=[];
   o.units.forEach(function(u,ui){var an=angles(ui,u.items.length);u.items.forEach(function(it,j){it.a=an[j];A.push(it)})});
-  var nf=Math.max(1,Math.min(6,o.units.length)),a0=-(ISLE+70-12)*360/FH,a1=nf*360+20,xs=R*1.414*(1+PF)+40,ytop=-(zAt(a1)+150),ybot=150,Wd=xs*2,Hd=ybot-ytop;
+  var nf=Math.max(1,Math.min(6,o.units.length)),a0=-(ISLE+70-12)*360/FH,a1=nf*360+20,xs=R*1.414*(1+PF)+40,ytop=-(zAt(a1)+240),ybot=150,Wd=xs*2,Hd=ybot-ytop;
   var vw=host.clientWidth||360,k=Math.max(.92,Math.min(1.6,(vw-12)/Wd)),Wp=Wd*k,Hp=Hd*k,padT=150,padB=150;
   var toPx=function(p){if(p.length)p={x:p[0],y:p[1]};return {x:(p.x+xs)*k,y:(p.y-ytop)*k}};
   /* la isla en el suelo: boceto que se vuelve isla a color con el avance de toda la carrera */
@@ -213,6 +213,9 @@ var TORRE=(function(I){
   if(o.door){var dw=Math.max(118,Math.min(150,Wp*.34));for(var f2=0;f2<nf;f2++)
    h+='<button type="button" class="tw-door s-'+o.door.state(id,f2)+'" data-c="'+id+'" data-u="'+f2+'" aria-label="'+esc(o.door.label(id,f2))+'" style="width:'+f1(dw)+'px">'+o.door.doorHTML(id,f2)+'</button>'}
   var stc=toPx(P(0,0,zAt(a1)+70));
+  /* arriba de la medalla: el nivel 2, medio tapado de nubes; se despeja al terminar el nivel 1 */
+  var n2=toPx(P(0,0,zAt(a1)+175)),on2=!!o.mastered;
+  h+='<div class="tw-lv2'+(on2?' is-open':'')+'" style="left:'+f1(n2.x)+'px;top:'+f1(n2.y)+'px" aria-label="Nivel 2, '+(on2?'próximamente':'se abre al terminar el nivel 1')+'"><div class="tw-lv2-c"><b>Nivel 2</b><small>'+(on2?'Próximamente':'Termina el nivel 1')+'</small></div><i class="tw-lv2-f f1"></i><i class="tw-lv2-f f2"></i><i class="tw-lv2-f f3"></i></div>';
   h+='<div class="tw-sym tw-starw" style="left:'+f1(stc.x-55*k)+'px;top:'+f1(stc.y-55*k)+'px;width:'+f1(110*k)+'px;height:'+f1(110*k)+'px"><svg viewBox="-50 -50 100 100" aria-hidden="true">'+star(o.mastered,(byId[id]||{}).color)+'</svg></div>';
   h+='<canvas class="tw-cv tw-cf" aria-hidden="true"></canvas><svg class="tw-l tw-pf" viewBox="'+(-xs)+' '+ytop+' '+Wd+' '+Hd+'" aria-hidden="true">'+RIBS+'</svg>';
   A.forEach(function(it){h+='<button type="button" class="rt3-n tw-n s-'+it.state+(it.chest!=null?" is-chest":"")+'" data-i="'+it.k2+'" aria-label="'+(it.lid?it.lid+" ":"")+esc(it.n)+(it.state==="done"?", hecha":it.state==="lock"?", todavía no":it.state==="soon"?", llega pronto":"")+'">'+o.nodeHTML(it)+'</button>'});
