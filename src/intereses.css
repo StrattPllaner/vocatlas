@@ -138,3 +138,16 @@
 .ipsf-res .ui-btn{margin-top:8px}
 .ipsf-cred{margin:18px 0 0;font-size:11.5px;line-height:1.45;color:var(--ink-3)}.ipsf-cred a{color:inherit}
 .q2-foot.qfoot{background:var(--bg,#F6EFE2);backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:0 -8px 24px rgba(20,50,63,.1);border:0}
+.pb2-hero{display:flex;flex-direction:column;align-items:flex-start;gap:6px;width:100%;margin:6px 0 18px;padding:20px;border:0;border-radius:24px;background:linear-gradient(140deg,#1F3B57,#14323F);color:#fff;font:inherit;text-align:left;cursor:pointer;box-shadow:0 12px 28px rgba(20,50,63,.22)}
+.pb2-k{font-size:12px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:#F2C14E}
+.pb2-hero b{font-size:24px}.pb2-hero span:not(.pb2-k){font-size:15px;line-height:1.4;opacity:.88}
+.pb2-go{margin-top:8px;padding:10px 18px;border-radius:999px;background:#F2C14E;color:#14323F;font-style:normal;font-weight:900}
+.pb2-res{margin:6px 0 18px;padding:16px;border-radius:22px;background:var(--surface);box-shadow:0 2px 12px rgba(20,50,63,.07)}
+.pb2-rh{display:flex;align-items:center;justify-content:space-between}.pb2-re{border:0;background:none;color:var(--ink-2);font:inherit;font-weight:800;font-size:13.5px;text-decoration:underline;cursor:pointer;min-height:40px}
+.pb2-tags{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 12px}.pb2-tag{padding:6px 12px;border-radius:999px;background:rgba(31,59,87,var(--o));color:#fff;font-weight:900;font-size:14px}
+.pb2-t{margin:0 0 8px;font-size:14px;font-weight:800;color:var(--ink-2)}
+.pb2-car{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+.pb2-car li{display:flex;align-items:center;gap:10px;min-height:44px;padding:4px 6px 4px 10px;border-radius:14px;background:var(--bg)}
+.pb2-car i{width:10px;height:10px;border-radius:50%;background:var(--c)}.pb2-car span{flex:1;font-weight:800;font-size:15px}.pb2-car b{font-variant-numeric:tabular-nums;color:var(--ink-2);font-size:13px}
+.pb2-car em{font-style:normal;font-size:12px;color:var(--ink-3)}
+.pb2-add{width:36px;height:36px;border-radius:12px;border:0;background:#14323F;color:#fff;font-size:20px;font-weight:900;cursor:pointer}

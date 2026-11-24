@@ -151,3 +151,14 @@ function ipsfRun(){var Q=ipsfItems(),i=0,ans={},el=document.createElement("div")
   body.querySelector("#ipsfMap").onclick=function(){close();if(typeof quizPreview==="function")try{updateCount()}catch(x){}var g=$("#go");if(g){g.disabled=false;g.click()}};
   body.querySelector("#ipsfBack").onclick=function(){close();try{updateCount()}catch(x){}}}
  intro()}
+
+/* ---------- Probar: el test al frente y, con tu resultado, carreras que van contigo ---------- */
+function ipLastSF(){var h=(S.ip||[]).filter(function(e){return e.v==="sf"});return h[h.length-1]||null}
+probarTop=function(){var e=ipLastSF();
+ if(!e)return '<button type="button" class="pb2-hero" id="pbIP"><span class="pb2-k">Empieza aquí</span><b>Test de intereses</b><span>60 actividades · 5 minutos. Descubre tus 3 tipos de interés y qué carreras van contigo.</span><i class="pb2-go">Hacer el test</i></button>';
+ var top=IPA.slice().sort(function(a,b){return e.s[b]-e.s[a]}).slice(0,3),M=ipMatch(e.s,10).filter(function(m){return byId[m.id]&&!(typeof carSoon==="function"&&carSoon(m.id))}).slice(0,6);
+ return '<section class="pb2-res"><div class="pb2-rh"><span class="pb2-k">Tu perfil</span><button type="button" class="pb2-re" id="pbIP">Repetir test</button></div>'+
+  '<div class="pb2-tags">'+top.map(function(a,i){return '<span class="pb2-tag" style="--o:'+(1-i*.25)+'">'+IPSF_N[a][0]+'</span>'}).join("")+'</div>'+
+  '<p class="pb2-t">Carreras que van con eso</p><ul class="pb2-car">'+M.map(function(m){var c=byId[m.id],on=picked(m.id);return '<li style="--c:'+c.color+'"><i></i><span>'+esc(c.name)+'</span><b>'+Math.round(m.m*100)+'%</b>'+(on?'<em>En tu mapa</em>':'<button type="button" class="pb2-add" data-add="'+c.id+'" aria-label="Agregar '+esc(c.name)+'">+</button>')+'</li>'}).join("")+'</ul></section>'};
+probarBind=function(v){var a=v.querySelector("#pbIP");if(a)a.onclick=function(){ipsfRun()};
+ each(v.querySelectorAll("[data-add]"),function(b){b.onclick=function(){addToMap(b.getAttribute("data-add"));toast("Agregada a tu mapa");renderProbar()}})};
