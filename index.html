@@ -2755,6 +2755,19 @@ img.tw-img.tw-back{opacity:.62;filter:saturate(.7)}
 .pb2-car i{width:10px;height:10px;border-radius:50%;background:var(--c)}.pb2-car span{flex:1;font-weight:800;font-size:15px}.pb2-car b{font-variant-numeric:tabular-nums;color:var(--ink-2);font-size:13px}
 .pb2-car em{font-style:normal;font-size:12px;color:var(--ink-3)}
 .pb2-add{width:36px;height:36px;border-radius:12px;border:0;background:#14323F;color:#fff;font-size:20px;font-weight:900;cursor:pointer}
+.pb2-car{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px}
+.pb2-c{display:flex;flex-direction:column;align-items:center;gap:4px;padding:14px 8px;border-radius:20px;background:var(--bg);text-align:center;border-top:4px solid var(--c)}
+.pb2-c .sy{width:52px;height:52px}.pb2-c b{font-size:15px;line-height:1.2}.pb2-c small{font-size:12.5px;color:var(--ink-2);font-weight:700}
+.pb2-c em{font-style:normal;font-size:12px;color:var(--ink-3);margin-top:4px}
+.pb2-c .pb2-add{width:auto;height:34px;padding:0 14px;border-radius:999px;font-size:13.5px;margin-top:4px}
+/* colores de la app en el test: azul tinta y crema */
+.pb2-hero{background:#14323F}.pb2-k{color:#F6EFE2;opacity:.8}.pb2-go{background:#F6EFE2;color:#14323F}
+.q2-test{background:#14323F}.q2-test-ic{background:#F6EFE2;color:#14323F}
+.ipsf-bar i,.ipsf-sb i{background:#14323F}
+.ipsf-a .ipsf-yes{background:#14323F;border-color:#14323F;color:#F6EFE2}
+.ipsf-a .ipsf-no{background:#FFFBF2;border-color:#E2D8C6;color:#14323F}
+.ipsf-r{background:#14323F;color:#F6EFE2}
+.pb2-tag{background:rgba(20,50,63,var(--o));color:#F6EFE2}
 /* ================= Comparar ================= */
 .cx{font-family:var(--ff);color:var(--c-ink)}
 .cx-t{margin:4px 0 14px;font-size:30px;letter-spacing:-.01em}
@@ -3292,6 +3305,11 @@ body:not(.on-map):not(.lp-open)::before{content:"";position:fixed;left:0;right:0
 .cl-areas span{color:#fff;font-size:11.5px;font-weight:900;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding:0 6px}
 .cl-chart{width:100%;height:auto;display:block;background:var(--c-surface,#fff);border-radius:16px}.cl-gl{stroke:var(--c-line,#E6DCC8);stroke-width:1}
 .cl-key{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px;font-size:13px;font-weight:700}.cl-key i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px}
+/* tarjetas en lugar de listas */
+.cl-today{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.cl-card{display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 8px;border-radius:20px;background:var(--c-surface,#FFFBF2);box-shadow:0 2px 10px rgba(20,50,63,.07);text-align:center;border:2px solid transparent}
+.cl-card.is-on{border-color:var(--c)}.cl-card .sy{width:44px;height:44px}.cl-card>span{font-weight:900;font-size:14.5px;line-height:1.2}
+.cl-card .cl-stars button{width:22px;height:22px;border-radius:50%}
 /* explicación animada, globo de Rumbo y video */
 .ex{background:#FFF8EA;border:2px solid #3A3026;border-radius:20px;padding:12px;box-shadow:0 4px 0 #3A3026;max-width:520px;color:#14323F}
 .ex-say{position:relative;min-height:64px;margin-top:10px}
@@ -11855,7 +11873,7 @@ probarTop=function(){var e=ipLastSF();
  var top=IPA.slice().sort(function(a,b){return e.s[b]-e.s[a]}).slice(0,3),M=ipMatch(e.s,10).filter(function(m){return byId[m.id]&&!(typeof carSoon==="function"&&carSoon(m.id))}).slice(0,6);
  return '<section class="pb2-res"><div class="pb2-rh"><span class="pb2-k">Tu perfil</span><button type="button" class="pb2-re" id="pbIP">Repetir test</button></div>'+
   '<div class="pb2-tags">'+top.map(function(a,i){return '<span class="pb2-tag" style="--o:'+(1-i*.25)+'">'+IPSF_N[a][0]+'</span>'}).join("")+'</div>'+
-  '<p class="pb2-t">Carreras que van con eso</p><ul class="pb2-car">'+M.map(function(m){var c=byId[m.id],on=picked(m.id);return '<li style="--c:'+c.color+'"><i></i><span>'+esc(c.name)+'</span><b>'+Math.round(m.m*100)+'%</b>'+(on?'<em>En tu mapa</em>':'<button type="button" class="pb2-add" data-add="'+c.id+'" aria-label="Agregar '+esc(c.name)+'">+</button>')+'</li>'}).join("")+'</ul></section>'};
+  '<p class="pb2-t">Carreras que van con eso</p><div class="pb2-car">'+M.map(function(m){var c=byId[m.id],on=picked(m.id);return '<div class="pb2-c" style="--c:'+c.color+'">'+(typeof SIMB!=="undefined"&&SIMB.has(c.id)?SIMB.icon(c.id,"a",52):'')+'<b>'+esc(c.short||c.name)+'</b><small>'+Math.round(m.m*100)+'% afín</small>'+(on?'<em>En tu mapa</em>':'<button type="button" class="pb2-add" data-add="'+c.id+'">Agregar</button>')+'</div>'}).join("")+'</div></section>'};
 probarBind=function(v){var a=v.querySelector("#pbIP");if(a)a.onclick=function(){ipsfRun()};
  each(v.querySelectorAll("[data-add]"),function(b){b.onclick=function(){addToMap(b.getAttribute("data-add"));toast("Agregada a tu mapa");renderProbar()}})};
 
@@ -12861,8 +12879,8 @@ var CLAR=(function(){
   /* inclinación por área: promedio de interés de sus carreras */
   var A={};R.forEach(function(r){if(r.s==null)return;var a=r.c.area;A[a]=A[a]||{s:0,n:0};A[a].s+=r.s;A[a].n++});
   var AL=Object.keys(A).map(function(a){return {a:a,v:A[a].s/A[a].n}}).sort(function(x,y){return y.v-x.v});
-  var h='<section class="cl-sec at-in"><div class="at-sh"><h3>¿Qué tanto te interesa hoy?</h3></div><p class="cl-p">Califica cada día. Así ves cómo cambia lo que te late.</p><ul class="cl-today">'+
-   cs.map(function(c){var v=hd[c.id]||0;return '<li style="--c:'+c.color+'"><span>'+esc(c.short||c.name)+'</span><div class="cl-stars" role="radiogroup" aria-label="Interés en '+esc(c.name)+'">'+[1,2,3,4,5].map(function(n){return '<button type="button" role="radio" aria-checked="'+(v===n)+'" aria-label="'+n+' de 5" data-c="'+c.id+'" data-n="'+n+'" class="'+(n<=v?"on":"")+'"></button>'}).join("")+'</div></li>'}).join("")+'</ul></section>';
+  var h='<section class="cl-sec at-in"><div class="at-sh"><h3>¿Qué tanto te interesa hoy?</h3></div><p class="cl-p">Califica cada día. Así ves cómo cambia lo que te late.</p><div class="cl-today">'+
+   cs.map(function(c){var v=hd[c.id]||0;return '<div class="cl-card'+(v?' is-on':'')+'" style="--c:'+c.color+'">'+(typeof SIMB!=="undefined"&&SIMB.has(c.id)?SIMB.icon(c.id,"a",44):'')+'<span>'+esc(c.short||c.name)+'</span><div class="cl-stars" role="radiogroup" aria-label="Interés en '+esc(c.name)+'">'+[1,2,3,4,5].map(function(n){return '<button type="button" role="radio" aria-checked="'+(v===n)+'" aria-label="'+n+' de 5" data-c="'+c.id+'" data-n="'+n+'" class="'+(n<=v?"on":"")+'"></button>'}).join("")+'</div></div>'}).join("")+'</div></section>';
   h+='<section class="cl-sec at-in"><div class="at-sh"><h3>De más a menos interés</h3></div><ol class="cl-rank">'+R.map(function(r){return '<li style="--c:'+r.c.color+'"><span>'+esc(r.c.short||r.c.name)+'</span><div class="cl-bar"><i style="width:'+(r.s==null?0:r.s/5*100).toFixed(0)+'%"></i></div><b>'+(r.s==null?"—":r.s.toFixed(1))+'</b></li>'}).join("")+'</ol>'+
    (AL.length?'<p class="cl-lean">Te inclinas hacia <b>'+esc(AREAS[AL[0].a].n)+'</b></p><div class="cl-areas">'+AL.map(function(x){return '<div style="--c:'+(AREA_COL_FLOW[x.a]||"#3F7DA6")+';flex:'+x.v.toFixed(2)+'"><span>'+esc(AREAS[x.a].n)+'</span></div>'}).join("")+'</div>':'')+'</section>';
   /* gráfica de los últimos 14 días */

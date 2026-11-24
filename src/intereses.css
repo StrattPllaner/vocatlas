@@ -151,3 +151,16 @@
 .pb2-car i{width:10px;height:10px;border-radius:50%;background:var(--c)}.pb2-car span{flex:1;font-weight:800;font-size:15px}.pb2-car b{font-variant-numeric:tabular-nums;color:var(--ink-2);font-size:13px}
 .pb2-car em{font-style:normal;font-size:12px;color:var(--ink-3)}
 .pb2-add{width:36px;height:36px;border-radius:12px;border:0;background:#14323F;color:#fff;font-size:20px;font-weight:900;cursor:pointer}
+.pb2-car{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px}
+.pb2-c{display:flex;flex-direction:column;align-items:center;gap:4px;padding:14px 8px;border-radius:20px;background:var(--bg);text-align:center;border-top:4px solid var(--c)}
+.pb2-c .sy{width:52px;height:52px}.pb2-c b{font-size:15px;line-height:1.2}.pb2-c small{font-size:12.5px;color:var(--ink-2);font-weight:700}
+.pb2-c em{font-style:normal;font-size:12px;color:var(--ink-3);margin-top:4px}
+.pb2-c .pb2-add{width:auto;height:34px;padding:0 14px;border-radius:999px;font-size:13.5px;margin-top:4px}
+/* colores de la app en el test: azul tinta y crema */
+.pb2-hero{background:#14323F}.pb2-k{color:#F6EFE2;opacity:.8}.pb2-go{background:#F6EFE2;color:#14323F}
+.q2-test{background:#14323F}.q2-test-ic{background:#F6EFE2;color:#14323F}
+.ipsf-bar i,.ipsf-sb i{background:#14323F}
+.ipsf-a .ipsf-yes{background:#14323F;border-color:#14323F;color:#F6EFE2}
+.ipsf-a .ipsf-no{background:#FFFBF2;border-color:#E2D8C6;color:#14323F}
+.ipsf-r{background:#14323F;color:#F6EFE2}
+.pb2-tag{background:rgba(20,50,63,var(--o));color:#F6EFE2}
